@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Peatükk 2 Lineaarne regressioon | Kvantitatiivne andmeanalüüs</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Peatükk 2 Lineaarne regressioon | Kvantitatiivne andmeanalüüs" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Peatükk 2 Lineaarne regressioon | Kvantitatiivne andmeanalüüs" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Marko Sõmer" />
+
+
+<meta name="date" content="2022-02-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="logistiline-regressioon.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Kvant II</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a></li>
+<li class="chapter" data-level="2" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html"><i class="fa fa-check"></i><b>2</b> Lineaarne regressioon</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#lihtne-lineaarne-regressioon"><i class="fa fa-check"></i><b>2.1</b> Lihtne lineaarne regressioon</a></li>
+<li class="chapter" data-level="2.2" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioon-r-is"><i class="fa fa-check"></i><b>2.2</b> Regressioon R-is</a></li>
+<li class="chapter" data-level="2.3" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressiooni-jäägid"><i class="fa fa-check"></i><b>2.3</b> Regressiooni jäägid</a></li>
+<li class="chapter" data-level="2.4" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioonimudeli-sobitumine"><i class="fa fa-check"></i><b>2.4</b> Regressioonimudeli sobitumine</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#jääkide-jaotus"><i class="fa fa-check"></i><b>2.4.1</b> Jääkide jaotus</a></li>
+<li class="chapter" data-level="2.4.2" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioonikoefitsiendid-ja-nende-olulisus"><i class="fa fa-check"></i><b>2.4.2</b> Regressioonikoefitsiendid ja nende olulisus</a></li>
+<li class="chapter" data-level="2.4.3" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#jääkide-standardviga"><i class="fa fa-check"></i><b>2.4.3</b> Jääkide standardviga</a></li>
+<li class="chapter" data-level="2.4.4" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#r-ruut"><i class="fa fa-check"></i><b>2.4.4</b> R ruut</a></li>
+<li class="chapter" data-level="2.4.5" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#f-väärtus-ja-f-test"><i class="fa fa-check"></i><b>2.4.5</b> F-väärtus ja F-test</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kategoriaalsed-tunnused-regressioonis"><i class="fa fa-check"></i><b>2.5</b> Kategoriaalsed tunnused regressioonis</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#üks-binaarne-sõltumatu-tunnus"><i class="fa fa-check"></i><b>2.5.1</b> Üks binaarne sõltumatu tunnus</a></li>
+<li class="chapter" data-level="2.5.2" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kolme-või-enama-kategooriaga-sõltumatu-tunnus"><i class="fa fa-check"></i><b>2.5.2</b> Kolme või enama kategooriaga sõltumatu tunnus</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#mitmene-regressioon"><i class="fa fa-check"></i><b>2.6</b> Mitmene regressioon</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kaks-pidevat-sõltumatut-muutujat"><i class="fa fa-check"></i><b>2.6.1</b> Kaks pidevat sõltumatut muutujat</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#koosmõjud"><i class="fa fa-check"></i><b>2.7</b> Koosmõjud</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#koosmõjud-kategoriaalsete-tunnuste-puhul"><i class="fa fa-check"></i><b>2.7.1</b> Koosmõjud kategoriaalsete tunnuste puhul</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#mudelite-võrdlemine"><i class="fa fa-check"></i><b>2.8</b> Mudelite võrdlemine</a></li>
+<li class="chapter" data-level="2.9" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioonimudeli-eeldused"><i class="fa fa-check"></i><b>2.9</b> Regressioonimudeli eeldused</a></li>
+<li class="chapter" data-level="2.10" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kuidas-eelduste-täidetust-hinnata"><i class="fa fa-check"></i><b>2.10</b> Kuidas eelduste täidetust hinnata?</a></li>
+</ul></li>
+<li class="part"><span><b>I Üldistatud lineaarsed mudelid</b></span></li>
+<li class="chapter" data-level="3" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html"><i class="fa fa-check"></i><b>3</b> Logistiline regressioon</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#šansid"><i class="fa fa-check"></i><b>3.1</b> Šansid</a></li>
+<li class="chapter" data-level="3.2" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#logit"><i class="fa fa-check"></i><b>3.2</b> Logit</a></li>
+<li class="chapter" data-level="3.3" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.3</b> Logit mudel</a></li>
+<li class="chapter" data-level="3.4" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#mudeli-tõlgendus"><i class="fa fa-check"></i><b>3.4</b> Mudeli tõlgendus</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#šansside-suhe"><i class="fa fa-check"></i><b>3.4.1</b> Šansside suhe</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.5</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="3.6" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.6</b> Mudeli kvaliteet</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#mudeli-sobivus"><i class="fa fa-check"></i><b>3.6.1</b> Mudeli sobivus</a></li>
+<li class="chapter" data-level="3.6.2" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#mudeli-statistiline-olulisus"><i class="fa fa-check"></i><b>3.6.2</b> Mudeli statistiline olulisus</a></li>
+<li class="chapter" data-level="3.6.3" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#pseudo-r2"><i class="fa fa-check"></i><b>3.6.3</b> Pseudo-<span class="math inline">\(R^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.7</b> Predict</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#broom"><i class="fa fa-check"></i><b>3.7.1</b> Broom</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.8</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="3.9" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.9</b> Prognoosi täpsus</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html"><i class="fa fa-check"></i><b>4</b> Poissoni regressioon</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-tõlgendus-1"><i class="fa fa-check"></i><b>4.1</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="4.2" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#poissoni-regressiooni-eeldused"><i class="fa fa-check"></i><b>4.2</b> Poissoni regressiooni eeldused</a></li>
+<li class="chapter" data-level="4.3" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-hindamine-r-is"><i class="fa fa-check"></i><b>4.3</b> Mudeli hindamine R-is</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#andmete-kirjeldus-ja-ettevalmistus"><i class="fa fa-check"></i><b>4.3.1</b> Andmete kirjeldus ja ettevalmistus</a></li>
+<li class="chapter" data-level="4.3.2" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#poissoni-mudeli-defineerimine"><i class="fa fa-check"></i><b>4.3.2</b> Poissoni mudeli defineerimine</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-eelduste-kontroll"><i class="fa fa-check"></i><b>4.4</b> Mudeli eelduste kontroll</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#üledispersioon"><i class="fa fa-check"></i><b>4.4.1</b> Üledispersioon</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-sobivus-model-fit"><i class="fa fa-check"></i><b>4.5</b> Mudeli sobivus (<em>model fit</em>)</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-statistiline-olulisus-1"><i class="fa fa-check"></i><b>4.5.1</b> Mudeli statistiline olulisus</a></li>
+<li class="chapter" data-level="4.5.2" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#jääkide-jaotus-1"><i class="fa fa-check"></i><b>4.5.2</b> Jääkide jaotus</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="viited.html"><a href="viited.html"><i class="fa fa-check"></i>Viited</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Kvantitatiivne andmeanalüüs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lineaarne-regressioon" class="section level1" number="2">
+<h1><span class="header-section-number">Peatükk 2</span> Lineaarne regressioon</h1>
+<div id="lihtne-lineaarne-regressioon" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Lihtne lineaarne regressioon</h2>
+<p>Lihtne lineaarne regressioon (<em>simple linear regression</em>) on statistiline meetod mis võimaldab hinnata ja kvantifitseerida kahe arvtunnuse vahelist suhet. Regressioonsuhte puhul eeldatakse, et üks tunnustest oleks nn sõltuv tunnus ja teine sõltumatu<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, kus sõltuva tunnuse väärtus on mõjutatud (sõltub) sõltumatu tunnuse väärtusest. Kui sõltumatuid tunnuseid on rohkem kui üks, on tegemist mitmese regressiooniga (sellest hiljem), ühe sõltumatu tunnuse korral nn “lihtsa” regressiooniga (<em>simple linear regression</em>). Keskendume esialgu “lihtsale” variandile.</p>
+<p>Kasutame näitena Piaaci andmestikku. Tõmbame andmestiku sisse ja uurime graafiliselt sissetuleku (<em>sissetulek</em>) ning matemaatilise kirjaokuse (<em>numeracy</em>) vahelist seost.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="lineaarne-regressioon.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loeme kõigepealt sisse vajalikud paketid</span></span>
+<span id="cb2-2"><a href="lineaarne-regressioon.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="lineaarne-regressioon.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-4"><a href="lineaarne-regressioon.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-5"><a href="lineaarne-regressioon.html#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="lineaarne-regressioon.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Tõmbame  sisse andmestiku</span></span>
+<span id="cb2-7"><a href="lineaarne-regressioon.html#cb2-7" aria-hidden="true" tabindex="-1"></a>piaac <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/piaac.csv&quot;</span>)</span>
+<span id="cb2-8"><a href="lineaarne-regressioon.html#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="lineaarne-regressioon.html#cb2-9" aria-hidden="true" tabindex="-1"></a>piaac <span class="sc">%&gt;%</span> </span>
+<span id="cb2-10"><a href="lineaarne-regressioon.html#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> numeracy, <span class="at">y =</span> sissetulek))<span class="sc">+</span></span>
+<span id="cb2-11"><a href="lineaarne-regressioon.html#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>)<span class="sc">+</span></span>
+<span id="cb2-12"><a href="lineaarne-regressioon.html#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="01-regressioon_files/figure-html/reg-plot-1-1.png" width="672" /></p>
+<p>Tundub, et nende kahe tunnuse vahel on seos olemas. Mida kõrgem on matemaatilise kirjaoskuse skoor, seda kõrgem on sissetulek. Me saame selle suhte kokku võtta regressioonisirge abil. ggplotis on olemas vastav funktsioon <code>geom_smooth()</code>, mis selle joone meile graafikule paneb. Kuna me tahame saada lineaarse regressiooni sirget, siis peame <code>geom_smooth</code>’is kasutama argumenti <code>method = "lm"</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="lineaarne-regressioon.html#cb3-1" aria-hidden="true" tabindex="-1"></a>piaac <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="lineaarne-regressioon.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> numeracy, <span class="at">y =</span> sissetulek))<span class="sc">+</span></span>
+<span id="cb3-3"><a href="lineaarne-regressioon.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.3</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb3-4"><a href="lineaarne-regressioon.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> F, <span class="at">color =</span> <span class="st">&quot;#972D15&quot;</span>)<span class="sc">+</span></span>
+<span id="cb3-5"><a href="lineaarne-regressioon.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="01-regressioon_files/figure-html/reg-plot-2-1.png" width="672" /></p>
+<p>Regressioonisirge on väljendatav tavalise joone võrrandiga:</p>
+<p><span class="math display">\[\begin{equation}
+Y=a+bX
+\end{equation}\]</span></p>
+<p>kus <span class="math inline">\(a\)</span> on vabaliige (<em>intercept</em>) ja <span class="math inline">\(b\)</span> on sirge tõus (<em>slope</em>). Regressiooni kontekstis kutsutakse seda sirge tõusu regressioonikoefitsiendiks või regressioonikordajaks. Vabaliige tähistab <span class="math inline">\(Y\)</span> väärtust juhul kui <span class="math inline">\(X\)</span> on <span class="math inline">\(0\)</span> (sirge lõikumine y-teljega) ja sirge tõus ühikulist muutust <span class="math inline">\(Y\)</span> väärtuses kui <span class="math inline">\(X\)</span> väärtus muutub ühe ühiku võrra. Eelneva näite puhul oleks vabaliige võrdne sissetulekuga (<span class="math inline">\(Y\)</span>) juhul kui matemaatilise kirjaoskuse tase (<span class="math inline">\(X\)</span>) oleks <span class="math inline">\(0\)</span> ja sirge tõus võrdne keskmise sissetuleku muutusega, mis lisandub iga matemaatilise kirjaoskuse punktiga. Kui sirge tõus on positiivne, siis <span class="math inline">\(X\)</span>’i väärtuse kasvades <span class="math inline">\(Y\)</span> väärtus suureneb, kui negatiivne, siis kahaneb. Kui sirge tõus on aga <span class="math inline">\(0\)</span>, siis seos kahe tunnuse vahel puudub (iga <span class="math inline">\(X\)</span> väärtuse korral on keskmine <span class="math inline">\(Y\)</span> sama).</p>
+<p>Linaarse regressioonanalüüsi eesmärgiks ongi leida parim võimalik sirge (st leida vabaliige ja regressioonikoefitsient, mis seda sirget määratlevad) tunnustevahelise lineaarse suhte kirjeldamiseks. Parim võimalik tähendab siinjuures seda, et see sirge läheb punktiparvest läbi võimalikult keskelt, st kirjeldab kõiki punkte võimalikult hästi.</p>
+</div>
+<div id="regressioon-r-is" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Regressioon R-is</h2>
+<p>R-is käib lihtsa regressioonimudeli tegemine <code>lm()</code> (<em>linear model</em>) funktsiooniga. Loomulikult on ka teisi funktsioone, mis regressiooni jooksutamisega hakkama saavad ja hea tahtmise korral võib vastava funktsiooni ka mõningase vaevaga ise valmis kirjutada. Kuid jätame teised variandid hetkel kõrvale.</p>
+<p><code>lm()</code> funktsioonis tuleb defineerida regressioonivõrrand. Selleks peame määratlema sõltuva tunnuse, seejärel kasutama tildet (<code>~</code>) ning seejärel määratlema sõltumatu(d) tunnuse(d): <code>sõltuv_tunnus ~ sõltumatu_tunnus</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. Võtame eelpool toodud näite sissetuleku ja matemaatilise kirjaoskuse seosest ning defineerime regressioonimudeli, millega hindame matemaatilise kirjaoskuse mõju sissetulekule<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="lineaarne-regressioon.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(sissetulek <span class="sc">~</span> numeracy, <span class="at">data =</span> piaac)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sissetulek ~ numeracy, data = piaac)
+## 
+## Coefficients:
+## (Intercept)     numeracy  
+##    -140.887        3.606</code></pre>
+<p>Lihtsalt <code>lm()</code> funktsiooni jookustades saame kaks numbrit - vabaliikme (<em>intercept</em>), mis antud näite puhul on <span class="math inline">\(-140\)</span>, ja regressioonikoefitsiendi (<em>regression coefficient</em>), mis antud näite puhul on <span class="math inline">\(3.6\)</span>. Mida need meile ütlevad? Nagu eelnevalt juttu oli, siis vabaliige on <span class="math inline">\(Y\)</span> väärtus kui <span class="math inline">\(X\)</span> on <span class="math inline">\(0\)</span>, ehk siis inimesel, kelle matemaatilise kirjaoskuse skoor on <span class="math inline">\(0\)</span>, peaks meie mudeli kohaselt sissetulek olema <span class="math inline">\(-140\)</span>. Regressioonikoefitsient aga annab meile teada kui palju <span class="math inline">\(Y\)</span> muutub, kui <span class="math inline">\(X\)</span> muutub ühe ühiku võrra, ehk siis kui matemaatilise kirjaoskuse skoor tõuseb ühe punkti võrra, tõuseb sissetulek keskmiselt <span class="math inline">\(3.6\)</span> euro võrra.
+Nüüd, kui teame mudeli parameetreid, saame nende abil regressioonijoone graafikule kanda ka ilma <code>geom_smooth</code>’ita:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="lineaarne-regressioon.html#cb6-1" aria-hidden="true" tabindex="-1"></a>piaac <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="lineaarne-regressioon.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> numeracy, <span class="at">y =</span> sissetulek))<span class="sc">+</span></span>
+<span id="cb6-3"><a href="lineaarne-regressioon.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.3</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb6-4"><a href="lineaarne-regressioon.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">3.6</span>, <span class="at">intercept =</span> <span class="sc">-</span><span class="dv">140</span>, <span class="at">color =</span> <span class="st">&quot;#972D15&quot;</span>)<span class="sc">+</span></span>
+<span id="cb6-5"><a href="lineaarne-regressioon.html#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">450</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">3500</span>))<span class="sc">+</span></span>
+<span id="cb6-6"><a href="lineaarne-regressioon.html#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="01-regressioon_files/figure-html/reg-plot-3-1.png" width="672" /></p>
+<p>Kui me teame regressioonisirge tõusu ehk regressioonikoefitsienti ja vabaliiget, siis lähtuvalt sõltumatu tunnuse väärtustest saame prognoosida sõltuva tunnuse väärtuse:</p>
+<p><span class="math display">\[\begin{equation}
+\hat{y}_i=b_0+b_1x_i
+\end{equation}\]</span></p>
+<p><span class="math inline">\(\hat{y}_i\)</span> antud võrrandis tähistab hinnatud või prognoositud <span class="math inline">\(y\)</span> väärtust (sellest ka see müts <span class="math inline">\(y\)</span> peal) vaatlusele <span class="math inline">\(i\)</span>. Kui meil on regressioonivõrrand <span class="math inline">\(\hat{y}_i=-140+3.6x_i\)</span> ja meil on mingi vaatlus <span class="math inline">\(i\)</span>, kelle <span class="math inline">\(x\)</span> väärtus on näiteks <span class="math inline">\(200\)</span>, siis saame sellele vaatlusele prognoosida <span class="math inline">\(y\)</span> väärtuseks <span class="math inline">\(-140+3.6\times200=580\)</span>. Ehk siis inimesel, kelle matemaatilise kirjaoskuse skoor on 200, peaks meie mudeli järgi sissetulek olema <em>ca</em> 580 eurot. Inimesel, kelle matemaatilise kirjaoskuse skoor on 400, peaks sissetulek olema keskmiselt <span class="math inline">\(-140+3.6\times400=1300\)</span> eurot</p>
+<div class="figure"><span style="display:block;" id="fig:reg-plot-4"></span>
+<img src="01-regressioon_files/figure-html/reg-plot-4-1.png" alt="Prognoosimine y väärtust kui x on 200" width="672" />
+<p class="caption">
+Joonis 2.1: Prognoosimine y väärtust kui x on 200
+</p>
+</div>
+</div>
+<div id="regressiooni-jäägid" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Regressiooni jäägid</h2>
+<p>Samas on muidugi võimatu ühe sirgega kõiki punkte ideaalselt kirjeldada. Iga punkti ja sirge vahele jääb alati mingi viga või teisisõnu, kõik punktid (või vähemalt enamus neist) hälbivad suuremal või vähemal määral regressioonisirgest.</p>
+<p>Mida suuremad need hälbed on, seda vähem suudab on meie mudel (regressioonisirge) kirjeldada sõltuva tunnuse variatsiooni ja seda suurem on vea määr meie mudelis. Neid hälbeid kutusutakse <strong>regressiooni jääkideks</strong> (<em>regression residuals</em>).</p>
+<div class="figure"><span style="display:block;" id="fig:reg-plot-5"></span>
+<img src="01-regressioon_files/figure-html/reg-plot-5-1.png" alt="Regressiooni jäägid" width="672" />
+<p class="caption">
+Joonis 2.2: Regressiooni jäägid
+</p>
+</div>
+<p>Ehk siis iga kord, kui prognoosime <span class="math inline">\(\hat{y}_i=\beta_0+\beta_1x_i\)</span> abil <span class="math inline">\(y_i\)</span> väärtust, teeme me mingi vea<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. Seetõttu tuleb regressioonivõrrandile lisada vea komponent (<span class="math inline">\(\epsilon\)</span>) ning võrrand ise muutub vastavalt:</p>
+<p><span class="math display">\[\begin{equation}
+\hat{y_i}=\beta_0+\beta x_i+\epsilon
+\end{equation}\]</span></p>
+<p>Kõige parem regressioonisirge annab joon, mille puhul jäägid on minimaalsed, ehk siis joon, mille puhul kõikide vaatluste jääkide summa oleks võimalikult väike. Kuna me ei saa jääke kokku võtta neid lihtsa kokku liites (<em>ca</em> pooled jäägid on väiksemad kui regressioonijoon ja <em>ca</em> pooled suuremad, seega nende summa oleks <span class="math inline">\(0\)</span>), siis tuleb nad enne liitmist ruutu panna. Ja meie eesmärgiks on nüüd leida regressioonisirge, mis minimeeriks <strong>ruutjääkide summa</strong> (<em>residual sum of squares</em> ehk <span class="math inline">\(RSS\)</span>) ehk siis regressioonisirge, mille puhul <span class="math inline">\(RSS\)</span> oleks võimalikult väike<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.</p>
+<p>Eelnevast lähtuvalt on ka küllaltki loogiline, et meetodit, millega <span class="math inline">\(RSS\)</span> minimeeritakse ja regressioonisirge ning vastavad koefitsiendid leitakse, nimetatakse <strong>vähimruutude meetodiks</strong>.</p>
+<div class="teie-kord" style="color: red;">
+<ul>
+<li>Kasutades ggplot’i ja tehke punktdiagramm <code>geom_point()</code> matemaatilise kirjaoskuse (<em>numeracy</em>) ja funktsionaalse lugemisoskuse (<em>literacy</em>) vahelisest seosest. Pange <em>numeracy</em> x-teljele ja <em>literacy</em> y-teljele.<br />
+</li>
+<li>Kasutades <code>geom_abline()</code>’i, lisage joonisele lineaarne regressioonijoon (seega peate eelnevalt <code>lm()</code> funktsiooniga leidma regressioonijoone vabaliikme ja regressioonikoefitsiendi)</li>
+</ul>
+</div>
+</div>
+<div id="regressioonimudeli-sobitumine" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Regressioonimudeli sobitumine</h2>
+<p>Olles leidnud joone, mis kirjeldab kahe tunnuse vahelist seost kõige paremini, võiks ju eeldada, et ülesanne on täidetud. Aga kas ikka on? Ükskõik, millisest punktiparvest võib regressioonijoone läbi panna. Kuid tulenevalt regressioonijääkide (vaatluste hälbed regressioonijoonest) suurusest saame selle joone kohta teha väga erinevaid järeldusi. Kui jäägid on väikesed, siis võime suhteliselt täpselt prognoosida sõltuva tunnuse väärtust või teha järeldusi seose kohta. Kuid mida suuremad on jäägid, seda ebatäpsem on ka meie prognoos/järeldus.</p>
+<p>Üldjuhul kasutame regresioonanalüüsi, et teha valimi baasil järeldusi mingi üldkogumi kohta. Meid huvitab, kas see seos, mida näeme oma valimi andmete põhjal, kehtib ka üldkogumis. Saame küll eeldada, et valimipõhiselt leitud regressioonisirge on suhteliselt sarnane üldkogumi sirgele (sirge, mille me saaksime, kui kaasaksime analüüsi kõik üldkogumi liikmed), aga kui sarnane, seda me ei tea. Kui me võtaksime samast üldkogumist teise valimi, siis juhul, kui mõlemad valimid on võetud korrektselt<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> ja valimid on piisavalt suured, siis peaksid nende põhjal leitud regressioonisirged olema suhteliselt sarnased, aga identsed ei ole nad praktiliselt kunagi. Kõikide võimalike valimite puhul me mingil määral alahindame või ülehindame tegelikku, populatsiooni regressioonikoefitsienti (ja ka vabaliiget). Seega, et saada aimu valimipõhise hinnangu täpsusest (vastavusest tegelikule tegelikule üldkogumi parameetrile), peaksime kuidagi välja selgitama valimi kasutamisest tuleneva vea võimaliku suuruse.</p>
+<p>Et hinnata mudeli sobivust andmetega ja sellega leitud hinnagute täpsust, vajame mudeli kohta täiendavat infot. Eelnevalt regressioonimudelit <code>lm()</code> funktsiooniga jooksutades oli väljund väga lakooniline. Saime teada ainult vabaliikme ja regressioonikoefitsinedi väärtused. Tegelikult on <code>lm()</code> tulem muidugi märksa põhjalikum. Muule mudeliga kaasnevale infole saame ligi kui salvestame mudeli esmalt mingisse andmeobjekti ja kasutame selle andmeobjekti peal <code>summary()</code> käsku<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="lineaarne-regressioon.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mudel1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sissetulek <span class="sc">~</span> numeracy, <span class="at">data =</span> piaac)</span>
+<span id="cb7-2"><a href="lineaarne-regressioon.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sissetulek ~ numeracy, data = piaac)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1016.7  -351.5  -129.1   179.4  2923.4 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -140.887     56.510  -2.493   0.0127 *  
+## numeracy       3.606      0.202  17.849   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 555.8 on 3982 degrees of freedom
+##   (3648 observations deleted due to missingness)
+## Multiple R-squared:  0.07408,    Adjusted R-squared:  0.07385 
+## F-statistic: 318.6 on 1 and 3982 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="lineaarne-regressioon.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kui me ei taha mudelit salvestada, siis saab ka nii:</span></span>
+<span id="cb9-2"><a href="lineaarne-regressioon.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(numeracy <span class="sc">~</span> literacy, <span class="at">data =</span> piaac))</span></code></pre></div>
+<p>Nüüd näeme juba märksa põhjalikumat väljundit. Vaatame mis seal kirjas on ja kuidas seda tõlgendada. Käime väljundi sektsioonide kaupa läbi (v.a. esimene rida, mis on vist niigi suht selge)</p>
+<div id="jääkide-jaotus" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Jääkide jaotus</h3>
+<pre><code>## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1016.7  -351.5  -129.1   179.4  2923.4</code></pre>
+<p>Väljundis on kirjeldatud regressiooni jääkide (<em>residuals</em>) jaotus. Enne nägime, et regressiooni jäägid on regressioonijoone ja tegelike, vaadeldud väärtuste vahe. Mida väiksemad on jäägid, seda täpsemini kirjeldab regressioonijoon andmete vahelist seost. Nägime ka, et pooled jäägid peaksid ideaalis olema suuremad (positiivse märgiga) kui regressioonisirge ja pooled väiksemad (negatiivse märgiga). Seega peaks jääkide keskmine olema ligikaudu <span class="math inline">\(0\)</span> ning jääkide jaotus normaaljaotuse sarnane, kus esimene ja kolmas kvartiil, aga ka maksimum ja miinimum, on keskväärtusest umbes sama kaugel. Hiljem vaatame jääkide jaotust ka graafiliselt, mis on märksa mõistlikum viis neid uurida, kuid esmase mulje saab ka siit kätte.</p>
+</div>
+<div id="regressioonikoefitsiendid-ja-nende-olulisus" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Regressioonikoefitsiendid ja nende olulisus</h3>
+<pre><code>##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -140.887     56.510  -2.493   0.0127 *  
+## numeracy       3.606      0.202  17.849   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Koefitsientide sektsioonis on esitatud mudeli oluliseim info. <strong><em>Estimate</em></strong> on hinnang mudeliga leitud regressioonikoefitsientidele. Lihtsa regressiooni puhul on meil ainult vabaliige ja ühe sõltumatu tunnuse koefitsient. Hiljem, mitmese regressiooni kontekstis, on neid koefitsiente rohkem. Vabaliikmeid on aga mudeli kohta alati üks.</p>
+<p>Tulbas <strong><em>Std. Error</em></strong> on toodud koefitsientide standardvead. Standardviga kirjeldab meie mudeli hinnangus sisalduvat määramatust. Me kasutame regressioonikoefitsientide leidmiseks üldjuhul valimipõhiseid andmeid, kuigi tegelikult huvitavad meid ju üldkogums esinevad seosed. Valimipõhine hinnang peaks piisavalt suure valimi korral olema tõenäoliselt küllaltki sarnane üldkogumi vastavale parameetrile, kuid väikese valimi korral puhta juhuse läbi sellest arvestatavalt erineda. Standardviga näitabki kui kindlad me oma mudeli hinnangus olla saame. Mida väiksem on standardviga (võrreldes hinnangu endaga), seda kindlamad võime olla ka oma hinnangus. Standardvea suurs sõltub eelkõige jääkide hajuvusest ja valimi suurusest. Mida väiksemad on jäägid ja mida suurem on valim, seda väiksem on ka standardviga.</p>
+<p>Standardvea abil saame <em>t</em>-testi abil testida, kas regressioonikoefitsient erineb oluliselt nullist (kui koefitsient on null, siis seos tunnuste vahel puudub). <em>t</em>-testi tulemust näitab veerg <strong><em>t value</em></strong>. <em>t</em>-väärtus ütleb meile kui mitme standardvea kaugusel meie regressioonikoefitsient 0-st on. Kui on piisavalt kaugel, siis saame järeldada, et leitud koefitsient on ka üldkogumis 0-st erinev. Kui kaugel on aga piisavalt kaugel? See sõltub sellest, kui suurt vea tõenäosust me oleme valmis tolereerima (mingi vea tõenäosus jääb seejuures alati). Üldjuhul valitakse selleks tõenäosuseks <span class="math inline">\(5\%\)</span> (ütleme, et regressioonikoefitsient on statistiliselt oluline usaldusnivool <span class="math inline">\(95 \%\)</span> või olulisusnivool <span class="math inline">\(p &lt; 0.05\)</span>), aga see võib olla ka <span class="math inline">\(1\%\)</span> või <span class="math inline">\(10\%\)</span>. Siin tegelikult ei ole mingit väga konkreetset piirmäära, millest juhinduda. Kui me aga lepime kokku, et võimaliku vea tõenäosusena aktsepteerime <span class="math inline">\(5\)</span>-te protsenti, siis peab <em>t</em>-väärtus olema suurem kui <em>ca</em> <span class="math inline">\(\pm2\)</span> (täpne väärtus sõltub vaatluste arvust). Antud näite puhul on <em>t</em>-väärtused <span class="math inline">\(-2.5\)</span> ja <span class="math inline">\(17.8\)</span>, ehk siis mõnevõrra suuremad kui <span class="math inline">\(\pm2\)</span> ja me võime järeldada, et nii vabaliige kui regressioonikoefitsient erinevad olulisusnivool <span class="math inline">\(95\%\)</span> oluliselt nullist (kuigi jah, vabaliige on suhteliselt piiri peal).</p>
+<p>Õnneks ei pea me seda täpset <em>t</em>-väärtuse piirmäära ise välja nuputama. R arvutab meile automaatselt võimaliku vea tõenäosuse konkreetse <em>t</em>-väärtuse kohta. See tõenäosus on ära toodud veerus <strong><em>Pr(&gt;|t|)</em></strong> ja seda nimetatakse <em>p</em>-väärtuseks. <em>p</em>-väärtuse tõlgendus on: kui tõenäoline on, et me saaksime niivõrd suure või suurema <em>t</em>-väärtuse nagu me saime, kui regressioonikoefitsient oleks üldkogumis tegelikult <span class="math inline">\(0\)</span>. Seega kui <em>p</em>-väärtus on näiteks <span class="math inline">\(0.04\)</span>, siis oleks tõenäosus, et me saaksime sellise regressioonikoefitsiendi, juhul kui üldkogumis oleks regressioonikoefitsient tegelikult <span class="math inline">\(0\)</span> (ehk tunnuste vahe seost ei oleks), <span class="math inline">\(0.04\)</span> ehk <span class="math inline">\(4\)</span>% või väiksem. Üldjuhul tahaksime näha <em>p</em>-väärtust, mis on väiksem kui <span class="math inline">\(0.05\)</span>. Sellisel juhul oleks koefitsient statistiliselt oluline usaldusnivool <span class="math inline">\(95\%\)</span>. Antud näites on meil regressioonikoefitsiendi puhul tegemist väga väikeste <em>p</em> väärtustega (&lt;2e-16 tähendab väiksem kui <span class="math inline">\(2\times10^{-16}\)</span>) ja me võime olla päris kindlad, et koefitsient erineb nullist. Vabaliikme <em>p</em>-väärtus on aga <span class="math inline">\(0.012\)</span>, ehk kui me kasutaksime usaldusnivood <span class="math inline">\(99\%\)</span> (mille puhul <em>p</em>-väärtus peaks olema väiksem kui <span class="math inline">\(0.01\)</span>), siis me ei saaks järeldada, et see on statistiliselt oluliselt erinev nullist. Lisaks kuvab R iga <em>p</em>-väärtuse taha ka tärnid, mis indikeerivad selle väärtuse suurust lähtuvalt allolevast legendist.</p>
+<p>Miks meil on üldse vaja teada kas koefitsiendid erinevad oluliselt nullist? Aga sellepärast, et kui regressioonisirge oleks <span class="math inline">\(0\)</span>, siis meie tunnuste vahel ei oleks seost (kui <span class="math inline">\(X\)</span> muutub <span class="math inline">\(1\)</span> ühiku võrra, siis <span class="math inline">\(Y\)</span> muutub <span class="math inline">\(0\)</span> ühiku võrra, ehk siis <span class="math inline">\(Y\)</span> väärtus ei sõltu <span class="math inline">\(X\)</span>’i väärtusest). Aga kuidas on lood vabaliikmega? Kas ka see peab erinema nullist, et meie mudelist mingit tolku oleks? Tegelikult ju ei pea. Võib täitsa vabalt juhtuda, et regressioonisirge lähebki läbi <span class="math inline">\(X\)</span> ja <span class="math inline">\(Y\)</span> telgede ristumiskoha (<span class="math inline">\(Y\)</span> on <span class="math inline">\(0\)</span> kui <span class="math inline">\(X\)</span> on <span class="math inline">\(0\)</span>). Sellisel juhul oleks vabaliikme <em>t</em>-väärtus väiksem kui <span class="math inline">\(2\)</span> ja <em>p</em>-väärtus suurem kui 0.05, kuid mudeli tõlgendust see ei mõjutaks. Ehk siis tavaliselt meid vabaliikme <em>p</em> ja <em>t</em> väärtused väga ei huvita. Küll aga peaks jälgima, et standardviga väga suur (võrreldes vabaliikme endaga) ei oleks.</p>
+</div>
+<div id="jääkide-standardviga" class="section level3" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Jääkide standardviga</h3>
+<pre><code>## Residual standard error: 555.8 on 3982 degrees of freedom
+##   (3648 observations deleted due to missingness)</code></pre>
+<p>Kuidas hinnata regressiooniprognoosi täpsust, ehk siis seda kui hästi regressioonimudel sobitub andmetega (<em>model fit</em>)? Üheks võimaluseks on lähtuda samast loogikast mida kasutame tunnuse keskväärtuse täpsuse hindamisel. Ehk kui palju vaatlused keskmiselt erinevad keskväärtusest. Regressioonijoone puhul ei ole meil ühte keskväärtust, mille suhtes vaatluste hälbimist määrata. Kuid iga vaatluse sõltumatu tunnuse väärtuse <span class="math inline">\(x\)</span> kohta on meil “hinnatud” sõltuva tunnuse väärtus <span class="math inline">\(\hat{y}\)</span>. Seega tuleb meil lihtsalt vaadata kui palju vaatluste <span class="math inline">\(y\)</span> ja <span class="math inline">\(\hat{y}\)</span> väärtused keskmiselt erinevad, ehk kui suur on keskmine viga meie mudelis. Regressioonanalüüsi kontekstis kutsutakse seda vaatluste varieeruvuse näitajat keskmiseks ruutveaks (<em>mean squared error</em>) ehk lühidalt <span class="math inline">\(MSE\)</span><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>. Kuna aga <span class="math inline">\(MSE\)</span> väärtus on ruudus, siis on seda keeruline interpreteerida (samamoodi nagu ka dispersiooni). Kui me võtame ruutjuure <span class="math inline">\(MSE\)</span>’st, <span class="math inline">\(\sqrt{MSE}\)</span>, saame regressiooni jääkide standardhälbe, mida nimetatakse <strong>jääkide standardveaks</strong> (<em>residual standard error</em> ehk RSE). Mida väiksem on mudeli RSE, seda paremini mudel andmetega sobitub (seda vähem hälbivad vaatlused regressioonijoonest ehk seda väiksemad on regresiooni jäägid). See, kui väike peaks RSE väärtus hea mudeli korral olema, sõltub eelkõige kontekstist ja sõltuva tunnuse skaalast (samamoodi nagu keskväärtuse standardhälve). Mingeid konkreetseid piirväärtusi siinkohal tuua ei ole võimalik.<br />
+Lisaks on siin ära toodud ka <em>degrees of freedom</em> ehk vabadusastmete arv jääkide standardvea arvutamisel. Sisuliselt on siin kirjas analüüsi kaasatud vaatluste arv (miinus regressioonikordajate arv, siinses mudelis 2). Ära on toodud ka analüüsist välja jäetud vaatluste arv. Need on need, kellel puudus väärtus vähemalt ühe analüüsitava tunnuse jaoks.</p>
+</div>
+<div id="r-ruut" class="section level3" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> R ruut</h3>
+<pre><code>## Multiple R-squared:  0.07408,    Adjusted R-squared:  0.07385</code></pre>
+<p>Vast oluliseimaks mudeli headuse näitajaks on <span class="math inline">\(R^2\)</span>. Regressioonanalüüsi eesmärk on seletada mingit osa sõltuva tunnuse variatiivsusest sõltumatu tunnuse abil. Seega saame regressioonimudeli puhul hinnata ja mudeli kvaliteedi iseloomustusena kasutada sõltumatu tunnuse poolt seletatud variatiivsuse osakaalu sõltuva tunnuse koguvariatiivsusest. Sõltuva tunnuse variatiivsuse (seda nimetatakse <span class="math inline">\(TSS\)</span> ehk <em>total sums of squares</em>) saab jagada komponentideks: variatiivsus, mis on seletatud regressioonijoone poolt (<span class="math inline">\(ESS\)</span> ehk <em>explained sums of squares</em>) ja variatiivsus, mis ei ole regressioonijoone poolt seletatud ehk siis mudeli seisukohast viga (<span class="math inline">\(RSS\)</span> ehk <em>residual sums of squares</em>):</p>
+<p><span class="math display">\[TSS=RSS+ESS\]</span></p>
+<p>Teades erinevaid variatiivsuse komponente, saame määrata kui suur osa (mitu protsenti) sõltuva tunnuse koguvariatsioonist on seletatav regressioonijoone poolt (ehk siis sõltumatu tunnuse poolt). Seda suurust nimetatakse <strong>determinatsioonikordajaks</strong> ehk lühidalt <span class="math inline">\(R^2\)</span>-ks.</p>
+<p><span class="math display">\[\begin{equation}
+R^2=\frac{TSS-RSS}{TSS}=1-\frac{RSS}{TSS}
+\end{equation}\]</span></p>
+<div class="figure"><span style="display:block;" id="fig:ss"></span>
+<img src="01-regressioon_files/figure-html/ss-1.png" alt="Variatsiivsuse jagunemine" width="672" />
+<p class="caption">
+Joonis 2.3: Variatsiivsuse jagunemine
+</p>
+</div>
+<p><span class="math inline">\(R^2\)</span> jääb vahemikku <span class="math inline">\(0-1\)</span>. See mõõdab seose tugevust, st mida lähemal <span class="math inline">\(R^2\)</span> on <span class="math inline">\(1\)</span>’le, seda tugevam lineaarne seos tunnuste vahel on ja seda enam sõltumatu tunnus sõltuva tunnuse variatsiooni seletab, seega seda efektiivsem on regressioonifunktsiooni kasutamine selle asemel, et lihtsalt sõltuva tunnuse keskmist hinnata (kui <span class="math inline">\(R^2\)</span> on <span class="math inline">\(0\)</span>, siis regressioonijoon langeb kokku sõltuva tunnuse keskmist tähistava joonega, st et <span class="math inline">\(ESS=0\)</span> ja <span class="math inline">\(TSS=RSS\)</span>).</p>
+<p>R annab meile lisaks tavalisele <span class="math inline">\(R^2\)</span> väärtusele (<em>Multiple R-squared</em>) ka nn korrigeeritud <span class="math inline">\(R^2\)</span> väärtuse (<em>Adjusted R-squared</em>). Korrigeeritud <span class="math inline">\(R^2\)</span> puhul võetakse arvesse ka sõltumatute tunnuste arvu. Iga lisanduva sõltumatu tunnusega läheb “tavaline” <span class="math inline">\(R^2\)</span> suuremaks. Kui lisanduv tunnus eriti midagi ei seleta, siis võib see tõus olla väga väike, kuid mingi tõus paratamatult on. Korrigeeritud <span class="math inline">\(R^2\)</span>, arvestades oma valemis ka sõltumatute tunnuste arvu, annab mitme sõltumatu tunnuse korral korrektsema tulemuse. Hetkel, lihtsa regressiooni kontekstis, kus meil on ainult üks sõltumatu tunnus, annavad mõlemad variandid (enam-vähem) sama tulemuse.</p>
+</div>
+<div id="f-väärtus-ja-f-test" class="section level3" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> F-väärtus ja F-test</h3>
+<pre><code>## F-statistic: 318.6 on 1 and 3982 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p><em>F</em>-väärtus, sarnaselt <em>t</em>-väärtusele, aitab meil hinnata kas meie mudel on statistiliselt oluline, ehk siis kas meie analüüsitavate tunnuste vahel on oluline lineaarne seos. <em>F</em>-väärtuseks nimetatakse mudeli abil seletatud variatiivsuse ja seletamata variatiivsuse suhet<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>:</p>
+<p><span class="math display">\[\begin{equation}
+\text{F-suhe} = \frac{\text{regressioonimudeli poolt seletatud variatiivsus}}{\text{regressioonimudeli poolt seletamata variatiivus}}
+\end{equation}\]</span></p>
+<p>Kui mudeli regressioonisirge on <span class="math inline">\(0\)</span>, siis peaks see suhe olema <span class="math inline">\(1\)</span>. See tähendab, et regressioonisirge ei seleta üldse sõltuva tunnuse varieeruvust. Kui regressioonisirge on suurem kui <span class="math inline">\(0\)</span> siis peaks regressioonisirge poolt seletatud varieeruvus (koos juhusliku varieeruvusega) olema suurem kui ainult juhuslik dispersioon. Saame jällegi kasutada <em>F</em>-väärtusega kaasnevat <em>p</em> väärtust, et hinnata kas see <em>F</em>-väärtus on piisavalt suur, et saaksime mudelist lähtuvalt mingeid sisukaid järeldusi teha.</p>
+<p>Võite märgata, et need kaks testi regressioonimudeli kohta annavad sama <em>p</em> väärtuse. Ja tegelikult annavad nad ka sama teststatistiku. <em>t</em>-statistik on lihtsalt ruutjuur <em>F</em> statistikust<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. Võib tekkida küsimus, et miks me siis kahte testi peame kasutama. Ühe sõltumatu tunnusega regressioonimudelis otseselt ei peagi. Samas kui meil on mitu sõltumatut tunnust (nagu meil hiljem on), siis <em>F</em> ja <em>t</em> väärtused muutuvad. <em>F</em>-testiga saab sel juhul testida terve mudeli headust, st kas meie sõltumatud tunnused koos suudavad seletada piisavalt sõltuva tunnuse variatiivsust (tegelikult testib <em>F</em>-test seda, et kas vähemalt üks koefitsientidest erineb nullist). <em>t</em>-statistikud aga arvutatakse igale regressioonikoefitsiendile eraldi ning nendega saame kontrollida iga üksiku koefitsiendi erinevust nullist.</p>
+<div class="teie-kord" style="color: red;">
+<ul>
+<li>Looge regressioonimudel, millega hindate <em>numeracy</em> mõju <em>literacy</em>’le.<br />
+</li>
+<li>Salvestage see mudel ja uurige <code>summary()</code> funktsiooniga.</li>
+<li>Kas <em>numeracy</em> mõju <em>literacy</em>’le on statistiliselt oluline?<br />
+</li>
+<li>Mitu protsenti <em>literacy</em> variatsioonist on selgitatav läbi <em>numeracy</em>?</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="kategoriaalsed-tunnused-regressioonis" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Kategoriaalsed tunnused regressioonis</h2>
+<div id="üks-binaarne-sõltumatu-tunnus" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Üks binaarne sõltumatu tunnus</h3>
+<p>Siiani oleme käsitlenud ainult mudeleid, kus sõltumatuteks tunnusteks on pidevad muutujad. Kuid me saame mudelisse lülitada ka kategoriaalseid tunnuseid. Vaatame esmalt mudelit, kus on üks kategoriaalne sõltumatu muutuja<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>. Teeme Piaaci andmete põhjal mudeli, millega hindame soo mõju sissetulekule</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="lineaarne-regressioon.html#cb15-1" aria-hidden="true" tabindex="-1"></a>mudel2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sissetulek <span class="sc">~</span> sugu, <span class="at">data =</span> piaac)</span>
+<span id="cb15-2"><a href="lineaarne-regressioon.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sissetulek ~ sugu, data = piaac)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -974.0 -344.0 -122.7  198.1 2755.2 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1077.90      13.35   80.73   &lt;2e-16 ***
+## suguNaine    -383.15      17.52  -21.86   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 545.8 on 3982 degrees of freedom
+##   (3648 observations deleted due to missingness)
+## Multiple R-squared:  0.1072, Adjusted R-squared:  0.107 
+## F-statistic:   478 on 1 and 3982 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Kuidas seda tulemust tõlgendada?</p>
+<p>Regressioonimudeliga hindame <span class="math inline">\(\hat{y_i}\)</span> väärtust vaatlusele <span class="math inline">\(i\)</span>, kui sõltumatu tunnuse väärtus muutub ühe ühiku võrra. <span class="math inline">\(\hat{y_i}\)</span>’i väärtus kujuneb siis lähtuvalt vabaliikme <span class="math inline">\(\beta_0\)</span> ja regressioonikoefitsiendi <span class="math inline">\(\beta\)</span> ning sõltumatu tunnuse <span class="math inline">\(x_i\)</span>’i korrutise summast (pluss mingi viga): <span class="math inline">\(\hat{y_i}=\beta_0+\beta x_i+\epsilon\)</span>. Sealjuures vabaliige on <span class="math inline">\(y\)</span> väärtus kui <span class="math inline">\(x\)</span> on <span class="math inline">\(0\)</span>.</p>
+<p>Meil on tunnus <span class="math inline">\(x\)</span> (sugu) kahe kategooriaga. Mis juhtub, kui kodeerime selle ümber väärtusteks <span class="math inline">\(0\)</span> ja <span class="math inline">\(1\)</span> (vastavalt mees ja naine). R kusjuures teeb seda automaatselt.</p>
+<p><span class="math display">\[ x_{i} =
+  \begin{cases}
+    1  &amp; \quad \text{kui on naine}\\
+    0  &amp; \quad \text{kui on mees}
+  \end{cases}
+\]</span></p>
+<p>Kui me selle tunnuse nüüd regressioonivõrrandisse paneme, siis mis on <span class="math inline">\(y_i\)</span> väärtus kui <span class="math inline">\(x_i\)</span> on <span class="math inline">\(1\)</span> (ehk siis vaatluse sugu on naine) ja mis on <span class="math inline">\(y_i\)</span> väärtus kui <span class="math inline">\(x_i\)</span> on <span class="math inline">\(0\)</span> (ehk siis vaatluse sugu on mees)?</p>
+<p><span class="math display">\[ \hat{y_i}=\beta_0+\beta_1 x_i+\epsilon =
+  \begin{cases}
+    \beta_0+\beta_1 \times 1 = \beta_0+\beta_1  &amp; \quad \text{kui on naine}\\
+    \beta_0+\beta_1 \times 0 = \beta_0  &amp; \quad \text{kui on mees}
+  \end{cases}
+\]</span></p>
+<p>Ehk siis kui <span class="math inline">\(x_i\)</span> väärtus on <span class="math inline">\(0\)</span> (mehed), siis võrdub <span class="math inline">\(\hat{y_i}\)</span> vabaliikmega <span class="math inline">\(\beta_0\)</span> (sest <span class="math inline">\(\beta_1\)</span> korrutatakse läbi nulliga) ja kui <span class="math inline">\(x_i\)</span> väärtus on <span class="math inline">\(1\)</span> (naised), siis vabaliikme ja regressioonikoefitsiendi summaga <span class="math inline">\(\beta_0+\beta\)</span>. Mida <span class="math inline">\(\hat{y}\)</span> antud juhul üldse tähistab? Pidevmuutujaga regressioonis tähistas see keskmist <span class="math inline">\(y\)</span>-i väärtust erinevate <span class="math inline">\(x\)</span> väärtuste korral. Ja siin täpselt samamoodi. Aga nüüd on meil ainult kaks <span class="math inline">\(x\)</span> väärtust ja <span class="math inline">\(\hat{y}\)</span> on vastavate gruppide (meeste ja naiste) keskmine <span class="math inline">\(y\)</span>.</p>
+<p>Seega saame regressioonivõrrandiga väljenda binaarse tunnuse mõju sõltuva tunnuse keskmisele. Lihtsalt käsitleme ühte kategooriat nn <strong>referentskategooriana</strong> ja kodeerime selle <span class="math inline">\(0\)</span>’ks. Kui <span class="math inline">\(x\)</span> on <span class="math inline">\(0\)</span>, siis <span class="math inline">\(y\)</span> väärtus on võrdne vabaliikme väärtusega. Ja kui sõltumatu tunnuse väärtus muutub ühe ühiku võrra (ja rohkem ta ei saagi muutuda), siis on <span class="math inline">\(y\)</span> väärtus võrdne vabaliikme väärtus pluss regressioonikoefitsiendi väärtus.</p>
+<p>Kuidas me eelneva valguses oma näidet siis tõlgendama peaksime?</p>
+<pre><code>## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1077.90      13.35   80.73   &lt;2e-16 ***
+## suguNaine    -383.15      17.52  -21.86   &lt;2e-16 ***</code></pre>
+<p><em>Sugu</em> oli tekstiline tunnus. R saab aru, et tegemist on kategoriaalse tunnusega ja kodeerib selle sisemiselt ümber <span class="math inline">\(0\)</span>-ks ja <span class="math inline">\(1\)</span>-ks. Antud juhul määras ta kategooria <em>Naine</em> <span class="math inline">\(1\)</span>-ks ja kategooria <em>Mees</em> <span class="math inline">\(0\)</span>-ks. Kuna tegemist oli tekstilise tunnusega, siis lähtub R siin tähestikulisest järjekorrast. Regressioonivõrrand oli järgmine:</p>
+<p><span class="math display">\[\begin{equation}
+\hat{y_i}=\beta_0+\beta x_i+\epsilon
+\end{equation}\]</span></p>
+<p>Paneme mudeli tulemused sellesse võrrandisse:</p>
+<p><span class="math display">\[ \text{numeracy}=1077.90+(-383.15)\times \text{naine} =
+  \begin{cases}
+    1077.90-383.15\times 1 = 1077.90-383.15 = 694.75  &amp; \quad \text{kui on naine}\\
+    1077.90-383.15\times 0 = 1077.90  &amp; \quad \text{kui on mees}
+  \end{cases}
+\]</span></p>
+<p>Ehk siis naiste keskmine sissetulek on <span class="math inline">\(694.8\)</span> eurot (vabaliige + regressioonikoefitsient) ja meeste oma <span class="math inline">\(1077.9\)</span> eurot (vabaliige). Erinevus on statistiliselt oluline, kuna <em>p</em>-väärtused nii koefitsiendi <em>t</em>-testi kui ka mudeli <em>F</em>-testi puhul olid olulisusnivool <span class="math inline">\(95\%\)</span> olulised (väiksemad kui <span class="math inline">\(0.05\)</span>).</p>
+<p>Kui me paneme need keskmised joonisele ja ühendame nad joonega, näeme, et selle joone tõus (<em>slope</em>) on võrdne regressioonikoefitsiendiga, täpselt samuti nagu pidevtunnusega regressioonis.</p>
+<p><img src="01-regressioon_files/figure-html/reg-plot-6-1.png" width="672" /></p>
+</div>
+<div id="kolme-või-enama-kategooriaga-sõltumatu-tunnus" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Kolme või enama kategooriaga sõltumatu tunnus</h3>
+<p>Kusjuures me ei pea piirduma vaid binaarsete tunnustega. Aga kui kategooriaid on rohkem, tuleb meil nad binaarseks teha ehk dihhotomiseerida. Määratleme ühe kategooria referentskategooriana ja ülejäänud kategooriad kodeerime erinevates tunnustes <span class="math inline">\(1\)</span>’ks. Seega, kui meil on näiteks hariduse tunnus kolme kategooriaga (põhiharidus, keskharidus, kõrgharidus), peame määratlema ühe referentskategooria (näiteks põhiharidus) ja tegema kaks uut tunnust (vastavalt keskhariduse ja kõrghariduse kategooriatele):</p>
+<p><span class="math display">\[ kesk_{i} =
+  \begin{cases}
+    1  &amp; \quad \text{kui inimene on keskharidusega}\\
+    0  &amp; \quad \text{kui inimene ei ole keskharidusega}
+  \end{cases}
+\]</span></p>
+<p><span class="math display">\[ korg_{i} =
+  \begin{cases}
+    1  &amp; \quad \text{kui inimene on kõrgharidusega}\\
+    0  &amp; \quad \text{kui inimene ei ole kõrgaridusega}
+  \end{cases}
+\]</span></p>
+<p>Nüüd saame iga inimese hariduse määratleda kahe tunnuse kaudu. Ehk siis inimene, kelle puhul <span class="math inline">\(kesk = 1\)</span> ja <span class="math inline">\(korg = 0\)</span>, on keskharidusega; inimene kelle puhul <span class="math inline">\(kesk = 0\)</span> ja <span class="math inline">\(korg = 1\)</span>, on kõrgharidusega ja inimene kelle puhul <span class="math inline">\(keks = 0\)</span> ja <span class="math inline">\(korg = 0\)</span>, on põhiharidusega. <span class="math inline">\(y\)</span> väärtus kujuneb täpselt samamoodi nagu binaarse tunnuse puhul:</p>
+<p><span class="math display">\[y_i=\beta_0+\beta_1 \times kesk_i+\beta_2 \times korg_i+\epsilon_i =\]</span></p>
+<p><span class="math display">\[ =
+  \begin{cases}
+    \beta_0+\beta_1 \times 1+\beta_2 \times 0 = \beta_0+\beta_1  &amp; \quad \text{kui inimene on keskharidusega}\\
+    \beta_0+\beta_1 \times 0+\beta_2 \times 1 = \beta_0+\beta_2  &amp; \quad \text{kui inimene on kõrgaridusega}\\
+    \beta_0+\beta_1 \times 0+\beta_2 \times 0 = \beta_0  &amp; \quad \text{kui inimene on põhiharidusega}
+  \end{cases}
+\]</span></p>
+<p>Vaatame kuidas see kõik R-is välja näeb. Hindame hariduse (tunnus <em>haridustase</em>) mõju sissetulekule:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="lineaarne-regressioon.html#cb18-1" aria-hidden="true" tabindex="-1"></a>mudel3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sissetulek <span class="sc">~</span> haridustase, <span class="at">data =</span> piaac)</span>
+<span id="cb18-2"><a href="lineaarne-regressioon.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel3)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sissetulek ~ haridustase, data = piaac)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -868.3 -362.5 -145.2  187.1 2881.2 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        763.35      13.33  57.279   &lt;2e-16 ***
+## haridustaseKõrge   217.23      19.06  11.400   &lt;2e-16 ***
+## haridustaseMadal   -22.20      30.17  -0.736    0.462    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 567.1 on 3981 degrees of freedom
+##   (3648 observations deleted due to missingness)
+## Multiple R-squared:  0.03631,    Adjusted R-squared:  0.03583 
+## F-statistic:    75 on 2 and 3981 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>R sai jällegi ise aru, et <em>haridustase</em> on tekstiline tunnus ja dihotomiseeris selle automaatselt ära, tehes kaks uut tunnust: <em>haridustaseKõrge</em> (kus kõik kõrgharitud on kodeeritud <span class="math inline">\(1\)</span>-na ja kõik teised <span class="math inline">\(0\)</span>-na) ja <em>haridustaseMadal</em> (kus kõik madala haridustasemega on kodeeritud <span class="math inline">\(1\)</span>-na ja kõik teised <span class="math inline">\(0\)</span>-na). Referentskategooriaks võttis ta tähestiku järjekorras esimese kategooria <em>Keskmine</em> (kõik vaatlused, mille puhul nii <em>haridustaseKõrge</em> kui ka <em>haridustaseMadal</em> on <span class="math inline">\(0\)</span>-d, on keskmise haridustasemega).</p>
+<p>Tulemuste interpreteerimine toimub samamoodi nagu binaarse tunnuse puhul. Vabaliige tähistab referentskategooria, ehk antud juhul keskmise haridustasemega inimeste, keskmistsissetulekut (<span class="math inline">\(763.35\)</span>), <em>haridustaseKõrge</em> regressioonikordaja tähistab kõrge haridustasemega inimeste skoori erinevust referentskategooria keskmisest (vabaliikmest) ja <em>haridustaseMadal</em> madala haridustasemega inimeste skoori erinevust referentskategooria keskmisest (vabaliikmest).</p>
+<p>Võrrandi kujul näeb tulem välja järgmine:
+<span class="math display">\[y_i=\beta_0+\beta_1 \times korge_i+\beta_2 \times madal_i+\epsilon_i =\]</span></p>
+<p><span class="math display">\[ =
+  \begin{cases}
+    763.35+217.23 \times 1+(-22.20) \times 0 = 763.35+217.23  &amp; \quad \text{kui inimene on kõrge haridustasemega}\\
+    763.35+217.23 \times 0+(-22.20) \times 1 = 763.35-22.20  &amp; \quad \text{kui inimene on madala haridustasemega}\\
+    763.35+217.23 \times 0+(-22.20) \times 0 = 763.35  &amp; \quad \text{kui inimene on keskmise haridustasemega}
+  \end{cases}
+\]</span></p>
+<p>Kui kategoriaalne sõltumatu tunnus on tekstiline (<em>character</em>), siis valib R referentskategooriaks tähestikuliselt esimese kategooria. Kui tunnus on faktortunnus (<em>factor</em>), siis valib R esimese faktortaseme. Faktortasemeid saame me aga muuta. Tihti tahame referentskategooria ise valida (näiteks kõige suurema grupi või grupi, mida on loogiline teistega võrrelda). Näiteks tahame haridustasemete puhul määrata referentskategooriaks põhihariduse. Selleks teeme tunnuse faktoriks ja määrame tasemete järjestuse nii, et madal haridustase oleks esimene:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="lineaarne-regressioon.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vaatame kõigepealt mis kategooriad tunnuses on</span></span>
+<span id="cb20-2"><a href="lineaarne-regressioon.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(piaac<span class="sc">$</span>haridustase)</span></code></pre></div>
+<pre><code>## [1] &quot;Keskmine&quot; &quot;Madal&quot;    &quot;Kõrge&quot;    NA</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="lineaarne-regressioon.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Laeme forcats paketti, millega on mugav faktoritega toimetada</span></span>
+<span id="cb22-2"><a href="lineaarne-regressioon.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb22-3"><a href="lineaarne-regressioon.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Kasutame funktsiooni fct_relevel()</span></span>
+<span id="cb22-4"><a href="lineaarne-regressioon.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Meil on antud juhul vaja määrata ainult esimene tasand,</span></span>
+<span id="cb22-5"><a href="lineaarne-regressioon.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  ülejäänud tulevad tähestiku järjekorras.</span></span>
+<span id="cb22-6"><a href="lineaarne-regressioon.html#cb22-6" aria-hidden="true" tabindex="-1"></a>piaac <span class="ot">&lt;-</span> piaac <span class="sc">%&gt;%</span> </span>
+<span id="cb22-7"><a href="lineaarne-regressioon.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">haridustase_f =</span> <span class="fu">fct_relevel</span>(haridustase, <span class="st">&quot;Madal&quot;</span>))</span>
+<span id="cb22-8"><a href="lineaarne-regressioon.html#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="lineaarne-regressioon.html#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Baas-R-is käiks faktori tegemine nii:</span></span>
+<span id="cb22-10"><a href="lineaarne-regressioon.html#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#piaac$haridustase_f &lt;- factor(piaac$haridustase, </span></span>
+<span id="cb22-11"><a href="lineaarne-regressioon.html#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                              levels = c(&quot;Madal&quot;,&quot;Keskmine&quot;,&quot;Kõrge&quot;))</span></span>
+<span id="cb22-12"><a href="lineaarne-regressioon.html#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="lineaarne-regressioon.html#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ja kui me nüüd regressiooni jooksutame, on referentsiks madal tase</span></span>
+<span id="cb22-14"><a href="lineaarne-regressioon.html#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(sissetulek <span class="sc">~</span> haridustase_f, <span class="at">data =</span> piaac))</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sissetulek ~ haridustase_f, data = piaac)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -868.3 -362.5 -145.2  187.1 2881.2 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)             741.15      27.07  27.381  &lt; 2e-16 ***
+## haridustase_fKeskmine    22.20      30.17   0.736    0.462    
+## haridustase_fKõrge      239.43      30.30   7.902 3.54e-15 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 567.1 on 3981 degrees of freedom
+##   (3648 observations deleted due to missingness)
+## Multiple R-squared:  0.03631,    Adjusted R-squared:  0.03583 
+## F-statistic:    75 on 2 and 3981 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Kui meil juba on faktortunnus, aga tahame selle tasemete järjekorda muuta, saame jälle kasutada käsku <code>fct_relevel()</code>. Muudame haridustaseme faktortunnuses kõrgema hariduse esimeseks tasemeks:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="lineaarne-regressioon.html#cb24-1" aria-hidden="true" tabindex="-1"></a>piaac<span class="sc">$</span>haridustase_f <span class="ot">&lt;-</span> <span class="fu">fct_relevel</span>(piaac<span class="sc">$</span>haridustase_f, <span class="st">&quot;Kõrge&quot;</span>)</span>
+<span id="cb24-2"><a href="lineaarne-regressioon.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="lineaarne-regressioon.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Baas-R-is käiks see nii:</span></span>
+<span id="cb24-4"><a href="lineaarne-regressioon.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#piaac$haridustase_f &lt;- relevel(piaac$haridustase_f, ref = &quot;Kõrge&quot;)</span></span>
+<span id="cb24-5"><a href="lineaarne-regressioon.html#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="lineaarne-regressioon.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(numeracy <span class="sc">~</span> haridustase_f, <span class="at">data =</span> piaac))</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = numeracy ~ haridustase_f, data = piaac)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -202.991  -26.446    2.328   28.800  150.020 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)           289.2173     0.8172  353.93   &lt;2e-16 ***
+## haridustase_fMadal    -40.8718     1.4011  -29.17   &lt;2e-16 ***
+## haridustase_fKeskmine -21.0568     1.0944  -19.24   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 42.72 on 7583 degrees of freedom
+##   (46 observations deleted due to missingness)
+## Multiple R-squared:  0.1065, Adjusted R-squared:  0.1063 
+## F-statistic: 451.9 on 2 and 7583 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="teie-kord" style="color: red;">
+<ul>
+<li>Piaaci andmestikus on tunnus <em>meeldib_oppida</em>. Tehke see faktortunnuseks nii, et esimene kategooria oleks “Mõningal määral” (kategooriate nimed saate teada näiteks funnktsiooniga <code>unique(piaac$meeldib_oppida)</code>)</li>
+<li>Tehke regressioonimudel, kus hindate õppimishimu mõju sissetulekule</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="mitmene-regressioon" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Mitmene regressioon</h2>
+<p>Siiani oleme käsitlenud lineaarset regressiooni, kus sõltumatuid tunnuseid oli üks. Aga on võimalik lülitada ühte mudelisse ka mitu sõltumatut tunnust. Miks see hea peaks olema?</p>
+<p>Valdavalt üritame välja selgitada (või tegelikult mingi teooria põhjal testida) mingi tunnuse kausaalset mõju teisele tunnusele (sõltumatu tunnuse mõju sõltuvale tunnusele). Kausaalsusel on aga teatud eeldused:</p>
+<ol style="list-style-type: decimal">
+<li>Tunnuste vaheline seos (seose olemasolu ei tähenda muidugi kohe põhjalikkust)<br />
+</li>
+<li>Ajaline järgnevus (vastupidi ei saaks ju kuidagi olla)<br />
+</li>
+<li>Alternatiivse seletuse/põhjuse kõrvaldamine (sõltuv tunnus võib olla sõltumatu tunnuse poolt mõjutatud läbi mõne muu tunnuse, st kaudselt)</li>
+</ol>
+<p>Mitmene regressioon võimaldabki meil testida sõltumatute tunnuste otsest mõju sõltuvale tunnusele, kontrollides samal ajal teiste mudelisse lülitatud sõltumatute tunnuste mõjude suhtes (hoides teisi tunnuseid konstantsetena). Regressioonivõrrand mitme sõltumatu tunnuse puhul on sarnane ühese regressiooni võrrandiga, välja arvatud siis sõltumatute tunnuste arv. Mudel <span class="math inline">\(y\)</span> prognoosimiseks <span class="math inline">\(p\)</span> sõltumatute tunnuste kaudu on väljendatav järgmiselt:</p>
+<p><span class="math display">\[\begin{equation}  
+y_{i}=\beta_{0}+\beta_{1}x_{i,1}+\beta_{2}x_{i,2}+\ldots+\beta_{p}x_{i,p}+\epsilon_{i}
+\end{equation}\]</span></p>
+<p>Kus:</p>
+<p><span class="math inline">\(\beta_0\)</span> on vabaliige (ehk <span class="math inline">\(y\)</span> väärtus kui kõik sõltumatud tunnused on <span class="math inline">\(0\)</span>’id)</p>
+<p><span class="math inline">\(\beta_1\)</span> regressioonikoeffitsient esimesele sõltumatule tunnusele <span class="math inline">\(x_1\)</span></p>
+<p><span class="math inline">\(\beta_2\)</span> regressioonikoeffitsient teisele sõltumatule tunnusele <span class="math inline">\(x_2\)</span></p>
+<p><span class="math inline">\(\beta_{p}\)</span> regressioonikoeffitsient tunnusele <span class="math inline">\(x_{p}\)</span></p>
+<p><span class="math inline">\(\epsilon\)</span> on mudeli jääk igale vaatlusele</p>
+<p><span class="math inline">\(\beta\)</span> coefitsinedid on leitud nii, et nendega kaalutud tunnuste väärtused minimeerivad <span class="math inline">\(\epsilon\)</span>’i ehk mudeli viga (kogu mudeli mõistes minimeerivad ruuthälvete summat). <span class="math inline">\(\beta\)</span> väärtus on tõlgendatav kui muutus <span class="math inline">\(y\)</span> väärtuses, kui vastava sõltumatu tunnuse väärtus muutub ühe ühiku võrra, hoides samal ajal teisi sõltumatuid tunnuseid konstantsetena. See tähendab, et koefitsientides on teiste tunnuste mõju arvesse võetud ja meie tulemused peegeldavad nn “puhast” mõju.</p>
+<p>Mudeli defineerimisel R-is saame sõltumatuid tunnuseid lisada <code>+</code> märgi abil:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="lineaarne-regressioon.html#cb26-1" aria-hidden="true" tabindex="-1"></a>mudel4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sissetulek <span class="sc">~</span> numeracy <span class="sc">+</span> sugu, <span class="at">data =</span> piaac)</span>
+<span id="cb26-2"><a href="lineaarne-regressioon.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel4)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sissetulek ~ numeracy + sugu, data = piaac)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1181.73  -323.46   -98.77   167.86  2813.48 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  140.7631    55.0470   2.557   0.0106 *  
+## numeracy       3.3533     0.1915  17.509   &lt;2e-16 ***
+## suguNaine   -365.0623    16.9196 -21.576   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 526 on 3981 degrees of freedom
+##   (3648 observations deleted due to missingness)
+## Multiple R-squared:  0.171,  Adjusted R-squared:  0.1706 
+## F-statistic: 410.7 on 2 and 3981 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Mitmese regressiooni tõlgendus on analoogne lihtsa regressiooni tõlgendusega. Võrrandi kujul on see väljendatav järgmiselt:</p>
+<p><span class="math display">\[\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times sugu  =\]</span></p>
+<p><span class="math display">\[ =
+  \begin{cases}
+    \beta_0+\beta_1 \times numeracy + \beta_2 \times 1 = (\beta_0+\beta_2)+\beta_1 \times numeracy  &amp; \quad \text{naiste puhul}\\
+    \beta_0+\beta_1 \times numeracy + \beta_2 \times 0 = \beta_0+\beta_1 \times lnumeracy &amp; \quad \text{meeste puhul}
+  \end{cases}
+\]</span></p>
+<p><span class="math display">\[ =
+  \begin{cases}
+    140.8+3.35 \times numeracy + (-365) \times 1 = (140.8-365)+3.35 \times numeracy  &amp; \quad \text{naiste puhul}\\
+    140.8+3.35 \times numeracy + (-365) \times 0 = 140.8+3.35 \times numeracy &amp; \quad \text{meeste puhul}
+  \end{cases}
+\]</span></p>
+<p>Vabaliige näitab kategoriaalse tunnuse referentskategooria (antud juhul mees) keskmist sõltuva tunnuse väärtust. Aga kuna nüüd on meil mudelis ka sõltumatu pidevtunnus, siis on see referentskatekooria keskmine juhul, kui sõltumatu pidevtunnus on <span class="math inline">\(0\)</span>. Ehk siis meie näite puhul tähistab vabaliige (<span class="math inline">\(140.8\)</span>) meeste sissetulekut juhul kui nende matemaatilise kirjaoskuse skoor on <span class="math inline">\(0\)</span>. <em>suguNaine</em> regressioonikordaja näitab naiste sissetuleku erinevust meestest. See võtab arvesse ka matemaatilise kirjaoskuse skoori. Ehk siis kõikide matemaatilise kirjaoskuse väärtuste puhul on on naiste sissetulek <span class="math inline">\(365\)</span> eurot meestest madalam (st soo mõju on kontrollitud matemaatilise kirjaoskuse suhtes). <em>numeracy</em> regressioonikordaja näitab jällegi sissetuleku muutust (<span class="math inline">\(3.35\)</span>) kui matemaatiline kirjaoskus muutub ühe ühiku võrra. Kuna ka sugu on mudelis arvesse võetud, kehtib see muutus võrdselt nii naitsele kui meestele (mõju on kontrollitud soo suhtes).</p>
+<p>Mõnevõrra lihtsam on seda tulemust interpreteerida graafiliselt:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="lineaarne-regressioon.html#cb28-1" aria-hidden="true" tabindex="-1"></a>piaac <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="lineaarne-regressioon.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> numeracy, <span class="at">y =</span> sissetulek, <span class="at">color =</span> sugu))<span class="sc">+</span></span>
+<span id="cb28-3"><a href="lineaarne-regressioon.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="fl">0.3</span>)<span class="sc">+</span></span>
+<span id="cb28-4"><a href="lineaarne-regressioon.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fl">140.8</span>, <span class="at">slope =</span> <span class="fl">3.35</span>, <span class="at">color =</span> <span class="st">&quot;#972D15&quot;</span>)<span class="sc">+</span></span>
+<span id="cb28-5"><a href="lineaarne-regressioon.html#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fl">140.8</span><span class="dv">-365</span>, <span class="at">slope =</span> <span class="fl">3.35</span>, <span class="at">color =</span> <span class="st">&quot;#02401B&quot;</span>)<span class="sc">+</span></span>
+<span id="cb28-6"><a href="lineaarne-regressioon.html#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Mees&quot;</span> <span class="ot">=</span> <span class="st">&quot;#972D15&quot;</span>, <span class="st">&quot;Naine&quot;</span> <span class="ot">=</span> <span class="st">&quot;#02401B&quot;</span>))<span class="sc">+</span></span>
+<span id="cb28-7"><a href="lineaarne-regressioon.html#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb28-8"><a href="lineaarne-regressioon.html#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="dv">1</span>)))</span></code></pre></div>
+<p><img src="01-regressioon_files/figure-html/reg-plot-7-1.png" width="672" /></p>
+<p>Lihtsam võimalus seoseid graafiliselt esitada on kasutada paketist <code>interactions</code> funktsiooni <code>interaction_plot()</code>. See on küll mõeldud eelkõige koosmõjude plottimiseks, kuid toimib ka tavalisete seoste kujutamisel.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="lineaarne-regressioon.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(interactions)</span>
+<span id="cb29-2"><a href="lineaarne-regressioon.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">interact_plot</span>(mudel4, <span class="at">pred =</span> numeracy, <span class="at">modx =</span> sugu, <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">&quot;#972D15&quot;</span>, <span class="st">&quot;#02401B&quot;</span>))</span></code></pre></div>
+<p><img src="01-regressioon_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div id="kaks-pidevat-sõltumatut-muutujat" class="section level3" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Kaks pidevat sõltumatut muutujat</h3>
+<p>Vaatame ka olukorda, kus meil on kaks pidevat sõltumatut tunnust - matemaatiline kirjaoskus ja vanus:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="lineaarne-regressioon.html#cb30-1" aria-hidden="true" tabindex="-1"></a>mudel5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sissetulek<span class="sc">~</span>numeracy<span class="sc">+</span>vanus, <span class="at">data =</span> piaac)</span>
+<span id="cb30-2"><a href="lineaarne-regressioon.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel5)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sissetulek ~ numeracy + vanus, data = piaac)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1036.6  -349.5  -128.9   178.7  2944.0 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  25.3372    67.3417   0.376    0.707    
+## numeracy      3.4841     0.2033  17.137  &lt; 2e-16 ***
+## vanus        -3.2210     0.7138  -4.512 6.59e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 554.5 on 3981 degrees of freedom
+##   (3648 observations deleted due to missingness)
+## Multiple R-squared:  0.07879,    Adjusted R-squared:  0.07833 
+## F-statistic: 170.3 on 2 and 3981 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Tõlgendame seda järmiselt:</p>
+<ol style="list-style-type: decimal">
+<li>Kui matemaatiline kirjaoskus tõuseb ühe punkti võrra, siis sissetulek tõuseb <span class="math inline">\(3.48\)</span> euro võrra, hoides vanust konstantsena (st see seos kehtib kõikide vanuste jaoks).<br />
+</li>
+<li>Kui vanus tõuseb ühe aasta võrra, siis sissetulek langeb <span class="math inline">\(3.2\)</span> euro võrra, hoides funktsionaalset lugemisoskust konstantsena (st see seos kehtib kogu funktsionaalse lugemisoskuse skaala ulatuses).<br />
+</li>
+<li>Juhul kui nii vanus oleks <span class="math inline">\(0\)</span> aastat ja matemaatiline kirjaoskus oleks <span class="math inline">\(0\)</span> punkti, oleks sissetulek <span class="math inline">\(25.3\)</span> eurot (kuna selline olukord on suhteliselt võimatu, siis me sellistel puhkudel vabaliiget ei interpreteeri).</li>
+</ol>
+<p>Et taolisest mudelist paremini aru saada võime kasutada 3D punktdiagrammi</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="lineaarne-regressioon.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(car)</span></span>
+<span id="cb32-2"><a href="lineaarne-regressioon.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co">#scatter3d(piaac$numeracy,piaac$sissetulek, piaac$vanus)</span></span></code></pre></div>
+<div class="teie-kord" style="color: red;">
+<ul>
+<li>Looge regressioonimudel, millega hindate <em>numeracy</em>, <em>vanus</em>, <em>sugu</em> ja <em>haridustase</em> mõju sissetulekule.</li>
+<li>Milliste tunnuste mõju sissetulekule on statistiliselt oluline?</li>
+<li>Esitage vanuse ja soo mõju sissetulekule graafiliselt.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="koosmõjud" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Koosmõjud</h2>
+<p>Eelnevas näites vaatasime sissetuleku sõltuvust matemaatilise kirjaoskuse tasemest soo lõikes, ja nägime, et kui lisame mudelisse soo tunnuse, siis saame klasside kohta eraldi regressioonijooned. Kuid need regressioonijooned olid paralleelsed, mis tähendab et nii meeste kui naiste hulgas oli funktsionaalse lugemisoskuse ja matemaatilise kirjaoskuse suhe mudeli järgi sama. Kuid kas see on alati väga realistlik eeldus? Võib ju vabalt olla, et see seos erineb soo lõikes.</p>
+<p>Kui me arvame, et see võib nii olla, st sõltumatu tunnuse mõju sõltuvale tunnusele sõltub omakorda mingist muust tunnusest, saame mudelisse lisada nende kahe tunnuse koosmõju (interaktsiooni). Selleks peame moodustame uue tunnuse, mis tuleneb nende tunnuste, mille suhtes me koosmõju hinnata tahame, korrutisest. Kui me nüüd selle uue tunnuse mudelisse kaasame, siis hindame sellele ka regressioonikoefitsiendi. Regressioonivõrrand pidevtunnuse ja kategoriaalse tunnuse koosmõjuga näeks välja nii:</p>
+<p><span class="math display">\[\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times naine + \beta_3 \times naine \times numeracy =\]</span></p>
+<p><span class="math display">\[ 
+=
+  \begin{cases}
+    \beta_0+\beta_1 \times numeracy + \beta_2 \times 1 + \beta_3 \times 1 \times numeracy = (\beta_0+\beta_2)+(\beta_1+\beta_3) \times numeracy  &amp; \quad \text{naised}\\
+    \beta_0+\beta_1 \times numeracy + \beta_2 \times 0 + \beta_3 \times 0 \times numeracy = \beta_0+\beta_1 \times numeracy &amp; \quad \text{mehed}
+  \end{cases}
+\]</span></p>
+<p>R-is saame taolise mudeli defineerida järgmiselt:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="lineaarne-regressioon.html#cb33-1" aria-hidden="true" tabindex="-1"></a>mudel8 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sissetulek <span class="sc">~</span> numeracy <span class="sc">*</span> sugu, <span class="at">data =</span> piaac)</span>
+<span id="cb33-2"><a href="lineaarne-regressioon.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel8)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sissetulek ~ numeracy * sugu, data = piaac)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1213.35  -322.79   -99.79   166.87  2802.32 
+## 
+## Coefficients:
+##                     Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)          28.4609    79.7161   0.357   0.7211    
+## numeracy              3.7552     0.2815  13.340   &lt;2e-16 ***
+## suguNaine          -157.9875   107.6870  -1.467   0.1424    
+## numeracy:suguNaine   -0.7476     0.3840  -1.947   0.0516 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 525.8 on 3980 degrees of freedom
+##   (3648 observations deleted due to missingness)
+## Multiple R-squared:  0.1718, Adjusted R-squared:  0.1712 
+## F-statistic: 275.2 on 3 and 3980 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="lineaarne-regressioon.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sama tulemuse saaksime, kui kirjutaksime:</span></span>
+<span id="cb35-2"><a href="lineaarne-regressioon.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#lm(numeracy ~ literacy + sugu + literacy:sugu, data = piaac)</span></span></code></pre></div>
+<p>Koosmõjudega mudeli vabaliikmed ja regressioonikoefitsiendid kujunevad järgmiselt:</p>
+<p><span class="math display">\[\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times naine + \beta_3 \times naine \times numeracy =\]</span></p>
+<p><span class="math display">\[ 
+=
+  \begin{cases}
+    28.5+3.8 \times numeracy + (-157) \times 1 + (-0.7) \times 1 \times numeracy = (28.5-157)+(3.8-0.7) \times numeracy  &amp; \quad \text{naised}\\
+    28.5+3.8 \times numeracy + (-157) \times 0 + (-0.7) \times 0 \times numeracy = 28.5+3.8 \times numeracy &amp; \quad \text{mehed}
+  \end{cases}
+\]</span></p>
+<p>Seega selles mudelis erinevad kategoriaalse tunnuse lõikes nii vabaliikme väärtused kui ka regressioonisirge tõusud. Kui me nüüd selle mudeli tulemused graafikule paneme, siis näeme, et regressioonisirged ei ole enam paralleelsed. Mida suurem on matemaatilise kirjaoskuse tase, seda suurem on erinevus meeste ja naiste sissetulekutes.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="lineaarne-regressioon.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interact_plot</span>(mudel8, <span class="at">pred =</span> numeracy, <span class="at">modx =</span> sugu,  <span class="at">colors =</span>  <span class="fu">c</span>(<span class="st">&quot;#972D15&quot;</span>, <span class="st">&quot;#02401B&quot;</span>))</span></code></pre></div>
+<p><img src="01-regressioon_files/figure-html/reg-plot-8-1.png" width="672" /></p>
+<div id="koosmõjud-kategoriaalsete-tunnuste-puhul" class="section level3" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Koosmõjud kategoriaalsete tunnuste puhul</h3>
+<p>Enne oli juttu, et kahe kategoriaalse sõltumatu tunnusega mudel ilma koosmõjudeta pole väga mõistlik. Vaatame nüüd kuidas see koosmõjudega välja näeks:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="lineaarne-regressioon.html#cb37-1" aria-hidden="true" tabindex="-1"></a>mudel9 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sissetulek <span class="sc">~</span> sugu <span class="sc">*</span> haridustase, <span class="at">data =</span> piaac)</span>
+<span id="cb37-2"><a href="lineaarne-regressioon.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel9)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = sissetulek ~ sugu * haridustase, data = piaac)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1126.25  -311.40   -99.32   163.85  2639.98 
+## 
+## Coefficients:
+##                            Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                 1004.53      17.95  55.967   &lt;2e-16 ***
+## suguNaine                   -458.80      24.76 -18.533   &lt;2e-16 ***
+## haridustaseKõrge             252.60      28.59   8.836   &lt;2e-16 ***
+## haridustaseMadal             -73.55      37.63  -1.955   0.0507 .  
+## suguNaine:haridustaseKõrge    50.69      36.65   1.383   0.1667    
+## suguNaine:haridustaseMadal    10.76      56.52   0.190   0.8491    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 526.1 on 3978 degrees of freedom
+##   (3648 observations deleted due to missingness)
+## Multiple R-squared:  0.1715, Adjusted R-squared:  0.1705 
+## F-statistic: 164.7 on 5 and 3978 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Sellisest mudelist saame välja lugeda kõikide gruppide ristlõigete (kõrge haridustasemega naised, kõrge haridustasemega mehed jne) keskmised. Arvutame näiteks välja kõrge haridustasemega naiste ja madala haridustasemega meeste keskmised matemaatilise lugemisoskuse skoorid:</p>
+<p><span class="math display">\[\hat{y}_{sissetulek}=\beta_0+\beta_1 \times naine + \beta_2 \times korge + \beta_3 \times madal + \beta4 \times nainekorge + \beta_5 \times nainemadal =\]</span></p>
+<p><span class="math display">\[ 
+=
+  \begin{cases}
+    1004.5+(-458.8) \times 1 + 252.60 \times 1 + (-73.55) \times 0 + 50.69 \times 1 + 10.76 \times 0 = &amp; \quad \text{kõrge haridustasemega naised}\\
+    1004.5+(-458.8) \times 0 + 252.60 \times 0 + (-73.55) \times 1 + 50.69 \times 0 + 10.76 \times 0 = &amp; \quad \text{madala haridustasemega mehed}
+  \end{cases}
+\]</span></p>
+<p><span class="math display">\[ 
+=
+  \begin{cases}
+    1004.5+(-458.8) + 252.60 + 50.69 =  849 &amp; \quad \text{kõrge haridustasemega naised}\\
+    1004.5 + (-73.55) = 931 &amp; \quad \text{madala haridustasemega mehed}
+  \end{cases}
+\]</span></p>
+<p>Vaatame seda mudelit ka graafiliselt (kasutame paketi <code>jtools</code> funktsiooni <code>cat_plot()</code>):</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="lineaarne-regressioon.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat_plot</span>(mudel9, <span class="at">pred =</span> haridustase, <span class="at">modx =</span> sugu, <span class="at">colors =</span>  <span class="fu">c</span>(<span class="st">&quot;#972D15&quot;</span>, <span class="st">&quot;#02401B&quot;</span>))</span></code></pre></div>
+<p><img src="01-regressioon_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="teie-kord" style="color: red;">
+<ul>
+<li>Looge koosmõjuga regressioonimudel, millega hindate soo ja laste olemasolu mõju sissetulekule.</li>
+<li>Esitage koosmõjud graafikul (<code>cat_plot()</code> abiga)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="mudelite-võrdlemine" class="section level2" number="2.8">
+<h2><span class="header-section-number">2.8</span> Mudelite võrdlemine</h2>
+<p>Milline on hea mudel? See peaks muidugi seletama võimalikult palju sõltuva tunnuse varieeruvusest. Samas peaks see olema ka võimalikult ökonoomne, st see peaks sisaldama ainult tunnuseid, mis mudelit oluliselt paremaks teevad. Siin on rõhk sõnal “oluliselt.” Iga lisanduv tunnus teeb mudeli mingil määral paremaks, kuid see paranemine võib olla mikroskoopiline. Kuidas siis hinnata, kas mudel <span class="math inline">\(n+1\)</span> tunnusega on oluliselt parem kui <span class="math inline">\(n\)</span> tunnusega mudel?</p>
+<p>Me saame vaadata lisanduva tunnuse standardviga, <em>t</em>-väärtust ja sellega seonduvat <em>p</em>-väärtust. Kuid nagu enne jutuks oli, testib see ainult konkreetse koefitsiendi erinevust nullist. Meid aga huvitab kogu mudeli kvaliteet. Võimalus on ka võrrelda mudelite <span class="math inline">\(R^2\)</span> väärtusi, kuid need on pigem kirjeldavad, ega anna meile indikatsiooni sellest kas üks väärtus on oluliselt parem kui teine.</p>
+<p>Erinevate mudelite statistiliselt olulist erinevust saame testida hii-ruut testiga kasutades <code>anova()</code> funktsiooni. Seda saab teha ainult siis kui mudelid on omavehl seotud (<em>nested</em>), st keerukam (rohkemate tunnustega) mudel peab sisdaldama kõiki lihtsama mudeli tunnuseid.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="lineaarne-regressioon.html#cb40-1" aria-hidden="true" tabindex="-1"></a>mudel_test1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(numeracy <span class="sc">~</span> literacy, <span class="at">data =</span> piaac)</span>
+<span id="cb40-2"><a href="lineaarne-regressioon.html#cb40-2" aria-hidden="true" tabindex="-1"></a>mudel_test2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(numeracy <span class="sc">~</span> literacy <span class="sc">+</span> sugu, <span class="at">data =</span> piaac)</span>
+<span id="cb40-3"><a href="lineaarne-regressioon.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mudel_test1, mudel_test2, <span class="at">test =</span> <span class="st">&quot;Chisq&quot;</span>)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: numeracy ~ literacy
+## Model 2: numeracy ~ literacy + sugu
+##   Res.Df     RSS Df Sum of Sq  Pr(&gt;Chi)    
+## 1   7584 4848657                           
+## 2   7583 4734885  1    113772 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Tõlgendame jällegi testi <em>p</em>-väärtust. Kui see on väiksem kui <span class="math inline">\(0.05\)</span> (usaldusnivool <span class="math inline">\(95\%\)</span>), siis võime järeldada, et mudelid on oluliselt erinevad, mis tähendab omakorda, et lisatud tunnus tõstis mudeli selgitusvõimet olulisel määral.</p>
+</div>
+<div id="regressioonimudeli-eeldused" class="section level2" number="2.9">
+<h2><span class="header-section-number">2.9</span> Regressioonimudeli eeldused</h2>
+<p>Nagu iga meetodi puhul, on ka lineaarsel regressioonanalüüsil rida eeldusi, mis peavad olema täidetud, et analüüsist korrektseid järeldusi oleks võimalik teha.</p>
+<ol style="list-style-type: decimal">
+<li>Esimene ja vahest ka kõige olulisem eeldus on <strong>lineaarne suhe sõltuva ja sõltumatu(te) tunnuse vahel</strong>. Kõrvaloleval joonisel on esitatud neli andmestikku, mille regressioonisirged on identsed (<span class="math inline">\(y=3+0.5x\)</span>). Tegelikult on identsed ka kõik muud andmete statistilised omadused (<span class="math inline">\(x\)</span>’i keskmine, <span class="math inline">\(y\)</span>’i keskmine, <span class="math inline">\(x\)</span>’i dispersioon, <span class="math inline">\(y\)</span>’i dispersioon ja ka korrelatsioon). Ometi on visuaalselt näha, et kõik andmestikud on väga erinevad. Seega peaks regressioonanalüüsi (või tegelikult ükskõik mis analüüsi) puhul olema alati esimene samm neid graafiliselt uurida. Kui tunnuste vaheline seos ei ole lineaarne, piisab mõnel juhul tunnuste mittelineaarsest transformeerimisest (see peaks olema ka muidugi teoreetiliselt põhjendatud). Kui seos on eksponentsiaalne, siis võib kaaluda <em>log</em>-transformatsiooni. Kui seos on paraboolne, siis võib kaaluda ruutu tõstetud tunnuse lisamist (<span class="math inline">\(y = \beta_0+\beta_1x+\beta_2x^2\)</span>). Taoliste transformatsioonide juures peab meeles pidama, et koos nendega muutub ka mudeli tõlgendus.</li>
+</ol>
+<div class="figure"><span style="display:block;" id="fig:anscombe"></span>
+<img src="01-regressioon_files/figure-html/anscombe-1.png" alt="Anscombe kvartett" width="672" />
+<p class="caption">
+Joonis 2.4: Anscombe kvartett
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Lineaarse regressiooni puhul peaks tähelepanelik olema ka <strong>erindite</strong> (<em>outliers</em>)suhtes, st vaatluste suhtes, mis erinevad teistest väga olulisel määral (nagu ka kõrvalolevalt jooniselt näha). Mõnede andmete puhul on erindid paratamatud (näiteks sissetuleku puhul, kus suurem osa inimesi on koondunud keskmise sissetuleku ümber, kuid mõned üksikud teenivad sellest oluliselt enam). Sellisel juhul tasuks kaaluda jällegi tunnuse transformeerimist (sissetuleku puhul näiteks log-skaalale). Kui tegemist on mõne üksiku erindiga, võiks ju selle aluseks oleva vaatluse ka lihtsalt analüüsist välja jätta. Siin tuleks aga olla väga ettevaatlik. Andmete või sellest saadava informatsiooni tahtlik vähendamine (näiteks pidevtunnuste kategoriseerimine) ei ole üldiselt kunagi hea mõte. Seda enam ei ole hea mõte andmete vähendamine eesmärgiga mudelit paremaks teha. Kui aga erindite tekkimine on mingil moel teoreetiliselt seletatav või tulenenud näiteks veast andmekorjel, siis võib seda loomulikult teha.</p></li>
+<li><p><strong>Jääkide dispersiooni homogeensus</strong> (<em>homoscedasticity</em>). Jäägid peaksid hinnatud väärtuste lõikes olema homogeense ja konstantse variatiivsusega, st ühtlaselt jaotunud kõikide <span class="math inline">\(\hat{y}\)</span> väärtuste ümber. Selle eelduse rikkumine mõjutab eelkõige standardvigu (need ei kehti enam kõikidele <span class="math inline">\(\hat{y}\)</span> väärtustele ühtlaselt) ja seeläbi loomulikult ka usalduintervalle ning <em>p</em>-väärtusi. Lahenduseks võivad olla nn robustsed standardvead (<em>robust standard errors</em>), mis võtavad varieeruvuse erinevust arvesse.</p></li>
+</ol>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="lineaarne-regressioon.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Robust standard errors</span></span>
+<span id="cb42-2"><a href="lineaarne-regressioon.html#cb42-2" aria-hidden="true" tabindex="-1"></a>mudel6 <span class="ot">&lt;-</span> <span class="fu">lm</span>(numeracy <span class="sc">~</span> literacy <span class="sc">*</span> sugu, </span>
+<span id="cb42-3"><a href="lineaarne-regressioon.html#cb42-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> piaac)</span>
+<span id="cb42-4"><a href="lineaarne-regressioon.html#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="lineaarne-regressioon.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Tavalised standardvead</span></span>
+<span id="cb42-6"><a href="lineaarne-regressioon.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel6)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = numeracy ~ literacy * sugu, data = piaac)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -102.441  -16.551   -0.094   16.867   88.714 
+## 
+## Coefficients:
+##                     Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        36.129029   2.620050  13.789  &lt; 2e-16 ***
+## literacy            0.871523   0.009417  92.543  &lt; 2e-16 ***
+## suguNaine           4.596729   3.619797   1.270 0.204164    
+## literacy:suguNaine -0.044937   0.012972  -3.464 0.000535 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 24.97 on 7582 degrees of freedom
+##   (46 observations deleted due to missingness)
+## Multiple R-squared:  0.6948, Adjusted R-squared:  0.6946 
+## F-statistic:  5753 on 3 and 7582 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="lineaarne-regressioon.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Robustsed standardvead</span></span>
+<span id="cb44-2"><a href="lineaarne-regressioon.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb44-3"><a href="lineaarne-regressioon.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb44-4"><a href="lineaarne-regressioon.html#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="lineaarne-regressioon.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(mudel6, <span class="at">vcov. =</span> <span class="fu">vcovHC</span>(mudel6))</span></code></pre></div>
+<pre><code>## 
+## t test of coefficients:
+## 
+##                      Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept)        36.1290294  2.7887350 12.9553 &lt; 2.2e-16 ***
+## literacy            0.8715229  0.0098976 88.0538 &lt; 2.2e-16 ***
+## suguNaine           4.5967288  3.8313081  1.1998 0.2302621    
+## literacy:suguNaine -0.0449372  0.0135552 -3.3151 0.0009203 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="lineaarne-regressioon.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Saab ka nii</span></span>
+<span id="cb46-2"><a href="lineaarne-regressioon.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb46-3"><a href="lineaarne-regressioon.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vcovHC</span>(mudel6) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-4"><a href="lineaarne-regressioon.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diag</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb46-5"><a href="lineaarne-regressioon.html#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>()</span></code></pre></div>
+<pre><code>##        (Intercept)           literacy          suguNaine literacy:suguNaine 
+##        2.788735004        0.009897618        3.831308067        0.013555193</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><p><strong>Jääkide normaaljaotus</strong>. Regressiooni jäägid peaksid olema normaaljaotusega <span class="math inline">\(e_i \sim N(0, \sigma^2)\)</span>, seega enamus jääke peaks jääma nulli ümber ning mida suuremad jäägid, seda vähem neid olema peaks. See eeldus on eelkõige oluline regressioonikoefitsientide <em>t</em>-testi jaoks.</p></li>
+<li><p><strong>Jääkide sõltumatus</strong>. Ühe vaatluse jäägid ei tohiks olla korreleeritud teise vaatluse jääkidega. Selline olukord võib tekkida näiteks siis kui meil mudelist välja jäänud mingi oluline tunnus (ühe tunnuse regressiooni puhul on see muidugi vaid hüpoteetiline olukord), näiteks hindame õpilaste testiskoore lähtuvalt nende õppimisele kulunud ajast, kuid ei arvesta, et õpilased tulevad näiteks erinevatest koolidest, kus võib olla erinev tase. Seega õpilaste tulemused ei ole enam sõltumatud, vaid sõltuvad koolist. Regressioonikoefitsientide standardvigade arvutamisel lähtutakse eeldusest, et jäägid on sõltumatud. Kui jäägid on korreleeritud, siis võib juhtuda, et me alahindame standardvigade suurust ehk siis oleme oma tulemustes ülemäära kindlad (usaldusintervallid ning <em>p</em>-väärtused tulevad liialt väikesed) ning võime näha seoseid seal kus neid tegelikult ei ole. Lahenduseks võiks olla puuduolevate tunnuste lisamine mudelisse (konkrteetse näite puhul kooli tunnus).</p></li>
+<li><p>Kui kaks sõltumatut tunnust on teineteisega väga tugevalt seotud põhjusteab see nn <strong>kollineaarsust</strong>. See võib tekitada probleeme mudeli hindamisel ning ka tõlgendusel. Lisaks kipuvad standardvead liialt suureks minema, mis tähendab seda, et kaotame oma tulemuste täpsuses ja võime mitte näha seoseid seal, kus need tegelikult olemas on. Seega võiks tähele panna, et korrelatsioon sõltumatute muutujate vahel peaks alati olema väiksem kui korrelatsioon sõltuva ja sõltumatu muutuja vahel.</p></li>
+</ol>
+</div>
+<div id="kuidas-eelduste-täidetust-hinnata" class="section level2" number="2.10">
+<h2><span class="header-section-number">2.10</span> Kuidas eelduste täidetust hinnata?</h2>
+<p>Eelduste hindamiseks on loomulikult mitmeid teste, kuid kõige lihtsam on seda mudeli diagnostiliste joonistega.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="lineaarne-regressioon.html#cb48-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> sissetulek <span class="sc">~</span> numeracy <span class="sc">+</span> vanus <span class="sc">+</span> sugu <span class="sc">+</span> haridustase, </span>
+<span id="cb48-2"><a href="lineaarne-regressioon.html#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> piaac)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="lineaarne-regressioon.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod, <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="01-regressioon_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+Kontrollime mittelineaarse seose olemasolu. Punktid peaksid olema ühtlaselt ümber keskmise joone jaotunud. Ei tohiks olla mingit ilmset mustrit.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="lineaarne-regressioon.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod, <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="01-regressioon_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+Kas jäägid on normaalselt jaotunud? Punktid peaksid ühtima diagonaalse joonega.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="lineaarne-regressioon.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod, <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="01-regressioon_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+Kas jääkide dispersioon on homogeenne? Punane joon peaks olema horisontaalne ja punktid peaksid olema ühtlaselt jaotunud ega tohiks mingit mustrit moodustada.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="lineaarne-regressioon.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod, <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="01-regressioon_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+Kas mudelis on mudelit oluliselt mõjutavaid erindeid? Kui on, siis peaksid need olema paremal all või paremal üleval nurgas ning kaugemal kui punktiirjoon (antud juhul neid ei ole ja seega ei ole ka punktiirjoont näha).</p>
+
+</div>
+</div>
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Inglisekeelses terminoloogias kasutatakse sõltuva tunnuse puhul peale <em>dependent variable</em> ka nimetusi <em>response</em> või <em>outcome variable</em> ja sõltumatu tunnuse puhul peale <em>independent variable</em> ka <em>predictor</em> või <em>explanatory variable</em>. Prediktor on ka eesti keeles kasutusel.<a href="lineaarne-regressioon.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p><em>Defaultis</em> annab <code>geom_smooth</code> meile mittelineaarse regressioonijoone (vastavalt sellele palju vaatlusi on, kas <em>gam</em> või <em>loess</em>), mis üritab tunnustevahelist suhet andmete kõikides punktides võimalikult täpselt kirjeldada.<a href="lineaarne-regressioon.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Hiljem, kui meil on mitu sõltumatut tunnust, eristame tunnused plussiga: <code>sõltuv_tunnus ~ sõltumatu_tunnus_1 + sõltumatu_tunnus_2 + ...</code><a href="lineaarne-regressioon.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Tegelikult ei ole selline mudel korrektne. Sissetuleku jaotus ei vasta hästi regressiooni nõuetele. Miks ei vasta ja kuidas see vastama panna, sellest natuke hiljem. Kuid hetkel kasutame seda puhtalt didaktilistest kaalutustest lähtuvalt.<a href="lineaarne-regressioon.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Mida saab väljendada kui <span class="math inline">\(\epsilon_i=y_i-\hat{y}_i\)</span><a href="lineaarne-regressioon.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p><span class="math inline">\(RSS= = e_1^2 + e_2^2 + ... + e_n = \sum_{i=1}^{n}(y_i-\hat{y}_i)^2\)</span><a href="lineaarne-regressioon.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Korrektse valimi võtmise all peame siinkohal silmas eelkõige juhuvalikut. Kõikidel populatsiooni liikmetel/elementidel peab olema võrdne võimalus valimisse sattuda. Kui üldpopulatsiooniks on Eesti elanikkond, aga valimisse võtaksime ainult Tallinna elanikud, siis antud valimi põhjal tehtavad järeldused ei oleks kuidagi üldistatavad kõigile Eesti elanikele, vaid ikkagi ainult tallinnlastele. Lisaks juhuvalimile on veel terve rida spetsiifilisemaid valimidisaine (stratifitseeritud valim, klastervalim jne) mida me hetkel ei käsitle. Kuid tuleb meeles pidada, et keerulisemate valimidisainide puhul tuleb hilisemas analüüsis ja järelduste tegemise käigus valimi moodustamise loogikat arvesse võtta.<a href="lineaarne-regressioon.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Ka <code>summary()</code> ei anna välja kogu mudeliobjektis sisalduvat infot. Et näha mida mudeliobjekt veel sisaldab, võib kasutada <code>str(mudeliobjekt)</code> käsku.<a href="lineaarne-regressioon.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p><span class="math inline">\(MSE=\frac{\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}{n-2}\)</span><a href="lineaarne-regressioon.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Natuke täpsemalt väljendades <span class="math inline">\(F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}\)</span>, kus <span class="math inline">\(n\)</span> on valimi suurus ja <span class="math inline">\(p\)</span> on regressioonikoefitsientide (sõltumatute muutujate) arv.<a href="lineaarne-regressioon.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p><span class="math inline">\((t^{*}_{(n-2)})^2=F^{*}_{(1,n-2)}\)</span><a href="lineaarne-regressioon.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>Sellist mudelit nimetatakse ka ANOVA-ks või täpsemlat One-Way ANOVA-ks (kuna tegemist on ainult ühe kategoriaalse sõltumatu muutujaga)<a href="lineaarne-regressioon.html#fnref12" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logistiline-regressioon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
