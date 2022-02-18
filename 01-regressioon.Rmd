@@ -27,7 +27,7 @@ Lihtne lineaarne regressioon (*simple linear regression*) on statistiline meetod
 
 Kasutame näitena Piaaci andmestikku. Tõmbame andmestiku sisse ja uurime graafiliselt sissetuleku (*sissetulek*) ning matemaatilise kirjaokuse (*numeracy*) vahelist seost.
 
-```{r reg-plot-1, cache=TRUE, echo=T, warning=F, message=FALSE}
+```{r reg-plot-1,  echo=T, warning=F, message=FALSE}
 
 # Loeme kõigepealt sisse vajalikud paketid
 library(dplyr)
@@ -46,7 +46,7 @@ piaac %>%
 
 Tundub, et nende kahe tunnuse vahel on seos olemas. Mida kõrgem on matemaatilise kirjaoskuse skoor, seda kõrgem on sissetulek. Me saame selle suhte kokku võtta regressioonisirge abil. ggplotis on olemas vastav funktsioon `geom_smooth()`, mis selle joone meile graafikule paneb. Kuna me tahame saada lineaarse regressiooni sirget, siis peame `geom_smooth`'is kasutama argumenti `method = "lm"`^[*Defaultis* annab `geom_smooth` meile mittelineaarse regressioonijoone (vastavalt sellele palju vaatlusi on, kas *gam* või *loess*), mis üritab tunnustevahelist suhet andmete kõikides punktides võimalikult täpselt kirjeldada.]
 
-```{r reg-plot-2, cache=TRUE, echo=T, warning=F, message=FALSE}
+```{r reg-plot-2,  echo=T, warning=F, message=FALSE}
 piaac %>% 
   ggplot(aes(x = numeracy, y = sissetulek))+
   geom_point(size = 0.3, alpha = 0.2)+
@@ -77,7 +77,7 @@ lm(sissetulek ~ numeracy, data = piaac)
 Lihtsalt `lm()` funktsiooni jookustades saame kaks numbrit - vabaliikme (*intercept*), mis antud näite puhul on $-140$, ja regressioonikoefitsiendi (*regression coefficient*), mis antud näite puhul on $3.6$. Mida need meile ütlevad? Nagu eelnevalt juttu oli, siis vabaliige on $Y$ väärtus kui $X$ on $0$, ehk siis inimesel, kelle matemaatilise kirjaoskuse skoor on $0$, peaks meie mudeli kohaselt sissetulek olema $-140$. Regressioonikoefitsient aga annab meile teada kui palju $Y$ muutub, kui $X$ muutub ühe ühiku võrra, ehk siis kui matemaatilise kirjaoskuse skoor tõuseb ühe punkti võrra, tõuseb sissetulek keskmiselt $3.6$ euro võrra.
 Nüüd, kui teame mudeli parameetreid, saame nende abil regressioonijoone graafikule kanda ka ilma `geom_smooth`'ita:
 
-```{r reg-plot-3, cache=TRUE, echo=T, warning=F, message=FALSE}
+```{r reg-plot-3,  echo=T, warning=F, message=FALSE}
 piaac %>% 
   ggplot(aes(x = numeracy, y = sissetulek))+
   geom_point(size = 0.3, alpha = 0.2)+
@@ -96,7 +96,7 @@ Kui me teame regressioonisirge tõusu ehk regressioonikoefitsienti ja vabaliiget
 
 $\hat{y}_i$ antud võrrandis tähistab hinnatud või prognoositud $y$ väärtust (sellest ka see müts $y$ peal) vaatlusele $i$. Kui meil on regressioonivõrrand $\hat{y}_i=-140+3.6x_i$ ja meil on mingi vaatlus $i$, kelle $x$ väärtus on näiteks $200$, siis saame sellele vaatlusele prognoosida $y$ väärtuseks $-140+3.6\times200=580$. Ehk siis inimesel, kelle matemaatilise kirjaoskuse skoor on 200, peaks meie mudeli järgi sissetulek olema *ca* 580 eurot. Inimesel, kelle matemaatilise kirjaoskuse skoor on 400, peaks sissetulek olema keskmiselt $-140+3.6\times400=1300$ eurot
 
-```{r reg-plot-4, fig.cap = "Prognoosimine y väärtust kui x on 200", cache=TRUE, echo=F, warning=F}
+```{r reg-plot-4, fig.cap = "Prognoosimine y väärtust kui x on 200",  echo=F, warning=F}
 
 ggplot(data=data.frame(x=c(200, 400), y=c(580, 1300)), aes(x=x, y=y)) + 
   geom_point()+
@@ -118,7 +118,7 @@ Samas on muidugi võimatu ühe sirgega kõiki punkte ideaalselt kirjeldada. Iga 
 
 Mida suuremad need hälbed on, seda vähem suudab on meie mudel (regressioonisirge) kirjeldada sõltuva tunnuse variatsiooni ja seda suurem on vea määr meie mudelis. Neid hälbeid kutusutakse **regressiooni jääkideks** (*regression residuals*). 
 
-```{r reg-plot-5, fig.cap = "Regressiooni jäägid", cache=TRUE, echo=F, warning=F}
+```{r reg-plot-5, fig.cap = "Regressiooni jäägid",  echo=F, warning=F}
 # coefs
 b0 <- 38.93
 b1 <- 0.85
@@ -258,7 +258,7 @@ Teades erinevaid variatiivsuse komponente, saame määrata kui suur osa (mitu pr
 R^2=\frac{TSS-RSS}{TSS}=1-\frac{RSS}{TSS}
 \end{equation}
 
-```{r ss, fig.cap = "Variatsiivsuse jagunemine", cache=TRUE, echo=F, warning=F}
+```{r ss, fig.cap = "Variatsiivsuse jagunemine",  echo=F, warning=F}
 # coefs
 b0 <- 30
 b1 <- 7
@@ -402,7 +402,7 @@ Ehk siis naiste keskmine sissetulek on $694.8$ eurot (vabaliige + regressiooniko
 
 Kui me paneme need keskmised joonisele ja ühendame nad joonega, näeme, et selle joone tõus (*slope*) on võrdne regressioonikoefitsiendiga, täpselt samuti nagu pidevtunnusega regressioonis.
 
-```{r reg-plot-6, cache=TRUE, echo=F, warning=F}
+```{r reg-plot-6, echo=F, warning=F}
 piaac %>% 
   group_by(sugu) %>% 
   summarise(`Keskmine sissetulek` = mean(sissetulek, na.rm = T)) %>% 
@@ -565,7 +565,7 @@ Vabaliige näitab kategoriaalse tunnuse referentskategooria (antud juhul mees) k
 
 Mõnevõrra lihtsam on seda tulemust interpreteerida graafiliselt: 
 
-```{r reg-plot-7, cache=TRUE, echo=T, warning=F, message=FALSE}
+```{r reg-plot-7,  echo=T, warning=F, message=FALSE}
 piaac %>% 
   ggplot(aes(x = numeracy, y = sissetulek, color = sugu))+
   geom_point(alpha = 0.1, size = 0.3)+
@@ -658,7 +658,7 @@ $$\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times naine + 
 
 Seega selles mudelis erinevad kategoriaalse tunnuse lõikes nii vabaliikme väärtused kui ka regressioonisirge tõusud. Kui me nüüd selle mudeli tulemused graafikule paneme, siis näeme, et regressioonisirged ei ole enam paralleelsed. Mida suurem on matemaatilise kirjaoskuse tase, seda suurem on erinevus meeste ja naiste sissetulekutes.
 
-```{r reg-plot-8, cache=TRUE, echo=T, warning=F, message=FALSE}
+```{r reg-plot-8,  echo=T, warning=F, message=FALSE}
 interact_plot(mudel8, pred = numeracy, modx = sugu,  colors =  c("#972D15", "#02401B"))
 ```
 
@@ -730,7 +730,7 @@ Nagu iga meetodi puhul, on ka lineaarsel regressioonanalüüsil rida eeldusi, mi
 
 1. Esimene ja vahest ka kõige olulisem eeldus on **lineaarne suhe sõltuva ja sõltumatu(te) tunnuse vahel**. Kõrvaloleval joonisel on esitatud neli andmestikku, mille regressioonisirged on identsed ($y=3+0.5x$). Tegelikult on identsed ka kõik muud andmete statistilised omadused ($x$'i keskmine, $y$'i keskmine, $x$'i dispersioon, $y$'i dispersioon ja ka korrelatsioon). Ometi on visuaalselt näha, et kõik andmestikud on väga erinevad. Seega peaks regressioonanalüüsi (või tegelikult ükskõik mis analüüsi) puhul olema alati esimene samm neid graafiliselt uurida. Kui tunnuste vaheline seos ei ole lineaarne, piisab mõnel juhul tunnuste  mittelineaarsest transformeerimisest (see peaks olema ka muidugi teoreetiliselt põhjendatud). Kui seos on eksponentsiaalne, siis võib kaaluda *log*-transformatsiooni. Kui seos on paraboolne, siis võib kaaluda ruutu tõstetud tunnuse lisamist ($y = \beta_0+\beta_1x+\beta_2x^2$). Taoliste transformatsioonide juures peab meeles pidama, et koos nendega muutub ka mudeli tõlgendus.  
 
-```{r anscombe, fig.cap = "Anscombe kvartett", fig.height=4.5, cache=TRUE, echo=F, warning=F, fig.show='hold'}
+```{r anscombe, fig.cap = "Anscombe kvartett", fig.height=4.5,  echo=F, warning=F, fig.show='hold'}
 p1 <- ggplot(anscombe) + geom_point(aes(x1, y1), color = cols[1], size = 1) + theme_bw() + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 12, 2)) + geom_abline(intercept = 3, slope = 0.5) + expand_limits(x = 0, y = 0)
 p2 <- ggplot(anscombe) + geom_point(aes(x2, y2), color = cols[1], size = 1) + theme_bw() + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 12, 2)) + geom_abline(intercept = 3, slope = 0.5) + expand_limits(x = 0, y = 0)
 p3 <- ggplot(anscombe) + geom_point(aes(x3, y3), color = cols[1], size = 1) + theme_bw() + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 12, 2)) + geom_abline(intercept = 3, slope = 0.5) + expand_limits(x = 0, y = 0)

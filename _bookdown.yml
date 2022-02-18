@@ -7,3 +7,9 @@ language:
     fig: "Joonis "  
     tab: "Tabel "
 new_session: true
+rmd_files:
+- index.Rmd
+- 00-sissejuhatus-ri.Rmd
+- 01-regressioon.Rmd
+- 02-logit.Rmd
+- 03-poisson.Rmd
