@@ -15,7 +15,10 @@ editor_options:
 Logistilise regressiooniga (logit-mudeliga) saame hinnata sõltumatute tunnuste mõju binaarsele sõltuvale tunnusele (töötav/töötu, käis valimas/ei käinud valimas, surnud/ei ole surnud). Teisisõnu, hindame tõenäosust mingi sündmuse toimumiseks (*success*/*failure*).  Sõltuva tunnuse $y$ jaotus on määratletud kui sündmuse toimumise tõenäosus $P(Y=1)=\pi$.  
 Tavalise regressiooni mudel oli väljendatav kui $\bar{y}=\beta_0+\beta_p x_p$. Miks me ei võiks pidevtunnuselise $y$ keskmist asendada $\pi$'ga: $\bar{\pi}=\beta_0+\beta_k x_k$? Aga sellepärast, et tõenäosus on piiritletud $0$ ja $1$'ga, samas kui lineaarne funktsioon hõlmab kõiki reaalarvulisi väärtusi. Seega on ülimalt tõenäoline, et mingite $x$'i väärtuste puhul on prognoositav $y$ väärtus suurem kui $1$ või väiksem kui $0$. Lisaks tekivad probleemid jääkide struktuuriga (tavaline regressioon eeldab normaaljaotust) ja jääkide dispersiooniga (tavaline regressioon eeldab konstantset hajuvust).
 
-![(\#fig:glm-1)Lineaarse regressiooni kasutamine binaarse sõltuva tunnusega](02-logit_files/figure-latex/glm-1-1.pdf) 
+<div class="figure">
+<img src="02-logit_files/figure-html/glm-1-1.png" alt="Lineaarse regressiooni kasutamine binaarse sõltuva tunnusega" width="672" />
+<p class="caption">(\#fig:glm-1)Lineaarse regressiooni kasutamine binaarse sõltuva tunnusega</p>
+</div>
 
 
 ## Šansid  
@@ -25,7 +28,10 @@ $$\text{šansid}=\frac{p}{(1-p)}$$
 
 Näiteks kulli ja kirja viskamisel on kulli saamise šanss $\frac{0.5}{(1-0.5)}=1$. Šanss võtta kaardipakist ruutu on $\frac{0.25}{(1-0.25)}=\frac{1}{3}=0.33$. 
 
-![(\#fig:odds)Šansside ja tõenäosuse suhe](02-logit_files/figure-latex/odds-1.pdf) 
+<div class="figure">
+<img src="02-logit_files/figure-html/odds-1.png" alt="Šansside ja tõenäosuse suhe" width="672" />
+<p class="caption">(\#fig:odds)Šansside ja tõenäosuse suhe</p>
+</div>
 
 Šansid saab omakorda teisenda tagasi tõenäosuseks:
 
@@ -36,7 +42,10 @@ Kuid tõenäosuse alumine piir jääb sel juhul ikkagi ette. Ka šansid on altpo
 
 $$\text{logit}=\log \bigg(\frac{p}{(1-p)}\bigg)$$
 
-![(\#fig:glm-3)Logit-i ja tõenäosuse suhe](02-logit_files/figure-latex/glm-3-1.pdf) 
+<div class="figure">
+<img src="02-logit_files/figure-html/glm-3-1.png" alt="Logit-i ja tõenäosuse suhe" width="672" />
+<p class="caption">(\#fig:glm-3)Logit-i ja tõenäosuse suhe</p>
+</div>
 
 ## Logit mudel 
 Lõpuks saame mudeli võrrandi kokku panna:
@@ -53,7 +62,10 @@ või hoopis nii:
 
 $$\pi_i=Pr(Y_i=1|X_i=x_i)=\frac{1}{1+e^{-\beta_0-\beta_1 x_i}}$$
 
-![(\#fig:glm-2)Logistiline regressioon võrdluses lineaarse regressiooniga](02-logit_files/figure-latex/glm-2-1.pdf) 
+<div class="figure">
+<img src="02-logit_files/figure-html/glm-2-1.png" alt="Logistiline regressioon võrdluses lineaarse regressiooniga" width="672" />
+<p class="caption">(\#fig:glm-2)Logistiline regressioon võrdluses lineaarse regressiooniga</p>
+</div>
 
 
 ## Mudeli tõlgendus
@@ -467,7 +479,7 @@ ggplot(ndata, aes(x = Sex, y = pred, color = Age))+
   theme_minimal()
 ```
 
-![](02-logit_files/figure-latex/unnamed-chunk-15-1.pdf)<!-- --> 
+<img src="02-logit_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
 ### Broom
 
@@ -560,7 +572,7 @@ roc_g <- roc(titanic$Survived == "Yes" ~ predict(mudel8, type = "response"))
 plot(roc_g)
 ```
 
-![](02-logit_files/figure-latex/unnamed-chunk-19-1.pdf)<!-- --> 
+<img src="02-logit_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 Mida suurem on pind graafiku kurvi all, seda parema mudeliga meil tegemist on (seda täpsemini võimaldab mudel prognoosida). Seda kurvi alust pindala suurust kasutataksegi prognoosi täpsuse hindamiseks. Vastavat statistikut kutsustaksegi kurvialuseks pindalaks (AUC ehk *area under the curve*). Mida lähemal AUC $1$'le on, seda parema prognoosivõimega mudeliga meil tegemist on.
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.2.17)  17 FEB 2022 23:04
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2022.2.17)  18 FEB 2022 09:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -881,21 +881,21 @@ Chapter 1.
 ]
 Chapter 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 146.
+(Font)              scaled to size 7.0pt on input line 140.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 146.
+(Font)              scaled to size 5.0pt on input line 140.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 146.
+(Font)              scaled to size 10.00092pt on input line 140.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 146.
+(Font)              scaled to size 7.00064pt on input line 140.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 146.
+(Font)              scaled to size 5.00046pt on input line 140.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 146.
+(Font)              scaled to size 9.99893pt on input line 140.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 146.
+(Font)              scaled to size 6.99925pt on input line 140.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 146.
+(Font)              scaled to size 4.99947pt on input line 140.
 [7]
 File: 01-regressioon_files/figure-latex/reg-plot-1-1.pdf Graphic file (type pdf
 )
@@ -910,13 +910,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [9]
-Underfull \hbox (badness 1931) in paragraph at lines 198--199
+Underfull \hbox (badness 1931) in paragraph at lines 192--193
 []\TU/lmtt/m/n/10 lm() \TU/lmr/m/n/10 funktsioonis tuleb defineerida regressioo
 nivõrrand. Selleks peame
  []
 
 
-Underfull \hbox (badness 2020) in paragraph at lines 198--199
+Underfull \hbox (badness 2020) in paragraph at lines 192--193
 \TU/lmr/m/n/10 määratlema sõltuva tunnuse, seejärel kasutama tildet (\TU/lmtt/m
 /n/10 ~\TU/lmr/m/n/10 ) ning seejärel
  []
@@ -932,12 +932,12 @@ File: 01-regressioon_files/figure-latex/reg-plot-5-1.pdf Graphic file (type pdf
 )
 <use 01-regressioon_files/figure-latex/reg-plot-5-1.pdf>
 [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 272--274
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
 
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 274--275
+Underfull \hbox (badness 2376) in paragraph at lines 268--269
 \TU/lmr/m/n/10 (seega peate eelnevalt \TU/lmtt/m/n/10 lm() \TU/lmr/m/n/10 funkt
 siooniga leidma regressioonijoone
  []
@@ -947,7 +947,7 @@ Underfull \vbox (badness 2698) has occurred while \output is active []
 
 [16] [17]
 ! Undefined control sequence.
-l.380 \marginnote
+l.374 \marginnote
                  { 
 Here is how much of TeX's memory you used:
  17477 strings out of 478181
