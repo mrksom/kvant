@@ -10,7 +10,9 @@ editor_options:
 
 # (PART) Meeldetuletus {-} 
 
-# Sissejuhatus R-i
+
+# Sissejuhatus R-i  
+
 
 ## Päris algus
 
@@ -1761,16 +1763,16 @@ flights %>%
 ## # A tibble: 10 x 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
-##  1  2013     8    23     1538           1540        -2     1726           1753
-##  2  2013     8    27      920            920         0     1141           1220
-##  3  2013    10    10      558            600        -2      712            721
-##  4  2013     3    12      629            630        -1      751            807
-##  5  2013     1    24     1807           1815        -8     1947           1958
-##  6  2013     4     2      802            800         2     1130           1130
-##  7  2013     8    20     1201           1155         6     1313           1310
-##  8  2013     6    24      810            815        -5     1011           1008
-##  9  2013     5    11      953            955        -2     1116           1140
-## 10  2013    10     2     1347           1359       -12     1549           1605
+##  1  2013     6     1      945            955       -10     1103           1140
+##  2  2013     4    13     1245           1250        -5     1552           1548
+##  3  2013    10    13     1836           1830         6     2036           2035
+##  4  2013     2    14     1549           1530        19     1914           1835
+##  5  2013     5     7     1456           1457        -1     1804           1751
+##  6  2013    11     5      821            822        -1     1143           1141
+##  7  2013     3    25     1831           1829         2     2051           2114
+##  8  2013    11    18      636            625        11      752            750
+##  9  2013     4     2     1926           1930        -4     2037           2105
+## 10  2013     4     8     1745           1735        10     2052           2003
 ## # ... with 11 more variables: arr_delay <dbl>, carrier <chr>, flight <int>,
 ## #   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
 ## #   hour <dbl>, minute <dbl>, time_hour <dttm>
@@ -2155,7 +2157,7 @@ now()
 ```
 
 ```
-## [1] "2022-02-18 10:15:24 EET"
+## [1] "2022-02-18 10:28:56 EET"
 ```
 
 Kestus:
@@ -2396,7 +2398,7 @@ names(dt) <- tolower(names(dt))
 plot(x = dt$sepal.length, y = dt$sepal.width)
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-111-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-110-1.png" width="480" style="display: block; margin: auto;" />
 
 Saab kasutada ka ainult ühte argumenti.
 
@@ -2405,7 +2407,7 @@ Saab kasutada ka ainult ühte argumenti.
 plot(x = dt$sepal.length)
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-112-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-111-1.png" width="480" style="display: block; margin: auto;" />
 
 Argumendiga *type=* saab määrata graafiku tüübi. Näiteks "l" joongraafik, "b" jooned ja sümolid koos jne (vaata ?plot). 
 
@@ -2413,7 +2415,7 @@ Argumendiga *type=* saab määrata graafiku tüübi. Näiteks "l" joongraafik, "
 plot(dt$sepal.length, type= "b")
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-113-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-112-1.png" width="480" style="display: block; margin: auto;" />
 
 
 **Histogram**
@@ -2424,7 +2426,7 @@ plot(dt$sepal.length, type= "b")
 hist(x = dt$sepal.length)
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-114-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-113-1.png" width="480" style="display: block; margin: auto;" />
 
 
 
@@ -2432,7 +2434,7 @@ hist(x = dt$sepal.length)
 hist(x = dt$sepal.length, breaks = 20)
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-115-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-114-1.png" width="480" style="display: block; margin: auto;" />
 
 **Boxplot**
 
@@ -2442,7 +2444,7 @@ hist(x = dt$sepal.length, breaks = 20)
 boxplot(dt$sepal.length)
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-116-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-115-1.png" width="480" style="display: block; margin: auto;" />
 
 
 Mitme grupi lõikes peab kasutama *formula* märki (~)
@@ -2451,7 +2453,7 @@ Mitme grupi lõikes peab kasutama *formula* märki (~)
 boxplot(dt$sepal.length ~ dt$species)
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-117-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-116-1.png" width="480" style="display: block; margin: auto;" />
 
 **Barplot**
 
@@ -2479,7 +2481,7 @@ d_bar
 barplot(d_bar)
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-119-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-118-1.png" width="480" style="display: block; margin: auto;" />
 
 
 **Baasgraafikute parameetrid**  
@@ -2500,7 +2502,7 @@ plot(x = dt$sepal.length, y = dt$sepal.width,
      ylab="Sepal width")
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-120-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-119-1.png" width="480" style="display: block; margin: auto;" />
 
 
 `par()` funktsiooniga saab seada *globaalseid* parameetrieid. Näiteks saab panna mitu graafikut üksteise kõrvale:  
@@ -2544,7 +2546,7 @@ legend("topright", pch=1, col=c("black", "red"),legend = c("muu", "seotsa"))
 title(main = "Pealkiri")
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-123-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-122-1.png" width="480" style="display: block; margin: auto;" />
 
 
 
@@ -2594,7 +2596,7 @@ ggplot(data=dt)+
   geom_point(mapping = aes(x=sepal.width, y=sepal.length))
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-125-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-124-1.png" width="480" style="display: block; margin: auto;" />
 
 Tegelikult ei pea argumente välja kirjutama, vaid järjekord on tähtis. Saab ka nii:
 
@@ -2612,7 +2614,7 @@ ggplot(data=dt)+
   geom_point(mapping = aes(x=sepal.width, y=sepal.length, color=species))
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-127-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-126-1.png" width="480" style="display: block; margin: auto;" />
 
 Saaksime neid eristada ka näiteks kuju `shape=` või suuruse `size=` või ka läbipaistvuse `alpha=` järgi.
 
@@ -2622,7 +2624,7 @@ ggplot(data=dt)+
   geom_point(mapping = aes(x=sepal.width, y=sepal.length, shape=species))
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-128-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-127-1.png" width="480" style="display: block; margin: auto;" />
 
 Kui me tahame lihtsalt punktide värvi muuta (ja mitte lähtuda mingist grupeerivast tunnusest), saame seda teha väljaspool `aes()` argumenti.
 
@@ -2632,7 +2634,7 @@ ggplot(data=dt)+
   geom_point(mapping = aes(x=sepal.width, y=sepal.length), color="green")
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-129-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-128-1.png" width="480" style="display: block; margin: auto;" />
 
 Oleks vaja joonisele ka regressioonijooned saada. Selleks lisame lihtsalt järgmise kihi (kasutades `+` märki).   
 Regressioonijoone joonistamiseks võime kasutada `geom_abline()`'i, aga sellisel juhul peame regressioonikoefitsiendid enne välja arvutama (`geam_abline()` vajab sisendiks *intercept*'i ning *slope*'i). Lihtsam on kasutada `geom_smooth()`'i.
@@ -2648,7 +2650,7 @@ ggplot(data=dt)+
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-130-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-129-1.png" width="480" style="display: block; margin: auto;" />
 
 Mhh, joon ei meenuta regressioonijoont. Asi on selles, et tegemist on küll regressioonijoonega, kuid mitte harjumuspärase lineaarse regressioonijoonega. `geom_smooth` kasutab vaikimisi nn *Local Polynomial Regression Fitting*'ut, mis üritab *predictida* y väärtuse sõltuvust x'i väärtusest võimalikult täpselt ja lähtudes x'i lähiümbrusest. Aga saame tellida ka tavalise lineaarse regressioonijoone, kasutades argumenti `method="lm"`.
 
@@ -2663,7 +2665,7 @@ ggplot(data=dt)+
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-131-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-130-1.png" width="480" style="display: block; margin: auto;" />
 
 Kõikide iirise liikide kohta eraldi joonte saamiseks tuleb jällegi määrata grupeerimine `geom_smooth()`'i `aes()`'i sees (kuna see on eraldi kiht ja eelmise kihi määrangud siin enam ei kehti). Kui me usaldusintervalle mingil põhjusel ei taha, võime need tühistada argumendiga `se=F`.
 
@@ -2678,7 +2680,7 @@ ggplot(data=dt)+
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-132-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-131-1.png" width="480" style="display: block; margin: auto;" />
 
 
 Pidime `aes()` argumendi määrangud kaks korda järjest välja kirjutama, kuigi nad on identsed. Ei tundu väga mõistlik. Õnneks saab ka lihtsamalt. Võime need määrata ka `ggplot()` funktsiooni enda sees. Sellisel juhul kehtivad nad ka kõikide järgenvate kihtide kohta (välja arvatud juhul kui järgenvates kihtides on teisiti määratud).
@@ -2707,7 +2709,7 @@ ggplot(dt, aes(sepal.width, sepal.length))+
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-134-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-133-1.png" width="480" style="display: block; margin: auto;" />
 
 
 Kui tahame tahkusid näiteks ainult kahes tulbas, saame kasutada argumenti `nrow=` või `ncol=`.
@@ -2724,7 +2726,7 @@ ggplot(dt, aes(sepal.width, sepal.length))+
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-135-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-134-1.png" width="480" style="display: block; margin: auto;" />
 
 `facet_grid()`'i ja kahe tunnuse lõikes tahkude illustreerimiseks meil *iris*'e andmestikus piisavalt kategoriaalseid tunnuseid ei ole. Aga ggplotiga tuleb kaasa `diamonds` andmebaas. Vaatame seda:
 
@@ -2756,7 +2758,7 @@ ggplot(dt1)+
   geom_point(mapping = aes(x=carat, y=price))
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-137-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-136-1.png" width="480" style="display: block; margin: auto;" />
 
 Kuidas siia suhestub teemandite selgus (*clarity*)?
 
@@ -2766,7 +2768,7 @@ ggplot(dt1)+
   geom_point(mapping = aes(x=carat, y=price, color=clarity))
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-138-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-137-1.png" width="480" style="display: block; margin: auto;" />
 
 Aga nende lõige *cut*? kasutame selleks `facet_grid()`'i. Kui tahame `facet_grid()`'iga ainult ühe tunnuse lõikes tahke tekitada, tuleb teise tunnuse asemel kasuatada punkti. Seda, kas tahud on tulbas või reas, saab määrata sellega, kuhupoole ~ märki punkt panna.
 
@@ -2777,7 +2779,7 @@ ggplot(dt1)+
   facet_grid(cut ~ .)
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-139-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-138-1.png" width="480" style="display: block; margin: auto;" />
 
 Lisame veel phe tunnuse, mille lõikes teemantide erisusi vaadata, värvi (*color*).
 
@@ -2788,7 +2790,7 @@ ggplot(dt1)+
   facet_grid(cut ~ color)
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-140-1.png" width="2400" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-139-1.png" width="2400" style="display: block; margin: auto;" />
 
 
 **Geomid ja aestetikud**
@@ -2813,7 +2815,7 @@ ggplot(dt1)+
   geom_bar(aes(clarity))
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-141-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-140-1.png" width="480" style="display: block; margin: auto;" />
 
 Kahe tunnuse lõikes tulpdiagrammi jaoks peame kasutama `aes()` sees argumenti `fill=`.
 
@@ -2822,7 +2824,7 @@ ggplot(dt1)+
   geom_bar(aes(clarity, fill=cut))
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-142-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-141-1.png" width="480" style="display: block; margin: auto;" />
 
 Mhh, see vist ei ole päris see mida me silmas pidasime. Pigem tahaksime, et gruppide tulbad asuksid kõrvuti. Selleks peame määratlema geomi positsiooni:
 
@@ -2832,7 +2834,7 @@ ggplot(dt1)+
   geom_bar(aes(clarity, fill=cut), position="dodge")
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-143-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-142-1.png" width="480" style="display: block; margin: auto;" />
 
 Või siis kui tahame 100% barplot
 
@@ -2841,7 +2843,7 @@ ggplot(dt1)+
   geom_bar(aes(clarity, fill=cut), position = "fill")
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-144-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-143-1.png" width="480" style="display: block; margin: auto;" />
 
 **Boxplot ja violin plot**
 
@@ -2852,7 +2854,7 @@ ggplot(dt1)+
   geom_boxplot(aes(x=color, y=carat))
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-145-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-144-1.png" width="480" style="display: block; margin: auto;" />
 
 
 
@@ -2861,7 +2863,7 @@ ggplot(dt1)+
   geom_violin(aes(x=color, y=carat))
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-146-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-145-1.png" width="480" style="display: block; margin: auto;" />
 
 **Histogram ja frequency polygon**
 
@@ -2872,7 +2874,7 @@ ggplot(dt1)+
   geom_histogram(aes(x=carat), bins = 50, color="white")
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-147-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-146-1.png" width="480" style="display: block; margin: auto;" />
 
 
 ```r
@@ -2884,7 +2886,7 @@ ggplot(dt1)+
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-148-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-147-1.png" width="480" style="display: block; margin: auto;" />
 
 
 **Keskmised ja usalduspiirid**
@@ -2924,7 +2926,7 @@ ggplot(keskmised, aes(cut, keskmine))+
   coord_flip() # saame joonise teljed ära vahetada
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-150-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-149-1.png" width="480" style="display: block; margin: auto;" />
 
 **Joonise disain**
 
@@ -2941,7 +2943,7 @@ ggplot(keskmised, aes(cut, keskmine))+
   ggtitle("Teemantite hind")
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-151-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-150-1.png" width="480" style="display: block; margin: auto;" />
 
 Kui me tahame telgede nimedest lahti saada:
 
@@ -2955,7 +2957,7 @@ ggplot(keskmised, aes(cut, keskmine))+
   xlab(NULL)
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-152-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-151-1.png" width="480" style="display: block; margin: auto;" />
 
 ```r
 # või ka nii:
@@ -2981,7 +2983,7 @@ ggplot(keskmised, aes(cut, keskmine))+
   scale_y_continuous(name="Hind")
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-153-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-152-1.png" width="480" style="display: block; margin: auto;" />
 
 
 Saame kontrollida ka *tick mark*'e ja *label*'eid
@@ -2996,7 +2998,7 @@ ggplot(keskmised, aes(cut, keskmine))+
   scale_y_continuous(name="Hind", breaks = seq(3000,5000, by=100))
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-154-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-153-1.png" width="480" style="display: block; margin: auto;" />
 
 
 Kõige võimsam joonise visuaali tööriist, millega saab kontrollida pea kõike, on `theme()`. Täpsemalt saab selle kohta lugeda https://ggplot2.tidyverse.org/reference/theme.html. Vaatame näiteks, kuidas `theme()` abil muula legendi asukohta ning kustutada x-telje skaala:
@@ -3011,7 +3013,7 @@ ggplot(dt, aes(sepal.width, sepal.length, color=species))+
         axis.text.x = element_blank())
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-155-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-154-1.png" width="480" style="display: block; margin: auto;" />
 
 Saame üksikasjalikult muuta praktiliselt kogu joonise väljanägemist. Saame kasutada ka juba mõningaid valmistehtud `theme()`'ide *template*'e. Näiteks `theme_bw()`.
 
@@ -3024,7 +3026,7 @@ ggplot(dt, aes(sepal.width, sepal.length, color=species))+
   theme_bw()
 ```
 
-<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-156-1.png" width="480" style="display: block; margin: auto;" />
+<img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-155-1.png" width="480" style="display: block; margin: auto;" />
 
 
 

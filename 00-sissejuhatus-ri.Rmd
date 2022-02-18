@@ -5,14 +5,16 @@ editor_options:
     wrap: 72
 ---
 
-```{r include=FALSE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(fig.height=3.5, fig.width=5, fig.align='center', warning = F)
 ```
 
 
 # (PART) Meeldetuletus {-} 
 
-# Sissejuhatus R-i
+
+# Sissejuhatus R-i  
+
 
 ## Päris algus
 
