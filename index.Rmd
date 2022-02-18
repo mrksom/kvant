@@ -10,7 +10,7 @@ bibliography: [book.bib, packages.bib]
 link-citations: yes
 ---
 
-# Sissejuhatus
+# Teadmiseks {-}
 
 Siia on koondatud õppematerjalid kursusele "Kvantitatiivne andmeanalüüs II".
 

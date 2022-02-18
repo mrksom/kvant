@@ -225,6 +225,8 @@ Näeme, et koosmõju on antud mudeli puhul vägagi sisukas. Meeste puhul täiska
  
 
 ::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
 * Piaaci andmestikus on tunnus *staatus3*. Võtke see aluseks ja tehke uus loogiline (TRUE/FALSE) tunnus *hoiv*, mis kirjeldaks kas inimene on või ei ole hõivatud.  
 * Hinneke logistilise regressiooniga, kas hõivatus on mõjutatud inimese haridusest ja vanusest. 
 :::

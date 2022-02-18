@@ -1,0 +1,1691 @@
+---
+knit: "bookdown::preview_chapter"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(fig.height=3.5, fig.width=5, fig.align='center', warning = F)
+```
+
+
+# (PART) Meeldetuletus {-} 
+
+# Sissejuhatus R-i
+
+## Päris algus
+
+**Mis see R on?**
+
+- Analüüsikeskkond
+- Programmeerimiskeel
+- Vabavara
+- Põhineb kasutajate kirjutatud pakkettidel, ehk siis pidevalt arenev
+- Andmeanalüüsi seisukohalt praktiliselt piiramatute võimalustega
+- Järjest enam kasutatav
+- Publikatsioonitaseme andmegraafika
+- Suhteliselt järsu õppimiskõveraga, aga kui see ületatud, siis läheb lihtsamaks :) 
+
+**Miks R?**
+
+- Kui on vajadus natukenegi tõsisemalt andmeanalüüsi või andmegraafikaga tegeleda, siis tuleb mingi hetk nii ehk naa R ära õppida (või siis näiteks Python).
+- Kui vahest harva on vaja mõni analüüs teha, siis ei ole ju mingit mõtet selle jaoks kallist (ja ebaefektiivset) kommertstarkvara soetada. R see-eest on tasuta.
+- Seega küsimus võiks pigem kõlada, et miks SPSS, Stata, SAS või Mplus?
+
+
+**Mida R'i kasutamiseks vaja on?**
+
+
+Baasprogramm  
+https://cran.r-project.org/
+
+RStudio kasutajaliides  
+https://www.rstudio.com/
+
+Saab tegelikult hakkama ka ainult baasprogrammiga. Kuid RStudio teeb töö päris palju mugavamaks ja efektiivsemaks ning lisab võimalusi (näiteks R Markdown analüüside kommunikeerimiseks, projektihaldus jne).    
+On ka teisi kasutajaliideseid ja scriptide kirjutamise abivahendeid, kuid RStudio on neist kahtlemata kõige populaarsem, funktsionaalsem ja mugavam.
+
+
+**Kuidas R'i ja RStudiot kasutada?**
+
+R'is ei ole rippmenüüsid, OK nuppe ega avanevaid aknaid. Kõik käsud tuleb käsureale sisse trükkida. Ühest küljest nõuab see kasutajalt mõnevõrra põhjalikumat arusaamist oma tegevusest, teisalt võimaldab tegevusi kombineerida, neist head ülevaadet saada ning tehtud analüüse lihtsalt korrata (*reproducible research*)
+
+- Projektide haldamine  
+RStudio võimaldab erinevaid töid hallata projektidena. Igal projektil on projektikaust (nn juurkataloog), kuhu saab salvestada kõik antud projektiga seonduvad scriptid, andmed jne. Uue projekti loomiseks klikkige _File -> New Project_, misjärel saab valida kataloogi, kuhu projekt (ja seega kõik projektiga seotud matejalid) salvestub.  
+
+- Skriptide loomine  
+Kõik, mida me andmetega teeme, tuleks salvestada skripti (tegelikult on tegemist kõige tavalisema tekstifailiga). Uue skripti saab teha valides RStudios _File -> New File -> R Script_  
+Skriptide kaudu on meil ülevaade kõigest, mida me andmetega teinud oleme (andmeteisendused, analüüsikäik jne) ning samas saame iga hetk oma analüüsi korrata.    
+Skriptis olevat koodi saame jooksutada kui märgime vajaliku koodi ära ja vajutame _Cntr+Enter_ või kasutame scriptiakna üleval paremas servas asuvat nuppu _Run_.
+
+**R kui kalkulaator**
+
+
+```{r, eval=T, highlight=T}
+2 + 3
+(4 - 2) / 2 # sulud toimivad nii nagu nad toimima peavad
+10 * 10 # korrutamine
+10 / 5 # jagamine
+3^2 #astendamine
+3**2 # ka nii saab astendada
+```
+
+
+**Loogilised tehted**
+
+
+```{r, eval=T, highlight=T}
+2 == 2 # võrdub
+1 != 2 # ei võrdu
+2 >= 2 # suurem kui või võrdne
+1 < 2  # väiksem kui
+(3<6) | (6<3) # loogiline või
+(3<6) & (6<3) # loogiline ja
+```
+
+**Andmeobjektid**
+
+
+R töötab andmeobjektidega ehk andmetega, mis on salvestatud mingisse objekti. Andmeobjekt võib sisaldada üksikut numbrilist väärtust (või ka näiteks sõna), aga ka mitut üksiväärtus koondavat vektorit (seega tunnus) või hoopis mitut andmevektorit koondavat andmestikku.  
+Andmeobjektile väärtuse omistamine toimub "<-" märgiga.  
+
+```{r}
+x <- 1
+```
+
+Omistasime objektile *x* väärtuse 1. Nüüd käsitleb R *x*'i kui 1'te ja me saame sellega näiteks tehteid teha.
+
+```{r}
+x + 1
+```
+
+
+
+```{r}
+a <- 10
+a
+a <- a + 10 # kirjutame algse a üle ja omistame talle uue väärtuse
+a
+```
+
+Andmeobjektide nimed ei tohi sisaldada tehtemärke või tühikut ega alata numbriga. Sõnu võib vajadusel eristada näiteks punkti või alakriipsuga: a.1, a_1 . Ei ole ka soovitatav kasutada ka täpitähti (kuigi üldjuhul R neid tunnistab).  
+R eristab suuri ja väikeseid tähti. R ei võrdu r'iga.
+
+Andmeobjektid võivad sisaldada ka sõnu, lauseid või terveid lõike.
+
+```{r}
+linn <- "Tallinn"
+linn
+kool <- "Tallinna Ülikool"
+kool
+```
+
+Jutumärgid annavad R'ile teada, et tegemist on tekstiga ja mitte teise andmeobjekti või funktsiooniga.
+
+**Loogilised andmed (TRUE või FALSE)**
+
+```{r}
+a <- TRUE
+a
+b <- FALSE
+b
+```
+
+Loogilisi väärtused on tulemuseks loogilistele tehetele.
+
+```{r}
+c <- 3 > 2
+c
+```
+
+R käsitleb loogilisi väärtusi sisemiselt 1 ja 0'ina, seega saame ka nendega tehteid teha:
+
+```{r}
+a
+b
+a + b
+```
+
+**Puuduvad väärtused**
+
+Puuduvate väärtuste jaoks on tähis NA.
+
+```{r}
+c <- NA
+c
+a
+c + a
+```
+
+Miks on tulemuseks *NA*? Kui me liidame mingi arvu millelegi, mida me ei tea, siis me ju ei tea ka vastust.
+
+
+::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
+1. tehke andmeobjekt *synniaasta*, mille väärtuseks on Teie sünniaasta
+2. tehke andmeobjekt *aasta*, mille väärtuseks on 2017
+3. arvutage kui vana te olete?
+4. kontrollige looglise tehtega, kas Teie sünniaasta ikka on väiksem kui 2019
+5. tehke andmeobjekt *nimi*, mille väärtuseks on Teie nimi
+:::
+
+
+
+**Funktsioonid**
+
+
+Enamik toimingutest toimub R'is funktsioonide abil.
+```{r, eval=T, highlight=T}
+sqrt(4) # ruutjuure funktsioon
+```
+
+Funktsioonile järgnevad alati sulud, milles tuleb määrata funktsiooni argument (antud juhul 4, ehk number millest tahame ruutjuurt võtta). Argumente võib olla ka rohkem kui üks (ja üldjuhul ongi). Sellisel juhul on nad eraldatud komaga.  Funktsioonil `log()` on kaks argumenti: `x`, ehk arv millest me tahame logaritmi võtta ja `base` ehk logaritmi alus.
+
+```{r, eval=T, highlight=T}
+log(x = 100, base = 10)
+```
+
+Kui me teame argumentide järjekorda, siis me ei pea nende tähiseid eksplitsiitselt välja kirjutama.
+
+```{r, eval=T, highlight=T}
+log(100, 10)
+```
+
+Osadel argumentidel on vaikeväärtused ( näit `log()` funktsiooni puhul `base` argumendi vaikeväärtuseks *e* ehk 2.7) Kui me vaikeväärtusega argumenti välja ei kirjuta, kasutatakse vaikeväärtust.
+
+```{r, eval=T, highlight=T}
+log(x=100)
+```
+
+See kehtib muidugi ainult sellisel juhul kui teisel argumendil on vaikeväärtus. Kuidas me seda aga teadma peaksime? Kõige lihtsam on vaadata funktsiooni abilehte, kus on kõik selle argumendid loetletud.
+
+**Kuidas abi saada?**
+
+
+Iga funktsiooni kohta on R'is abileht millele pääseb ligi kirjutade funktsiooni nime ette `?`.    
+```{r, eval=F, highlight=T}
+?log
+help(log) # saab ka nii
+```
+
+Kui on spetsiifilisemad probleemid, saab alati googeldada. Erinevaid materjale, tutoriale, foorumeid jne on väga palju. 
+
+
+
+**Vektorid**
+
+
+Üldiselt ei tööta me üksikväärtustega (skalaaridega) vaid andmejadade ehk vektoritega. Vektori loomine ehk mitmest väärtusest andmeobjekti loomine käib `c()` funktsiooniga.
+
+```{r}
+see <- c(3,6,1,4,10)
+see
+too <- c("a", "b", "c") # vektor võib sisaldada ka teksti
+too
+```
+
+Sarnaselt üksikväärtustega saab ka vektoritega tehteid teha.  
+
+```{r}
+see
+too <- see * 2
+too
+see + too
+```
+
+Kui üks vektor on teisest lühem, siis R taaskasutab lühema vektori väärtusi.
+
+```{r}
+pikk <- c(1,1,2,2,3,3)
+lyhike <- c(10, 100)
+pikk * lyhike
+```
+
+See juhtub ka siis, kui lühem vektor ei ole pikema täisarvuline jagatis:
+
+```{r}
+pikk <- c(1,1,2,2,3,3, 4)
+lyhike <- c(10, 100)
+pikk * lyhike
+```
+
+Üldiselt me sellist asja teha ei taha. Õnneks antakse taolisest olukorrast meile ka hoiatusteatega märku. Aga miks taoline vektoriseeritus üldse vajalik peaks olema? Asi on selles, et R käsitleb kõiki objekte vektoritena. Ka üksik number on vektor, mille pikkus on 1. Ehk siis just vektoriseeritus võimaldab meil teha nii:
+
+```{r}
+c(1,2,3,4) * 2
+```
+
+Ja midagi taolist tahame me teha päris tihti.  
+
+
+Vektori elementidele saab ka nimesi anda (ja üksikväärtustele muidugi ka)
+
+```{r}
+see2 <- c(a=1, b=2, c=3)
+see2
+```
+
+**Indekseerimine**
+
+Kuidas üksikuid väärtusi vektorist kätte saada? Neile saab ligi kasutades [ ] funktsiooni koos soovitava väärtuse indeksiga (positsiooninumbriga).
+
+```{r}
+see <- c(3,6,1,4,10)
+see[2] # tahame teada vektori teist väärtust
+a <- see[2] # tahame selle kirjutada uude andmeobjekti
+a
+see[3:4] # saame välja võtta mitu väärtust. ":" on "kuni" märk (teine kuni kolmas positsioon)
+```
+
+Andmeobjekti elemnte saab ka välja jätta.
+
+```{r}
+see[-2] # kõik elemendid välja arvatud teine
+```
+
+Indekseerida saab ka nimega.
+
+```{r}
+see2 <- c(a=1, b=2, c=3) # teeme nimedega vektori
+see2["a"] # jällegi peame kasutama jutumärke, kuna ei viita mitte andmeobjektile, 
+          # vaid selle väärtusele
+```
+
+Kui tahame nimega indekseerida mitut väärtust, peame kasutama indeksite vektorit, mille teeme `c()` funktsiooniga. Viitame indeksite vektoriga andmevektorile.
+
+```{r}
+see2
+see2[c("a","b")]
+```
+
+Viidata saab ka loogiliste tehete või loogiliste vektoritega. Saame loogilise tehtega luua loogilise vektori, mida siis saab kasutada väärtuste väljavõtmiseks.
+
+```{r}
+see <- c(3,6,1,4,10)
+see > 5 # loogiline vektor
+see[see > 5] # kasutame loogilist vektorit indekseerimiseks
+# see[c(F,T,F,F,T)] # kui me kirjutaks loogilise vektori välja
+```
+
+
+::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
+1. looge vektor *a* milles sisalduvad numbrid 2 8 3 6 7
+2. looge vektor *b* milles sisalduvad numbrid 3 4 5 7 2
+3. looge vektor *c*, mis on kahe eelmise summa
+4. looge andmeobjekt *d*, mis sisaldab *c* esimest väärtust
+5. looge vektor *e*, kus on *c* väärtuseid, mis on suuremad kui 10
+:::
+
+
+
+**Maatriksid**
+
+
+Andmevektoreid saab omakorda ühendada.
+```{r}
+see <- c(12,5)
+too <- c(6,9)
+loo <- cbind(see, too) # cbind ühendab vektorid veergude kaupa, 
+                       # ridade kaupa ühendamiseks on funktsioon rbind()
+loo
+```
+
+Tulemuseks on uus andmeobjekt, mis kuulub klassi *matrix*.  
+
+Saame ka `matrix()` funktsiooniga maatrikseid teha:
+
+```{r}
+loo <- matrix(c(12,5,6,9), nrow = 2, ncol = 2, byrow = T)
+loo
+```
+
+Maatriksi veergudele ja ridadele saame nimesid anda:
+
+```{r}
+colnames(loo) <- c("esimene_veerg", "teine_veerg")
+rownames(loo) <- c("esimene_rida", "teine_rida")
+loo
+```
+
+
+
+**Andmeobjektide klassid**
+
+
+Erinevatel andmeobjektidel on erinevad klassid. Klassid tulenevad sellest, millist tüüpi andmed selles andmeobjektis on (numbrilised, tekstilised, loogilised jne).  
+```{r}
+class(see)
+class(loo)
+```
+
+
+Enamikes andmeobjektides saab olla vaid ühte tüüpi elemente. Kui numbrilises vektoris on näiteks üks tekstiline väärtus, siis arvestab R seda vektorit kui tekstilist (kuna numrit on võimalik tekstiliseks teha, kuid teksti numbriks mitte). Näiteks maatriksis võivad olla vaid numbrilised väärtused.    
+  
+Üks andmeobjekt on siinkohal erandlik. Selleks on "list", kus võib korraga olla erinevat tüüpi andmeid.  
+```{r}
+x <- list(1, c("b", "d"))
+x
+```
+
+
+::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
+1. teil on andmevektorid *a, b, c*. Ühendage need veergupidi andmestikuks *koos*
+2. mis on selle andmeobjekti klass?
+:::
+
+
+
+**Data frame (andmestik)**
+
+Kui meil on mingi andmestik, siis üldjuhul on seal erinevat liiki tunnuseid, nii arvtunnuseid kui kategoriaalseid ehk faktortunnuseid jne. Sellise andmebaasi jaoks on R'is eraldi andmeobjekti formaat - *data.frame*.  
+*data.frame* on iseenesest list, aga omapärane selles mõttes, et tema read peavad olema ühepikkused ja veerud peavad olema ühepikkused. Põhimõtteliselt on data.frame siis selline andmeobjekt, kus ridadeks on vaatlused ja veergudeks tunnused.
+
+
+```{r}
+nimi <- c("Jaan", "Mari", "Kadri", "Mati")
+vanus <- c(29, 42, 35, 52)
+hinnang <- c(1.438, 2.763, 1.548, 2)
+see <- data.frame(nimi, vanus, hinnang) # ühendame tunnused andmestikuks
+see
+
+# saab ka nii (siin peame kasutama võrdusmärki)
+see <- data.frame(nimi = c("Jaan", "Mari", "Kadri", "Mati"),
+                  vanus = c(29, 42, 35, 52),
+                  hinnang = c(1.438, 2.763, 1.548, 2))
+```
+
+Kui meil juba on mingi andmetabel, näiteks maatriks, saame selle muuta data.frameiks funktsiooniga `as.data.frame()`
+
+```{r, eval=F}
+loo <- cbind(c(12,5), c(6,9))
+
+as.data.frame(loo)
+```
+
+Sarnaselt vektoritele saame indekseerida ka data.frame'i (maatrikseid samuti). Kuna aga data.frame on kahedimensionaalne, peame kasutama kahte indeksit. Esiteks rea ja teiseks veeru indeks.
+Tahame teada Kadri vanust, seega 3 rida ja 2 veerg:
+
+```{r}
+see[2,3]
+```
+
+Kui jätame veeru koha tühjaks, valitakse kõik veerud.  
+```{r}
+see[2,]
+```
+Kui jätame rea koha tühjaks, valitakse kõik read
+```{r}
+see[,3]
+```
+
+Kui tahame valida mingit tunnust (veergu) siis võime kasutada selle numbrilist või nimelist indeksit
+```{r}
+see[,"nimi"] # tahame nime veeru kõiki ridu, seega jätame indekseerimisel rea koha tühjaks 
+```
+
+Võime valida ka mitu veergu või rida korraga.
+```{r}
+see[1:2,1:2]
+```
+Seega saame valida ainult mingi, meile vajaliku osa datasetist
+
+Teine viis veeru ehk tunnuse valimiseks on $ märk
+```{r}
+see$nimi
+```
+
+
+::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
+1. Teil on andmestik *koos*. Tehke see data.frameiks
+2. Võtke sealt välja esimene rida
+3. Võtke sealt välja veerg *c* ja salvestage see eraldi andmeobjektina
+4. Kasutades alternatiivset viisi, võtke välja veerg *b* 
+:::
+
+
+
+**Data frame'i modifitseerimine**
+
+
+Data.frame'i väärtuste muutmisel saame jälle indekseid kasutada:
+```{r}
+see$hinnang[1] <- 1 # muudame hinnangu tunnuse esimese väärtuse 1-ks
+see[1, 3] <- 1 # sama mis eelmine
+see
+```
+
+Data.frame'i uute tunnuste lisamine:
+```{r}
+see$rahulolu <- c(2, 4, 3, 5)
+see$sugu <- c("m", "n", "n", "m")
+see
+```
+
+Data.frame'i tunnuste kustutamine:
+```{r}
+see$rahulolu <- NULL
+see
+```
+
+Saame ridade valimiseks (indekseerimiseks) kasutada loogilisi tehteid ja seega välja võtta just need vaatlused mida vajame.
+```{r}
+see[see$vanus < 40, ]
+```
+
+Samal ajal saame saame võtta ka ainult vajalikud veerud:
+```{r}
+see[see$vanus < 40, c("nimi", "vanus")]
+```
+
+Nii saame teha andmestikust alamandmestiku, is vastab konkreetsetele tingimustele (subseti loomine):
+```{r}
+uus <- see[see$sugu == "n", c("nimi", "hinnang")]
+uus
+```
+
+Selleks saab kasutada ka `subset()` funktsiooni:
+```{r}
+subset(see, sugu == "n", select = c("nimi", "hinnang"))
+```
+
+
+
+
+::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
+1. Lisage oma andmeobjektile *koos* uus tunnus *f*, milles sisalduvad tähed a i a i a
+2. Looge uus data.frame, mis sisaldab tunnuseid *a, b* ja ainult ridu, mille väärtus tunnuses *f* on a
+:::
+
+
+
+**Faktorid**
+
+Faktorid on R'i kategoriaalsed tunnused. Mõned meetodid vajavad sisendiks faktoreid. Võime tekstilise tunnuse (või ka numbrilise) muuta faktoriks funktsiooniga `as.factor()`.
+
+```{r}
+x1 <- as.factor(c("punane", "roheline", "sinine", "sinine"))
+x1
+```
+Aga faktortasemed on järjestatud tähestiku järgi. Üldjuhul on meil ikkagi mingi oma järjekord. Peaksime selle määrama nii:
+
+```{r}
+x1 <- c("punane", "roheline", "sinine", "sinine")
+x1 <- factor(x1, levels = c("sinine", "roheline", "punane"))
+x1
+```
+Mis aga juhtub kui me ühe taseme kogemata ära unustame:
+
+```{r}
+x1 <- c("punane", "roheline", "sinine", "sinine")
+x1 <- factor(x1, levels = c("sinine", "roheline"))
+x1
+```
+Seega faktorid võivad teatud kohtades natukene ohtlikud olla ning nende kasutamisel peab tähelepanelik olema.
+
+::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
+1. looge oma andmestikku *koos* juurde faktortunnus *g*, milles sisalduvad tähed r t r t r
+:::
+
+
+**Andmeobjektide kustutamine**
+
+R jätab kõik konkreetse sessiooni ajal loodud või imporditud andmeobjektid mällu. 
+Andmeobjektide kustutamine käib funktsiooniga `rm()`.
+```{r}
+rm(x)
+```
+
+Kui tahame kustutada kõik mälus olevad andmeobjektid, siis ...
+
+```{r, eval=F}
+rm(list=ls())
+```
+
+
+
+**R'i paketid**
+
+Paljud funktsioonid on kaasas "baas"R'iga. Lisaks neile on aga suur hulk funktsioone, mida on võimalik pakettidena juurde installida.   
+Paketid on kasutajate eneste poolt kirjutatud. Mõned neist on väga spetsiifilised, teised jällegi väga laialdaselt kasutatavad. Hetkel on ligi 13 700 paketti (kaks aastat tagasi oli neid veel 10 000).  
+Et paketti kasutada, tuleb see esmalt installida.
+
+```{r, eval=F}
+install.packages("ggplot2") # jutumärgid on vajalikud
+```
+
+Kui pakett on installitud, tuleb see R'i mällu laadida (igaks sessiooniks uuesti).
+
+```{r, eval=T, warning=F}
+library(ggplot2) # jutumärgid ei ole vajalikud
+```
+
+Miks peab enne igat sessiooni paketi uuesti laadima?  
+Kuna pakette on väga palju ja neis funktsioone veelgi rohkem, siis hakkavad funktsioonide nimed korduma. Et seda vältida, ongi mõistlik laadida vaid need paketid, mida konkreetse sessiooni ajal otseselt vaja on.  
+Funktsioonide nimed võivad kattuda isegi väheste laaditud pakettide korral. Sellisel juhul kasutab R viimati laetud paketi funktsiooni.
+
+
+## Andmetega töötamine
+
+**Andmete sisselugemine**
+
+Andmete sisselugemiseks on mitmeid erinevaid funktsioone, mille valik sõltub sellest mis formaadis meie andmed on.  
+Kõige mõistlikum viis andmeid hoida on .csv fail (*comma separated value*). Näiteks Excelis saab andmetabeli csv'ks salvestada (save as). Samuti Statas, SPSS'is jne. Olenevalt sellest mida me numbri komakohana kasutame ("." või ","), saab csv faili laadida funktsiooniga `read.csv()` või `read.csv2`.  
+```{r, eval=F}
+andmed <- read.csv("C:/Users/Mina/Kvant analüüsi meetodid II (2019)/Andmed/andmed.csv")
+```
+Kindlasti tuleb andmed kuhugi andmeobjekti (data.frame'i) sisse lugeda, muidu kuvatakse nad lihtsalt konsooli.  
+*faili path* peab olema jutumärkides. Kaldkriipsud on teistpidi kui folderi käsujoonel.  
+
+Aegajalt juhtub, et loete täiesti korralikud andmed sisse, kuid kui neid R-is vaatate, siis on ü-de, ä-de ö-de või õ-de asemel mingid imelikud krõnksud. Sellisel puhul on üldjuhul tegemist *encoding*'u probleemiga, st R ei saa aru kuidas arvutikeelt (see kuidas kõik tekstid ja andmed jne arvutisiseselt salvestatud on) inimkeelde tõlkida. Maailmas kasutatakse selleks erinevaid kodeeringuid, mis lähtuvad erinevatest tähestikest ja sümbolitest. Üks univesaalseid kodeeringuid, mis tuleb toime praktiliselt kõikvõimalike sümolite ja tähestikega on *UTF-8*. Kui nüüd juhtub, et teie sissetõmmatud andmete puhul esineb taoline *encoding*'u probleem, siis `read.csv()` funktsioonil on vastav parameeter, millega saate sobiliku *encoding*'u määrata.  
+
+```{r, eval = F}
+andmed <- read.csv("C:/Users/Mina/Kvant analüüsi meetodid II (2019)/Andmed/andmed.csv",
+                   fileEncoding = "UTF-8")
+```
+
+On ka üks mugav pakett *csv* failide sissetõmbamiseks, kus see *encoding* on juba automaatselt määratud - *readr* ja selle funktsioon `read_csv()` (või `read_csv2()`).
+
+```{r, eval = F}
+install.packages("readr")
+andmed <- read_csv("C:/Users/Mina/Kvant analüüsi meetodid II (2019)/Andmed/andmed.csv"
+
+```
+
+
+Kui andmed on näiteks SPSS faili kujul (ja teil ei ole SPSS'i, et neid ümber salvestada) aitab pakett *haven* ja funktsioon `read_spss()` (Stata faili puhul `read_dta()`). Exceli faile saab sisse tõmmata paketi *readxl* funktsiooniga `read_excel()`.
+
+```{r, eval=F}
+install.packages("haven")
+install.packages("readxl")
+library(haven)
+andmed <- read_spss("andmed.sav")
+```
+
+Viimase funktsiooniga ei kasutanud ma faili pathi. Kui me oleme määranud *working directory*'ks ehk Ri konkreetse sessiooni töökataloogiks selle kataloogi, kus andmed parajasti on, siis ei ole seda vaja teha. *working directory* saab määrata ka funktsiooniga `setwd()`.
+
+```{r, eval=F}
+setwd("C:/Users/Mina/Kvant analüüsi meetodid II (2019)/Andmed/andmed.csv")
+```
+
+*Working directory*'sse salvestuvad ka kõik asjad mida me R'is salvestame (graafikud, andmed jne). Kui Kasutame R'i projekti, siis on wd automaatselt projektikataloog.
+
+
+
+**Andmete salvestamine**
+
+Andmete salvestamine .csv formaati käib `write.csv()` funktsiooniga (ja üldiselt me tahame neid sellesse formaati salvestada).
+```{r, eval=F}
+write.csv(andmed, file="C:/Users/Mina/Kvant analüüsi meetodid II/Andmed/andmed.csv")
+```
+
+Teine (ja tegelikult eelistatum) salvestamisviis on *readr* funktsioon `write_csv()`.
+
+R'il on ka oma salvestusformaat. Kui on aga plaanis andmeid pikemalt salvestada, teise arvutiga kasutada või kellegagi jagada, siis ei ole mõistlik Rdata salvestusvisi kasutada, kuna RData fail on konkreetse Ri konfiguratsiooni spetsiifiline.
+
+```{r, eval=F}
+save(see, file = "see.RData") #salvestamine
+rm(see)
+load("see.RData") # sisse laadimine
+```
+
+
+
+
+**Andestikust ülevaate saamine**
+
+R'is on mitmeid näidisandmestikke. Võtame neist ühe ja salvestame eraldi andmeobjekti.
+
+```{r}
+dat <- iris
+```
+
+Vaatame andmestiku struktuuri
+
+```{r}
+str(dat)
+```
+
+Mitu rida ja mitu veergu andmestikus on (ehk siis dimensioonid)?
+
+```{r}
+dim(dat)
+```
+
+Tunnuste nimed
+
+```{r}
+names(dat)
+```
+
+Andmestiku esimesed read
+
+```{r}
+head(dat)
+```
+
+Kuna R eristab suuri ja väikesi tähti, siis oleks lihtsam kui kõik tunnuste nimed olekid väikestes tähtedes. Kasutame funktsiooni `tolower()`: 
+```{r}
+names(dat) <- tolower(names(dat))
+```
+Vaatame, mis klassist on tunnus *species*:
+```{r}
+class(dat$species)
+```
+Mhh. Faktor. Mis faktorlevelid on?
+```{r}
+levels(dat$species)
+```
+
+Ülevaade kõikidest tunnustest (kui on suur andmebaas, siis oleks mõistlik valida ainult mõned tunnused (indeksitega siis)):
+```{r}
+summary(dat)
+```
+
+
+
+**Kirjeldav statistika**
+
+Mõned olulisemad funktsioonid
+```{r}
+mean(dat$sepal.length) #aritmeetiline keskmine
+median(dat$sepal.length) # mediaan
+sd(dat$sepal.length) # standardhälve
+var(dat$sepal.length) #dispersioon
+max(dat$sepal.length) #maksimaalne väärtus
+min(dat$sepal.length) #minimaalne väärtus
+length(dat$sepal.length) #vaatluste arv, tunnuse pikkus
+sum(dat$sepal.length) #summa
+cor(dat$sepal.length, dat$sepal.width) #korrelatsioon
+```
+
+Kui tunnuses on puuduvad väärtused, siis paljud funktsioonid ei tööta
+```{r}
+x <- dat$sepal.length
+x[3] <- NA # muudame ühe väärtuse puuduolevaks
+mean(x)
+```
+Et puuduvaid väärtusi mitte arvestada, kasutame `na.rm` argumenti (mõnedel funktsioonidel on teistsugused missingute argumendid, vaadake help'i)
+```{r}
+mean(x, na.rm=TRUE)
+```
+
+
+::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
+1. Leidke tunnuse *sepal.width* keskmine ilma funktsiooni `mean()` kasutamata
+2. Tegime tunnusest *sepal.length* uue andmeobjekti *x* (kus on üks puuduv väärtus). Leidke *x*'i korrelatsioon *sepal.width*'iga (vajadusel kasutage helpi) 
+:::
+
+
+**Tabelid**
+
+Kategoriaalsetele tunnustele tabelid
+```{r}
+table(dat$species)
+```
+
+Risttabeli jaoks on meil ka teist faktortunnust (või tekstilist tunnust) vaja. Teeme ise ühe
+```{r}
+dat$kat <- cut(dat$sepal.length, breaks = 3, labels = c("L", "K", "P")) # funktsioon cut() lõikab arvtunnuse kategooriateks, breaks argumendiga saab määrata mitmeks kategooriaks (võib ka cut-pointid ette anda, nt breaks=c(2,3,4))
+```
+
+Risttabel
+```{r}
+table(dat$species, dat$kat)
+```
+
+Saame juurde panna rea ja veeru summad (selleks peab tabel enne olemas olema)
+```{r}
+x <- table(dat$species, dat$kat)
+addmargins(x)
+```
+
+*Margin*'eid võib lisada ka ainult veerule või ainult reale, samuti võivad need midagi muud kui summa olla (vaata funktsiooni helpi)
+
+Proportsioonide tabel
+```{r}
+prop.table(x)
+```
+
+*Default* on proportsioon kogusummast. Aga võime ka argumendiga 1 määrata rea proportsiooni või argumendiga 2 veeru proportsiooni.
+
+```{r, eval=FALSE}
+prop.table(x, 1)
+prop.table(x, 2)
+```
+
+
+### dplyr
+
+*Dplyr* on väga funktsionaalne pakett data.frame'is olevate andmete töötlemiseks, kirjeldamiseks ja transformeerimiseks.  
+Praktiliselt kogu andmetöötluse saab *dplyr*'i abil ära teha.  
+*Dplyr* põhineb viiel peamisel funktsioonil:  
+- `filter()` - vaatluste filtreerimine mingite kriteeriumite alusel  
+- `select()` - tunnuste valimine  
+- `arrange()` - andmete järjestamine mingi tunnuse põhjal  
+- `mutate()` - uue tunnuse tegemine  
+- `summarise()` - tunnuste summeerimine  
+
+Lisaks veel funktsioon `group_by()`, millega saab andmestiku mingi tunnuse alusel gruppideks jaotada ja siis igale grupile näiteks summarise() funktsiooni rakendada. 
+
+Kõigepealt installime ja laadime dplyr'i ja ühe näidisandmestiku
+```{r, eval=F}
+install.packages("dplyr")
+install.packages("nycflights13")
+```
+
+```{r, warning=F}
+library(dplyr)
+library(nycflights13)
+```
+
+Salvestame paketist *nycflights13* andmestiku  *flights* käepärasema nimega :
+```{r}
+dat <- flights
+```
+
+Vaatame, mis andmestikuga tegu on
+```{r}
+head(dat)
+```
+
+
+```{r}
+names(dat)
+```
+
+**dplyr: filter**
+
+Valime ainult need vaatlused, kus lennufirmaks on AA (tunnus *carrier*) ja mis toimusid jaanuari- või veebruarikuus (*dplyr*'i funktsioonides on andmestik alati esimeseks argumeniks)
+```{r}
+dat.aa <- filter(dat, carrier=="AA" & (month==1 | month==2))
+table(dat.aa$month)
+table(dat.aa$carrier)
+```
+
+**dplyr: select**
+
+Valime *dat.aa* andmestikust tunnused *month*, *arr_delay* ja *tailnum*
+
+```{r}
+dat.aa1 <- select(dat.aa, month, arr_delay, tailnum)
+head(dat.aa1)
+```
+
+Küllaltki kasulikud on `select()`'i lisavõimalused, mis lasevad valida tunnuseid vastavalt sellele, mis tähekombinatsiooniga tunnusenimi algab, lõpeb või mida sisaldab (täpsemalt vaata `select()` helpi).
+
+```{r, eval=F}
+dat.aa2 <- select(dat.aa, contains("arr"))
+```
+
+**dplyr: arrange**
+
+Järjestame *dat.aa1* andmedtiku *arr_delay* tunnuse järgi
+```{r}
+dat.aa1 <- arrange(dat.aa1, arr_delay)
+head(dat.aa1)
+```
+Suuremast väiksemaks järjestamieks tuleb kasutada `desc()` lisavõimalust
+```{r, eval=F}
+dat.aa1 <- arrange(dat.aa1, desc(arr_delay))
+```
+
+**dplyr: mutate**
+
+Teeme uue tunnuse, kus hilinemise aeg oleks tundides.
+
+```{r}
+dat.aa1 <- mutate(dat.aa1, tunnid=arr_delay/60)
+head(dat.aa1)
+```
+
+Saab luua ka funktsioonide alusel uusi tunnuseid, näiteks kui tahame mingil põhjusel tunnust, kus oleks kõikide hilinemiste keskmine.
+
+```{r, eval=F}
+mutate(dat.aa1, keskmine=mean(arr_delay, na.rm=T))
+```
+
+**dplyr: summarise** 
+
+Tahame summeerida hilinemised keskmise, standardhälbe, maksimumi ja miinimumi alusel.
+
+```{r}
+summarise(dat.aa1, 
+          keskmine=mean(arr_delay, na.rm=T),
+          sdh=sd(arr_delay, na.rm=T),
+          maks=max(arr_delay, na.rm=T),
+          min=min(arr_delay, na.rm=T))
+```
+
+**dplyr: group_by**
+
+Tahame teada keskmist hilinemist kuude lõikes.
+```{r}
+summarise(group_by(dat.aa1, month), keskmine=mean(tunnid, na.rm=T))
+```
+
+**dplyr: piping**
+
+
+dplyr toetab nn piping'ut. Kombinatsiooniga %>% saab saab ühe funktsiooni tulemuse võtta sisendiks järgmisele funktsioonile. Seega saame kõik vajalikud toimingud ühes reas ära teha. Kõikide dplyr'i funktsioonide puhul on esimene argument *data*. Kui kasutame %>%, ei pea me enam *data*'t defineerima ja dplyr saab ise aru, et andmeteks on eelmise funktsiooni tulemused.  
+Nii saame kõik eelnevad käsud panna ühte jadasse:
+```{r}
+dat %>% #algsed andmed
+  filter(carrier=="AA", month==1 | month==2) %>%
+  select(month, arr_delay, tailnum) %>%
+  arrange(arr_delay) %>%
+  mutate(tunnid=arr_delay/60) %>%
+  group_by(month) %>%
+  summarise(keskmine=mean(tunnid, na.rm=T))
+```
+
+Kui me tahame tulemusi kuhugi salvestada, peame uue andmeobjekti alguses määrama.
+```{r, eval=F}
+dat1 <- dat %>%
+  select(month, arr_delay, tailnum)
+```
+
+Tänu piping'ule saab küllaltki keerulisi andmeteisendusi teha väga lihtsalt ja elegantselt (puhta ja arusaadava koodiga). Näiteks tunnus, milles on kõikide lennufirmade keskmine hilinemine kõikide kuude lõikes:
+
+```{r}
+dat1 <- dat%>%
+  group_by(carrier, month) %>% # saame grupeerida ka mitme tunnuse lõikes
+  mutate(keskmine = mean(arr_delay, na.rm=T))
+```
+
+
+**Veel mõned kasulikud funktsioonid**
+
+Kui on vaja välja jätta dubleerivad vaatlused:
+
+```{r}
+flights %>% 
+  distinct(carrier, flight)
+```
+
+Kui on vaja vaatluste arvu:
+
+```{r}
+flights %>% 
+  summarise(n())
+
+# Või vaatluste arv gruppide lõikes
+flights %>% 
+  group_by(carrier) %>% 
+  summarise(kokku = n())
+```
+
+Kui tahame välja võtta juhuvalimi:
+```{r}
+# Võtame välja 10 juhuslikku rida
+flights %>% 
+  sample_n(10)
+```
+
+Kui tahame välja võtta konkreetsed read:
+```{r}
+# Võtame välja esimesed 5 rida
+flights %>% 
+  slice(1:5)
+```
+
+
+### Andmete ühendamine
+
+Andmestike ühendamisel võib olla kaks eesmärki: tahame lisada ridu või tahame lisada tunnuseid (veergusid).
+
+Ridade lisamiseks on dplyr'is funktsioon `bind_row()`:
+
+```{r}
+#Teeme kaks andmestikku
+dt1 <- data.frame(a = c("a", "b", "c", "d", "e"), b = 1:5)
+dt1
+
+dt2 <- data.frame(a = c("a", "b", "e", "f"), c = 6:9)
+dt2
+
+# Ühendame andmestikud ridadena
+bind_rows(dt1, dt2)
+
+```
+
+Andmestike tunnuste kaupa ühendamiseks on meil vaja ID-tunnust või tunnuseid, mis identifitseeriks unikaalsed vaatlused. Antud juhul on meil selleks tunnus "a".
+
+```{r}
+# Ühendame teise andmestiku esimese külge 
+# (ehk siis alles jäävad kõik esimese andmestiku vaatlused)
+left_join(dt1, dt2, by = "a")
+
+# Ühendame esimese andmestiku teise külge 
+# (ehk siis alles jäävad kõik teise andmestiku vaatlused)
+right_join(dt1, dt2, by = "a")
+
+# Ühendame andmestikud nii, et alles jäävad kõik vaatlused mõlemast andmestikust
+full_join(dt1, dt2)
+
+# Ühendame andmestikud nii, et alles jäävad need vaatlused, mis mõlemas andmestikus olemas on
+inner_join(dt1, dt2)
+
+# Ühendame andmestikud nii, et alles jäävad need vaatlused, mida ei ole kummaski andmestikus
+anti_join(dt1, dt2)
+
+```
+
+
+### Andmestiku kuju muutmine
+
+
+Andmestik võib olla nn "pikal kujul" või "laial kujul". Pikad andmed on sellised, mille puhul kõik muutujad on kirjeldatud tunnustena. Laial kujul andmed on sellised, mille puhul mõni muutuja on jaotatad erinevateks tunnusteks. *tidyr* pakett võimaldab mugavalt andmestiku ühelt kujult teise tranformeerimist:
+
+```{r}
+library(tidyr)
+
+# Teeme "laia" näidisandmestiku
+lai <- data.frame(nimi = c("Jüri", "Mari", "Jaan"), 
+                 test_1 = c(3,5,2), 
+                 test_2 = c(8,4,5),
+                 test_3 = c(2,5,4))
+
+lai
+
+# Antud andmestikus on erinevad testid eri tunnustena. 
+# Aga kui me tahaksime, et test oleks tunnus. 
+# Keerame andmestiku pikale kujule
+
+pikk <- lai %>%
+  pivot_longer(cols = starts_with("test_"), 
+               names_to = "test", 
+               values_to = "tulemus",
+               names_prefix = "test_")
+pikk
+
+# Keerame tagasi laiale kujule
+lai <- pikk %>% 
+  pivot_wider(names_from = "test", values_from = "tulemus", names_prefix = "test_")
+lai
+```
+
+
+### Kuupäevad
+
+
+Ris käsitletakse kuupevi ja kellaaegu eraldi "Date" klassina. See tagab, et kupäevad ja kellaajad on alati ühtses formaadis ning võimaldab nendega tehteid teha. Aja tunnustega tegelemiseks on mugav kasutada paketti *lubridate*.
+
+Numbriliste või tekstiliste tunnuste kuupäevadeks muutmine:
+
+```{r}
+library(lubridate)
+
+# Kui kuupäeva järjekord on kuupäev (d), kuu (m), aasta (y), siis:
+dmy('24.03.2017')
+# või
+dmy(24032017)
+# või
+dmy('24-03-2017')
+# või
+dmy('24/03/2017')
+
+# Kui järjekord on teine, siis tuleb lihtsalt tähed funktsiooninimes vastavalt vahetada
+mdy('03-24-2017')
+
+ymd('2017/03/24')
+
+# jne
+
+```
+
+Kui tahame kuupevast aastat, kuud, päeva vms:
+
+```{r}
+kp <- dmy(24032017)
+
+year(kp)
+
+month(kp)
+
+week(kp)
+
+day(kp)
+
+wday(kp)
+# või
+wday(kp, label = T)
+
+```
+
+Praegune aeg:
+```{r}
+
+today()
+
+now()
+
+```
+
+Kestus:
+```{r}
+# Mitu sekundit kestab päev
+duration(day = 1)
+
+# mitu sekundit kestab nädal
+duration(week = 1)
+
+# aasta
+duration(1, "year")
+```
+
+Interval:
+```{r}
+kp1 <- dmy(24032017)
+kp2 <- dmy(26062017)
+
+interval(kp1, kp2)
+# või
+kp1 %--% kp2
+
+# mitu päeva interval kestab
+kp1 %--% kp2 %/% days(1)
+
+# Kas mingi kuupäev jääb intervalli sisse
+dmy(23032017) %within% interval(kp1, kp2)
+
+dmy(25032017) %within% interval(kp1, kp2)
+```
+
+
+
+### Tekstilised tunnused
+
+
+Tekstiliste tunnuste jaoks on pakett *stringr*
+
+```{r}
+library(stringr)
+
+# Teeme vektori tekstidega (stringidega)
+tekst <- c("Tekstiliste", "tunnuste", "jaoks", "on", "pakett", "stringr")
+
+# Mitu tähemärki on igas sõnas
+str_length(tekst) 
+
+# Paneme erinevad sõnad kokku
+str_c(tekst, collapse = " ")
+
+# võtame välja iga sõna esimese ja teise tähemärgi
+str_sub(tekst, start = 1, end = 2)
+
+# Võtame välja sõnad, mis sisaldavad "t" tähte
+str_subset(tekst, "t")
+
+# Võtame välja sõnad, mis sisaldavad "a" või "o" tähte
+str_subset(tekst, "[ao]")
+
+# Kas sõnas on "a" või "o" täht
+str_detect(tekst, "[ao]")
+
+# Võtame sõnadest välja "te" tähekombinatsioonid
+str_extract(tekst, "te")
+
+# Mitu "t" tähte igas sõnas on
+str_count(tekst, "t")
+
+# Asendame kõik "t" tähed "T" tähega
+str_replace(tekst, "t", "T")
+# Nagu näha, siis asendati ainult sõna esimene "t" täht
+# Kui tahame kõik "t" tähed asendada, siis:
+str_replace_all(tekst, "t", "T")
+```
+
+
+
+## R markdown
+
+R markdown teeb tulemuste esitamise (koos koodiga) või raporti tegemise väga lihtsaks. Kõigepealt on vaja installida pakett "rmarkdown" (RStudio'ga tuleb see defaultis kaasa). Seejärel saame scriptifaili asemel valida *markdown*'i dokumendi: File > New File > R Markdown. Saab valida formaadi, mida väljundina tahame saada (html, pdf, word). Avaneb markdown'i dokument, millesse saab kirjutada nii tavalist teksti kui ka R'i koodi, ning mille väljundis sisalduvad (kui me seda muidugi tahame) ka analüüsitulemused. Väljundi loomiseks tuleb vajutada Knit nuppu.
+
+Lisainfo jaoks võite vaadata:  
+Help > Markdown Quick Reference  
+http://rmarkdown.rstudio.com/
+
+
+## Andmegraafika
+
+
+Edward Tufte, üks andmegraafika legende, kirjeldab oma raamatutes *Beautiful Evidence* ja *The Visual Display of Quantitative Information* peamisi andmegraafika põhialuseid:  
+
+- Graafikul esitatud tunnuste representatsioonid peavad olema proportsionaalsed mõõdetud tunnustega reaalses maailmas
+- Graafikul esitatule peab olema selge, detailne ja läbiv tähistus ning selgitus
+- Esita andmete varieerumist, mitte graafiku disainist tulenevat varieerumist
+- Informatsiooni edastavaid dimensioone ei tohiks esitada rohkem kui andmed seda võimaldavad (3D tulpdiagrammid on saatanast)
+- Graafik peab edastama ainult andmetest lähtuvat informatsiooni (mida saaks graafikul kustudada, ilma et selle infoedastusvõime kannataks?)
+- Võrdlusmoment
+  + Mingi kvantiteet (keskmine, sagedus, hajuvusnäitaja jne) omab mõtet vaid suhestudes mingi teise kvantiteedi või referentsiga
+  + Sisukas hüpotees võrdluses nullhüpoteesiga
+- Mitmemõõtmelisus
+  + Maailma on alati mitmemõõtmeline
+  + Näita võimalikult palju andmeid (aga mitte rohkem kui võimalik)
+- Esitatud andmed peavad olema olulised (mõttekad)
+
+Millekes üldse graafikud?
+
+- Andmete mõistmine
+- Mustrite leidmine
+- Vigade leidmine
+- **Tulemuste kommunikeerimine**
+
+
+### R'i baasgraafikud
+
+Baas-R'is on väga võimekas graafikamootor, millega on võimalik väga ilusaid ja sisukaid graafikuid teha. Tänapäeval kasutab aga enamik andmeanalüütikuid baas-R'i asemel paketti "ggplot2", kus on jooniste tegemine muudetud mõnevõrra lihtsamaks, loogilisemaks ja võimalusterohkemaks. Kuid, et oleksite vähemalt tuttav ka baas-R'i võimalustega, vaatame kiirelt üle ka selles leiduvad võimalused.
+
+```{r, echo=T, eval=T}
+dt <- iris #Kasutame Iris'e näidisandmestikku
+names(dt) <- tolower(names(dt))
+```
+
+
+**Scatterplot**
+
+```{r, echo=T, eval=T}
+plot(x = dt$sepal.length, y = dt$sepal.width)
+
+```
+
+Saab kasutada ka ainult ühte argumenti.
+
+```{r, echo=T, eval=T}
+plot(x = dt$sepal.length)
+
+```
+
+Argumendiga *type=* saab määrata graafiku tüübi. Näiteks "l" joongraafik, "b" jooned ja sümolid koos jne (vaata ?plot). 
+```{r, echo=T, eval=T}
+plot(dt$sepal.length, type= "b")
+
+```
+
+
+**Histogram**
+
+
+```{r, echo=T, eval=T}
+hist(x = dt$sepal.length)
+
+```
+
+
+```{r, echo=T, eval=T}
+hist(x = dt$sepal.length, breaks = 20)
+
+```
+
+**Boxplot**
+
+Ühele grupile
+```{r, eval=T, highlight=T}
+boxplot(dt$sepal.length)
+```
+
+
+Mitme grupi lõikes peab kasutama *formula* märki (~)
+```{r, eval=T, highlight=T}
+boxplot(dt$sepal.length ~ dt$species)
+```
+
+**Barplot**
+
+Barplot'i jaoks on sisendiks vaja tabelit
+
+```{r, eval=T, highlight=T}
+library(dplyr)
+d_bar <- dt%>%
+  filter(sepal.length>5.5)%>%
+  select(species)%>%
+  table()
+d_bar
+```
+
+
+```{r, eval=T, highlight=T}
+barplot(d_bar)
+```
+
+
+**Baasgraafikute parameetrid**  
+
++ pch: graafikul esitatv sümbol (vaikimisi ring)
++ lty: joone tüüp (vaikimisi tavaline)
++ ldw: joone laius (numbriline vaikimisi 1)
++ col: värv (colors() funktsiooniga näeb võimalikke värve)
++ xlab ja ylab: telgede nimed (tekstiline väärtus)
++ xlim ja ylim: telgede limiidid (kui on vaja neid suurenda või vähendada)  
+
+```{r, eval=T, highlight=T}
+plot(x = dt$sepal.length, y = dt$sepal.width,
+     pch=2,
+     col="red",
+     xlab="Sepal length",
+     ylab="Sepal width")
+```
+
+
+`par()` funktsiooniga saab seada *globaalseid* parameetrieid. Näiteks saab panna mitu graafikut üksteise kõrvale:  
+
+```{r, eval=FALSE}
+par(mfrow=c(1,2))
+```
+
+Mis värviparameeter on vaikimisi *globaalselt* määratletud?
+
+```{r, eval=T, highlight=T}
+par("col")
+```
+
+**Baasgraafikute ehitamine**
+
+Graafikutele saab lisada erinevaid komponente või ka teisi graafikuid. nii on võimalik vajalik graafik kokku ehitada. Mõned võimalused:
+
++ lines() joonte lisamine
++ points() punktide lisamine
++ text() teksti lisamine
++ title() palkirja lisamine
++ legend() legendi lisamine
+
+
+```{r, eval=T, highlight=T}
+plot(x = dt$sepal.length, y = dt$sepal.width,
+     xlab="Sepal length",
+     ylab="Sepal width")
+dt2 <- dt %>%
+  filter(species=="setosa")
+points(dt2$sepal.length, dt2$sepal.width, col="red")
+legend("topright", pch=1, col=c("black", "red"),legend = c("muu", "seotsa"))
+title(main = "Pealkiri")
+```
+
+
+
+### ggplot
+
+
+ggplot'i lähtekohaks on Leland Wilkinsoni *graafika grammatika*, mis lähtub põhimõttest, et graafiku võib lahutada eraldiseisvateks komponentideks ja neist komponentidest saab saab uusi tervikuid ehitada.
+> "... the grammar tells us that a statistical graphic is a **mapping from data** to 
+> **aesthetic attributes** (colour, shape, size) of **geometric objects** (points, 
+> lines, bars). The plot may also contain **statistical transformations** of the data 
+> and is drawn on a specific **coordinate system**. **Facetting** can be used to generate 
+> the same plot for diferent subsets of the dataset. It is the combination of these 
+> independent components that make up a graphic." 
+> (Hadley Wickham, "ggplot2: Elegant Graphics for Data Analysis")
+
+**ggploti elemendid**
+
+- `data` : andmed. Üldiselt peaks olema dataframe kujul
+- `geom` : geomeetriline objekt, mille läbi me oma anmdeid esitame (punktid, jooned, tulbad jne)
+- `aes` : *aesthetic* ehk siis kuidas ja mille läbi me oma andmeid geomeetriliste objektidega suhestame (mis on x ja y telg, värv, kuju, suurus). Need on joonise objektide visuaalsed omadused
+- `facet` : tahud ehk kuidas joonist alamosadeks (tahkudeks) jagada
+- `stat` : milliseid statistilisi transformatsioone on vaja kasutada
+- `scales` : kuidas andmete reaalsed väärtused joonise väärtusteks tõlgendatakse
+- `coord` : mis koordinaatsüsteemi kasutada. Üldiselt `cartesian`
+- `positsion` : andmeobjektide positsioonide nihutamine
+- `guides` : teljed, legendid jne
+- `theme` : joonise üldine kujundus (kus asub legend, mis värvi on tagapõhi jne)
+
+
+Installime ggplot'i (kui me seda jua teinud ei ole) ja laadime selleks sessiooniks. Üritame teha regressioonijoontega *scatterploti*.
+
+```{r}
+#install.packages("ggplot2")
+library(ggplot2)
+dt <- iris
+names(dt) <- tolower(names(dt))
+```
+
+**Scatterplot**
+
+Kõigepealt `ggplot`i peafunktsioon, kus märgime andmestiku (tegelikult võime seda teha ka *geom*'i sees). Seejärel lisame *geom*'i kihi. Liidame selle peafunktsioonile otsa (kasutatdes `+` märki). Tahame punktdiagrammi, seega `geom_point` (et saada aimu erinevatest võimalikest *geom*'idest, võib uurida ggplot'i kodulehte https://ggplot2.tidyverse.org/reference/ või *cheatsheet*'i (Help > Cheatsheets > Data visualization with ggplot2)). Defineerime `aes`*thetic*'u ehk siis *mapime* tunnused x ja y teljele.
+
+```{r, eval=T}
+ggplot(data=dt)+
+  geom_point(mapping = aes(x=sepal.width, y=sepal.length))
+
+```
+
+Tegelikult ei pea argumente välja kirjutama, vaid järjekord on tähtis. Saab ka nii:
+
+```{r, eval=F}
+ggplot(dt)+
+  geom_point(aes(sepal.width, sepal.length))
+```
+
+Tahame erinevad iirise liigid erinevate värvidega grupeerida. Kuna me tahame määrata seda, kuidas andmeid esitatakse (tunnuseid graafikule *mapitakse*), peame seda tegema `aes`'i argumendi sees.
+
+```{r, eval=T}
+ggplot(data=dt)+
+  geom_point(mapping = aes(x=sepal.width, y=sepal.length, color=species))
+```
+
+Saaksime neid eristada ka näiteks kuju `shape=` või suuruse `size=` või ka läbipaistvuse `alpha=` järgi.
+
+```{r, eval=T}
+ggplot(data=dt)+
+  geom_point(mapping = aes(x=sepal.width, y=sepal.length, shape=species))
+
+```
+
+Kui me tahame lihtsalt punktide värvi muuta (ja mitte lähtuda mingist grupeerivast tunnusest), saame seda teha väljaspool `aes()` argumenti.
+
+```{r, eval=T}
+ggplot(data=dt)+
+  geom_point(mapping = aes(x=sepal.width, y=sepal.length), color="green")
+
+```
+
+Oleks vaja joonisele ka regressioonijooned saada. Selleks lisame lihtsalt järgmise kihi (kasutades `+` märki).   
+Regressioonijoone joonistamiseks võime kasutada `geom_abline()`'i, aga sellisel juhul peame regressioonikoefitsiendid enne välja arvutama (`geam_abline()` vajab sisendiks *intercept*'i ning *slope*'i). Lihtsam on kasutada `geom_smooth()`'i.
+
+```{r, eval=T}
+ggplot(data=dt)+
+  geom_point(mapping = aes(x=sepal.width, y=sepal.length, color=species))+
+  geom_smooth(aes(x=sepal.width, y=sepal.length))
+
+```
+
+Mhh, joon ei meenuta regressioonijoont. Asi on selles, et tegemist on küll regressioonijoonega, kuid mitte harjumuspärase lineaarse regressioonijoonega. `geom_smooth` kasutab vaikimisi nn *Local Polynomial Regression Fitting*'ut, mis üritab *predictida* y väärtuse sõltuvust x'i väärtusest võimalikult täpselt ja lähtudes x'i lähiümbrusest. Aga saame tellida ka tavalise lineaarse regressioonijoone, kasutades argumenti `method="lm"`.
+
+```{r, eval=T}
+ggplot(data=dt)+
+  geom_point(mapping = aes(x=sepal.width, y=sepal.length, color=species))+
+  geom_smooth(aes(x=sepal.width, y=sepal.length), method="lm")
+
+```
+
+Kõikide iirise liikide kohta eraldi joonte saamiseks tuleb jällegi määrata grupeerimine `geom_smooth()`'i `aes()`'i sees (kuna see on eraldi kiht ja eelmise kihi määrangud siin enam ei kehti). Kui me usaldusintervalle mingil põhjusel ei taha, võime need tühistada argumendiga `se=F`.
+
+```{r, eval=T}
+ggplot(data=dt)+
+  geom_point(mapping = aes(x=sepal.width, y=sepal.length, color=species))+
+  geom_smooth(aes(x=sepal.width, y=sepal.length, color=species), method="lm", se=F)
+
+```
+
+
+Pidime `aes()` argumendi määrangud kaks korda järjest välja kirjutama, kuigi nad on identsed. Ei tundu väga mõistlik. Õnneks saab ka lihtsamalt. Võime need määrata ka `ggplot()` funktsiooni enda sees. Sellisel juhul kehtivad nad ka kõikide järgenvate kihtide kohta (välja arvatud juhul kui järgenvates kihtides on teisiti määratud).
+
+```{r, eval=F}
+ggplot(dt, aes(sepal.width, sepal.length, color=species))+
+  geom_point()+
+  geom_smooth(method="lm", se=F)
+```
+
+**Facetid**
+
+Gruppe saab eristada ka neid erinevatele tahkudele pannes, kasutades selleks `facet_wrap()`'i või `facet_grid`'i. `facet_wrap()` eristab ühe tunnuse lõikes, `facet_grid()` mitme tunnuse lõikes. Mõlema puhul tuleb kasutada *formula* määrangut, st. tuleb kasutada ~ märki (tegelikult ggplot'i viimase versiooni puhul saame kasutada ka argumente `rows=` ja `cols=`).
+
+
+```{r, eval=T}
+ggplot(dt, aes(sepal.width, sepal.length))+
+  geom_point()+
+  geom_smooth(method="lm", se=F)+
+  facet_wrap(~species)
+```
+
+
+Kui tahame tahkusid näiteks ainult kahes tulbas, saame kasutada argumenti `nrow=` või `ncol=`.
+
+```{r, eval=T}
+ggplot(dt, aes(sepal.width, sepal.length))+
+  geom_point()+
+  geom_smooth(method="lm", se=F)+
+  facet_wrap(~species, ncol=2)
+```
+
+`facet_grid()`'i ja kahe tunnuse lõikes tahkude illustreerimiseks meil *iris*'e andmestikus piisavalt kategoriaalseid tunnuseid ei ole. Aga ggplotiga tuleb kaasa `diamonds` andmebaas. Vaatame seda:
+
+```{r, eval=T}
+dt1 <- diamonds
+str(dt1)
+```
+
+Kuidas on seotud teemandite karaadid (*carat*) ja nende hind (*price*)?
+
+```{r}
+ggplot(dt1)+
+  geom_point(mapping = aes(x=carat, y=price))
+
+```
+
+Kuidas siia suhestub teemandite selgus (*clarity*)?
+
+```{r}
+ggplot(dt1)+
+  geom_point(mapping = aes(x=carat, y=price, color=clarity))
+```
+
+Aga nende lõige *cut*? kasutame selleks `facet_grid()`'i. Kui tahame `facet_grid()`'iga ainult ühe tunnuse lõikes tahke tekitada, tuleb teise tunnuse asemel kasuatada punkti. Seda, kas tahud on tulbas või reas, saab määrata sellega, kuhupoole ~ märki punkt panna.
+
+```{r, eval=T}
+ggplot(dt1)+
+  geom_point(mapping = aes(x=carat, y=price, color=clarity))+
+  facet_grid(cut ~ .)
+```
+
+Lisame veel phe tunnuse, mille lõikes teemantide erisusi vaadata, värvi (*color*).
+
+```{r, eval=T, fig.width=8,fig.height=4.5,dpi=300}
+ggplot(dt1)+
+  geom_point(mapping = aes(x=carat, y=price, color=clarity))+
+  facet_grid(cut ~ color)
+```
+
+
+**Geomid ja aestetikud**
+
+Erinevaid `geom`'e on päris palju. Kõik nad on üles loetletud ggplot'i kodulehel (koos suure hulga muu infoga): https://ggplot2.tidyverse.org/reference/. Aga mõned olulisemad:  
+
+- `geom_bar()`
+- `geom_histogram()` ja `geom_freqpoly()`
+- `geom_boxplot()` ja `geom_violin()`
+- `geom_line()` ja `geom_path()`
+- `geom_density()`
+- `geom_abline()`, `geom_hline()` ja `geom_vline()`
+- `geom_text()`
+
+**Barplot**
+
+
+Tavaline *barplot*
+```{r, eval=T}
+ggplot(dt1)+
+  geom_bar(aes(clarity))
+```
+
+Kahe tunnuse lõikes tulpdiagrammi jaoks peame kasutama `aes()` sees argumenti `fill=`.
+```{r, eval=T}
+ggplot(dt1)+
+  geom_bar(aes(clarity, fill=cut))
+```
+
+Mhh, see vist ei ole päris see mida me silmas pidasime. Pigem tahaksime, et gruppide tulbad asuksid kõrvuti. Selleks peame määratlema geomi positsiooni:
+
+```{r, eval=T}
+ggplot(dt1)+
+  geom_bar(aes(clarity, fill=cut), position="dodge")
+
+```
+
+Või siis kui tahame 100% barplot
+```{r, eval=T}
+ggplot(dt1)+
+  geom_bar(aes(clarity, fill=cut), position = "fill")
+
+```
+
+**Boxplot ja violin plot**
+
+
+```{r, eval=T}
+ggplot(dt1)+
+  geom_boxplot(aes(x=color, y=carat))
+
+```
+
+
+```{r, eval=T}
+ggplot(dt1)+
+  geom_violin(aes(x=color, y=carat))
+
+```
+
+**Histogram ja frequency polygon**
+
+
+```{r, eval=T}
+ggplot(dt1)+
+  geom_histogram(aes(x=carat), bins = 50, color="white")
+
+```
+
+```{r, eval=T}
+ggplot(dt1)+
+  geom_freqpoly(aes(x=carat))
+
+```
+
+
+**Keskmised ja usalduspiirid**
+
+Väga tihti on meil vaja esitada keskmiste või proportsioonide punkthinnanguid mingite gruppide lõikes koos usaldusintervallidega. Selleks on meil kõigepealt vaja keskmisi ja usaldusintervalle. ggplot neid ise ei arvuta. Aga *dplyr*'i abil saab need võrdlemisi lihtsalt kätte. t-jaotuse kvartiilid on leitavad `qt(p, df)` funktsiooniga (p on siis tõenäosus).  
+Leiame teemantite keskmised hinnad koos usalduspiiridega teemadite lõiketi (*cut*):
+```{r, eval=T, echo=T}
+library(dplyr)
+keskmised <- dt1 %>%
+  group_by(cut)%>%
+  summarise(keskmine=mean(price),
+            se=sd(price)/sqrt(length(price)),
+            l.ci=keskmine-qt(0.975, length(price)-1)*se,
+            u.ci=keskmine+qt(0.975, length(price)-1)*se)
+keskmised
+
+```
+
+
+Kasutame `geom_point()`'i keskmiste visualiseerimiseks ja `geom_linerange()`'i usalduspiiride märkimiseks
+```{r, eval=T}
+ggplot(keskmised, aes(cut, keskmine))+
+  geom_point()+
+  geom_linerange(aes(ymin=l.ci, ymax=u.ci))+
+  coord_flip() # saame joonise teljed ära vahetada
+
+```
+
+**Joonise disain**
+
+ggplot võimaldab kontrollida praktiliselt kogu joonise väljanägemist. Vaatame mõnda olulisemat võimalust: telgede nimed ja joonise pealkiri  
+
+```{r, eval=T}
+ggplot(keskmised, aes(cut, keskmine))+
+  geom_point()+
+  geom_linerange(aes(ymin=l.ci, ymax=u.ci))+
+  coord_flip()+
+  ylab("Hind")+
+  xlab("Lõige")+
+  ggtitle("Teemantite hind")
+```
+
+Kui me tahame telgede nimedest lahti saada:
+
+```{r, eval=T}
+ggplot(keskmised, aes(cut, keskmine))+
+  geom_point()+
+  geom_linerange(aes(ymin=l.ci, ymax=u.ci))+
+  coord_flip()+
+  ylab(NULL)+
+  xlab(NULL)
+
+# või ka nii:
+# ggplot(keskmised, aes(cut, keskmine))+
+#   geom_point()+
+#   geom_linerange(aes(ymin=l.ci, ymax=u.ci))+
+#   coord_flip()+
+#   labs(x = NULL, y = NULL)
+
+```
+
+`xlab` ja `ylab` on tegelikult mugavdatud variandid `scale` funktsioonidest. `scale` funktsioonid kontrollivad seda kuidas andmed mappitakse `aes()`'i. Võetakse andmed ja teakse neist midagi joonisel nähtavat. Igal *aestheticul* on oma `scale`:  
+- Kui x telg on pidev: `scale_x_continuous`
+- Kui y telg on kategoriaalne: `scale_y_discrete`
+- Kui kasutame `fill` `aes`'i: `scale_fill_discrete`
+
+```{r, eval=T}
+ggplot(keskmised, aes(cut, keskmine))+
+  geom_point()+
+  geom_linerange(aes(ymin=l.ci, ymax=u.ci))+
+  coord_flip()+
+  scale_x_discrete(name="Lõige")+
+  scale_y_continuous(name="Hind")
+```
+
+
+Saame kontrollida ka *tick mark*'e ja *label*'eid
+
+```{r, eval=T}
+ggplot(keskmised, aes(cut, keskmine))+
+  geom_point()+
+  geom_linerange(aes(ymin=l.ci, ymax=u.ci))+
+  coord_flip()+
+  scale_x_discrete(name="Lõige", labels=c(1:5))+
+  scale_y_continuous(name="Hind", breaks = seq(3000,5000, by=100))
+```
+
+
+Kõige võimsam joonise visuaali tööriist, millega saab kontrollida pea kõike, on `theme()`. Täpsemalt saab selle kohta lugeda https://ggplot2.tidyverse.org/reference/theme.html. Vaatame näiteks, kuidas `theme()` abil muula legendi asukohta ning kustutada x-telje skaala:
+
+```{r, eval=T}
+dt <- iris
+names(dt) <- tolower(names(dt))
+ggplot(dt, aes(sepal.width, sepal.length, color=species))+
+  geom_point()+
+  theme(legend.position="bottom",
+        axis.text.x = element_blank())
+```
+
+Saame üksikasjalikult muuta praktiliselt kogu joonise väljanägemist. Saame kasutada ka juba mõningaid valmistehtud `theme()`'ide *template*'e. Näiteks `theme_bw()`.
+
+```{r}
+dt <- iris
+names(dt) <- tolower(names(dt))
+ggplot(dt, aes(sepal.width, sepal.length, color=species))+
+  geom_point()+
+  theme_bw()
+```
+
+
+
+
+
+
+
+## Edasiseks lugemiseks 
+
+
+- R'i baasteadmised  
+  + Daniel Navarro, "Learning statistics with R: A tutorial for psychology students and other beginners", peatükid 3, 4, 5, 7  
+- dplyr  
+  + https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html
+- ggplot
+  + Grolemund, G., Wickham, H., "R for Data Science"., peatükk 3 "Data visualisation" http://r4ds.had.co.nz/
+
+
+

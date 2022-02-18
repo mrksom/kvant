@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Peatükk 11 Funktsioonid | Kvantitatiivne andmeanalüüs</title>
+  <meta name="description" content="Peatükk 11 Funktsioonid | Kvantitatiivne andmeanalüüs" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Peatükk 11 Funktsioonid | Kvantitatiivne andmeanalüüs" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Peatükk 11 Funktsioonid | Kvantitatiivne andmeanalüüs" />
+  
+  
+  
+
+<meta name="author" content="Marko Sõmer" />
+
+
+<meta name="date" content="2022-02-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ülesanne.html"/>
+<link rel="next" href="kuidas-abi-saada.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Kvant II</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a></li>
+<li class="chapter" data-level="2" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html"><i class="fa fa-check"></i><b>2</b> Sissejuhatus R-i</a></li>
+<li class="chapter" data-level="3" data-path="mis-see-r-on.html"><a href="mis-see-r-on.html"><i class="fa fa-check"></i><b>3</b> Mis see R on?</a></li>
+<li class="chapter" data-level="4" data-path="miks-r.html"><a href="miks-r.html"><i class="fa fa-check"></i><b>4</b> Miks R?</a></li>
+<li class="chapter" data-level="5" data-path="mida-ri-kasutamiseks-vaja-on.html"><a href="mida-ri-kasutamiseks-vaja-on.html"><i class="fa fa-check"></i><b>5</b> Mida R’i kasutamiseks vaja on?</a></li>
+<li class="chapter" data-level="6" data-path="kuidas-ri-ja-rstudiot-kasutada.html"><a href="kuidas-ri-ja-rstudiot-kasutada.html"><i class="fa fa-check"></i><b>6</b> Kuidas R’i ja RStudiot kasutada?</a></li>
+<li class="chapter" data-level="7" data-path="r-kui-kalkulaator.html"><a href="r-kui-kalkulaator.html"><i class="fa fa-check"></i><b>7</b> R kui kalkulaator</a></li>
+<li class="chapter" data-level="8" data-path="loogilised-tehted.html"><a href="loogilised-tehted.html"><i class="fa fa-check"></i><b>8</b> Loogilised tehted</a></li>
+<li class="chapter" data-level="9" data-path="andmeobjektid.html"><a href="andmeobjektid.html"><i class="fa fa-check"></i><b>9</b> Andmeobjektid</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="andmeobjektid.html"><a href="andmeobjektid.html#loogilised-andmed-true-või-false"><i class="fa fa-check"></i><b>9.1</b> Loogilised andmed (TRUE või FALSE)</a></li>
+<li class="chapter" data-level="9.2" data-path="andmeobjektid.html"><a href="andmeobjektid.html#puuduvad-väärtused"><i class="fa fa-check"></i><b>9.2</b> Puuduvad väärtused</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ülesanne.html"><a href="ülesanne.html"><i class="fa fa-check"></i><b>10</b> Ülesanne</a></li>
+<li class="chapter" data-level="11" data-path="funktsioonid.html"><a href="funktsioonid.html"><i class="fa fa-check"></i><b>11</b> Funktsioonid</a></li>
+<li class="chapter" data-level="12" data-path="kuidas-abi-saada.html"><a href="kuidas-abi-saada.html"><i class="fa fa-check"></i><b>12</b> Kuidas abi saada?</a></li>
+<li class="chapter" data-level="13" data-path="vektorid.html"><a href="vektorid.html"><i class="fa fa-check"></i><b>13</b> Vektorid</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="vektorid.html"><a href="vektorid.html#indekseerimine"><i class="fa fa-check"></i><b>13.1</b> Indekseerimine</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="ülesanne-1.html"><a href="ülesanne-1.html"><i class="fa fa-check"></i><b>14</b> Ülesanne</a></li>
+<li class="chapter" data-level="15" data-path="maatriksid.html"><a href="maatriksid.html"><i class="fa fa-check"></i><b>15</b> Maatriksid</a></li>
+<li class="chapter" data-level="16" data-path="andmeobjektide-klassid.html"><a href="andmeobjektide-klassid.html"><i class="fa fa-check"></i><b>16</b> Andmeobjektide klassid</a></li>
+<li class="chapter" data-level="17" data-path="ülesanne-2.html"><a href="ülesanne-2.html"><i class="fa fa-check"></i><b>17</b> Ülesanne</a></li>
+<li class="chapter" data-level="18" data-path="data-frame-andmestik.html"><a href="data-frame-andmestik.html"><i class="fa fa-check"></i><b>18</b> Data frame (andmestik)</a></li>
+<li class="chapter" data-level="19" data-path="ülesanne-3.html"><a href="ülesanne-3.html"><i class="fa fa-check"></i><b>19</b> Ülesanne</a></li>
+<li class="chapter" data-level="20" data-path="data-framei-modifitseerimine.html"><a href="data-framei-modifitseerimine.html"><i class="fa fa-check"></i><b>20</b> Data frame’i modifitseerimine</a></li>
+<li class="chapter" data-level="21" data-path="ülesanne-4.html"><a href="ülesanne-4.html"><i class="fa fa-check"></i><b>21</b> Ülesanne</a></li>
+<li class="chapter" data-level="22" data-path="faktorid.html"><a href="faktorid.html"><i class="fa fa-check"></i><b>22</b> Faktorid</a></li>
+<li class="chapter" data-level="23" data-path="ülesanne-5.html"><a href="ülesanne-5.html"><i class="fa fa-check"></i><b>23</b> Ülesanne</a></li>
+<li class="chapter" data-level="24" data-path="andmeobjektide-kustutamine.html"><a href="andmeobjektide-kustutamine.html"><i class="fa fa-check"></i><b>24</b> Andmeobjektide kustutamine</a></li>
+<li class="chapter" data-level="25" data-path="ri-paketid.html"><a href="ri-paketid.html"><i class="fa fa-check"></i><b>25</b> R’i paketid</a></li>
+<li class="chapter" data-level="26" data-path="andmete-sisselugemine.html"><a href="andmete-sisselugemine.html"><i class="fa fa-check"></i><b>26</b> Andmete sisselugemine</a></li>
+<li class="chapter" data-level="27" data-path="andmete-salvestamine.html"><a href="andmete-salvestamine.html"><i class="fa fa-check"></i><b>27</b> Andmete salvestamine</a></li>
+<li class="chapter" data-level="28" data-path="andestikust-ülevaate-saamine.html"><a href="andestikust-ülevaate-saamine.html"><i class="fa fa-check"></i><b>28</b> Andestikust ülevaate saamine</a></li>
+<li class="chapter" data-level="29" data-path="kirjeldav-statistika.html"><a href="kirjeldav-statistika.html"><i class="fa fa-check"></i><b>29</b> Kirjeldav statistika</a></li>
+<li class="chapter" data-level="30" data-path="ülesanne-6.html"><a href="ülesanne-6.html"><i class="fa fa-check"></i><b>30</b> Ülesanne</a></li>
+<li class="chapter" data-level="31" data-path="tabelid.html"><a href="tabelid.html"><i class="fa fa-check"></i><b>31</b> Tabelid</a></li>
+<li class="chapter" data-level="32" data-path="pakett-dplyr.html"><a href="pakett-dplyr.html"><i class="fa fa-check"></i><b>32</b> Pakett dplyr</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="pakett-dplyr.html"><a href="pakett-dplyr.html#dplyr-filter"><i class="fa fa-check"></i><b>32.1</b> dplyr: filter</a></li>
+<li class="chapter" data-level="32.2" data-path="pakett-dplyr.html"><a href="pakett-dplyr.html#dplyr-select"><i class="fa fa-check"></i><b>32.2</b> dplyr: select</a></li>
+<li class="chapter" data-level="32.3" data-path="pakett-dplyr.html"><a href="pakett-dplyr.html#dplyr-arrange"><i class="fa fa-check"></i><b>32.3</b> dplyr: arrange</a></li>
+<li class="chapter" data-level="32.4" data-path="pakett-dplyr.html"><a href="pakett-dplyr.html#dplyr-mutate"><i class="fa fa-check"></i><b>32.4</b> dplyr: mutate</a></li>
+<li class="chapter" data-level="32.5" data-path="pakett-dplyr.html"><a href="pakett-dplyr.html#dplyr-summarise"><i class="fa fa-check"></i><b>32.5</b> dplyr: summarise</a></li>
+<li class="chapter" data-level="32.6" data-path="pakett-dplyr.html"><a href="pakett-dplyr.html#dplyr-group_by"><i class="fa fa-check"></i><b>32.6</b> dplyr: group_by</a></li>
+<li class="chapter" data-level="32.7" data-path="pakett-dplyr.html"><a href="pakett-dplyr.html#dplyr-piping"><i class="fa fa-check"></i><b>32.7</b> dplyr: piping</a></li>
+<li class="chapter" data-level="32.8" data-path="pakett-dplyr.html"><a href="pakett-dplyr.html#veel-mõned-kasulikud-funktsioonid"><i class="fa fa-check"></i><b>32.8</b> Veel mõned kasulikud funktsioonid</a></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="andmete-ühendamine.html"><a href="andmete-ühendamine.html"><i class="fa fa-check"></i><b>33</b> Andmete ühendamine</a></li>
+<li class="chapter" data-level="34" data-path="andmestiku-kuju-muutmine.html"><a href="andmestiku-kuju-muutmine.html"><i class="fa fa-check"></i><b>34</b> Andmestiku kuju muutmine</a></li>
+<li class="chapter" data-level="35" data-path="kuupäevad.html"><a href="kuupäevad.html"><i class="fa fa-check"></i><b>35</b> Kuupäevad</a></li>
+<li class="chapter" data-level="36" data-path="tekstilised-tunnused.html"><a href="tekstilised-tunnused.html"><i class="fa fa-check"></i><b>36</b> Tekstilised tunnused</a></li>
+<li class="chapter" data-level="37" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>37</b> R markdown</a></li>
+<li class="chapter" data-level="38" data-path="andmegraafika-põhimõtted.html"><a href="andmegraafika-põhimõtted.html"><i class="fa fa-check"></i><b>38</b> Andmegraafika põhimõtted</a></li>
+<li class="chapter" data-level="39" data-path="ri-baasgraafikud.html"><a href="ri-baasgraafikud.html"><i class="fa fa-check"></i><b>39</b> R’i baasgraafikud</a>
+<ul>
+<li class="chapter" data-level="39.1" data-path="ri-baasgraafikud.html"><a href="ri-baasgraafikud.html#scatterplot"><i class="fa fa-check"></i><b>39.1</b> Scatterplot</a></li>
+<li class="chapter" data-level="39.2" data-path="ri-baasgraafikud.html"><a href="ri-baasgraafikud.html#histogram"><i class="fa fa-check"></i><b>39.2</b> Histogram</a></li>
+<li class="chapter" data-level="39.3" data-path="ri-baasgraafikud.html"><a href="ri-baasgraafikud.html#boxplot"><i class="fa fa-check"></i><b>39.3</b> Boxplot</a></li>
+<li class="chapter" data-level="39.4" data-path="ri-baasgraafikud.html"><a href="ri-baasgraafikud.html#barplot"><i class="fa fa-check"></i><b>39.4</b> Barplot</a></li>
+<li class="chapter" data-level="39.5" data-path="ri-baasgraafikud.html"><a href="ri-baasgraafikud.html#baasgraafikute-parameetrid"><i class="fa fa-check"></i><b>39.5</b> Baasgraafikute parameetrid</a></li>
+<li class="chapter" data-level="39.6" data-path="ri-baasgraafikud.html"><a href="ri-baasgraafikud.html#baasgraafikute-ehitamine"><i class="fa fa-check"></i><b>39.6</b> Baasgraafikute ehitamine</a></li>
+</ul></li>
+<li class="chapter" data-level="40" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>40</b> ggplot2</a>
+<ul>
+<li class="chapter" data-level="40.1" data-path="ggplot2.html"><a href="ggplot2.html#ggploti-elemendid"><i class="fa fa-check"></i><b>40.1</b> ggploti elemendid</a></li>
+<li class="chapter" data-level="40.2" data-path="ggplot2.html"><a href="ggplot2.html#scatterplot-1"><i class="fa fa-check"></i><b>40.2</b> Scatterplot</a></li>
+<li class="chapter" data-level="40.3" data-path="ggplot2.html"><a href="ggplot2.html#facetid"><i class="fa fa-check"></i><b>40.3</b> Facetid</a></li>
+<li class="chapter" data-level="40.4" data-path="ggplot2.html"><a href="ggplot2.html#geomid-ja-aestetikud"><i class="fa fa-check"></i><b>40.4</b> Geomid ja aestetikud</a></li>
+<li class="chapter" data-level="40.5" data-path="ggplot2.html"><a href="ggplot2.html#barplot-1"><i class="fa fa-check"></i><b>40.5</b> Barplot</a></li>
+<li class="chapter" data-level="40.6" data-path="ggplot2.html"><a href="ggplot2.html#boxplot-ja-violin-plot"><i class="fa fa-check"></i><b>40.6</b> Boxplot ja violin plot</a></li>
+<li class="chapter" data-level="40.7" data-path="ggplot2.html"><a href="ggplot2.html#histogram-ja-frequency-polygon"><i class="fa fa-check"></i><b>40.7</b> Histogram ja frequency polygon</a></li>
+<li class="chapter" data-level="40.8" data-path="ggplot2.html"><a href="ggplot2.html#keskmised-ja-usalduspiirid"><i class="fa fa-check"></i><b>40.8</b> Keskmised ja usalduspiirid</a></li>
+<li class="chapter" data-level="40.9" data-path="ggplot2.html"><a href="ggplot2.html#joonise-disain"><i class="fa fa-check"></i><b>40.9</b> Joonise disain</a></li>
+</ul></li>
+<li class="chapter" data-level="41" data-path="lugemiseks.html"><a href="lugemiseks.html"><i class="fa fa-check"></i><b>41</b> Lugemiseks</a></li>
+<li class="chapter" data-level="42" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html"><i class="fa fa-check"></i><b>42</b> Lineaarne regressioon</a>
+<ul>
+<li class="chapter" data-level="42.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#lihtne-lineaarne-regressioon"><i class="fa fa-check"></i><b>42.1</b> Lihtne lineaarne regressioon</a></li>
+<li class="chapter" data-level="42.2" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioon-r-is"><i class="fa fa-check"></i><b>42.2</b> Regressioon R-is</a></li>
+<li class="chapter" data-level="42.3" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressiooni-jäägid"><i class="fa fa-check"></i><b>42.3</b> Regressiooni jäägid</a></li>
+<li class="chapter" data-level="42.4" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioonimudeli-sobitumine"><i class="fa fa-check"></i><b>42.4</b> Regressioonimudeli sobitumine</a>
+<ul>
+<li class="chapter" data-level="42.4.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#jääkide-jaotus"><i class="fa fa-check"></i><b>42.4.1</b> Jääkide jaotus</a></li>
+<li class="chapter" data-level="42.4.2" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioonikoefitsiendid-ja-nende-olulisus"><i class="fa fa-check"></i><b>42.4.2</b> Regressioonikoefitsiendid ja nende olulisus</a></li>
+<li class="chapter" data-level="42.4.3" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#jääkide-standardviga"><i class="fa fa-check"></i><b>42.4.3</b> Jääkide standardviga</a></li>
+<li class="chapter" data-level="42.4.4" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#r-ruut"><i class="fa fa-check"></i><b>42.4.4</b> R ruut</a></li>
+<li class="chapter" data-level="42.4.5" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#f-väärtus-ja-f-test"><i class="fa fa-check"></i><b>42.4.5</b> F-väärtus ja F-test</a></li>
+</ul></li>
+<li class="chapter" data-level="42.5" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kategoriaalsed-tunnused-regressioonis"><i class="fa fa-check"></i><b>42.5</b> Kategoriaalsed tunnused regressioonis</a>
+<ul>
+<li class="chapter" data-level="42.5.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#üks-binaarne-sõltumatu-tunnus"><i class="fa fa-check"></i><b>42.5.1</b> Üks binaarne sõltumatu tunnus</a></li>
+<li class="chapter" data-level="42.5.2" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kolme-või-enama-kategooriaga-sõltumatu-tunnus"><i class="fa fa-check"></i><b>42.5.2</b> Kolme või enama kategooriaga sõltumatu tunnus</a></li>
+</ul></li>
+<li class="chapter" data-level="42.6" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#mitmene-regressioon"><i class="fa fa-check"></i><b>42.6</b> Mitmene regressioon</a>
+<ul>
+<li class="chapter" data-level="42.6.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kaks-pidevat-sõltumatut-muutujat"><i class="fa fa-check"></i><b>42.6.1</b> Kaks pidevat sõltumatut muutujat</a></li>
+</ul></li>
+<li class="chapter" data-level="42.7" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#koosmõjud"><i class="fa fa-check"></i><b>42.7</b> Koosmõjud</a>
+<ul>
+<li class="chapter" data-level="42.7.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#koosmõjud-kategoriaalsete-tunnuste-puhul"><i class="fa fa-check"></i><b>42.7.1</b> Koosmõjud kategoriaalsete tunnuste puhul</a></li>
+</ul></li>
+<li class="chapter" data-level="42.8" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#mudelite-võrdlemine"><i class="fa fa-check"></i><b>42.8</b> Mudelite võrdlemine</a></li>
+<li class="chapter" data-level="42.9" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioonimudeli-eeldused"><i class="fa fa-check"></i><b>42.9</b> Regressioonimudeli eeldused</a></li>
+<li class="chapter" data-level="42.10" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kuidas-eelduste-täidetust-hinnata"><i class="fa fa-check"></i><b>42.10</b> Kuidas eelduste täidetust hinnata?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#part-üldistatud-lineaarsed-mudelid"><i class="fa fa-check"></i>(PART) Üldistatud lineaarsed mudelid</a>
+<ul>
+<li class="chapter" data-level="42.11" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#šansid"><i class="fa fa-check"></i><b>42.11</b> Šansid</a></li>
+<li class="chapter" data-level="42.12" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#logit"><i class="fa fa-check"></i><b>42.12</b> Logit</a></li>
+<li class="chapter" data-level="42.13" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>42.13</b> Logit mudel</a></li>
+<li class="chapter" data-level="42.14" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#mudeli-tõlgendus"><i class="fa fa-check"></i><b>42.14</b> Mudeli tõlgendus</a>
+<ul>
+<li class="chapter" data-level="42.14.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#šansside-suhe"><i class="fa fa-check"></i><b>42.14.1</b> Šansside suhe</a></li>
+</ul></li>
+<li class="chapter" data-level="42.15" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>42.15</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="42.16" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>42.16</b> Mudeli kvaliteet</a>
+<ul>
+<li class="chapter" data-level="42.16.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#mudeli-sobivus"><i class="fa fa-check"></i><b>42.16.1</b> Mudeli sobivus</a></li>
+<li class="chapter" data-level="42.16.2" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#mudeli-statistiline-olulisus"><i class="fa fa-check"></i><b>42.16.2</b> Mudeli statistiline olulisus</a></li>
+<li class="chapter" data-level="42.16.3" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#pseudo-r2"><i class="fa fa-check"></i><b>42.16.3</b> Pseudo-<span class="math inline">\(R^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="42.17" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#predict"><i class="fa fa-check"></i><b>42.17</b> Predict</a>
+<ul>
+<li class="chapter" data-level="42.17.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#broom"><i class="fa fa-check"></i><b>42.17.1</b> Broom</a></li>
+</ul></li>
+<li class="chapter" data-level="42.18" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>42.18</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="42.19" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>42.19</b> Prognoosi täpsus</a></li>
+</ul></li>
+<li class="chapter" data-level="43" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html"><i class="fa fa-check"></i><b>43</b> Poissoni regressioon</a>
+<ul>
+<li class="chapter" data-level="43.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-tõlgendus-1"><i class="fa fa-check"></i><b>43.1</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="43.2" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#poissoni-regressiooni-eeldused"><i class="fa fa-check"></i><b>43.2</b> Poissoni regressiooni eeldused</a></li>
+<li class="chapter" data-level="43.3" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-hindamine-r-is"><i class="fa fa-check"></i><b>43.3</b> Mudeli hindamine R-is</a>
+<ul>
+<li class="chapter" data-level="43.3.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#andmete-kirjeldus-ja-ettevalmistus"><i class="fa fa-check"></i><b>43.3.1</b> Andmete kirjeldus ja ettevalmistus</a></li>
+<li class="chapter" data-level="43.3.2" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#poissoni-mudeli-defineerimine"><i class="fa fa-check"></i><b>43.3.2</b> Poissoni mudeli defineerimine</a></li>
+</ul></li>
+<li class="chapter" data-level="43.4" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-eelduste-kontroll"><i class="fa fa-check"></i><b>43.4</b> Mudeli eelduste kontroll</a>
+<ul>
+<li class="chapter" data-level="43.4.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#üledispersioon"><i class="fa fa-check"></i><b>43.4.1</b> Üledispersioon</a></li>
+</ul></li>
+<li class="chapter" data-level="43.5" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-sobivus-model-fit"><i class="fa fa-check"></i><b>43.5</b> Mudeli sobivus (<em>model fit</em>)</a>
+<ul>
+<li class="chapter" data-level="43.5.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-statistiline-olulisus-1"><i class="fa fa-check"></i><b>43.5.1</b> Mudeli statistiline olulisus</a></li>
+<li class="chapter" data-level="43.5.2" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#jääkide-jaotus-1"><i class="fa fa-check"></i><b>43.5.2</b> Jääkide jaotus</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="viited.html"><a href="viited.html"><i class="fa fa-check"></i>Viited</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Kvantitatiivne andmeanalüüs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="funktsioonid" class="section level1" number="11">
+<h1><span class="header-section-number">Peatükk 11</span> Funktsioonid</h1>
+<p>Enamik toimingutest toimub R’is funktsioonide abil.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="funktsioonid.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">4</span>) <span class="co"># ruutjuure funktsioon</span></span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Funktsioonile järgnevad alati sulud, milles tuleb määrata funktsiooni argument (antud juhul 4, ehk number millest tahame ruutjuurt võtta). Argumente võib olla ka rohkem kui üks (ja üldjuhul ongi). Sellisel juhul on nad eraldatud komaga. Funktsioonil <code>log()</code> on kaks argumenti: <code>x</code>, ehk arv millest me tahame logaritmi võtta ja <code>base</code> ehk logaritmi alus.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="funktsioonid.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="at">x =</span> <span class="dv">100</span>, <span class="at">base =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Kui me teame argumentide järjekorda, siis me ei pea nende tähiseid eksplitsiitselt välja kirjutama.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="funktsioonid.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">100</span>, <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Osadel argumentidel on vaikeväärtused ( näit <code>log()</code> funktsiooni puhul <code>base</code> argumendi vaikeväärtuseks <em>e</em> ehk 2.7) Kui me vaikeväärtusega argumenti välja ei kirjuta, kasutatakse vaikeväärtust.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="funktsioonid.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="at">x=</span><span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## [1] 4.60517</code></pre>
+<p>See kehtib muidugi ainult sellisel juhul kui teisel argumendil on vaikeväärtus. Kuidas me seda aga teadma peaksime? Kõige lihtsam on vaadata funktsiooni abilehte, kus on kõik selle argumendid loetletud.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ülesanne.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kuidas-abi-saada.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

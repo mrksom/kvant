@@ -8,6 +8,19 @@ fig:glm-3
 fig:glm-2
 fig:pois-dist
 sissejuhatus
+sissejuhatus-r-i
+peamine
+andmetega-töötamine
+dplyr
+andmete-ühendamine
+andmestiku-kuju-muutmine
+kuupäevad
+tekstilised-tunnused
+r-markdown
+andmegraafika
+ri-baasgraafikud
+ggplot
+edasiseks-lugemiseks
 lineaarne-regressioon
 lihtne-lineaarne-regressioon
 regressioon-r-is
@@ -54,3 +67,4 @@ mudeli-eelduste-kontroll
 mudeli-sobivus-model-fit
 mudeli-statistiline-olulisus-1
 jääkide-jaotus-1
+päris-algus

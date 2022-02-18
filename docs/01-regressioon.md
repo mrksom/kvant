@@ -130,6 +130,8 @@ Eelnevast lähtuvalt on ka küllaltki loogiline, et meetodit, millega $RSS$ mini
 
 
 ::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
 * Kasutades ggplot'i ja tehke punktdiagramm `geom_point()` matemaatilise kirjaoskuse (*numeracy*) ja funktsionaalse lugemisoskuse (*literacy*) vahelisest seosest. Pange *numeracy* x-teljele ja *literacy* y-teljele.  
 * Kasutades `geom_abline()`'i, lisage joonisele lineaarne regressioonijoon (seega peate eelnevalt `lm()` funktsiooniga leidma regressioonijoone vabaliikme ja regressioonikoefitsiendi)
 :::
@@ -290,6 +292,8 @@ Võite märgata, et need kaks testi regressioonimudeli kohta annavad sama *p* v�
 
 
 ::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
 * Looge regressioonimudel, millega hindate *numeracy* mõju *literacy*'le.  
 * Salvestage see mudel ja uurige `summary()` funktsiooniga. 
 * Kas *numeracy* mõju *literacy*'le on statistiliselt oluline?  
@@ -555,6 +559,8 @@ summary(lm(numeracy ~ haridustase_f, data = piaac))
 
 
 ::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
 * Piaaci andmestikus on tunnus *meeldib_oppida*. Tehke see faktortunnuseks nii, et esimene kategooria oleks "Mõningal määral" (kategooriate nimed saate teada näiteks funnktsiooniga `unique(piaac$meeldib_oppida)`)
 * Tehke regressioonimudel, kus hindate õppimishimu mõju sissetulekule 
 :::
@@ -717,6 +723,8 @@ Et taolisest mudelist paremini aru saada võime kasutada 3D punktdiagrammi
 
 
 ::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
 * Looge regressioonimudel, millega hindate *numeracy*, *vanus*, *sugu* ja *haridustase* mõju sissetulekule.
 * Milliste tunnuste mõju sissetulekule on statistiliselt oluline?
 * Esitage vanuse ja soo mõju sissetulekule graafiliselt.
@@ -867,6 +875,8 @@ cat_plot(mudel9, pred = haridustase, modx = sugu, colors =  c("#972D15", "#02401
 
 
 ::: {.teie-kord style="color: red;"}
+Ülesanne!  
+
 * Looge koosmõjuga regressioonimudel, millega hindate soo ja laste olemasolu mõju sissetulekule.
 * Esitage koosmõjud graafikul (`cat_plot()` abiga) 
 :::
