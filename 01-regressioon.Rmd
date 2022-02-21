@@ -607,15 +607,15 @@ $\begin{align}
 
 Vabaliige näitab kategoriaalse tunnuse referentskategooria (antud juhul mees) keskmist sõltuva tunnuse väärtust. Aga kuna nüüd on meil mudelis ka sõltumatu pidevtunnus, siis on see referentskategooria keskmine juhul, kui sõltumatu pidevtunnus on $0$. Ehk siis meie näite puhul tähistab vabaliige ($140.8$) meeste sissetulekut juhul kui nende matemaatilise kirjaoskuse skoor on $0$. *suguNaine* regressioonikordaja näitab naiste sissetuleku erinevust meestest. See võtab arvesse ka matemaatilise kirjaoskuse skoori. Ehk siis kõikide matemaatilise kirjaoskuse väärtuste puhul on on naiste sissetulek $365$ eurot meestest madalam (st soo mõju on kontrollitud matemaatilise kirjaoskuse suhtes). *numeracy* regressioonikordaja näitab jällegi sissetuleku muutust ($3.35$) kui matemaatiline kirjaoskus muutub ühe ühiku võrra. Kuna ka sugu on mudelis arvesse võetud, kehtib see muutus võrdselt nii naistele kui meestele (mõju on kontrollitud soo suhtes).  
 
-Vaatame, milliseks kujunevad mudeli järgi meeste ja naiste keskmised sissetulekud, kui nende *numeracy* skoor on 300 
+Vaatame, milliseks kujunevad mudeli järgi meeste ja naiste keskmised sissetulekud, kui nende *numeracy* skoor on 300. 
 
 $$\hat{y}_{sissetulek}=140.8+3.35 \times numeracy + (-365) \times naine$$
 
 $\begin{align}
 &=
   \begin{cases}
-    140.8+3.35 \times 300 + (-365) \times 1 =  & \quad \text{naine}\\
-    140.8+3.35 \times 300 + (-365) \times 0 =  & \quad \text{mees}
+    140.8+3.35 \times 300 + (-365) \times 1  & \quad \text{naine}\\
+    140.8+3.35 \times 300 + (-365) \times 0  & \quad \text{mees}
   \end{cases}\\
 &=
   \begin{cases}
