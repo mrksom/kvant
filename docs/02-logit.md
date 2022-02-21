@@ -437,7 +437,7 @@ ref_data <- data.frame(Sex = "Male", Age = "Adult")
 # pred tunnuse, millesse kirjutame prognoosi
 # Kuna tegemist on logit mudeliga, siis defaultis
 # prognoosib predict() logiteid Kui tahame teada
-# tõenöosusi, siis peame määrama type = 'response'
+# tõenäosusi, siis peame määrama type = 'response'
 
 ref_data$pred <- predict(mudel8, newdata = ref_data, type = "response")
 ref_data
