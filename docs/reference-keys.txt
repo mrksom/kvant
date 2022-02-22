@@ -61,3 +61,7 @@ fig:odds
 fig:glm-3
 fig:glm-2
 logistiline-regressioon
+fig:reg-plot-4
+fig:reg-plot-5
+fig:ss
+fig:anscombe

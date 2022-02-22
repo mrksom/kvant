@@ -268,7 +268,7 @@ Kuidas hinnata mudeli kvaliteeti? Meile ei anta ei jääkide standardviga ega de
 
 ### Mudeli sobivus
 
-Mudeli sobivust andmetega (*goodness of fit*) saame hinnata jääkhälbimuse (*Residual deviance*) näitaja abil. Jääkälbimus näitab kui palju mudeliga hinnatud $Y$ väärtused empiirilistest $Y$ väärtustest erinevad (analoogne asi lineaarse regressiooni puhul oli *residual sum of squares*). Jääkhälbimuse abil saame võrrelda kui palju meie sobitatud mudel erineb  nn *saturated* mudelist, st mudelist mis järgiks täiel määral andmetes sisalduvat variatiivsust ehk kus jääkälbimus oleks $0$. Juhul kui mudel on andmetega "sobiv", siis peaks jääkhälbimus olema võimalikult väike. Seda, kas see on piisavalt väike, saame testida hi-ruut testiga (arvestades mudeli  vabadusasteid (*degrees of freedom*).
+Mudeli sobivust andmetega (*goodness of fit*) saame hinnata jääkhälbimuse (*Residual deviance*) näitaja abil. Jääkhälbimus näitab kui palju mudeliga hinnatud $Y$ väärtused empiirilistest $Y$ väärtustest erinevad (analoogne asi lineaarse regressiooni puhul oli *residual sum of squares*). Jääkhälbimuse abil saame võrrelda kui palju meie sobitatud mudel erineb küllastunud (*saturated*) mudelist, st mudelist mis sobituks täiel määral andmetega ehk kus jääkälbimus oleks $0$. Jääkhälbimus näitabki sisuliselt meie mudeli ja küllastunud mudeli erinevust.  Juhul kui mudel on andmetega "sobiv", siis peaks jääkhälbimus olema võimalikult väike. Seda, kas see on piisavalt väike, saame testida hi-ruut testiga (arvestades mudeli  vabadusasteid (*degrees of freedom*).
 
 
 ```r

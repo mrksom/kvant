@@ -23,7 +23,7 @@ library(ggplot2)
 library(readr)
 
 # Tõmbame  sisse andmestiku
-piaac <- read_csv("data/piaac.csv")
+piaac <- read_csv("https://github.com/mrksom/kvant/raw/master/data/piaac.csv")
 
 piaac %>% 
   ggplot(aes(x = numeracy, y = sissetulek))+
