@@ -415,6 +415,7 @@ $$\text{spetsiifilisus} = \frac{\text{õige negatiivne}}{\text{õige negatiivne}
 Saame need arvutused teha ka *caret* paketi ja `confusionMatrix()` funktsiooniga.
 
 ```{r}
+library(caret)
 # confusionMatrix vajab sisendiuna faktoreid, 
 # positive = TRUE arguimendiga ütleme, et ellujäämine oli positiivne sündmus
 confusionMatrix(data = as.factor(prognoos), 

@@ -56,3 +56,8 @@ mudeli-eelduste-kontroll
 mudeli-sobivus-model-fit
 mudeli-statistiline-olulisus-1
 jääkide-jaotus-1
+fig:glm-1
+fig:odds
+fig:glm-3
+fig:glm-2
+logistiline-regressioon
