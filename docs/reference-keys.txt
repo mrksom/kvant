@@ -1,14 +1,4 @@
-fig:reg-plot-4
-fig:reg-plot-5
-fig:ss
-fig:anscombe
-fig:glm-1
-fig:odds
-fig:glm-3
-fig:glm-2
-fig:pois-dist
 teadmiseks
-sissejuhatus-r-i
 päris-algus
 andmetega-töötamine
 dplyr
@@ -41,7 +31,6 @@ koosmõjud-kategoriaalsete-tunnuste-puhul
 mudelite-võrdlemine
 regressioonimudeli-eeldused
 kuidas-eelduste-täidetust-hinnata
-logistiline-regressioon
 šansid
 logit
 logit-mudel

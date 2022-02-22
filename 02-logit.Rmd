@@ -153,7 +153,7 @@ Kui palju on abielus olijate šansid hääletamiseks suuremad kui vallalistel? �
 ## Logistiline regressioon R-is
 
 Võtame R-i näidisandmestiku `Titanic`, mis kirjeldab Titanicul hukkunute ja ellujäänute sugu, vanust ja reisijaklassi. Üritame hinnata kuidas ja kas need tunnused mõjutasid ellujäämist.  
-GLMi mudeleid saab R'is defineerida `glm()` funktsiooniga. Selle loogika ja argumendid on sarnased `lm()` funktsiooni omadele. Peamiseks erinevuseks on see, et nüüd peame defineerima ka sõltuva tunnuse jaotuse ja linkfunktsiooni. See käib argumendiga `family`. Logistilise regressiooni jaoks peame defineerima `family = binomial(link = logit)` (sõltuva tunnuse jaotus on binoomjaotus ja linkfunktsioon on logit).  
+GLMi mudeleid saab R'is defineerida `glm()` funktsiooniga. Selle loogika ja argumendid on sarnased `lm()` funktsiooni omadele. Peamiseks erinevuseks on see, et nüüd peame defineerima ka sõltuva tunnuse jaotuse ja linkfunktsiooni. See käib argumendiga `family`. Logistilise regressiooni jaoks peame defineerima `family = binomial(link = 'logit')` (sõltuva tunnuse jaotus on binoomjaotus ja linkfunktsioon on logit).  
 Vaatame kõigepealt soo mõju:
 
 ```{r}
@@ -238,12 +238,12 @@ Kuidas hinnata mudeli kvaliteeti? Meile ei anta ei jääkide standardviga ega de
 
 ### Mudeli sobivus
 
-Mudeli sobivust andmetega (*goodness of fit*) saame hinnata jääkhälbimuse (*Residual deviance*) näitaja abil. See näitab kui palju mudeliga hinnatud $Y$ väärtused empiirilistest $Y$ väärtustest erinevad (analoogne asi lineaarse regressiooni puhul oli *residual sum of squares*). Juhul kui mudel on "sobiv", siis peaks jääkhälbimus olema jaotunud jääkhälbimuse vabadusastemetest (*degrees of freedom*) lähtuva hii-ruut jaotuse alusel. Seega saame testida, kas mudeliga hinnatud $Y$ väärtused erinevad oluliselt tegelikest $Y$ väärtustest.
+Mudeli sobivust andmetega (*goodness of fit*) saame hinnata jääkhälbimuse (*Residual deviance*) näitaja abil. Jääkälbimus näitab kui palju mudeliga hinnatud $Y$ väärtused empiirilistest $Y$ väärtustest erinevad (analoogne asi lineaarse regressiooni puhul oli *residual sum of squares*). Jääkhälbimuse abil saame võrrelda kui palju meie sobitatud mudel erineb  nn *saturated* mudelist, st mudelist mis järgiks täiel määral andmetes sisalduvat variatiivsust ehk kus jääkälbimus oleks $0$. Juhul kui mudel on andmetega "sobiv", siis peaks jääkhälbimus olema võimalikult väike. Seda, kas see on piisavalt väike, saame testida hi-ruut testiga (arvestades mudeli  vabadusasteid (*degrees of freedom*).
 
 ```{r}
 res_dev <- deviance(mudel8)
 res_df <- df.residual(mudel8)
-pchisq(res_dev, res_df, lower.tail=FALSE)
+pchisq(res_dev, res_df, lower.tail = F)
 ```
 
 `pchisq()` funktsiooniga saame testitulemusele ka *p*-väärtuse. Näeme, et see on väiksem kui $0.05$, mis tähendab, et meie mudel ei sobitu andmetega väga hästi (siin tahame, et *p*-väärtus oleks võimalikult suur). Reaaleluliste andmetega ongi tegelikult väga keeruline hästi sobituvat mudelit leida. Seega üldjuhul me lihtsalt lepime, et meie mudel ei ole täiuslik ja jätame selle testi tähelepanuta.
@@ -412,18 +412,32 @@ $$\text{tundlikkus} = \frac{\text{õige positiivne}}{\text{õige positiivne} + \
 
 $$\text{spetsiifilisus} = \frac{\text{õige negatiivne}}{\text{õige negatiivne} + \text{vale positiivne}} = \frac{1364}{(1364+126)} = 0.92$$
 
-Nii mudeli täpsus, tundlikkus, kui ka spetsiifilisus lähtusid eeldusest, et me klassifitseerisime vaatlused positiivseteks või negatiivseteks lähtuvalt sellest kas nende prognoositud tõenäosus oli suurem või väiksem kui $0.5$ (nn *treshold* või *cutoff value*). Mida suurem on see *cutoff*, seda rohkem positiivseid väärtusi saame prognoosida. Kuid samas, seda vähem saame prognoosida õigeid negatiivseid väärtusi. Ehk siis tunslikkuse ja spetsiifilisuse vahel on pöördvõrdeline seos. Mida suurem on üks, seda väiksem peab teine olema ja vastupidi. Seda seost saame vaadelda ROCi (*receiver operating characteristics*) graafiku abil.
+Saame need arvutused teha ka *caret* paketi ja `confusionMatrix()` funktsiooniga.
 
 ```{r}
-library(pROC)
-roc_g <- roc(titanic$Survived == "Yes" ~ predict(mudel8, type = "response"))
-plot(roc_g)
+# confusionMatrix vajab sisendiuna faktoreid, 
+# positive = TRUE arguimendiga ütleme, et ellujäämine oli positiivne sündmus
+confusionMatrix(data = as.factor(prognoos), 
+                reference = as.factor(vaadeldud), positive = 'TRUE')
+```
+
+
+Nii mudeli täpsus, tundlikkus, kui ka spetsiifilisus lähtusid eeldusest, et me klassifitseerisime vaatlused positiivseteks või negatiivseteks lähtuvalt sellest kas nende prognoositud tõenäosus oli suurem või väiksem kui $0.5$ (nn *treshold* või *cutoff value*). Mida suurem on see *cutoff*, seda rohkem õigeid positiivseid väärtusi saame prognoosida. Kuid samas, seda vähem saame prognoosida õigeid negatiivseid väärtusi. Ehk siis tundlikkuse ja spetsiifilisuse vahel on pöördvõrdeline seos. Mida suurem on üks, seda väiksem peab teine olema ja vastupidi. Seda seost saame vaadelda ROCi (*receiver operating characteristics*) graafiku abil.
+
+```{r}
+library(ROCit)
+library(broom)
+# Kasutame broomi funktsiooni augment 
+mudel_fit <- augment(mudel8, type.predict = "response")
+roc_obj <- rocit(score = mudel_fit$.fitted,class=mudel_fit$`I(Survived == "Yes")`)
+plot(roc_obj)
+
 ```
 
 Mida suurem on pind graafiku kurvi all, seda parema mudeliga meil tegemist on (seda täpsemini võimaldab mudel prognoosida). Seda kurvi alust pindala suurust kasutataksegi prognoosi täpsuse hindamiseks. Vastavat statistikut kutsustaksegi kurvialuseks pindalaks (AUC ehk *area under the curve*). Mida lähemal AUC $1$'le on, seda parema prognoosivõimega mudeliga meil tegemist on.
 
 ```{r}
-auc(roc_g)
+summary(roc_obj)
 ```
 
 
