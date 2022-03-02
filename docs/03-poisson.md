@@ -13,10 +13,7 @@ Poissoni regressioon kuulub üldistatud lineaarsete mudelite (GLM) raamistikku j
 
 Sarnaselt logistilise regressiooniga (ja isegi õigustatumalt) tekib küsimus, et miks me ei saa taoliste tunnuste korral kasutada tavalist lineaarset regressiooni? Loend on ju suhteliselt sarnane tavalisele arvtunnusele. Välja arvatud asjaolu, et nii nagu tõenäosus logistilise regressiooni puhul, ei saa ka loend olla negatiivne. Kui me modelleeriksime loendi tunnust tavalise lineaarse regressiooniga, siis võib vabalt juhtuda, et mingite sõltumatute tunnuste väärtuste korral oleks prognoositav sõltuv tunnus väiksem kui 0. See aga ei ole loendilise tunnuse puhul realistlik. Lisaks, nii nagu ka logistilise regressiooni ja binaarsete sõltuvate tunnuste puhul, tekivad probleemid jääkide struktuuriga (tavaline regressioon eeldab normaaljaotust) ja jääkide dispersiooniga (tavaline regressioon eeldab konstantset hajuvust)^[Loendiline tunnus $Y$ järgib Poissoni jaotust, mille puhul $E(Y)=Var(Y)=\lambda$, kus $\lambda$ on nn keskmine loend (keskmine kursuse suurus, järjekorra pikkus, laste arv). Seega Poissoni jaotusega tunnuse puhul peaks keskmine ja dispersioon võrdsed olema ning suurem keskmine tähendab ka suuremat dispersioon.].
 
-<div class="figure">
-<img src="03-poisson_files/figure-html/pois-dist-1.png" alt="Poissoni jaotus erinevate keskmiste loendusväärtuste (Lambda) korral" width="672" />
-<p class="caption">(\#fig:pois-dist)Poissoni jaotus erinevate keskmiste loendusväärtuste (Lambda) korral</p>
-</div>
+![(\#fig:pois-dist)Poissoni jaotus erinevate keskmiste loendusväärtuste (Lambda) korral](03-poisson_files/figure-latex/pois-dist-1.pdf) 
 
 Logistilise regressiooni puhul saime tõenäosuse ülemisest piirist lahti seeläbi, et teisendasime tõenäosused šanssideks ning alumise piiri seeläbi, et võtsime šanssidest logaritmid. Loendilise tunnuse puhul meil tunnuse ülemise piiriga probleemi ei ole. Loend võib potentsiaalselt olla lõputu. Alumise piiri puhul saame aga kasutada sedasama logit mudelitest tuttavat logaritmimise nippi. Kui $Y$ on meie hinnatav loendiline sõltuv tunnus ja $x$ seda selgitav sõltumatu tunnus, siis Poissoni regressioonimudel on väljendatav järgmiselt^[$log(Y_i)$ ei ole siin sama mis lineaarse regressiooni puhul log-transformeeritud tunnus (kui me kasutame analüüsis eelnevalt logaritmitud sõltuvat tunnust). Teine ja sellest aspektist võib-olla selgem notatsioon oleks $log(E(Y))=\beta_0+\beta_1 x_i$, millest nähtub, et me peame logaritmima $Y$ oodatavat väärtust (_expected value_) ehk $Y$ keskmist. Keskmine logaritmitud $Y$ ja logaritm keskmisest $Y$-ist ei ole aga samad asjad (võite järgi proovida: `mean(log(c(1,2,3,4)))` vs `log(mean(c(1,2,3,4)))`).]:
 
@@ -82,7 +79,7 @@ ggplot(phd)+
   theme_minimal()
 ```
 
-<img src="03-poisson_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](03-poisson_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 Ilmselgelt on tegemist loendilise tunnusega. Samas päris Poissoni jaotusega tegemist vist siiski ei ole, kuna tundub, et nulle on selleks natukene liiga palju. ggploti abil saame joonisele panna ka tunnust iseloomustava teoreetilise Poissoni jaotuse (lähtuvalt tunnuse keskmisest ehk $\lambda$ parameetrist). Vaatame kuidas see võrreldes reaalse jaotusega välja näeb:
 
@@ -110,7 +107,7 @@ ggplot(aes(x = articles, y = n_scaled))+
   theme_minimal()
 ```
 
-<img src="03-poisson_files/figure-html/pois-hist-dist-1.png" width="672" />
+![](03-poisson_files/figure-latex/pois-hist-dist-1.pdf)<!-- --> 
 
 Nagu näeme, siis tõesti, nulle on natuke liiga palju ja artiklite loendi jaotus ei vasta jaotuse alguses päris täpselt Poissoni jaotuse kujule. Aga jätame selle asjaolu hetkel tähelepanuta ja kasutame ikkagi Poissoni regressiooni. 
 
@@ -198,7 +195,7 @@ Pidevast tunnusest ülevaate saamiseks on mugav kasutada histogrammi:
 hist(phd$prestige)
 ```
 
-<img src="03-poisson_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](03-poisson_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 
 PhD programmi maine küsimus tundub suht OK.
 
@@ -207,7 +204,7 @@ PhD programmi maine küsimus tundub suht OK.
 hist(phd$mentor)
 ```
 
-<img src="03-poisson_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](03-poisson_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 Juhendaja artiklit arvu tunnus on iseenesest samuti loendav tunnus (kuigi Poissoni jaotust see samuti päris täpselt ei järgi). 
 
@@ -580,7 +577,7 @@ res <- residuals(m6, type="deviance")
 plot(log(predict(m6)), res)
 ```
 
-<img src="03-poisson_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+![](03-poisson_files/figure-latex/unnamed-chunk-23-1.pdf)<!-- --> 
 
 Kontrollime seda ka histogrammiga:
 
@@ -589,7 +586,7 @@ Kontrollime seda ka histogrammiga:
 hist(res)
 ```
 
-<img src="03-poisson_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+![](03-poisson_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
 
 Ka siit nähtub, et jäägid ei ole tõesti päris normaalselt jaotunud. 
 

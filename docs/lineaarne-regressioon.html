@@ -425,6 +425,15 @@ Lisaks on siin ära toodud ka <em>degrees of freedom</em> ehk vabadusastmete arv
 <pre><code>## Multiple R-squared:  0.07408,    Adjusted R-squared:  0.07385</code></pre>
 <p>Vast oluliseimaks mudeli headuse näitajaks on <span class="math inline">\(R^2\)</span>. Regressioonanalüüsi eesmärk on seletada mingit osa sõltuva tunnuse variatiivsusest sõltumatu tunnuse abil. Seega saame regressioonimudeli puhul hinnata ja mudeli kvaliteedi iseloomustusena kasutada sõltumatu tunnuse poolt seletatud variatiivsuse osakaalu sõltuva tunnuse koguvariatiivsusest. Sõltuva tunnuse variatiivsuse (seda nimetatakse <span class="math inline">\(TSS\)</span> ehk <em>total sums of squares</em>) saab jagada komponentideks: variatiivsus, mis on seletatud regressioonijoone poolt (<span class="math inline">\(ESS\)</span> ehk <em>explained sums of squares</em>) ja variatiivsus, mis ei ole regressioonijoone poolt seletatud ehk siis mudeli seisukohast viga (<span class="math inline">\(RSS\)</span> ehk <em>residual sums of squares</em>):</p>
 <p><span class="math display">\[TSS=RSS+ESS\]</span></p>
+<p><span class="math display">\[\begin{equation}
+  ESS=\sum_{i=1}^{n}(\hat{y}_i-\bar{y})^2
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+  RSS=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+  TSS=\sum_{i=1}^{n}(y_i-\bar{y})^2
+\end{equation}\]</span></p>
 <p>Teades erinevaid variatiivsuse komponente, saame määrata kui suur osa (mitu protsenti) sõltuva tunnuse koguvariatsioonist on seletatav regressioonijoone poolt (ehk siis sõltumatu tunnuse poolt). Seda suurust nimetatakse <strong>determinatsioonikordajaks</strong> ehk lühidalt <span class="math inline">\(R^2\)</span>-ks.</p>
 <p><span class="math display">\[\begin{equation}
   R^2=\frac{TSS-RSS}{TSS}=1-\frac{RSS}{TSS}
@@ -510,19 +519,34 @@ Joonis 3.3: Variatsiivsuse jagunemine
 ## (Intercept)  1077.90      13.35   80.73   &lt;2e-16 ***
 ## suguNaine    -383.15      17.52  -21.86   &lt;2e-16 ***</code></pre>
 <p><em>Sugu</em> oli tekstiline tunnus. R saab aru, et tegemist on kategoriaalse tunnusega ja kodeerib selle sisemiselt ümber <span class="math inline">\(0\)</span>-ks ja <span class="math inline">\(1\)</span>-ks. Antud juhul määras ta kategooria <em>Naine</em> <span class="math inline">\(1\)</span>-ks ja kategooria <em>Mees</em> <span class="math inline">\(0\)</span>-ks. Kuna tegemist oli tekstilise tunnusega, siis lähtub R siin tähestikulisest järjekorrast. Ümberkodeeritud (dihhotomiseeritud) tunnuse nimeks on alati mitte-referentskategooria. Antud juhul siis <em>suguNaine</em>. Regressioonivõrrand oli järgmine:</p>
-<p><span class="math display">\[\begin{equation}
-\hat{y_i}=\beta_0+\beta x_i+\epsilon
-\end{equation}\]</span></p>
+<p><span class="math display">\[\hat{y_i}=\beta_0+\beta x_i+\epsilon\]</span></p>
 <p>kus</p>
-<p><span class="math display">\[
+<p><span class="math display">\[\begin{align}
 x_{i} =
   \begin{cases}
     1  &amp; \quad \text{kui on naine}\\
     0  &amp; \quad \text{kui on mees}
   \end{cases}
-\]</span></p>
+\end{align}\]</span></p>
 <p>Paneme mudeli tulemused sellesse võrrandisse:</p>
-<p><span class="math inline">\(\begin{align} \text{keskmine sissetulek}&amp;=1077.90+(-383.15)\times \text{naine}\\ &amp;=  \begin{cases}  1077.90-383.15\times 1 &amp;&amp; \quad \text{kui on naine}\\  1077.90-383.15\times 0 &amp;&amp; \quad \text{kui on mees}  \end{cases}\\ &amp;=  \begin{cases}  1077.90-383.15 &amp;&amp; \quad \text{kui on naine}\\  1077.90-0 &amp;&amp; \quad \text{kui on mees}  \end{cases}\\ &amp;=  \begin{cases}  694.75 &amp;&amp; \quad \text{kui on naine}\\  1077.90 &amp;&amp; \quad \text{kui on mees}  \end{cases} \end{align}\)</span></p>
+<p><span class="math display">\[\begin{align}
+\text{keskmine sissetulek}&amp;=1077.90+(-383.15)\times \text{naine}\\
+&amp;=
+  \begin{cases}
+    1077.90-383.15\times 1 &amp; \quad \text{kui on naine}\\
+    1077.90-383.15\times 0 &amp; \quad \text{kui on mees}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    1077.90-383.15 &amp; \quad \text{kui on naine}\\
+    1077.90-0 &amp; \quad \text{kui on mees}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    694.75 &amp; \quad \text{kui on naine}\\
+    1077.90 &amp; \quad \text{kui on mees}
+  \end{cases}
+\end{align}\]</span></p>
 <p>Ehk siis naiste keskmine sissetulek on <span class="math inline">\(694.8\)</span> eurot (vabaliige + regressioonikoefitsient) ja meeste oma <span class="math inline">\(1077.9\)</span> eurot (vabaliige). Erinevus on statistiliselt oluline, kuna <em>p</em>-väärtused nii koefitsiendi <em>t</em>-testi kui ka mudeli <em>F</em>-testi puhul olid olulisusnivool <span class="math inline">\(95\%\)</span> olulised (väiksemad kui <span class="math inline">\(0.05\)</span>).</p>
 <p>Kui me paneme need keskmised joonisele ja ühendame nad joonega, näeme, et selle joone tõus (<em>slope</em>) on võrdne regressioonikoefitsiendiga, täpselt samuti nagu pidevtunnusega regressioonis.</p>
 <p><img src="01-regressioon_files/figure-html/reg-plot-6-1.png" width="672" /></p>
@@ -544,7 +568,20 @@ x_{i} =
 \]</span></p>
 <p>Nüüd saame iga inimese hariduse määratleda kahe tunnuse kaudu. Ehk siis inimene, kelle puhul <span class="math inline">\(kesk = 1\)</span> ja <span class="math inline">\(korg = 0\)</span>, on keskharidusega; inimene kelle puhul <span class="math inline">\(kesk = 0\)</span> ja <span class="math inline">\(korg = 1\)</span>, on kõrgharidusega ja inimene kelle puhul <span class="math inline">\(keks = 0\)</span> ja <span class="math inline">\(korg = 0\)</span>, on põhiharidusega. <span class="math inline">\(y\)</span> väärtus kujuneb täpselt samamoodi nagu binaarse tunnuse puhul:</p>
 <p><span class="math display">\[y_i=\beta_0+\beta_1 \times kesk_i+\beta_2 \times korg_i\]</span></p>
-<p><span class="math inline">\(\begin{align} &amp;=  \begin{cases}  \beta_0+\beta_1 \times 1+\beta_2 \times 0 &amp; \quad \text{keskharidusega}\\  \beta_0+\beta_1 \times 0+\beta_2 \times 1 &amp; \quad \text{kõrgaridusega}\\  \beta_0+\beta_1 \times 0+\beta_2 \times 0 &amp; \quad \text{põhiharidusega}  \end{cases}\\ &amp;=  \begin{cases}  \beta_0+\beta_1 &amp; \quad \text{keskharidusega}\\  \beta_0+\beta_2 &amp; \quad \text{kõrgaridusega}\\  \beta_0 &amp; \quad \text{põhiharidusega}  \end{cases} \end{align}\)</span></p>
+<p><span class="math display">\[\begin{align}
+&amp;=
+  \begin{cases}
+    \beta_0+\beta_1 \times 1+\beta_2 \times 0  &amp; \quad \text{keskharidusega}\\
+    \beta_0+\beta_1 \times 0+\beta_2 \times 1  &amp; \quad \text{kõrgaridusega}\\
+    \beta_0+\beta_1 \times 0+\beta_2 \times 0  &amp; \quad \text{põhiharidusega}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    \beta_0+\beta_1  &amp; \quad \text{keskharidusega}\\
+    \beta_0+\beta_2  &amp; \quad \text{kõrgaridusega}\\
+    \beta_0  &amp; \quad \text{põhiharidusega}
+  \end{cases}
+\end{align}\]</span></p>
 <p>Vaatame kuidas see kõik R-is välja näeb. Hindame hariduse (tunnus <em>haridustase</em>) mõju sissetulekule:</p>
 <div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="lineaarne-regressioon.html#cb417-1" aria-hidden="true" tabindex="-1"></a>mudel3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sissetulek <span class="sc">~</span> haridustase, <span class="at">data =</span> piaac)</span>
 <span id="cb417-2"><a href="lineaarne-regressioon.html#cb417-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel3)</span></code></pre></div>
@@ -572,7 +609,26 @@ x_{i} =
 <p>Tulemuste interpreteerimine toimub samamoodi nagu binaarse tunnuse puhul. Vabaliige tähistab referentskategooria, ehk antud juhul keskmise haridustasemega inimeste, keskmistsissetulekut (<span class="math inline">\(763.35\)</span>), <em>haridustaseKõrge</em> regressioonikordaja tähistab kõrge haridustasemega inimeste skoori erinevust referentskategooria keskmisest (vabaliikmest) ja <em>haridustaseMadal</em> madala haridustasemega inimeste skoori erinevust referentskategooria keskmisest (vabaliikmest).</p>
 <p>Võrrandi kujul näeb tulem välja järgmine:
 <span class="math display">\[y_i=\beta_0+\beta_1 \times korge_i+\beta_2 \times madal_i\]</span></p>
-<p><span class="math inline">\(\begin{align} &amp;=  \begin{cases}  763.35+217.23 \times 1+(-22.20) \times 0 &amp; \quad \text{kõrge haridustase}\\  763.35+217.23 \times 0+(-22.20) \times 1 &amp; \quad \text{madal haridustase}\\  763.35+217.23 \times 0+(-22.20) \times 0 &amp; \quad \text{keskmine haridustase}  \end{cases}\\ &amp;=  \begin{cases}  763.35+217.23+0 &amp; \quad \text{kõrge haridustase}\\  763.35+0-22.20 &amp; \quad \text{madal haridustase}\\  763.35+0+0 &amp; \quad \text{keskmine haridustase}  \end{cases}\\ &amp;=  \begin{cases}  980.58 &amp; \quad \text{kõrge haridustase}\\  741.15 &amp; \quad \text{madal haridustase}\\  763.35 &amp; \quad \text{keskmine haridustase}  \end{cases} \end{align}\)</span></p>
+<p><span class="math display">\[\begin{align}
+&amp;=
+  \begin{cases}
+    763.35+217.23 \times 1+(-22.20) \times 0 &amp; \quad \text{kõrge haridustase}\\
+    763.35+217.23 \times 0+(-22.20) \times 1 &amp; \quad \text{madal haridustase}\\
+    763.35+217.23 \times 0+(-22.20) \times 0 &amp; \quad \text{keskmine haridustase}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    763.35+217.23+0  &amp; \quad \text{kõrge haridustase}\\
+    763.35+0-22.20  &amp; \quad \text{madal haridustase}\\
+    763.35+0+0  &amp; \quad \text{keskmine haridustase}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    980.58  &amp; \quad \text{kõrge haridustase}\\
+    741.15  &amp; \quad \text{madal haridustase}\\
+    763.35  &amp; \quad \text{keskmine haridustase}
+  \end{cases}
+\end{align}\]</span></p>
 <p>Kui kategoriaalne sõltumatu tunnus on tekstiline (<em>character</em>), siis valib R referentskategooriaks tähestikuliselt esimese kategooria. Kui tunnus on faktortunnus (<em>factor</em>), siis valib R esimese faktortaseme. Faktortasemeid saame me aga muuta. Tihti tahame referentskategooria ise valida (näiteks kõige suurema grupi või grupi, mida on loogiline teistega võrrelda). Näiteks tahame haridustasemete puhul määrata referentskategooriaks põhihariduse. Selleks teeme tunnuse faktoriks ja määrame tasemete järjestuse nii, et madal haridustase oleks esimene:</p>
 <div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="lineaarne-regressioon.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vaatame kõigepealt mis kategooriad tunnuses on</span></span>
 <span id="cb419-2"><a href="lineaarne-regressioon.html#cb419-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(piaac<span class="sc">$</span>haridustase)</span></code></pre></div>
@@ -694,11 +750,43 @@ y_{i}=\beta_{0}+\beta_{1}x_{i,1}+\beta_{2}x_{i,2}+\ldots+\beta_{p}x_{i,p}+\epsil
 ## F-statistic: 410.7 on 2 and 3981 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Mitmese regressiooni tõlgendus on analoogne lihtsa regressiooni tõlgendusega. Võrrandi kujul on see väljendatav järgmiselt:</p>
 <p><span class="math display">\[\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times naine\]</span></p>
-<p><span class="math inline">\(\begin{align} &amp;=  \begin{cases}  \beta_0+\beta_1 \times numeracy + \beta_2 \times 1 = &amp; \quad \text{naine}\\  \beta_0+\beta_1 \times numeracy + \beta_2 \times 0 = &amp; \quad \text{mees}  \end{cases}\\ &amp;=  \begin{cases}  (\beta_0+\beta_2)+\beta_1 \times numeracy &amp; \quad \text{naine}\\  \beta_0+\beta_1 \times numeracy &amp; \quad \text{mees}  \end{cases}\\ \end{align}\)</span></p>
+<p><span class="math display">\[\begin{align}
+&amp;=
+  \begin{cases}
+    \beta_0+\beta_1 \times numeracy + \beta_2 \times 1 =  &amp; \quad \text{naine}\\
+    \beta_0+\beta_1 \times numeracy + \beta_2 \times 0 =  &amp; \quad \text{mees}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    (\beta_0+\beta_2)+\beta_1 \times numeracy  &amp; \quad \text{naine}\\
+    \beta_0+\beta_1 \times numeracy &amp; \quad \text{mees}
+  \end{cases}\\
+\end{align}\]</span></p>
 <p>Vabaliige näitab kategoriaalse tunnuse referentskategooria (antud juhul mees) keskmist sõltuva tunnuse väärtust. Aga kuna nüüd on meil mudelis ka sõltumatu pidevtunnus, siis on see referentskategooria keskmine juhul, kui sõltumatu pidevtunnus on <span class="math inline">\(0\)</span>. Ehk siis meie näite puhul tähistab vabaliige (<span class="math inline">\(140.8\)</span>) meeste sissetulekut juhul kui nende matemaatilise kirjaoskuse skoor on <span class="math inline">\(0\)</span>. <em>suguNaine</em> regressioonikordaja näitab naiste sissetuleku erinevust meestest. See võtab arvesse ka matemaatilise kirjaoskuse skoori. Ehk siis kõikide matemaatilise kirjaoskuse väärtuste puhul on on naiste sissetulek <span class="math inline">\(365\)</span> eurot meestest madalam (st soo mõju on kontrollitud matemaatilise kirjaoskuse suhtes). <em>numeracy</em> regressioonikordaja näitab jällegi sissetuleku muutust (<span class="math inline">\(3.35\)</span>) kui matemaatiline kirjaoskus muutub ühe ühiku võrra. Kuna ka sugu on mudelis arvesse võetud, kehtib see muutus võrdselt nii naistele kui meestele (mõju on kontrollitud soo suhtes).</p>
 <p>Vaatame, milliseks kujunevad mudeli järgi meeste ja naiste keskmised sissetulekud, kui nende <em>numeracy</em> skoor on 300.</p>
 <p><span class="math display">\[\hat{y}_{sissetulek}=140.8+3.35 \times numeracy + (-365) \times naine\]</span></p>
-<p><span class="math inline">\(\begin{align} &amp;=  \begin{cases}  140.8+3.35 \times 300 + (-365) \times 1 &amp; \quad \text{naine}\\  140.8+3.35 \times 300 + (-365) \times 0 &amp; \quad \text{mees}  \end{cases}\\ &amp;=  \begin{cases}  (140.8-365)+3.35 \times 300 &amp; \quad \text{naine}\\  140.8+3.35 \times 300 &amp; \quad \text{mees}  \end{cases}\\ &amp;=  \begin{cases}  -224.2+1005 &amp; \quad \text{naine}\\  140.8+1005 &amp; \quad \text{mees}  \end{cases}\\ &amp;=  \begin{cases}  780.8 &amp; \quad \text{naine}\\  1145.8 &amp; \quad \text{mees}  \end{cases} \end{align}\)</span></p>
+<p><span class="math display">\[\begin{align}
+&amp;=
+  \begin{cases}
+    140.8+3.35 \times 300 + (-365) \times 1  &amp; \quad \text{naine}\\
+    140.8+3.35 \times 300 + (-365) \times 0  &amp; \quad \text{mees}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    (140.8-365)+3.35 \times 300  &amp; \quad \text{naine}\\
+    140.8+3.35 \times 300 &amp; \quad \text{mees}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    -224.2+1005  &amp; \quad \text{naine}\\
+    140.8+1005 &amp; \quad \text{mees}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    780.8  &amp; \quad \text{naine}\\
+    1145.8 &amp; \quad \text{mees}
+  \end{cases}
+\end{align}\]</span></p>
 <p>Mõnevõrra lihtsam on seda tulemust interpreteerida graafiliselt:</p>
 <div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="lineaarne-regressioon.html#cb427-1" aria-hidden="true" tabindex="-1"></a>piaac <span class="sc">%&gt;%</span> </span>
 <span id="cb427-2"><a href="lineaarne-regressioon.html#cb427-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> numeracy, <span class="at">y =</span> sissetulek, <span class="at">color =</span> sugu))<span class="sc">+</span></span>
@@ -764,7 +852,18 @@ y_{i}=\beta_{0}+\beta_{1}x_{i,1}+\beta_{2}x_{i,2}+\ldots+\beta_{p}x_{i,p}+\epsil
 <p>Eelnevas näites vaatasime sissetuleku sõltuvust matemaatilise kirjaoskuse tasemest soo lõikes, ja nägime, et kui lisame mudelisse soo tunnuse, siis saame klasside kohta eraldi regressioonijooned. Kuid need regressioonijooned olid paralleelsed, mis tähendab et nii meeste kui naiste hulgas oli funktsionaalse lugemisoskuse ja matemaatilise kirjaoskuse suhe mudeli järgi sama. Kuid kas see on alati väga realistlik eeldus? Võib ju vabalt olla, et see seos erineb soo lõikes.</p>
 <p>Kui me arvame, et see võib nii olla, st sõltumatu tunnuse mõju sõltuvale tunnusele sõltub omakorda mingist muust tunnusest, saame mudelisse lisada nende kahe tunnuse koosmõju (interaktsiooni). Selleks peame moodustame uue tunnuse, mis tuleneb nende tunnuste, mille suhtes me koosmõju hinnata tahame, korrutisest. Kui me nüüd selle uue tunnuse mudelisse kaasame, siis hindame sellele ka regressioonikoefitsiendi. Regressioonivõrrand pidevtunnuse ja kategoriaalse tunnuse koosmõjuga näeks välja nii:</p>
 <p><span class="math display">\[\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times naine + \beta_3 \times naine \times numeracy \]</span></p>
-<p><span class="math inline">\(\begin{align} &amp;=  \begin{cases}  \beta_0+\beta_1 \times numeracy + \beta_2 \times 1 + \beta_3 \times 1 \times numeracy &amp; \quad \text{naised}\\  \beta_0+\beta_1 \times numeracy + \beta_2 \times 0 + \beta_3 \times 0 \times numeracy &amp; \quad \text{mehed}  \end{cases}\\ &amp;=  \begin{cases}  (\beta_0+\beta_2)+(\beta_1+\beta_3) \times numeracy &amp; \quad \text{naised}\\  \beta_0+\beta_1 \times numeracy &amp; \quad \text{mehed}  \end{cases} \end{align}\)</span></p>
+<p><span class="math display">\[\begin{align}
+&amp;=
+  \begin{cases}
+    \beta_0+\beta_1 \times numeracy + \beta_2 \times 1 + \beta_3 \times 1 \times numeracy  &amp; \quad \text{naised}\\
+    \beta_0+\beta_1 \times numeracy + \beta_2 \times 0 + \beta_3 \times 0 \times numeracy &amp; \quad \text{mehed}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    (\beta_0+\beta_2)+(\beta_1+\beta_3) \times numeracy  &amp; \quad \text{naised}\\
+    \beta_0+\beta_1 \times numeracy &amp; \quad \text{mehed}
+  \end{cases}
+\end{align}\]</span></p>
 <p>Mis siin nüüd siis toimub? Meeste keskmine sissetulek on, nagu varasemaltki, defineeritud vabaliikme ja <span class="math inline">\(\beta_1\)</span> regressioonikoefitsiendiga (ülejäänud kaks koefitsienti lähevad meeste jaoks <span class="math inline">\(0\)</span>-ks, kuna <em>naine</em> tunnus on nende jaoks <span class="math inline">\(0\)</span>). Naistel on aga lisaks veel kaks koefitsienti. <span class="math inline">\(\beta_2\)</span>, mis nagu varasemaltki kirjeldab naiste vabaliikme erinevust meeste vabaliikmest, ning siis veel <span class="math inline">\(\beta_3\)</span>, mis kirjeldab naiste regressioonisirge erinevust meeste regressioonisirgest. Koosmõjudega mudelis on naiste <em>numeracy</em> koefitsient <span class="math inline">\(\beta_1+\beta_3\)</span> (sest <span class="math inline">\(\beta_1 \times numeracy + \beta_3 \times numeracy = (\beta_1+\beta_3) \times numeracy\)</span>).</p>
 <p>R-is saame taolise mudeli defineerida järgmiselt:</p>
 <div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="lineaarne-regressioon.html#cb432-1" aria-hidden="true" tabindex="-1"></a>mudel8 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sissetulek <span class="sc">~</span> numeracy <span class="sc">*</span> sugu, <span class="at">data =</span> piaac)</span>
@@ -794,7 +893,23 @@ y_{i}=\beta_{0}+\beta_{1}x_{i,1}+\beta_{2}x_{i,2}+\ldots+\beta_{p}x_{i,p}+\epsil
 <span id="cb434-2"><a href="lineaarne-regressioon.html#cb434-2" aria-hidden="true" tabindex="-1"></a><span class="co">#lm(numeracy ~ literacy + sugu + literacy:sugu, data = piaac)</span></span></code></pre></div>
 <p>Koosmõjudega mudeli vabaliikmed ja regressioonikoefitsiendid kujunevad järgmiselt:</p>
 <p><span class="math display">\[\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times naine + \beta_3 \times naine \times numeracy\]</span></p>
-<p><span class="math inline">\(\begin{align} &amp;=  \begin{cases}  28.5+3.8 \times numeracy + (-157) \times 1 + (-0.7) \times 1 \times numeracy &amp; \quad \text{naised}\\  28.5+3.8 \times numeracy + (-157) \times 0 + (-0.7) \times 0 \times numeracy &amp; \quad \text{mehed}  \end{cases}\\ &amp;=  \begin{cases}  (28.5-157)+(3.8-0.7) \times numeracy &amp; \quad \text{naised}\\  28.5+3.8 \times numeracy &amp; \quad \text{mehed}  \end{cases}\\ &amp;=  \begin{cases}  -128.5+3.1 \times numeracy &amp; \quad \text{naised}\\  28.5+3.8 \times numeracy &amp; \quad \text{mehed}  \end{cases} \end{align}\)</span></p>
+<p><span class="math display">\[\begin{align}
+&amp;=
+  \begin{cases}
+    28.5+3.8 \times numeracy + (-157) \times 1 + (-0.7) \times 1 \times numeracy &amp; \quad \text{naised}\\
+    28.5+3.8 \times numeracy + (-157) \times 0 + (-0.7) \times 0 \times numeracy &amp; \quad \text{mehed}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    (28.5-157)+(3.8-0.7) \times numeracy  &amp; \quad \text{naised}\\
+    28.5+3.8 \times numeracy &amp; \quad \text{mehed}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    -128.5+3.1 \times numeracy  &amp; \quad \text{naised}\\
+    28.5+3.8 \times numeracy &amp; \quad \text{mehed}
+  \end{cases}
+\end{align}\]</span></p>
 <p>Seega selles mudelis erinevad kategoriaalse tunnuse lõikes nii vabaliikme väärtused kui ka regressioonisirge tõusud. Kui me nüüd selle mudeli tulemused graafikule paneme, siis näeme, et regressioonisirged ei ole enam paralleelsed. Mida suurem on matemaatilise kirjaoskuse tase, seda suurem on erinevus meeste ja naiste sissetulekutes.</p>
 <div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="lineaarne-regressioon.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interact_plot</span>(mudel8, <span class="at">pred =</span> numeracy, <span class="at">modx =</span> sugu,  <span class="at">colors =</span>  <span class="fu">c</span>(<span class="st">&quot;#972D15&quot;</span>, <span class="st">&quot;#02401B&quot;</span>))</span></code></pre></div>
 <p><img src="01-regressioon_files/figure-html/reg-plot-8-1.png" width="672" /></p>
@@ -828,7 +943,23 @@ y_{i}=\beta_{0}+\beta_{1}x_{i,1}+\beta_{2}x_{i,2}+\ldots+\beta_{p}x_{i,p}+\epsil
 ## F-statistic: 164.7 on 5 and 3978 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Sellisest mudelist saame välja lugeda kõikide gruppide ristlõigete (kõrge haridustasemega naised, kõrge haridustasemega mehed jne) keskmised. Arvutame näiteks välja kõrge haridustasemega (<em>koh</em>) naiste ja madala haridustasemega (<em>mh</em>) meeste keskmised matemaatilise lugemisoskuse skoorid:</p>
 <p><span class="math display">\[\hat{y}_{sissetulek}=\beta_0+\beta_1 \times naine + \beta_2 \times koh + \beta_3 \times mh + \beta_4 \times naine \times koh + \beta_5 \times naine \times mh\]</span></p>
-<p><span class="math inline">\(\begin{align} &amp;=  \begin{cases}  1004.5+(-458.8) \times 1 + 252.60 \times 1 + (-73.55) \times 0 + 50.69 \times 1 + 10.76 \times 0 &amp; \quad \text{kõrge haridustasemega naised}\\  1004.5+(-458.8) \times 0 + 252.60 \times 0 + (-73.55) \times 1 + 50.69 \times 0 + 10.76 \times 0 &amp; \quad \text{madala haridustasemega mehed}  \end{cases}\\ &amp;=  \begin{cases}  1004.5+(-458.8) + 252.60 + 50.69 &amp; \quad \text{kõrge haridustasemega naised}\\  1004.5 + (-73.55) &amp; \quad \text{madala haridustasemega mehed}  \end{cases}\\ &amp;=  \begin{cases}  849 &amp; \quad \text{kõrge haridustasemega naised}\\  931 &amp; \quad \text{madala haridustasemega mehed}  \end{cases} \end{align}\)</span></p>
+<p><span class="math display">\[\begin{align}
+&amp;=
+  \begin{cases}
+    1004.5+(-458.8) \times 1 + 252.60 \times 1 + (-73.55) \times 0 + 50.69 \times 1 + 10.76 \times 0 &amp; \quad \text{kõrge haridustasemega naised}\\
+    1004.5+(-458.8) \times 0 + 252.60 \times 0 + (-73.55) \times 1 + 50.69 \times 0 + 10.76 \times 0 &amp; \quad \text{madala haridustasemega mehed}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    1004.5+(-458.8) + 252.60 + 50.69 &amp; \quad \text{kõrge haridustasemega naised}\\
+    1004.5 + (-73.55) &amp; \quad \text{madala haridustasemega mehed}
+  \end{cases}\\
+&amp;=
+  \begin{cases}
+    849 &amp; \quad \text{kõrge haridustasemega naised}\\
+    931 &amp; \quad \text{madala haridustasemega mehed}
+  \end{cases}
+\end{align}\]</span></p>
 <p>Vaatame seda mudelit ka graafiliselt (kasutame paketi <code>interactions</code> funktsiooni <code>cat_plot()</code>):</p>
 <div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="lineaarne-regressioon.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat_plot</span>(mudel9, <span class="at">pred =</span> haridustase, <span class="at">modx =</span> sugu, <span class="at">colors =</span>  <span class="fu">c</span>(<span class="st">&quot;#972D15&quot;</span>, <span class="st">&quot;#02401B&quot;</span>))</span></code></pre></div>
 <p><img src="01-regressioon_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>

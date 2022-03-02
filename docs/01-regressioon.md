@@ -31,7 +31,7 @@ piaac %>%
   theme_minimal()
 ```
 
-<img src="01-regressioon_files/figure-html/reg-plot-1-1.png" width="672" />
+![](01-regressioon_files/figure-latex/reg-plot-1-1.pdf)<!-- --> 
 
 
 Tundub, et nende kahe tunnuse vahel on seos olemas. Mida kõrgem on matemaatilise kirjaoskuse skoor, seda kõrgem on sissetulek. Me saame selle suhte kokku võtta regressioonisirge abil. ggplotis on olemas vastav funktsioon `geom_smooth()`, mis selle joone meile graafikule paneb. Kuna me tahame saada lineaarse regressiooni sirget, siis peame `geom_smooth`'is kasutama argumenti `method = "lm"`^[*Defaultis* annab `geom_smooth` meile mittelineaarse regressioonijoone (vastavalt sellele palju vaatlusi on, kas *gam* või *loess*), mis üritab tunnustevahelist suhet andmete kõikides punktides võimalikult täpselt kirjeldada.]
@@ -45,7 +45,7 @@ piaac %>%
   theme_minimal()
 ```
 
-<img src="01-regressioon_files/figure-html/reg-plot-2-1.png" width="672" />
+![](01-regressioon_files/figure-latex/reg-plot-2-1.pdf)<!-- --> 
 
 Regressioonisirge on väljendatav tavalise joone võrrandiga:
 
@@ -91,7 +91,7 @@ piaac %>%
   theme_minimal()
 ```
 
-<img src="01-regressioon_files/figure-html/reg-plot-3-1.png" width="672" />
+![](01-regressioon_files/figure-latex/reg-plot-3-1.pdf)<!-- --> 
 
 
 Kui me teame regressioonisirge tõusu ehk regressioonikoefitsienti ja vabaliiget, siis lähtuvalt sõltumatu tunnuse väärtustest saame prognoosida sõltuva tunnuse väärtuse: 
@@ -102,20 +102,14 @@ Kui me teame regressioonisirge tõusu ehk regressioonikoefitsienti ja vabaliiget
 
 $\hat{y}_i$ antud võrrandis tähistab hinnatud või prognoositud $y$ väärtust (sellest ka see müts $y$ peal) vaatlusele $i$. Kui meil on regressioonivõrrand $\hat{y}_i=-140+3.6x_i$ ja meil on mingi vaatlus $i$, kelle $x$ väärtus on näiteks $200$, siis saame sellele vaatlusele prognoosida $y$ väärtuseks $-140+3.6\times200=580$. Ehk siis inimesel, kelle matemaatilise kirjaoskuse skoor on 200, peaks meie mudeli järgi sissetulek olema *ca* 580 eurot. Inimesel, kelle matemaatilise kirjaoskuse skoor on 400, peaks sissetulek olema keskmiselt $-140+3.6\times400=1300$ eurot
 
-<div class="figure">
-<img src="01-regressioon_files/figure-html/reg-plot-4-1.png" alt="Prognoosime y väärtust kui x on 200 ja kui x = 400" width="672" />
-<p class="caption">(\#fig:reg-plot-4)Prognoosime y väärtust kui x on 200 ja kui x = 400</p>
-</div>
+![(\#fig:reg-plot-4)Prognoosime y väärtust kui x on 200 ja kui x = 400](01-regressioon_files/figure-latex/reg-plot-4-1.pdf) 
 
 ## Regressiooni jäägid
 Samas on muidugi võimatu ühe sirgega kõiki punkte ideaalselt kirjeldada. Iga punkti ja sirge vahele jääb alati mingi viga või teisisõnu, kõik punktid (või vähemalt enamus neist) hälbivad suuremal või vähemal määral regressioonisirgest.  
 
 Mida suuremad need hälbed on, seda vähem suudab on meie mudel (regressioonisirge) kirjeldada sõltuva tunnuse variatsiooni ja seda suurem on vea määr meie mudelis. Neid hälbeid kutusutakse **regressiooni jääkideks** (*regression residuals*). 
 
-<div class="figure">
-<img src="01-regressioon_files/figure-html/reg-plot-5-1.png" alt="Regressiooni jäägid" width="672" />
-<p class="caption">(\#fig:reg-plot-5)Regressiooni jäägid</p>
-</div>
+![(\#fig:reg-plot-5)Regressiooni jäägid](01-regressioon_files/figure-latex/reg-plot-5-1.pdf) 
 
 Ehk siis iga kord, kui prognoosime $\hat{y}_i=\beta_0+\beta_1x_i$ abil $y_i$ väärtust, teeme me mingi vea^[Mida saab väljendada kui $\epsilon_i=y_i-\hat{y}_i$]. Seetõttu tuleb regressioonivõrrandile lisada vea komponent ($\epsilon$) ning võrrand ise muutub vastavalt:
 
@@ -237,7 +231,6 @@ Vast oluliseimaks mudeli headuse näitajaks on $R^2$. Regressioonanalüüsi eesm
 
 $$TSS=RSS+ESS$$
 
-\marginnote{
 
 \begin{equation}
   ESS=\sum_{i=1}^{n}(\hat{y}_i-\bar{y})^2
@@ -251,7 +244,6 @@ $$TSS=RSS+ESS$$
   TSS=\sum_{i=1}^{n}(y_i-\bar{y})^2
 \end{equation}
 
-}
 
 Teades erinevaid variatiivsuse komponente, saame määrata kui suur osa (mitu protsenti) sõltuva tunnuse koguvariatsioonist on seletatav regressioonijoone poolt (ehk siis sõltumatu tunnuse poolt). Seda suurust nimetatakse **determinatsioonikordajaks** ehk lühidalt $R^2$-ks. 
 
@@ -259,10 +251,7 @@ Teades erinevaid variatiivsuse komponente, saame määrata kui suur osa (mitu pr
   R^2=\frac{TSS-RSS}{TSS}=1-\frac{RSS}{TSS}
 \end{equation}
 
-<div class="figure">
-<img src="01-regressioon_files/figure-html/ss-1.png" alt="Variatsiivsuse jagunemine" width="672" />
-<p class="caption">(\#fig:ss)Variatsiivsuse jagunemine</p>
-</div>
+![(\#fig:ss)Variatsiivsuse jagunemine](01-regressioon_files/figure-latex/ss-1.pdf) 
 
 
 $R^2$ jääb vahemikku $0-1$. See mõõdab seose tugevust, st mida lähemal $R^2$ on $1$'le, seda tugevam lineaarne seos tunnuste vahel on ja seda enam sõltumatu tunnus sõltuva tunnuse variatsiooni seletab, seega seda efektiivsem on regressioonifunktsiooni kasutamine selle asemel, et lihtsalt sõltuva tunnuse keskmist hinnata (kui $R^2$ on $0$, siis regressioonijoon langeb kokku sõltuva tunnuse keskmist tähistava joonega, st et $ESS=0$ ja $TSS=RSS$).  
@@ -371,46 +360,44 @@ Kuidas me eelneva valguses oma näidet siis tõlgendama peaksime?
 
 *Sugu* oli tekstiline tunnus. R saab aru, et tegemist on kategoriaalse tunnusega ja kodeerib selle sisemiselt ümber $0$-ks ja $1$-ks. Antud juhul määras ta kategooria *Naine* $1$-ks ja kategooria *Mees* $0$-ks. Kuna tegemist oli tekstilise tunnusega, siis lähtub R siin tähestikulisest järjekorrast. Ümberkodeeritud (dihhotomiseeritud) tunnuse nimeks on alati mitte-referentskategooria. Antud juhul siis *suguNaine*. Regressioonivõrrand oli järgmine:
 
-\begin{equation}
-\hat{y_i}=\beta_0+\beta x_i+\epsilon
-\end{equation}
+\[\hat{y_i}=\beta_0+\beta x_i+\epsilon\]  
 
 kus
 
-$$
+\begin{align}
 x_{i} =
   \begin{cases}
     1  & \quad \text{kui on naine}\\
     0  & \quad \text{kui on mees}
   \end{cases}
-$$
+\end{align}
 
 Paneme mudeli tulemused sellesse võrrandisse:
 
-$\begin{align}
+\begin{align}
 \text{keskmine sissetulek}&=1077.90+(-383.15)\times \text{naine}\\
 &=
   \begin{cases}
-    1077.90-383.15\times 1 && \quad \text{kui on naine}\\
-    1077.90-383.15\times 0 && \quad \text{kui on mees}
+    1077.90-383.15\times 1 & \quad \text{kui on naine}\\
+    1077.90-383.15\times 0 & \quad \text{kui on mees}
   \end{cases}\\
 &=
   \begin{cases}
-    1077.90-383.15 && \quad \text{kui on naine}\\
-    1077.90-0 && \quad \text{kui on mees}
+    1077.90-383.15 & \quad \text{kui on naine}\\
+    1077.90-0 & \quad \text{kui on mees}
   \end{cases}\\
 &=
   \begin{cases}
-    694.75 && \quad \text{kui on naine}\\
-    1077.90 && \quad \text{kui on mees}
+    694.75 & \quad \text{kui on naine}\\
+    1077.90 & \quad \text{kui on mees}
   \end{cases}
-\end{align}$
+\end{align}
 
 Ehk siis naiste keskmine sissetulek on $694.8$ eurot (vabaliige + regressioonikoefitsient) ja meeste oma $1077.9$ eurot (vabaliige). Erinevus on statistiliselt oluline, kuna *p*-väärtused nii koefitsiendi *t*-testi kui ka mudeli *F*-testi puhul olid olulisusnivool $95\%$ olulised (väiksemad kui $0.05$).
 
 Kui me paneme need keskmised joonisele ja ühendame nad joonega, näeme, et selle joone tõus (*slope*) on võrdne regressioonikoefitsiendiga, täpselt samuti nagu pidevtunnusega regressioonis.
 
-<img src="01-regressioon_files/figure-html/reg-plot-6-1.png" width="672" />
+![](01-regressioon_files/figure-latex/reg-plot-6-1.pdf)<!-- --> 
 
 ### Kolme või enama kategooriaga sõltumatu tunnus
 
@@ -437,7 +424,7 @@ Nüüd saame iga inimese hariduse määratleda kahe tunnuse kaudu. Ehk siis inim
 $$y_i=\beta_0+\beta_1 \times kesk_i+\beta_2 \times korg_i$$
 
 
-$\begin{align}
+\begin{align}
 &=
   \begin{cases}
     \beta_0+\beta_1 \times 1+\beta_2 \times 0  & \quad \text{keskharidusega}\\
@@ -450,7 +437,7 @@ $\begin{align}
     \beta_0+\beta_2  & \quad \text{kõrgaridusega}\\
     \beta_0  & \quad \text{põhiharidusega}
   \end{cases}
-\end{align}$
+\end{align}
 
 
 Vaatame kuidas see kõik R-is välja näeb. Hindame hariduse (tunnus *haridustase*) mõju sissetulekule:
@@ -491,7 +478,7 @@ Tulemuste interpreteerimine toimub samamoodi nagu binaarse tunnuse puhul. Vabali
 Võrrandi kujul näeb tulem välja järgmine:
 $$y_i=\beta_0+\beta_1 \times korge_i+\beta_2 \times madal_i$$
 
-$\begin{align}
+\begin{align}
 &=
   \begin{cases}
     763.35+217.23 \times 1+(-22.20) \times 0 & \quad \text{kõrge haridustase}\\
@@ -510,7 +497,7 @@ $\begin{align}
     741.15  & \quad \text{madal haridustase}\\
     763.35  & \quad \text{keskmine haridustase}
   \end{cases}
-\end{align}$
+\end{align}
 
 
 Kui kategoriaalne sõltumatu tunnus on tekstiline (*character*), siis valib R referentskategooriaks tähestikuliselt esimese kategooria. Kui tunnus on faktortunnus (*factor*), siis valib R esimese faktortaseme. Faktortasemeid saame me aga muuta. Tihti tahame referentskategooria ise valida (näiteks kõige suurema grupi või grupi, mida on loogiline teistega võrrelda). Näiteks tahame haridustasemete puhul määrata referentskategooriaks põhihariduse. Selleks teeme tunnuse faktoriks ja määrame tasemete järjestuse nii, et madal haridustase oleks esimene:
@@ -674,7 +661,7 @@ Mitmese regressiooni tõlgendus on analoogne lihtsa regressiooni tõlgendusega. 
 
 $$\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times naine$$
 
-$\begin{align}
+\begin{align}
 &=
   \begin{cases}
     \beta_0+\beta_1 \times numeracy + \beta_2 \times 1 =  & \quad \text{naine}\\
@@ -685,7 +672,7 @@ $\begin{align}
     (\beta_0+\beta_2)+\beta_1 \times numeracy  & \quad \text{naine}\\
     \beta_0+\beta_1 \times numeracy & \quad \text{mees}
   \end{cases}\\
-\end{align}$
+\end{align}
 
 
 
@@ -695,7 +682,7 @@ Vaatame, milliseks kujunevad mudeli järgi meeste ja naiste keskmised sissetulek
 
 $$\hat{y}_{sissetulek}=140.8+3.35 \times numeracy + (-365) \times naine$$
 
-$\begin{align}
+\begin{align}
 &=
   \begin{cases}
     140.8+3.35 \times 300 + (-365) \times 1  & \quad \text{naine}\\
@@ -716,7 +703,7 @@ $\begin{align}
     780.8  & \quad \text{naine}\\
     1145.8 & \quad \text{mees}
   \end{cases}
-\end{align}$
+\end{align}
 
 
 Mõnevõrra lihtsam on seda tulemust interpreteerida graafiliselt: 
@@ -733,7 +720,7 @@ piaac %>%
   guides(color = guide_legend(override.aes = list(size = 2, alpha = 1)))
 ```
 
-<img src="01-regressioon_files/figure-html/reg-plot-7-1.png" width="672" />
+![](01-regressioon_files/figure-latex/reg-plot-7-1.pdf)<!-- --> 
 
 Lihtsam võimalus seoseid graafiliselt esitada on kasutada paketist `interactions` funktsiooni `interaction_plot()`. See on küll mõeldud eelkõige koosmõjude plottimiseks, kuid toimib ka tavalisete seoste kujutamisel.
 
@@ -743,7 +730,7 @@ library(interactions)
 interact_plot(mudel4, pred = numeracy, modx = sugu, colors = c("#972D15", "#02401B"))
 ```
 
-<img src="01-regressioon_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+![](01-regressioon_files/figure-latex/unnamed-chunk-15-1.pdf)<!-- --> 
 
 ### Kaks pidevat sõltumatut muutujat
 
@@ -812,7 +799,7 @@ Kui me arvame, et see võib nii olla, st sõltumatu tunnuse mõju sõltuvale tun
 
 $$\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times naine + \beta_3 \times naine \times numeracy $$
 
-$\begin{align}
+\begin{align}
 &=
   \begin{cases}
     \beta_0+\beta_1 \times numeracy + \beta_2 \times 1 + \beta_3 \times 1 \times numeracy  & \quad \text{naised}\\
@@ -823,7 +810,7 @@ $\begin{align}
     (\beta_0+\beta_2)+(\beta_1+\beta_3) \times numeracy  & \quad \text{naised}\\
     \beta_0+\beta_1 \times numeracy & \quad \text{mehed}
   \end{cases}
-\end{align}$
+\end{align}
 
 Mis siin nüüd siis toimub? Meeste keskmine sissetulek on, nagu varasemaltki, defineeritud vabaliikme ja $\beta_1$ regressioonikoefitsiendiga (ülejäänud kaks koefitsienti lähevad meeste jaoks $0$-ks, kuna *naine* tunnus on nende jaoks $0$). Naistel on aga lisaks veel kaks koefitsienti. $\beta_2$, mis nagu varasemaltki kirjeldab naiste vabaliikme erinevust meeste vabaliikmest, ning siis veel $\beta_3$, mis kirjeldab naiste regressioonisirge erinevust meeste regressioonisirgest. Koosmõjudega mudelis on naiste *numeracy* koefitsient $\beta_1+\beta_3$ (sest $\beta_1 \times numeracy + \beta_3 \times numeracy = (\beta_1+\beta_3) \times numeracy$).
 
@@ -868,7 +855,7 @@ Koosmõjudega mudeli vabaliikmed ja regressioonikoefitsiendid kujunevad järgmis
 
 $$\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times naine + \beta_3 \times naine \times numeracy$$
 
-$\begin{align}
+\begin{align}
 &=
   \begin{cases}
     28.5+3.8 \times numeracy + (-157) \times 1 + (-0.7) \times 1 \times numeracy & \quad \text{naised}\\
@@ -884,7 +871,7 @@ $\begin{align}
     -128.5+3.1 \times numeracy  & \quad \text{naised}\\
     28.5+3.8 \times numeracy & \quad \text{mehed}
   \end{cases}
-\end{align}$
+\end{align}
 
 Seega selles mudelis erinevad kategoriaalse tunnuse lõikes nii vabaliikme väärtused kui ka regressioonisirge tõusud. Kui me nüüd selle mudeli tulemused graafikule paneme, siis näeme, et regressioonisirged ei ole enam paralleelsed. Mida suurem on matemaatilise kirjaoskuse tase, seda suurem on erinevus meeste ja naiste sissetulekutes.
 
@@ -893,7 +880,7 @@ Seega selles mudelis erinevad kategoriaalse tunnuse lõikes nii vabaliikme vää
 interact_plot(mudel8, pred = numeracy, modx = sugu,  colors =  c("#972D15", "#02401B"))
 ```
 
-<img src="01-regressioon_files/figure-html/reg-plot-8-1.png" width="672" />
+![](01-regressioon_files/figure-latex/reg-plot-8-1.pdf)<!-- --> 
 
 
 ### Koosmõjud kategoriaalsete tunnuste puhul
@@ -936,7 +923,7 @@ Sellisest mudelist saame välja lugeda kõikide gruppide ristlõigete (kõrge ha
 
 $$\hat{y}_{sissetulek}=\beta_0+\beta_1 \times naine + \beta_2 \times koh + \beta_3 \times mh + \beta_4 \times naine \times koh + \beta_5 \times naine \times mh$$
 
-$\begin{align}
+\begin{align}
 &=
   \begin{cases}
     1004.5+(-458.8) \times 1 + 252.60 \times 1 + (-73.55) \times 0 + 50.69 \times 1 + 10.76 \times 0 & \quad \text{kõrge haridustasemega naised}\\
@@ -952,7 +939,7 @@ $\begin{align}
     849 & \quad \text{kõrge haridustasemega naised}\\
     931 & \quad \text{madala haridustasemega mehed}
   \end{cases}
-\end{align}$
+\end{align}
 
 
 Vaatame seda mudelit ka graafiliselt (kasutame paketi `interactions` funktsiooni `cat_plot()`):
@@ -962,7 +949,7 @@ Vaatame seda mudelit ka graafiliselt (kasutame paketi `interactions` funktsiooni
 cat_plot(mudel9, pred = haridustase, modx = sugu, colors =  c("#972D15", "#02401B"))
 ```
 
-<img src="01-regressioon_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](01-regressioon_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
 
 
 
@@ -1009,10 +996,7 @@ Nagu iga meetodi puhul, on ka lineaarsel regressioonanalüüsil rida eeldusi, mi
 
 1. Esimene ja vahest ka kõige olulisem eeldus on **lineaarne suhe sõltuva ja sõltumatu(te) tunnuse vahel**. Kõrvaloleval joonisel on esitatud neli andmestikku, mille regressioonisirged on identsed ($y=3+0.5x$). Tegelikult on identsed ka kõik muud andmete statistilised omadused ($x$'i keskmine, $y$'i keskmine, $x$'i dispersioon, $y$'i dispersioon ja ka korrelatsioon). Ometi on visuaalselt näha, et kõik andmestikud on väga erinevad. Seega peaks regressioonanalüüsi (või tegelikult ükskõik mis analüüsi) puhul olema alati esimene samm neid graafiliselt uurida. Kui tunnuste vaheline seos ei ole lineaarne, piisab mõnel juhul tunnuste  mittelineaarsest transformeerimisest (see peaks olema ka muidugi teoreetiliselt põhjendatud). Kui seos on eksponentsiaalne, siis võib kaaluda *log*-transformatsiooni. Kui seos on paraboolne, siis võib kaaluda ruutu tõstetud tunnuse lisamist ($y = \beta_0+\beta_1x+\beta_2x^2$). Taoliste transformatsioonide juures peab meeles pidama, et koos nendega muutub ka mudeli tõlgendus.  
 
-<div class="figure">
-<img src="01-regressioon_files/figure-html/anscombe-1.png" alt="Anscombe kvartett" width="672" />
-<p class="caption">(\#fig:anscombe)Anscombe kvartett</p>
-</div>
+![(\#fig:anscombe)Anscombe kvartett](01-regressioon_files/figure-latex/anscombe-1.pdf) 
 
 2. Lineaarse regressiooni puhul peaks tähelepanelik olema ka **erindite** (*outliers*)suhtes, st vaatluste suhtes, mis erinevad teistest väga olulisel määral (nagu ka kõrvalolevalt jooniselt näha). Mõnede andmete puhul on erindid paratamatud (näiteks sissetuleku puhul, kus suurem osa inimesi on koondunud keskmise sissetuleku ümber, kuid mõned üksikud teenivad sellest oluliselt enam). Sellisel juhul tasuks kaaluda jällegi tunnuse transformeerimist (sissetuleku puhul näiteks log-skaalale). Kui tegemist on mõne üksiku erindiga, võiks ju selle aluseks oleva vaatluse ka lihtsalt analüüsist välja jätta. Siin tuleks aga olla väga ettevaatlik. Andmete või sellest saadava informatsiooni tahtlik vähendamine (näiteks pidevtunnuste kategoriseerimine) ei ole üldiselt kunagi hea mõte. Seda enam ei ole hea mõte andmete vähendamine eesmärgiga mudelit paremaks teha. Kui aga erindite tekkimine on mingil moel teoreetiliselt seletatav või tulenenud näiteks veast andmekorjel, siis võib seda loomulikult teha.  
 
@@ -1111,7 +1095,7 @@ mod <- lm(formula = sissetulek ~ numeracy + vanus + sugu + haridustase,
 plot(mod, 1)
 ```
 
-<img src="01-regressioon_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+![](01-regressioon_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
 
 Kontrollime mittelineaarse seose olemasolu. Punktid peaksid olema ühtlaselt ümber keskmise joone jaotunud. Ei tohiks olla mingit ilmset mustrit.
 
@@ -1120,7 +1104,7 @@ Kontrollime mittelineaarse seose olemasolu. Punktid peaksid olema ühtlaselt üm
 plot(mod, 2)
 ```
 
-<img src="01-regressioon_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+![](01-regressioon_files/figure-latex/unnamed-chunk-25-1.pdf)<!-- --> 
 
 Kas jäägid on normaalselt jaotunud? Punktid peaksid ühtima diagonaalse joonega.
 
@@ -1129,7 +1113,7 @@ Kas jäägid on normaalselt jaotunud? Punktid peaksid ühtima diagonaalse jooneg
 plot(mod, 3)
 ```
 
-<img src="01-regressioon_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+![](01-regressioon_files/figure-latex/unnamed-chunk-26-1.pdf)<!-- --> 
 
 Kas jääkide dispersioon on homogeenne? Punane joon peaks olema horisontaalne ja punktid peaksid olema ühtlaselt jaotunud ega tohiks mingit mustrit moodustada.
 
@@ -1138,7 +1122,7 @@ Kas jääkide dispersioon on homogeenne? Punane joon peaks olema horisontaalne j
 plot(mod, 5)
 ```
 
-<img src="01-regressioon_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+![](01-regressioon_files/figure-latex/unnamed-chunk-27-1.pdf)<!-- --> 
 
 Kas mudelis on mudelit oluliselt mõjutavaid erindeid? Kui on, siis peaksid need olema paremal all või paremal üleval nurgas ning kaugemal kui punktiirjoon (antud juhul neid ei ole ja seega ei ole ka punktiirjoont näha).
 
