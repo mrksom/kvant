@@ -13,3 +13,4 @@ rmd_files:
 - 01-regressioon.Rmd
 - 02-logit.Rmd
 - 03-poisson.Rmd
+- 04-multilevel.Rmd
