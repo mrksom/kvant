@@ -35,16 +35,16 @@ Seega andmete hierarhilist struktuuri ja loomulikku klasterdumist arvesse võtma
 
 Mõningatel eriti hulludel juhtudel võivad lisaks standardvigadele olla valed ka regressiooniseosed ise. Sellisel puhul oleksid meie järelduse mitte ainult ebatäpsed vaid totaalselt valed. Vaatame järgmist näidet, kus on matemaatikatestiks õppimisele kulunud aja kaudu üritatakse seletada testi tulemust^[Tegemist on reaalsete andmetega, kuid olen nende tähendust diaktilistel kaalutlustel muutnud. Reaalselt on need *Iris* andmestiku andmed, $x$-teljel on iiriste kroonlehtede pikkus ja $y$-teljel kroonlehtede laius (vt `help(iris)`)]. Kasutame hinnanguks kõigepealt tavalist lineaarset regressiooni:
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 Tulemused tundub kuidagi väga imelikud. Mida kauem õpitakse, seda halvem on testi skoor. Kuida seda seletada? Asi on selles, et tegemist on kolme erineva klassi õpilastega, kelle matemaatilised oskused on suhteliselt erinevad:
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 
 Kui me seda klasside erinevust arvesse võtame ja igas klassis eraldi regressioonivõrrandi hindame, on tulemused juba märgatavalt loogilisemad:
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 Kõikides klassides eraldivõetuna on seos õppimisele kulunud aja ja testitulemuse vahel ikkagi positiivne. Lihtsalt korrelatsioonikoefitsiendi suurus (sirge tõus) ja vabaliige (sirge lõikumine $y$-teljega kui $x$ on 0) on kõikides klassides erinev. Seega antud näite puhul oleks meie järeldused, kui me andmete hierarhilist struktuuri arvesse ei võtaks, vastupidised tegelikule olukorrale. Taolist olukorda nimetatakse Simpsoni paradoksiks. Näide on loomulikult mõnevõrra utreeritud, kuid illustreerib hästi andmestiku hierarhilise struktuuriga arvestamise vajalikkust.
 
@@ -192,20 +192,20 @@ Andtud juhul on siis tegemist longituudandmetikuga (kutsutakse ka paneelandmesti
 
 Vaatame kõigepealt kuidas näeks välja tavaline lineaarne regressioon:
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-6-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 Pilt näeb välja küllaltki ettearvatav - mida pikemalt und piiratakse, seda suuremaks läheb reaktsiooniaeg. Kuid kuna me teame, et tegemist on paneelandmetega, siis tagamaks oma järelduste korrektsust, peame vähemalt kontrollima teise tasandi efektide olemasolu ja potentsiaalset mõju. Defineerime **nullmudeli**: 
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 Näeme, et inimeste keskmised reaktsiooniajad (võtmata arvesse undefitsiidi pikkust) erinevad päris olulisel määral (reaalses analüüsis peame muidugi sellele järeldusele jõudma teststatistiku abil). Seega on õigustatud **juhusliku vabaliikmega mudeli** defineerimine, kus me jätame regressioonikordajad kõikidel respondentidel samaks, kuid laseme vabaliikmed varieeruma:
 
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 Näeme, et ka vabaliikmed varieeruvad indiviidide vahel päris suurel määral ning liigume edasi **juhuliku regressioonikordajaga mudeli** juurde:
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 
 Ka regressioonikordajad varieeruvad indiviidide vahel päris olulisel määral. Ühe inimese puhul unedefitsiit isegi vähendab reaktsiooniaega ja päris mitme puhul on muutused üle aja marginaalsed, eristudes seeläbi keskmisest reaktsioonikiirusest.
@@ -357,7 +357,7 @@ andmed %>%
   theme_bw()
 ```
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-16-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 
 Tundub et üldine seos on täitsa olemas ja see on ka suhteliselt lineaarne.
@@ -386,7 +386,7 @@ andmed %>%
         axis.text.y = element_blank())
 ```
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 
 Jah, keskmised tunduvad kooliti erinevat. On palju koole mille usalduspiirid ei kattu. Järgmiseks vaatame, kas ka sotsiaalmajandusliku seisundi ja testi tulemuste seosed kooliti erinevad:
 
@@ -400,7 +400,7 @@ andmed %>%
   scale_colour_viridis_d(option = 'A')
 ```
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-18-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 Tundub, et ka regressioonikoefitsiendid erinevad.
 
@@ -422,7 +422,7 @@ table(andmed$sex, useNA = 'always')
 hist(andmed$ses)
 ```
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 
 ```r
@@ -441,14 +441,14 @@ table(andmed$sector, useNA = 'ifany')
 hist(andmed$pracad)
 ```
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 
 ```r
 hist(andmed$meanses)
 ```
 
-![](04-multilevel_files/figure-latex/unnamed-chunk-23-1.pdf)<!-- --> 
+<img src="04-multilevel_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 
 
 

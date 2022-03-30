@@ -14,3 +14,4 @@ rmd_files:
 - 02-logit.Rmd
 - 03-poisson.Rmd
 - 04-multilevel.Rmd
+- 05-survey.Rmd

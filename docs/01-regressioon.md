@@ -31,7 +31,7 @@ piaac %>%
   theme_minimal()
 ```
 
-![](01-regressioon_files/figure-latex/reg-plot-1-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/reg-plot-1-1.png" width="672" />
 
 
 Tundub, et nende kahe tunnuse vahel on seos olemas. Mida kõrgem on matemaatilise kirjaoskuse skoor, seda kõrgem on sissetulek. Me saame selle suhte kokku võtta regressioonisirge abil. ggplotis on olemas vastav funktsioon `geom_smooth()`, mis selle joone meile graafikule paneb. Kuna me tahame saada lineaarse regressiooni sirget, siis peame `geom_smooth`'is kasutama argumenti `method = "lm"`^[*Defaultis* annab `geom_smooth` meile mittelineaarse regressioonijoone (vastavalt sellele palju vaatlusi on, kas *gam* või *loess*), mis üritab tunnustevahelist suhet andmete kõikides punktides võimalikult täpselt kirjeldada.]
@@ -45,7 +45,7 @@ piaac %>%
   theme_minimal()
 ```
 
-![](01-regressioon_files/figure-latex/reg-plot-2-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/reg-plot-2-1.png" width="672" />
 
 Regressioonisirge on väljendatav tavalise joone võrrandiga:
 
@@ -91,7 +91,7 @@ piaac %>%
   theme_minimal()
 ```
 
-![](01-regressioon_files/figure-latex/reg-plot-3-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/reg-plot-3-1.png" width="672" />
 
 
 Kui me teame regressioonisirge tõusu ehk regressioonikoefitsienti ja vabaliiget, siis lähtuvalt sõltumatu tunnuse väärtustest saame prognoosida sõltuva tunnuse väärtuse: 
@@ -102,14 +102,20 @@ Kui me teame regressioonisirge tõusu ehk regressioonikoefitsienti ja vabaliiget
 
 $\hat{y}_i$ antud võrrandis tähistab hinnatud või prognoositud $y$ väärtust (sellest ka see müts $y$ peal) vaatlusele $i$. Kui meil on regressioonivõrrand $\hat{y}_i=-140+3.6x_i$ ja meil on mingi vaatlus $i$, kelle $x$ väärtus on näiteks $200$, siis saame sellele vaatlusele prognoosida $y$ väärtuseks $-140+3.6\times200=580$. Ehk siis inimesel, kelle matemaatilise kirjaoskuse skoor on 200, peaks meie mudeli järgi sissetulek olema *ca* 580 eurot. Inimesel, kelle matemaatilise kirjaoskuse skoor on 400, peaks sissetulek olema keskmiselt $-140+3.6\times400=1300$ eurot
 
-![(\#fig:reg-plot-4)Prognoosime y väärtust kui x on 200 ja kui x = 400](01-regressioon_files/figure-latex/reg-plot-4-1.pdf) 
+<div class="figure">
+<img src="01-regressioon_files/figure-html/reg-plot-4-1.png" alt="Prognoosime y väärtust kui x on 200 ja kui x = 400" width="672" />
+<p class="caption">(\#fig:reg-plot-4)Prognoosime y väärtust kui x on 200 ja kui x = 400</p>
+</div>
 
 ## Regressiooni jäägid
 Samas on muidugi võimatu ühe sirgega kõiki punkte ideaalselt kirjeldada. Iga punkti ja sirge vahele jääb alati mingi viga või teisisõnu, kõik punktid (või vähemalt enamus neist) hälbivad suuremal või vähemal määral regressioonisirgest.  
 
 Mida suuremad need hälbed on, seda vähem suudab on meie mudel (regressioonisirge) kirjeldada sõltuva tunnuse variatsiooni ja seda suurem on vea määr meie mudelis. Neid hälbeid kutusutakse **regressiooni jääkideks** (*regression residuals*). 
 
-![(\#fig:reg-plot-5)Regressiooni jäägid](01-regressioon_files/figure-latex/reg-plot-5-1.pdf) 
+<div class="figure">
+<img src="01-regressioon_files/figure-html/reg-plot-5-1.png" alt="Regressiooni jäägid" width="672" />
+<p class="caption">(\#fig:reg-plot-5)Regressiooni jäägid</p>
+</div>
 
 Ehk siis iga kord, kui prognoosime $\hat{y}_i=\beta_0+\beta_1x_i$ abil $y_i$ väärtust, teeme me mingi vea^[Mida saab väljendada kui $\epsilon_i=y_i-\hat{y}_i$]. Seetõttu tuleb regressioonivõrrandile lisada vea komponent ($\epsilon$) ning võrrand ise muutub vastavalt:
 
@@ -251,7 +257,10 @@ Teades erinevaid variatiivsuse komponente, saame määrata kui suur osa (mitu pr
   R^2=\frac{TSS-RSS}{TSS}=1-\frac{RSS}{TSS}
 \end{equation}
 
-![(\#fig:ss)Variatsiivsuse jagunemine](01-regressioon_files/figure-latex/ss-1.pdf) 
+<div class="figure">
+<img src="01-regressioon_files/figure-html/ss-1.png" alt="Variatsiivsuse jagunemine" width="672" />
+<p class="caption">(\#fig:ss)Variatsiivsuse jagunemine</p>
+</div>
 
 
 $R^2$ jääb vahemikku $0-1$. See mõõdab seose tugevust, st mida lähemal $R^2$ on $1$'le, seda tugevam lineaarne seos tunnuste vahel on ja seda enam sõltumatu tunnus sõltuva tunnuse variatsiooni seletab, seega seda efektiivsem on regressioonifunktsiooni kasutamine selle asemel, et lihtsalt sõltuva tunnuse keskmist hinnata (kui $R^2$ on $0$, siis regressioonijoon langeb kokku sõltuva tunnuse keskmist tähistava joonega, st et $ESS=0$ ja $TSS=RSS$).  
@@ -397,7 +406,7 @@ Ehk siis naiste keskmine sissetulek on $694.8$ eurot (vabaliige + regressiooniko
 
 Kui me paneme need keskmised joonisele ja ühendame nad joonega, näeme, et selle joone tõus (*slope*) on võrdne regressioonikoefitsiendiga, täpselt samuti nagu pidevtunnusega regressioonis.
 
-![](01-regressioon_files/figure-latex/reg-plot-6-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/reg-plot-6-1.png" width="672" />
 
 ### Kolme või enama kategooriaga sõltumatu tunnus
 
@@ -720,7 +729,7 @@ piaac %>%
   guides(color = guide_legend(override.aes = list(size = 2, alpha = 1)))
 ```
 
-![](01-regressioon_files/figure-latex/reg-plot-7-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/reg-plot-7-1.png" width="672" />
 
 Lihtsam võimalus seoseid graafiliselt esitada on kasutada paketist `interactions` funktsiooni `interaction_plot()`. See on küll mõeldud eelkõige koosmõjude plottimiseks, kuid toimib ka tavalisete seoste kujutamisel.
 
@@ -730,7 +739,7 @@ library(interactions)
 interact_plot(mudel4, pred = numeracy, modx = sugu, colors = c("#972D15", "#02401B"))
 ```
 
-![](01-regressioon_files/figure-latex/unnamed-chunk-15-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
 ### Kaks pidevat sõltumatut muutujat
 
@@ -880,7 +889,7 @@ Seega selles mudelis erinevad kategoriaalse tunnuse lõikes nii vabaliikme vää
 interact_plot(mudel8, pred = numeracy, modx = sugu,  colors =  c("#972D15", "#02401B"))
 ```
 
-![](01-regressioon_files/figure-latex/reg-plot-8-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/reg-plot-8-1.png" width="672" />
 
 
 ### Koosmõjud kategoriaalsete tunnuste puhul
@@ -949,7 +958,7 @@ Vaatame seda mudelit ka graafiliselt (kasutame paketi `interactions` funktsiooni
 cat_plot(mudel9, pred = haridustase, modx = sugu, colors =  c("#972D15", "#02401B"))
 ```
 
-![](01-regressioon_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 
 
@@ -996,7 +1005,10 @@ Nagu iga meetodi puhul, on ka lineaarsel regressioonanalüüsil rida eeldusi, mi
 
 1. Esimene ja vahest ka kõige olulisem eeldus on **lineaarne suhe sõltuva ja sõltumatu(te) tunnuse vahel**. Kõrvaloleval joonisel on esitatud neli andmestikku, mille regressioonisirged on identsed ($y=3+0.5x$). Tegelikult on identsed ka kõik muud andmete statistilised omadused ($x$'i keskmine, $y$'i keskmine, $x$'i dispersioon, $y$'i dispersioon ja ka korrelatsioon). Ometi on visuaalselt näha, et kõik andmestikud on väga erinevad. Seega peaks regressioonanalüüsi (või tegelikult ükskõik mis analüüsi) puhul olema alati esimene samm neid graafiliselt uurida. Kui tunnuste vaheline seos ei ole lineaarne, piisab mõnel juhul tunnuste  mittelineaarsest transformeerimisest (see peaks olema ka muidugi teoreetiliselt põhjendatud). Kui seos on eksponentsiaalne, siis võib kaaluda *log*-transformatsiooni. Kui seos on paraboolne, siis võib kaaluda ruutu tõstetud tunnuse lisamist ($y = \beta_0+\beta_1x+\beta_2x^2$). Taoliste transformatsioonide juures peab meeles pidama, et koos nendega muutub ka mudeli tõlgendus.  
 
-![(\#fig:anscombe)Anscombe kvartett](01-regressioon_files/figure-latex/anscombe-1.pdf) 
+<div class="figure">
+<img src="01-regressioon_files/figure-html/anscombe-1.png" alt="Anscombe kvartett" width="672" />
+<p class="caption">(\#fig:anscombe)Anscombe kvartett</p>
+</div>
 
 2. Lineaarse regressiooni puhul peaks tähelepanelik olema ka **erindite** (*outliers*)suhtes, st vaatluste suhtes, mis erinevad teistest väga olulisel määral (nagu ka kõrvalolevalt jooniselt näha). Mõnede andmete puhul on erindid paratamatud (näiteks sissetuleku puhul, kus suurem osa inimesi on koondunud keskmise sissetuleku ümber, kuid mõned üksikud teenivad sellest oluliselt enam). Sellisel juhul tasuks kaaluda jällegi tunnuse transformeerimist (sissetuleku puhul näiteks log-skaalale). Kui tegemist on mõne üksiku erindiga, võiks ju selle aluseks oleva vaatluse ka lihtsalt analüüsist välja jätta. Siin tuleks aga olla väga ettevaatlik. Andmete või sellest saadava informatsiooni tahtlik vähendamine (näiteks pidevtunnuste kategoriseerimine) ei ole üldiselt kunagi hea mõte. Seda enam ei ole hea mõte andmete vähendamine eesmärgiga mudelit paremaks teha. Kui aga erindite tekkimine on mingil moel teoreetiliselt seletatav või tulenenud näiteks veast andmekorjel, siis võib seda loomulikult teha.  
 
@@ -1095,7 +1107,7 @@ mod <- lm(formula = sissetulek ~ numeracy + vanus + sugu + haridustase,
 plot(mod, 1)
 ```
 
-![](01-regressioon_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 Kontrollime mittelineaarse seose olemasolu. Punktid peaksid olema ühtlaselt ümber keskmise joone jaotunud. Ei tohiks olla mingit ilmset mustrit.
 
@@ -1104,7 +1116,7 @@ Kontrollime mittelineaarse seose olemasolu. Punktid peaksid olema ühtlaselt üm
 plot(mod, 2)
 ```
 
-![](01-regressioon_files/figure-latex/unnamed-chunk-25-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 Kas jäägid on normaalselt jaotunud? Punktid peaksid ühtima diagonaalse joonega.
 
@@ -1113,7 +1125,7 @@ Kas jäägid on normaalselt jaotunud? Punktid peaksid ühtima diagonaalse jooneg
 plot(mod, 3)
 ```
 
-![](01-regressioon_files/figure-latex/unnamed-chunk-26-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 
 Kas jääkide dispersioon on homogeenne? Punane joon peaks olema horisontaalne ja punktid peaksid olema ühtlaselt jaotunud ega tohiks mingit mustrit moodustada.
 
@@ -1122,7 +1134,7 @@ Kas jääkide dispersioon on homogeenne? Punane joon peaks olema horisontaalne j
 plot(mod, 5)
 ```
 
-![](01-regressioon_files/figure-latex/unnamed-chunk-27-1.pdf)<!-- --> 
+<img src="01-regressioon_files/figure-html/unnamed-chunk-27-1.png" width="672" />
 
 Kas mudelis on mudelit oluliselt mõjutavaid erindeid? Kui on, siis peaksid need olema paremal all või paremal üleval nurgas ning kaugemal kui punktiirjoon (antud juhul neid ei ole ja seega ei ole ka punktiirjoont näha).
 
