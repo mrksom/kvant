@@ -106,3 +106,4 @@ mitmetasandilise-klastervalimi-defineerimine
 replikatsioonikaaludega-valimi-defineerimine
 valimiandmete-analüüs
 plausible-values
+tulemuste-valimidisaini-suhtes-korrigeerimine

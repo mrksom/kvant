@@ -11,7 +11,7 @@ editor_options:
 
 ```{r setup, include=FALSE}
 
-knitr::opts_chunk$set(warning = F, message = F, echo=F)
+knitr::opts_chunk$set(warning = F, message = F, echo=T)
 library(readxl)
 library(dplyr)
 library(wesanderson)
@@ -22,9 +22,9 @@ cols <- wes_palette(5, name="Cavalcanti1", type = "discrete")[c(5,2,3,4,1)]
 ```
 
 
-## Juhuvalim
+## Tõenäosuslik valim (probability sample)
 
-Järeldava statistika kontseptsioonid eeldavad üldjuhul alati nn juhuvalimit. Juhuslikkus tähedab siikohal, et kõikidel üldkogumi liikmetel on valimisse sattumiseks võrdne tõenäosus. [Suurte numbrite seadus]('https://en.wikipedia.org/wiki/Law_of_large_numbers) (*the law of large numbers*) viitab, et ükskõik millise üldkogumi kohta vjärelduste tegemiseks oleks meil sellest üldkogumist vaja umbes 1000 vaatluselist valimit. Kui me küsiksime Eestis 1000 inimese käest nende sissetuleku suurust, siis 1000 inimese keskmine sissetulek peaks olema küllaltki lähedane terve Eesti keskmise sissetulekuga. Seda aga ainult juhul, kui need 1000 inimest on valitud juhuslikult (kõikidel eestlastel peaks olema võrdne võimalus sattuda nende 1000 sekka). Mis juhtuks, kui me juhusliku valimi asemel võtaksime hoopis igast maakonnast 67 inimest (Eestis on 15 maakonda, seega $1000 \div 15 \approx 67$). Tõenäoliselt me alahindaksime keskmist sissetulekut oluliselt. Kõige suuremate sissetulekutega ja samas kõige suurema rahvaarvuga maakond on Harjumaa (598059 inimest 2019 aastal). Kõige väiksemate sissetulekutega ja ka rahvaarvult kõige väiksem maakond on Hiiu maakond (9387 inimest 2019 aastal). Kui me käsitleme mõlemat maakonda võrdselt, siis keskmise arvutamisel võtaksime Hiiu maakonna väikesed sissetulekud arvesse ebaproportsionaalselt suurel määral ja Harjumaa kõrgemad sissetulekud ebaproportsionaalselt v'ikesel määral (Hiiumaa on üleesindatud ja Harjumaa on alaesindatud). Meie maakondade põhine valim ei oleks enam üldkogumi suhtes __representatiivne__.
+Järeldava statistika kontseptsioonid eeldavad üldjuhul alati nn juhuvalimit. Juhuslikkus tähedab siikohal, et kõikidel üldkogumi liikmetel on valimisse sattumiseks võrdne tõenäosus. [Suurte numbrite seadus]('https://en.wikipedia.org/wiki/Law_of_large_numbers) (*the law of large numbers*) viitab, et ükskõik millise üldkogumi kohta vjärelduste tegemiseks oleks meil sellest üldkogumist vaja umbes 1000 vaatluselist valimit. Kui me küsiksime Eestis 1000 inimese käest nende sissetuleku suurust, siis 1000 inimese keskmine sissetulek peaks olema küllaltki lähedane terve Eesti keskmise sissetulekuga. Seda aga ainult juhul, kui need 1000 inimest on valitud juhuslikult (kõikidel eestlastel peaks olema võrdne võimalus sattuda nende 1000 sekka). Mis juhtuks, kui me juhusliku valimi asemel võtaksime hoopis igast maakonnast 67 inimest (Eestis on 15 maakonda, seega $1000 \div 15 \approx 67$). Tõenäoliselt me alahindaksime keskmist sissetulekut oluliselt. Kõige suuremate sissetulekutega ja samas kõige suurema rahvaarvuga maakond on Harjumaa (598059 inimest 2019 aastal). Kõige väiksemate sissetulekutega ja ka rahvaarvult kõige väiksem maakond on Hiiu maakond (9387 inimest 2019 aastal). Kui me käsitleme mõlemat maakonda võrdselt, siis keskmise arvutamisel võtaksime Hiiu maakonna väikesed sissetulekud arvesse ebaproportsionaalselt suurel määral ja Harjumaa kõrgemad sissetulekud ebaproportsionaalselt väikesel määral (Hiiumaa on üleesindatud ja Harjumaa on alaesindatud). Meie maakondade põhine valim ei oleks enam üldkogumi suhtes __representatiivne__.
 
 ```{r, echo = F, tab.cap="Eesti maakondade keskmised brutopalgad 2019 (Statistikaamet)"}
 
@@ -55,8 +55,7 @@ $$\frac{1531 + 993 + ... + 1113}{15} = 1179$$
 
 Statistikaameti järgi oli Eesti keskmine sissetulek 2019 aastal 1407 eurot. Seega tõepoolest, hinnang alahindab oluliselt tegelikku keskmist sissetulekut.
 
-## Tõenäosuslik valim (probability sample)
-Võttes oma valimisse igast maakonnast 67 inimest, ei ole meie valim küll enam juhuvalim, kuid niikaua kuni me teame kõikide maakondade rahvaarvu, on see siiski tõenäosuslik valim (antud juhul stratifitseeritud valim). Seda seetõttu, et kõikidel Eesti inimestel on ikkagi võimalus sellesse valimisse sattuda. Harjumaa inimestel küll väiksem ja Hiiumaa inimestel suurem, kuid mingi võimalus on kõigil. Kui me nüüd seda erinevat valimisse sattmise tõenäosust teame, siis on meil võimalik mitte-representatiivne valim representatiivseks muuta. Selleks tuleb meil Hiiumaa elanikud väiksemaks ja Harjumaa elanikud suuremaks kaaluda. Seejärel saame (mõningate mööndustega) jälle kasutada järeldava statistika meetodeid ning teha nende alusel korrektseid järeldusi üldkogumi kohta. 
+Võttes oma valimisse igast maakonnast 67 inimest, ei ole meie valim küll enam juhuvalim, kuid niikaua kuni me teame kõikide maakondade rahvaarvu, on see siiski __tõenäosuslik valim__ (antud juhul stratifitseeritud valim). Seda seetõttu, et kõikidel Eesti inimestel on ikkagi võimalus sellesse valimisse sattuda. Harjumaa inimestel küll väiksem ja Hiiumaa inimestel suurem, kuid mingi võimalus on kõigil. Kui me nüüd seda erinevat valimisse sattmise tõenäosust teame, siis on meil võimalik mitte-representatiivne valim representatiivseks muuta. Selleks tuleb meil Hiiumaa elanikud väiksemaks ja Harjumaa elanikud suuremaks kaaluda. Seejärel saame (mõningate mööndustega) jälle kasutada järeldava statistika meetodeid ning teha nende alusel korrektseid järeldusi üldkogumi kohta. 
 
 ## Kaalud
 
@@ -99,7 +98,7 @@ Märksa lähemal tõelisele Eesti keskmisele sissetulekule. Päris sama summat e
 
 
 ### Post-stratifikatsiooni kaalud
-Post-stratifikatsiooni abil saame parandada valimi representatiivsust peale valimi moodustamist. Näiteks juhul kui meie valim on moodustatud aadresside alusel, siis ei saa me planeerida oma valimit vastajate vanuselisest ja soolisest jaotusest lähtuvalt, kuigi üldkogumi kohta on meil need proportsioonid teada. Teine ja märksa levinum põhjus post-stratifikatsiooni jaoks on mitte-vastamine (*non-response*). Mõnede gruppide puhul kipub vastamisaktiivsus olema mõnevõrra madalam (näiteks noored mehed). Ka mitte-vastamise puhul ei ole meil valimi disainimise juures palju teha (võime muidugi suurendada noorte meeste valimisse sattumise tõenäosust, kuid me ei saa kindlustada kogu valimi vastavust üldkogumi proportsioonidele) ja selle ulatust näeme me vaid peale küsitluse läbiviimist.  Kui me siis hiljem avastame, et kuigi mehi peaks olema üldkogumis 50%, on neid valimisse sattunud 40%, siis tähendab see seda, et meie valim ei ole soo lõikes representatiivne. Naised on üleesindatud ja mehed alaesindatud. Sellisel juhul on võimalik välja arvutada post-stratifikatsioonikaalud. Kaalude moodustamisel peame naisi vähemaks kaaluma $0.5 \div 0.6 \approx 0.8333$ ja mehi rohkemaks kaaluma $0.5 \div 0.4 = 1.25$. Kui valimi kaalud on eelnevalt olemas, siis modifitseerime valimi kaale korrutades iga meessoost respondendi kaalud läbi $1.25$-ga ja iga naissoost respondendi kaalud läbi $0.83$-ga. 
+Post-stratifikatsiooni abil saame parandada valimi representatiivsust peale valimi moodustamist. Näiteks juhul kui meie valim on moodustatud aadresside alusel, siis ei saa me planeerida oma valimit vastajate vanuselisest ja soolisest jaotusest lähtuvalt, kuigi üldkogumi kohta on meil need proportsioonid teada. Teine ja märksa levinum põhjus post-stratifikatsiooni jaoks on mitte-vastamine (*non-response*). Mõnede gruppide puhul kipub vastamisaktiivsus olema mõnevõrra madalam (näiteks noored mehed). Ka mitte-vastamise puhul ei ole meil valimi disainimise juures palju teha (võime muidugi suurendada noorte meeste valimisse sattumise tõenäosust, kuid me ei saa kindlustada kogu valimi vastavust üldkogumi proportsioonidele) ja selle ulatust näeme me vaid peale küsitluse läbiviimist.  Kui me siis hiljem avastame, et kuigi mehi peaks olema üldkogumis 50%, on neid valimisse sattunud 40%, siis tähendab see seda, et meie valim ei ole soo lõikes representatiivne. Naised on üleesindatud ja mehed alaesindatud. Sellisel juhul on võimalik välja arvutada post-stratifikatsiooni kaalud. Kaalude moodustamisel peame naisi vähemaks kaaluma $0.5 \div 0.6 \approx 0.8333$ ja mehi rohkemaks kaaluma $0.5 \div 0.4 = 1.25$. Kui valimi kaalud on eelnevalt olemas, siis modifitseerime valimi kaale korrutades iga meessoost respondendi kaalud läbi $1.25$-ga ja iga naissoost respondendi kaalud läbi $0.83$-ga. 
 
 Post-stratifikatsiooni kasutatakse tavaliselt valimi representatiivsuse tõestmiseks erinevate sotsiaaldemograafiliste tunnuste lõikes (sugu, vanus, haridus jne). Kuid kaalude moodustamiseks peame teadma kõikide post-stratifikatsioonitunnuste ristlõigete osakaale. Ehk siis kui tahame post-stratifitseerida hariduse ja soo lõikes, siis peame teadma kõrgharitud meeste osakaalu, kõrgharitud naiste osakaalu, keskharitud meeste osakaalu jne. Tihti taolist ristõikelist üldkogumi jaotust me ei tea. Lisaks võivad nii moodustatud grupid minna väga väikeseks ja tekib oht, et mõnda ristlõiget meil valimis ei olegi. Näiteks kui lisaksime haridusele ja soole veel ka vanuse (näiteks vanused 15-75), siis oleks meil juba $2\times3\times60 = 360$ gruppi. Arvestades tavapärast valimimahtu (*ca* 1000 vaatlust) on ülimalt tõenäoline, et osasid post-stratifikatsiooni ristlõikesid meie valimisse lihtsalt ei sattunud.
 
@@ -109,7 +108,7 @@ Miks me ei saa post-stratifikatsioonikaale iga sotsiaaldemograafilise tunnuse l�
 Alternatiivne viis erinevate tunnuste lõikes valimi proportsioonide korrigeerimiseks on kalibreerimine. Kalibreerimise puhul kasutakse valimi üldkogumiga proportsiooni viimiseks regressioonimudelit, mille abil arvutatakse kalibratsioonikaalud, millega siis korrigeeritakse valimi kaale.  
 
 ### Mitte-vastamise kaalud (non-response weights)
-Kuigi post-stratifitseerimisega on võimalik neid gruppe, kus vastamismäär oli madalam kui valimiraam ette nägi, üles kaaluda, on tihti otstarbekas pöörata tähelepanu ka otseselt mitte-vastanutele. Kui post-stratifikatsiooni või rakingu/kalibreerimisega üritatakse tasanda eelkõige valimiraami ja üldkogumi erinevusi (juhuvalim, tänu sellele, et see on juhuslik, ei taga alati, et valim vastaks üldkogumi proportsioonidele) terves valimis, siis mitte-vastamise kaalude abil üritatakse üles kaaluda ainult neid gruppe, kus vastamismäär oli madalam ja gruppides, kus vastamismäär oli 100%, kaale ei muudeta. Tulles tagasi eelneva soolise erinevuse näite juurde: oletame, et meie valimi suuruseks oli 1000 inimest, kellest 50% olid valimi järgi naised ja 50% mehed (valimis vastavalt 500 ja 500), kuid peale küsitlust avastame, et algsest 1000-st respondendist õnnestus küsitleda 500-t naist ja 400-t meest. Ehk siis naiste vastamismäär oli 100% ja meeste vastamismäär 80%. Kuna naiste valimi osaga on kõik korras, ei taha me nende puhul midagi muuta. Küll aga tahame suurendada meeste kaale nii, et meeste valimi osa vastaks algsele valimiraamile. See tähendab, et me peaksime suurendama meeste kaale $500\div400 = 1.25$ võrra. Iga valimisse sattunud meest arvstame seega 1.25 kordselt.  
+Kuigi post-stratifitseerimisega on võimalik neid gruppe, kus vastamismäär oli madalam kui valimiraam ette nägi, üles kaaluda, on tihti otstarbekas pöörata tähelepanu ka otseselt mitte-vastanutele. Kui post-stratifikatsiooni või rakingu/kalibreerimisega üritatakse tasanda eelkõige valimiraami ja üldkogumi erinevusi (juhuvalim, tänu sellele, et see on juhuslik, ei taga alati, et valim vastaks üldkogumi proportsioonidele) terves valimis, siis mitte-vastamise kaalude abil üritatakse tagada, et reaalne valim vastaks teoreetilisele valimile. See tähendab, et üles kaalutakse ainult neid gruppe, kus vastamismäär oli madalam ja gruppe, kus vastamismäär oli 100%, kaale ei muudeta. Tulles tagasi eelneva soolise erinevuse näite juurde: oletame, et meie valimi suuruseks oli 1000 inimest, kellest 50% olid valimi järgi naised ja 50% mehed (valimis vastavalt 500 ja 500), kuid peale küsitlust avastame, et algsest 1000-st respondendist õnnestus küsitleda 500-t naist ja 400-t meest. Ehk siis naiste vastamismäär oli 100% ja meeste vastamismäär 80%. Kuna naiste valimi osaga on kõik korras, ei taha me nende puhul midagi muuta. Küll aga tahame suurendada meeste kaale nii, et meeste valimi osa vastaks algsele valimiraamile. See tähendab, et me peaksime suurendama meeste kaale $500\div400 = 1.25$ võrra. Iga valimisse sattunud meest arvstame seega 1.25 kordselt.  
 
 Teine võimalus mitte-vastamise kaalude arvutamiseks on kasutada logistilist regressiooni, kus valimiraamist lähtuvad sotsiaaldemograafilised tunnused on aluseks hinnangule vastamise ja mitte-vastamise kohta. 
 
@@ -120,20 +119,11 @@ Kui andmestikus on mitu kaalude tunnust, näiteks valimi kaalud ja mitte-vastami
 
 
 ## Valimidisain 
-Olukorras, kus kõigil üldkogumi liikmetel ei ole võrdset võimalust valimisse sattuda (kuid kõigil on see võimalus mingi tõenäosusega siiski olemas) või valimi valikuühik ei ole sama mis analüüsiühik (näiteks kui valim on moodustatud leibkondade põhjal aga analüüsime lebkondades olevaid isikuid), on meil tegemist mingi __valimidisaini__ alusel moodustatud valimiga. Valimidisainiga defineeritakse iga analüüsiühiku erinevad valimisse sattumise tõenäosused. Kui me valimi aluseks olevat disaini andmete anlüüsimisel arvesse ei võta, võime analüüsi tulemusel teha väga valesid järeldusi. Seda nii punkthinnangute (nagu eelnevas näites) kui ka standardvigade osas. Punkthinnanguid saame üldjuhul korrigeerida valimi kaaludega. Näiteks kaalutud keskmisi saame ka käsitsi välja arvutada, nagu me eelnevalt tegime, või kasutada selleks vastavaid funktsioone (Ri baasfunktsioon `weighted.mean()` võtab sisendiks kaalumata keskmiste vektori ja kaalude vektori).
+Olukorras, kus kõigil üldkogumi liikmetel ei ole võrdset võimalust valimisse sattuda (kuid kõigil on see võimalus mingi tõenäosusega siiski olemas) või valimi valikuühik ei ole sama mis analüüsiühik (näiteks kui valim on moodustatud leibkondade põhjal aga analüüsime lebkondades olevaid isikuid), on meil tegemist mingi __valimidisaini__ alusel moodustatud valimiga. Valimidisainiga defineeritakse iga analüüsiühiku erinevad valimisse sattumise tõenäosused. Kui me valimi aluseks olevat disaini andmete anlüüsimisel arvesse ei võta, võime analüüsi tulemusel teha väga valesid järeldusi. Seda nii punkthinnangute (nagu eelnevas näites) kui ka standardvigade osas. 
 
-Standardvigade korrigeerimine asi mõnevõrra keerulisem ja nende puhul tuleks kasutada spetsiifilisemaid lähenemisi. Eelnevalt vaatasime tavalise juhuvalimi standardvigade arvutamise loogikat (standardviga on valimijaotuse standardhälve, näidates kui suur on meie hinnangu keskmine viga kui me võtaksime samast popultaioonist lõputult valimeid). Keerulisemate valimidisainide puhul juhuvalimi loogika enam ei toimi, kuna vaatlused ei ole omavahel sõltumatud ja/või valiku ühikuks ei ole analüüsiühik. Sellises olukorras on meil tegelikult päris mitmeid võimalusi, kuidas standardvigasid, ehk siis valimijaotuse varieeruvust, hinnata. Peamisteks kasutatavateks meetoditeks on:
+Laias laastus võib erinevad valimidisainid jagada kahte suuremasse gruppi: stratifitseeritud valimid ja klastervalimid. Üldjuhul kasutatakse reaalselt nende kahe tüübi kombinatsioone või variatsioone. Konkreetse uuringu juures kasutatav valimidisain on tavaliselt kirjeldatud uuringu dokumentatsioonis (kui see nii ei ole, siis tasub alati uuringu läbiviijalt seda küsida). Tihti on selle seletuse juures ära toodud ka juhised edasiseks analüüsiks. Seega esimeseks sammuks mingi uuringu kasutamisel peaks alati olema uuringu dokumentatsiooniga tutvumine.
 
-- Taylori seeriate meetod (*Taylor series linearisation*)
-- Bootstrapi replikatsiooni meetod
-- Jackknife replikatsiooni meetod
-- BRR (*balanced repeated replication*)
-
-Kui Taylori seeriate meetodi puhul arvutatakse standardvead analüütiliselt, siis ülejäänud replikatsioonipõhiste meetodite puhul empiiriliselt. Üldiselt ei pea nende meetodite hingeelu nende kasutamiseks väga põhjalikult tundma (hiljem siiski vaatame replikatsioonimeetodeid, kuna nende loogika on küllaltki lihtne).
-
-Laias laastus võib erinevad valimidisainid jagada kolme suuremasse gruppi: stratifitseeritud valimid ja klastervalimid. Üldjuhul kasutatakse reaalselt nende kahe tüübi kombinatsioone või variatsioone. Konkreetse uuringu juures kasutatav valimidisain on tavaliselt kirjeldatud uuringu dokumentatsioonis (kui see nii ei ole, siis tasub alati uuringu läbiviijalt seda küsida). Tihti on selle seletuse juures ära toodud ka juhised edasiseks analüüsiks. Seega esimeseks sammuks mingi uuringu kasutamisel peaks alati olema uuringu dokumentatsiooniga tutvumine.
-
-Kuid miks üldse kasutatakse mingeid keerulisi valimidisaine ja ei piirduta tavaliste juhuvalimitega, mida oleks standardmeetoditega lihtne analüüsida? Esimene ja tihti määravaim põhjus on küsitlusega kaasnev kulu. Keerulisemad valimidisainid võimaldavad kontsentreerida küsitluste läbiviimist, lihtsustades seeläbi küsitlusega kaasnevat logistikat. Teine, ja tegelikult mõnevõrra olulisem põhjus on teatud keerulisemate valimidisainidega kaasnev tulemuste kvaliteedi tõus. Me saame valimidisainiga näiteks sihtida konkreetseid gruppe või tõsta uuringu üldist täpsusastet.
+Kuid miks üldse kasutatakse mingeid keerulisi valimidisaine ja ei piirduta tavaliste juhuvalimitega, mida oleks standardmeetoditega lihtne analüüsida? Esimene ja tihti määravaim põhjus on küsitlusega kaasnev kulu. Keerulisemad valimidisainid võimaldavad kontsentreerida küsitluste läbiviimist, lihtsustades seeläbi küsitlusega kaasnevat logistikat. Teine, ja tegelikult mõnevõrra olulisem põhjus on teatud keerulisemate valimidisainidega kaasnev tulemuste kvaliteedi tõus. Me saame valimidisainiga sihtida konkreetseid gruppe või tõsta uuringu üldist täpsusastet.
 
 
 ### Stratifitseeritud juhuvalim
@@ -152,9 +142,21 @@ Võib-olla ei ole isegi mõtet kõiki valimisse sattunud koolide õpetajaid inte
  
 Võrreldes juhu- või stratifitseeritud valimiga klastervalim sama valimimahu juures üldiselt vähendab hinnangute täpsust, kuna inimesed klastrite sees kipuvad olema sarnasemad kui klastrite vahel. Kuid samas võimaldab klastervalimi kuluefektiivsus koostada suuremaid valimeid, mis omakorda suurendavad täpsust. Seega kokkuvõttes võib mõnevõrra suurema mahuga klastervalimiga saada väiksema mahuga juhuvalimiga võrreldava täpsusastmega hinnagud väiksema raha eest. 
 
+## Tulemuste valimidisaini suhtes korrigeerimine
+
+Punkthinnanguid saame üldjuhul korrigeerida valimi kaaludega. Näiteks kaalutud keskmisi saame ka käsitsi välja arvutada, nagu me eelnevalt tegime, või kasutada selleks vastavaid funktsioone (Ri baasfunktsioon `weighted.mean()` võtab sisendiks kaalumata keskmiste vektori ja kaalude vektori).
+
+Standardvigade korrigeerimine asi mõnevõrra keerulisem ja nende puhul tuleks kasutada spetsiifilisemaid lähenemisi. Eelnevalt vaatasime tavalise juhuvalimi standardvigade arvutamise loogikat (standardviga on valimijaotuse standardhälve, näidates kui suur on meie hinnangu keskmine viga kui me võtaksime samast popultaioonist lõputult valimeid). Keerulisemate valimidisainide puhul juhuvalimi loogika enam ei toimi, kuna vaatlused ei ole omavahel sõltumatud ja/või valiku ühikuks ei ole analüüsiühik. Sellises olukorras on meil tegelikult päris mitmeid võimalusi, kuidas standardvigasid, ehk siis valimijaotuse varieeruvust, hinnata. Peamisteks kasutatavateks meetoditeks on:
+
+- Taylori seeriate meetod (*Taylor series linearisation*)
+- Bootstrapi replikatsiooni meetod
+- Jackknife replikatsiooni meetod
+- BRR (*balanced repeated replication*)
+
+Kui Taylori seeriate meetodi puhul arvutatakse standardvead analüütiliselt, siis ülejäänud replikatsioonipõhiste meetodite puhul empiiriliselt. Üldiselt ei pea nende meetodite hingeelu nende kasutamiseks väga põhjalikult tundma (vaatame siiski replikatsioonimeetodeid, kuna nende loogika on küllaltki lihtne).
 
 ### Replikatsioonikaalud (replicate weights)
-Keerulisemate valimidisainide puhul ei ole võimalik standardvigasid analüütiliste meetoditega arvutada. Sel juhul on standardvigade leidmisks võimalik  kasutada erinevad replikatsioonimeetodid, nagu *bootstrap* või *jackknife* (reaalsuses küll tavaliselt mõnda nende variatsioonidest). Paljude suuremate uuringute puhul on andmestikuga kaasas replikatsioonikaalud, mis võimaldavad replikatsioonimeetodeid kasutada. Näiteks OECD uuringutes nagu PISA või PIIAC. Replikatsioonimeetodeid võib ja saab kasutada ka tavalise juhuvalimi korral. Ajalooliselt on nende laiem kasutus jäänud arvutusvõimsuste taha, kuid tänapäeval, kui see enam probleem ei ole, on need järjest rohkem hakanud tavapäraseid analüütilisi standardvigade arvutamise meetodeid asendama.
+Keerulisemate valimidisainide ja mitte-lineaarsete meetoodite puhul ei ole alati võimalik standardvigasid analüütiliste meetoditega arvutada. Sel juhul on standardvigade leidmisks võimalik  kasutada erinevad replikatsioonimeetodid, nagu *bootstrap* või *jackknife* (reaalsuses küll tavaliselt mõnda nende variatsioonidest). Paljude suuremate uuringute puhul on andmestikuga kaasas replikatsioonikaalud, mis võimaldavad replikatsioonimeetodeid kasutada. Näiteks OECD uuringutes nagu PISA või PIIAC. Replikatsioonimeetodeid võib ja saab kasutada ka tavalise juhuvalimi korral. Ajalooliselt on nende laiem kasutus jäänud arvutusvõimsuste taha, kuid tänapäeval, kui see enam probleem ei ole, on need järjest rohkem hakanud tavapäraseid analüütilisi standardvigade arvutamise meetodeid asendama.
 
 Kõikide replikatsioonimeetodite üldprintsiip ja loogika on lihtne. Olemasolevast valimist võetakse palju alamvalimeid (replikatsioone), ehk siis valimit käsitletakse üldpopultaioonina, millest võetkse omakorda valimid. Kõikide alamvalimite puhul arvutatakse huvipakkuv statistik (näiteks mingi tunnuse keskmine). Alamvalimite statistikutest moodustub (pseudo)valimijaotus, mille standardhälve ongi standardviga. Seega kui tavaline standardvea arvutamise metoodika lähtub küll potentsiaalsest eeldusest, et valimijaotuse aluseks olevaid valimeid on lõputult, kuid tuletab standardvea analüütiliselt ($se = \frac{sd}{\sqrt{n}}$), siis replikatsioonimeetodid tuletavad olemasolevast valimist suurel hulgal alamvalimeid, mille alusel moodustavad valimijaotuse ja tuletavad standardvea empiiriliselt.
 
@@ -183,7 +185,7 @@ data(api)
 
 Valimidisain tavalise juhuvalimi puhul kui meile on ainult valimi kaalud ja/või mingid mingid kaalud. Isegi tavalise juhuvalimi puhul peaksime ikkagi kasutama vähemalt valimi kaale (need lubavad meil hinnata näiteks populatsiooni suurust). Lisaks valimi kaaludele või valimi kaalude asemel võivad andmestikus olla ka mitte-vastamise kaalud või poststratifikatsiooni kaalud (või oleme need ise välja arvutanud), mille olemasolu või vajadus ei sõltu sellest, kas tegemist on tavalise juhuvalimiga või keerulisema disainiga. Kui andmestikus on mitu kaalude tunnust, mida meil on vaja kasutada, siis peaksime need omavahel läbi korrutades üheks tunnuseks koondama. 
 
-`svydesign()` argumentidena peame defineerima:  
+`svydesign()` funktsiooni argumentidena peame defineerima:  
 
 - `ids` argumendiga defineeritakse valimiühikud (*PSU*). Need on klastri id'd klastervalimi puhul, ehk siis tunnus, mille lõikes klastervalimi valik toimus. Kui valik toimus analüüsitasandil ilma klastriteta, siis tuleks märkida `ids = ~1`
 - `weights` tähistab kaalu tunnust. Tunnuse nime ette tuleb kindlasti panna tilde märk (või viidata tunnusele otse apisrs$pw)
@@ -197,7 +199,7 @@ des_jv = svydesign(ids = ~1,
                    data = apisrs)
 ```
 
-Väiksemate üldkogumite korral, kui me teame üldkogumi suurust, saab kasutada lõpliku populatsiooni korrektsiooni (*finite population correction* ehk *fpc*), mis võimaldab kasutada mõnevõrra väiksemaid standardvigasid. Kui üldkogum on küllaltki väike, siis on ka valim üldkogumile tõenäoliselt sarnasem, võrreldes juhuga kui üldkogum on väga suur. Seega on valimis ka vähem määramatust ning standardvead väiksemad.
+Väiksemate üldkogumite korral, kui me teame üldkogumi suurust, saab kasutada lõpliku populatsiooni korrektsiooni (*finite population correction* ehk *fpc*), mis võimaldab kasutada mõnevõrra väiksemaid standardvigasid. Kui üldkogum on väike, siis on ka valim üldkogumile pigem sarnasem, võrreldes juhuga kui üldkogum on väga suur. Seega on valimis ka vähem määramatust ning standardvead väiksemad.
 
 *fpc* defineeritakse parameetriga:
 
@@ -219,7 +221,7 @@ summary(des_jv)
 Stratifitseeritud valimi puhul tuleb meil defineerida stratifitseeriv tunnus. Andmestikus *apistrat* on selleks *stype* (koolitüüp) tunnus, mille lõikes koolid on stratifitseeritud.  
 
 - `strata` argumendiga defineeritakse valimit stratifitseeriv tunnus
-- `fpc` argumendiga saab määrata iga strata suuruse (kui see on olemas, siis ole vaja valimi kaale eraldi märkida, survey arvutab vaatluste valimisse sattumise tõenäosused ja kaalud ise välja)
+- `fpc` argumendiga saab määrata iga strata suuruse (kui see on olemas, siis ole vaja valimi (disaini) kaale eraldi märkida, survey arvutab vaatluste valimisse sattumise tõenäosused ja kaalud ise välja)
 
 ```{r}
 des_strat = svydesign(ids = ~1, 
@@ -277,14 +279,13 @@ rw1<-as.svrepdesign(design = des_clus,
 
 Replikatsioonikaalude kasutamiseks, juhul kui me ise neid kaale ei arvuta ja need on meie andmestikkus juba olemas, peame defineerima jällegi vastava survey disainiobjekti. Näidisandmestikes ühtegi replikatsioonikaaludega andmestikku ei ole. Kuid saame selle vähese vaevaga eelneva näite replikatsioonikaalude objekti abil teha:
 
-```{r}
+```{r }
 indeks <- data.frame(indeks = rw1$repweights$index)
 kaalud <- as.data.frame(rw1$repweights$weights)
 names(kaalud) <- paste0('rep_w_', 1:15)
 kaalud$indeks <- 1:15
 kaalud <- left_join(indeks, kaalud, by = 'indeks')
 apiclus_rep = cbind(apiclus1, kaalud)
-names(apiclus_rep)
 ```
 
 Kui kaaludega andmestik on olemas, siis saame replikatsioonikaalude disaini defineerida funktsiooniga `svrepdesign()`. Funktsioonis on kindlasti vaja defineerida järgmised argumendid:
@@ -326,7 +327,7 @@ svymean(~api00, design = des_clus)
 
 ```
 
-Kui tahame keskmisele usalduspiire, siis saame kasutada funktsiooni `confint()`:
+Kui tahame keskmisele **usalduspiire**, siis saame kasutada funktsiooni `confint()`:
 
 ```{r}
 mod <- svymean(~api00, design = des_clus)
@@ -339,7 +340,7 @@ Võime ka korraga mitme tunnuse keskmist hinnata:
 svymean(~api00+api99, design = des_clus)
 ```
 
-Saame ka kategoriaalsete tunnuste proportsioone hinnata: 
+Saame ka **kategoriaalsete tunnuste proportsioone** hinnata: 
 
 ```{r}
 svymean(~stype, design = des_clus)
@@ -454,7 +455,7 @@ des_piaac <- svrepdesign(repweights=dat[,rw],
                    weights=dat[,mw], type="JK2", data = dat)
 ```
 
-```{r eval = F}
+```{r eval = T}
 f <- as.formula(paste0('lit~', paste(lit, collapse = '+')))
 results_list<-withPV(
     mapping = f,
@@ -466,7 +467,7 @@ summary(MIcombine(results_list))
 
 
 
-```{r eval=F}
+```{r eval=T}
 # Hindame regressioonimudeliga soo mõju lugemisoskusele
 # Tulemus peaks olema sama, mis eelmises analüüsis
 f <- as.formula(paste0('lit~', paste(lit, collapse = '+')))

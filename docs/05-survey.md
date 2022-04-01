@@ -12,12 +12,12 @@ editor_options:
 
 
 
-## Juhuvalim
+## Tõenäosuslik valim (probability sample)
 
-Järeldava statistika kontseptsioonid eeldavad üldjuhul alati nn juhuvalimit. Juhuslikkus tähedab siikohal, et kõikidel üldkogumi liikmetel on valimisse sattumiseks võrdne tõenäosus. [Suurte numbrite seadus]('https://en.wikipedia.org/wiki/Law_of_large_numbers) (*the law of large numbers*) viitab, et ükskõik millise üldkogumi kohta vjärelduste tegemiseks oleks meil sellest üldkogumist vaja umbes 1000 vaatluselist valimit. Kui me küsiksime Eestis 1000 inimese käest nende sissetuleku suurust, siis 1000 inimese keskmine sissetulek peaks olema küllaltki lähedane terve Eesti keskmise sissetulekuga. Seda aga ainult juhul, kui need 1000 inimest on valitud juhuslikult (kõikidel eestlastel peaks olema võrdne võimalus sattuda nende 1000 sekka). Mis juhtuks, kui me juhusliku valimi asemel võtaksime hoopis igast maakonnast 67 inimest (Eestis on 15 maakonda, seega $1000 \div 15 \approx 67$). Tõenäoliselt me alahindaksime keskmist sissetulekut oluliselt. Kõige suuremate sissetulekutega ja samas kõige suurema rahvaarvuga maakond on Harjumaa (598059 inimest 2019 aastal). Kõige väiksemate sissetulekutega ja ka rahvaarvult kõige väiksem maakond on Hiiu maakond (9387 inimest 2019 aastal). Kui me käsitleme mõlemat maakonda võrdselt, siis keskmise arvutamisel võtaksime Hiiu maakonna väikesed sissetulekud arvesse ebaproportsionaalselt suurel määral ja Harjumaa kõrgemad sissetulekud ebaproportsionaalselt v'ikesel määral (Hiiumaa on üleesindatud ja Harjumaa on alaesindatud). Meie maakondade põhine valim ei oleks enam üldkogumi suhtes __representatiivne__.
+Järeldava statistika kontseptsioonid eeldavad üldjuhul alati nn juhuvalimit. Juhuslikkus tähedab siikohal, et kõikidel üldkogumi liikmetel on valimisse sattumiseks võrdne tõenäosus. [Suurte numbrite seadus]('https://en.wikipedia.org/wiki/Law_of_large_numbers) (*the law of large numbers*) viitab, et ükskõik millise üldkogumi kohta vjärelduste tegemiseks oleks meil sellest üldkogumist vaja umbes 1000 vaatluselist valimit. Kui me küsiksime Eestis 1000 inimese käest nende sissetuleku suurust, siis 1000 inimese keskmine sissetulek peaks olema küllaltki lähedane terve Eesti keskmise sissetulekuga. Seda aga ainult juhul, kui need 1000 inimest on valitud juhuslikult (kõikidel eestlastel peaks olema võrdne võimalus sattuda nende 1000 sekka). Mis juhtuks, kui me juhusliku valimi asemel võtaksime hoopis igast maakonnast 67 inimest (Eestis on 15 maakonda, seega $1000 \div 15 \approx 67$). Tõenäoliselt me alahindaksime keskmist sissetulekut oluliselt. Kõige suuremate sissetulekutega ja samas kõige suurema rahvaarvuga maakond on Harjumaa (598059 inimest 2019 aastal). Kõige väiksemate sissetulekutega ja ka rahvaarvult kõige väiksem maakond on Hiiu maakond (9387 inimest 2019 aastal). Kui me käsitleme mõlemat maakonda võrdselt, siis keskmise arvutamisel võtaksime Hiiu maakonna väikesed sissetulekud arvesse ebaproportsionaalselt suurel määral ja Harjumaa kõrgemad sissetulekud ebaproportsionaalselt väikesel määral (Hiiumaa on üleesindatud ja Harjumaa on alaesindatud). Meie maakondade põhine valim ei oleks enam üldkogumi suhtes __representatiivne__.
 
 ```{=html}
-<template id="72d43200-03b4-4445-819d-77ea08be3ba6"><style>
+<template id="940a917c-19a9-4ead-867d-3d412dec6b1f"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -51,7 +51,7 @@ Järeldava statistika kontseptsioonid eeldavad üldjuhul alati nn juhuvalimit. J
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-951656e6{}.cl-950cd788{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-950cd789{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-950cd78a{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-950d43e4{width:134.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d43e5{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d43e6{width:67.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d43e7{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d43e8{width:134.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d43e9{width:67.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d43ea{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d43eb{width:67.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d43ec{width:134.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d43ed{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d43ee{width:134.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d93f8{width:67.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d93f9{width:134.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d93fa{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-950d93fb{width:67.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-951656e6'>
+</style><div class="tabwid"><style>.cl-94512458{}.cl-9448cb8c{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-9448cb8d{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9448cb8e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-94491b28{width:134.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94491b29{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94491b2a{width:67.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94491b2b{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94491b2c{width:134.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94491b2d{width:67.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94491b2e{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94491b2f{width:67.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94491b30{width:134.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94491b31{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94491b32{width:134.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-944941fc{width:67.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-944941fd{width:134.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-944941fe{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-944941ff{width:67.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-94512458'>
 ```
 <caption class="">
 
@@ -59,11 +59,11 @@ background-color: transparent;
 
 </caption>
 ```{=html}
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-950d93fa"><p class="cl-950cd789"><span class="cl-950cd788">Maakond</span></p></td><td class="cl-950d93f9"><p class="cl-950cd78a"><span class="cl-950cd788">Keskmine brutokuupalk</span></p></td><td class="cl-950d93fb"><p class="cl-950cd78a"><span class="cl-950cd788">Rahvaarv</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-950d43e5"><p class="cl-950cd789"><span class="cl-950cd788">Harju maakond</span></p></td><td class="cl-950d43e4"><p class="cl-950cd78a"><span class="cl-950cd788">1 531.0</span></p></td><td class="cl-950d43e6"><p class="cl-950cd78a"><span class="cl-950cd788">598 059.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43ea"><p class="cl-950cd789"><span class="cl-950cd788">Hiiu maakond</span></p></td><td class="cl-950d43ec"><p class="cl-950cd78a"><span class="cl-950cd788">993.0</span></p></td><td class="cl-950d43eb"><p class="cl-950cd78a"><span class="cl-950cd788">9 387.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43ea"><p class="cl-950cd789"><span class="cl-950cd788">Ida-Viru maakond</span></p></td><td class="cl-950d43ec"><p class="cl-950cd78a"><span class="cl-950cd788">1 147.0</span></p></td><td class="cl-950d43eb"><p class="cl-950cd78a"><span class="cl-950cd788">136 240.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43e5"><p class="cl-950cd789"><span class="cl-950cd788">Jõgeva maakond</span></p></td><td class="cl-950d43e4"><p class="cl-950cd78a"><span class="cl-950cd788">1 066.0</span></p></td><td class="cl-950d43e6"><p class="cl-950cd78a"><span class="cl-950cd788">28 734.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43ea"><p class="cl-950cd789"><span class="cl-950cd788">Järva maakond</span></p></td><td class="cl-950d43ec"><p class="cl-950cd78a"><span class="cl-950cd788">1 192.0</span></p></td><td class="cl-950d43eb"><p class="cl-950cd78a"><span class="cl-950cd788">30 286.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43ea"><p class="cl-950cd789"><span class="cl-950cd788">Lääne maakond</span></p></td><td class="cl-950d43ec"><p class="cl-950cd78a"><span class="cl-950cd788">1 274.0</span></p></td><td class="cl-950d43eb"><p class="cl-950cd78a"><span class="cl-950cd788">20 507.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43ea"><p class="cl-950cd789"><span class="cl-950cd788">Lääne-Viru maakond</span></p></td><td class="cl-950d43ec"><p class="cl-950cd78a"><span class="cl-950cd788">1 095.0</span></p></td><td class="cl-950d43eb"><p class="cl-950cd78a"><span class="cl-950cd788">59 325.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43ea"><p class="cl-950cd789"><span class="cl-950cd788">Põlva maakond</span></p></td><td class="cl-950d43ec"><p class="cl-950cd78a"><span class="cl-950cd788">1 140.0</span></p></td><td class="cl-950d43eb"><p class="cl-950cd78a"><span class="cl-950cd788">25 006.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43ea"><p class="cl-950cd789"><span class="cl-950cd788">Pärnu maakond</span></p></td><td class="cl-950d43ec"><p class="cl-950cd78a"><span class="cl-950cd788">1 172.0</span></p></td><td class="cl-950d43eb"><p class="cl-950cd78a"><span class="cl-950cd788">85 938.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43e7"><p class="cl-950cd789"><span class="cl-950cd788">Rapla maakond</span></p></td><td class="cl-950d43e8"><p class="cl-950cd78a"><span class="cl-950cd788">1 200.0</span></p></td><td class="cl-950d43e9"><p class="cl-950cd78a"><span class="cl-950cd788">33 311.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43ea"><p class="cl-950cd789"><span class="cl-950cd788">Saare maakond</span></p></td><td class="cl-950d43ec"><p class="cl-950cd78a"><span class="cl-950cd788">1 082.0</span></p></td><td class="cl-950d43eb"><p class="cl-950cd78a"><span class="cl-950cd788">33 108.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43ea"><p class="cl-950cd789"><span class="cl-950cd788">Tartu maakond</span></p></td><td class="cl-950d43ec"><p class="cl-950cd78a"><span class="cl-950cd788">1 426.0</span></p></td><td class="cl-950d43eb"><p class="cl-950cd78a"><span class="cl-950cd788">152 976.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43e5"><p class="cl-950cd789"><span class="cl-950cd788">Valga maakond</span></p></td><td class="cl-950d43e4"><p class="cl-950cd78a"><span class="cl-950cd788">1 058.0</span></p></td><td class="cl-950d43e6"><p class="cl-950cd78a"><span class="cl-950cd788">28 370.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43e5"><p class="cl-950cd789"><span class="cl-950cd788">Viljandi maakond</span></p></td><td class="cl-950d43e4"><p class="cl-950cd78a"><span class="cl-950cd788">1 201.0</span></p></td><td class="cl-950d43e6"><p class="cl-950cd78a"><span class="cl-950cd788">46 371.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-950d43ed"><p class="cl-950cd789"><span class="cl-950cd788">Võru maakond</span></p></td><td class="cl-950d43ee"><p class="cl-950cd78a"><span class="cl-950cd788">1 113.0</span></p></td><td class="cl-950d93f8"><p class="cl-950cd78a"><span class="cl-950cd788">35 782.0</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="3e875c47-ebda-43cb-872a-f8c55747985d"></div>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-944941fe"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Maakond</span></p></td><td class="cl-944941fd"><p class="cl-9448cb8e"><span class="cl-9448cb8c">Keskmine brutokuupalk</span></p></td><td class="cl-944941ff"><p class="cl-9448cb8e"><span class="cl-9448cb8c">Rahvaarv</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-94491b29"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Harju maakond</span></p></td><td class="cl-94491b28"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 531.0</span></p></td><td class="cl-94491b2a"><p class="cl-9448cb8e"><span class="cl-9448cb8c">598 059.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b2e"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Hiiu maakond</span></p></td><td class="cl-94491b30"><p class="cl-9448cb8e"><span class="cl-9448cb8c">993.0</span></p></td><td class="cl-94491b2f"><p class="cl-9448cb8e"><span class="cl-9448cb8c">9 387.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b2e"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Ida-Viru maakond</span></p></td><td class="cl-94491b30"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 147.0</span></p></td><td class="cl-94491b2f"><p class="cl-9448cb8e"><span class="cl-9448cb8c">136 240.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b29"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Jõgeva maakond</span></p></td><td class="cl-94491b28"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 066.0</span></p></td><td class="cl-94491b2a"><p class="cl-9448cb8e"><span class="cl-9448cb8c">28 734.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b2e"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Järva maakond</span></p></td><td class="cl-94491b30"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 192.0</span></p></td><td class="cl-94491b2f"><p class="cl-9448cb8e"><span class="cl-9448cb8c">30 286.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b2e"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Lääne maakond</span></p></td><td class="cl-94491b30"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 274.0</span></p></td><td class="cl-94491b2f"><p class="cl-9448cb8e"><span class="cl-9448cb8c">20 507.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b2e"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Lääne-Viru maakond</span></p></td><td class="cl-94491b30"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 095.0</span></p></td><td class="cl-94491b2f"><p class="cl-9448cb8e"><span class="cl-9448cb8c">59 325.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b2e"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Põlva maakond</span></p></td><td class="cl-94491b30"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 140.0</span></p></td><td class="cl-94491b2f"><p class="cl-9448cb8e"><span class="cl-9448cb8c">25 006.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b2e"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Pärnu maakond</span></p></td><td class="cl-94491b30"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 172.0</span></p></td><td class="cl-94491b2f"><p class="cl-9448cb8e"><span class="cl-9448cb8c">85 938.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b2b"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Rapla maakond</span></p></td><td class="cl-94491b2c"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 200.0</span></p></td><td class="cl-94491b2d"><p class="cl-9448cb8e"><span class="cl-9448cb8c">33 311.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b2e"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Saare maakond</span></p></td><td class="cl-94491b30"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 082.0</span></p></td><td class="cl-94491b2f"><p class="cl-9448cb8e"><span class="cl-9448cb8c">33 108.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b2e"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Tartu maakond</span></p></td><td class="cl-94491b30"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 426.0</span></p></td><td class="cl-94491b2f"><p class="cl-9448cb8e"><span class="cl-9448cb8c">152 976.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b29"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Valga maakond</span></p></td><td class="cl-94491b28"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 058.0</span></p></td><td class="cl-94491b2a"><p class="cl-9448cb8e"><span class="cl-9448cb8c">28 370.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b29"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Viljandi maakond</span></p></td><td class="cl-94491b28"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 201.0</span></p></td><td class="cl-94491b2a"><p class="cl-9448cb8e"><span class="cl-9448cb8c">46 371.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94491b31"><p class="cl-9448cb8d"><span class="cl-9448cb8c">Võru maakond</span></p></td><td class="cl-94491b32"><p class="cl-9448cb8e"><span class="cl-9448cb8c">1 113.0</span></p></td><td class="cl-944941fc"><p class="cl-9448cb8e"><span class="cl-9448cb8c">35 782.0</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="6c6f52a5-cb5a-49a4-97eb-ea580863fa42"></div>
 <script>
-var dest = document.getElementById("3e875c47-ebda-43cb-872a-f8c55747985d");
-var template = document.getElementById("72d43200-03b4-4445-819d-77ea08be3ba6");
+var dest = document.getElementById("6c6f52a5-cb5a-49a4-97eb-ea580863fa42");
+var template = document.getElementById("940a917c-19a9-4ead-867d-3d412dec6b1f");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -84,8 +84,7 @@ $$\frac{1531 + 993 + ... + 1113}{15} = 1179$$
 
 Statistikaameti järgi oli Eesti keskmine sissetulek 2019 aastal 1407 eurot. Seega tõepoolest, hinnang alahindab oluliselt tegelikku keskmist sissetulekut.
 
-## Tõenäosuslik valim (probability sample)
-Võttes oma valimisse igast maakonnast 67 inimest, ei ole meie valim küll enam juhuvalim, kuid niikaua kuni me teame kõikide maakondade rahvaarvu, on see siiski tõenäosuslik valim (antud juhul stratifitseeritud valim). Seda seetõttu, et kõikidel Eesti inimestel on ikkagi võimalus sellesse valimisse sattuda. Harjumaa inimestel küll väiksem ja Hiiumaa inimestel suurem, kuid mingi võimalus on kõigil. Kui me nüüd seda erinevat valimisse sattmise tõenäosust teame, siis on meil võimalik mitte-representatiivne valim representatiivseks muuta. Selleks tuleb meil Hiiumaa elanikud väiksemaks ja Harjumaa elanikud suuremaks kaaluda. Seejärel saame (mõningate mööndustega) jälle kasutada järeldava statistika meetodeid ning teha nende alusel korrektseid järeldusi üldkogumi kohta. 
+Võttes oma valimisse igast maakonnast 67 inimest, ei ole meie valim küll enam juhuvalim, kuid niikaua kuni me teame kõikide maakondade rahvaarvu, on see siiski __tõenäosuslik valim__ (antud juhul stratifitseeritud valim). Seda seetõttu, et kõikidel Eesti inimestel on ikkagi võimalus sellesse valimisse sattuda. Harjumaa inimestel küll väiksem ja Hiiumaa inimestel suurem, kuid mingi võimalus on kõigil. Kui me nüüd seda erinevat valimisse sattmise tõenäosust teame, siis on meil võimalik mitte-representatiivne valim representatiivseks muuta. Selleks tuleb meil Hiiumaa elanikud väiksemaks ja Harjumaa elanikud suuremaks kaaluda. Seejärel saame (mõningate mööndustega) jälle kasutada järeldava statistika meetodeid ning teha nende alusel korrektseid järeldusi üldkogumi kohta. 
 
 ## Kaalud
 
@@ -104,7 +103,7 @@ $$T_y = \sum^{n}_{i = 1}w_i y_i$$
 Kui me rakendame neid kaale erinevates maakodades elavatele inimestele, siis saame alaesindatud maakonna (Harjumaa) valimi üles kaaluda $67 \times 8926 = 598042$ ja üleesindatud maakona (Hiiumaa) valimi alla kaaluda $67 \times 140 = 9380$ (erinevused algsetest maakondade suurustest on tingitud ümardamisest, kui ei oleks seda teinud, oleksid tulemused identsed).
 
 ```{=html}
-<template id="0c4bd971-59e8-4715-a798-de07ad8bfc50"><style>
+<template id="f315f261-0f2f-4863-8028-8c6de1891068"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -138,7 +137,7 @@ Kui me rakendame neid kaale erinevates maakodades elavatele inimestele, siis saa
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-9549916e{}.cl-953e8670{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-953ead94{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-953ead95{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-953f272e{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953f272f{width:90.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953f2730{width:60.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953f2731{width:75.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953f2732{width:32.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953f2733{width:60.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953f2734{width:32.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953f2735{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953f2736{width:90.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953f2737{width:75.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953f2738{width:90.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953fc7f6{width:60.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953fc7f7{width:75.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953fc7f8{width:32.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953fc7f9{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953fc7fa{width:32.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953fc7fb{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953fc7fc{width:90.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953fc7fd{width:60.3pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953fc7fe{width:75.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953fc7ff{width:75.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-953fc800{width:90.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-95406314{width:32.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-95406315{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-95406316{width:60.3pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-9549916e'>
+</style><div class="tabwid"><style>.cl-947e8bfa{}.cl-9474c264{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-9474d93e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9474d93f{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9475392e{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475392f{width:90.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94753930{width:60.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94753931{width:75.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94753932{width:32.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94753933{width:60.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94753934{width:32.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94753935{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94753936{width:90.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94753937{width:75.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94753938{width:90.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475da96{width:60.3pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475da97{width:75.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475da98{width:32.8pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475da99{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475da9a{width:32.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475da9b{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475da9c{width:90.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475da9d{width:60.3pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475da9e{width:75.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475da9f{width:75.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475daa0{width:90.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475e3ce{width:32.8pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475e3cf{width:122.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9475e3d0{width:60.3pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-947e8bfa'>
 ```
 <caption class="">
 
@@ -146,11 +145,11 @@ background-color: transparent;
 
 </caption>
 ```{=html}
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-95406315"><p class="cl-953ead94"><span class="cl-953e8670">Maakond</span></p></td><td class="cl-95406316"><p class="cl-953ead95"><span class="cl-953e8670">N</span></p></td><td class="cl-95406314"><p class="cl-953ead95"><span class="cl-953e8670">n</span></p></td><td class="cl-953fc800"><p class="cl-953ead95"><span class="cl-953e8670">Tõenäosus</span></p></td><td class="cl-953fc7ff"><p class="cl-953ead95"><span class="cl-953e8670">Kaalud</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-953f272e"><p class="cl-953ead94"><span class="cl-953e8670">Harju maakond</span></p></td><td class="cl-953f2730"><p class="cl-953ead95"><span class="cl-953e8670">598 059.0</span></p></td><td class="cl-953f2732"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f272f"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953f2731"><p class="cl-953ead95"><span class="cl-953e8670">8 926.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953fc7f9"><p class="cl-953ead94"><span class="cl-953e8670">Hiiu maakond</span></p></td><td class="cl-953fc7f6"><p class="cl-953ead95"><span class="cl-953e8670">9 387.0</span></p></td><td class="cl-953fc7f8"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f2738"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953fc7f7"><p class="cl-953ead95"><span class="cl-953e8670">140.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953fc7f9"><p class="cl-953ead94"><span class="cl-953e8670">Ida-Viru maakond</span></p></td><td class="cl-953fc7f6"><p class="cl-953ead95"><span class="cl-953e8670">136 240.0</span></p></td><td class="cl-953fc7f8"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f2738"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953fc7f7"><p class="cl-953ead95"><span class="cl-953e8670">2 033.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953f272e"><p class="cl-953ead94"><span class="cl-953e8670">Jõgeva maakond</span></p></td><td class="cl-953f2730"><p class="cl-953ead95"><span class="cl-953e8670">28 734.0</span></p></td><td class="cl-953f2732"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f272f"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953f2731"><p class="cl-953ead95"><span class="cl-953e8670">428.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953fc7f9"><p class="cl-953ead94"><span class="cl-953e8670">Järva maakond</span></p></td><td class="cl-953fc7f6"><p class="cl-953ead95"><span class="cl-953e8670">30 286.0</span></p></td><td class="cl-953fc7f8"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f2738"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953fc7f7"><p class="cl-953ead95"><span class="cl-953e8670">452.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953fc7f9"><p class="cl-953ead94"><span class="cl-953e8670">Lääne maakond</span></p></td><td class="cl-953fc7f6"><p class="cl-953ead95"><span class="cl-953e8670">20 507.0</span></p></td><td class="cl-953fc7f8"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f2738"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953fc7f7"><p class="cl-953ead95"><span class="cl-953e8670">306.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953fc7f9"><p class="cl-953ead94"><span class="cl-953e8670">Lääne-Viru maakond</span></p></td><td class="cl-953fc7f6"><p class="cl-953ead95"><span class="cl-953e8670">59 325.0</span></p></td><td class="cl-953fc7f8"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f2738"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953fc7f7"><p class="cl-953ead95"><span class="cl-953e8670">885.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953fc7f9"><p class="cl-953ead94"><span class="cl-953e8670">Põlva maakond</span></p></td><td class="cl-953fc7f6"><p class="cl-953ead95"><span class="cl-953e8670">25 006.0</span></p></td><td class="cl-953fc7f8"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f2738"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953fc7f7"><p class="cl-953ead95"><span class="cl-953e8670">373.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953fc7f9"><p class="cl-953ead94"><span class="cl-953e8670">Pärnu maakond</span></p></td><td class="cl-953fc7f6"><p class="cl-953ead95"><span class="cl-953e8670">85 938.0</span></p></td><td class="cl-953fc7f8"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f2738"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953fc7f7"><p class="cl-953ead95"><span class="cl-953e8670">1 282.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953f2735"><p class="cl-953ead94"><span class="cl-953e8670">Rapla maakond</span></p></td><td class="cl-953f2733"><p class="cl-953ead95"><span class="cl-953e8670">33 311.0</span></p></td><td class="cl-953f2734"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f2736"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953f2737"><p class="cl-953ead95"><span class="cl-953e8670">497.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953fc7f9"><p class="cl-953ead94"><span class="cl-953e8670">Saare maakond</span></p></td><td class="cl-953fc7f6"><p class="cl-953ead95"><span class="cl-953e8670">33 108.0</span></p></td><td class="cl-953fc7f8"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f2738"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953fc7f7"><p class="cl-953ead95"><span class="cl-953e8670">494.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953fc7f9"><p class="cl-953ead94"><span class="cl-953e8670">Tartu maakond</span></p></td><td class="cl-953fc7f6"><p class="cl-953ead95"><span class="cl-953e8670">152 976.0</span></p></td><td class="cl-953fc7f8"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f2738"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953fc7f7"><p class="cl-953ead95"><span class="cl-953e8670">2 283.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953f272e"><p class="cl-953ead94"><span class="cl-953e8670">Valga maakond</span></p></td><td class="cl-953f2730"><p class="cl-953ead95"><span class="cl-953e8670">28 370.0</span></p></td><td class="cl-953f2732"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f272f"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953f2731"><p class="cl-953ead95"><span class="cl-953e8670">423.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953f272e"><p class="cl-953ead94"><span class="cl-953e8670">Viljandi maakond</span></p></td><td class="cl-953f2730"><p class="cl-953ead95"><span class="cl-953e8670">46 371.0</span></p></td><td class="cl-953f2732"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953f272f"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953f2731"><p class="cl-953ead95"><span class="cl-953e8670">692.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-953fc7fb"><p class="cl-953ead94"><span class="cl-953e8670">Võru maakond</span></p></td><td class="cl-953fc7fd"><p class="cl-953ead95"><span class="cl-953e8670">35 782.0</span></p></td><td class="cl-953fc7fa"><p class="cl-953ead95"><span class="cl-953e8670">67.0</span></p></td><td class="cl-953fc7fc"><p class="cl-953ead95"><span class="cl-953e8670">0.0</span></p></td><td class="cl-953fc7fe"><p class="cl-953ead95"><span class="cl-953e8670">534.1</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="20e42309-ea9b-4db6-8370-ea9fa8882fa3"></div>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-9475e3cf"><p class="cl-9474d93e"><span class="cl-9474c264">Maakond</span></p></td><td class="cl-9475e3d0"><p class="cl-9474d93f"><span class="cl-9474c264">N</span></p></td><td class="cl-9475e3ce"><p class="cl-9474d93f"><span class="cl-9474c264">n</span></p></td><td class="cl-9475daa0"><p class="cl-9474d93f"><span class="cl-9474c264">Tõenäosus</span></p></td><td class="cl-9475da9f"><p class="cl-9474d93f"><span class="cl-9474c264">Kaalud</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-9475392e"><p class="cl-9474d93e"><span class="cl-9474c264">Harju maakond</span></p></td><td class="cl-94753930"><p class="cl-9474d93f"><span class="cl-9474c264">598 059.0</span></p></td><td class="cl-94753932"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-9475392f"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-94753931"><p class="cl-9474d93f"><span class="cl-9474c264">8 926.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475da99"><p class="cl-9474d93e"><span class="cl-9474c264">Hiiu maakond</span></p></td><td class="cl-9475da96"><p class="cl-9474d93f"><span class="cl-9474c264">9 387.0</span></p></td><td class="cl-9475da98"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-94753938"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-9475da97"><p class="cl-9474d93f"><span class="cl-9474c264">140.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475da99"><p class="cl-9474d93e"><span class="cl-9474c264">Ida-Viru maakond</span></p></td><td class="cl-9475da96"><p class="cl-9474d93f"><span class="cl-9474c264">136 240.0</span></p></td><td class="cl-9475da98"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-94753938"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-9475da97"><p class="cl-9474d93f"><span class="cl-9474c264">2 033.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475392e"><p class="cl-9474d93e"><span class="cl-9474c264">Jõgeva maakond</span></p></td><td class="cl-94753930"><p class="cl-9474d93f"><span class="cl-9474c264">28 734.0</span></p></td><td class="cl-94753932"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-9475392f"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-94753931"><p class="cl-9474d93f"><span class="cl-9474c264">428.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475da99"><p class="cl-9474d93e"><span class="cl-9474c264">Järva maakond</span></p></td><td class="cl-9475da96"><p class="cl-9474d93f"><span class="cl-9474c264">30 286.0</span></p></td><td class="cl-9475da98"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-94753938"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-9475da97"><p class="cl-9474d93f"><span class="cl-9474c264">452.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475da99"><p class="cl-9474d93e"><span class="cl-9474c264">Lääne maakond</span></p></td><td class="cl-9475da96"><p class="cl-9474d93f"><span class="cl-9474c264">20 507.0</span></p></td><td class="cl-9475da98"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-94753938"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-9475da97"><p class="cl-9474d93f"><span class="cl-9474c264">306.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475da99"><p class="cl-9474d93e"><span class="cl-9474c264">Lääne-Viru maakond</span></p></td><td class="cl-9475da96"><p class="cl-9474d93f"><span class="cl-9474c264">59 325.0</span></p></td><td class="cl-9475da98"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-94753938"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-9475da97"><p class="cl-9474d93f"><span class="cl-9474c264">885.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475da99"><p class="cl-9474d93e"><span class="cl-9474c264">Põlva maakond</span></p></td><td class="cl-9475da96"><p class="cl-9474d93f"><span class="cl-9474c264">25 006.0</span></p></td><td class="cl-9475da98"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-94753938"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-9475da97"><p class="cl-9474d93f"><span class="cl-9474c264">373.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475da99"><p class="cl-9474d93e"><span class="cl-9474c264">Pärnu maakond</span></p></td><td class="cl-9475da96"><p class="cl-9474d93f"><span class="cl-9474c264">85 938.0</span></p></td><td class="cl-9475da98"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-94753938"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-9475da97"><p class="cl-9474d93f"><span class="cl-9474c264">1 282.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-94753935"><p class="cl-9474d93e"><span class="cl-9474c264">Rapla maakond</span></p></td><td class="cl-94753933"><p class="cl-9474d93f"><span class="cl-9474c264">33 311.0</span></p></td><td class="cl-94753934"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-94753936"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-94753937"><p class="cl-9474d93f"><span class="cl-9474c264">497.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475da99"><p class="cl-9474d93e"><span class="cl-9474c264">Saare maakond</span></p></td><td class="cl-9475da96"><p class="cl-9474d93f"><span class="cl-9474c264">33 108.0</span></p></td><td class="cl-9475da98"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-94753938"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-9475da97"><p class="cl-9474d93f"><span class="cl-9474c264">494.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475da99"><p class="cl-9474d93e"><span class="cl-9474c264">Tartu maakond</span></p></td><td class="cl-9475da96"><p class="cl-9474d93f"><span class="cl-9474c264">152 976.0</span></p></td><td class="cl-9475da98"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-94753938"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-9475da97"><p class="cl-9474d93f"><span class="cl-9474c264">2 283.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475392e"><p class="cl-9474d93e"><span class="cl-9474c264">Valga maakond</span></p></td><td class="cl-94753930"><p class="cl-9474d93f"><span class="cl-9474c264">28 370.0</span></p></td><td class="cl-94753932"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-9475392f"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-94753931"><p class="cl-9474d93f"><span class="cl-9474c264">423.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475392e"><p class="cl-9474d93e"><span class="cl-9474c264">Viljandi maakond</span></p></td><td class="cl-94753930"><p class="cl-9474d93f"><span class="cl-9474c264">46 371.0</span></p></td><td class="cl-94753932"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-9475392f"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-94753931"><p class="cl-9474d93f"><span class="cl-9474c264">692.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9475da9b"><p class="cl-9474d93e"><span class="cl-9474c264">Võru maakond</span></p></td><td class="cl-9475da9d"><p class="cl-9474d93f"><span class="cl-9474c264">35 782.0</span></p></td><td class="cl-9475da9a"><p class="cl-9474d93f"><span class="cl-9474c264">67.0</span></p></td><td class="cl-9475da9c"><p class="cl-9474d93f"><span class="cl-9474c264">0.0</span></p></td><td class="cl-9475da9e"><p class="cl-9474d93f"><span class="cl-9474c264">534.1</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="229070f8-0924-4b87-9169-615500e7f9b6"></div>
 <script>
-var dest = document.getElementById("20e42309-ea9b-4db6-8370-ea9fa8882fa3");
-var template = document.getElementById("0c4bd971-59e8-4715-a798-de07ad8bfc50");
+var dest = document.getElementById("229070f8-0924-4b87-9169-615500e7f9b6");
+var template = document.getElementById("f315f261-0f2f-4863-8028-8c6de1891068");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -173,7 +172,7 @@ Märksa lähemal tõelisele Eesti keskmisele sissetulekule. Päris sama summat e
 
 
 ### Post-stratifikatsiooni kaalud
-Post-stratifikatsiooni abil saame parandada valimi representatiivsust peale valimi moodustamist. Näiteks juhul kui meie valim on moodustatud aadresside alusel, siis ei saa me planeerida oma valimit vastajate vanuselisest ja soolisest jaotusest lähtuvalt, kuigi üldkogumi kohta on meil need proportsioonid teada. Teine ja märksa levinum põhjus post-stratifikatsiooni jaoks on mitte-vastamine (*non-response*). Mõnede gruppide puhul kipub vastamisaktiivsus olema mõnevõrra madalam (näiteks noored mehed). Ka mitte-vastamise puhul ei ole meil valimi disainimise juures palju teha (võime muidugi suurendada noorte meeste valimisse sattumise tõenäosust, kuid me ei saa kindlustada kogu valimi vastavust üldkogumi proportsioonidele) ja selle ulatust näeme me vaid peale küsitluse läbiviimist.  Kui me siis hiljem avastame, et kuigi mehi peaks olema üldkogumis 50%, on neid valimisse sattunud 40%, siis tähendab see seda, et meie valim ei ole soo lõikes representatiivne. Naised on üleesindatud ja mehed alaesindatud. Sellisel juhul on võimalik välja arvutada post-stratifikatsioonikaalud. Kaalude moodustamisel peame naisi vähemaks kaaluma $0.5 \div 0.6 \approx 0.8333$ ja mehi rohkemaks kaaluma $0.5 \div 0.4 = 1.25$. Kui valimi kaalud on eelnevalt olemas, siis modifitseerime valimi kaale korrutades iga meessoost respondendi kaalud läbi $1.25$-ga ja iga naissoost respondendi kaalud läbi $0.83$-ga. 
+Post-stratifikatsiooni abil saame parandada valimi representatiivsust peale valimi moodustamist. Näiteks juhul kui meie valim on moodustatud aadresside alusel, siis ei saa me planeerida oma valimit vastajate vanuselisest ja soolisest jaotusest lähtuvalt, kuigi üldkogumi kohta on meil need proportsioonid teada. Teine ja märksa levinum põhjus post-stratifikatsiooni jaoks on mitte-vastamine (*non-response*). Mõnede gruppide puhul kipub vastamisaktiivsus olema mõnevõrra madalam (näiteks noored mehed). Ka mitte-vastamise puhul ei ole meil valimi disainimise juures palju teha (võime muidugi suurendada noorte meeste valimisse sattumise tõenäosust, kuid me ei saa kindlustada kogu valimi vastavust üldkogumi proportsioonidele) ja selle ulatust näeme me vaid peale küsitluse läbiviimist.  Kui me siis hiljem avastame, et kuigi mehi peaks olema üldkogumis 50%, on neid valimisse sattunud 40%, siis tähendab see seda, et meie valim ei ole soo lõikes representatiivne. Naised on üleesindatud ja mehed alaesindatud. Sellisel juhul on võimalik välja arvutada post-stratifikatsiooni kaalud. Kaalude moodustamisel peame naisi vähemaks kaaluma $0.5 \div 0.6 \approx 0.8333$ ja mehi rohkemaks kaaluma $0.5 \div 0.4 = 1.25$. Kui valimi kaalud on eelnevalt olemas, siis modifitseerime valimi kaale korrutades iga meessoost respondendi kaalud läbi $1.25$-ga ja iga naissoost respondendi kaalud läbi $0.83$-ga. 
 
 Post-stratifikatsiooni kasutatakse tavaliselt valimi representatiivsuse tõestmiseks erinevate sotsiaaldemograafiliste tunnuste lõikes (sugu, vanus, haridus jne). Kuid kaalude moodustamiseks peame teadma kõikide post-stratifikatsioonitunnuste ristlõigete osakaale. Ehk siis kui tahame post-stratifitseerida hariduse ja soo lõikes, siis peame teadma kõrgharitud meeste osakaalu, kõrgharitud naiste osakaalu, keskharitud meeste osakaalu jne. Tihti taolist ristõikelist üldkogumi jaotust me ei tea. Lisaks võivad nii moodustatud grupid minna väga väikeseks ja tekib oht, et mõnda ristlõiget meil valimis ei olegi. Näiteks kui lisaksime haridusele ja soole veel ka vanuse (näiteks vanused 15-75), siis oleks meil juba $2\times3\times60 = 360$ gruppi. Arvestades tavapärast valimimahtu (*ca* 1000 vaatlust) on ülimalt tõenäoline, et osasid post-stratifikatsiooni ristlõikesid meie valimisse lihtsalt ei sattunud.
 
@@ -183,7 +182,7 @@ Miks me ei saa post-stratifikatsioonikaale iga sotsiaaldemograafilise tunnuse l�
 Alternatiivne viis erinevate tunnuste lõikes valimi proportsioonide korrigeerimiseks on kalibreerimine. Kalibreerimise puhul kasutakse valimi üldkogumiga proportsiooni viimiseks regressioonimudelit, mille abil arvutatakse kalibratsioonikaalud, millega siis korrigeeritakse valimi kaale.  
 
 ### Mitte-vastamise kaalud (non-response weights)
-Kuigi post-stratifitseerimisega on võimalik neid gruppe, kus vastamismäär oli madalam kui valimiraam ette nägi, üles kaaluda, on tihti otstarbekas pöörata tähelepanu ka otseselt mitte-vastanutele. Kui post-stratifikatsiooni või rakingu/kalibreerimisega üritatakse tasanda eelkõige valimiraami ja üldkogumi erinevusi (juhuvalim, tänu sellele, et see on juhuslik, ei taga alati, et valim vastaks üldkogumi proportsioonidele) terves valimis, siis mitte-vastamise kaalude abil üritatakse üles kaaluda ainult neid gruppe, kus vastamismäär oli madalam ja gruppides, kus vastamismäär oli 100%, kaale ei muudeta. Tulles tagasi eelneva soolise erinevuse näite juurde: oletame, et meie valimi suuruseks oli 1000 inimest, kellest 50% olid valimi järgi naised ja 50% mehed (valimis vastavalt 500 ja 500), kuid peale küsitlust avastame, et algsest 1000-st respondendist õnnestus küsitleda 500-t naist ja 400-t meest. Ehk siis naiste vastamismäär oli 100% ja meeste vastamismäär 80%. Kuna naiste valimi osaga on kõik korras, ei taha me nende puhul midagi muuta. Küll aga tahame suurendada meeste kaale nii, et meeste valimi osa vastaks algsele valimiraamile. See tähendab, et me peaksime suurendama meeste kaale $500\div400 = 1.25$ võrra. Iga valimisse sattunud meest arvstame seega 1.25 kordselt.  
+Kuigi post-stratifitseerimisega on võimalik neid gruppe, kus vastamismäär oli madalam kui valimiraam ette nägi, üles kaaluda, on tihti otstarbekas pöörata tähelepanu ka otseselt mitte-vastanutele. Kui post-stratifikatsiooni või rakingu/kalibreerimisega üritatakse tasanda eelkõige valimiraami ja üldkogumi erinevusi (juhuvalim, tänu sellele, et see on juhuslik, ei taga alati, et valim vastaks üldkogumi proportsioonidele) terves valimis, siis mitte-vastamise kaalude abil üritatakse tagada, et reaalne valim vastaks teoreetilisele valimile. See tähendab, et üles kaalutakse ainult neid gruppe, kus vastamismäär oli madalam ja gruppe, kus vastamismäär oli 100%, kaale ei muudeta. Tulles tagasi eelneva soolise erinevuse näite juurde: oletame, et meie valimi suuruseks oli 1000 inimest, kellest 50% olid valimi järgi naised ja 50% mehed (valimis vastavalt 500 ja 500), kuid peale küsitlust avastame, et algsest 1000-st respondendist õnnestus küsitleda 500-t naist ja 400-t meest. Ehk siis naiste vastamismäär oli 100% ja meeste vastamismäär 80%. Kuna naiste valimi osaga on kõik korras, ei taha me nende puhul midagi muuta. Küll aga tahame suurendada meeste kaale nii, et meeste valimi osa vastaks algsele valimiraamile. See tähendab, et me peaksime suurendama meeste kaale $500\div400 = 1.25$ võrra. Iga valimisse sattunud meest arvstame seega 1.25 kordselt.  
 
 Teine võimalus mitte-vastamise kaalude arvutamiseks on kasutada logistilist regressiooni, kus valimiraamist lähtuvad sotsiaaldemograafilised tunnused on aluseks hinnangule vastamise ja mitte-vastamise kohta. 
 
@@ -194,20 +193,11 @@ Kui andmestikus on mitu kaalude tunnust, näiteks valimi kaalud ja mitte-vastami
 
 
 ## Valimidisain 
-Olukorras, kus kõigil üldkogumi liikmetel ei ole võrdset võimalust valimisse sattuda (kuid kõigil on see võimalus mingi tõenäosusega siiski olemas) või valimi valikuühik ei ole sama mis analüüsiühik (näiteks kui valim on moodustatud leibkondade põhjal aga analüüsime lebkondades olevaid isikuid), on meil tegemist mingi __valimidisaini__ alusel moodustatud valimiga. Valimidisainiga defineeritakse iga analüüsiühiku erinevad valimisse sattumise tõenäosused. Kui me valimi aluseks olevat disaini andmete anlüüsimisel arvesse ei võta, võime analüüsi tulemusel teha väga valesid järeldusi. Seda nii punkthinnangute (nagu eelnevas näites) kui ka standardvigade osas. Punkthinnanguid saame üldjuhul korrigeerida valimi kaaludega. Näiteks kaalutud keskmisi saame ka käsitsi välja arvutada, nagu me eelnevalt tegime, või kasutada selleks vastavaid funktsioone (Ri baasfunktsioon `weighted.mean()` võtab sisendiks kaalumata keskmiste vektori ja kaalude vektori).
+Olukorras, kus kõigil üldkogumi liikmetel ei ole võrdset võimalust valimisse sattuda (kuid kõigil on see võimalus mingi tõenäosusega siiski olemas) või valimi valikuühik ei ole sama mis analüüsiühik (näiteks kui valim on moodustatud leibkondade põhjal aga analüüsime lebkondades olevaid isikuid), on meil tegemist mingi __valimidisaini__ alusel moodustatud valimiga. Valimidisainiga defineeritakse iga analüüsiühiku erinevad valimisse sattumise tõenäosused. Kui me valimi aluseks olevat disaini andmete anlüüsimisel arvesse ei võta, võime analüüsi tulemusel teha väga valesid järeldusi. Seda nii punkthinnangute (nagu eelnevas näites) kui ka standardvigade osas. 
 
-Standardvigade korrigeerimine asi mõnevõrra keerulisem ja nende puhul tuleks kasutada spetsiifilisemaid lähenemisi. Eelnevalt vaatasime tavalise juhuvalimi standardvigade arvutamise loogikat (standardviga on valimijaotuse standardhälve, näidates kui suur on meie hinnangu keskmine viga kui me võtaksime samast popultaioonist lõputult valimeid). Keerulisemate valimidisainide puhul juhuvalimi loogika enam ei toimi, kuna vaatlused ei ole omavahel sõltumatud ja/või valiku ühikuks ei ole analüüsiühik. Sellises olukorras on meil tegelikult päris mitmeid võimalusi, kuidas standardvigasid, ehk siis valimijaotuse varieeruvust, hinnata. Peamisteks kasutatavateks meetoditeks on:
+Laias laastus võib erinevad valimidisainid jagada kahte suuremasse gruppi: stratifitseeritud valimid ja klastervalimid. Üldjuhul kasutatakse reaalselt nende kahe tüübi kombinatsioone või variatsioone. Konkreetse uuringu juures kasutatav valimidisain on tavaliselt kirjeldatud uuringu dokumentatsioonis (kui see nii ei ole, siis tasub alati uuringu läbiviijalt seda küsida). Tihti on selle seletuse juures ära toodud ka juhised edasiseks analüüsiks. Seega esimeseks sammuks mingi uuringu kasutamisel peaks alati olema uuringu dokumentatsiooniga tutvumine.
 
-- Taylori seeriate meetod (*Taylor series linearisation*)
-- Bootstrapi replikatsiooni meetod
-- Jackknife replikatsiooni meetod
-- BRR (*balanced repeated replication*)
-
-Kui Taylori seeriate meetodi puhul arvutatakse standardvead analüütiliselt, siis ülejäänud replikatsioonipõhiste meetodite puhul empiiriliselt. Üldiselt ei pea nende meetodite hingeelu nende kasutamiseks väga põhjalikult tundma (hiljem siiski vaatame replikatsioonimeetodeid, kuna nende loogika on küllaltki lihtne).
-
-Laias laastus võib erinevad valimidisainid jagada kolme suuremasse gruppi: stratifitseeritud valimid ja klastervalimid. Üldjuhul kasutatakse reaalselt nende kahe tüübi kombinatsioone või variatsioone. Konkreetse uuringu juures kasutatav valimidisain on tavaliselt kirjeldatud uuringu dokumentatsioonis (kui see nii ei ole, siis tasub alati uuringu läbiviijalt seda küsida). Tihti on selle seletuse juures ära toodud ka juhised edasiseks analüüsiks. Seega esimeseks sammuks mingi uuringu kasutamisel peaks alati olema uuringu dokumentatsiooniga tutvumine.
-
-Kuid miks üldse kasutatakse mingeid keerulisi valimidisaine ja ei piirduta tavaliste juhuvalimitega, mida oleks standardmeetoditega lihtne analüüsida? Esimene ja tihti määravaim põhjus on küsitlusega kaasnev kulu. Keerulisemad valimidisainid võimaldavad kontsentreerida küsitluste läbiviimist, lihtsustades seeläbi küsitlusega kaasnevat logistikat. Teine, ja tegelikult mõnevõrra olulisem põhjus on teatud keerulisemate valimidisainidega kaasnev tulemuste kvaliteedi tõus. Me saame valimidisainiga näiteks sihtida konkreetseid gruppe või tõsta uuringu üldist täpsusastet.
+Kuid miks üldse kasutatakse mingeid keerulisi valimidisaine ja ei piirduta tavaliste juhuvalimitega, mida oleks standardmeetoditega lihtne analüüsida? Esimene ja tihti määravaim põhjus on küsitlusega kaasnev kulu. Keerulisemad valimidisainid võimaldavad kontsentreerida küsitluste läbiviimist, lihtsustades seeläbi küsitlusega kaasnevat logistikat. Teine, ja tegelikult mõnevõrra olulisem põhjus on teatud keerulisemate valimidisainidega kaasnev tulemuste kvaliteedi tõus. Me saame valimidisainiga sihtida konkreetseid gruppe või tõsta uuringu üldist täpsusastet.
 
 
 ### Stratifitseeritud juhuvalim
@@ -226,9 +216,21 @@ Võib-olla ei ole isegi mõtet kõiki valimisse sattunud koolide õpetajaid inte
  
 Võrreldes juhu- või stratifitseeritud valimiga klastervalim sama valimimahu juures üldiselt vähendab hinnangute täpsust, kuna inimesed klastrite sees kipuvad olema sarnasemad kui klastrite vahel. Kuid samas võimaldab klastervalimi kuluefektiivsus koostada suuremaid valimeid, mis omakorda suurendavad täpsust. Seega kokkuvõttes võib mõnevõrra suurema mahuga klastervalimiga saada väiksema mahuga juhuvalimiga võrreldava täpsusastmega hinnagud väiksema raha eest. 
 
+## Tulemuste valimidisaini suhtes korrigeerimine
+
+Punkthinnanguid saame üldjuhul korrigeerida valimi kaaludega. Näiteks kaalutud keskmisi saame ka käsitsi välja arvutada, nagu me eelnevalt tegime, või kasutada selleks vastavaid funktsioone (Ri baasfunktsioon `weighted.mean()` võtab sisendiks kaalumata keskmiste vektori ja kaalude vektori).
+
+Standardvigade korrigeerimine asi mõnevõrra keerulisem ja nende puhul tuleks kasutada spetsiifilisemaid lähenemisi. Eelnevalt vaatasime tavalise juhuvalimi standardvigade arvutamise loogikat (standardviga on valimijaotuse standardhälve, näidates kui suur on meie hinnangu keskmine viga kui me võtaksime samast popultaioonist lõputult valimeid). Keerulisemate valimidisainide puhul juhuvalimi loogika enam ei toimi, kuna vaatlused ei ole omavahel sõltumatud ja/või valiku ühikuks ei ole analüüsiühik. Sellises olukorras on meil tegelikult päris mitmeid võimalusi, kuidas standardvigasid, ehk siis valimijaotuse varieeruvust, hinnata. Peamisteks kasutatavateks meetoditeks on:
+
+- Taylori seeriate meetod (*Taylor series linearisation*)
+- Bootstrapi replikatsiooni meetod
+- Jackknife replikatsiooni meetod
+- BRR (*balanced repeated replication*)
+
+Kui Taylori seeriate meetodi puhul arvutatakse standardvead analüütiliselt, siis ülejäänud replikatsioonipõhiste meetodite puhul empiiriliselt. Üldiselt ei pea nende meetodite hingeelu nende kasutamiseks väga põhjalikult tundma (vaatame siiski replikatsioonimeetodeid, kuna nende loogika on küllaltki lihtne).
 
 ### Replikatsioonikaalud (replicate weights)
-Keerulisemate valimidisainide puhul ei ole võimalik standardvigasid analüütiliste meetoditega arvutada. Sel juhul on standardvigade leidmisks võimalik  kasutada erinevad replikatsioonimeetodid, nagu *bootstrap* või *jackknife* (reaalsuses küll tavaliselt mõnda nende variatsioonidest). Paljude suuremate uuringute puhul on andmestikuga kaasas replikatsioonikaalud, mis võimaldavad replikatsioonimeetodeid kasutada. Näiteks OECD uuringutes nagu PISA või PIIAC. Replikatsioonimeetodeid võib ja saab kasutada ka tavalise juhuvalimi korral. Ajalooliselt on nende laiem kasutus jäänud arvutusvõimsuste taha, kuid tänapäeval, kui see enam probleem ei ole, on need järjest rohkem hakanud tavapäraseid analüütilisi standardvigade arvutamise meetodeid asendama.
+Keerulisemate valimidisainide ja mitte-lineaarsete meetoodite puhul ei ole alati võimalik standardvigasid analüütiliste meetoditega arvutada. Sel juhul on standardvigade leidmisks võimalik  kasutada erinevad replikatsioonimeetodid, nagu *bootstrap* või *jackknife* (reaalsuses küll tavaliselt mõnda nende variatsioonidest). Paljude suuremate uuringute puhul on andmestikuga kaasas replikatsioonikaalud, mis võimaldavad replikatsioonimeetodeid kasutada. Näiteks OECD uuringutes nagu PISA või PIIAC. Replikatsioonimeetodeid võib ja saab kasutada ka tavalise juhuvalimi korral. Ajalooliselt on nende laiem kasutus jäänud arvutusvõimsuste taha, kuid tänapäeval, kui see enam probleem ei ole, on need järjest rohkem hakanud tavapäraseid analüütilisi standardvigade arvutamise meetodeid asendama.
 
 Kõikide replikatsioonimeetodite üldprintsiip ja loogika on lihtne. Olemasolevast valimist võetakse palju alamvalimeid (replikatsioone), ehk siis valimit käsitletakse üldpopultaioonina, millest võetkse omakorda valimid. Kõikide alamvalimite puhul arvutatakse huvipakkuv statistik (näiteks mingi tunnuse keskmine). Alamvalimite statistikutest moodustub (pseudo)valimijaotus, mille standardhälve ongi standardviga. Seega kui tavaline standardvea arvutamise metoodika lähtub küll potentsiaalsest eeldusest, et valimijaotuse aluseks olevaid valimeid on lõputult, kuid tuletab standardvea analüütiliselt ($se = \frac{sd}{\sqrt{n}}$), siis replikatsioonimeetodid tuletavad olemasolevast valimist suurel hulgal alamvalimeid, mille alusel moodustavad valimijaotuse ja tuletavad standardvea empiiriliselt.
 
@@ -246,6 +248,11 @@ Ris on küsitlusandmete analüüsiks spetsiaalne pakett *survey*, mis võimaldab
 Kõigepealt installige (kui te seda juba teinud ei ole) *survey* pakett ja lugege see sisse. Nagu alati, siis installima peab paketi ainult ühe korra, kuid igaks sessiooniks tuleb see uuesti sisse lugeda. *survey* paketiga on kaasas ka näidisanmdestikud. Lugege ka need sisse (´data(api)´). *api* andmestikuga on mõõdetud akadeemilise võimekuse indeksit kõikides Kalifornia koolides. Andmestiku analüüsiühikuks on kool ehk siis andmestik koondab koolitsandi infot. 
 
 
+```r
+#install.packages('survey')
+library(survey)
+data(api)
+```
 
 *survey* paketis peab kõigepealt defineerima valimidisaini, milles kirjeldatakse kõiki valimi moodustamise eripärasid, kaale jne. Disaini defineerimise läbi koondatakse kogu valimidisainist lähtuv info ühte andmeojekti. Disaini deineerimiseks on funktsioon `svydesign()`:
 
@@ -253,23 +260,40 @@ Kõigepealt installige (kui te seda juba teinud ei ole) *survey* pakett ja lugeg
 
 Valimidisain tavalise juhuvalimi puhul kui meile on ainult valimi kaalud ja/või mingid mingid kaalud. Isegi tavalise juhuvalimi puhul peaksime ikkagi kasutama vähemalt valimi kaale (need lubavad meil hinnata näiteks populatsiooni suurust). Lisaks valimi kaaludele või valimi kaalude asemel võivad andmestikus olla ka mitte-vastamise kaalud või poststratifikatsiooni kaalud (või oleme need ise välja arvutanud), mille olemasolu või vajadus ei sõltu sellest, kas tegemist on tavalise juhuvalimiga või keerulisema disainiga. Kui andmestikus on mitu kaalude tunnust, mida meil on vaja kasutada, siis peaksime need omavahel läbi korrutades üheks tunnuseks koondama. 
 
-`svydesign()` argumentidena peame defineerima:  
+`svydesign()` funktsiooni argumentidena peame defineerima:  
 
 - `ids` argumendiga defineeritakse valimiühikud (*PSU*). Need on klastri id'd klastervalimi puhul, ehk siis tunnus, mille lõikes klastervalimi valik toimus. Kui valik toimus analüüsitasandil ilma klastriteta, siis tuleks märkida `ids = ~1`
 - `weights` tähistab kaalu tunnust. Tunnuse nime ette tuleb kindlasti panna tilde märk (või viidata tunnusele otse apisrs$pw)
 - `data` on meie algne küsitlusandmestik
 
 
+```r
+# Kasutame andmestikku apisrs
+# kaalude tunnus on 'pw'
+des_jv = svydesign(ids = ~1, 
+                   weights = ~pw, 
+                   data = apisrs)
+```
 
-Väiksemate üldkogumite korral, kui me teame üldkogumi suurust, saab kasutada lõpliku populatsiooni korrektsiooni (*finite population correction* ehk *fpc*), mis võimaldab kasutada mõnevõrra väiksemaid standardvigasid. Kui üldkogum on küllaltki väike, siis on ka valim üldkogumile tõenäoliselt sarnasem, võrreldes juhuga kui üldkogum on väga suur. Seega on valimis ka vähem määramatust ning standardvead väiksemad.
+Väiksemate üldkogumite korral, kui me teame üldkogumi suurust, saab kasutada lõpliku populatsiooni korrektsiooni (*finite population correction* ehk *fpc*), mis võimaldab kasutada mõnevõrra väiksemaid standardvigasid. Kui üldkogum on väike, siis on ka valim üldkogumile pigem sarnasem, võrreldes juhuga kui üldkogum on väga suur. Seega on valimis ka vähem määramatust ning standardvead väiksemad.
 
 *fpc* defineeritakse parameetriga:
 
 - `fpc` mille kaudu peab deineerima tunnuse, mis sisaldab iga vaatluse kohta üldkogumi suurust. Tavalise juhuvalimi puhul on see suurus kõikide vaatuste jaoks sama.
 
 
+```r
+des_jv = svydesign(ids = ~1, 
+                   weights = ~pw, 
+                   fpc = ~fpc, 
+                   data = apisrs)
+```
 
 Küsitluse disainist ülevaate saamiseks saame kasutada `summary()` funktsiooni:
+
+```r
+summary(des_jv)
+```
 
 ```
 ## Independent Sampling design
@@ -292,9 +316,16 @@ Küsitluse disainist ülevaate saamiseks saame kasutada `summary()` funktsiooni:
 Stratifitseeritud valimi puhul tuleb meil defineerida stratifitseeriv tunnus. Andmestikus *apistrat* on selleks *stype* (koolitüüp) tunnus, mille lõikes koolid on stratifitseeritud.  
 
 - `strata` argumendiga defineeritakse valimit stratifitseeriv tunnus
-- `fpc` argumendiga saab määrata iga strata suuruse (kui see on olemas, siis ole vaja valimi kaale eraldi märkida, survey arvutab vaatluste valimisse sattumise tõenäosused ja kaalud ise välja)
+- `fpc` argumendiga saab määrata iga strata suuruse (kui see on olemas, siis ole vaja valimi (disaini) kaale eraldi märkida, survey arvutab vaatluste valimisse sattumise tõenäosused ja kaalud ise välja)
 
 
+```r
+des_strat = svydesign(ids = ~1, 
+                      strata = ~stype,
+                      weights = ~pw, 
+                      fpc = ~fpc, 
+                      data = apistrat)
+```
 
 ### Ühetasandilise klastervalimi defineerimine
 
@@ -305,6 +336,12 @@ Kasutame *apiclus1* andmestikku, milles on koolid klasterdatud piirkonna (*dnum*
 - `fpc` valimi suurus (klastrite koguarv) 
 
 
+```r
+des_clus <- svydesign(ids=~dnum, 
+                      weights=~pw, 
+                      data=apiclus1, 
+                      fpc=~fpc)
+```
 
 ### Mitmetasandilise klastervalimi defineerimine
 
@@ -314,6 +351,11 @@ Andmestikuks on *apiclus2*, kus esimese tasandina (*PSU*) on valitud kooli piirk
 - `fpc` argumendiga on defineeritud PSU ja SSU üldkogumite suurused (vastavalt piirkondade koguarv ja koolide koguarv piirkonnas)
 
 
+```r
+des_clus2 <- svydesign(ids=~dnum+snum, 
+                       fpc=~fpc1+fpc2, 
+                       data=apiclus2)
+```
 
 ### Replikatsioonikaaludega valimi defineerimine
 
@@ -323,21 +365,26 @@ Replikatsioonikaalude tegemiseks on *survey* funktsioon `as.svrepdesign()`, mis 
 - `type` argumendiga defineeritakse replikatsioonimeetodi tüüp. Variandid on "auto", "JK1", "JKn", "BRR", "bootstrap", "subbootstrap","mrbbootstrap","Fay". Täpsemalt on ndende kohta võimalik lugeda funktsiooni abifailist: `?as.svrepdesign`
 
 
+```r
+# Defineerime kõigepealt survey disaini 
+des_clus <- svydesign(ids=~dnum, 
+                      weights=~pw, 
+                      data=apiclus1)
+# Arvutame kaalud
+rw1<-as.svrepdesign(design = des_clus,
+                    type = 'JK1')
+```
 
 Replikatsioonikaalude kasutamiseks, juhul kui me ise neid kaale ei arvuta ja need on meie andmestikkus juba olemas, peame defineerima jällegi vastava survey disainiobjekti. Näidisandmestikes ühtegi replikatsioonikaaludega andmestikku ei ole. Kuid saame selle vähese vaevaga eelneva näite replikatsioonikaalude objekti abil teha:
 
 
-```
-##  [1] "cds"      "stype"    "name"     "sname"    "snum"     "dname"   
-##  [7] "dnum"     "cname"    "cnum"     "flag"     "pcttest"  "api00"   
-## [13] "api99"    "target"   "growth"   "sch.wide" "comp.imp" "both"    
-## [19] "awards"   "meals"    "ell"      "yr.rnd"   "mobility" "acs.k3"  
-## [25] "acs.46"   "acs.core" "pct.resp" "not.hsg"  "hsg"      "some.col"
-## [31] "col.grad" "grad.sch" "avg.ed"   "full"     "emer"     "enroll"  
-## [37] "api.stu"  "fpc"      "pw"       "indeks"   "rep_w_1"  "rep_w_2" 
-## [43] "rep_w_3"  "rep_w_4"  "rep_w_5"  "rep_w_6"  "rep_w_7"  "rep_w_8" 
-## [49] "rep_w_9"  "rep_w_10" "rep_w_11" "rep_w_12" "rep_w_13" "rep_w_14"
-## [55] "rep_w_15"
+```r
+indeks <- data.frame(indeks = rw1$repweights$index)
+kaalud <- as.data.frame(rw1$repweights$weights)
+names(kaalud) <- paste0('rep_w_', 1:15)
+kaalud$indeks <- 1:15
+kaalud <- left_join(indeks, kaalud, by = 'indeks')
+apiclus_rep = cbind(apiclus1, kaalud)
 ```
 
 Kui kaaludega andmestik on olemas, siis saame replikatsioonikaalude disaini defineerida funktsiooniga `svrepdesign()`. Funktsioonis on kindlasti vaja defineerida järgmised argumendid:
@@ -349,6 +396,17 @@ Kui kaaludega andmestik on olemas, siis saame replikatsioonikaalude disaini defi
 
 
 
+```r
+library(dplyr)
+kaalud <- apiclus_rep %>% 
+  select(starts_with('rep_w_'))
+
+des_rw <- svrepdesign(repweights = kaalud,
+                      weights = ~pw,
+                      type = 'JK1',
+                      data = apiclus_rep,
+                      combined.weights = F)
+```
 
 ## Valimiandmete analüüs
 
@@ -356,6 +414,11 @@ Kui valimidisain on defineeritud, siis saab seda kasutada edasistes analüüside
 
 **Üldkogumi kogusumma:**
 
+
+```r
+# Mitu õpilast õpib Kalifornia koolides (enroll tunnus)
+svytotal(~enroll, design = des_clus)
+```
 
 ```
 ##          total     SE
@@ -365,13 +428,23 @@ Kui valimidisain on defineeritud, siis saab seda kasutada edasistes analüüside
 **Tunnuse keskmine:**
 
 
+```r
+# Akadeemilise võimekuse indeksi (tunnus api00) keskmine 
+svymean(~api00, design = des_clus)
+```
+
 ```
 ##         mean     SE
 ## api00 644.17 23.779
 ```
 
-Kui tahame keskmisele usalduspiire, siis saame kasutada funktsiooni `confint()`:
+Kui tahame keskmisele **usalduspiire**, siis saame kasutada funktsiooni `confint()`:
 
+
+```r
+mod <- svymean(~api00, design = des_clus)
+confint(mod)
+```
 
 ```
 ##          2.5 %   97.5 %
@@ -381,14 +454,22 @@ Kui tahame keskmisele usalduspiire, siis saame kasutada funktsiooni `confint()`:
 Võime ka korraga mitme tunnuse keskmist hinnata:
 
 
+```r
+svymean(~api00+api99, design = des_clus)
+```
+
 ```
 ##         mean     SE
 ## api00 644.17 23.779
 ## api99 606.98 24.469
 ```
 
-Saame ka kategoriaalsete tunnuste proportsioone hinnata: 
+Saame ka **kategoriaalsete tunnuste proportsioone** hinnata: 
 
+
+```r
+svymean(~stype, design = des_clus)
+```
 
 ```
 ##            mean     SE
@@ -399,6 +480,13 @@ Saame ka kategoriaalsete tunnuste proportsioone hinnata:
 
 **Kvantiilid:**
 
+
+```r
+# vajalikud kvantiilid defineerime vektorina
+svyquantile(~api00, 
+            design = des_clus, 
+            quantiles = c(.25,.5,.75))
+```
 
 ```
 ## $api00
@@ -416,6 +504,13 @@ Saame ka kategoriaalsete tunnuste proportsioone hinnata:
 **Gruppide kaupa hinnagud:**
 
 
+```r
+svyby(~api00, 
+      by = ~stype, 
+      design = des_clus, 
+      FUN = svymean)
+```
+
 ```
 ##   stype    api00       se
 ## E     E 648.8681 22.58731
@@ -425,6 +520,13 @@ Saame ka kategoriaalsete tunnuste proportsioone hinnata:
 
 Saame hinnata ka mitut tunnust mitme grupi lõikes:
 
+
+```r
+svyby(~api00+api99, 
+      by = ~stype+sch.wide, 
+      design = des_clus, 
+      FUN = svymean)
+```
 
 ```
 ##       stype sch.wide    api00    api99 se.api00 se.api99
@@ -438,6 +540,10 @@ Saame hinnata ka mitut tunnust mitme grupi lõikes:
 
 Kui on vaja usalduspiire:
 
+
+```r
+svyby(~api00+api99, by = ~stype+sch.wide, design = des_clus, FUN = svymean, vartype = 'ci')
+```
 
 ```
 ##       stype sch.wide    api00    api99 ci_l.api00 ci_l.api99 ci_u.api00
@@ -460,6 +566,16 @@ Regressioonimudelite jaoks on funktsioon `svyglm()`, mis on väga sarnane `glm()
 
 **Tavaline lineaarne regressioon:**
 
+
+```r
+# Lineaarse regressiooni jaoks defineerime argumendi family = gaussian(). 
+# See on tegelikult ka vaikimis väärtus 
+#  ja me ei pea seda ilmtingimata märkima
+mod <- svyglm(api00 ~ ell + meals + mobility, 
+              design = des_clus, 
+              family = gaussian())
+summary(mod)
+```
 
 ```
 ## 
@@ -486,6 +602,17 @@ Regressioonimudelite jaoks on funktsioon `svyglm()`, mis on väga sarnane `glm()
 
 **Logistiline regressioon:**
 
+
+```r
+# family = binomial()
+# tunnus awards on kategooriatega "Yes" ja "No". 
+# I(awards == 'Yes') käsu abil muudame kõik Yes'id TRUE'ks 
+#  ja ülejäänud väärtused FALSE'ik
+mod <- svyglm(I(awards == 'Yes') ~ ell + meals + mobility, 
+              design = des_clus, 
+              family = binomial())
+summary(mod)
+```
 
 ```
 ## 
@@ -519,17 +646,94 @@ Et saada korrektseid tulemusi, peaksime võrdlema esimese usutava väärtuse tul
 Tundub päris aeganõudev ja tüütu. Õnneks on ka lihtsam viis - kasutada jällegi Ri *survey* paketti (koos *mitools* paketiga):
 
 
+```r
+# Kõigepealt vajalikud paketid. 
+# Kui teil neid installitud ei ole, siis tehke seda
+library(haven)
+library(survey)
+library(mitools)
+library(stringr)
+```
+
+
+```r
+# tõmbame OECD lehelt Piaaci Eesti andmestiku (SPSS faili)
+# Selle koodiga tõmbame nad kodukataloogi alamkataloogi "./andmed"
+# Võite alati ka otse OECD lehele minna ja andmestiku sealt tõmmata
+dir.create("data")
+download.file("https://webfs.oecd.org/piaac/puf-data/SPSS/prgestp1.sav", 
+              "./data/prgestp1.sav", method="auto", mode="wb")
+```
+
+
+
+```r
+# Loeme andmed sisse
+dat <- as.data.frame(read_spss('./data/prgestp1.sav'))
+
+# PIAACI andmestikus on kasutatud replikatsioonikaale
+# Otsime kaalude nimed välja 
+# Kasutame selleks stringr paketi funktsiooni str_subset
+# Kõigepealt valimi kaal
+mw <- str_subset(names(dat), "^SPFWT0$")
+# Seejärel replikatsioonikaalud
+rw <- str_subset(names(dat), "^SPFWT[1-9][0-9]*$")
+
+# Otsime välja ka oskuste usutavate väärtusete tunnused
+lit <- str_subset(names(dat), "^PVLIT[0-9]+")
+num <- str_subset(names(dat), "^PVNUM[0-9]+")
+prob <- str_subset(names(dat), "^PVPSL[0-9]+")
+
+# Loome survey disaini
+des_piaac <- svrepdesign(repweights=dat[,rw],
+                   weights=dat[,mw], type="JK2", data = dat)
+```
+
+
+```r
+f <- as.formula(paste0('lit~', paste(lit, collapse = '+')))
+results_list<-withPV(
+    mapping = f,
+    data = des_piaac,
+    action = quote(svyby(~lit, by = ~GENDER_R, design = des_piaac, FUN = svymean, na.rm = T)))
+
+summary(MIcombine(results_list))
+```
+
+```
+## Multiple imputation results:
+##       withPV.svyrep.design(mapping = f, data = des_piaac, action = quote(svyby(~lit, 
+##     by = ~GENDER_R, design = des_piaac, FUN = svymean, na.rm = T)))
+##       MIcombine.default(results_list)
+##    results        se   (lower   upper) missInfo
+## 1 275.0582 1.0832068 272.8910 277.2254     41 %
+## 2 276.6413 0.8109968 275.0258 278.2569     36 %
+```
 
 
 
 
+```r
+# Hindame regressioonimudeliga soo mõju lugemisoskusele
+# Tulemus peaks olema sama, mis eelmises analüüsis
+f <- as.formula(paste0('lit~', paste(lit, collapse = '+')))
+results_list<-withPV(
+    mapping = f,
+    data = des_piaac,
+    action = quote(svyglm(lit~as.factor(GENDER_R), design = des_piaac, family = gaussian())))
 
+summary(MIcombine(results_list))
+```
 
-
-
-
-
-
+```
+## Multiple imputation results:
+##       withPV.svyrep.design(mapping = f, data = des_piaac, action = quote(svyglm(lit ~ 
+##     as.factor(GENDER_R), design = des_piaac, family = gaussian())))
+##       MIcombine.default(results_list)
+##                         results       se      (lower     upper) missInfo
+## (Intercept)          275.058207 1.083207 272.8909806 277.225433     41 %
+## as.factor(GENDER_R)2   1.583098 1.243243  -0.8602807   4.026478     15 %
+```
 
 
 
