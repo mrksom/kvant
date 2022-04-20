@@ -15,3 +15,4 @@ rmd_files:
 - 03-poisson.Rmd
 - 04-multilevel.Rmd
 - 05-survey.Rmd
+- 06-sem.Rmd

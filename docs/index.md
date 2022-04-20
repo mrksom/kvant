@@ -1,7 +1,7 @@
 --- 
 title: "Kvantitatiivne andmeanalüüs"
 author: "Marko Sõmer"
-date: "2022-03-30"
+date: "2022-04-21"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
