@@ -24,7 +24,7 @@
 <meta name="author" content="Marko Sõmer" />
 
 
-<meta name="date" content="2022-04-21" />
+<meta name="date" content="2022-05-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -318,6 +318,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.7" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#sem"><i class="fa fa-check"></i><b>8.4.7</b> SEM</a></li>
 <li class="chapter" data-level="8.4.8" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#mudeli-spetsifikatsioonid"><i class="fa fa-check"></i><b>8.4.8</b> Mudeli spetsifikatsioonid</a></li>
 </ul></li>
+</ul></li>
+<li class="part"><span><b>VI Klasteranalüüs</b></span></li>
+<li class="chapter" data-level="9" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html"><i class="fa fa-check"></i><b>9</b> Klasteranalüüs</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#mis-see-klasteranalüüs-on"><i class="fa fa-check"></i><b>9.1</b> Mis see klasteranalüüs on?</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#klasterdamismeetodid"><i class="fa fa-check"></i><b>9.1.1</b> Klasterdamismeetodid</a></li>
+<li class="chapter" data-level="9.1.2" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#kuidas-mõõta-objektide-erinevustsarnasust"><i class="fa fa-check"></i><b>9.1.2</b> Kuidas mõõta objektide erinevust/sarnasust?</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#hierarhiline-klasteranalüüs"><i class="fa fa-check"></i><b>9.2</b> Hierarhiline klasteranalüüs</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#klastrite-ühendamise-meetodid-linkage"><i class="fa fa-check"></i><b>9.2.1</b> Klastrite ühendamise meetodid (<em>linkage</em>)</a></li>
+<li class="chapter" data-level="9.2.2" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#klastrite-arvu-valik"><i class="fa fa-check"></i><b>9.2.2</b> Klastrite arvu valik</a></li>
+<li class="chapter" data-level="9.2.3" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#hierarhilise-klasteranalüüsi-puudused"><i class="fa fa-check"></i><b>9.2.3</b> Hierarhilise klasteranalüüsi puudused</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>9.3</b> K-keskmiste (k-means) klasterdamine</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#k-keskmiste-klasteranalüüsi-puudused"><i class="fa fa-check"></i><b>9.3.1</b> K-keskmiste klasteranalüüsi puudused</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>9.4</b> Klasteranalüüsi tulemi valiidsus</a></li>
 </ul></li>
 </ul>
 
@@ -1102,16 +1122,16 @@ Nii saame kõik eelnevad käsud panna ühte jadasse:</p>
 <pre><code>## # A tibble: 10 x 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013     2    13     1150           1145         5     1457           1454
-##  2  2013     1    29      857            900        -3     1122           1135
-##  3  2013     4    13      727            729        -2     1014           1020
-##  4  2013     5     9     1932           1925         7     2048           2105
-##  5  2013    10    15     1922           1930        -8     2042           2056
-##  6  2013     2    15     1526           1518         8     1648           1642
-##  7  2013     7    23      926            900        26     1038           1022
-##  8  2013    10     8     1707           1707         0     1907           1913
-##  9  2013     6    27     1754           1615        99     2025           1809
-## 10  2013    10     3     1752           1755        -3     1934           1930
+##  1  2013    11    28      820            822        -2     1103           1141
+##  2  2013    12    29     1816           1740        36     2208           2118
+##  3  2013     9    12        2           2103       179      114           2226
+##  4  2013     7    18      723            730        -7      910            930
+##  5  2013     1    10     1204           1210        -6     1317           1323
+##  6  2013     4     3     2106           2115        -9     2219           2214
+##  7  2013     9     9     2101           1855       126     2312           2131
+##  8  2013    12    10     1153           1150         3     1519           1439
+##  9  2013     5    30       NA            920        NA       NA           1225
+## 10  2013    10    16     1607           1615        -8     1837           1845
 ## # ... with 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
 ## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
 ## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
@@ -1301,9 +1321,9 @@ Nii saame kõik eelnevad käsud panna ühte jadasse:</p>
 ## Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <p>Praegune aeg:</p>
 <div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="sissejuhatus-r-i.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">today</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2022-04-21&quot;</code></pre>
+<pre><code>## [1] &quot;2022-05-07&quot;</code></pre>
 <div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="sissejuhatus-r-i.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">now</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2022-04-21 00:46:36 EEST&quot;</code></pre>
+<pre><code>## [1] &quot;2022-05-07 01:35:26 EEST&quot;</code></pre>
 <p>Kestus:</p>
 <div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="sissejuhatus-r-i.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mitu sekundit kestab päev</span></span>
 <span id="cb307-2"><a href="sissejuhatus-r-i.html#cb307-2" aria-hidden="true" tabindex="-1"></a><span class="fu">duration</span>(<span class="at">day =</span> <span class="dv">1</span>)</span></code></pre></div>

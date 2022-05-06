@@ -1,0 +1,642 @@
+---
+knit: "bookdown::preview_chapter"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# (PART) Klasteranalüüs {-} 
+
+# Klasteranalüüs
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(warning = F, message = F, echo=F)
+library(dplyr)
+library(data.table)
+library(ggplot2)
+library(data.table)
+library(cluster.datasets)
+library(flextable)
+library(ggdendro)
+library(wesanderson)
+library(ggforce)
+library(ggrepel)
+library(latex2exp)
+
+cols <- wes_palette(5, name="Cavalcanti1", type = "discrete")[c(5,2,3,4,1)]
+
+```
+
+
+```{r andmed}
+
+
+data(languages.spoken.europe)
+lang <- as.data.table(languages.spoken.europe)
+int1 <- lang[, .(english, german)]
+lang$country <- c('Saksamaa', 'Itaalia', 'Prantusmaa', 'Holland', 'Belgia', 'Luksemburg', 'Suurbritannia', 'Portugal', 'Austria', 'Šveits', 'Rootsi', 'Taani', 'Norra', 'Soome', 'Hispaania', 'Iirimaa')
+
+
+
+
+gen_kmean = function(data = int1, labels = lang$country, clust = 4){
+  
+  res_out <- data
+  res_out$frame = 1
+  res_out$labels = labels
+  res_out$klaster = 0
+  res_out$size <- 1
+  
+  
+  
+  # Määrame igale punktile suvalise klastri
+  data_random <- data
+  set.seed(301)
+  data_random$klaster <- sample(1:4, nrow(data_random), replace= T)
+  ggplot(data_random, aes(english, german, color = as.character(klaster)))+
+    geom_point()
+  
+  res <- data_random
+  res$labels <- labels
+  res$frame <- 2
+  res$size <- 1
+  res_out <- rbind(res_out, res)
+  
+  
+  # Arvutame suvaliste klastrite keskpunktid
+  centers_random = data.table()
+  for(i in colnames(data)){
+    res <- data_random[, .(var = mean(get(i))), klaster]
+    setnames(res, 'var', i)
+    if(length(centers_random) == 0) {
+      centers_random = res
+    } else {
+        centers_random = merge(centers_random, res, all.x = T, by = 'klaster')
+      }
+  }
+  ggplot(data_random, aes(english, german, color = as.character(klaster)))+
+    geom_point()+
+    geom_point(data = centers_random, size = 4)
+  
+  res <- data_random
+  res$labels <- labels
+  res$size <- 1
+  res0 <- centers_random
+  res0$labels <- 'Klastri keskpunkt'
+  res0$size <- 2
+  res <- rbind(res, res0)
+  res$frame <- 3
+  res_out <- rbind(res_out, res)
+  
+  
+  
+  
+  # andmepunktide kaugused klastrite keskpunktidest
+  for(i in unique(centers_random$klaster)){
+    data_random[, paste0('cl_', i)] <- sqrt((data_random[, 'english'] - centers_random[i]$english)^2 + (data_random[, 'german'] - centers_random[i]$german)^2)
+  }
+  
+  # Iga andmepunkti kõige lähem klastri keskpunkt
+  data_random$point_id <- 1:nrow(data_random)
+  data_random <- melt(data_random, id.vars = c('english', 'german', 'klaster', 'point_id'))
+  data_random[, variable := as.numeric(gsub('cl_', '', variable))]
+  data_random <- data_random[, .SD[value == min(value), ], point_id]
+  data_random <- data_random[, .(english, german, klaster = variable)]
+  
+  ggplot(data_random, aes(english, german, color = as.character(klaster)))+
+    geom_point()+
+    geom_point(data = centers_random, size = 4)
+
+  res <- data_random
+  res$labels <- labels
+  res$size <- 1
+  res0 <- centers_random
+  res0$labels <- 'Klastri keskpunkt'
+  res0$size <- 2
+  res <- rbind(res, res0)
+  res$frame <- 4
+  res_out <- rbind(res_out, res)
+  
+  
+  #### II iter
+  
+  # Arvutame uuesti klastrite keskpunktid
+  data_random <- data_random[, c('english', 'german', 'klaster')]
+  centers_random = data.table()
+  for(i in colnames(data)){
+    res <- data_random[, .(var = mean(get(i))), klaster]
+    setnames(res, 'var', i)
+    if(length(centers_random) == 0) {
+      centers_random = res
+    } else {
+      centers_random = merge(centers_random, res, all.x = T, by = 'klaster')
+    }
+  }
+  ggplot(data_random, aes(english, german, color = as.character(klaster)))+
+    geom_point()+
+    geom_point(data = centers_random, size = 4)
+  
+  res <- data_random
+  res$labels <- labels
+  res$size <- 1
+  res0 <- centers_random
+  res0$labels <- 'Klastri keskpunkt'
+  res0$size <- 2
+  res <- rbind(res, res0)
+  
+  res$frame <- 5
+  res_out <- rbind(res_out, res)
+  
+  
+  
+  # andmepunktide kaugused klastritest
+  for(i in unique(centers_random$klaster)){
+    data_random[, paste0('cl_', i)] <- sqrt((data_random[, 'english'] - centers_random[i]$english)^2 + (data_random[, 'german'] - centers_random[i]$german)^2)
+    
+  }
+  
+  # Iga andmepunkti kõige lähem klastri keskpunkt
+  data_random$point_id <- 1:nrow(data_random)
+  data_random <- melt(data_random, id.vars = c('english', 'german', 'klaster', 'point_id'))
+  data_random[, variable := as.numeric(gsub('cl_', '', variable))]
+  data_random <- data_random[, .SD[value == min(value), ], point_id]
+  data_random <- data_random[, .(english, german, klaster = variable)]
+  
+  ggplot(data_random, aes(english, german, color = as.character(klaster)))+
+    geom_point()+
+    geom_point(data = centers_random, size = 4)
+  
+  res <- data_random
+  res$labels <- labels
+  res$size <- 1
+  res0 <- centers_random
+  res0$labels <- 'Klastri keskpunkt'
+  res0$size <- 2
+  res <- rbind(res, res0)
+  
+  res$frame <- 6
+  res_out <- rbind(res_out, res)
+  
+  
+  #### II iter
+  
+  # Arvutame uuesti klastrite keskpunktid
+  data_random <- data_random[, c('english', 'german', 'klaster')]
+  centers_random = data.table()
+  for(i in colnames(data)){
+    res <- data_random[, .(var = mean(get(i))), klaster]
+    setnames(res, 'var', i)
+    if(length(centers_random) == 0) {
+      centers_random = res
+    } else {
+      centers_random = merge(centers_random, res, all.x = T, by = 'klaster')
+    }
+  }
+  ggplot(data_random, aes(english, german, color = as.character(klaster)))+
+    geom_point()+
+    geom_point(data = centers_random, size = 4)
+  
+  res <- data_random
+  res$labels <- labels
+  res$size <- 1
+  res0 <- centers_random
+  res0$labels <- 'Klastri keskpunkt'
+  res0$size <- 2
+  res <- rbind(res, res0)
+  
+  res$frame <- 7
+  res_out <- rbind(res_out, res)
+  
+  return(res_out)
+}
+
+
+kmeans_ex_data <- gen_kmean()
+kmeans_ex_data$klaster <- as.character(kmeans_ex_data$klaster)
+
+
+```
+
+## Mis see klasteranalüüs on?
+
+Klasteranalüüs võimaldab objekte mingite neid kirjeldavate tunnuste alusel grupeerida ehk moodustada neist klastreid. Eesmärgiks on grupeerida grupid nii, et objektid oleksid gruppide siseselt võimalikult sarnased ning gruppide vahel võimalikult erinevad.
+
+Kui me tahaksime 52 kaardilist kaardipakki jagada nelja gruppi, siis palju potentsiaalseid võimalusi meil seda teha oleks? Tuleb välja, et umbes $8.450993 \times 10^{28}$ võimalust. Aga mitu neist võimalustest oleksid tähenduslikud?
+
+Klasteranalüüsi eesmärgiks ongi leida nende potentsiaalselt lõputute grupeerimisvõimaluste seast sobivaim. Teoreetiliselt oleks võimalus leida parimad klastrid, kui proovida läbi kõik võimalikud kombinatsioonid ja mingite kriteeriumite alusel hinnata nende kombinatsioonide kvaliteeti ning seeläbi leida sobivaim (andmetega kõige enam sobituv) lahend. See oleks aga väga ressursimahukas. Seetõttu on klasterdamiseks arendatud teatavad heuristilised võtted, mis küll ei garanteeri kõige optimaalsemat lahendit, kuid siiski lahendi, mis on parem kui enamik.
+
+Klasteranalüüsi eesmärgid jagunevad laias laastus kaheks:  
+
+- Uuritava fenomeni mõistmine  
+- Andmete komplekssuse vähendamine nende edasise analüüsi sisendiks
+
+Seega on klasteranalüüs eelkõige kirjeldav või abistav meetod. See ei ole otseselt mõeldud mõjude hindamiseks või hüpoteeside testimiseks (küll võib see olla sisendiks analüüsidele, mis seda teha võimaldavad, nagu näiteks regressioonanalüüsile). Seega on klasteranalüüs suhteliselt sarnane eksploratiivse faktoanalüüsiga (aga mitte kinnitava faktoranalüüsiga) ja peakomponentide meetodiga, mille eesmärkideks on samuti andmetes sisalduva kompleksuse vähendamine ja nn latentsete tunnuste otsimine. Aga kui faktoranalüüsi puhul on latentseteks tunnusteks pidevtunnuselised faktorid, siis klasteranalüüsi kontekstis otsitakse kategoriaalset latentset tunnust ehk mingit grupitunnust. Ja veel, kui faktoranalüüsiga üritame leida tunnuste vahelist ühisosa, siis klasteranalüüsiga üritame üldjuhul koodada sarnaseid vaatlusi (kuigi tegelikult saab klasterdada ka tunnuseid).
+
+Klasteranalüüsi kasutusvaldkond on väga lai. Näiteks:  
+
+- Bioinformaatika ja geenitehnoloogia - grueeritakse näiteks erinevaid geenikombinatsioone  
+- Turundus - otsitrakse erinevaid tarbimismustrid (näiteks Netflix profileerib kasutajaid lähtuvalt vaatamisharjumustest)  
+- Võrgustiku-uuringud - otsitakse näiteks sarnaseid kontaktide võrgustikke  
+- Kriminoloogia - konstrueeritakse hälbivuse tüpoloogiaid, eristatakse kuritegelikke piirkondi sõltuvalt seal toime pandud kuritegude iseloomust  
+- Kultuuriuuringud - tüpologiseeritakse inimesi sarnaste hoiakute või uskusmustega põhjal  
+- Jne  
+
+Nagu eelnevatest näidetest näha, siis leiab klasteranalüüs kasutust eelkõige olukordades, kus on tegemist suurte ja müraste andmemassiividega. Ehk siis tänapäeval, kus on järjest rohkem andmeid, mis tihti on suured ja mürased, on ka klasteranalüüs järjest aktuaalsem. Klasteranalüüs moodustabki oma olemuselt olulise osa masinõppest ja selle raames on on arendatud ja arendatakse pidevalt edasi mitmesuguseid keerukaid klasterdamisalgorütme. Meie aga vaatame järgnevalt paari lihtsamat ja nn "traditsioonilisemat" meetodit, mille rakendusvaldkonnaks võib vabalt olla ka tavalise küsitlusuuringu analüüs.
+
+
+### Klasterdamismeetodid
+
+Klasterdamismeetodid jagunevad üldjuhul kolme suuremasse kategooriasse:
+
+- __Hierarhilised meetodid__, kus me võtame algselt üksikud vaatlused ja hakkame neid lähtuvalt nende sarnasusest kokku panema
+- __Mitte-hierarhilised ehk jaotavad (*partitioning*) meetodid__, kus jaotame objektid erinevatesse klastritesse ja hindame mingi kriteeriumi alusel moodustunud klastrite sobivust andmetega
+- __Mudelipõhised meetodid__, kus käsitleme analüüsitavate tunnuste jaotusi alampopulatsioonide (klastrite) jaotuste summadena.
+
+### Kuidas mõõta objektide erinevust/sarnasust?
+
+Klasterdades grupeeritakse objekte lähtuvalt nendevaheliste erinevuste (_dissimilarity_) suurustest. Erinevuste kvantifitseerimiseks on mitmeid meetodeid, mille valik sõltub:  
+
+- tunnuste iseloomust (arvtunnus, kategoriaalne tunnus, binaarne tunnus);
+- tunnuse skaalast (järjestus, intervall, nominaalne);
+- uuritava nähtuse olemusest.
+
+Enim kasutatavad erinevuse mõõdikud on:  
+
+- ruumiline kaugus (näiteks eukleidiline kaugus või manhattan'i kaugus);
+- korrelatsioon (näiteks Pearsoni, Spearmani või Kendalli korrealtsioon).
+
+Neist omakorda kõige levinum on **eukleidiline kaugus**: 
+
+$$d(p,q) = \sqrt{(q_1-p_1)^2 + (q_2-p_2)^2 + \cdots + (q_n-p_n)^2}  = \sqrt{\sum_{i=1}^n (q_i-p_i)^2}$$
+
+Eukleidilise kauguse puhul on tgelikult tegemist kõige tavalisema, põhikoolist tuttava, Phytagorose teoreemiga, kus hüpotenuusi ruut võrdub kaatetide ruutude summaga. Eukleidiline kaugus kahe punkti vahel ongi see hüpotenuus ning kaatetideks on punktide kaugused erinevatel telgedel:
+
+```{r, fig.height=2, fig.align="center"}
+dt <- data.frame(x1 = c(1, 3, 3), y1 = c(1, 1, 2), x2 = c(3, 3, 1), y2 = c(1, 2, 1))
+g <- ggplot(dt, aes(x1, y1))+
+  geom_segment(data = dt[c(3),], aes(xend = x2, yend = y2), color = '#316394', size = 1.2)+
+  geom_segment(data = dt[c(1, 2),], aes(xend = x2, yend = y2), color = '#666666', size = 1, linetype = 2)+
+  geom_point(data = dt[c(1, 3),], size = 3)+
+  scale_x_continuous(limits = c(0.7, 3.3))+
+  scale_y_continuous(limits = c(0.7, 2.3))+
+  coord_fixed()+
+  annotate('text',x = 1, y = 1, label = TeX("$(p_1, p_2)$"), vjust = 1.1, size = 4)+
+  annotate('text',x = 3, y = 2, label = TeX("$(q_1, q_2)$"), vjust = -0.4, size = 4)+
+  annotate('text',x = 3, y = 1.5, label = TeX("$q_2-p_2$"), hjust = -0.2, size = 4)+
+  annotate('text',x = 2, y = 1, label = TeX("$q_1-p_1$"), vjust = 1.4, size = 4)+
+  annotate('text',x = 2, y = 1.6, label = TeX("d"), size = 4)+
+  theme_bw()+
+  theme(axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())
+
+g
+
+```
+
+Vaatame näitena andmestikku, kus vaatlusteks on Euroopa riigid, mis on eristatud kahe tunnuse - inglise keele ja saksa keele oskus alusel.
+
+```{r fig.height=6, fig.width=6}
+kmeans_ex_data[frame == 1] %>%
+  ggplot()+
+  aes(x = english/100, y = german/100, label = labels)+
+  geom_point()+
+  geom_text_repel(min.segment.length = 0)+
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1))+
+  scale_x_continuous(labels = scales::percent_format(accuracy = 1))+
+  theme_bw()+
+  labs(x = 'Inglise keele oskus', y = 'Saksa keele oskus')
+  
+
+```
+
+Lähtuvalt neist kahest tunnusest saame arvutada kõikide riikide omavahelised kaugused. Näiteks Rootsi ja norra vaheline kaugus moodustub nii:
+
+```{r fig.height=3, fig.align="center"}
+
+dt <- kmeans_ex_data[frame == 1 & labels %in% c('Norra','Rootsi'), .(x1 = english, y1 = german, labels)]
+dt <- rbind(dt, data.table(x1 = max(dt$x1), y1 = min(dt$y1), labels = ''))
+dt[, x2 := c(34, 43, 43)][, y2 := c(19, 19, 25)]
+
+ggplot(dt, aes(x1, y1))+
+  geom_segment(data = dt[c(1),], aes(xend = x2, yend = y2), color = cols[1], size = 1.2)+
+  geom_segment(data = dt[c(2, 3),], aes(xend = x2, yend = y2), color = '#666666', size = 1, linetype = 2)+
+  geom_point(data = dt[c(1, 2),], size = 3)+
+  geom_text(data = dt[c(1, 2),], aes(label = labels), vjust = -0.8, size = 4)+
+  scale_x_continuous(limits = c(25, 50), labels = scales::percent_format(scale = 1 ,accuracy = 1))+
+  scale_y_continuous(limits = c(15, 29), labels = scales::percent_format(scale = 1 ,accuracy = 1))+
+  coord_fixed()+
+  annotate('text',x = 34, y = 19, label = TeX("$(34, 19)$"), vjust = 1.1, hjust = 1, size = 4)+
+  annotate('text',x = 43, y = 25, label = TeX("$(43, 25)$"), hjust = -0.2, size = 4)+
+  annotate('text',x = 43, y = 22, label = TeX("$25-19$"), hjust = -0.2, size = 4)+
+  annotate('text',x = 39, y = 19, label = TeX("$43-34$"), vjust = 1.4, size = 4)+
+  annotate('text',x = 2, y = 1.6, label = TeX("d"), size = 4)+
+  theme_bw()+
+  theme(axis.title = element_blank(),
+        axis.line = element_line(colour = "black"),
+        panel.background = element_blank())
+
+```
+
+ehk siis:
+
+$$d(Norra, Rootsi) = \sqrt{(43-34)^2 + (25-19)^2} = \sqrt{81 + 36}  = 10.8$$
+
+
+Kahe riigi kaugus niisama ei ütle meile eriti midagi. Küll aga muutub see sisukaks siis, kui võrdleme seda teiste riikide vaheliste kaugustega. Seega tuleb meil välja arvutada kõikide riikide omavahelised kaugused ja moodutada neist nn **kauguste maatriks**.
+
+```{r}
+
+d <- dist(int1)
+dm <- as.matrix(round(d, 1))
+colnames(dm) <- lang$country
+
+dm[upper.tri(dm)] <- ''
+
+dm <- as.data.frame(dm)
+dm <- cbind('Riik' = lang$country, dm)
+out <- flextable(dm) %>% 
+  rotate(j = 2:length(dm), rotation = "tbrl", align = "center", part = "header") %>% 
+  fontsize(size = 8, part = "body") %>% 
+  fontsize(size = 8, part = "header") %>%
+  width(j = 2:ncol(dm), width = 0.15)
+out
+```
+
+Miks meil seda üldse vaja on? Saame ju punktdiagrammilt silmagagi näha millised riigid on üksteisest kaugemal ja millised lähemal. Kahe tunnuse ehk dimensiooni puhul on see tõesti nii. Ka kolme tunnuse/dimensiooni puhul saame hakkama. Aga kui meil oleks neli tunnust? Või 100 tunnust? Kauguste maatriksi saame aga arvutada ka 100 tunnuse puhul, kirjeldes sellega 100-dimensionaalset ruumi.
+
+## Hierarhiline klasteranalüüs
+
+Hierarhilised klasteranalüüsi loogika on järgmine:
+
+1. Alustatakse individuaalsetest objektidest, kus iga objekt on algselt üks klaster
+2. Kaks kõige sarnasemat klastrit (lähtuvalt nendevahelisest kaugusest) grupeeritakse kokku
+3. Klastrite grupeerimist jätkatakse kuni on alles vaid üks klaster
+
+Graafiliselt näeb see välja nii:
+
+```{r, fig.width=6}
+
+d <- dist(int1)
+c1 <- hclust(d, method = 'ward.D')
+c1$labels <- lang$country
+dhc <- as.dendrogram(c1,hang=0.1)
+ddata <- dendro_data(dhc, type="rectangle")
+ggd <- ggplot(segment(ddata)) + geom_segment(aes(x=x, y=y, xend=xend, yend=yend))+ 
+  geom_text(aes(x = x, y = y, label = label, angle = -90, hjust = -0.2), data= label(ddata), size = 3) +
+  scale_y_continuous(expand = c(0.4, 0))+
+  theme(axis.title = element_blank(),
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(size = 12),
+        axis.ticks.x = element_blank(),
+        axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())
+ggd
+```
+
+Taolist klastrite moodustamise joonist nimetatakse **dendogrammiks**.
+
+### Klastrite ühendamise meetodid (_linkage_)
+
+Kuid nüüd tekib üks probleem. Esimese tasandi puhul, kus iga objekt on omaette klastris, on asjad lihtsad - paneme kokku need klastrid, milledes olevate objektide omavaheline kaugus on väikseim. Kuid kuidas me hindame klastrite vahelist kaugust, kui klastrites on rohkem kui üks objekt? Näiteks mis on Rootsi ja Norra klastri ning Hollandi ja Taani klastri omavaheline kaugus? 
+
+Selleks puhuks on välja mõeldud vastavad erinevad klastrite ühendamise meetodid. Neid on suhteliselt palju kuid toome mõned näitena ära:
+
+**Single linkage**, kus klastrite vaheline kaugus tuletatakse klastrite kõige lähemate objektide omavahelisest kaugusest: 
+
+```{r fig.height=0.9, fig.width = 5, dpi=300}
+
+dt <- data.frame(x = c(2, 1.4, 3, 6.3, 6.8, 8), y = c(2, 3.2, 2, 3, 3.5, 1.6), grp = c(1,1,1,2,2,2))
+ggplot(dt)+
+  geom_point(aes(x, y, color = as.character(grp)), show.legend = F, size = 2)+
+  geom_ellipse(aes(x0 = 2, y0 = 2.5, a = 1.6, b = 1, angle = 0), color = 'grey') +
+  geom_ellipse(aes(x0 = 7.2, y0 = 2.5, a = 1.7, b = 1.2, angle = 40) , color = 'grey') +
+  geom_segment(data = data.frame(x1 = 3, x2 = 6.3, y1 = 2, y2 = 3), aes(x = x1, xend = x2, y = y1, yend = y2), 
+               color = wes_palette('Moonrise2')[4], size = 1)+
+  coord_fixed()+
+  scale_color_manual(values = c(wes_palette('Moonrise2')[1], wes_palette('Moonrise2')[2]))+
+  theme_bw()+
+  theme(axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())
+
+```
+
+
+**Complete linkage**, kus klastrite vaheline kaugus tuletatakse klastrite kõige kaugemate objektide omavahelisest kaugusest: 
+
+```{r fig.height=0.9, fig.width = 5, dpi = 600}
+
+dt <- data.frame(x = c(2, 1.4, 3, 6.3, 6.8, 8), y = c(2, 3.2, 2, 3, 3.5, 1.6), grp = c(1,1,1,2,2,2))
+ggplot(dt)+
+  geom_point(aes(x, y, color = as.character(grp)), show.legend = F, size = 2)+
+  geom_ellipse(aes(x0 = 2, y0 = 2.5, a = 1.6, b = 1, angle = 0), color = 'grey') +
+  geom_ellipse(aes(x0 = 7.2, y0 = 2.5, a = 1.7, b = 1.2, angle = 40) , color = 'grey') +
+  geom_segment(data = data.frame(x1 = 1.4, x2 = 8, y1 = 3.2, y2 = 1.6), aes(x = x1, xend = x2, y = y1, yend = y2), 
+               color = wes_palette('Moonrise2')[4], size = 1)+
+  coord_fixed()+
+  scale_color_manual(values = c(wes_palette('Moonrise2')[1], wes_palette('Moonrise2')[2]))+
+  theme_bw()+
+  theme(axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())
+```
+
+
+**Centroid linkage**, kus klastrite vaheline kaugus tuletatakse klastrite objektide keskpunktide omavahelisest kaugusest: 
+
+
+```{r fig.height=0.9, fig.width = 5, dpi = 600}
+
+dt <- data.frame(x = c(2, 1.4, 3, 6.3, 6.8, 8), y = c(2, 3.2, 2, 3, 3.5, 1.6), grp = c(1,1,1,2,2,2))
+
+cent_dt <- data.frame(x1 = mean(dt$x[1:3]),
+                      x2 = mean(dt$x[4:6]),
+                      y1 = mean(dt$y[1:3]),
+                      y2 = mean(dt$y[4:6]))
+
+ggplot(dt)+
+  geom_point(aes(x, y, color = as.character(grp)), show.legend = F, size = 2)+
+  geom_ellipse(aes(x0 = 2, y0 = 2.5, a = 1.6, b = 1, angle = 0), color = 'grey') +
+  geom_ellipse(aes(x0 = 7.2, y0 = 2.5, a = 1.7, b = 1.2, angle = 40) , color = 'grey') +
+  geom_segment(data = cent_dt, aes(x = x1, xend = x2, y = y1, yend = y2), 
+               color = wes_palette('Moonrise2')[4], size = 1)+
+  coord_fixed()+
+  scale_color_manual(values = c(wes_palette('Moonrise2')[1], wes_palette('Moonrise2')[2]))+
+  theme_bw()+
+  theme(axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())
+```
+
+Kõige populaarsem ja parimaid tulemusi andma kippuv meetod on aga vist Wardi meetod, kus pannakse kokku need klastrid, mille puhul klastrite sisese variatiivsuse kasv on minimaalne.
+
+### Klastrite arvu valik
+
+Kui oleme klasteranalüüsi läbi viinud, ehk siis arvutanud kauguste maatriksi ja selle põhjal mingi klastrite ühendamise meetodiga tuletanud klasterlahendi (ehk siis tegelikult selle eelnevalt toodud dendogrammi), siis mis edasi? Hierahilise klasteranalüüsi puhul on meil alati kõige kõrgemal tasandil lõpuks üks klaster. Sellega ei ole aga midagi tarka peale hakata. 
+
+Järgmiseks etapiks olekski klastrite arvu määramine. See on aga puhtalt subjektiivne tegevust. On küll olemas mõned meetodid ja testid, millega optimaalset klastrite arvu määrata, kuid need kipuvad tihti vastakaid tulemusi andma. Ehk siis lõppkokkuvõttes tuleb klastrite arvu valik meil ikkagi ise teha ja selle eest ka vastutada. Klastrite defineerimiseks tuleb meil lihtsalt dendogrammist joon läbi tõmmata, misläbi määrame ära, et objektid, mis on joonest allpool ühendatud, kuuluvad samasse klastrisse. Ja objektid, mille ühenduskoht jääb joonest kõrgemale, kuuluvad erinevatesse klastritesse.
+
+Eelneva näite puhul tundub kõige mõistlikum see joon tõmmata nelja klastrilise lahendi kõrguselt.
+
+```{r, fig.width=6}
+ggd+
+  geom_hline(yintercept = 100, color = wes_palette('Moonrise2')[2], linetype = 2)
+```
+
+
+### Hierarhilise klasteranalüüsi puudused
+
+- Lahendi leidmine on arvutuslikult väga ressursimahukas
+- Klastrite arvu määramine on väga subjektiivne
+- Tulemus sõltub väga palju erinevuse mõõtmise meetodist ning klastrite ühendamise meetodist 
+
+
+## K-keskmiste (k-means) klasterdamine
+
+K-kesmiste klasterdamise puhul tuleb enne meetodi rakendamist teada mitut klastrit tahetakse. Seejärel jaotab klasterdamisalgoritm kõik klasterdatavad objektid vastavalt määratud klastrite arvule klastritesse. Ja teeb seda nii, et objektid klastrite sees oleksid võimalikult sarnased ning klastrite vahel võimalikult erinevad. Tegemist on hästi lihtsa algoritmiga, mis tähendab et see ei nõua eriti palju uarvutuslikku ressurssi ja sobib seetõttu ka suurte andmestike puhul
+
+K-keskmiste algoritm lähtub järgmistest sammudest:
+
+1. Määratakse klastrite arv
+2. Valitakse juhuslikud klastrite keskpunktid (tsentroidid)
+3. Igale objektile arvutatakse kaugus kõikidest klastrist ja objekt määratakse lähimasse klastrisse
+4. Igale klastrile arvutatakse uus tsentroid (seega juhuslikud keskpunktid asendatakse objektidest lähtuvate keskpunktidega)
+5. Iga objekti kaugus kõigi klastrite keskpunktidest arvutatakse uuesti ja objektid määratakse jälle lähimasse klastrisse
+6. Arvutatakse jälle uued klastrite keskpunktid
+7. Punkte 5 ja 6 korratakse nii kaua, kuni objektid enam klastrite vahel ei liigu
+
+Käime need sammud juba eelnevalt vaadatud riikide keelteoskuse näidet aluseks võttes läbi:
+
+```{r}
+kmeans_ex_data[frame == 1] %>%
+  ggplot()+
+  aes(x = english, y = german, label = labels)+
+  geom_point(size = 2)+
+  geom_text_repel(min.segment.length = 0)+
+  theme_bw()+
+  labs(y='Saksa keele oskus', x = 'Inglise keele oskus')
+```
+
+Eeldame, et riigid jaotuvad nelja klastrisse (selle eelduse tegemisel võib aluseks olla meie eelnev valdkonnateadmine, hierarhilise klasteranalüüsi tulem vms). Jaotame esmalt kõik riigi suvaliselt nende nelja klastri vahel.
+
+
+```{r}
+kmeans_ex_data[frame == 2] %>%
+  ggplot()+
+  aes(x = english, y = german, label = labels, color = klaster)+
+  geom_point(size = 2)+
+  scale_color_manual(values = cols)+
+  theme_bw()+
+  labs(y='Saksa keele oskus', x = 'Inglise keele oskus', color = 'Klaster')
+```
+
+Seejärel arvutame igale (suvalisele) klastrile keskpunkti. Klastri keskpunktiks on lihtsalt klastrisse kuuluvate objektide keskmised koordinaadid. Kahe tunnuse korral on keskpunkt määratletud kahe dismensiooni koordinaatidega. Meil on iga klastri jaoks vaja leida selle objektide keskmine x-väärtus ja keskmine y-väärtus.
+
+```{r}
+kmeans_ex_data[frame == 3] %>%
+  .[, kesk := ifelse(size == 1, 'Objekt', 'Klastri keskpunkt')] %>% 
+  ggplot()+
+  aes(x = english, y = german, label = labels, color = klaster, shape = as.character(kesk))+
+  geom_point(size = 2)+
+  scale_color_manual(values = cols)+
+  scale_shape_manual(values = c(4, 16))+
+  theme_bw()+
+  labs(y='Saksa keele oskus', x = 'Inglise keele oskus', color = 'Klaster', shape = '')
+```
+
+Järgmisena grupeerime kõik objektid ümber lähtuvalt sellest, millise klastri keskpunkt neile kõige lähemal on.
+
+
+```{r}
+kmeans_ex_data[frame == 4] %>%
+  .[, kesk := ifelse(size == 1, 'Objekt', 'Klastri keskpunkt')] %>% 
+  ggplot()+
+  aes(x = english, y = german, label = labels, color = klaster, shape = as.character(kesk))+
+  geom_point(size = 2)+
+  scale_color_manual(values = cols)+
+  scale_shape_manual(values = c(4, 16))+
+  theme_bw()+
+  labs(y='Saksa keele oskus', x = 'Inglise keele oskus', color = 'Klaster', shape = '')
+```
+
+Ja arvutame uuesti klastrite keskpunktid.
+
+
+```{r}
+kmeans_ex_data[frame == 5] %>%
+  .[, kesk := ifelse(size == 1, 'Objekt', 'Klastri keskpunkt')] %>% 
+  ggplot()+
+  aes(x = english, y = german, label = labels, color = klaster, shape = as.character(kesk))+
+  geom_point(size = 2)+
+  scale_color_manual(values = cols)+
+  scale_shape_manual(values = c(4, 16))+
+  theme_bw()+
+  labs(y='Saksa keele oskus', x = 'Inglise keele oskus', color = 'Klaster', shape = '')
+```
+
+
+Ning grupeerime jälle objektid ümber lähtuvalt neile kõige lähemast klastri keskpunktist.
+
+
+```{r}
+kmeans_ex_data[frame == 6] %>%
+  .[, kesk := ifelse(size == 1, 'Vaatlus', 'Klastri keskpunkt')] %>% 
+  ggplot()+
+  aes(x = english, y = german, label = labels, color = klaster, shape = as.character(kesk))+
+  geom_point(size = 2)+
+  scale_color_manual(values = cols)+
+  scale_shape_manual(values = c(4, 16))+
+  theme_bw()+
+  labs(y='Saksa keele oskus', x = 'Inglise keele oskus', color = 'Klaster', shape = '')
+```
+
+Arvutame uuesti klastrite keskpunktid.
+
+
+```{r}
+kmeans_ex_data[frame == 7] %>%
+  .[, kesk := ifelse(size == 1, 'Vaatlus', 'Klastri keskpunkt')] %>% 
+  ggplot()+
+  aes(x = english, y = german, label = labels, color = klaster, shape = as.character(kesk))+
+  geom_point(size = 2)+
+  scale_color_manual(values = cols)+
+  scale_shape_manual(values = c(4, 16))+
+  theme_bw()+
+  labs(y='Saksa keele oskus', x = 'Inglise keele oskus', color = 'Klaster', shape = '')
+```
+
+Teeme seda seni kuni objektid enam klastrite vahel ei liigu. Antud näite puhul kuluks selleks kaks ümbergrupeerimist ehk kaks iteratsiooni. Rohkemate objektide ja rohkemate dimensioonide korral tuleb neid iteratsioone muidugi rohkem, kuid loogika jääb alati samaks.
+
+
+### K-keskmiste klasteranalüüsi puudused
+
+K-keskmiste algoritm üritab minimeerida ruuthälvete summat, st objektide hälbeid klastrite keskpunktidest. Eesmärgiks on leida lahend, millest vähema ruuthälvete summadega lahendit ei ole. Seda eesmärki on reaalsuses aga küllaltki raske tagada. Tihti on lahendiks nn lokaalne optimum, samas kui meie otsime nn globaalset optiumi. See tuleneb sellest, et algne klastritesse määramine on juhuslik ning puhtalt juhuslikult võime me objektid esialgsetesse klastritesse jagada nii, et globaalselt optimaalse, ehk parima võimaliku tulemi saavutamine ei ole võimalik. Seetõttu peaks iga mudelit erinevate juhuslike algväärtustega mitmeid kordi jooksutama ning kui tulemid erinevad, siis valima lahendi, mida esineb kõige rohkem.  
+
+Kuna klastrite arv peab olema teada enne klasterdamist, siis ei saa me olla kindlad, et meie määratud klastrite arv on optimaalne. Siin on lahenduseks jälegi mitmete erinevate klastrite arvudega mudelite jooksutamine. Siin on abiks jällegi erinevad testid ja diagnostikad, millega erinevatest mudelitest parim välja valida. 
+
+K-keskmiste klasterdamine ei toimi hästi mürase andestike ja erindite korral ning ei sobi ebakonventsionaalsete kujudega klastrite leidmiseks. Kuna meetod lähtub klastrite keskpunktidest, siis eeldab see et kõik konkreetse klastri objektid on suhteliselt ühtlaselt selle keskpunkti ümber kogunenud.
+
+
+## Klasteranalüüsi tulemi valiidsus
+
+Klasterdamine on eelkõige eksploratiivne analüüs. Kuid tulemused, et neist saaks sisukaid järeldusi teha, peavad siiski olema mingil viisil valideeritud. Eelkõige peavad tulemused olema stabiilsed. Selle tagamiseks võib:
+- Jagades andmed kaheks ja proovida meetodit mõlema osa peal
+- Kasutades mitut erinevat meetodit

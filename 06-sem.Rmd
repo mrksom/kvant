@@ -33,7 +33,7 @@ Mõõtmisveaga arvestamine ei ole muidugi ainukene põhjus SEM-i kasutamiseks. T
 Struktuurivõrrandite modelleerimine  ei ole üks konkreetne meetod, vaid laiem modelleerimisraamistik, mis ühendab endas erinevaid konkreetsemaid meetodeid. Oluliseimateks neist on faktoranalüüs (*factor analysis*) ja rajaanalüüs (*path analysis*), mis mõlemad on omakorda edasiarendused tavalisest regressioonist (seega oleks hea, kui enne nende kasutamist oleks regressioonist mingi arusaam). Vaatame lähemalt, mida need kaks SEM-i alusmeedodid endast kujutavad. 
 
 ## Rajaanalüüs
-Regressioonanalüüsiga saame hinnata millised tunnused ja kui palju mõjutavad mingit sõltuvat tunnust. Meie huvi objektiks on sõltuvale tuunusele suunatud otsesed mõjud. See on aga paratamatult mõnevõrra lihtsustatud pilt märksa keerulisemast mõjude virvarrist. Rajaanalüüs võimaldab meil sotsiaalse elu paratamatut kompleksust mõnevõrra eksplitsiitsemalt välja tuua ja analüüsida. Täpsemalt võimaldab see meil hinnata lisaks otsestele mõjudele ka kaudseid mõjusid ning seeläbi luua terviklikum pilt mingite protsesside taga olevatest kausaalsetest süsteemidest. Me saame analüüsida erinevate tegurite omavaheliste mõjude mustrit ning testida mingite mõjuahelate olemasolu. Kõige lihtsam on sellest aru saada joonise näitel:
+Regressioonanalüüsiga saame hinnata millised tunnused ja kui palju mõjutavad mingit sõltuvat tunnust. Meie huvi objektiks on sõltuvale tunnusele suunatud otsesed mõjud. See on aga paratamatult mõnevõrra lihtsustatud pilt märksa keerulisemast mõjude virvarrist. Rajaanalüüs võimaldab meil sotsiaalse elu paratamatut kompleksust mõnevõrra eksplitsiitsemalt välja tuua ja analüüsida. Täpsemalt võimaldab see meil hinnata lisaks otsestele mõjudele ka kaudseid mõjusid ning seeläbi luua terviklikum pilt mingite protsesside taga olevatest kausaalsetest süsteemidest. Me saame analüüsida erinevate tegurite omavaheliste mõjude mustrit ning testida mingite mõjuahelate olemasolu. Kõige lihtsam on sellest aru saada joonise näitel:
 
 ```{tikz f1, fig.cap = "Rajaanalüüsi diagramm", fig.ext = 'png', echo = F, fig.width = 5.5, fig.align="center"}
 
@@ -282,9 +282,10 @@ Kui me need võrrandid lahendame (kus tundmatuteks on $b_1$, $b_2$, $b_3$, $b_4$
 ### Rajaanalüüsi eeldused
 
 Nagu kõikidel meetoditl, on ka rajaanalüüsil rida eeldusi:  
+
 - Kuna rajaanalüüs koosneb lineaarse regressiooni mudelitest, siis kehtivad neile ka regressiooni eeldused. Endogeensed (sõltuvad) tunnused peaksid olema enamvähem normaaljaotusega, tunnustevahelised seosed peaksid olema lineaarsed (tavalises rajaanalüüsis ei saa kasutada ka näiteks polünoome), regressiooni jäägid (*residuals*) ei tohiks olla korreleeritud eksogeensete (sõltumatute) tunnustega.  
 - Kausaalsus peab olema ühesuunaline. Seda omadust nimetatakse ka rekursiivsuseks ning see tähendab, et kausaalsuse alguspunkt ja lõppunkt ei tohi olla samad (me ei saa modeleerida kana ja muna omavahelisi mõjusid: kana > muna > kana > muna > ...).  
-- Mudelis ei tohi olla multikollineaarsust. See tähendab, et tunnused, mille vahelist suhet ei ole mudeliga defineeritud ei tohiks olla tugevalt korreleeritud (kui nad on, siis peaksime vastavad seosed ka mudelis defineerima).   
+- Mudelis ei tohi olla multikollineaarsust. See tähendab, et tunnused, mille vahelist suhet ei ole mudeliga defineeritud ei tohiks olla tugevalt korreleeritud (kui nad on, siis peaksime vastavad seosed ka mudelis defineerima).  
 
 Need eeldused kehtivad nn tavalise rajaanalüüsi kohta. On erinevaid spetsiifilisemaid (ja keerulisemaid) mudeleid, mille puhul nendest eeldustest saab kõrvale viilida.
 
@@ -495,7 +496,7 @@ $$\epsilon_1 = 1- \lambda_1^2 = 1- 0.5^2 = 0.75$$
 $$\epsilon_2 = 1- \lambda_2^2 = 1- 0.4^2 = 0.84$$
 $$\epsilon_3 = 1- \lambda_3^2 = 1- 0.6^2 = 0.64$$
 
-Ja lõplik, meie päris enda välja arvutatud faktormudeli diagramm^[Üks asi on tegelikult puudu. Me ei arvutanud faktori dispersiooni. Kuna meie mudeli sisendiks oli korrelatsioonimaatriks, siis me otseselt ei pidanudki seda arvutama ega seda käsitlema. Korrelatsioonimaatriksist sisendi puhul on selleks dispersiooniks 1. Kuid alati see nii ei ole. Miks faktori dispersioon oluline on ja miillal see 1 ei ole, sellest natukene hiljem.]:
+Ja lõplik, meie päris enda välja arvutatud faktormudeli diagramm^[Üks asi on tegelikult puudu. Me ei arvutanud faktori dispersiooni. Kuna meie mudeli sisendiks oli korrelatsioonimaatriks, siis me otseselt ei pidanudki seda arvutama ega seda käsitlema. Korrelatsioonimaatriksist sisendi puhul on selleks dispersiooniks 1. Kuid alati see nii ei ole. Miks faktori dispersioon oluline on ja millal see 1 ei ole, sellest natukene hiljem.]:
 
 
 ```{tikz fm2, fig.cap = "Faktormudeli moodustamine", fig.ext = 'png', echo = F, fig.width = 2.5, fig.align="center"}
@@ -587,14 +588,14 @@ $$r(y_3, y_4) = 0.4 \text{  ja  } r(y_3, y_4) = \lambda_3 \lambda_4$$
 
 Kui need mõlemad väärtused, algne korrelatsioon ja tuletatud korrelatsioon, on samad, siis saame järeldada, et meie defineeritud struktuur kirjeldab täpselt andmetes olevaid seoseid. Kui need aga ei kattu, siis oleme mingil määral oma mudeli valesti defineerinud.  
 
-Arvutame algsete korrelatsioonide ja tuletatud korreltasioonide vahed:
+Arvutame algsete korrelatsioonide ja tuletatud korrelatsioonide vahed:
 $$r(y_2, y_4) - \lambda_2 \lambda_4 = 0.2 - 0.4\times0.6 = -0.04$$
 $$r(y_3, y_4) - \lambda_3 \lambda_4 = 0.4 - 0.6\times0.6 = 0.04$$
-Ńeed erinevused on mudeli jäägid (*residuals*). Saame nad arvutada kõikide korreltasioonikordajate jaoks (sellisel juhul kasutame parameetrite arvutamiseks lihtsalt teisi korrelatsioone). Kui need jäägid on suured, siis see tähendab, et meie defineeritud mudel ei vasta andmetele (ja on valesti defineeritud). See tähendab, et meie mudeli parameetrid võivad olla valed, nende standardvead võivad olla valed ja seega ka mudelist tehtavad järeldused võivad olla valed.
+Need erinevused on mudeli jäägid (*residuals*). Saame nad arvutada kõikide korreltasioonikordajate jaoks (sellisel juhul kasutame parameetrite arvutamiseks lihtsalt teisi korrelatsioone). Kui need jäägid on suured, siis see tähendab, et meie defineeritud mudel ei vasta andmetele (ja on valesti defineeritud). See tähendab, et meie mudeli parameetrid võivad olla valed, nende standardvead võivad olla valed ja seega ka mudelist tehtavad järeldused võivad olla valed.
 
 Korrelatsioonimaatriksit (või kovariatsioonimaatriksit), mis moodustub nendest mudeli põhjal tuletatud korrelatsioonidest, nimetatakse **mudelipõhiseks maatriksiks** (*model-implied matrix* või *fitted matrix*). Algsete korrelatsioonide ning tuletatud korrelatsioonide vahe maatriksit nimetatakse **jääkide maatriksiks** (*residual matrix*).
 
-Kui mudel sobitub andmetega väga hästi, siis ei tähenda see automaatselt, et meil on tegemist hea mudeliga. Võib juhtuda, et hästi sobituvuva mudeli puhul ei ole meie faktorlaadungid olulised (ehk siis indikaatorid ei ole omavahel seotud) või on mudel teoreetiliselt mittesobiv.
+Kui mudel sobitub andmetega väga hästi, siis ei tähenda see automaatselt, et meil on tegemist hea mudeliga. Võib juhtuda, et hästi sobituva mudeli puhul ei ole meie faktorlaadungid olulised (ehk siis indikaatorid ei ole omavahel seotud) või on mudel teoreetiliselt mittesobiv.
 
 
 ### Veel mudeli identifikatsioonist
@@ -759,7 +760,7 @@ dt <- dt %>%
 
 ### Regressioon
 
-Kuigi *lavaan* on mõeldud eelkõige SEM-i jaoks, siis saab sellega väga edukalt ka tavalist regressiooni jooksutada. Mis on ka iseenesest mõistetav, arvestades asjaolu, et SEM ju suures osas ongi laiendatud regressioonanalüüs. Vaatame kuidas on valimisvabadus seotud pressivabadusega. Selleks peame kõigepealt defineerima mudeli ning seejärel seda jooksutama funktsiooniga `sem()`. Tulemusi 'summary()' funktsiooniga (nagu tavalise regressiooni puhulgi). 
+Kuigi *lavaan* on mõeldud eelkõige SEM-i jaoks, siis saab sellega väga edukalt ka tavalist regressiooni jooksutada. Mis on ka iseenesest mõistetav, arvestades asjaolu, et SEM ju suures osas ongi laiendatud regressioonanalüüs. Vaatame kuidas on valimisvabadus seotud pressivabadusega. Selleks peame kõigepealt defineerima mudeli ning seejärel seda jooksutama funktsiooniga `sem()`. Tulemusi näeme 'summary()' funktsiooniga nagu tavalise regressiooni puhulgi. 
 
 ```{r}
 # Defineeerime mudeli

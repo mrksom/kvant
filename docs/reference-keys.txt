@@ -141,3 +141,14 @@ mudeli-intspekteerimine
 kinnitav-faktoranalüüs-1
 sem
 mudeli-spetsifikatsioonid
+klasteranalüüs
+mis-see-klasteranalüüs-on
+klasterdamismeetodid
+kuidas-mõõta-objektide-erinevustsarnasust
+hierarhiline-klasteranalüüs
+klastrite-ühendamise-meetodid-linkage
+klastrite-arvu-valik
+hierarhilise-klasteranalüüsi-puudused
+k-keskmiste-k-means-klasterdamine
+k-keskmiste-klasteranalüüsi-puudused
+klasteranalüüsi-tulemi-valiidsus
