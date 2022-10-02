@@ -22,7 +22,6 @@ tab:k1
 fig:fm2
 tab:k3
 fig:sem1
-teadmiseks
 sissejuhatus-r-i
 päris-algus
 andmetega-töötamine
@@ -152,3 +151,5 @@ hierarhilise-klasteranalüüsi-puudused
 k-keskmiste-k-means-klasterdamine
 k-keskmiste-klasteranalüüsi-puudused
 klasteranalüüsi-tulemi-valiidsus
+tavaline-lineaarne-regressioon-maatriksarvutusena
+delta-meetod

@@ -1,9 +1,3 @@
----
-knit: "bookdown::preview_chapter"
-editor_options: 
-  markdown: 
-    wrap: 72
----
 
 # (PART) Üldistatud lineaarsed mudelid {-} 
 
@@ -254,7 +248,7 @@ Näeme, et koosmõju on antud mudeli puhul vägagi sisukas. Meeste puhul täiska
 
  
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 * Piaaci andmestikus on tunnus *staatus3*. Võtke see aluseks ja tehke uus loogiline (TRUE/FALSE) tunnus *hoiv*, mis kirjeldaks kas inimene on või ei ole hõivatud.  
@@ -497,14 +491,15 @@ head(mudel_fit)
 
 ```
 ## # A tibble: 6 x 9
-##   `I(Survived == "~` Sex   Age   .fitted .resid .std.resid   .hat .sigma .cooksd
-##   <I<lgl>>           <fct> <fct>   <dbl>  <dbl>      <dbl>  <dbl>  <dbl>   <dbl>
-## 1 FALSE              Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
-## 2 FALSE              Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
-## 3 FALSE              Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
-## 4 FALSE              Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
-## 5 FALSE              Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
-## 6 FALSE              Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
+##   I(Survived == "Yes"~1 Sex   Age   .fitted .resid .std.~2   .hat .sigma .cooksd
+##   <I<lgl>>              <fct> <fct>   <dbl>  <dbl>   <dbl>  <dbl>  <dbl>   <dbl>
+## 1 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
+## 2 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
+## 3 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
+## 4 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
+## 5 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
+## 6 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
+## # ... with abbreviated variable names 1: `I(Survived == "Yes")`, 2: .std.resid
 ```
 
 

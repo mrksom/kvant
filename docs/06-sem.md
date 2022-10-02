@@ -1,9 +1,3 @@
----
-knit: "bookdown::preview_chapter"
-editor_options: 
-  markdown: 
-    wrap: 72
----
 
 # (PART) SEM {-} 
 
@@ -200,7 +194,7 @@ Vaatame ühefaktorilist mudelit, mis on moodustatud kolme indikaatori põhjal (j
 Kolm indikaatorit annavad meile kolm korrelatsioonikoefitsienti (tabel \@ref(tab:k1)).
 
 ```{=html}
-<template id="3efdc902-1bb7-42d6-9ced-cc157c410ade"><style>
+<template id="620a70a6-9cf0-4ffd-ab9f-a1d6b07b4b4c"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -209,9 +203,11 @@ Kolm indikaatorit annavad meile kolm korrelatsioonikoefitsienti (tabel \@ref(tab
   margin-right:auto;
   border-width: 0;
   display: table;
-  margin-top: 1.275em;
-  margin-bottom: 1.275em;
   border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
 }
 .tabwid_left table{
   margin-left:0;
@@ -234,26 +230,23 @@ Kolm indikaatorit annavad meile kolm korrelatsioonikoefitsienti (tabel \@ref(tab
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-c06230ea{}.cl-c051692c{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c051692d{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c051692e{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-c051b60c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c0522b3c{width:29.1pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0522b3d{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0522b3e{width:41.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0522b3f{width:29.1pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0522b40{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0522b41{width:41.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0522b42{width:29.1pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0522b43{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0522b44{width:41.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0522b45{width:29.1pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0522b46{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c0525256{width:41.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-c06230ea'>
-```
-<caption class="">
-
-(\#tab:k1)Korrelatsioonimaatriks
-
-</caption>
-```{=html}
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-c0522b45"><p class="cl-c051b60c"><span class="cl-c051692c"></span></p></td><td class="cl-c0522b46"><p class="cl-c051b60c"><span class="cl-c051692d">y</span><span class="cl-c051692e">1</span></p></td><td class="cl-c0525256"><p class="cl-c051b60c"><span class="cl-c051692d">y</span><span class="cl-c051692e">2</span></p></td><td class="cl-c0522b45"><p class="cl-c051b60c"><span class="cl-c051692d">y</span><span class="cl-c051692e">3</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c0522b3c"><p class="cl-c051b60c"><span class="cl-c051692d">y</span><span class="cl-c051692e">1</span></p></td><td class="cl-c0522b3d"><p class="cl-c051b60c"><span class="cl-c051692c">1</span></p></td><td class="cl-c0522b3e"><p class="cl-c051b60c"><span class="cl-c051692c"></span></p></td><td class="cl-c0522b3c"><p class="cl-c051b60c"><span class="cl-c051692c"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0522b3f"><p class="cl-c051b60c"><span class="cl-c051692d">y</span><span class="cl-c051692e">2</span></p></td><td class="cl-c0522b40"><p class="cl-c051b60c"><span class="cl-c051692c">0.2</span></p></td><td class="cl-c0522b41"><p class="cl-c051b60c"><span class="cl-c051692c">1</span></p></td><td class="cl-c0522b3f"><p class="cl-c051b60c"><span class="cl-c051692c"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c0522b42"><p class="cl-c051b60c"><span class="cl-c051692d">y</span><span class="cl-c051692e">3</span></p></td><td class="cl-c0522b43"><p class="cl-c051b60c"><span class="cl-c051692c">0.3</span></p></td><td class="cl-c0522b44"><p class="cl-c051b60c"><span class="cl-c051692c">0.24</span></p></td><td class="cl-c0522b42"><p class="cl-c051b60c"><span class="cl-c051692c">1</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="e8db1917-e197-4a88-8bbe-5dd6e18a71f4"></div>
-<script>
-var dest = document.getElementById("e8db1917-e197-4a88-8bbe-5dd6e18a71f4");
-var template = document.getElementById("3efdc902-1bb7-42d6-9ced-cc157c410ade");
-var caption = template.content.querySelector("caption");
-if(caption) {
-  caption.style.cssText = "display:block;text-align:center;";
-  var newcapt = document.createElement("p");
-  newcapt.appendChild(caption)
-  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+.katex-display {
+    margin: 0 0 !important;
 }
+</style><div class="tabwid"><style>.cl-1ae34eb0{}.cl-1acdf218{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1acdf219{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1acdf21a{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-1ad6cbb8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1ad6f2dc{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ad6f2dd{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ad6f2de{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ad6f2df{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ad6f2e0{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ad6f2e1{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ad6f2e2{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ad6f2e3{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ad6f2e4{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ad6f2e5{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ad6f2e6{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ad719d8{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1ac3e002{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}</style><table class='cl-1ae34eb0'>
+
+```
+
+<caption>(\#tab:k1)<span class="cl-1ac3e002">Korrelatsioonimaatriks</span></caption>
+
+```{=html}
+
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-1ad6f2dc"><p class="cl-1ad6cbb8"><span class="cl-1acdf218"></span></p></td><td class="cl-1ad6f2dd"><p class="cl-1ad6cbb8"><span class="cl-1acdf219">y</span><span class="cl-1acdf21a">1</span></p></td><td class="cl-1ad6f2de"><p class="cl-1ad6cbb8"><span class="cl-1acdf219">y</span><span class="cl-1acdf21a">2</span></p></td><td class="cl-1ad6f2dc"><p class="cl-1ad6cbb8"><span class="cl-1acdf219">y</span><span class="cl-1acdf21a">3</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1ad6f2df"><p class="cl-1ad6cbb8"><span class="cl-1acdf219">y</span><span class="cl-1acdf21a">1</span></p></td><td class="cl-1ad6f2e0"><p class="cl-1ad6cbb8"><span class="cl-1acdf218">1</span></p></td><td class="cl-1ad6f2e1"><p class="cl-1ad6cbb8"><span class="cl-1acdf218"></span></p></td><td class="cl-1ad6f2df"><p class="cl-1ad6cbb8"><span class="cl-1acdf218"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1ad6f2e2"><p class="cl-1ad6cbb8"><span class="cl-1acdf219">y</span><span class="cl-1acdf21a">2</span></p></td><td class="cl-1ad6f2e3"><p class="cl-1ad6cbb8"><span class="cl-1acdf218">0.2</span></p></td><td class="cl-1ad6f2e4"><p class="cl-1ad6cbb8"><span class="cl-1acdf218">1</span></p></td><td class="cl-1ad6f2e2"><p class="cl-1ad6cbb8"><span class="cl-1acdf218"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1ad6f2e5"><p class="cl-1ad6cbb8"><span class="cl-1acdf219">y</span><span class="cl-1acdf21a">3</span></p></td><td class="cl-1ad6f2e6"><p class="cl-1ad6cbb8"><span class="cl-1acdf218">0.3</span></p></td><td class="cl-1ad719d8"><p class="cl-1ad6cbb8"><span class="cl-1acdf218">0.24</span></p></td><td class="cl-1ad6f2e5"><p class="cl-1ad6cbb8"><span class="cl-1acdf218">1</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="fa460576-f54f-4f01-a0d8-5624e79faaca"></div>
+<script>
+var dest = document.getElementById("fa460576-f54f-4f01-a0d8-5624e79faaca");
+var template = document.getElementById("620a70a6-9cf0-4ffd-ab9f-a1d6b07b4b4c");
+var caption = template.content.querySelector("caption");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);
@@ -318,7 +311,7 @@ Faktorlaadungite leidmiseks pidime kasutama kõiki kolme korrelatsioonikoefitsie
 
 
 ```{=html}
-<template id="e04c1e53-246c-4536-84f7-df27f5959832"><style>
+<template id="ec67bbec-0e5f-4a5d-b400-5c47c669db31"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -327,9 +320,11 @@ Faktorlaadungite leidmiseks pidime kasutama kõiki kolme korrelatsioonikoefitsie
   margin-right:auto;
   border-width: 0;
   display: table;
-  margin-top: 1.275em;
-  margin-bottom: 1.275em;
   border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
 }
 .tabwid_left table{
   margin-left:0;
@@ -352,26 +347,23 @@ Faktorlaadungite leidmiseks pidime kasutama kõiki kolme korrelatsioonikoefitsie
 .tabwid table tr {
 background-color: transparent;
 }
-</style><div class="tabwid"><style>.cl-c283ccee{}.cl-c274b074{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c274b075{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c274b076{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-c274de8c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c275259a{width:29.1pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c275259b{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c275259c{width:27.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c275259d{width:41.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c275259e{width:29.1pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c275259f{width:27.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c27525a0{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c27525a1{width:41.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c27525a2{width:27.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c27525a3{width:29.1pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c27525a4{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c2754ca0{width:41.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c2754ca1{width:29.1pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c2754ca2{width:41.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c2754ca3{width:27.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c2754ca4{width:35.8pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-c283ccee'>
-```
-<caption class="">
-
-(\#tab:k3)Korrelatsioonimaatriks
-
-</caption>
-```{=html}
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-c2754ca1"><p class="cl-c274de8c"><span class="cl-c274b074"></span></p></td><td class="cl-c2754ca4"><p class="cl-c274de8c"><span class="cl-c274b075">y</span><span class="cl-c274b076">1</span></p></td><td class="cl-c2754ca2"><p class="cl-c274de8c"><span class="cl-c274b075">y</span><span class="cl-c274b076">2</span></p></td><td class="cl-c2754ca4"><p class="cl-c274de8c"><span class="cl-c274b075">y</span><span class="cl-c274b076">3</span></p></td><td class="cl-c2754ca1"><p class="cl-c274de8c"><span class="cl-c274b075">y</span><span class="cl-c274b076">4</span></p></td><td class="cl-c2754ca3"><p class="cl-c274de8c"><span class="cl-c274b075">X</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c275259a"><p class="cl-c274de8c"><span class="cl-c274b075">y</span><span class="cl-c274b076">1</span></p></td><td class="cl-c275259b"><p class="cl-c274de8c"><span class="cl-c274b074">1</span></p></td><td class="cl-c275259d"><p class="cl-c274de8c"><span class="cl-c274b074"></span></p></td><td class="cl-c275259b"><p class="cl-c274de8c"><span class="cl-c274b074"></span></p></td><td class="cl-c275259a"><p class="cl-c274de8c"><span class="cl-c274b074"></span></p></td><td class="cl-c275259c"><p class="cl-c274de8c"><span class="cl-c274b074"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c275259e"><p class="cl-c274de8c"><span class="cl-c274b075">y</span><span class="cl-c274b076">2</span></p></td><td class="cl-c27525a0"><p class="cl-c274de8c"><span class="cl-c274b074">0.2</span></p></td><td class="cl-c27525a1"><p class="cl-c274de8c"><span class="cl-c274b074">1</span></p></td><td class="cl-c27525a0"><p class="cl-c274de8c"><span class="cl-c274b074"></span></p></td><td class="cl-c275259e"><p class="cl-c274de8c"><span class="cl-c274b074"></span></p></td><td class="cl-c275259f"><p class="cl-c274de8c"><span class="cl-c274b074"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c27525a3"><p class="cl-c274de8c"><span class="cl-c274b075">y</span><span class="cl-c274b076">3</span></p></td><td class="cl-c27525a4"><p class="cl-c274de8c"><span class="cl-c274b074">0.3</span></p></td><td class="cl-c2754ca0"><p class="cl-c274de8c"><span class="cl-c274b074">0.24</span></p></td><td class="cl-c27525a4"><p class="cl-c274de8c"><span class="cl-c274b074">1</span></p></td><td class="cl-c27525a3"><p class="cl-c274de8c"><span class="cl-c274b074"></span></p></td><td class="cl-c27525a2"><p class="cl-c274de8c"><span class="cl-c274b074"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c27525a3"><p class="cl-c274de8c"><span class="cl-c274b075">y</span><span class="cl-c274b076">4</span></p></td><td class="cl-c27525a4"><p class="cl-c274de8c"><span class="cl-c274b074">0.3</span></p></td><td class="cl-c2754ca0"><p class="cl-c274de8c"><span class="cl-c274b074">0.2</span></p></td><td class="cl-c27525a4"><p class="cl-c274de8c"><span class="cl-c274b074">0.4</span></p></td><td class="cl-c27525a3"><p class="cl-c274de8c"><span class="cl-c274b074">1</span></p></td><td class="cl-c27525a2"><p class="cl-c274de8c"><span class="cl-c274b074"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c275259e"><p class="cl-c274de8c"><span class="cl-c274b075">X</span></p></td><td class="cl-c27525a0"><p class="cl-c274de8c"><span class="cl-c274b074">0.5</span></p></td><td class="cl-c27525a1"><p class="cl-c274de8c"><span class="cl-c274b074">0.4</span></p></td><td class="cl-c27525a0"><p class="cl-c274de8c"><span class="cl-c274b074">0.6</span></p></td><td class="cl-c275259e"><p class="cl-c274de8c"><span class="cl-c274b074">?</span></p></td><td class="cl-c275259f"><p class="cl-c274de8c"><span class="cl-c274b074">1</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="2d46ede3-26ec-4e0b-80e6-01ef2873a53c"></div>
-<script>
-var dest = document.getElementById("2d46ede3-26ec-4e0b-80e6-01ef2873a53c");
-var template = document.getElementById("e04c1e53-246c-4536-84f7-df27f5959832");
-var caption = template.content.querySelector("caption");
-if(caption) {
-  caption.style.cssText = "display:block;text-align:center;";
-  var newcapt = document.createElement("p");
-  newcapt.appendChild(caption)
-  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+.katex-display {
+    margin: 0 0 !important;
 }
+</style><div class="tabwid"><style>.cl-1ca1ac10{}.cl-1c921dd6{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1c921dd7{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1c921dd8{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-1c97ea2c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1c98ad86{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98ad87{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98ad88{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98ad89{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98ad8a{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98ad8b{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98ad8c{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98ad8d{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98ad8e{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98ad8f{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98ad90{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98d496{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98d497{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98d498{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98d499{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c98d49a{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1c861004{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}</style><table class='cl-1ca1ac10'>
+
+```
+
+<caption>(\#tab:k3)<span class="cl-1c861004">Korrelatsioonimaatriks</span></caption>
+
+```{=html}
+
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-1c98ad86"><p class="cl-1c97ea2c"><span class="cl-1c921dd6"></span></p></td><td class="cl-1c98ad87"><p class="cl-1c97ea2c"><span class="cl-1c921dd7">y</span><span class="cl-1c921dd8">1</span></p></td><td class="cl-1c98ad88"><p class="cl-1c97ea2c"><span class="cl-1c921dd7">y</span><span class="cl-1c921dd8">2</span></p></td><td class="cl-1c98ad87"><p class="cl-1c97ea2c"><span class="cl-1c921dd7">y</span><span class="cl-1c921dd8">3</span></p></td><td class="cl-1c98ad86"><p class="cl-1c97ea2c"><span class="cl-1c921dd7">y</span><span class="cl-1c921dd8">4</span></p></td><td class="cl-1c98ad89"><p class="cl-1c97ea2c"><span class="cl-1c921dd7">X</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1c98ad8a"><p class="cl-1c97ea2c"><span class="cl-1c921dd7">y</span><span class="cl-1c921dd8">1</span></p></td><td class="cl-1c98ad8b"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">1</span></p></td><td class="cl-1c98ad8c"><p class="cl-1c97ea2c"><span class="cl-1c921dd6"></span></p></td><td class="cl-1c98ad8b"><p class="cl-1c97ea2c"><span class="cl-1c921dd6"></span></p></td><td class="cl-1c98ad8a"><p class="cl-1c97ea2c"><span class="cl-1c921dd6"></span></p></td><td class="cl-1c98ad8d"><p class="cl-1c97ea2c"><span class="cl-1c921dd6"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1c98ad8e"><p class="cl-1c97ea2c"><span class="cl-1c921dd7">y</span><span class="cl-1c921dd8">2</span></p></td><td class="cl-1c98ad8f"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">0.2</span></p></td><td class="cl-1c98ad90"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">1</span></p></td><td class="cl-1c98ad8f"><p class="cl-1c97ea2c"><span class="cl-1c921dd6"></span></p></td><td class="cl-1c98ad8e"><p class="cl-1c97ea2c"><span class="cl-1c921dd6"></span></p></td><td class="cl-1c98d496"><p class="cl-1c97ea2c"><span class="cl-1c921dd6"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1c98d497"><p class="cl-1c97ea2c"><span class="cl-1c921dd7">y</span><span class="cl-1c921dd8">3</span></p></td><td class="cl-1c98d498"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">0.3</span></p></td><td class="cl-1c98d499"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">0.24</span></p></td><td class="cl-1c98d498"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">1</span></p></td><td class="cl-1c98d497"><p class="cl-1c97ea2c"><span class="cl-1c921dd6"></span></p></td><td class="cl-1c98d49a"><p class="cl-1c97ea2c"><span class="cl-1c921dd6"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1c98d497"><p class="cl-1c97ea2c"><span class="cl-1c921dd7">y</span><span class="cl-1c921dd8">4</span></p></td><td class="cl-1c98d498"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">0.3</span></p></td><td class="cl-1c98d499"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">0.2</span></p></td><td class="cl-1c98d498"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">0.4</span></p></td><td class="cl-1c98d497"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">1</span></p></td><td class="cl-1c98d49a"><p class="cl-1c97ea2c"><span class="cl-1c921dd6"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1c98ad8e"><p class="cl-1c97ea2c"><span class="cl-1c921dd7">X</span></p></td><td class="cl-1c98ad8f"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">0.5</span></p></td><td class="cl-1c98ad90"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">0.4</span></p></td><td class="cl-1c98ad8f"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">0.6</span></p></td><td class="cl-1c98ad8e"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">?</span></p></td><td class="cl-1c98d496"><p class="cl-1c97ea2c"><span class="cl-1c921dd6">1</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="ea40b107-0869-45d9-8e81-4ce747c5c5df"></div>
+<script>
+var dest = document.getElementById("ea40b107-0869-45d9-8e81-4ce747c5c5df");
+var template = document.getElementById("ec67bbec-0e5f-4a5d-b400-5c47c669db31");
+var caption = template.content.querySelector("caption");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);
@@ -540,14 +532,14 @@ summary(fit)
 ```
 
 ```
-## lavaan 0.6-10 ended normally after 1 iterations
+## lavaan 0.6-12 ended normally after 1 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
 ##   Number of model parameters                         2
-##                                                       
+## 
 ##   Number of observations                            75
-##                                                       
+## 
 ## Model Test User Model:
 ##                                                       
 ##   Test statistic                                 0.000
@@ -585,14 +577,14 @@ summary(fit, rsquare=T)
 ```
 
 ```
-## lavaan 0.6-10 ended normally after 15 iterations
+## lavaan 0.6-12 ended normally after 15 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
 ##   Number of model parameters                         3
-##                                                       
+## 
 ##   Number of observations                            75
-##                                                       
+## 
 ## Model Test User Model:
 ##                                                       
 ##   Test statistic                                 0.000
@@ -679,14 +671,14 @@ summary(fit, standardized=T)
 ```
 
 ```
-## lavaan 0.6-10 ended normally after 1 iterations
+## lavaan 0.6-12 ended normally after 1 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
 ##   Number of model parameters                         8
-##                                                       
+## 
 ##   Number of observations                            75
-##                                                       
+## 
 ## Model Test User Model:
 ##                                                       
 ##   Test statistic                                 0.756
@@ -743,14 +735,14 @@ summary(fit1, standardized=T)
 ```
 
 ```
-## lavaan 0.6-10 ended normally after 1 iterations
+## lavaan 0.6-12 ended normally after 1 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
 ##   Number of model parameters                         7
-##                                                       
+## 
 ##   Number of observations                            75
-##                                                       
+## 
 ## Model Test User Model:
 ##                                                       
 ##   Test statistic                                 2.922
@@ -807,14 +799,14 @@ summary(fit1, fit.measures=T)
 ```
 
 ```
-## lavaan 0.6-10 ended normally after 1 iterations
+## lavaan 0.6-12 ended normally after 1 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
 ##   Number of model parameters                         7
-##                                                       
+## 
 ##   Number of observations                            75
-##                                                       
+## 
 ## Model Test User Model:
 ##                                                       
 ##   Test statistic                                 2.922
@@ -879,12 +871,12 @@ Nüüd tundub, et seda infot on jälle liiga palju. Kuid käime väljundi lõik 
 
 
 ```
-## lavaan 0.6-10 ended normally after 1 iterations
+## lavaan 0.6-12 ended normally after 1 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
 ##   Number of model parameters                         7
-##                                                       
+## 
 ##   Number of observations                            75
 ```
 
@@ -1074,14 +1066,14 @@ summary(fit, fit.measures = TRUE, standardized = T)
 ```
 
 ```
-## lavaan 0.6-10 ended normally after 47 iterations
+## lavaan 0.6-12 ended normally after 47 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
 ##   Number of model parameters                        25
-##                                                       
+## 
 ##   Number of observations                            75
-##                                                       
+## 
 ## Model Test User Model:
 ##                                                       
 ##   Test statistic                                72.462
@@ -1308,14 +1300,14 @@ summary(fit1, fit.measures = TRUE, standardized = T)
 ```
 
 ```
-## lavaan 0.6-10 ended normally after 53 iterations
+## lavaan 0.6-12 ended normally after 53 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
 ##   Number of model parameters                        26
-##                                                       
+## 
 ##   Number of observations                            75
-##                                                       
+## 
 ## Model Test User Model:
 ##                                                       
 ##   Test statistic                                62.958
@@ -1442,14 +1434,14 @@ summary(fit1, fit.measures = TRUE, standardized = T)
 ```
 
 ```
-## lavaan 0.6-10 ended normally after 62 iterations
+## lavaan 0.6-12 ended normally after 62 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
 ##   Number of model parameters                        28
-##                                                       
+## 
 ##   Number of observations                            75
-##                                                       
+## 
 ## Model Test User Model:
 ##                                                       
 ##   Test statistic                                46.259
@@ -1570,14 +1562,14 @@ summary(fit, fit.measures = TRUE)
 ```
 
 ```
-## lavaan 0.6-10 ended normally after 53 iterations
+## lavaan 0.6-12 ended normally after 53 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
 ##   Number of model parameters                        28
-##                                                       
+## 
 ##   Number of observations                            75
-##                                                       
+## 
 ## Model Test User Model:
 ##                                                       
 ##   Test statistic                                46.259

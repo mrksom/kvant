@@ -6,7 +6,7 @@ language:
   label:
     fig: "Joonis "  
     tab: "Tabel "
-new_session: true
+new_session: yes
 rmd_files:
 - index.Rmd
 - 00-sissejuhatus-ri.Rmd
@@ -17,3 +17,4 @@ rmd_files:
 - 05-survey.Rmd
 - 06-sem.Rmd
 - 07-klaster.Rmd
+- 66-lisad.Rmd

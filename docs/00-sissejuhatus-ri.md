@@ -1,9 +1,4 @@
----
-knit: "bookdown::preview_chapter"
-editor_options: 
-  markdown: 
-    wrap: 72
----
+
 
 
 
@@ -49,7 +44,7 @@ On ka teisi kasutajaliideseid ja scriptide kirjutamise abivahendeid, kuid RStudi
 
 **Kuidas R'i ja RStudiot kasutada?**
 
-R'is ei ole rippmenüüsid, OK nuppe ega avanevaid aknaid. Kõik käsud tuleb käsureale sisse trükkida. Ühest küljest nõuab see kasutajalt mõnevõrra põhjalikumat arusaamist oma tegevusest, teisalt võimaldab tegevusi kombineerida, neist head ülevaadet saada ning tehtud analüüse lihtsalt korrata (*reproducible research*)
+R'is ei ole rippmenüüsid, OK nuppe ega avanevaid aknaid. Kõik käsud tuleb käsureale sisse trükkida. Ühest küljest nõuab see kasutajalt mõnevõrra põhjalikumat arusaamist oma tegevusest, teisalt võimaldab tegevusi kombineerida, neist head ülevaadet saada ning tehtud analüüse lihtsalt korrata (*reproducible research*).
 
 - Projektide haldamine  
 RStudio võimaldab erinevaid töid hallata projektidena. Igal projektil on projektikaust (nn juurkataloog), kuhu saab salvestada kõik antud projektiga seonduvad scriptid, andmed jne. Uue projekti loomiseks klikkige _File -> New Project_, misjärel saab valida kataloogi, kuhu projekt (ja seega kõik projektiga seotud matejalid) salvestub.  
@@ -326,7 +321,7 @@ c + a
 Miks on tulemuseks *NA*? Kui me liidame mingi arvu millelegi, mida me ei tea, siis me ju ei tea ka vastust.
 
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 1. tehke andmeobjekt *synniaasta*, mille väärtuseks on Teie sünniaasta
@@ -610,7 +605,7 @@ see[see > 5] # kasutame loogilist vektorit indekseerimiseks
 ```
 
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 1. looge vektor *a* milles sisalduvad numbrid 2 8 3 6 7
@@ -714,7 +709,7 @@ x
 ```
 
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 1. teil on andmevektorid *a, b, c*. Ühendage need veergupidi andmestikuks *koos*
@@ -828,7 +823,7 @@ see$nimi
 ```
 
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 1. Teil on andmestik *koos*. Tehke see data.frameiks
@@ -941,7 +936,7 @@ subset(see, sugu == "n", select = c("nimi", "hinnang"))
 
 
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 1. Lisage oma andmeobjektile *koos* uus tunnus *f*, milles sisalduvad tähed a i a i a
@@ -992,7 +987,7 @@ x1
 ```
 Seega faktorid võivad teatud kohtades natukene ohtlikud olla ning nende kasutamisel peab tähelepanelik olema.
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 1. looge oma andmestikku *koos* juurde faktortunnus *g*, milles sisalduvad tähed r t r t r
@@ -1084,10 +1079,10 @@ Viimase funktsiooniga ei kasutanud ma faili pathi. Kui me oleme määranud *work
 
 
 ```r
-setwd("C:/Users/Mina/Kvant analüüsi meetodid II (2019)/Andmed/andmed.csv")
+setwd("C:/Users/Mina/Kvant analüüsi meetodid II (2019)/Andmed")
 ```
 
-*Working directory*'sse salvestuvad ka kõik asjad mida me R'is salvestame (graafikud, andmed jne). Kui Kasutame R'i projekti, siis on wd automaatselt projektikataloog.
+*Working directory*'sse salvestuvad ka kõik asjad mida me R'is salvestame (graafikud, andmed jne). Kui Kasutame R'i projekti, siis on projektikataloog automaatselt töökataloog (see on ka üks põhjustest miks peaks alati projekte kasutama).
 
 
 
@@ -1324,7 +1319,7 @@ mean(x, na.rm=TRUE)
 ```
 
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 1. Leidke tunnuse *sepal.width* keskmine ilma funktsiooni `mean()` kasutamata
@@ -1467,17 +1462,18 @@ head(dat)
 
 ```
 ## # A tibble: 6 x 19
-##    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
-## 1  2013     1     1      517            515         2      830            819
-## 2  2013     1     1      533            529         4      850            830
-## 3  2013     1     1      542            540         2      923            850
-## 4  2013     1     1      544            545        -1     1004           1022
-## 5  2013     1     1      554            600        -6      812            837
-## 6  2013     1     1      554            558        -4      740            728
-## # ... with 11 more variables: arr_delay <dbl>, carrier <chr>, flight <int>,
-## #   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
-## #   hour <dbl>, minute <dbl>, time_hour <dttm>
+##    year month   day dep_time sched_dep~1 dep_d~2 arr_t~3 sched~4 arr_d~5 carrier
+##   <int> <int> <int>    <int>       <int>   <dbl>   <int>   <int>   <dbl> <chr>  
+## 1  2013     1     1      517         515       2     830     819      11 UA     
+## 2  2013     1     1      533         529       4     850     830      20 UA     
+## 3  2013     1     1      542         540       2     923     850      33 AA     
+## 4  2013     1     1      544         545      -1    1004    1022     -18 B6     
+## 5  2013     1     1      554         600      -6     812     837     -25 DL     
+## 6  2013     1     1      554         558      -4     740     728      12 UA     
+## # ... with 9 more variables: flight <int>, tailnum <chr>, origin <chr>,
+## #   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+## #   time_hour <dttm>, and abbreviated variable names 1: sched_dep_time,
+## #   2: dep_delay, 3: arr_time, 4: sched_arr_time, 5: arr_delay
 ```
 
 
@@ -1761,21 +1757,22 @@ flights %>%
 
 ```
 ## # A tibble: 10 x 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
-##  1  2013    11    28      820            822        -2     1103           1141
-##  2  2013    12    29     1816           1740        36     2208           2118
-##  3  2013     9    12        2           2103       179      114           2226
-##  4  2013     7    18      723            730        -7      910            930
-##  5  2013     1    10     1204           1210        -6     1317           1323
-##  6  2013     4     3     2106           2115        -9     2219           2214
-##  7  2013     9     9     2101           1855       126     2312           2131
-##  8  2013    12    10     1153           1150         3     1519           1439
-##  9  2013     5    30       NA            920        NA       NA           1225
-## 10  2013    10    16     1607           1615        -8     1837           1845
-## # ... with 11 more variables: arr_delay <dbl>, carrier <chr>, flight <int>,
-## #   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
-## #   hour <dbl>, minute <dbl>, time_hour <dttm>
+##     year month   day dep_time sched_de~1 dep_d~2 arr_t~3 sched~4 arr_d~5 carrier
+##    <int> <int> <int>    <int>      <int>   <dbl>   <int>   <int>   <dbl> <chr>  
+##  1  2013     6    28     1357       1359      -2    1627    1632      -5 DL     
+##  2  2013     9    21      849        859     -10    1054    1108     -14 EV     
+##  3  2013     9    24      801        805      -4    1056    1101      -5 DL     
+##  4  2013     6     9     1758       1800      -2    2133    2140      -7 AA     
+##  5  2013    12    12     2048       2054      -6    2327    2306      21 EV     
+##  6  2013     7     7     2123       1711     252     157    2039     318 B6     
+##  7  2013     3    13     1532       1523       9    1631    1636      -5 EV     
+##  8  2013     3     4     2013       2015      -2    2305    2318     -13 DL     
+##  9  2013    10     2     1434       1436      -2    1810    1835     -25 B6     
+## 10  2013     4    15      757        802      -5     915     928     -13 EV     
+## # ... with 9 more variables: flight <int>, tailnum <chr>, origin <chr>,
+## #   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+## #   time_hour <dttm>, and abbreviated variable names 1: sched_dep_time,
+## #   2: dep_delay, 3: arr_time, 4: sched_arr_time, 5: arr_delay
 ```
 
 Kui tahame välja võtta konkreetsed read:
@@ -1788,16 +1785,17 @@ flights %>%
 
 ```
 ## # A tibble: 5 x 19
-##    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
-## 1  2013     1     1      517            515         2      830            819
-## 2  2013     1     1      533            529         4      850            830
-## 3  2013     1     1      542            540         2      923            850
-## 4  2013     1     1      544            545        -1     1004           1022
-## 5  2013     1     1      554            600        -6      812            837
-## # ... with 11 more variables: arr_delay <dbl>, carrier <chr>, flight <int>,
-## #   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
-## #   hour <dbl>, minute <dbl>, time_hour <dttm>
+##    year month   day dep_time sched_dep~1 dep_d~2 arr_t~3 sched~4 arr_d~5 carrier
+##   <int> <int> <int>    <int>       <int>   <dbl>   <int>   <int>   <dbl> <chr>  
+## 1  2013     1     1      517         515       2     830     819      11 UA     
+## 2  2013     1     1      533         529       4     850     830      20 UA     
+## 3  2013     1     1      542         540       2     923     850      33 AA     
+## 4  2013     1     1      544         545      -1    1004    1022     -18 B6     
+## 5  2013     1     1      554         600      -6     812     837     -25 DL     
+## # ... with 9 more variables: flight <int>, tailnum <chr>, origin <chr>,
+## #   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
+## #   time_hour <dttm>, and abbreviated variable names 1: sched_dep_time,
+## #   2: dep_delay, 3: arr_time, 4: sched_arr_time, 5: arr_delay
 ```
 
 
@@ -2149,7 +2147,7 @@ today()
 ```
 
 ```
-## [1] "2022-05-07"
+## [1] "2022-10-02"
 ```
 
 ```r
@@ -2157,7 +2155,7 @@ now()
 ```
 
 ```
-## [1] "2022-05-07 01:35:26 EEST"
+## [1] "2022-10-02 22:42:27 EEST"
 ```
 
 Kestus:

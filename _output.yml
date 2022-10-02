@@ -1,9 +1,12 @@
 bookdown::gitbook:
-  css: style.css
+  css: custom/custom_styles.css
+  split_by: chapter+number
+  lib_dir: assets
+  toc_depth: 2
   config:
     toc:
       before: |
-        <li><a href="./">Kvant II</a></li>
+        <li class='before'><a href="./">Kvant</a></li>
     download: ["pdf"]
     sharing:
       github: no
@@ -12,7 +15,7 @@ bookdown::gitbook:
       all: no
 bookdown::pdf_book:
   includes:
-    in_header: preamble.tex
+    in_header: custom/preamble.tex
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes

@@ -5,3 +5,5 @@
 _bookdown_files/
 data/maakonnad.xlsx
 data/prgestp1.sav
+_bookdown_files
+*/cache

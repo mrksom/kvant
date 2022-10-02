@@ -1,9 +1,4 @@
----
-knit: "bookdown::preview_chapter"
-editor_options: 
-  markdown: 
-    wrap: 72
----
+
 
 # Lineaarne regressioon
 
@@ -129,7 +124,7 @@ Eelnevast lähtuvalt on ka küllaltki loogiline, et meetodit, millega $RSS$ mini
 
 
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 * Kasutades ggplot'i ja tehke punktdiagramm `geom_point()` matemaatilise kirjaoskuse (*numeracy*) ja funktsionaalse lugemisoskuse (*literacy*) vahelisest seosest. Pange *numeracy* x-teljele ja *literacy* y-teljele.  
@@ -223,7 +218,16 @@ Miks meil on üldse vaja teada kas koefitsiendid erinevad oluliselt nullist? Aga
 ##   (3648 observations deleted due to missingness)
 ```
 
-Kuidas hinnata regressiooniprognoosi täpsust, ehk siis seda kui hästi regressioonimudel sobitub andmetega (*model fit*)? Üheks võimaluseks on lähtuda samast loogikast mida kasutame tunnuse keskväärtuse täpsuse hindamisel. Ehk kui palju vaatlused keskmiselt erinevad keskväärtusest. Regressioonijoone puhul ei ole meil ühte keskväärtust, mille suhtes vaatluste hälbimist määrata. Kuid iga vaatluse sõltumatu tunnuse väärtuse $x$ kohta on meil "hinnatud" sõltuva tunnuse väärtus $\hat{y}$. Seega tuleb meil lihtsalt vaadata kui palju vaatluste $y$ ja $\hat{y}$ väärtused keskmiselt erinevad, ehk kui suur on keskmine viga meie mudelis. Regressioonanalüüsi kontekstis kutsutakse seda vaatluste varieeruvuse näitajat keskmiseks ruutveaks (*mean squared error*) ehk lühidalt $MSE$^[$MSE=\frac{\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}{n-2}$]. Kuna aga $MSE$ väärtus on ruudus, siis on seda keeruline interpreteerida (samamoodi nagu ka dispersiooni). Kui me võtame ruutjuure $MSE$'st, $\sqrt{MSE}$, saame regressiooni jääkide standardhälbe, mida nimetatakse **jääkide standardveaks** (*residual standard error* ehk RSE). Mida väiksem on mudeli RSE, seda paremini mudel andmetega sobitub (seda vähem hälbivad vaatlused regressioonijoonest ehk seda väiksemad on regresiooni jäägid). See, kui väike peaks RSE väärtus hea mudeli korral olema, sõltub eelkõige kontekstist ja sõltuva tunnuse skaalast (samamoodi nagu keskväärtuse standardhälve). Mingeid konkreetseid piirväärtusi siinkohal tuua ei ole võimalik.  
+Kuidas hinnata regressiooniprognoosi täpsust, ehk siis seda kui hästi regressioonimudel sobitub andmetega (*model fit*)? Üheks võimaluseks on lähtuda samast loogikast mida kasutame tunnuse keskväärtuse täpsuse hindamisel. Ehk kui palju vaatlused keskmiselt erinevad keskväärtusest. Regressioonijoone puhul ei ole meil ühte keskväärtust, mille suhtes vaatluste hälbimist määrata. Kuid iga vaatluse sõltumatu tunnuse väärtuse $x$ kohta on meil "hinnatud" sõltuva tunnuse väärtus $\hat{y}$. Seega tuleb meil lihtsalt vaadata kui palju vaatluste $y$ ja $\hat{y}$ väärtused keskmiselt erinevad, ehk kui suur on keskmine viga meie mudelis. Regressioonanalüüsi kontekstis kutsutakse seda vaatluste varieeruvuse näitajat keskmiseks ruutveaks (*mean squared error*) ehk lühidalt $MSE$:
+
+ 
+\begin{equation}
+  $MSE=\frac{\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}{n-k}$
+\end{equation}
+
+kus $n$ on vaatluste arv ja $k$ on regressioonikoefitsientide arv (kaasa arvatud vabaliige).
+
+Kuna aga $MSE$ väärtus on ruudus, siis on seda keeruline interpreteerida (samamoodi nagu ka dispersiooni). Kui me võtame ruutjuure $MSE$'st, $\sqrt{MSE}$, saame regressiooni jääkide standardhälbe, mida nimetatakse **jääkide standardveaks** (*residual standard error* ehk RSE). Mida väiksem on mudeli RSE, seda paremini mudel andmetega sobitub (seda vähem hälbivad vaatlused regressioonijoonest ehk seda väiksemad on regresiooni jäägid). See, kui väike peaks RSE väärtus hea mudeli korral olema, sõltub eelkõige kontekstist ja sõltuva tunnuse skaalast (samamoodi nagu keskväärtuse standardhälve). Mingeid konkreetseid piirväärtusi siinkohal tuua ei ole võimalik.  
 Lisaks on siin ära toodud ka *degrees of freedom* ehk vabadusastmete arv jääkide standardvea arvutamisel. Sisuliselt on siin kirjas analüüsi kaasatud vaatluste arv (miinus regressioonikordajate arv, siinses mudelis 2). Ära on toodud ka analüüsist välja jäetud vaatluste arv. Need on need, kellel puudus väärtus vähemalt ühe analüüsitava tunnuse jaoks.
 
 ### R ruut
@@ -274,19 +278,26 @@ R annab meile lisaks tavalisele $R^2$ väärtusele (*Multiple R-squared*) ka nn 
 ## F-statistic: 318.6 on 1 and 3982 DF,  p-value: < 2.2e-16
 ```
 
-*F*-väärtus, sarnaselt *t*-väärtusele, aitab meil hinnata kas meie mudel on statistiliselt oluline, ehk siis kas meie analüüsitavate tunnuste vahel on oluline lineaarne seos. *F*-väärtuseks nimetatakse mudeli abil seletatud variatiivsuse ja seletamata variatiivsuse suhet^[Natuke täpsemalt väljendades $F = \frac{(TSS-RSS)/p}{RSS/(n-p-1)}$, kus $n$ on valimi suurus ja $p$ on regressioonikoefitsientide (sõltumatute muutujate) arv.]:
+*F*-väärtus, sarnaselt *t*-väärtusele, aitab meil hinnata kas meie mudel on statistiliselt oluline, ehk siis kas meie analüüsitavate tunnuste vahel on oluline lineaarne seos. *F*-väärtuseks nimetatakse mudeli abil seletatud variatiivsuse ja seletamata variatiivsuse suhet:
 
 \begin{equation}
 \text{F-suhe} = \frac{\text{regressioonimudeli poolt seletatud variatiivsus}}{\text{regressioonimudeli poolt seletamata variatiivus}}
 \end{equation}
 
+
+Natuke täpsemalt väljendades: 
+
+$$F = \frac{(TSS-RSS)/(k-1)}{RSS/(n-k)}$$ 
+
+kus $n$ on valimi suurus ja $k$ on regressioonikoefitsientide (sõltumatute muutujate) arv.
+
 Kui mudeli regressioonisirge on $0$, siis peaks see suhe olema $1$. See tähendab, et regressioonisirge ei seleta üldse sõltuva tunnuse varieeruvust. Kui regressioonisirge on suurem kui $0$ siis peaks regressioonisirge poolt seletatud varieeruvus (koos juhusliku varieeruvusega) olema suurem kui ainult juhuslik dispersioon. Saame jällegi kasutada *F*-väärtusega kaasnevat *p* väärtust, et hinnata kas see *F*-väärtus on piisavalt suur, et saaksime mudelist lähtuvalt mingeid sisukaid järeldusi teha.  
 
-Võite märgata, et need kaks testi regressioonimudeli kohta annavad sama *p* väärtuse. Ja tegelikult annavad nad ka sama teststatistiku. *t*-statistik on lihtsalt ruutjuur *F* statistikust^[$(t^{*}_{(n-2)})^2=F^{*}_{(1,n-2)}$]. Võib tekkida küsimus, et miks me siis kahte testi peame kasutama. Ühe sõltumatu tunnusega regressioonimudelis otseselt ei peagi. Samas kui meil on mitu sõltumatut tunnust (nagu meil hiljem on), siis *F* ja *t* väärtused muutuvad. *F*-testiga saab sel juhul testida terve mudeli headust, st kas meie sõltumatud tunnused koos suudavad seletada piisavalt sõltuva tunnuse variatiivsust (tegelikult testib *F*-test seda, et kas vähemalt üks koefitsientidest erineb nullist). *t*-statistikud aga arvutatakse igale regressioonikoefitsiendile eraldi ning nendega saame kontrollida iga üksiku koefitsiendi erinevust nullist.
+Võite märgata, et t-test ja F-test annavad meie mudeli puhul sama *p* väärtuse. Ja tegelikult annavad nad ka sama teststatistiku. *t*-statistik on lihtsalt ruutjuur *F*-statistikust^[$(t^{*}_{(n-2)})^2=F^{*}_{(1,n-2)}$]. Võib tekkida küsimus, et miks me siis kahte testi peame kasutama. Ühe sõltumatu tunnusega regressioonimudelis otseselt ei peagi. Samas kui meil on mitu sõltumatut tunnust (nagu meil hiljem on), siis *F* ja *t* väärtused muutuvad. *F*-testiga saab sel juhul testida terve mudeli headust, st kas meie sõltumatud tunnused koos suudavad seletada piisavalt sõltuva tunnuse variatiivsust (tegelikult testib *F*-test seda, et kas vähemalt üks koefitsientidest erineb nullist). *t*-statistikud aga arvutatakse igale regressioonikoefitsiendile eraldi ning nendega saame kontrollida iga üksiku koefitsiendi erinevust nullist.
 
 
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 * Looge regressioonimudel, millega hindate *numeracy* mõju *literacy*'le.  
@@ -597,7 +608,7 @@ summary(lm(numeracy ~ haridustase_f, data = piaac))
 ```
 
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 * Piaaci andmestikus on tunnus *meeldib_oppida*. Tehke see faktortunnuseks nii, et esimene kategooria oleks "Mõningal määral" (kategooriate nimed saate teada näiteks funnktsiooniga `unique(piaac$meeldib_oppida)`)
@@ -790,7 +801,7 @@ Et taolisest mudelist paremini aru saada võime kasutada 3D punktdiagrammi
 
 
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 * Looge regressioonimudel, millega hindate *numeracy*, *vanus*, *sugu* ja *haridustase* mõju sissetulekule.
@@ -962,7 +973,7 @@ cat_plot(mudel9, pred = haridustase, modx = sugu, colors =  c("#972D15", "#02401
 
 
 
-::: {.teie-kord style="color: red;"}
+::: {.teie-kord}
 Ülesanne!  
 
 * Looge koosmõjuga regressioonimudel, millega hindate soo ja laste olemasolu mõju sissetulekule.
@@ -1003,7 +1014,7 @@ Tõlgendame jällegi testi *p*-väärtust. Kui see on väiksem kui $0.05$ (usald
 
 Nagu iga meetodi puhul, on ka lineaarsel regressioonanalüüsil rida eeldusi, mis peavad olema täidetud, et analüüsist korrektseid järeldusi oleks võimalik teha.
 
-1. Esimene ja vahest ka kõige olulisem eeldus on **lineaarne suhe sõltuva ja sõltumatu(te) tunnuse vahel**. Kõrvaloleval joonisel on esitatud neli andmestikku, mille regressioonisirged on identsed ($y=3+0.5x$). Tegelikult on identsed ka kõik muud andmete statistilised omadused ($x$'i keskmine, $y$'i keskmine, $x$'i dispersioon, $y$'i dispersioon ja ka korrelatsioon). Ometi on visuaalselt näha, et kõik andmestikud on väga erinevad. Seega peaks regressioonanalüüsi (või tegelikult ükskõik mis analüüsi) puhul olema alati esimene samm neid graafiliselt uurida. Kui tunnuste vaheline seos ei ole lineaarne, piisab mõnel juhul tunnuste  mittelineaarsest transformeerimisest (see peaks olema ka muidugi teoreetiliselt põhjendatud). Kui seos on eksponentsiaalne, siis võib kaaluda *log*-transformatsiooni. Kui seos on paraboolne, siis võib kaaluda ruutu tõstetud tunnuse lisamist ($y = \beta_0+\beta_1x+\beta_2x^2$). Taoliste transformatsioonide juures peab meeles pidama, et koos nendega muutub ka mudeli tõlgendus.  
+1. Esimene ja vahest ka kõige olulisem eeldus on **lineaarne suhe sõltuva ja sõltumatu(te) tunnuse vahel**. Kõrvaloleval joonisel on esitatud neli andmestikku, mille regressioonisirged on identsed ($y=3+0.5x$). Tegelikult on identsed ka kõik muud andmete statistilised omadused ($x$'i keskmine, $y$'i keskmine, $x$'i dispersioon, $y$'i dispersioon ja ka korrelatsioon). Ometi on visuaalselt näha, et kõik andmestikud on väga erinevad. Seega peaks regressioonanalüüsi (või tegelikult ükskõik mis analüüsi) puhul olema alati esimene samm neid graafiliselt uurida. Kui tunnuste vaheline seos ei ole lineaarne, piisab mõnel juhul tunnuste  mittelineaarsest transformeerimisest (see peaks olema ka muidugi teoreetiliselt põhjendatud). Kui seos on eksponentsiaalne, siis võib kaaluda *log*-transformatsiooni. Kui seos on paraboolne, siis võib kaaluda ruutu tõstetud tunnuse lisamist ehk polünoomset regressiooni ($y = \beta_0+\beta_1x+\beta_2x^2$). Taoliste transformatsioonide juures peab meeles pidama, et koos nendega muutub ka mudeli tõlgendus.  
 
 <div class="figure">
 <img src="01-regressioon_files/figure-html/anscombe-1.png" alt="Anscombe kvartett" width="672" />
@@ -1017,10 +1028,12 @@ Nagu iga meetodi puhul, on ka lineaarsel regressioonanalüüsil rida eeldusi, mi
 
 ```r
 ## Robust standard errors
+
+# Defineerime regressioonimudeli 
 mudel6 <- lm(numeracy ~ literacy * sugu, 
              data = piaac)
 
-# Tavalised standardvead
+# summary() funktsiooniga saame kätte tavalised standardvead
 summary(mudel6)
 ```
 
@@ -1049,10 +1062,33 @@ summary(mudel6)
 ```
 
 ```r
-# Robustsed standardvead
+# Robustsete standardvigade arvutamiseks kasutame sandwitch paketti
+#  ja nende kuvamiseks lmtest paketti
 library(sandwich)
 library(lmtest)
 
+# Robustsete standardvigade jaoks tuleb meil arvutada uus 
+#  'robustne' koefitsientide variatsiooni-kovariatsiooni maatriks ehk nn 
+#  Heteroscedasticity-Consistent Covariance Matrix. sandwitch paketis
+#  on selleks funktsioon vcovHC().
+
+# Variatsiooni-kovariatsiooni maatriksi diagonaalis on koefitsientide 
+#  dispersioonid (variance). Ruutjuur dispersioonist annab koefitsiendi 
+#  standardhälbe, mis on ongi pareameetri standardviga
+# Seega saame robustsed standardvead kätte nii:
+vcovHC(mudel6) %>% 
+  diag() %>% 
+  sqrt()
+```
+
+```
+##        (Intercept)           literacy          suguNaine literacy:suguNaine 
+##        2.788735004        0.009897618        3.831308067        0.013555193
+```
+
+```r
+# Et neid koos koefitsientide ja vastavate testidega kuvada, võime kasutada
+#  lmtest paketi funktsiooni coeftest()
 coeftest(mudel6, vcov. = vcovHC(mudel6))
 ```
 
@@ -1070,22 +1106,75 @@ coeftest(mudel6, vcov. = vcovHC(mudel6))
 ```
 
 ```r
-# Saab ka nii
+# Usalduspiirid robustsete standardvigade alusel saame kätte coefci() 
+#  funktsiooniga
+coefci(mudel6, vcov. = vcovHC(mudel6))
+```
+
+```
+##                          2.5 %     97.5 %
+## (Intercept)        30.66233656 41.5957223
+## literacy            0.85212087  0.8909250
+## suguNaine          -2.91369599 12.1071535
+## literacy:suguNaine -0.07150916 -0.0183653
+```
+
+
+4. **Jääkide normaaljaotus**. Regressiooni jäägid peaksid olema normaaljaotusega $e_i \sim N(0, \sigma^2)$, seega enamus jääke peaks jääma nulli ümber ning mida suuremad jäägid, seda vähem neid olema peaks. See eeldus on eelkõige oluline regressioonikoefitsientide *t*-testi jaoks.
+
+1. **Jääkide sõltumatus**. Ühe vaatluse jäägid ei tohiks olla korreleeritud teise vaatluse jääkidega. Selline olukord võib tekkida näiteks siis kui meil mudelist välja jäänud mingi oluline tunnus (ühe tunnuse regressiooni puhul on see muidugi vaid hüpoteetiline olukord), näiteks hindame õpilaste testiskoore lähtuvalt nende õppimisele kulunud ajast, kuid ei arvesta, et õpilased tulevad erinevatest koolidest, kus võib olla erinev õppetase. Seega õpilaste tulemused ei ole enam sõltumatud, vaid sõltuvad koolist. Regressioonikoefitsientide standardvigade arvutamisel lähtutakse eeldusest, et jäägid on sõltumatud. Kui jäägid on korreleeritud, siis võib juhtuda, et me alahindame standardvigade suurust ehk siis oleme oma tulemustes ülemäära kindlad (usaldusintervallid ning *p*-väärtused tulevad liialt väikesed) ning võime näha seoseid seal kus neid tegelikult ei ole. Lahenduseks võiks olla puuduolevate tunnuste lisamine mudelisse (konkrteetse näite puhul kooli tunnus) või klasterdatud standardvead (*clustered standard errors* või ka *cluster-robust standard errors*).
+
+
+```r
+## Clustered standard errors
+
+# Eeldame, et valim on klasterdatud haridusvaldkonna alusel
+# Defineerime regressioonimudeli 
+#  (jätame välja kõik vaatlused, kus haridusvaldkond on NA)
+mudel6 <- lm(numeracy ~ literacy * sugu, 
+             data = piaac[!is.na(piaac$hvaldkond),])
+
+
+# Klasterdatud standardvigade arvutamiseks kasutame jälle sandwitch paketti ja
+# selle funktsiooni vcovCL()
 library(sandwich)
-vcovHC(mudel6) %>% 
+library(lmtest)
+
+# Robustsete standardvigade jaoks tuleb meil arvutada uus 
+#  'klasterdatud' koefitsientide variatsiooni-kovariatsiooni maatriks ehk nn 
+#  Clustered Covariance Matrix. sandwitch paketis
+#  on selleks funktsioon vcovCL(). Peame selles lisaks mudeliobjektile
+#  määrama ka klastritunnuse
+
+vcovCL(mudel6, cluster = ~hvaldkond) %>% 
   diag() %>% 
   sqrt()
 ```
 
 ```
 ##        (Intercept)           literacy          suguNaine literacy:suguNaine 
-##        2.788735004        0.009897618        3.831308067        0.013555193
+##         7.69411746         0.02019249         5.63277113         0.01773446
 ```
 
+```r
+# Et neid koos koefitsientide ja vastavate testidega kuvada, võime kasutada
+#  jällegi lmtest paketi funktsiooni coeftest()
+coeftest(mudel6, vcov. = vcovCL(mudel6, cluster = ~hvaldkond))
+```
 
-4. **Jääkide normaaljaotus**. Regressiooni jäägid peaksid olema normaaljaotusega $e_i \sim N(0, \sigma^2)$, seega enamus jääke peaks jääma nulli ümber ning mida suuremad jäägid, seda vähem neid olema peaks. See eeldus on eelkõige oluline regressioonikoefitsientide *t*-testi jaoks.
+```
+## 
+## t test of coefficients:
+## 
+##                     Estimate Std. Error t value  Pr(>|t|)    
+## (Intercept)        35.718804   7.694117  4.6424 3.503e-06 ***
+## literacy            0.872964   0.020192 43.2321 < 2.2e-16 ***
+## suguNaine           5.006361   5.632771  0.8888  0.374143    
+## literacy:suguNaine -0.046464   0.017734 -2.6200  0.008812 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
 
-1. **Jääkide sõltumatus**. Ühe vaatluse jäägid ei tohiks olla korreleeritud teise vaatluse jääkidega. Selline olukord võib tekkida näiteks siis kui meil mudelist välja jäänud mingi oluline tunnus (ühe tunnuse regressiooni puhul on see muidugi vaid hüpoteetiline olukord), näiteks hindame õpilaste testiskoore lähtuvalt nende õppimisele kulunud ajast, kuid ei arvesta, et õpilased tulevad näiteks erinevatest koolidest, kus võib olla erinev tase. Seega õpilaste tulemused ei ole enam sõltumatud, vaid sõltuvad koolist. Regressioonikoefitsientide standardvigade arvutamisel lähtutakse eeldusest, et jäägid on sõltumatud. Kui jäägid on korreleeritud, siis võib juhtuda, et me alahindame standardvigade suurust ehk siis oleme oma tulemustes ülemäära kindlad (usaldusintervallid ning *p*-väärtused tulevad liialt väikesed) ning võime näha seoseid seal kus neid tegelikult ei ole. Lahenduseks võiks olla puuduolevate tunnuste lisamine mudelisse (konkrteetse näite puhul kooli tunnus).
 
 1. Kui kaks sõltumatut tunnust on teineteisega väga tugevalt seotud põhjusteab see nn **kollineaarsust**. See võib tekitada probleeme mudeli hindamisel ning ka tõlgendusel. Lisaks kipuvad standardvead liialt suureks minema, mis tähendab seda, et kaotame oma tulemuste täpsuses ja võime mitte näha seoseid seal, kus need tegelikult olemas on. Seega võiks tähele panna, et korrelatsioon sõltumatute muutujate vahel peaks alati olema väiksem kui korrelatsioon sõltuva ja sõltumatu muutuja vahel.
 
@@ -1107,7 +1196,7 @@ mod <- lm(formula = sissetulek ~ numeracy + vanus + sugu + haridustase,
 plot(mod, 1)
 ```
 
-<img src="01-regressioon_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+<img src="01-regressioon_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 Kontrollime mittelineaarse seose olemasolu. Punktid peaksid olema ühtlaselt ümber keskmise joone jaotunud. Ei tohiks olla mingit ilmset mustrit.
 
@@ -1116,7 +1205,7 @@ Kontrollime mittelineaarse seose olemasolu. Punktid peaksid olema ühtlaselt üm
 plot(mod, 2)
 ```
 
-<img src="01-regressioon_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+<img src="01-regressioon_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 
 Kas jäägid on normaalselt jaotunud? Punktid peaksid ühtima diagonaalse joonega.
 
@@ -1125,7 +1214,7 @@ Kas jäägid on normaalselt jaotunud? Punktid peaksid ühtima diagonaalse jooneg
 plot(mod, 3)
 ```
 
-<img src="01-regressioon_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+<img src="01-regressioon_files/figure-html/unnamed-chunk-27-1.png" width="672" />
 
 Kas jääkide dispersioon on homogeenne? Punane joon peaks olema horisontaalne ja punktid peaksid olema ühtlaselt jaotunud ega tohiks mingit mustrit moodustada.
 
@@ -1134,9 +1223,14 @@ Kas jääkide dispersioon on homogeenne? Punane joon peaks olema horisontaalne j
 plot(mod, 5)
 ```
 
-<img src="01-regressioon_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+<img src="01-regressioon_files/figure-html/unnamed-chunk-28-1.png" width="672" />
 
 Kas mudelis on mudelit oluliselt mõjutavaid erindeid? Kui on, siis peaksid need olema paremal all või paremal üleval nurgas ning kaugemal kui punktiirjoon (antud juhul neid ei ole ja seega ei ole ka punktiirjoont näha).
+
+
+
+
+
 
 
 

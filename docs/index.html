@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Kvantitatiivne andmeanalüüs</title>
   <meta name="description" content="Kvantitatiivne andmeanalüüs" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Kvantitatiivne andmeanalüüs" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -24,7 +23,6 @@
 <meta name="author" content="Marko Sõmer" />
 
 
-<meta name="date" content="2022-05-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,17 +30,16 @@
   
   
 
-<link rel="next" href="sissejuhatus-r-i.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link rel="next" href="1-sissejuhatus-r-i.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -51,9 +48,11 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="assets/tabwid-1.1.0/tabwid.css" rel="stylesheet" />
+<link href="assets/tabwid-1.1.0/scrool.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -122,7 +121,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="custom/custom_styles.css" type="text/css" />
 </head>
 
 <body>
@@ -135,210 +134,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Kvant II</a></li>
+<li class='before'><a href="./">Kvant</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Teadmiseks</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Alustuseks</a></li>
 <li class="part"><span><b>I Meeldetuletus</b></span></li>
-<li class="chapter" data-level="2" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html"><i class="fa fa-check"></i><b>2</b> Sissejuhatus R-i</a>
+<li class="chapter" data-level="1" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus R-i</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#päris-algus"><i class="fa fa-check"></i><b>2.1</b> Päris algus</a></li>
-<li class="chapter" data-level="2.2" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#andmetega-töötamine"><i class="fa fa-check"></i><b>2.2</b> Andmetega töötamine</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#dplyr"><i class="fa fa-check"></i><b>2.2.1</b> dplyr</a></li>
-<li class="chapter" data-level="2.2.2" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#andmete-ühendamine"><i class="fa fa-check"></i><b>2.2.2</b> Andmete ühendamine</a></li>
-<li class="chapter" data-level="2.2.3" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#andmestiku-kuju-muutmine"><i class="fa fa-check"></i><b>2.2.3</b> Andmestiku kuju muutmine</a></li>
-<li class="chapter" data-level="2.2.4" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#kuupäevad"><i class="fa fa-check"></i><b>2.2.4</b> Kuupäevad</a></li>
-<li class="chapter" data-level="2.2.5" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#tekstilised-tunnused"><i class="fa fa-check"></i><b>2.2.5</b> Tekstilised tunnused</a></li>
+<li class="chapter" data-level="1.1" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#päris-algus"><i class="fa fa-check"></i><b>1.1</b> Päris algus</a></li>
+<li class="chapter" data-level="1.2" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#andmetega-töötamine"><i class="fa fa-check"></i><b>1.2</b> Andmetega töötamine</a></li>
+<li class="chapter" data-level="1.3" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#r-markdown"><i class="fa fa-check"></i><b>1.3</b> R markdown</a></li>
+<li class="chapter" data-level="1.4" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#andmegraafika"><i class="fa fa-check"></i><b>1.4</b> Andmegraafika</a></li>
+<li class="chapter" data-level="1.5" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#edasiseks-lugemiseks"><i class="fa fa-check"></i><b>1.5</b> Edasiseks lugemiseks</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#r-markdown"><i class="fa fa-check"></i><b>2.3</b> R markdown</a></li>
-<li class="chapter" data-level="2.4" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#andmegraafika"><i class="fa fa-check"></i><b>2.4</b> Andmegraafika</a>
+<li class="chapter" data-level="2" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html"><i class="fa fa-check"></i><b>2</b> Lineaarne regressioon</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#ri-baasgraafikud"><i class="fa fa-check"></i><b>2.4.1</b> R’i baasgraafikud</a></li>
-<li class="chapter" data-level="2.4.2" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#ggplot"><i class="fa fa-check"></i><b>2.4.2</b> ggplot</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="sissejuhatus-r-i.html"><a href="sissejuhatus-r-i.html#edasiseks-lugemiseks"><i class="fa fa-check"></i><b>2.5</b> Edasiseks lugemiseks</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html"><i class="fa fa-check"></i><b>3</b> Lineaarne regressioon</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#lihtne-lineaarne-regressioon"><i class="fa fa-check"></i><b>3.1</b> Lihtne lineaarne regressioon</a></li>
-<li class="chapter" data-level="3.2" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioon-r-is"><i class="fa fa-check"></i><b>3.2</b> Regressioon R-is</a></li>
-<li class="chapter" data-level="3.3" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressiooni-jäägid"><i class="fa fa-check"></i><b>3.3</b> Regressiooni jäägid</a></li>
-<li class="chapter" data-level="3.4" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioonimudeli-sobitumine"><i class="fa fa-check"></i><b>3.4</b> Regressioonimudeli sobitumine</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#jääkide-jaotus"><i class="fa fa-check"></i><b>3.4.1</b> Jääkide jaotus</a></li>
-<li class="chapter" data-level="3.4.2" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioonikoefitsiendid-ja-nende-olulisus"><i class="fa fa-check"></i><b>3.4.2</b> Regressioonikoefitsiendid ja nende olulisus</a></li>
-<li class="chapter" data-level="3.4.3" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#jääkide-standardviga"><i class="fa fa-check"></i><b>3.4.3</b> Jääkide standardviga</a></li>
-<li class="chapter" data-level="3.4.4" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#r-ruut"><i class="fa fa-check"></i><b>3.4.4</b> R ruut</a></li>
-<li class="chapter" data-level="3.4.5" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#f-väärtus-ja-f-test"><i class="fa fa-check"></i><b>3.4.5</b> F-väärtus ja F-test</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kategoriaalsed-tunnused-regressioonis"><i class="fa fa-check"></i><b>3.5</b> Kategoriaalsed tunnused regressioonis</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#üks-binaarne-sõltumatu-tunnus"><i class="fa fa-check"></i><b>3.5.1</b> Üks binaarne sõltumatu tunnus</a></li>
-<li class="chapter" data-level="3.5.2" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kolme-või-enama-kategooriaga-sõltumatu-tunnus"><i class="fa fa-check"></i><b>3.5.2</b> Kolme või enama kategooriaga sõltumatu tunnus</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#mitmene-regressioon"><i class="fa fa-check"></i><b>3.6</b> Mitmene regressioon</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kaks-pidevat-sõltumatut-muutujat"><i class="fa fa-check"></i><b>3.6.1</b> Kaks pidevat sõltumatut muutujat</a></li>
-</ul></li>
-<li class="chapter" data-level="3.7" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#koosmõjud"><i class="fa fa-check"></i><b>3.7</b> Koosmõjud</a>
-<ul>
-<li class="chapter" data-level="3.7.1" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#koosmõjud-kategoriaalsete-tunnuste-puhul"><i class="fa fa-check"></i><b>3.7.1</b> Koosmõjud kategoriaalsete tunnuste puhul</a></li>
-</ul></li>
-<li class="chapter" data-level="3.8" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#mudelite-võrdlemine"><i class="fa fa-check"></i><b>3.8</b> Mudelite võrdlemine</a></li>
-<li class="chapter" data-level="3.9" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#regressioonimudeli-eeldused"><i class="fa fa-check"></i><b>3.9</b> Regressioonimudeli eeldused</a></li>
-<li class="chapter" data-level="3.10" data-path="lineaarne-regressioon.html"><a href="lineaarne-regressioon.html#kuidas-eelduste-täidetust-hinnata"><i class="fa fa-check"></i><b>3.10</b> Kuidas eelduste täidetust hinnata?</a></li>
+<li class="chapter" data-level="2.1" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#lihtne-lineaarne-regressioon"><i class="fa fa-check"></i><b>2.1</b> Lihtne lineaarne regressioon</a></li>
+<li class="chapter" data-level="2.2" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioon-r-is"><i class="fa fa-check"></i><b>2.2</b> Regressioon R-is</a></li>
+<li class="chapter" data-level="2.3" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressiooni-jäägid"><i class="fa fa-check"></i><b>2.3</b> Regressiooni jäägid</a></li>
+<li class="chapter" data-level="2.4" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-sobitumine"><i class="fa fa-check"></i><b>2.4</b> Regressioonimudeli sobitumine</a></li>
+<li class="chapter" data-level="2.5" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kategoriaalsed-tunnused-regressioonis"><i class="fa fa-check"></i><b>2.5</b> Kategoriaalsed tunnused regressioonis</a></li>
+<li class="chapter" data-level="2.6" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mitmene-regressioon"><i class="fa fa-check"></i><b>2.6</b> Mitmene regressioon</a></li>
+<li class="chapter" data-level="2.7" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#koosmõjud"><i class="fa fa-check"></i><b>2.7</b> Koosmõjud</a></li>
+<li class="chapter" data-level="2.8" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mudelite-võrdlemine"><i class="fa fa-check"></i><b>2.8</b> Mudelite võrdlemine</a></li>
+<li class="chapter" data-level="2.9" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-eeldused"><i class="fa fa-check"></i><b>2.9</b> Regressioonimudeli eeldused</a></li>
+<li class="chapter" data-level="2.10" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kuidas-eelduste-täidetust-hinnata"><i class="fa fa-check"></i><b>2.10</b> Kuidas eelduste täidetust hinnata?</a></li>
 </ul></li>
 <li class="part"><span><b>II Üldistatud lineaarsed mudelid</b></span></li>
-<li class="chapter" data-level="4" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html"><i class="fa fa-check"></i><b>4</b> Logistiline regressioon</a>
+<li class="chapter" data-level="3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html"><i class="fa fa-check"></i><b>3</b> Logistiline regressioon</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#šansid"><i class="fa fa-check"></i><b>4.1</b> Šansid</a></li>
-<li class="chapter" data-level="4.2" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#logit"><i class="fa fa-check"></i><b>4.2</b> Logit</a></li>
-<li class="chapter" data-level="4.3" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>4.3</b> Logit mudel</a></li>
-<li class="chapter" data-level="4.4" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#mudeli-tõlgendus"><i class="fa fa-check"></i><b>4.4</b> Mudeli tõlgendus</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#šansside-suhe"><i class="fa fa-check"></i><b>4.4.1</b> Šansside suhe</a></li>
+<li class="chapter" data-level="3.1" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#šansid"><i class="fa fa-check"></i><b>3.1</b> Šansid</a></li>
+<li class="chapter" data-level="3.2" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit"><i class="fa fa-check"></i><b>3.2</b> Logit</a></li>
+<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.3</b> Logit mudel</a></li>
+<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-tõlgendus"><i class="fa fa-check"></i><b>3.4</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.5</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.6</b> Mudeli kvaliteet</a></li>
+<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.7</b> Predict</a></li>
+<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.8</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="3.9" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.9</b> Prognoosi täpsus</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>4.5</b> Logistiline regressioon R-is</a></li>
-<li class="chapter" data-level="4.6" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>4.6</b> Mudeli kvaliteet</a>
+<li class="chapter" data-level="4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html"><i class="fa fa-check"></i><b>4</b> Poissoni regressioon</a>
 <ul>
-<li class="chapter" data-level="4.6.1" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#mudeli-sobivus"><i class="fa fa-check"></i><b>4.6.1</b> Mudeli sobivus</a></li>
-<li class="chapter" data-level="4.6.2" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#mudeli-statistiline-olulisus"><i class="fa fa-check"></i><b>4.6.2</b> Mudeli statistiline olulisus</a></li>
-<li class="chapter" data-level="4.6.3" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#pseudo-r2"><i class="fa fa-check"></i><b>4.6.3</b> Pseudo-<span class="math inline">\(R^2\)</span></a></li>
-</ul></li>
-<li class="chapter" data-level="4.7" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>4.7</b> Predict</a>
-<ul>
-<li class="chapter" data-level="4.7.1" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#broom"><i class="fa fa-check"></i><b>4.7.1</b> Broom</a></li>
-</ul></li>
-<li class="chapter" data-level="4.8" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>4.8</b> Marginaalsed efektid</a></li>
-<li class="chapter" data-level="4.9" data-path="logistiline-regressioon.html"><a href="logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>4.9</b> Prognoosi täpsus</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html"><i class="fa fa-check"></i><b>5</b> Poissoni regressioon</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-tõlgendus-1"><i class="fa fa-check"></i><b>5.1</b> Mudeli tõlgendus</a></li>
-<li class="chapter" data-level="5.2" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#poissoni-regressiooni-eeldused"><i class="fa fa-check"></i><b>5.2</b> Poissoni regressiooni eeldused</a></li>
-<li class="chapter" data-level="5.3" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-hindamine-r-is"><i class="fa fa-check"></i><b>5.3</b> Mudeli hindamine R-is</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#andmete-kirjeldus-ja-ettevalmistus"><i class="fa fa-check"></i><b>5.3.1</b> Andmete kirjeldus ja ettevalmistus</a></li>
-<li class="chapter" data-level="5.3.2" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#poissoni-mudeli-defineerimine"><i class="fa fa-check"></i><b>5.3.2</b> Poissoni mudeli defineerimine</a></li>
-</ul></li>
-<li class="chapter" data-level="5.4" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-eelduste-kontroll"><i class="fa fa-check"></i><b>5.4</b> Mudeli eelduste kontroll</a>
-<ul>
-<li class="chapter" data-level="5.4.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#üledispersioon"><i class="fa fa-check"></i><b>5.4.1</b> Üledispersioon</a></li>
-</ul></li>
-<li class="chapter" data-level="5.5" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-sobivus-model-fit"><i class="fa fa-check"></i><b>5.5</b> Mudeli sobivus (<em>model fit</em>)</a>
-<ul>
-<li class="chapter" data-level="5.5.1" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#mudeli-statistiline-olulisus-1"><i class="fa fa-check"></i><b>5.5.1</b> Mudeli statistiline olulisus</a></li>
-<li class="chapter" data-level="5.5.2" data-path="poissoni-regressioon.html"><a href="poissoni-regressioon.html#jääkide-jaotus-1"><i class="fa fa-check"></i><b>5.5.2</b> Jääkide jaotus</a></li>
-</ul></li>
+<li class="chapter" data-level="4.1" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-tõlgendus-1"><i class="fa fa-check"></i><b>4.1</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="4.2" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#poissoni-regressiooni-eeldused"><i class="fa fa-check"></i><b>4.2</b> Poissoni regressiooni eeldused</a></li>
+<li class="chapter" data-level="4.3" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-hindamine-r-is"><i class="fa fa-check"></i><b>4.3</b> Mudeli hindamine R-is</a></li>
+<li class="chapter" data-level="4.4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-eelduste-kontroll"><i class="fa fa-check"></i><b>4.4</b> Mudeli eelduste kontroll</a></li>
+<li class="chapter" data-level="4.5" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-sobivus-model-fit"><i class="fa fa-check"></i><b>4.5</b> Mudeli sobivus (<em>model fit</em>)</a></li>
 </ul></li>
 <li class="part"><span><b>III Mitmetasandiline regressioon</b></span></li>
-<li class="chapter" data-level="6" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html"><i class="fa fa-check"></i><b>6</b> Mitmetasandiline regressioon</a>
+<li class="chapter" data-level="5" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html"><i class="fa fa-check"></i><b>5</b> Mitmetasandiline regressioon</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#andmete-hierarhiline-struktuur"><i class="fa fa-check"></i><b>6.1</b> Andmete hierarhiline struktuur</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#mida-me-uurida-tahame"><i class="fa fa-check"></i><b>6.1.1</b> Mida me uurida tahame?</a></li>
-<li class="chapter" data-level="6.1.2" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#kuidas-vaatluste-hierahilisust-analüüsis-arvesse-võtta"><i class="fa fa-check"></i><b>6.1.2</b> Kuidas vaatluste hierahilisust analüüsis arvesse võtta?</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#mitmetasandiline-analüüs"><i class="fa fa-check"></i><b>6.2</b> Mitmetasandiline analüüs</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#fikseeritud-ja-juhuslikud-efektid"><i class="fa fa-check"></i><b>6.2.1</b> Fikseeritud ja juhuslikud efektid</a></li>
-<li class="chapter" data-level="6.2.2" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#mitmetasandilise-analüüsi-etapid"><i class="fa fa-check"></i><b>6.2.2</b> Mitmetasandilise analüüsi etapid</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#mitmetasandilise-analüüsi-eeldused"><i class="fa fa-check"></i><b>6.3</b> Mitmetasandilise analüüsi eeldused</a></li>
-<li class="chapter" data-level="6.4" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#mitemtasandiline-analüüs-ris"><i class="fa fa-check"></i><b>6.4</b> Mitemtasandiline analüüs Ris</a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#andmete-ettevalmistus"><i class="fa fa-check"></i><b>6.4.1</b> Andmete ettevalmistus</a></li>
-<li class="chapter" data-level="6.4.2" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#ülevaade-andmetest"><i class="fa fa-check"></i><b>6.4.2</b> Ülevaade andmetest</a></li>
-<li class="chapter" data-level="6.4.3" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#nullmudel"><i class="fa fa-check"></i><b>6.4.3</b> Nullmudel</a></li>
-<li class="chapter" data-level="6.4.4" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#juhusliku-vabaliikmega-mudel"><i class="fa fa-check"></i><b>6.4.4</b> Juhusliku vabaliikmega mudel</a></li>
-<li class="chapter" data-level="6.4.5" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#juhusliku-regressioonikordajaga-mudel"><i class="fa fa-check"></i><b>6.4.5</b> Juhusliku regressioonikordajaga mudel</a></li>
-<li class="chapter" data-level="6.4.6" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#teise-tasandi-sõltumatud-muutujad"><i class="fa fa-check"></i><b>6.4.6</b> Teise tasandi sõltumatud muutujad</a></li>
-<li class="chapter" data-level="6.4.7" data-path="mitmetasandiline-regressioon.html"><a href="mitmetasandiline-regressioon.html#esimese-ja-teise-tasandi-sõltumatute-tunnuste-koosmõjud"><i class="fa fa-check"></i><b>6.4.7</b> Esimese ja teise tasandi sõltumatute tunnuste koosmõjud</a></li>
-</ul></li>
+<li class="chapter" data-level="5.1" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#andmete-hierarhiline-struktuur"><i class="fa fa-check"></i><b>5.1</b> Andmete hierarhiline struktuur</a></li>
+<li class="chapter" data-level="5.2" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#mitmetasandiline-analüüs"><i class="fa fa-check"></i><b>5.2</b> Mitmetasandiline analüüs</a></li>
+<li class="chapter" data-level="5.3" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#mitmetasandilise-analüüsi-eeldused"><i class="fa fa-check"></i><b>5.3</b> Mitmetasandilise analüüsi eeldused</a></li>
+<li class="chapter" data-level="5.4" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#mitemtasandiline-analüüs-ris"><i class="fa fa-check"></i><b>5.4</b> Mitemtasandiline analüüs Ris</a></li>
 </ul></li>
 <li class="part"><span><b>IV Valimiuuringud</b></span></li>
-<li class="chapter" data-level="7" data-path="valimiuuringud.html"><a href="valimiuuringud.html"><i class="fa fa-check"></i><b>7</b> Valimiuuringud</a>
+<li class="chapter" data-level="6" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html"><i class="fa fa-check"></i><b>6</b> Valimiuuringud</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="valimiuuringud.html"><a href="valimiuuringud.html#tõenäosuslik-valim-probability-sample"><i class="fa fa-check"></i><b>7.1</b> Tõenäosuslik valim (probability sample)</a></li>
-<li class="chapter" data-level="7.2" data-path="valimiuuringud.html"><a href="valimiuuringud.html#kaalud"><i class="fa fa-check"></i><b>7.2</b> Kaalud</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="valimiuuringud.html"><a href="valimiuuringud.html#valimi-kaalud"><i class="fa fa-check"></i><b>7.2.1</b> Valimi kaalud</a></li>
-<li class="chapter" data-level="7.2.2" data-path="valimiuuringud.html"><a href="valimiuuringud.html#post-stratifikatsiooni-kaalud"><i class="fa fa-check"></i><b>7.2.2</b> Post-stratifikatsiooni kaalud</a></li>
-<li class="chapter" data-level="7.2.3" data-path="valimiuuringud.html"><a href="valimiuuringud.html#mitte-vastamise-kaalud-non-response-weights"><i class="fa fa-check"></i><b>7.2.3</b> Mitte-vastamise kaalud (non-response weights)</a></li>
-<li class="chapter" data-level="7.2.4" data-path="valimiuuringud.html"><a href="valimiuuringud.html#kaaludest-üldiselt"><i class="fa fa-check"></i><b>7.2.4</b> Kaaludest üldiselt</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="valimiuuringud.html"><a href="valimiuuringud.html#valimidisain"><i class="fa fa-check"></i><b>7.3</b> Valimidisain</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="valimiuuringud.html"><a href="valimiuuringud.html#stratifitseeritud-juhuvalim"><i class="fa fa-check"></i><b>7.3.1</b> Stratifitseeritud juhuvalim</a></li>
-<li class="chapter" data-level="7.3.2" data-path="valimiuuringud.html"><a href="valimiuuringud.html#klastervalim"><i class="fa fa-check"></i><b>7.3.2</b> Klastervalim</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="valimiuuringud.html"><a href="valimiuuringud.html#tulemuste-valimidisaini-suhtes-korrigeerimine"><i class="fa fa-check"></i><b>7.4</b> Tulemuste valimidisaini suhtes korrigeerimine</a>
-<ul>
-<li class="chapter" data-level="7.4.1" data-path="valimiuuringud.html"><a href="valimiuuringud.html#replikatsioonikaalud-replicate-weights"><i class="fa fa-check"></i><b>7.4.1</b> Replikatsioonikaalud (replicate weights)</a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="valimiuuringud.html"><a href="valimiuuringud.html#küsitlusandmed-ris"><i class="fa fa-check"></i><b>7.5</b> Küsitlusandmed Ris</a>
-<ul>
-<li class="chapter" data-level="7.5.1" data-path="valimiuuringud.html"><a href="valimiuuringud.html#kaaludega-tavalise-juhuvalimi-defineerimine"><i class="fa fa-check"></i><b>7.5.1</b> Kaaludega tavalise juhuvalimi defineerimine</a></li>
-<li class="chapter" data-level="7.5.2" data-path="valimiuuringud.html"><a href="valimiuuringud.html#stratifitseeritud-valimi-defineerimine"><i class="fa fa-check"></i><b>7.5.2</b> Stratifitseeritud valimi defineerimine</a></li>
-<li class="chapter" data-level="7.5.3" data-path="valimiuuringud.html"><a href="valimiuuringud.html#ühetasandilise-klastervalimi-defineerimine"><i class="fa fa-check"></i><b>7.5.3</b> Ühetasandilise klastervalimi defineerimine</a></li>
-<li class="chapter" data-level="7.5.4" data-path="valimiuuringud.html"><a href="valimiuuringud.html#mitmetasandilise-klastervalimi-defineerimine"><i class="fa fa-check"></i><b>7.5.4</b> Mitmetasandilise klastervalimi defineerimine</a></li>
-<li class="chapter" data-level="7.5.5" data-path="valimiuuringud.html"><a href="valimiuuringud.html#replikatsioonikaaludega-valimi-defineerimine"><i class="fa fa-check"></i><b>7.5.5</b> Replikatsioonikaaludega valimi defineerimine</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="valimiuuringud.html"><a href="valimiuuringud.html#valimiandmete-analüüs"><i class="fa fa-check"></i><b>7.6</b> Valimiandmete analüüs</a></li>
-<li class="chapter" data-level="7.7" data-path="valimiuuringud.html"><a href="valimiuuringud.html#plausible-values"><i class="fa fa-check"></i><b>7.7</b> Plausible values</a></li>
+<li class="chapter" data-level="6.1" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#tõenäosuslik-valim-probability-sample"><i class="fa fa-check"></i><b>6.1</b> Tõenäosuslik valim (probability sample)</a></li>
+<li class="chapter" data-level="6.2" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#kaalud"><i class="fa fa-check"></i><b>6.2</b> Kaalud</a></li>
+<li class="chapter" data-level="6.3" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#valimidisain"><i class="fa fa-check"></i><b>6.3</b> Valimidisain</a></li>
+<li class="chapter" data-level="6.4" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#tulemuste-valimidisaini-suhtes-korrigeerimine"><i class="fa fa-check"></i><b>6.4</b> Tulemuste valimidisaini suhtes korrigeerimine</a></li>
+<li class="chapter" data-level="6.5" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#küsitlusandmed-ris"><i class="fa fa-check"></i><b>6.5</b> Küsitlusandmed Ris</a></li>
+<li class="chapter" data-level="6.6" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#valimiandmete-analüüs"><i class="fa fa-check"></i><b>6.6</b> Valimiandmete analüüs</a></li>
+<li class="chapter" data-level="6.7" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#plausible-values"><i class="fa fa-check"></i><b>6.7</b> Plausible values</a></li>
 </ul></li>
 <li class="part"><span><b>V SEM</b></span></li>
-<li class="chapter" data-level="8" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html"><i class="fa fa-check"></i><b>8</b> Struktuurivõrrandite mudelid</a>
+<li class="chapter" data-level="7" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html"><i class="fa fa-check"></i><b>7</b> Struktuurivõrrandite mudelid</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#rajaanalüüs"><i class="fa fa-check"></i><b>8.1</b> Rajaanalüüs</a>
-<ul>
-<li class="chapter" data-level="8.1.1" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#mõjud"><i class="fa fa-check"></i><b>8.1.1</b> Mõjud</a></li>
-<li class="chapter" data-level="8.1.2" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#rajaanalüüsi-loogika"><i class="fa fa-check"></i><b>8.1.2</b> Rajaanalüüsi loogika</a></li>
-<li class="chapter" data-level="8.1.3" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#korrelatsiooni-dekompositsioon"><i class="fa fa-check"></i><b>8.1.3</b> Korrelatsiooni dekompositsioon</a></li>
-<li class="chapter" data-level="8.1.4" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#rajaanalüüsi-eeldused"><i class="fa fa-check"></i><b>8.1.4</b> Rajaanalüüsi eeldused</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#faktoranalüüs"><i class="fa fa-check"></i><b>8.2</b> Faktoranalüüs</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#kinnitav-faktoranalüüs"><i class="fa fa-check"></i><b>8.2.1</b> Kinnitav faktoranalüüs</a></li>
-<li class="chapter" data-level="8.2.2" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#kinnitava-faktoranalüüsi-loogika"><i class="fa fa-check"></i><b>8.2.2</b> Kinnitava faktoranalüüsi loogika</a></li>
-<li class="chapter" data-level="8.2.3" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#vabadusastmed"><i class="fa fa-check"></i><b>8.2.3</b> Vabadusastmed</a></li>
-<li class="chapter" data-level="8.2.4" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#mudeli-sobivus-1"><i class="fa fa-check"></i><b>8.2.4</b> Mudeli sobivus</a></li>
-<li class="chapter" data-level="8.2.5" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#veel-mudeli-identifikatsioonist"><i class="fa fa-check"></i><b>8.2.5</b> Veel mudeli identifikatsioonist</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#sruktuurivõrrandite-mudelid"><i class="fa fa-check"></i><b>8.3</b> Sruktuurivõrrandite mudelid</a></li>
-<li class="chapter" data-level="8.4" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#struktuurivõrrandite-mudelid-ris"><i class="fa fa-check"></i><b>8.4</b> Struktuurivõrrandite mudelid Ris</a>
-<ul>
-<li class="chapter" data-level="8.4.1" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#lavaani-süntaks"><i class="fa fa-check"></i><b>8.4.1</b> lavaani süntaks</a></li>
-<li class="chapter" data-level="8.4.2" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#regressioon"><i class="fa fa-check"></i><b>8.4.2</b> Regressioon</a></li>
-<li class="chapter" data-level="8.4.3" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#rajaanalüüs-1"><i class="fa fa-check"></i><b>8.4.3</b> Rajaanalüüs</a></li>
-<li class="chapter" data-level="8.4.4" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#mudeli-väljund"><i class="fa fa-check"></i><b>8.4.4</b> Mudeli väljund</a></li>
-<li class="chapter" data-level="8.4.5" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#mudeli-intspekteerimine"><i class="fa fa-check"></i><b>8.4.5</b> Mudeli intspekteerimine</a></li>
-<li class="chapter" data-level="8.4.6" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#kinnitav-faktoranalüüs-1"><i class="fa fa-check"></i><b>8.4.6</b> Kinnitav faktoranalüüs</a></li>
-<li class="chapter" data-level="8.4.7" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#sem"><i class="fa fa-check"></i><b>8.4.7</b> SEM</a></li>
-<li class="chapter" data-level="8.4.8" data-path="struktuurivõrrandite-mudelid.html"><a href="struktuurivõrrandite-mudelid.html#mudeli-spetsifikatsioonid"><i class="fa fa-check"></i><b>8.4.8</b> Mudeli spetsifikatsioonid</a></li>
-</ul></li>
+<li class="chapter" data-level="7.1" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#rajaanalüüs"><i class="fa fa-check"></i><b>7.1</b> Rajaanalüüs</a></li>
+<li class="chapter" data-level="7.2" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#faktoranalüüs"><i class="fa fa-check"></i><b>7.2</b> Faktoranalüüs</a></li>
+<li class="chapter" data-level="7.3" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#sruktuurivõrrandite-mudelid"><i class="fa fa-check"></i><b>7.3</b> Sruktuurivõrrandite mudelid</a></li>
+<li class="chapter" data-level="7.4" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#struktuurivõrrandite-mudelid-ris"><i class="fa fa-check"></i><b>7.4</b> Struktuurivõrrandite mudelid Ris</a></li>
 </ul></li>
 <li class="part"><span><b>VI Klasteranalüüs</b></span></li>
-<li class="chapter" data-level="9" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html"><i class="fa fa-check"></i><b>9</b> Klasteranalüüs</a>
+<li class="chapter" data-level="8" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html"><i class="fa fa-check"></i><b>8</b> Klasteranalüüs</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#mis-see-klasteranalüüs-on"><i class="fa fa-check"></i><b>9.1</b> Mis see klasteranalüüs on?</a>
-<ul>
-<li class="chapter" data-level="9.1.1" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#klasterdamismeetodid"><i class="fa fa-check"></i><b>9.1.1</b> Klasterdamismeetodid</a></li>
-<li class="chapter" data-level="9.1.2" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#kuidas-mõõta-objektide-erinevustsarnasust"><i class="fa fa-check"></i><b>9.1.2</b> Kuidas mõõta objektide erinevust/sarnasust?</a></li>
+<li class="chapter" data-level="8.1" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#mis-see-klasteranalüüs-on"><i class="fa fa-check"></i><b>8.1</b> Mis see klasteranalüüs on?</a></li>
+<li class="chapter" data-level="8.2" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#hierarhiline-klasteranalüüs"><i class="fa fa-check"></i><b>8.2</b> Hierarhiline klasteranalüüs</a></li>
+<li class="chapter" data-level="8.3" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>8.3</b> K-keskmiste (k-means) klasterdamine</a></li>
+<li class="chapter" data-level="8.4" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>8.4</b> Klasteranalüüsi tulemi valiidsus</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#hierarhiline-klasteranalüüs"><i class="fa fa-check"></i><b>9.2</b> Hierarhiline klasteranalüüs</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#klastrite-ühendamise-meetodid-linkage"><i class="fa fa-check"></i><b>9.2.1</b> Klastrite ühendamise meetodid (<em>linkage</em>)</a></li>
-<li class="chapter" data-level="9.2.2" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#klastrite-arvu-valik"><i class="fa fa-check"></i><b>9.2.2</b> Klastrite arvu valik</a></li>
-<li class="chapter" data-level="9.2.3" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#hierarhilise-klasteranalüüsi-puudused"><i class="fa fa-check"></i><b>9.2.3</b> Hierarhilise klasteranalüüsi puudused</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>9.3</b> K-keskmiste (k-means) klasterdamine</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#k-keskmiste-klasteranalüüsi-puudused"><i class="fa fa-check"></i><b>9.3.1</b> K-keskmiste klasteranalüüsi puudused</a></li>
-</ul></li>
-<li class="chapter" data-level="9.4" data-path="klasteranalüüs.html"><a href="klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>9.4</b> Klasteranalüüsi tulemi valiidsus</a></li>
-</ul></li>
+<li class="appendix"><span><b>LISA</b></span></li>
+<li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
+<li class="chapter" data-level="B" data-path="B-delta-meetod.html"><a href="B-delta-meetod.html"><i class="fa fa-check"></i><b>B</b> Delta meetod</a></li>
 </ul>
 
       </nav>
@@ -359,11 +239,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Kvantitatiivne andmeanalüüs</h1>
 <p class="author"><em>Marko Sõmer</em></p>
-<p class="date"><em>2022-05-07</em></p>
+<p class="date"><em>02.10.2022</em></p>
 </div>
-<div id="teadmiseks" class="section level1" number="1">
-<h1><span class="header-section-number">Peatükk 1</span> Teadmiseks</h1>
-<p>Siia on koondatud õppematerjalid kursusele “Kvantitatiivne andmeanalüüs II.”</p>
+<div id="alustuseks" class="section level1 unnumbered hasAnchor">
+<h1>Alustuseks<a href="index.html#alustuseks" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Siia on koondatud õppematerjalid kursusele “Kvantitatiivne andmeanalüüs II”.</p>
 
 </div>
 
@@ -375,17 +255,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="sissejuhatus-r-i.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1-sissejuhatus-r-i.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -435,7 +315,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

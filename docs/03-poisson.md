@@ -1,9 +1,4 @@
----
-knit: "bookdown::preview_chapter"
-editor_options: 
-  markdown: 
-    wrap: 72
----
+
 
 
 

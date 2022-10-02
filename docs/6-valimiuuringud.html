@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Peatükk 6 Valimiuuringud | Kvantitatiivne andmeanalüüs</title>
+  <meta name="description" content="Peatükk 6 Valimiuuringud | Kvantitatiivne andmeanalüüs" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Peatükk 6 Valimiuuringud | Kvantitatiivne andmeanalüüs" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Peatükk 6 Valimiuuringud | Kvantitatiivne andmeanalüüs" />
+  
+  
+  
+
+<meta name="author" content="Marko Sõmer" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="5-mitmetasandiline-regressioon.html"/>
+<link rel="next" href="7-struktuurivõrrandite-mudelid.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="assets/tabwid-1.1.0/tabwid.css" rel="stylesheet" />
+<link href="assets/tabwid-1.1.0/scrool.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="custom/custom_styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class='before'><a href="./">Kvant</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Alustuseks</a></li>
+<li class="part"><span><b>I Meeldetuletus</b></span></li>
+<li class="chapter" data-level="1" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus R-i</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#päris-algus"><i class="fa fa-check"></i><b>1.1</b> Päris algus</a></li>
+<li class="chapter" data-level="1.2" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#andmetega-töötamine"><i class="fa fa-check"></i><b>1.2</b> Andmetega töötamine</a></li>
+<li class="chapter" data-level="1.3" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#r-markdown"><i class="fa fa-check"></i><b>1.3</b> R markdown</a></li>
+<li class="chapter" data-level="1.4" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#andmegraafika"><i class="fa fa-check"></i><b>1.4</b> Andmegraafika</a></li>
+<li class="chapter" data-level="1.5" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#edasiseks-lugemiseks"><i class="fa fa-check"></i><b>1.5</b> Edasiseks lugemiseks</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html"><i class="fa fa-check"></i><b>2</b> Lineaarne regressioon</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#lihtne-lineaarne-regressioon"><i class="fa fa-check"></i><b>2.1</b> Lihtne lineaarne regressioon</a></li>
+<li class="chapter" data-level="2.2" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioon-r-is"><i class="fa fa-check"></i><b>2.2</b> Regressioon R-is</a></li>
+<li class="chapter" data-level="2.3" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressiooni-jäägid"><i class="fa fa-check"></i><b>2.3</b> Regressiooni jäägid</a></li>
+<li class="chapter" data-level="2.4" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-sobitumine"><i class="fa fa-check"></i><b>2.4</b> Regressioonimudeli sobitumine</a></li>
+<li class="chapter" data-level="2.5" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kategoriaalsed-tunnused-regressioonis"><i class="fa fa-check"></i><b>2.5</b> Kategoriaalsed tunnused regressioonis</a></li>
+<li class="chapter" data-level="2.6" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mitmene-regressioon"><i class="fa fa-check"></i><b>2.6</b> Mitmene regressioon</a></li>
+<li class="chapter" data-level="2.7" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#koosmõjud"><i class="fa fa-check"></i><b>2.7</b> Koosmõjud</a></li>
+<li class="chapter" data-level="2.8" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mudelite-võrdlemine"><i class="fa fa-check"></i><b>2.8</b> Mudelite võrdlemine</a></li>
+<li class="chapter" data-level="2.9" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-eeldused"><i class="fa fa-check"></i><b>2.9</b> Regressioonimudeli eeldused</a></li>
+<li class="chapter" data-level="2.10" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kuidas-eelduste-täidetust-hinnata"><i class="fa fa-check"></i><b>2.10</b> Kuidas eelduste täidetust hinnata?</a></li>
+</ul></li>
+<li class="part"><span><b>II Üldistatud lineaarsed mudelid</b></span></li>
+<li class="chapter" data-level="3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html"><i class="fa fa-check"></i><b>3</b> Logistiline regressioon</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#šansid"><i class="fa fa-check"></i><b>3.1</b> Šansid</a></li>
+<li class="chapter" data-level="3.2" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit"><i class="fa fa-check"></i><b>3.2</b> Logit</a></li>
+<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.3</b> Logit mudel</a></li>
+<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-tõlgendus"><i class="fa fa-check"></i><b>3.4</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.5</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.6</b> Mudeli kvaliteet</a></li>
+<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.7</b> Predict</a></li>
+<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.8</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="3.9" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.9</b> Prognoosi täpsus</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html"><i class="fa fa-check"></i><b>4</b> Poissoni regressioon</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-tõlgendus-1"><i class="fa fa-check"></i><b>4.1</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="4.2" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#poissoni-regressiooni-eeldused"><i class="fa fa-check"></i><b>4.2</b> Poissoni regressiooni eeldused</a></li>
+<li class="chapter" data-level="4.3" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-hindamine-r-is"><i class="fa fa-check"></i><b>4.3</b> Mudeli hindamine R-is</a></li>
+<li class="chapter" data-level="4.4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-eelduste-kontroll"><i class="fa fa-check"></i><b>4.4</b> Mudeli eelduste kontroll</a></li>
+<li class="chapter" data-level="4.5" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-sobivus-model-fit"><i class="fa fa-check"></i><b>4.5</b> Mudeli sobivus (<em>model fit</em>)</a></li>
+</ul></li>
+<li class="part"><span><b>III Mitmetasandiline regressioon</b></span></li>
+<li class="chapter" data-level="5" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html"><i class="fa fa-check"></i><b>5</b> Mitmetasandiline regressioon</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#andmete-hierarhiline-struktuur"><i class="fa fa-check"></i><b>5.1</b> Andmete hierarhiline struktuur</a></li>
+<li class="chapter" data-level="5.2" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#mitmetasandiline-analüüs"><i class="fa fa-check"></i><b>5.2</b> Mitmetasandiline analüüs</a></li>
+<li class="chapter" data-level="5.3" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#mitmetasandilise-analüüsi-eeldused"><i class="fa fa-check"></i><b>5.3</b> Mitmetasandilise analüüsi eeldused</a></li>
+<li class="chapter" data-level="5.4" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#mitemtasandiline-analüüs-ris"><i class="fa fa-check"></i><b>5.4</b> Mitemtasandiline analüüs Ris</a></li>
+</ul></li>
+<li class="part"><span><b>IV Valimiuuringud</b></span></li>
+<li class="chapter" data-level="6" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html"><i class="fa fa-check"></i><b>6</b> Valimiuuringud</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#tõenäosuslik-valim-probability-sample"><i class="fa fa-check"></i><b>6.1</b> Tõenäosuslik valim (probability sample)</a></li>
+<li class="chapter" data-level="6.2" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#kaalud"><i class="fa fa-check"></i><b>6.2</b> Kaalud</a></li>
+<li class="chapter" data-level="6.3" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#valimidisain"><i class="fa fa-check"></i><b>6.3</b> Valimidisain</a></li>
+<li class="chapter" data-level="6.4" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#tulemuste-valimidisaini-suhtes-korrigeerimine"><i class="fa fa-check"></i><b>6.4</b> Tulemuste valimidisaini suhtes korrigeerimine</a></li>
+<li class="chapter" data-level="6.5" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#küsitlusandmed-ris"><i class="fa fa-check"></i><b>6.5</b> Küsitlusandmed Ris</a></li>
+<li class="chapter" data-level="6.6" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#valimiandmete-analüüs"><i class="fa fa-check"></i><b>6.6</b> Valimiandmete analüüs</a></li>
+<li class="chapter" data-level="6.7" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#plausible-values"><i class="fa fa-check"></i><b>6.7</b> Plausible values</a></li>
+</ul></li>
+<li class="part"><span><b>V SEM</b></span></li>
+<li class="chapter" data-level="7" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html"><i class="fa fa-check"></i><b>7</b> Struktuurivõrrandite mudelid</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#rajaanalüüs"><i class="fa fa-check"></i><b>7.1</b> Rajaanalüüs</a></li>
+<li class="chapter" data-level="7.2" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#faktoranalüüs"><i class="fa fa-check"></i><b>7.2</b> Faktoranalüüs</a></li>
+<li class="chapter" data-level="7.3" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#sruktuurivõrrandite-mudelid"><i class="fa fa-check"></i><b>7.3</b> Sruktuurivõrrandite mudelid</a></li>
+<li class="chapter" data-level="7.4" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#struktuurivõrrandite-mudelid-ris"><i class="fa fa-check"></i><b>7.4</b> Struktuurivõrrandite mudelid Ris</a></li>
+</ul></li>
+<li class="part"><span><b>VI Klasteranalüüs</b></span></li>
+<li class="chapter" data-level="8" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html"><i class="fa fa-check"></i><b>8</b> Klasteranalüüs</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#mis-see-klasteranalüüs-on"><i class="fa fa-check"></i><b>8.1</b> Mis see klasteranalüüs on?</a></li>
+<li class="chapter" data-level="8.2" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#hierarhiline-klasteranalüüs"><i class="fa fa-check"></i><b>8.2</b> Hierarhiline klasteranalüüs</a></li>
+<li class="chapter" data-level="8.3" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>8.3</b> K-keskmiste (k-means) klasterdamine</a></li>
+<li class="chapter" data-level="8.4" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>8.4</b> Klasteranalüüsi tulemi valiidsus</a></li>
+</ul></li>
+<li class="appendix"><span><b>LISA</b></span></li>
+<li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
+<li class="chapter" data-level="B" data-path="B-delta-meetod.html"><a href="B-delta-meetod.html"><i class="fa fa-check"></i><b>B</b> Delta meetod</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Kvantitatiivne andmeanalüüs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="valimiuuringud" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Peatükk 6</span> Valimiuuringud<a href="6-valimiuuringud.html#valimiuuringud" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="tõenäosuslik-valim-probability-sample" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Tõenäosuslik valim (probability sample)<a href="6-valimiuuringud.html#tõenäosuslik-valim-probability-sample" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Järeldava statistika kontseptsioonid eeldavad üldjuhul alati nn juhuvalimit. Juhuslikkus tähedab siikohal, et kõikidel üldkogumi liikmetel on valimisse sattumiseks võrdne tõenäosus. <a href="&#39;https://en.wikipedia.org/wiki/Law_of_large_numbers">Suurte numbrite seadus</a> (<em>the law of large numbers</em>) viitab, et ükskõik millise üldkogumi kohta vjärelduste tegemiseks oleks meil sellest üldkogumist vaja umbes 1000 vaatluselist valimit. Kui me küsiksime Eestis 1000 inimese käest nende sissetuleku suurust, siis 1000 inimese keskmine sissetulek peaks olema küllaltki lähedane terve Eesti keskmise sissetulekuga. Seda aga ainult juhul, kui need 1000 inimest on valitud juhuslikult (kõikidel eestlastel peaks olema võrdne võimalus sattuda nende 1000 sekka). Mis juhtuks, kui me juhusliku valimi asemel võtaksime hoopis igast maakonnast 67 inimest (Eestis on 15 maakonda, seega <span class="math inline">\(1000 \div 15 \approx 67\)</span>). Tõenäoliselt me alahindaksime keskmist sissetulekut oluliselt. Kõige suuremate sissetulekutega ja samas kõige suurema rahvaarvuga maakond on Harjumaa (598059 inimest 2019 aastal). Kõige väiksemate sissetulekutega ja ka rahvaarvult kõige väiksem maakond on Hiiu maakond (9387 inimest 2019 aastal). Kui me käsitleme mõlemat maakonda võrdselt, siis keskmise arvutamisel võtaksime Hiiu maakonna väikesed sissetulekud arvesse ebaproportsionaalselt suurel määral ja Harjumaa kõrgemad sissetulekud ebaproportsionaalselt väikesel määral (Hiiumaa on üleesindatud ja Harjumaa on alaesindatud). Meie maakondade põhine valim ei oleks enam üldkogumi suhtes <strong>representatiivne</strong>.</p>
+<template id="1efb2835-b48f-4e10-b87a-d4c4440d7fda"><style>
+.tabwid table{
+  border-spacing:0px !important;
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+.katex-display {
+    margin: 0 0 !important;
+}
+</style><div class="tabwid"><style>.cl-93e32b24{}.cl-93d4aaa4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-93da9fa4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-93da9fa5{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-93dac52e{width:1.704in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93dac52f{width:1.873in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93dac530{width:0.939in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93dac531{width:1.704in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93dac532{width:1.873in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93dac533{width:0.939in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93dac534{width:1.704in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93dac535{width:1.873in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93dac536{width:0.939in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93dac537{width:1.704in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93dac538{width:1.873in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93daed88{width:0.939in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93daed89{width:1.704in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93daed8a{width:1.873in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93daed8b{width:0.939in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-93cd0ae2{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}</style><table class='cl-93e32b24'>
+
+<caption>
+<span id="tab:unnamed-chunk-1">Tabel 6.1: </span><span class="cl-93cd0ae2">Eesti maakondade keskmised brutopalgad 2019 (Statistikaamet)</span>
+</caption>
+
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-93dac52e"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Maakond</span></p></td><td class="cl-93dac52f"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">Keskmine brutokuupalk</span></p></td><td class="cl-93dac530"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">Rahvaarv</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-93dac531"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Harju maakond</span></p></td><td class="cl-93dac532"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 531.0</span></p></td><td class="cl-93dac533"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">598 059.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac534"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Hiiu maakond</span></p></td><td class="cl-93dac535"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">993.0</span></p></td><td class="cl-93dac536"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">9 387.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac534"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Ida-Viru maakond</span></p></td><td class="cl-93dac535"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 147.0</span></p></td><td class="cl-93dac536"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">136 240.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac531"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Jõgeva maakond</span></p></td><td class="cl-93dac532"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 066.0</span></p></td><td class="cl-93dac533"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">28 734.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac534"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Järva maakond</span></p></td><td class="cl-93dac535"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 192.0</span></p></td><td class="cl-93dac536"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">30 286.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac534"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Lääne maakond</span></p></td><td class="cl-93dac535"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 274.0</span></p></td><td class="cl-93dac536"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">20 507.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac534"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Lääne-Viru maakond</span></p></td><td class="cl-93dac535"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 095.0</span></p></td><td class="cl-93dac536"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">59 325.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac534"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Põlva maakond</span></p></td><td class="cl-93dac535"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 140.0</span></p></td><td class="cl-93dac536"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">25 006.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac534"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Pärnu maakond</span></p></td><td class="cl-93dac535"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 172.0</span></p></td><td class="cl-93dac536"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">85 938.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac537"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Rapla maakond</span></p></td><td class="cl-93dac538"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 200.0</span></p></td><td class="cl-93daed88"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">33 311.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac534"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Saare maakond</span></p></td><td class="cl-93dac535"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 082.0</span></p></td><td class="cl-93dac536"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">33 108.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac534"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Tartu maakond</span></p></td><td class="cl-93dac535"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 426.0</span></p></td><td class="cl-93dac536"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">152 976.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac531"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Valga maakond</span></p></td><td class="cl-93dac532"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 058.0</span></p></td><td class="cl-93dac533"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">28 370.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93dac531"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Viljandi maakond</span></p></td><td class="cl-93dac532"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 201.0</span></p></td><td class="cl-93dac533"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">46 371.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-93daed89"><p class="cl-93da9fa4"><span class="cl-93d4aaa4">Võru maakond</span></p></td><td class="cl-93daed8a"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">1 113.0</span></p></td><td class="cl-93daed8b"><p class="cl-93da9fa5"><span class="cl-93d4aaa4">35 782.0</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="f2ecb8ed-3719-4703-9c0b-ee885f86c139"></div>
+<script>
+var dest = document.getElementById("f2ecb8ed-3719-4703-9c0b-ee885f86c139");
+var template = document.getElementById("1efb2835-b48f-4e10-b87a-d4c4440d7fda");
+var caption = template.content.querySelector("caption");
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
+<p>Kui me arvutaksime Eesti keskmise sissetuleku lähtuvalt maakondade keskmistest sissetulekutest, siis saaksime vastuseks:</p>
+<p><span class="math display">\[\frac{1531 + 993 + ... + 1113}{15} = 1179\]</span></p>
+<p>Statistikaameti järgi oli Eesti keskmine sissetulek 2019 aastal 1407 eurot. Seega tõepoolest, hinnang alahindab oluliselt tegelikku keskmist sissetulekut.</p>
+<p>Võttes oma valimisse igast maakonnast 67 inimest, ei ole meie valim küll enam juhuvalim, kuid niikaua kuni me teame kõikide maakondade rahvaarvu, on see siiski <strong>tõenäosuslik valim</strong> (antud juhul stratifitseeritud valim). Seda seetõttu, et kõikidel Eesti inimestel on ikkagi võimalus sellesse valimisse sattuda. Harjumaa inimestel küll väiksem ja Hiiumaa inimestel suurem, kuid mingi võimalus on kõigil. Kui me nüüd seda erinevat valimisse sattmise tõenäosust teame, siis on meil võimalik mitte-representatiivne valim representatiivseks muuta. Selleks tuleb meil Hiiumaa elanikud väiksemaks ja Harjumaa elanikud suuremaks kaaluda. Seejärel saame (mõningate mööndustega) jälle kasutada järeldava statistika meetodeid ning teha nende alusel korrektseid järeldusi üldkogumi kohta.</p>
+</div>
+<div id="kaalud" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Kaalud<a href="6-valimiuuringud.html#kaalud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="valimi-kaalud" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Valimi kaalud<a href="6-valimiuuringud.html#valimi-kaalud" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kõikide Harjumaa elanike jaoks oleks tõenäosus meie valimisse sattuda <span class="math inline">\(67 \div 598059 \approx 0.0001120\)</span>. Kõigi Hiiumaa elanike jaoks oleks see tõenäosus <span class="math inline">\(67 \div 9387 \approx 0.0071375\)</span>. Harjumaa valimis esindaks iga valimisse sattunu <span class="math inline">\(1 \div 0.00011 \approx 8926\)</span> inimest ja Hiiumaal <span class="math inline">\(1 \div 0.0071 \approx 140\)</span> inimest. Seega kui me teame iga inimese valimisse sattumise tõenäosust <span class="math inline">\(\pi\)</span>, siis saame välja arvutada ka selle inimese <strong>valimi kaalud</strong> <span class="math inline">\(\frac{1}{\pi}\)</span> (nimetatakse ka disainikaaludeks ehk <em>design weights</em> või ka <em>base weights</em>). Valimikaalude suurus on pöördvõrdeline valimisse sattumise tõenäosusega:</p>
+<p><span class="math display">\[w_i = \frac{1}{\pi_i}\]</span></p>
+<p>kusjuures üldkogumi suurs on võrdne kaalude summaga:</p>
+<p><span class="math display">\[P = \sum^{n}_{i = 1} w_i\]</span>
+ja mingi tunnuse <span class="math inline">\(y\)</span> üldkogumi kogusumma on:</p>
+<p><span class="math display">\[T_y = \sum^{n}_{i = 1}w_i y_i\]</span>
+Kui me rakendame neid kaale erinevates maakodades elavatele inimestele, siis saame alaesindatud maakonna (Harjumaa) valimi üles kaaluda <span class="math inline">\(67 \times 8926 = 598042\)</span> ja üleesindatud maakona (Hiiumaa) valimi alla kaaluda <span class="math inline">\(67 \times 140 = 9380\)</span> (erinevused algsetest maakondade suurustest on tingitud ümardamisest, kui ei oleks seda teinud, oleksid tulemused identsed).</p>
+<template id="bb9f804a-3739-492f-9a6d-8eea6f75a515"><style>
+.tabwid table{
+  border-spacing:0px !important;
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+.katex-display {
+    margin: 0 0 !important;
+}
+</style><div class="tabwid"><style>.cl-94355872{}.cl-941dc2d4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-942db752{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-942db753{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-942dde62{width:1.704in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942dde63{width:0.837in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942dde64{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942dde65{width:1.262in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942dde66{width:1.05in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942dde67{width:1.704in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942dde68{width:0.837in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942dde69{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942dde6a{width:1.262in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942dde6b{width:1.05in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942dde6c{width:1.704in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e0568{width:0.837in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e0569{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e056a{width:1.262in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e056b{width:1.05in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e056c{width:1.704in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e056d{width:0.837in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e056e{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e056f{width:1.262in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e0570{width:1.05in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e0571{width:1.704in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e0572{width:0.837in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e2c64{width:0.455in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e2c65{width:1.262in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-942e2c66{width:1.05in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-94155d2e{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}</style><table class='cl-94355872'>
+
+<caption>
+<span id="tab:unnamed-chunk-2">Tabel 6.2: </span><span class="cl-94155d2e">Eesti maakondade kaalud rahvaarvu alusel (Statistikaamet)</span>
+</caption>
+
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-942dde62"><p class="cl-942db752"><span class="cl-941dc2d4">Maakond</span></p></td><td class="cl-942dde63"><p class="cl-942db753"><span class="cl-941dc2d4">N</span></p></td><td class="cl-942dde64"><p class="cl-942db753"><span class="cl-941dc2d4">n</span></p></td><td class="cl-942dde65"><p class="cl-942db753"><span class="cl-941dc2d4">Tõenäosus</span></p></td><td class="cl-942dde66"><p class="cl-942db753"><span class="cl-941dc2d4">Kaalud</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-942dde67"><p class="cl-942db752"><span class="cl-941dc2d4">Harju maakond</span></p></td><td class="cl-942dde68"><p class="cl-942db753"><span class="cl-941dc2d4">598 059.0</span></p></td><td class="cl-942dde69"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942dde6a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942dde6b"><p class="cl-942db753"><span class="cl-941dc2d4">8 926.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde6c"><p class="cl-942db752"><span class="cl-941dc2d4">Hiiu maakond</span></p></td><td class="cl-942e0568"><p class="cl-942db753"><span class="cl-941dc2d4">9 387.0</span></p></td><td class="cl-942e0569"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942e056a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942e056b"><p class="cl-942db753"><span class="cl-941dc2d4">140.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde6c"><p class="cl-942db752"><span class="cl-941dc2d4">Ida-Viru maakond</span></p></td><td class="cl-942e0568"><p class="cl-942db753"><span class="cl-941dc2d4">136 240.0</span></p></td><td class="cl-942e0569"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942e056a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942e056b"><p class="cl-942db753"><span class="cl-941dc2d4">2 033.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde67"><p class="cl-942db752"><span class="cl-941dc2d4">Jõgeva maakond</span></p></td><td class="cl-942dde68"><p class="cl-942db753"><span class="cl-941dc2d4">28 734.0</span></p></td><td class="cl-942dde69"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942dde6a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942dde6b"><p class="cl-942db753"><span class="cl-941dc2d4">428.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde6c"><p class="cl-942db752"><span class="cl-941dc2d4">Järva maakond</span></p></td><td class="cl-942e0568"><p class="cl-942db753"><span class="cl-941dc2d4">30 286.0</span></p></td><td class="cl-942e0569"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942e056a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942e056b"><p class="cl-942db753"><span class="cl-941dc2d4">452.0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde6c"><p class="cl-942db752"><span class="cl-941dc2d4">Lääne maakond</span></p></td><td class="cl-942e0568"><p class="cl-942db753"><span class="cl-941dc2d4">20 507.0</span></p></td><td class="cl-942e0569"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942e056a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942e056b"><p class="cl-942db753"><span class="cl-941dc2d4">306.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde6c"><p class="cl-942db752"><span class="cl-941dc2d4">Lääne-Viru maakond</span></p></td><td class="cl-942e0568"><p class="cl-942db753"><span class="cl-941dc2d4">59 325.0</span></p></td><td class="cl-942e0569"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942e056a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942e056b"><p class="cl-942db753"><span class="cl-941dc2d4">885.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde6c"><p class="cl-942db752"><span class="cl-941dc2d4">Põlva maakond</span></p></td><td class="cl-942e0568"><p class="cl-942db753"><span class="cl-941dc2d4">25 006.0</span></p></td><td class="cl-942e0569"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942e056a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942e056b"><p class="cl-942db753"><span class="cl-941dc2d4">373.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde6c"><p class="cl-942db752"><span class="cl-941dc2d4">Pärnu maakond</span></p></td><td class="cl-942e0568"><p class="cl-942db753"><span class="cl-941dc2d4">85 938.0</span></p></td><td class="cl-942e0569"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942e056a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942e056b"><p class="cl-942db753"><span class="cl-941dc2d4">1 282.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942e056c"><p class="cl-942db752"><span class="cl-941dc2d4">Rapla maakond</span></p></td><td class="cl-942e056d"><p class="cl-942db753"><span class="cl-941dc2d4">33 311.0</span></p></td><td class="cl-942e056e"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942e056f"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942e0570"><p class="cl-942db753"><span class="cl-941dc2d4">497.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde6c"><p class="cl-942db752"><span class="cl-941dc2d4">Saare maakond</span></p></td><td class="cl-942e0568"><p class="cl-942db753"><span class="cl-941dc2d4">33 108.0</span></p></td><td class="cl-942e0569"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942e056a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942e056b"><p class="cl-942db753"><span class="cl-941dc2d4">494.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde6c"><p class="cl-942db752"><span class="cl-941dc2d4">Tartu maakond</span></p></td><td class="cl-942e0568"><p class="cl-942db753"><span class="cl-941dc2d4">152 976.0</span></p></td><td class="cl-942e0569"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942e056a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942e056b"><p class="cl-942db753"><span class="cl-941dc2d4">2 283.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde67"><p class="cl-942db752"><span class="cl-941dc2d4">Valga maakond</span></p></td><td class="cl-942dde68"><p class="cl-942db753"><span class="cl-941dc2d4">28 370.0</span></p></td><td class="cl-942dde69"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942dde6a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942dde6b"><p class="cl-942db753"><span class="cl-941dc2d4">423.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942dde67"><p class="cl-942db752"><span class="cl-941dc2d4">Viljandi maakond</span></p></td><td class="cl-942dde68"><p class="cl-942db753"><span class="cl-941dc2d4">46 371.0</span></p></td><td class="cl-942dde69"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942dde6a"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942dde6b"><p class="cl-942db753"><span class="cl-941dc2d4">692.1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-942e0571"><p class="cl-942db752"><span class="cl-941dc2d4">Võru maakond</span></p></td><td class="cl-942e0572"><p class="cl-942db753"><span class="cl-941dc2d4">35 782.0</span></p></td><td class="cl-942e2c64"><p class="cl-942db753"><span class="cl-941dc2d4">67.0</span></p></td><td class="cl-942e2c65"><p class="cl-942db753"><span class="cl-941dc2d4">0.0</span></p></td><td class="cl-942e2c66"><p class="cl-942db753"><span class="cl-941dc2d4">534.1</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="c7aed52b-0e83-4791-949e-4866ef91cf5a"></div>
+<script>
+var dest = document.getElementById("c7aed52b-0e83-4791-949e-4866ef91cf5a");
+var template = document.getElementById("bb9f804a-3739-492f-9a6d-8eea6f75a515");
+var caption = template.content.querySelector("caption");
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
+<p>Kui me nüüd tahame arvutada Eesti keskmise sissetuleku lähtuvalt maakondade kaalutud keskmisest, siis peame esmalt maakondade keskmised kaaludega läbi korrutama, kokku liitma ning seejärel kaalude summaga läbi jagama.</p>
+<p><span class="math display">\[\frac{(1531 \times 8926) + (993 \times 140) + ... + (1113 \times 534)}{8926 + 140 + ... + 534} = 1351\]</span></p>
+<p>Märksa lähemal tõelisele Eesti keskmisele sissetulekule. Päris sama summat ei saanud me peamiselt seetõttu, et võtsime kaalumise aluseks rahvaarvu, mitte töötavate inimese arvu. Lisaks on tõenäoline, et sissetulekute jaotused erinevad maakondade lõikes, mis tähendab, et tegelikult ei oleks siinkohal väga õige aritmeetilist keskmist kasutada.</p>
+</div>
+<div id="post-stratifikatsiooni-kaalud" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Post-stratifikatsiooni kaalud<a href="6-valimiuuringud.html#post-stratifikatsiooni-kaalud" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Post-stratifikatsiooni abil saame parandada valimi representatiivsust peale valimi moodustamist. Näiteks juhul kui meie valim on moodustatud aadresside alusel, siis ei saa me planeerida oma valimit vastajate vanuselisest ja soolisest jaotusest lähtuvalt, kuigi üldkogumi kohta on meil need proportsioonid teada. Teine ja märksa levinum põhjus post-stratifikatsiooni jaoks on mitte-vastamine (<em>non-response</em>). Mõnede gruppide puhul kipub vastamisaktiivsus olema mõnevõrra madalam (näiteks noored mehed). Ka mitte-vastamise puhul ei ole meil valimi disainimise juures palju teha (võime muidugi suurendada noorte meeste valimisse sattumise tõenäosust, kuid me ei saa kindlustada kogu valimi vastavust üldkogumi proportsioonidele) ja selle ulatust näeme me vaid peale küsitluse läbiviimist. Kui me siis hiljem avastame, et kuigi mehi peaks olema üldkogumis 50%, on neid valimisse sattunud 40%, siis tähendab see seda, et meie valim ei ole soo lõikes representatiivne. Naised on üleesindatud ja mehed alaesindatud. Sellisel juhul on võimalik välja arvutada post-stratifikatsiooni kaalud. Kaalude moodustamisel peame naisi vähemaks kaaluma <span class="math inline">\(0.5 \div 0.6 \approx 0.8333\)</span> ja mehi rohkemaks kaaluma <span class="math inline">\(0.5 \div 0.4 = 1.25\)</span>. Kui valimi kaalud on eelnevalt olemas, siis modifitseerime valimi kaale korrutades iga meessoost respondendi kaalud läbi <span class="math inline">\(1.25\)</span>-ga ja iga naissoost respondendi kaalud läbi <span class="math inline">\(0.83\)</span>-ga.</p>
+<p>Post-stratifikatsiooni kasutatakse tavaliselt valimi representatiivsuse tõestmiseks erinevate sotsiaaldemograafiliste tunnuste lõikes (sugu, vanus, haridus jne). Kuid kaalude moodustamiseks peame teadma kõikide post-stratifikatsioonitunnuste ristlõigete osakaale. Ehk siis kui tahame post-stratifitseerida hariduse ja soo lõikes, siis peame teadma kõrgharitud meeste osakaalu, kõrgharitud naiste osakaalu, keskharitud meeste osakaalu jne. Tihti taolist ristõikelist üldkogumi jaotust me ei tea. Lisaks võivad nii moodustatud grupid minna väga väikeseks ja tekib oht, et mõnda ristlõiget meil valimis ei olegi. Näiteks kui lisaksime haridusele ja soole veel ka vanuse (näiteks vanused 15-75), siis oleks meil juba <span class="math inline">\(2\times3\times60 = 360\)</span> gruppi. Arvestades tavapärast valimimahtu (<em>ca</em> 1000 vaatlust) on ülimalt tõenäoline, et osasid post-stratifikatsiooni ristlõikesid meie valimisse lihtsalt ei sattunud.</p>
+<div id="raking-ja-calibration" class="section level4 hasAnchor" number="6.2.2.1">
+<h4><span class="header-section-number">6.2.2.1</span> Raking ja calibration<a href="6-valimiuuringud.html#raking-ja-calibration" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Miks me ei saa post-stratifikatsioonikaale iga sotsiaaldemograafilise tunnuse lõikes eraldi välja arvutada ja seejärel need erinevad kaalud läbi korrutada? Kui me arvutaksime kõigepealt välja soo kaalud, siis kaalude rakendamisel oleks meie valim soo lõikes representatiivne. Kui me seejärel arvutaks välja hariduse kaalud ja rakendaks ka need, siis oleks meie valim hariduse lõikes representatiivne, kuid soo proportsioonid oleksid jälle paigast ära. Ja kui me siis kasutaks veel ka vanuse kaale, oleks meie valim representatiivne vanuse lõikes, kuid mitte enam soo ega hariduse lõikes. Peaksime nüüd uuesti arvutama soo kaalud, siis uuesti hariduse kaalud ja siis uuesti vanuse kaalud. Ja seejärel jälle otsast peale. Niikaua, kuni oleme leidnud mingisuguse ekviliibriumi, kus ühegi tunnuse kaal enam ei muutu. Taolist iteratiivset protsessi nimetatakse rakinguks (ka <em>iterative proportional fitting</em>).</p>
+<p>Alternatiivne viis erinevate tunnuste lõikes valimi proportsioonide korrigeerimiseks on kalibreerimine. Kalibreerimise puhul kasutakse valimi üldkogumiga proportsiooni viimiseks regressioonimudelit, mille abil arvutatakse kalibratsioonikaalud, millega siis korrigeeritakse valimi kaale.</p>
+</div>
+</div>
+<div id="mitte-vastamise-kaalud-non-response-weights" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Mitte-vastamise kaalud (non-response weights)<a href="6-valimiuuringud.html#mitte-vastamise-kaalud-non-response-weights" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kuigi post-stratifitseerimisega on võimalik neid gruppe, kus vastamismäär oli madalam kui valimiraam ette nägi, üles kaaluda, on tihti otstarbekas pöörata tähelepanu ka otseselt mitte-vastanutele. Kui post-stratifikatsiooni või rakingu/kalibreerimisega üritatakse tasanda eelkõige valimiraami ja üldkogumi erinevusi (juhuvalim, tänu sellele, et see on juhuslik, ei taga alati, et valim vastaks üldkogumi proportsioonidele) terves valimis, siis mitte-vastamise kaalude abil üritatakse tagada, et reaalne valim vastaks teoreetilisele valimile. See tähendab, et üles kaalutakse ainult neid gruppe, kus vastamismäär oli madalam ja gruppe, kus vastamismäär oli 100%, kaale ei muudeta. Tulles tagasi eelneva soolise erinevuse näite juurde: oletame, et meie valimi suuruseks oli 1000 inimest, kellest 50% olid valimi järgi naised ja 50% mehed (valimis vastavalt 500 ja 500), kuid peale küsitlust avastame, et algsest 1000-st respondendist õnnestus küsitleda 500-t naist ja 400-t meest. Ehk siis naiste vastamismäär oli 100% ja meeste vastamismäär 80%. Kuna naiste valimi osaga on kõik korras, ei taha me nende puhul midagi muuta. Küll aga tahame suurendada meeste kaale nii, et meeste valimi osa vastaks algsele valimiraamile. See tähendab, et me peaksime suurendama meeste kaale <span class="math inline">\(500\div400 = 1.25\)</span> võrra. Iga valimisse sattunud meest arvstame seega 1.25 kordselt.</p>
+<p>Teine võimalus mitte-vastamise kaalude arvutamiseks on kasutada logistilist regressiooni, kus valimiraamist lähtuvad sotsiaaldemograafilised tunnused on aluseks hinnangule vastamise ja mitte-vastamise kohta.</p>
+</div>
+<div id="kaaludest-üldiselt" class="section level3 hasAnchor" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Kaaludest üldiselt<a href="6-valimiuuringud.html#kaaludest-üldiselt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ise kaale arvutades peaksime jälgima, et meie arvutatud kaalud liiga suureks ei läheks. See juhtub siis, kui mõni grupp mille lõikes me kaale arvutame, on valimis väga alaesindatud. Näiteks kui tahame tagada, et meie valim vastaks üldkogumile töötuse tunnuse lõikes, kuid valimisse on sattunud töötuid vaid 1%, samas kui üldkogumis on töötuid näiteks 10%. Me peaksime kõik olemasolevad töötud kümnekordselt üles kaaluma. Seda on aga ilmselgelt liiga palju. Me ei taha mõne töötu pealt tehtud järeldusi, mis võivad olla suhteliselt juhuslikud, laiendada küllaltki suurele osale populatsioonist. Seetõttu tuleks pärast kaalude moodustamist alati kontrollida, et need ikka mõistlikkuse piiresse jääks (see mõistlikkuse piir oleneb kontekstist) ja vajadusel suuremaid kaalusid väiksemaks teha (<em>weight trimming</em>).</p>
+<p>Kui andmestikus on mitu kaalude tunnust, näiteks valimi kaalud ja mitte-vastamise kaalud, siis saame need ühendada üheks kaalu tunnuseks. Selleks peame iga vaatluse jaoks tema kaalud läbi korrutama. Ehk siis kui konkreetse vaatluse jaoks on valimi kaalud väärtusega 0.8 ja mitte-vastamise kaalud 1.2, siis vaatluse lõplikeks kaaludeks kujuneb <span class="math inline">\(0.8 \times1.2 = 0.96\)</span>.</p>
+</div>
+</div>
+<div id="valimidisain" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Valimidisain<a href="6-valimiuuringud.html#valimidisain" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Olukorras, kus kõigil üldkogumi liikmetel ei ole võrdset võimalust valimisse sattuda (kuid kõigil on see võimalus mingi tõenäosusega siiski olemas) või valimi valikuühik ei ole sama mis analüüsiühik (näiteks kui valim on moodustatud leibkondade põhjal aga analüüsime lebkondades olevaid isikuid), on meil tegemist mingi <strong>valimidisaini</strong> alusel moodustatud valimiga. Valimidisainiga defineeritakse iga analüüsiühiku erinevad valimisse sattumise tõenäosused. Kui me valimi aluseks olevat disaini andmete anlüüsimisel arvesse ei võta, võime analüüsi tulemusel teha väga valesid järeldusi. Seda nii punkthinnangute (nagu eelnevas näites) kui ka standardvigade osas.</p>
+<p>Laias laastus võib erinevad valimidisainid jagada kahte suuremasse gruppi: stratifitseeritud valimid ja klastervalimid. Üldjuhul kasutatakse reaalselt nende kahe tüübi kombinatsioone või variatsioone. Konkreetse uuringu juures kasutatav valimidisain on tavaliselt kirjeldatud uuringu dokumentatsioonis (kui see nii ei ole, siis tasub alati uuringu läbiviijalt seda küsida). Tihti on selle seletuse juures ära toodud ka juhised edasiseks analüüsiks. Seega esimeseks sammuks mingi uuringu kasutamisel peaks alati olema uuringu dokumentatsiooniga tutvumine.</p>
+<p>Kuid miks üldse kasutatakse mingeid keerulisi valimidisaine ja ei piirduta tavaliste juhuvalimitega, mida oleks standardmeetoditega lihtne analüüsida? Esimene ja tihti määravaim põhjus on küsitlusega kaasnev kulu. Keerulisemad valimidisainid võimaldavad kontsentreerida küsitluste läbiviimist, lihtsustades seeläbi küsitlusega kaasnevat logistikat. Teine, ja tegelikult mõnevõrra olulisem põhjus on teatud keerulisemate valimidisainidega kaasnev tulemuste kvaliteedi tõus. Me saame valimidisainiga sihtida konkreetseid gruppe või tõsta uuringu üldist täpsusastet.</p>
+<div id="stratifitseeritud-juhuvalim" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Stratifitseeritud juhuvalim<a href="6-valimiuuringud.html#stratifitseeritud-juhuvalim" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Üldkogum jagatakse teineteist välistavatesse gruppidesse (stratad) ja igas grupis viiakse läbi juhuvalik. Stratifitseeritud valimiga on võimalik tagada, et stratifitseeriva tunnuse lõikes on valim ühtlaselt jaotunud ning vähem varieeruv. Seetõttu on ka selle põhjal tehtavad hinnangu täpsemad (standardvead on väiksemad).</p>
+<p>Tihti tahame teha järeldusi mõne küllaltki marginaalse grupi kohta. Et need järeldused oleksid statistiliselt täpsed, on meil vaja tagada, et see grupp oleks esindatud suuremalt kui see juhuvalikuga võimalik on (mida suurem on uuritava grupi valim, seda täpsemaid hinnanguid me selle kohta teha saame). Näiteks kui tahaksime üle-Eestilises uuringus käsitleda mõnda spetsiifilist küsimust Hiiumaa kohta, siis 1000 inimesega juhuvalimiga satuks meie valimisse 7 hiidldast (Hiiumaa rahvaarv moodustab 0.7% Eesti rahvastikust). Seda on aga liiga vähe et me saaksime Hiiumaa kohta midagi olulist järeldada. Seega peaksime hiidlaste valimisse sattumise tõenäosust mõnevõrra suurendama.</p>
+<p>Lisaks võimaldab stratifitseeritud valim mõningal määral lihtsustada andmekogumise administreerimist (Näiteks igas maakonnas eraldi uuringu läbiviija) või isegi kasutada stratades erinevaid valimi moodustamise meetodeid.</p>
+<p>Stratifitseeritud valim eeldab, et strtifitseerimise aluseks olev tunnus oleks valimi moodustamisel iga üldkogumi liikme jaoks teada. See võib teatud juhtudel aga küllaltki problemaatiline olla. Näiteks kui me tahame stratifitseerida maakonna alusel ja üldkogumi moodustamisel lähtuda rahvastikuregistrist, siis on küllaltki tõenäoline, et rahvastikuregistris märgitud elukoha maakond (kui see seal üldse märgitud on) erineb reaalsest elukoha maakonnast.</p>
+</div>
+<div id="klastervalim" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Klastervalim<a href="6-valimiuuringud.html#klastervalim" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Klastervalimi puhul käsitletakse analüüsiühikuid mingite klastrite liikmetena ning valimi moodustamisel ei valita mitte analüüsiühikuid otse vaid neist moodustunud klstereid. Juhuvaliku alusel valitakse klastrid ning kõikide valimisse sattunud klastrite liikmeid küsitletakse. Kõige lihtsama näitena võib siinkohal tuua koolivõrgu. Eestis on ca 530 üldhariduskooli. Kui me tahame teha küsitlust, mis oleks representatiivne kõigi Eesti õpetajate suhtes, siis juhuvalimi korral peaksime olema valmis, et kõikidest koolidest satub meie valimisse mõni õpetaja (kuna kõigil õpetajatel on võrdne tõenäosus valimisse sattuda). Kõik koolid läbi käia ja seal paari õpetajat küsitleda oleks logistilisel küllaltki tülikas ning mitte eriti aja- ja kuluefektiivne. Lihtsam, kiirem ja odavam oleks valimi alusena käsitleda koole, teha koolide juhuvalim ning valimisse sattunud koolides küsitleda kõiki õpetajaid. Sellisel juhul oleks meie üldkogum ikkagi kogu Eesti õpetajaskond (kuna kõikidel koolidel ja seeläbi ka kõikidel õpetajatel õpetajatel oli võimalus valimisse sattuda) ja kui me taoliselt moodustatud valimidisaini hiljem analüüsi käigus arvestame, siis saaksime tehtud järeldused üldistada ka kõikidele Eesti õpetajatele.</p>
+<p>Võib-olla ei ole isegi mõtet kõiki valimisse sattunud koolide õpetajaid intervjueerida. Me saaksime tegelikult ka igas koolis teha eraldi teise tasandi juhuvalimi ja küsitleda ainult valimisse sattunud õpetajaid. Seega esmalt valime juhuvalimi alusel koolid ja seejärel juhuvalimi alusel õpetajad neis koolides. Taolist valimidisani nimetatakse mitmetasandiliseks klastervalimiks. Neid tasandeid võib olla ka rohkem kui kaks. Näiteks esimene juhuvalik on koolide tasandil, teine klasside tasandil ja kolmas õpilaste tasandil. Esimese tasandi valimiühikuid nimetatakse <em>primary sampling units</em> või <em>PSU</em> (koolid), teise tasandi ühikuid <em>secondary sampling units </em> või <em>SSU</em> (klassid) jne.</p>
+<p>Võrreldes juhu- või stratifitseeritud valimiga klastervalim sama valimimahu juures üldiselt vähendab hinnangute täpsust, kuna inimesed klastrite sees kipuvad olema sarnasemad kui klastrite vahel. Kuid samas võimaldab klastervalimi kuluefektiivsus koostada suuremaid valimeid, mis omakorda suurendavad täpsust. Seega kokkuvõttes võib mõnevõrra suurema mahuga klastervalimiga saada väiksema mahuga juhuvalimiga võrreldava täpsusastmega hinnagud väiksema raha eest.</p>
+</div>
+</div>
+<div id="tulemuste-valimidisaini-suhtes-korrigeerimine" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Tulemuste valimidisaini suhtes korrigeerimine<a href="6-valimiuuringud.html#tulemuste-valimidisaini-suhtes-korrigeerimine" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Punkthinnanguid saame üldjuhul korrigeerida valimi kaaludega. Näiteks kaalutud keskmisi saame ka käsitsi välja arvutada, nagu me eelnevalt tegime, või kasutada selleks vastavaid funktsioone (Ri baasfunktsioon <code>weighted.mean()</code> võtab sisendiks kaalumata keskmiste vektori ja kaalude vektori).</p>
+<p>Standardvigade korrigeerimine asi mõnevõrra keerulisem ja nende puhul tuleks kasutada spetsiifilisemaid lähenemisi. Eelnevalt vaatasime tavalise juhuvalimi standardvigade arvutamise loogikat (standardviga on valimijaotuse standardhälve, näidates kui suur on meie hinnangu keskmine viga kui me võtaksime samast popultaioonist lõputult valimeid). Keerulisemate valimidisainide puhul juhuvalimi loogika enam ei toimi, kuna vaatlused ei ole omavahel sõltumatud ja/või valiku ühikuks ei ole analüüsiühik. Sellises olukorras on meil tegelikult päris mitmeid võimalusi, kuidas standardvigasid, ehk siis valimijaotuse varieeruvust, hinnata. Peamisteks kasutatavateks meetoditeks on:</p>
+<ul>
+<li>Taylori seeriate meetod (<em>Taylor series linearisation</em>)</li>
+<li>Bootstrapi replikatsiooni meetod</li>
+<li>Jackknife replikatsiooni meetod</li>
+<li>BRR (<em>balanced repeated replication</em>)</li>
+</ul>
+<p>Kui Taylori seeriate meetodi puhul arvutatakse standardvead analüütiliselt, siis ülejäänud replikatsioonipõhiste meetodite puhul empiiriliselt. Üldiselt ei pea nende meetodite hingeelu nende kasutamiseks väga põhjalikult tundma (vaatame siiski replikatsioonimeetodeid, kuna nende loogika on küllaltki lihtne).</p>
+<div id="replikatsioonikaalud-replicate-weights" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Replikatsioonikaalud (replicate weights)<a href="6-valimiuuringud.html#replikatsioonikaalud-replicate-weights" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Keerulisemate valimidisainide ja mitte-lineaarsete meetoodite puhul ei ole alati võimalik standardvigasid analüütiliste meetoditega arvutada. Sel juhul on standardvigade leidmisks võimalik kasutada erinevad replikatsioonimeetodid, nagu <em>bootstrap</em> või <em>jackknife</em> (reaalsuses küll tavaliselt mõnda nende variatsioonidest). Paljude suuremate uuringute puhul on andmestikuga kaasas replikatsioonikaalud, mis võimaldavad replikatsioonimeetodeid kasutada. Näiteks OECD uuringutes nagu PISA või PIIAC. Replikatsioonimeetodeid võib ja saab kasutada ka tavalise juhuvalimi korral. Ajalooliselt on nende laiem kasutus jäänud arvutusvõimsuste taha, kuid tänapäeval, kui see enam probleem ei ole, on need järjest rohkem hakanud tavapäraseid analüütilisi standardvigade arvutamise meetodeid asendama.</p>
+<p>Kõikide replikatsioonimeetodite üldprintsiip ja loogika on lihtne. Olemasolevast valimist võetakse palju alamvalimeid (replikatsioone), ehk siis valimit käsitletakse üldpopultaioonina, millest võetkse omakorda valimid. Kõikide alamvalimite puhul arvutatakse huvipakkuv statistik (näiteks mingi tunnuse keskmine). Alamvalimite statistikutest moodustub (pseudo)valimijaotus, mille standardhälve ongi standardviga. Seega kui tavaline standardvea arvutamise metoodika lähtub küll potentsiaalsest eeldusest, et valimijaotuse aluseks olevaid valimeid on lõputult, kuid tuletab standardvea analüütiliselt (<span class="math inline">\(se = \frac{sd}{\sqrt{n}}\)</span>), siis replikatsioonimeetodid tuletavad olemasolevast valimist suurel hulgal alamvalimeid, mille alusel moodustavad valimijaotuse ja tuletavad standardvea empiiriliselt.</p>
+<p>Repikatsioonimeetodid erinevad üksteisest selle poolest kuidas nad neid alavalimeid moodustavad. <em>Bootstrap</em> meetodiga võetakse üldvalimist juhuslikkuse alusel sama palju vaatlusi kui seal algselt oli, kuid kasutatakse nn tagasipaneku meetodit. See tähendab, et mõni algse valimi vaatlus võib alamvalimisse sattuda mitu korda ja mõni üldse mitte. Kui palju alamvalimeid võetakse, on analüütiku otsustada (mida rohkem, seda parem, kuid võiks olla vähemalt 100).</p>
+<p><em>Jackknife</em> meetodiga võetakse alamvalimeid nii palju kui algses valimis vaatlusi oli. Kuid iga alamvalimi puhul jäetakse mingi reegli alusel üks vaatlustest välja. Ülejäänud vaatlused korrutatakse läbi koefitsiendiga, mis korrigeerib alamvalimi suuruse võrdseks algse valimiga. Näiteks kui algses valimis oli 10 inimest, siis võetakse 10 alamvalimit, milles kõigis on 9 inimest ja Kõik alavalimid korrutatakse läbi 1.1-ga (<span class="math inline">\(\frac{10}{9}\)</span>)</p>
+<p>Replikatsioonikaalud annavad meile info kuidas valimite replikeerimine peaks toimuma.</p>
+</div>
+</div>
+<div id="küsitlusandmed-ris" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Küsitlusandmed Ris<a href="6-valimiuuringud.html#küsitlusandmed-ris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ris on küsitlusandmete analüüsiks spetsiaalne pakett <em>survey</em>, mis võimaldab kasutada erinevaid analüüsimeetodeid arvestades samal ajal ka valimidisainist tulenevate eripäradega. Kuna praktiliselt kõik suuremad küsitlused kasutavad mingeid keerukamaid valimidisaine, siis peame nende andmete analüüsimisel alati ka vastavate disainidega arvestama ega saa kasutada tavapäraseid meetodeid.</p>
+<p>Kõigepealt installige (kui te seda juba teinud ei ole) <em>survey</em> pakett ja lugege see sisse. Nagu alati, siis installima peab paketi ainult ühe korra, kuid igaks sessiooniks tuleb see uuesti sisse lugeda. <em>survey</em> paketiga on kaasas ka näidisanmdestikud. Lugege ka need sisse (´data(api)´). <em>api</em> andmestikuga on mõõdetud akadeemilise võimekuse indeksit kõikides Kalifornia koolides. Andmestiku analüüsiühikuks on kool ehk siis andmestik koondab koolitsandi infot.</p>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="6-valimiuuringud.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&#39;survey&#39;)</span></span>
+<span id="cb589-2"><a href="6-valimiuuringud.html#cb589-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survey)</span>
+<span id="cb589-3"><a href="6-valimiuuringud.html#cb589-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(api)</span></code></pre></div>
+<p><em>survey</em> paketis peab kõigepealt defineerima valimidisaini, milles kirjeldatakse kõiki valimi moodustamise eripärasid, kaale jne. Disaini defineerimise läbi koondatakse kogu valimidisainist lähtuv info ühte andmeojekti. Disaini deineerimiseks on funktsioon <code>svydesign()</code>:</p>
+<div id="kaaludega-tavalise-juhuvalimi-defineerimine" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Kaaludega tavalise juhuvalimi defineerimine<a href="6-valimiuuringud.html#kaaludega-tavalise-juhuvalimi-defineerimine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Valimidisain tavalise juhuvalimi puhul kui meile on ainult valimi kaalud ja/või mingid mingid kaalud. Isegi tavalise juhuvalimi puhul peaksime ikkagi kasutama vähemalt valimi kaale (need lubavad meil hinnata näiteks populatsiooni suurust). Lisaks valimi kaaludele või valimi kaalude asemel võivad andmestikus olla ka mitte-vastamise kaalud või poststratifikatsiooni kaalud (või oleme need ise välja arvutanud), mille olemasolu või vajadus ei sõltu sellest, kas tegemist on tavalise juhuvalimiga või keerulisema disainiga. Kui andmestikus on mitu kaalude tunnust, mida meil on vaja kasutada, siis peaksime need omavahel läbi korrutades üheks tunnuseks koondama.</p>
+<p><code>svydesign()</code> funktsiooni argumentidena peame defineerima:</p>
+<ul>
+<li><code>ids</code> argumendiga defineeritakse valimiühikud (<em>PSU</em>). Need on klastri id’d klastervalimi puhul, ehk siis tunnus, mille lõikes klastervalimi valik toimus. Kui valik toimus analüüsitasandil ilma klastriteta, siis tuleks märkida <code>ids = ~1</code></li>
+<li><code>weights</code> tähistab kaalu tunnust. Tunnuse nime ette tuleb kindlasti panna tilde märk (või viidata tunnusele otse apisrs$pw)</li>
+<li><code>data</code> on meie algne küsitlusandmestik</li>
+</ul>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="6-valimiuuringud.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kasutame andmestikku apisrs</span></span>
+<span id="cb590-2"><a href="6-valimiuuringud.html#cb590-2" aria-hidden="true" tabindex="-1"></a><span class="co"># kaalude tunnus on &#39;pw&#39;</span></span>
+<span id="cb590-3"><a href="6-valimiuuringud.html#cb590-3" aria-hidden="true" tabindex="-1"></a>des_jv <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span><span class="dv">1</span>, </span>
+<span id="cb590-4"><a href="6-valimiuuringud.html#cb590-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">weights =</span> <span class="sc">~</span>pw, </span>
+<span id="cb590-5"><a href="6-valimiuuringud.html#cb590-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> apisrs)</span></code></pre></div>
+<p>Väiksemate üldkogumite korral, kui me teame üldkogumi suurust, saab kasutada lõpliku populatsiooni korrektsiooni (<em>finite population correction</em> ehk <em>fpc</em>), mis võimaldab kasutada mõnevõrra väiksemaid standardvigasid. Kui üldkogum on väike, siis on ka valim üldkogumile pigem sarnasem, võrreldes juhuga kui üldkogum on väga suur. Seega on valimis ka vähem määramatust ning standardvead väiksemad.</p>
+<p><em>fpc</em> defineeritakse parameetriga:</p>
+<ul>
+<li><code>fpc</code> mille kaudu peab deineerima tunnuse, mis sisaldab iga vaatluse kohta üldkogumi suurust. Tavalise juhuvalimi puhul on see suurus kõikide vaatuste jaoks sama.</li>
+</ul>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="6-valimiuuringud.html#cb591-1" aria-hidden="true" tabindex="-1"></a>des_jv <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span><span class="dv">1</span>, </span>
+<span id="cb591-2"><a href="6-valimiuuringud.html#cb591-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">weights =</span> <span class="sc">~</span>pw, </span>
+<span id="cb591-3"><a href="6-valimiuuringud.html#cb591-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fpc =</span> <span class="sc">~</span>fpc, </span>
+<span id="cb591-4"><a href="6-valimiuuringud.html#cb591-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> apisrs)</span></code></pre></div>
+<p>Küsitluse disainist ülevaate saamiseks saame kasutada <code>summary()</code> funktsiooni:</p>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="6-valimiuuringud.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(des_jv)</span></code></pre></div>
+<pre><code>## Independent Sampling design
+## svydesign(ids = ~1, weights = ~pw, fpc = ~fpc, data = apisrs)
+## Probabilities:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.03229 0.03229 0.03229 0.03229 0.03229 0.03229 
+## Population size (PSUs): 6194 
+## Data variables:
+##  [1] &quot;cds&quot;      &quot;stype&quot;    &quot;name&quot;     &quot;sname&quot;    &quot;snum&quot;     &quot;dname&quot;   
+##  [7] &quot;dnum&quot;     &quot;cname&quot;    &quot;cnum&quot;     &quot;flag&quot;     &quot;pcttest&quot;  &quot;api00&quot;   
+## [13] &quot;api99&quot;    &quot;target&quot;   &quot;growth&quot;   &quot;sch.wide&quot; &quot;comp.imp&quot; &quot;both&quot;    
+## [19] &quot;awards&quot;   &quot;meals&quot;    &quot;ell&quot;      &quot;yr.rnd&quot;   &quot;mobility&quot; &quot;acs.k3&quot;  
+## [25] &quot;acs.46&quot;   &quot;acs.core&quot; &quot;pct.resp&quot; &quot;not.hsg&quot;  &quot;hsg&quot;      &quot;some.col&quot;
+## [31] &quot;col.grad&quot; &quot;grad.sch&quot; &quot;avg.ed&quot;   &quot;full&quot;     &quot;emer&quot;     &quot;enroll&quot;  
+## [37] &quot;api.stu&quot;  &quot;pw&quot;       &quot;fpc&quot;</code></pre>
+</div>
+<div id="stratifitseeritud-valimi-defineerimine" class="section level3 hasAnchor" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> Stratifitseeritud valimi defineerimine<a href="6-valimiuuringud.html#stratifitseeritud-valimi-defineerimine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Stratifitseeritud valimi puhul tuleb meil defineerida stratifitseeriv tunnus. Andmestikus <em>apistrat</em> on selleks <em>stype</em> (koolitüüp) tunnus, mille lõikes koolid on stratifitseeritud.</p>
+<ul>
+<li><code>strata</code> argumendiga defineeritakse valimit stratifitseeriv tunnus</li>
+<li><code>fpc</code> argumendiga saab määrata iga strata suuruse (kui see on olemas, siis ole vaja valimi (disaini) kaale eraldi märkida, survey arvutab vaatluste valimisse sattumise tõenäosused ja kaalud ise välja)</li>
+</ul>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="6-valimiuuringud.html#cb594-1" aria-hidden="true" tabindex="-1"></a>des_strat <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span><span class="dv">1</span>, </span>
+<span id="cb594-2"><a href="6-valimiuuringud.html#cb594-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">strata =</span> <span class="sc">~</span>stype,</span>
+<span id="cb594-3"><a href="6-valimiuuringud.html#cb594-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">weights =</span> <span class="sc">~</span>pw, </span>
+<span id="cb594-4"><a href="6-valimiuuringud.html#cb594-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fpc =</span> <span class="sc">~</span>fpc, </span>
+<span id="cb594-5"><a href="6-valimiuuringud.html#cb594-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data =</span> apistrat)</span></code></pre></div>
+</div>
+<div id="ühetasandilise-klastervalimi-defineerimine" class="section level3 hasAnchor" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> Ühetasandilise klastervalimi defineerimine<a href="6-valimiuuringud.html#ühetasandilise-klastervalimi-defineerimine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kasutame <em>apiclus1</em> andmestikku, milles on koolid klasterdatud piirkonna (<em>dnum</em>) järgi. Ehk siis piirkonnad on esimese tasandi valikuks. Valimisse sattunud piirkondade kõik koolid on valimisse kaasatud.</p>
+<ul>
+<li><code>ids</code> argumeniga defineeritakse <em>PSU</em> ehk klastri id (<em>dnum</em>)</li>
+<li><code>weights</code> argumendiga määratakse valimi kaalud. Jällegi, kui tegemist on ainult valimi kaaludega ja <code>fpc</code> on defineeritud, siis ei pea kaale määrama (<em>survey</em> arvutab need ise välja)</li>
+<li><code>fpc</code> valimi suurus (klastrite koguarv)</li>
+</ul>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="6-valimiuuringud.html#cb595-1" aria-hidden="true" tabindex="-1"></a>des_clus <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids=</span><span class="sc">~</span>dnum, </span>
+<span id="cb595-2"><a href="6-valimiuuringud.html#cb595-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">weights=</span><span class="sc">~</span>pw, </span>
+<span id="cb595-3"><a href="6-valimiuuringud.html#cb595-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data=</span>apiclus1, </span>
+<span id="cb595-4"><a href="6-valimiuuringud.html#cb595-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fpc=</span><span class="sc">~</span>fpc)</span></code></pre></div>
+</div>
+<div id="mitmetasandilise-klastervalimi-defineerimine" class="section level3 hasAnchor" number="6.5.4">
+<h3><span class="header-section-number">6.5.4</span> Mitmetasandilise klastervalimi defineerimine<a href="6-valimiuuringud.html#mitmetasandilise-klastervalimi-defineerimine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Andmestikuks on <em>apiclus2</em>, kus esimese tasandina (<em>PSU</em>) on valitud kooli piirkonnad ja teise tasandina (<em>SSU</em>) koolid. Ehk kõigepealt on tehtud piirkondade valim ja seejärel igas valimisse sattunud piirkonnas omakorda koolide valim.</p>
+<ul>
+<li><code>ids</code> argumeniga on defineeritud PSU ja SSU id’d</li>
+<li><code>fpc</code> argumendiga on defineeritud PSU ja SSU üldkogumite suurused (vastavalt piirkondade koguarv ja koolide koguarv piirkonnas)</li>
+</ul>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="6-valimiuuringud.html#cb596-1" aria-hidden="true" tabindex="-1"></a>des_clus2 <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids=</span><span class="sc">~</span>dnum<span class="sc">+</span>snum, </span>
+<span id="cb596-2"><a href="6-valimiuuringud.html#cb596-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fpc=</span><span class="sc">~</span>fpc1<span class="sc">+</span>fpc2, </span>
+<span id="cb596-3"><a href="6-valimiuuringud.html#cb596-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">data=</span>apiclus2)</span></code></pre></div>
+</div>
+<div id="replikatsioonikaaludega-valimi-defineerimine" class="section level3 hasAnchor" number="6.5.5">
+<h3><span class="header-section-number">6.5.5</span> Replikatsioonikaaludega valimi defineerimine<a href="6-valimiuuringud.html#replikatsioonikaaludega-valimi-defineerimine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Replikatsioonikaalude tegemiseks on <em>survey</em> funktsioon <code>as.svrepdesign()</code>, mis võtab sisendiks olemasoleva ilma replikatsioonikaaludeta disainiobjekti ja annab väljundiks kaaludega disainiobjekti.</p>
+<ul>
+<li><code>design</code> argumendiga defineeritakse survey disain, millele tahetakse replikatsioonikaale arvutada</li>
+<li><code>type</code> argumendiga defineeritakse replikatsioonimeetodi tüüp. Variandid on “auto”, “JK1”, “JKn”, “BRR”, “bootstrap”, “subbootstrap”,“mrbbootstrap”,“Fay”. Täpsemalt on ndende kohta võimalik lugeda funktsiooni abifailist: <code>?as.svrepdesign</code></li>
+</ul>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="6-valimiuuringud.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Defineerime kõigepealt survey disaini </span></span>
+<span id="cb597-2"><a href="6-valimiuuringud.html#cb597-2" aria-hidden="true" tabindex="-1"></a>des_clus <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids=</span><span class="sc">~</span>dnum, </span>
+<span id="cb597-3"><a href="6-valimiuuringud.html#cb597-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">weights=</span><span class="sc">~</span>pw, </span>
+<span id="cb597-4"><a href="6-valimiuuringud.html#cb597-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data=</span>apiclus1)</span>
+<span id="cb597-5"><a href="6-valimiuuringud.html#cb597-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Arvutame kaalud</span></span>
+<span id="cb597-6"><a href="6-valimiuuringud.html#cb597-6" aria-hidden="true" tabindex="-1"></a>rw1<span class="ot">&lt;-</span><span class="fu">as.svrepdesign</span>(<span class="at">design =</span> des_clus,</span>
+<span id="cb597-7"><a href="6-valimiuuringud.html#cb597-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">type =</span> <span class="st">&#39;JK1&#39;</span>)</span></code></pre></div>
+<p>Replikatsioonikaalude kasutamiseks, juhul kui me ise neid kaale ei arvuta ja need on meie andmestikkus juba olemas, peame defineerima jällegi vastava survey disainiobjekti. Näidisandmestikes ühtegi replikatsioonikaaludega andmestikku ei ole. Kuid saame selle vähese vaevaga eelneva näite replikatsioonikaalude objekti abil teha:</p>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="6-valimiuuringud.html#cb598-1" aria-hidden="true" tabindex="-1"></a>indeks <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">indeks =</span> rw1<span class="sc">$</span>repweights<span class="sc">$</span>index)</span>
+<span id="cb598-2"><a href="6-valimiuuringud.html#cb598-2" aria-hidden="true" tabindex="-1"></a>kaalud <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(rw1<span class="sc">$</span>repweights<span class="sc">$</span>weights)</span>
+<span id="cb598-3"><a href="6-valimiuuringud.html#cb598-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(kaalud) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;rep_w_&#39;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb598-4"><a href="6-valimiuuringud.html#cb598-4" aria-hidden="true" tabindex="-1"></a>kaalud<span class="sc">$</span>indeks <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb598-5"><a href="6-valimiuuringud.html#cb598-5" aria-hidden="true" tabindex="-1"></a>kaalud <span class="ot">&lt;-</span> <span class="fu">left_join</span>(indeks, kaalud, <span class="at">by =</span> <span class="st">&#39;indeks&#39;</span>)</span>
+<span id="cb598-6"><a href="6-valimiuuringud.html#cb598-6" aria-hidden="true" tabindex="-1"></a>apiclus_rep <span class="ot">=</span> <span class="fu">cbind</span>(apiclus1, kaalud)</span></code></pre></div>
+<p>Kui kaaludega andmestik on olemas, siis saame replikatsioonikaalude disaini defineerida funktsiooniga <code>svrepdesign()</code>. Funktsioonis on kindlasti vaja defineerida järgmised argumendid:</p>
+<ul>
+<li><code>repweights</code> argumendiga defineeritakse replikatsioonikaalud. Neid kaale on tavaliselt küllaltki palju. Seega on otstarbekas need enne andmestikust välja võtta. Näiteks <em>dplyr</em> paketi <code>select()</code> funktsiooniga. Kuna tavaliselt on kaalud mingi kindla reegli alusel nimetatud, siis on mugav kasutada <code>starts_with()</code> funktsiooni, mis võimaldab valida kõik ühtse nimeosaga tunnused.</li>
+<li><code>type</code> argumendiga määratakse replikatsioonikaalude tüüp. Võimalikud tüübid on “BRR”,“Fay”,“JK1”, “JKn”,“bootstrap”,“ACS”,“successive-difference”,“JK2” ja “other”. See, millist tüüpi on vaja kasutada, peaks olema kirjas küsitluse dokumentatsioonis. Näiteks PISA uuringus on kasutatud “Fay” meetodit.</li>
+<li><code>data</code> argumendiga defineeritakse küsitluse andmestik.</li>
+<li><code>combined.weights</code> argument ütleb, kas valimi kaalud on juba liidetud replikatsioonikaaludele. Tvaliselt see nii ongi (ja <code>combined.weights</code> vaikimisi väärtus on T), kuid meie isetehtud andmestikus ei ole.</li>
+</ul>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="6-valimiuuringud.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb599-2"><a href="6-valimiuuringud.html#cb599-2" aria-hidden="true" tabindex="-1"></a>kaalud <span class="ot">&lt;-</span> apiclus_rep <span class="sc">%&gt;%</span> </span>
+<span id="cb599-3"><a href="6-valimiuuringud.html#cb599-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&#39;rep_w_&#39;</span>))</span>
+<span id="cb599-4"><a href="6-valimiuuringud.html#cb599-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb599-5"><a href="6-valimiuuringud.html#cb599-5" aria-hidden="true" tabindex="-1"></a>des_rw <span class="ot">&lt;-</span> <span class="fu">svrepdesign</span>(<span class="at">repweights =</span> kaalud,</span>
+<span id="cb599-6"><a href="6-valimiuuringud.html#cb599-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">weights =</span> <span class="sc">~</span>pw,</span>
+<span id="cb599-7"><a href="6-valimiuuringud.html#cb599-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">type =</span> <span class="st">&#39;JK1&#39;</span>,</span>
+<span id="cb599-8"><a href="6-valimiuuringud.html#cb599-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data =</span> apiclus_rep,</span>
+<span id="cb599-9"><a href="6-valimiuuringud.html#cb599-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">combined.weights =</span> F)</span></code></pre></div>
+</div>
+</div>
+<div id="valimiandmete-analüüs" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Valimiandmete analüüs<a href="6-valimiuuringud.html#valimiandmete-analüüs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Kui valimidisain on defineeritud, siis saab seda kasutada edasistes analüüsides. Selleks on terve hulk <em>survey</em> funktsioone, mis kõik algavd <em>svy</em> eeliitega. Tasub meeles pidada, et <em>survey</em> diainiobjektid sobivad sisendina ainult <em>survey</em> funktsioonidele (mõne erandiga). Näiteks tavalise lineaarse regressiooni <code>lm()</code> funktsiooni kasutada ei saa (küll aga <em>survey</em> <code>glm()</code> funktsiooni, mis võimaldab meil samuti lineaarset regressiooni jooksutada). Silmas tasub pidada ka seda, et enamke funktsioonide puhul on vaja kasutada tilde märki.</p>
+<p><strong>Üldkogumi kogusumma:</strong></p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="6-valimiuuringud.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mitu õpilast õpib Kalifornia koolides (enroll tunnus)</span></span>
+<span id="cb600-2"><a href="6-valimiuuringud.html#cb600-2" aria-hidden="true" tabindex="-1"></a><span class="fu">svytotal</span>(<span class="sc">~</span>enroll, <span class="at">design =</span> des_clus)</span></code></pre></div>
+<pre><code>##          total     SE
+## enroll 3404940 941611</code></pre>
+<p><strong>Tunnuse keskmine:</strong></p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="6-valimiuuringud.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Akadeemilise võimekuse indeksi (tunnus api00) keskmine </span></span>
+<span id="cb602-2"><a href="6-valimiuuringud.html#cb602-2" aria-hidden="true" tabindex="-1"></a><span class="fu">svymean</span>(<span class="sc">~</span>api00, <span class="at">design =</span> des_clus)</span></code></pre></div>
+<pre><code>##         mean     SE
+## api00 644.17 23.779</code></pre>
+<p>Kui tahame keskmisele <strong>usalduspiire</strong>, siis saame kasutada funktsiooni <code>confint()</code>:</p>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="6-valimiuuringud.html#cb604-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">svymean</span>(<span class="sc">~</span>api00, <span class="at">design =</span> des_clus)</span>
+<span id="cb604-2"><a href="6-valimiuuringud.html#cb604-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mod)</span></code></pre></div>
+<pre><code>##          2.5 %   97.5 %
+## api00 597.5634 690.7754</code></pre>
+<p>Võime ka korraga mitme tunnuse keskmist hinnata:</p>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="6-valimiuuringud.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="fu">svymean</span>(<span class="sc">~</span>api00<span class="sc">+</span>api99, <span class="at">design =</span> des_clus)</span></code></pre></div>
+<pre><code>##         mean     SE
+## api00 644.17 23.779
+## api99 606.98 24.469</code></pre>
+<p>Saame ka <strong>kategoriaalsete tunnuste proportsioone</strong> hinnata:</p>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="6-valimiuuringud.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">svymean</span>(<span class="sc">~</span>stype, <span class="at">design =</span> des_clus)</span></code></pre></div>
+<pre><code>##            mean     SE
+## stypeE 0.786885 0.0468
+## stypeH 0.076503 0.0271
+## stypeM 0.136612 0.0299</code></pre>
+<p><strong>Kvantiilid:</strong></p>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="6-valimiuuringud.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vajalikud kvantiilid defineerime vektorina</span></span>
+<span id="cb610-2"><a href="6-valimiuuringud.html#cb610-2" aria-hidden="true" tabindex="-1"></a><span class="fu">svyquantile</span>(<span class="sc">~</span>api00, </span>
+<span id="cb610-3"><a href="6-valimiuuringud.html#cb610-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">design =</span> des_clus, </span>
+<span id="cb610-4"><a href="6-valimiuuringud.html#cb610-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">quantiles =</span> <span class="fu">c</span>(.<span class="dv">25</span>,.<span class="dv">5</span>,.<span class="dv">75</span>))</span></code></pre></div>
+<pre><code>## $api00
+##      quantile ci.2.5 ci.97.5       se
+## 0.25      552    491     628 31.93791
+## 0.5       652    559     715 36.36725
+## 0.75      719    696     777 18.88300
+## 
+## attr(,&quot;hasci&quot;)
+## [1] TRUE
+## attr(,&quot;class&quot;)
+## [1] &quot;newsvyquantile&quot;</code></pre>
+<p><strong>Gruppide kaupa hinnagud:</strong></p>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="6-valimiuuringud.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="fu">svyby</span>(<span class="sc">~</span>api00, </span>
+<span id="cb612-2"><a href="6-valimiuuringud.html#cb612-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">by =</span> <span class="sc">~</span>stype, </span>
+<span id="cb612-3"><a href="6-valimiuuringud.html#cb612-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">design =</span> des_clus, </span>
+<span id="cb612-4"><a href="6-valimiuuringud.html#cb612-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">FUN =</span> svymean)</span></code></pre></div>
+<pre><code>##   stype    api00       se
+## E     E 648.8681 22.58731
+## H     H 618.5714 38.40263
+## M     M 631.4400 31.92737</code></pre>
+<p>Saame hinnata ka mitut tunnust mitme grupi lõikes:</p>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="6-valimiuuringud.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="fu">svyby</span>(<span class="sc">~</span>api00<span class="sc">+</span>api99, </span>
+<span id="cb614-2"><a href="6-valimiuuringud.html#cb614-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">by =</span> <span class="sc">~</span>stype<span class="sc">+</span>sch.wide, </span>
+<span id="cb614-3"><a href="6-valimiuuringud.html#cb614-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">design =</span> des_clus, </span>
+<span id="cb614-4"><a href="6-valimiuuringud.html#cb614-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">FUN =</span> svymean)</span></code></pre></div>
+<pre><code>##       stype sch.wide    api00    api99 se.api00 se.api99
+## E.No      E       No 596.3333 601.6667 43.92749 47.75128
+## H.No      H       No 659.3333 662.0000 27.27433 29.52400
+## M.No      M       No 606.3750 611.3750 41.53039 41.53240
+## E.Yes     E      Yes 653.6439 608.3485 20.52153 21.74141
+## H.Yes     H      Yes 607.4545 577.6364 44.14423 46.96892
+## M.Yes     M      Yes 643.2353 607.2941 42.55219 42.95820</code></pre>
+<p>Kui on vaja usalduspiire:</p>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="6-valimiuuringud.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="fu">svyby</span>(<span class="sc">~</span>api00<span class="sc">+</span>api99, <span class="at">by =</span> <span class="sc">~</span>stype<span class="sc">+</span>sch.wide, <span class="at">design =</span> des_clus, <span class="at">FUN =</span> svymean, <span class="at">vartype =</span> <span class="st">&#39;ci&#39;</span>)</span></code></pre></div>
+<pre><code>##       stype sch.wide    api00    api99 ci_l.api00 ci_l.api99 ci_u.api00
+## E.No      E       No 596.3333 601.6667   510.2370   508.0759   682.4296
+## H.No      H       No 659.3333 662.0000   605.8766   604.1340   712.7900
+## M.No      M       No 606.3750 611.3750   524.9769   529.9730   687.7731
+## E.Yes     E      Yes 653.6439 608.3485   613.4225   565.7361   693.8654
+## H.Yes     H      Yes 607.4545 577.6364   520.9334   485.5790   693.9756
+## M.Yes     M      Yes 643.2353 607.2941   559.8345   523.0976   726.6361
+##       ci_u.api99
+## E.No    695.2575
+## H.No    719.8660
+## M.No    692.7770
+## E.Yes   650.9609
+## H.Yes   669.6938
+## M.Yes   691.4906</code></pre>
+<p>Regressioonimudelite jaoks on funktsioon <code>svyglm()</code>, mis on väga sarnane <code>glm()</code> funktsioonile.</p>
+<p><strong>Tavaline lineaarne regressioon:</strong></p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="6-valimiuuringud.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lineaarse regressiooni jaoks defineerime argumendi family = gaussian(). </span></span>
+<span id="cb618-2"><a href="6-valimiuuringud.html#cb618-2" aria-hidden="true" tabindex="-1"></a><span class="co"># See on tegelikult ka vaikimis väärtus </span></span>
+<span id="cb618-3"><a href="6-valimiuuringud.html#cb618-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  ja me ei pea seda ilmtingimata märkima</span></span>
+<span id="cb618-4"><a href="6-valimiuuringud.html#cb618-4" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">svyglm</span>(api00 <span class="sc">~</span> ell <span class="sc">+</span> meals <span class="sc">+</span> mobility, </span>
+<span id="cb618-5"><a href="6-valimiuuringud.html#cb618-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">design =</span> des_clus, </span>
+<span id="cb618-6"><a href="6-valimiuuringud.html#cb618-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">gaussian</span>())</span>
+<span id="cb618-7"><a href="6-valimiuuringud.html#cb618-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## svyglm(formula = api00 ~ ell + meals + mobility, design = des_clus, 
+##     family = gaussian())
+## 
+## Survey design:
+## svydesign(ids = ~dnum, weights = ~pw, data = apiclus1)
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 819.2791    21.6051  37.921 5.18e-13 ***
+## ell          -0.5167     0.3273  -1.579    0.143    
+## meals        -3.1232     0.2809 -11.119 2.54e-07 ***
+## mobility     -0.1689     0.4494  -0.376    0.714    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for gaussian family taken to be 3157.85)
+## 
+## Number of Fisher Scoring iterations: 2</code></pre>
+<p><strong>Logistiline regressioon:</strong></p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="6-valimiuuringud.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="co"># family = binomial()</span></span>
+<span id="cb620-2"><a href="6-valimiuuringud.html#cb620-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tunnus awards on kategooriatega &quot;Yes&quot; ja &quot;No&quot;. </span></span>
+<span id="cb620-3"><a href="6-valimiuuringud.html#cb620-3" aria-hidden="true" tabindex="-1"></a><span class="co"># I(awards == &#39;Yes&#39;) käsu abil muudame kõik Yes&#39;id TRUE&#39;ks </span></span>
+<span id="cb620-4"><a href="6-valimiuuringud.html#cb620-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  ja ülejäänud väärtused FALSE&#39;ik</span></span>
+<span id="cb620-5"><a href="6-valimiuuringud.html#cb620-5" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">svyglm</span>(<span class="fu">I</span>(awards <span class="sc">==</span> <span class="st">&#39;Yes&#39;</span>) <span class="sc">~</span> ell <span class="sc">+</span> meals <span class="sc">+</span> mobility, </span>
+<span id="cb620-6"><a href="6-valimiuuringud.html#cb620-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">design =</span> des_clus, </span>
+<span id="cb620-7"><a href="6-valimiuuringud.html#cb620-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>())</span>
+<span id="cb620-8"><a href="6-valimiuuringud.html#cb620-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## svyglm(formula = I(awards == &quot;Yes&quot;) ~ ell + meals + mobility, 
+##     design = des_clus, family = binomial())
+## 
+## Survey design:
+## svydesign(ids = ~dnum, weights = ~pw, data = apiclus1)
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)  0.425949   0.351961   1.210   0.2516  
+## ell          0.041120   0.015248   2.697   0.0208 *
+## meals       -0.014643   0.007044  -2.079   0.0618 .
+## mobility     0.007534   0.013571   0.555   0.5899  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 0.9907103)
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<div id="plausible-values" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Plausible values<a href="6-valimiuuringud.html#plausible-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><em>Plausible values</em> või eesti keeles siis ehk usutavad väärtused ei ole tegelikult otseselt küsitlusuuringute teema selles mõttes, et need ei ole seotud valimidisainiga. Küll aga kasutatakse neid küsitlusuuringutes (näiteks PIAACi ja PISA uuringutes), seega on asjakohane neid siin ka põgusalt käsitleda. PIAACi uuringu eesmärgiks on mõõta täiskasvanute oskusi (lugemis-, arvutamis- ja probleemilahendusoskused). Kui me aga vaatame PIAACi andmefaili, siis näeme seal ei ole iga mõõdetava oskuse kohta ühte tunnust, vaid tervelt 10 erinevat tunnust. Need 10 tunnust iga oskuse kohta on nende oskuste usutavad väärtused. Need väärtused on tuletatud iga inimese jaoks lähtuvalt selle inimese vastustest oskusi mõõtvatele küsimustele. Iga inimese jaoks kontrueeritakse tema oskuse tõenäosusjaotus (selleks kasutatakse IRT (<em>Item Response Theory</em>) meetodeid). Seejärel võetakse sellest jaotusest 10 juhuslikku väärtus, mis ongi selle inimese usutavad väärtused.
+Kui me tahame nüüd teada, et kas meeste või naiste lugemisoskus on keskmiselt parem, siis mida me tegema peaksime? Me ei tohiks kindlasti arvutada iga inimese jaoks tema usutavate väärtuste keskmist. Samuti ei tohiks me kasutada ainult ühte usutavat väärtust. Mõlemal juhul oleks meie järeldused valed.<br />
+Et saada korrektseid tulemusi, peaksime võrdlema esimese usutava väärtuse tulemusi meeste ja naiste vahel, seejärel võrdlema teise usutava väärtuse tulemusi meeste ja naiste vahel ja nii kümme korda. Seejärel peaksime arvutama kõikide kümne meeste ja naiste erinevuse keskmise, mis olekski korrektne meeste ja naiste erinevus.<br />
+Tundub päris aeganõudev ja tüütu. Õnneks on ka lihtsam viis - kasutada jällegi Ri <em>survey</em> paketti (koos <em>mitools</em> paketiga):</p>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="6-valimiuuringud.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kõigepealt vajalikud paketid. </span></span>
+<span id="cb622-2"><a href="6-valimiuuringud.html#cb622-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Kui teil neid installitud ei ole, siis tehke seda</span></span>
+<span id="cb622-3"><a href="6-valimiuuringud.html#cb622-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb622-4"><a href="6-valimiuuringud.html#cb622-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survey)</span>
+<span id="cb622-5"><a href="6-valimiuuringud.html#cb622-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mitools)</span>
+<span id="cb622-6"><a href="6-valimiuuringud.html#cb622-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span></code></pre></div>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="6-valimiuuringud.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tõmbame OECD lehelt Piaaci Eesti andmestiku (SPSS faili)</span></span>
+<span id="cb623-2"><a href="6-valimiuuringud.html#cb623-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Selle koodiga tõmbame nad kodukataloogi alamkataloogi &quot;./andmed&quot;</span></span>
+<span id="cb623-3"><a href="6-valimiuuringud.html#cb623-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Võite alati ka otse OECD lehele minna ja andmestiku sealt tõmmata</span></span>
+<span id="cb623-4"><a href="6-valimiuuringud.html#cb623-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;data&quot;</span>)</span>
+<span id="cb623-5"><a href="6-valimiuuringud.html#cb623-5" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">&quot;https://webfs.oecd.org/piaac/puf-data/SPSS/prgestp1.sav&quot;</span>, </span>
+<span id="cb623-6"><a href="6-valimiuuringud.html#cb623-6" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;./data/prgestp1.sav&quot;</span>, <span class="at">method=</span><span class="st">&quot;auto&quot;</span>, <span class="at">mode=</span><span class="st">&quot;wb&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="6-valimiuuringud.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loeme andmed sisse</span></span>
+<span id="cb624-2"><a href="6-valimiuuringud.html#cb624-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">read_spss</span>(<span class="st">&#39;./data/prgestp1.sav&#39;</span>))</span>
+<span id="cb624-3"><a href="6-valimiuuringud.html#cb624-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb624-4"><a href="6-valimiuuringud.html#cb624-4" aria-hidden="true" tabindex="-1"></a><span class="co"># PIAACI andmestikus on kasutatud replikatsioonikaale</span></span>
+<span id="cb624-5"><a href="6-valimiuuringud.html#cb624-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Otsime kaalude nimed välja </span></span>
+<span id="cb624-6"><a href="6-valimiuuringud.html#cb624-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Kasutame selleks stringr paketi funktsiooni str_subset</span></span>
+<span id="cb624-7"><a href="6-valimiuuringud.html#cb624-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Kõigepealt valimi kaal</span></span>
+<span id="cb624-8"><a href="6-valimiuuringud.html#cb624-8" aria-hidden="true" tabindex="-1"></a>mw <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(<span class="fu">names</span>(dat), <span class="st">&quot;^SPFWT0$&quot;</span>)</span>
+<span id="cb624-9"><a href="6-valimiuuringud.html#cb624-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Seejärel replikatsioonikaalud</span></span>
+<span id="cb624-10"><a href="6-valimiuuringud.html#cb624-10" aria-hidden="true" tabindex="-1"></a>rw <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(<span class="fu">names</span>(dat), <span class="st">&quot;^SPFWT[1-9][0-9]*$&quot;</span>)</span>
+<span id="cb624-11"><a href="6-valimiuuringud.html#cb624-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb624-12"><a href="6-valimiuuringud.html#cb624-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Otsime välja ka oskuste usutavate väärtusete tunnused</span></span>
+<span id="cb624-13"><a href="6-valimiuuringud.html#cb624-13" aria-hidden="true" tabindex="-1"></a>lit <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(<span class="fu">names</span>(dat), <span class="st">&quot;^PVLIT[0-9]+&quot;</span>)</span>
+<span id="cb624-14"><a href="6-valimiuuringud.html#cb624-14" aria-hidden="true" tabindex="-1"></a>num <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(<span class="fu">names</span>(dat), <span class="st">&quot;^PVNUM[0-9]+&quot;</span>)</span>
+<span id="cb624-15"><a href="6-valimiuuringud.html#cb624-15" aria-hidden="true" tabindex="-1"></a>prob <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(<span class="fu">names</span>(dat), <span class="st">&quot;^PVPSL[0-9]+&quot;</span>)</span>
+<span id="cb624-16"><a href="6-valimiuuringud.html#cb624-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb624-17"><a href="6-valimiuuringud.html#cb624-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Loome survey disaini</span></span>
+<span id="cb624-18"><a href="6-valimiuuringud.html#cb624-18" aria-hidden="true" tabindex="-1"></a>des_piaac <span class="ot">&lt;-</span> <span class="fu">svrepdesign</span>(<span class="at">repweights=</span>dat[,rw],</span>
+<span id="cb624-19"><a href="6-valimiuuringud.html#cb624-19" aria-hidden="true" tabindex="-1"></a>                   <span class="at">weights=</span>dat[,mw], <span class="at">type=</span><span class="st">&quot;JK2&quot;</span>, <span class="at">data =</span> dat)</span></code></pre></div>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="6-valimiuuringud.html#cb625-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="fu">paste0</span>(<span class="st">&#39;lit~&#39;</span>, <span class="fu">paste</span>(lit, <span class="at">collapse =</span> <span class="st">&#39;+&#39;</span>)))</span>
+<span id="cb625-2"><a href="6-valimiuuringud.html#cb625-2" aria-hidden="true" tabindex="-1"></a>results_list<span class="ot">&lt;-</span><span class="fu">withPV</span>(</span>
+<span id="cb625-3"><a href="6-valimiuuringud.html#cb625-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> f,</span>
+<span id="cb625-4"><a href="6-valimiuuringud.html#cb625-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> des_piaac,</span>
+<span id="cb625-5"><a href="6-valimiuuringud.html#cb625-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="fu">quote</span>(<span class="fu">svyby</span>(<span class="sc">~</span>lit, <span class="at">by =</span> <span class="sc">~</span>GENDER_R, <span class="at">design =</span> des_piaac, <span class="at">FUN =</span> svymean, <span class="at">na.rm =</span> T)))</span>
+<span id="cb625-6"><a href="6-valimiuuringud.html#cb625-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb625-7"><a href="6-valimiuuringud.html#cb625-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">MIcombine</span>(results_list))</span></code></pre></div>
+<pre><code>## Multiple imputation results:
+##       withPV.svyrep.design(mapping = f, data = des_piaac, action = quote(svyby(~lit, 
+##     by = ~GENDER_R, design = des_piaac, FUN = svymean, na.rm = T)))
+##       MIcombine.default(results_list)
+##    results        se   (lower   upper) missInfo
+## 1 275.0582 1.0832068 272.8910 277.2254     41 %
+## 2 276.6413 0.8109968 275.0258 278.2569     36 %</code></pre>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="6-valimiuuringud.html#cb627-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hindame regressioonimudeliga soo mõju lugemisoskusele</span></span>
+<span id="cb627-2"><a href="6-valimiuuringud.html#cb627-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Tulemus peaks olema sama, mis eelmises analüüsis</span></span>
+<span id="cb627-3"><a href="6-valimiuuringud.html#cb627-3" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="fu">paste0</span>(<span class="st">&#39;lit~&#39;</span>, <span class="fu">paste</span>(lit, <span class="at">collapse =</span> <span class="st">&#39;+&#39;</span>)))</span>
+<span id="cb627-4"><a href="6-valimiuuringud.html#cb627-4" aria-hidden="true" tabindex="-1"></a>results_list<span class="ot">&lt;-</span><span class="fu">withPV</span>(</span>
+<span id="cb627-5"><a href="6-valimiuuringud.html#cb627-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> f,</span>
+<span id="cb627-6"><a href="6-valimiuuringud.html#cb627-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> des_piaac,</span>
+<span id="cb627-7"><a href="6-valimiuuringud.html#cb627-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">action =</span> <span class="fu">quote</span>(<span class="fu">svyglm</span>(lit<span class="sc">~</span><span class="fu">as.factor</span>(GENDER_R), <span class="at">design =</span> des_piaac, <span class="at">family =</span> <span class="fu">gaussian</span>())))</span>
+<span id="cb627-8"><a href="6-valimiuuringud.html#cb627-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb627-9"><a href="6-valimiuuringud.html#cb627-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">MIcombine</span>(results_list))</span></code></pre></div>
+<pre><code>## Multiple imputation results:
+##       withPV.svyrep.design(mapping = f, data = des_piaac, action = quote(svyglm(lit ~ 
+##     as.factor(GENDER_R), design = des_piaac, family = gaussian())))
+##       MIcombine.default(results_list)
+##                         results       se      (lower     upper) missInfo
+## (Intercept)          275.058207 1.083207 272.8909806 277.225433     41 %
+## as.factor(GENDER_R)2   1.583098 1.243243  -0.8602807   4.026478     15 %</code></pre>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="5-mitmetasandiline-regressioon.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="7-struktuurivõrrandite-mudelid.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
