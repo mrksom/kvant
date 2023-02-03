@@ -34,7 +34,6 @@
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -93,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -159,6 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mudelite-võrdlemine"><i class="fa fa-check"></i><b>2.8</b> Mudelite võrdlemine</a></li>
 <li class="chapter" data-level="2.9" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-eeldused"><i class="fa fa-check"></i><b>2.9</b> Regressioonimudeli eeldused</a></li>
 <li class="chapter" data-level="2.10" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kuidas-eelduste-täidetust-hinnata"><i class="fa fa-check"></i><b>2.10</b> Kuidas eelduste täidetust hinnata?</a></li>
+<li class="chapter" data-level="2.11" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#tunnuste-transformatsioonid"><i class="fa fa-check"></i><b>2.11</b> Tunnuste transformatsioonid</a></li>
 </ul></li>
 <li class="part"><span><b>II Üldistatud lineaarsed mudelid</b></span></li>
 <li class="chapter" data-level="3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html"><i class="fa fa-check"></i><b>3</b> Logistiline regressioon</a>
@@ -1003,16 +1003,16 @@ Nii saame kõik eelnevad käsud panna ühte jadasse:</p>
 <pre><code>## # A tibble: 10 x 19
 ##     year month   day dep_time sched_de~1 dep_d~2 arr_t~3 sched~4 arr_d~5 carrier
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;      &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
-##  1  2013     6    28     1357       1359      -2    1627    1632      -5 DL     
-##  2  2013     9    21      849        859     -10    1054    1108     -14 EV     
-##  3  2013     9    24      801        805      -4    1056    1101      -5 DL     
-##  4  2013     6     9     1758       1800      -2    2133    2140      -7 AA     
-##  5  2013    12    12     2048       2054      -6    2327    2306      21 EV     
-##  6  2013     7     7     2123       1711     252     157    2039     318 B6     
-##  7  2013     3    13     1532       1523       9    1631    1636      -5 EV     
-##  8  2013     3     4     2013       2015      -2    2305    2318     -13 DL     
-##  9  2013    10     2     1434       1436      -2    1810    1835     -25 B6     
-## 10  2013     4    15      757        802      -5     915     928     -13 EV     
+##  1  2013     3    11     1227       1235      -8    1532    1552     -20 DL     
+##  2  2013     4    23     2116       2019      57    2242    2157      45 UA     
+##  3  2013     2    14      853        859      -6    1044    1049      -5 UA     
+##  4  2013    10    25      629        629       0     932     929       3 AA     
+##  5  2013     4    22       NA       1815      NA      NA    2036      NA 9E     
+##  6  2013     3    31     1458       1500      -2    1628    1638     -10 9E     
+##  7  2013     8    24     1946       2000     -14    2242    2315     -33 AA     
+##  8  2013     4    17     1143       1135       8    1507    1447      20 DL     
+##  9  2013     4    12      843        850      -7    1251    1300      -9 AA     
+## 10  2013     6    12     1132       1120      12    1237    1226      11 B6     
 ## # ... with 9 more variables: flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;,
 ## #   dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,
 ## #   time_hour &lt;dttm&gt;, and abbreviated variable names 1: sched_dep_time,
@@ -1204,9 +1204,9 @@ Nii saame kõik eelnevad käsud panna ühte jadasse:</p>
 ## Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <p>Praegune aeg:</p>
 <div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="1-sissejuhatus-r-i.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">today</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2022-10-02&quot;</code></pre>
+<pre><code>## [1] &quot;2023-02-04&quot;</code></pre>
 <div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="1-sissejuhatus-r-i.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">now</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2022-10-02 22:42:27 EEST&quot;</code></pre>
+<pre><code>## [1] &quot;2023-02-04 01:18:31 EET&quot;</code></pre>
 <p>Kestus:</p>
 <div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="1-sissejuhatus-r-i.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mitu sekundit kestab päev</span></span>
 <span id="cb307-2"><a href="1-sissejuhatus-r-i.html#cb307-2" aria-hidden="true" tabindex="-1"></a><span class="fu">duration</span>(<span class="at">day =</span> <span class="dv">1</span>)</span></code></pre></div>

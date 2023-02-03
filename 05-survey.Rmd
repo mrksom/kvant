@@ -38,7 +38,7 @@ dt %>%
   filter(Maakond != "Eesti") %>%
   flextable() %>% 
   autofit() %>% 
-  colformat_double(big.mark = ' ')
+  colformat_double(big.mark = ' ', digits = 0)
 
   
 ```
@@ -78,8 +78,9 @@ dt %>%
   mutate(`Kaalud` = 1/`Tõenäosus`) %>% 
   flextable() %>% 
   autofit() %>% 
-  colformat_double(big.mark = ' ')
-  
+  colformat_double(j =c(2,3), big.mark = ' ', decimal.mark = ',', digits = 0) %>% 
+  colformat_double(j =c(4), decimal.mark = ',', digits = 4) %>% 
+  colformat_double(j =c(5), decimal.mark = ',', digits = 1)
 
   
 ```

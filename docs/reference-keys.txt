@@ -2,6 +2,11 @@ fig:reg-plot-4
 fig:reg-plot-5
 fig:ss
 fig:anscombe
+fig:sissetulek-jaotus
+tab:tab-log
+fig:unnamed-chunk-39
+fig:log-reg
+fig:unnamed-chunk-49
 fig:glm-1
 fig:odds
 fig:glm-3
@@ -55,6 +60,13 @@ koosmõjud-kategoriaalsete-tunnuste-puhul
 mudelite-võrdlemine
 regressioonimudeli-eeldused
 kuidas-eelduste-täidetust-hinnata
+lineaarne-seos-ja-jääkide-dispersiooni-homogeensus.
+jääkide-normaaljaotus
+jääkide-dispersiooni-homogeensus
+mõjukad-vaatlused
+tunnuste-transformatsioonid
+lineaarsed-transformatsioonid
+mitte-lineaarsed-transformatsioonid
 logistiline-regressioon
 šansid
 logit

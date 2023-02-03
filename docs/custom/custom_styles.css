@@ -56,7 +56,7 @@ font-family: 'Source Sans Pro', sans-serif;
 
 /* for TOC part names */
 
-li.appendix span, li.part span { 
+li.appendix span, li.part span {  
   margin-top: 1em;
   color: #141d26 !important;
   opacity: 1 !important;

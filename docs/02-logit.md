@@ -6,8 +6,9 @@
 
 
 
-Logistilise regressiooniga (logit-mudeliga) saame hinnata sõltumatute tunnuste mõju binaarsele sõltuvale tunnusele (töötav/töötu, käis valimas/ei käinud valimas, surnud/ei ole surnud). Teisisõnu, hindame tõenäosust mingi sündmuse toimumiseks (*success*/*failure*).  Sõltuva tunnuse $y$ jaotus on määratletud kui sündmuse toimumise tõenäosus $P(Y=1)=\pi$.  
-Tavalise regressiooni mudel oli väljendatav kui $\bar{y}=\beta_0+\beta_p x_p$. Miks me ei võiks pidevtunnuselise $y$ keskmist asendada $\pi$'ga: $\bar{\pi}=\beta_0+\beta_k x_k$? Aga sellepärast, et tõenäosus on piiritletud $0$ ja $1$'ga, samas kui lineaarne funktsioon hõlmab kõiki reaalarvulisi väärtusi. Seega on ülimalt tõenäoline, et mingite $x$'i väärtuste puhul on prognoositav $y$ väärtus suurem kui $1$ või väiksem kui $0$. Lisaks tekivad probleemid jääkide struktuuriga (tavaline regressioon eeldab normaaljaotust) ja jääkide dispersiooniga (tavaline regressioon eeldab konstantset hajuvust).
+Logistilise regressiooniga (logit-mudeliga) saame hinnata sõltumatute tunnuste mõju binaarsele sõltuvale tunnusele (töötav/töötu, käis valimas/ei käinud valimas, surnud/ei ole surnud). Teisisõnu, hindame tõenäosust mingi sündmuse toimumiseks lähtuvalt mingitest teistest tunnustest (näiteks kuidas haridus mõjutab hõives olemist).  Sõltuva tunnuse $y$ jaotus on määratletud kui sündmuse toimumise tõenäosus $P(Y=1)=\pi$.  
+
+Tavalise regressioonimudel oli väljendatav kui $\bar{y}=\beta_0+\beta_p x_p$. Miks me ei võiks pidevtunnuselise $y$ keskmist asendada $\pi$'ga: $\bar{\pi}=\beta_0+\beta_k x_k$? Aga sellepärast, et tõenäosus on piiritletud $0$ ja $1$'ga, samas kui lineaarne funktsioon hõlmab kõiki reaalarvulisi väärtusi. Seega on ülimalt tõenäoline, et mingite $x$'i väärtuste puhul on prognoositav $y$ väärtus suurem kui $1$ või väiksem kui $0$. Lisaks tekivad probleemid jääkide struktuuriga (tavaline regressioon eeldab normaaljaotust) ja jääkide dispersiooniga (tavaline regressioon eeldab konstantset hajuvust).
 
 <div class="figure">
 <img src="02-logit_files/figure-html/glm-1-1.png" alt="Lineaarse regressiooni kasutamine binaarse sõltuva tunnusega" width="672" />
@@ -19,6 +20,7 @@ Tavalise regressiooni mudel oli väljendatav kui $\bar{y}=\beta_0+\beta_p x_p$. 
 Kuidas me saaksime tõenäosuse skaala ($0 \dots1$) teisendada pidevaks skaalaks ($-\infty \dots \infty$)? Et saada lahti maksimaalsest väärtusest ($1$), on võimalik kasutada sündmuse toimumise tõenäosuse asemel sündmuse toimumise šanssi (*odds*). Šanssideks nimetatakse sündmuse toimumise ja mittetoimumise suhet:
 
 $$\text{šansid}=\frac{p}{(1-p)}$$
+kus $p$ on siis sündmuse toimumise tõenäosus.  
 
 Näiteks kulli ja kirja viskamisel on kulli saamise šanss $\frac{0.5}{(1-0.5)}=1$. Šanss võtta kaardipakist ruutu on $\frac{0.25}{(1-0.25)}=\frac{1}{3}=0.33$. 
 
@@ -32,7 +34,7 @@ Näiteks kulli ja kirja viskamisel on kulli saamise šanss $\frac{0.5}{(1-0.5)}=
 $$p=\frac{\text{šansid}}{1+\text{šansid}}$$
 
 ## Logit    
-Kuid tõenäosuse alumine piir jääb sel juhul ikkagi ette. Ka šansid on altpoolt piiratud (nad ei saa olla väiksemad kui $0$). Lahenduseks on võtta šansside logaritm. Saadud väärtust nimetatakse **logit**-iks (*log odds*):  
+Kuid šansside puhul jääb tõenäosuse alumine piir ikkagi alles. Ka šansid on altpoolt piiratud (nad ei saa olla väiksemad kui $0$). Lahenduseks on võtta šansside logaritm. Saadud väärtust nimetatakse **logit**-iks (*log odds*):  
 
 $$\text{logit}=\log \bigg(\frac{p}{(1-p)}\bigg)$$
 
@@ -41,29 +43,38 @@ $$\text{logit}=\log \bigg(\frac{p}{(1-p)}\bigg)$$
 <p class="caption">(\#fig:glm-3)Logit-i ja tõenäosuse suhe</p>
 </div>
 
-## Logit mudel 
-Lõpuks saame mudeli võrrandi kokku panna:
-
-$$\text{logit}(\pi_i)=\text{log} \left(\dfrac{\pi_i}{1-\pi_i}\right)=\beta_0+\beta_1 x_i$$  
-
-Või kui võtame mõlemast poolest eksponendi:
-
-$$\frac{\pi_i}{1-\pi_i}=e^{({\beta_0}+\beta_1 x_i)}$$
-Sama võrrandit saab esitada ka nii: 
-
-$$\pi_i=Pr(Y_i=1|X_i=x_i)=\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}}$$  
-või hoopis nii:     
-
-$$\pi_i=Pr(Y_i=1|X_i=x_i)=\frac{1}{1+e^{-\beta_0-\beta_1 x_i}}$$
+Kui me nüüd teisendame oma tõenäosuse logitiks, ehk siis teisendame 0 ja 1-ga piiratud väärtuse pidevaks tunnuseks, siis saame selle hindamiseks kasutada tuttavat lineaarse regressiooni loogikat. saadav regressiooniseos näeks välja selline:
 
 <div class="figure">
 <img src="02-logit_files/figure-html/glm-2-1.png" alt="Logistiline regressioon võrdluses lineaarse regressiooniga" width="672" />
 <p class="caption">(\#fig:glm-2)Logistiline regressioon võrdluses lineaarse regressiooniga</p>
 </div>
 
+## Logit mudel 
+
+Taoline mudel näeb välja selline:
+
+$$\text{logit}(\pi_i)=\text{log} \left(\dfrac{\pi_i}{1-\pi_i}\right)=\beta_0+\beta_1 x_i$$  
+
+Tihti on sama võrrand estitatud mõnel muul kujul. Näiteks kui võtame mõlemast poolest eksponendi, siis näeb võrrand välja nii:
+
+$$\frac{\pi_i}{1-\pi_i}=e^{({\beta_0}+\beta_1 x_i)}$$
+Või kui kasutame eelnevalt esitatud šanssidest tõenäosuste saamise valemit: 
+
+$$\pi_i=Pr(Y_i=1|X_i=x_i)=\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}}$$  
+
+või siis ka nii:     
+
+$$\pi_i=Pr(Y_i=1|X_i=x_i)=\frac{1}{1+e^{-\beta_0-\beta_1 x_i}}$$
 
 ## Mudeli tõlgendus
-Tavalise regresioonimudeliga saime prognoosida $y$ väärtust mingite $x$ väärtuste korral (ja $y$ muutust, kui $x$ muutub ühe ühiku võrra). Sama kehtib ka logistilise regressiooni korral. Kuid mida me siinjuures täpsemalt prognoosime? Tahaksime kindlasti prognoosida (uuritava sündmuse toimumise) tõenäosust. Kuid kuna me teisendasime tõenäosuse logititeks, siis tegelikult saame prognoosida hoopis logitit. Ja ka ühe ühikuline muutus $x$-is ei peegelda mitte $y$ tõenäosuse muutust, vaid muutust logit($y$)-is. Logiteid ei oska me (vähemalt esialgu) kuidagi tõenäosuslikult tõlgendada. Mida siis teha? Lahenduseks on võtta *logit*-i võrrandi mõlemast poolest eksponent $exp(logit) = exp(\beta_0+\beta_1 x_i) \implies \frac{\pi_i}{1-\pi_i}=e^{({\beta_0}+\beta_1 x_i)}$. Sellisel juhul saab $y$-t tõlgendada kui šansse ja $\beta$-t kui muutust šanssides (mitu korda $x$-i ühe ühiku muutudes $y$ šansid suurenevad või vähenevad). Seda šansside muutust väljendavat kordajat nimetatakse šansside suhteks.
+Tavalise regresioonimudeliga saime prognoosida $y$ väärtust mingite $x$ väärtuste korral (ja $y$ muutust, kui $x$ muutub ühe ühiku võrra). Sama kehtib ka logistilise regressiooni puhul. Kuid mida me siinjuures täpsemalt prognoosime? Tahaksime kindlasti prognoosida (uuritava sündmuse toimumise) tõenäosust. Kuid kuna me teisendasime tõenäosuse logititeks, siis tegelikult saame prognoosida hoopis logitit. Ja ka ühe ühikuline muutus $x$-is ei peegelda mitte $y$ tõenäosuse muutust, vaid logit($y$)-i muutust. Logiteid ei oska me (vähemalt esialgu) kuidagi tõenäosuslikult tõlgendada. Mida siis teha? 
+
+Lahenduseks on võtta *logit*-i võrrandi mõlemast poolest eksponent 
+
+$$exp(logit) = exp(\beta_0+\beta_1 x_i) \implies \frac{\pi_i}{1-\pi_i}=e^{({\beta_0}+\beta_1 x_i)}$$ 
+
+Sellisel juhul saab $y$-t tõlgendada kui šansse ja $\beta$-t kui muutust šanssides (mitu korda $x$-i ühe ühiku muutudes $y$ šansid suurenevad või vähenevad). Seda šansside muutust väljendavat kordajat nimetatakse šansside suhteks.
 
 ### Šansside suhe
 Šansid saime leida valemiga:  
@@ -127,16 +138,29 @@ head(titanic)
 ```
 
 ```r
-# Defineerime mudeli
-mudel7 <- glm(I(Survived == "Yes")~Sex, data = titanic, family = binomial())
+# Ellujäämise tunnus (Survived) on tekstiline. Muudame selle numbriliseks (0/1)
+# või loogiliseks (TRUE/FALSE) tunnuseks
+
+titanic$surv <- titanic$Survived == "Yes"
+
+# Ja defineerime mudeli
+mudel7 <- glm(surv~Sex, data = titanic, family = binomial())
+
+# Saaksime ka lihtsamalt.
+# I(Survived == "Yes") notatsiooniga saame tekstilise tunnuse 
+# võrrandi sees loogilisek tunnuseks teisendada 
+# glm(I(Survived == "Yes")~Sex, data = titanic, family = binomial())
+#   
+# Tulemus oleks sama
+
+# Vaatme tulemusi
 summary(mudel7)
 ```
 
 ```
 ## 
 ## Call:
-## glm(formula = I(Survived == "Yes") ~ Sex, family = binomial(), 
-##     data = titanic)
+## glm(formula = surv ~ Sex, family = binomial(), data = titanic)
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
@@ -158,16 +182,7 @@ summary(mudel7)
 ## Number of Fisher Scoring iterations: 4
 ```
 
-```r
-# I(Survived == "Yes") notatsiooniga saame tekstilise tunnuse 
-# teisendada loogilisek tunnuseks 
-# saaksime seda teha ka näiteks nii:
-#   titanic$surv <- titanic$Survived == "Yes"
-#   glm(surv~Sex, data = titanic, family = binomial())
-# Tulemus on sama
-```
-
-Väljundist leiame kõigepealt regressioonikoefitsiendid, nende standardvead, z-väärtused ja z-testi *p*-väärtuse^[z-test puhul on tegemist t-testi analoogiga, mis ei lähtu mitte t-jaotusest, vaid normaaljaotusest. Tõlgendus on aga sama]. Kuid koefitsiendid on nüüd logititskaalal ja seepärast küllaltki raskesti tõlgendatavad. Saame siiski järeldada, et naiste tõenäosus ellu jääda oli suurem kui meestel (koefitsient on positiivne). Mõnevõrra lihtsam on tõlgendada šansside suhet. Selleks peame koefitsientidest eksponendi võtma:
+Väljund on väga sarnane `lm()` väljundile. Leiame seal regressioonikoefitsiendid, nende standardvead, z-väärtused ja z-testi *p*-väärtuse^[z-test puhul on tegemist t-testi analoogiga, mis ei lähtu mitte t-jaotusest, vaid normaaljaotusest. Tõlgendus on aga sama]. Kuid koefitsiendid on nüüd logititskaalal ja seepärast küllaltki raskesti tõlgendatavad. Saame siiski järeldada, et naiste tõenäosus ellu jääda oli suurem kui meestel (koefitsient on positiivne) ja meeste tõenäosus ellu jääda oli väiksem kui 0.5 (vabaliige, ehk meeste ellujäämistõenäose logit, on negatiivne). Mõnevõrra lihtsam on tõlgendada šansside suhet. Selleks peame koefitsientidest eksponendi võtma:
 
 
 ```r
@@ -179,7 +194,7 @@ exp(coef(mudel7))
 ##   0.2690616  10.1469660
 ```
 
-Vabaliiget tõlgendame kui referentsgrupi (antud juhul meeste) šansse ellu jääda. Seega mehe šanss Titanicul ellu jääda oli 0.26, ehk siis iga hukkunud mehe kohta jäi ellu 0.26 meest, või vastupidi $1 / 0.269 = 3.7$, iga ellujäänud mehe kohta hukkus 3.7 meest. Saame välja arvutada ka meeste ellujaamise tõenäosuse:
+Vabaliiget tõlgendame kui referentsgrupi (antud juhul meeste) šansse ellu jääda. Seega mehe šanss Titanicul ellu jääda oli 0.26, ehk siis iga hukkunud mehe kohta jäi ellu 0.26 meest, või vastupidi $1 / 0.269 = 3.7$, iga ellujäänud mehe kohta hukkus 3.7 meest. Saame välja arvutada ka meeste ellujäämise tõenäosuse:
 
 $$\pi=\frac{\text{šansid}}{1+\text{šansid}} = \frac{0.269}{1+0.269} = 0.21$$
 
@@ -191,19 +206,18 @@ Saame selle tõenäosuse ka otse välja arvutada, kui paneme koefitsiendid regre
 
 $$\pi=\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}} = \dfrac{e^{(-1.313+2.317 \times 1)}}{1+e^{(-1.313+2.317 \times 1)}} = 0.73$$
 
-Vaatme ka, kuidas muudab ellujäämise tõenäosust lisaks soole vanus (*Age* on siin kategoriaalne tunnus kategooriatega *Child* ja *Adult*). Eeldame ka soo ja vanuse koosmõju:
+Vaatme ka, kuidas muudab ellujäämise tõenäosust lisaks soole vanus (*Age* on siin kategoriaalne tunnus kategooriatega *Child* ja *Adult*). Eeldame ka soo ja vanuse koosmõju (st kontrollime kas erinevas vanuses meeste ja naiste elujäämistõenäosused erinevad):
 
 
 ```r
-mudel8 <- glm(I(Survived == "Yes")~Sex*Age, data = titanic, family = binomial())
+mudel8 <- glm(surv~Sex*Age, data = titanic, family = binomial())
 summary(mudel8)
 ```
 
 ```
 ## 
 ## Call:
-## glm(formula = I(Survived == "Yes") ~ Sex * Age, family = binomial(), 
-##     data = titanic)
+## glm(formula = surv ~ Sex * Age, family = binomial(), data = titanic)
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
@@ -227,7 +241,7 @@ summary(mudel8)
 ## Number of Fisher Scoring iterations: 4
 ```
 
-Täiskasvanuks olemine mõnevõrra langetab ellujäämise tõenäosust, kuid seda ainult meeste puhul (soo ja vanuse interaktsioon on positiivne). Tulemuste tõlgendamiseks võtame jälle koefitsientidest eksponendi:
+Täiskasvanuks olemine mõnevõrra langetas ellujäämise tõenäosust, kuid seda ainult meeste puhul (soo ja vanuse interaktsioon on positiivne). Tulemuste tõlgendamiseks võtame jälle koefitsientidest eksponendi:
 
 
 ```r
@@ -239,14 +253,14 @@ exp(coef(mudel8))
 ##          0.8285714          1.9878296          0.3069458          5.7344228
 ```
 
-Vabaliige kirjeldab ellujäämise šansse juhul kui sõltumatud tunnused on nullid. Ehk siis antud juhul ellujäämise šansse referentsgruppide kombinatsiooni puhul (lastest mehed ehk poisid). Seega poiste ellujäämise tõenäosus oli:
+Vabaliige kirjeldab ellujäämise šansse juhul kui sõltumatud tunnused on nullid. Ehk siis antud juhul ellujäämise šansse referentsgruppide kombinatsiooni puhul (noored mehed). Seega poiste ellujäämise tõenäosus oli:
 
 $$\pi = \frac{0.83}{1+0.83} = 0.45$$
-Tüdrukute (lastest naised) ellujäämise šhansid olid ca kaks korda (1.99) suuremad kui poistel (tõenäosus $\frac{0.83\times1.99}{1+(0.83\times1.99)} = 0.62$). Täiskasvanud meeste šansid olid $0.3\times0.83 = 0.24$  ja seega tõenäosus $\frac{0.24}{1+0.24} = 0.19$. Täiskasvanud naiste puhul peame appi võtma koosmõju koefitsiendi. Täiskavanud naiste šansid moodustuvad $0.83\times1.99\times0.3\times5.7 = 2.8$. Tõenäosusena teeb see $0.74$. 
+Tüdrukute (noorte naiste) ellujäämise šansid olid ca kaks korda (1.99) suuremad kui poistel (tõenäosus $\frac{0.83\times1.99}{1+(0.83\times1.99)} = 0.62$). Täiskasvanud meeste šansid olid $0.3\times0.83 = 0.24$  ja seega tõenäosus $\frac{0.24}{1+0.24} = 0.19$. Täiskasvanud naiste puhul peame appi võtma koosmõju koefitsiendi. Täiskavanud naiste šansid moodustuvad $0.83\times1.99\times0.3\times5.7 = 2.8$. Tõenäosusena teeb see $0.74$. 
 
 Näeme, et koosmõju on antud mudeli puhul vägagi sisukas. Meeste puhul täiskavanuks olemine langetas ellujäämise šansse, naiste puhul aga tõstis.
 
- 
+
 
 ::: {.teie-kord}
 Ülesanne!  
@@ -258,7 +272,9 @@ Näeme, et koosmõju on antud mudeli puhul vägagi sisukas. Meeste puhul täiska
 
 ## Mudeli kvaliteet
 
-Kuidas hinnata mudeli kvaliteeti? Meile ei anta ei jääkide standardviga ega determinatsioonikordajat. Küll on aga väljunis toodud *Null deviance* ja *Residual deviance*. *Deviance* kirjeldab mudeli hälvet ehk seda kui hästi (või õigem oleks öelda kui halvasti) meie mudel andmetega sobitub. Mida väiksem on *deviance*, seda paremini mudel andmetes leiduvaid seoseid peegeldab. *Null deviance* kirjeldab hälbimust nullmudelis, ehk ainult vabaliikmega mudelis (ainult keskmisega mudelis), ning *Residual deviance* hälbimust sõltumatute tunnustega mudelis. 
+Kuidas hinnata mudeli kvaliteeti? Meile ei anta ei jääkide standardviga ega determinatsioonikordajat. Küll on aga väljunis toodud *Null deviance* ja *Residual deviance*. *Deviance* kirjeldab mudeli hälvet ehk seda kui hästi (või õigem oleks öelda kui halvasti) meie mudel andmetega sobitub, ehk kui suur on erinevus meie andmete ja mudeli prognoosi vahel. Mida väiksem on *deviance*, seda väiksem on mudeli viga ehk seda täpsemini sobitub mudel andmetega. 
+
+*Null deviance* kirjeldab küllastunud mudeli hälbimust nullmudelist ning *Residual deviance* ehk jääkhälbimus defineeritud mudeli hälbimust küllastunud mudelist. Nullmudel on ainult vabaliikmega mudel (ehk mudel kus ei ole ühtegi selgitavat tunnust peale $Y$-i keskmise) ja küllastunud mudel on selline, kus on sama palju parameetreid kui andmepunkte (ehk mudel millega on kogu $Y$-i varieeruvus ära kirjeldatud).
 
 ### Mudeli sobivus
 
@@ -275,11 +291,15 @@ pchisq(res_dev, res_df, lower.tail = F)
 ## [1] 0.04209986
 ```
 
-`pchisq()` funktsiooniga saame testitulemusele ka *p*-väärtuse. Näeme, et see on väiksem kui $0.05$, mis tähendab, et meie mudel ei sobitu andmetega väga hästi (siin tahame, et *p*-väärtus oleks võimalikult suur). Reaaleluliste andmetega ongi tegelikult väga keeruline hästi sobituvat mudelit leida. Seega üldjuhul me lihtsalt lepime, et meie mudel ei ole täiuslik ja jätame selle testi tähelepanuta.
+`pchisq()` funktsiooniga saame testitulemusele ka *p*-väärtuse. Näeme, et see on väiksem kui $0.05$, mis tähendab, et meie mudel erineb küllastunud mudelist olulisel määra ja seega ei sobitu andmetega väga hästi (siin tahame, et *p*-väärtus oleks võimalikult suur, st meie mudeli ja küllastunud mudeli vahel ei oleks statistilist erinevust). Reaaleluliste ja suurte andmetega ongi tegelikult väga keeruline hästi sobituvat mudelit leida. Seega üldjuhul me lihtsalt lepime, et meie mudel ei ole täiuslik ja jätame selle testi tähelepanuta.
+
+Üks kasulik nipp on ka võrrelda jääkhälbimuse väärtust ja tema vabadusastmeid. Kui *Residual deviance* on oluliselt suurem kui tema *degrees of freedom*, siis annab see jällegi tunnistust halvast mudelist.
 
 ### Mudeli statistiline olulisus
 
-Näeme, et  sisuka mudeli hälve on võrreldes nullmudeliga tunduvalt väiksem^[Peame siin arvestama ka erinevust vabadusastmetes. Kuigi sisuka mudeli hälve on väiksem, on selles ka vähem vabadusastmeid]. See tähendab, et tänu sõltumatutele tunnustele  suudame me sõltuva tunnuse variatsiooni seletada paremini kui ainult keskmise abil. Aga kas mudeli hälve läks väiksemaks piisavalt paju, et me saaksime selle kohta ka statistiliselt olulisi järeldusi teha? Ehk siis kas me saame järeldada, et sõltumatud tunnused seletavad statistiliselt olulisel määral sõltuva tunnuse variatsiooni ja meie mudel on parem kui lihtsalt sõltuva tunnuse keskmine? Saame seda testida  *likelihood ratio* testiga. Arvutame esmalt hälvete erinevuse:
+Näeme, et meie sisuka mudeli hälve küllastunud mudelist (*Residual deviance*) on võrreldes nullmudeli erinevusega küllastunud mudelist (*Null deviance*) tunduvalt väiksem^[Peame siin arvestama ka erinevust vabadusastmetes. Kuigi sisuka mudeli hälve on väiksem, on selles ka vähem vabadusastmeid]. See tähendab, et tänu sõltumatutele tunnustele  suudame me sõltuva tunnuse variatsiooni seletada paremini kui ainult keskmise abil. Aga kas mudeli hälve läks väiksemaks piisavalt paju, et me saaksime selle kohta ka statistiliselt olulisi järeldusi teha? Ehk siis kas me saame järeldada, et sõltumatud tunnused seletavad statistiliselt olulisel määral sõltuva tunnuse variatsiooni ja meie mudel on parem kui lihtsalt sõltuva tunnuse keskmine? Saame seda testida  *likelihood ratio* testiga. 
+
+Arvutame esmalt *Null deviance* ja *Residual deviance* erinevuse. Seeläbi saame enda defineeritud mudeli hälbe nullmudelist:
 
 
 ```r
@@ -302,7 +322,7 @@ df_vahe
 ## [1] 3
 ```
 
-Hälvete vahe on jaotunud hii-ruut jaotuse alusel, seega saame hii-ruut jaotuse alusel määrata selle olulisust. Arvutame hälvete vahele olulisustõenäosuse. Kasutame selleks hii-ruut jaotuse funktsiooni `pchisq()`, mis tahab sisendina teatstatisikut (hälvete vahe) ja vabadusastemeid (vabadusasteme vahe). Samuti peame ütlema, et meid huvitab jaotuse parempoolse saba alla jääv tõenäosus.
+Hälvete vahe on jaotunud hii-ruut jaotuse alusel, seega saame hii-ruut jaotuse põhjal määrata selle olulisust. Arvutame hälvete vahele olulisustõenäosuse. Kasutame selleks hii-ruut jaotuse funktsiooni `pchisq()`, mis tahab sisendina teatstatisikut (hälvete vahe) ja vabadusastemeid (vabadusastemete vahe). Samuti peame ütlema, et meid huvitab jaotuse parempoolse saba alla jääv tõenäosus.
 
 
 ```r
@@ -328,8 +348,8 @@ anova(mudel8,
 ```
 ## Analysis of Deviance Table
 ## 
-## Model 1: I(Survived == "Yes") ~ Sex * Age
-## Model 2: I(Survived == "Yes") ~ 1
+## Model 1: surv ~ Sex * Age
+## Model 2: surv ~ 1
 ##   Resid. Df Resid. Dev Df Deviance  Pr(>Chi)    
 ## 1      2197     2312.8                          
 ## 2      2200     2769.5 -3  -456.68 < 2.2e-16 ***
@@ -348,8 +368,8 @@ lrtest(mudel8)
 ```
 ## Likelihood ratio test
 ## 
-## Model 1: I(Survived == "Yes") ~ Sex * Age
-## Model 2: I(Survived == "Yes") ~ 1
+## Model 1: surv ~ Sex * Age
+## Model 2: surv ~ 1
 ##   #Df  LogLik Df  Chisq Pr(>Chisq)    
 ## 1   4 -1156.4                         
 ## 2   1 -1384.7 -3 456.68  < 2.2e-16 ***
@@ -375,7 +395,7 @@ anova(mudel8, test = "Chisq")
 ## 
 ## Model: binomial, link: logit
 ## 
-## Response: I(Survived == "Yes")
+## Response: surv
 ## 
 ## Terms added sequentially (first to last)
 ## 
@@ -392,7 +412,7 @@ anova(mudel8, test = "Chisq")
 
 ### Pseudo-$R^2$
 
-Kui tavalise regressiooni puhul hindasime mudeli sobivust andmetega determinatsioonikordaja ($R^2$) abil, siis GLM-ide puhul vastavat näitajat ei ole. Küll on aga nn pseudo-$R^2$ statistikud, mida võib analoogsel viisil kasutada (need ei näita küll päris sama asja). Üheks selliseks on näiteks Mcfadden'i $R^2$:
+Kui tavalise regressiooni puhul hindasime mudeli sobivust andmetega determinatsioonikordaja ($R^2$) abil, siis GLM-ide puhul vastavat näitajat ei ole. Küll on aga nn pseudo-$R^2$ statistikud, mida võib analoogsel viisil kasutada (need ei näita küll päris sama asja, kuid tõlgendus on sama). Üheks selliseks on näiteks Mcfadden'i $R^2$. See jääb 0 ja 1 vahele ning mida suurem selle väärtus on, seda parem on mudeli *fit*. Üldiselt ei küündi see näitaja kunagi päris 1-ni ja nii loetakse näiteks väärtust 0.2-0.4 juba väga heaks *fit*-iks.
 
 
 ```r
@@ -414,6 +434,7 @@ pR2(mudel_r2)
 ```
 
 
+
 ## Predict
 
 Sageli tahame oma mudeli alusel prognoosida mingitele kindlatele sõltumatute tunnuste väärtustele sõltuva tunnuse hinnanguid. Saame loomulikult need sõltumatute tunnuste väärtused regressioonivõrrandisse sisse panna ja hinnangu käsitsi välja arvutada. Aga on ka mugavam variant. Nimelt `predict()` funktsioon^[`predict()` funktsiooni saab kasutada ka tavalise regressiooni puhul].  
@@ -430,7 +451,7 @@ ref_data <- data.frame(Sex = "Male", Age = "Adult")
 # Kasutame predict() funktsiooni ja lisame referentsandmestikule
 # pred tunnuse, millesse kirjutame prognoosi
 # Kuna tegemist on logit mudeliga, siis defaultis
-# prognoosib predict() logiteid Kui tahame teada
+# prognoosib predict() logiteid. Kui tahame teada
 # tõenäosusi, siis peame määrama type = 'response'
 
 ref_data$pred <- predict(mudel8, newdata = ref_data, type = "response")
@@ -452,6 +473,7 @@ ndata <- expand.grid(Sex = c("Male", "Female"), Age = c("Adult", "Child"))
 
 # Lisame andmestikule predictioni
 ndata$pred <- predict(mudel8, newdata = ndata, type = "response")
+
 ndata
 ```
 
@@ -467,7 +489,9 @@ Nüüd saame oma tulemused näiteks joonisele panna:
 
 
 ```r
-ggplot(ndata, aes(x = Sex, y = pred, color = Age))+
+ggplot(ndata, aes(x = Sex, 
+                  y = pred, 
+                  color = Age))+
   geom_point(position = position_dodge(width = 0.5), size = 3)+
   labs(y = "Survival probability")+
   scale_y_continuous(labels = scales::percent)+
@@ -476,6 +500,7 @@ ggplot(ndata, aes(x = Sex, y = pred, color = Age))+
 ```
 
 <img src="02-logit_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+
 
 ### Broom
 
@@ -491,15 +516,14 @@ head(mudel_fit)
 
 ```
 ## # A tibble: 6 x 9
-##   I(Survived == "Yes"~1 Sex   Age   .fitted .resid .std.~2   .hat .sigma .cooksd
-##   <I<lgl>>              <fct> <fct>   <dbl>  <dbl>   <dbl>  <dbl>  <dbl>   <dbl>
-## 1 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
-## 2 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
-## 3 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
-## 4 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
-## 5 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
-## 6 FALSE                 Male  Child   0.453  -1.10   -1.11 0.0156   1.03 0.00334
-## # ... with abbreviated variable names 1: `I(Survived == "Yes")`, 2: .std.resid
+##   surv  Sex   Age   .fitted .resid .std.resid   .hat .sigma .cooksd
+##   <lgl> <fct> <fct>   <dbl>  <dbl>      <dbl>  <dbl>  <dbl>   <dbl>
+## 1 FALSE Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
+## 2 FALSE Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
+## 3 FALSE Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
+## 4 FALSE Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
+## 5 FALSE Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
+## 6 FALSE Male  Child   0.453  -1.10      -1.11 0.0156   1.03 0.00334
 ```
 
 
@@ -610,7 +634,7 @@ library(ROCit)
 library(broom)
 # Kasutame broomi funktsiooni augment 
 mudel_fit <- augment(mudel8, type.predict = "response")
-roc_obj <- rocit(score = mudel_fit$.fitted,class=mudel_fit$`I(Survived == "Yes")`)
+roc_obj <- rocit(score = mudel_fit$.fitted, class=mudel_fit$surv)
 plot(roc_obj)
 ```
 

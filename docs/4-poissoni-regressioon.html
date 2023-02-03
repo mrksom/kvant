@@ -34,7 +34,6 @@
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -93,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -159,6 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mudelite-võrdlemine"><i class="fa fa-check"></i><b>2.8</b> Mudelite võrdlemine</a></li>
 <li class="chapter" data-level="2.9" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-eeldused"><i class="fa fa-check"></i><b>2.9</b> Regressioonimudeli eeldused</a></li>
 <li class="chapter" data-level="2.10" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kuidas-eelduste-täidetust-hinnata"><i class="fa fa-check"></i><b>2.10</b> Kuidas eelduste täidetust hinnata?</a></li>
+<li class="chapter" data-level="2.11" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#tunnuste-transformatsioonid"><i class="fa fa-check"></i><b>2.11</b> Tunnuste transformatsioonid</a></li>
 </ul></li>
 <li class="part"><span><b>II Üldistatud lineaarsed mudelid</b></span></li>
 <li class="chapter" data-level="3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html"><i class="fa fa-check"></i><b>3</b> Logistiline regressioon</a>
@@ -279,67 +279,67 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 <li><em>prestige</em> - kooli maine skoor) ja</li>
 <li><em>mentor</em> - juhendaja publikatsioonide arv.</li>
 </ul>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="4-poissoni-regressioon.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kui pakett ei ole installitud, </span></span>
-<span id="cb502-2"><a href="4-poissoni-regressioon.html#cb502-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tuleb seda teha käsuga: install.packages(&quot;AER&quot;)</span></span>
-<span id="cb502-3"><a href="4-poissoni-regressioon.html#cb502-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb502-4"><a href="4-poissoni-regressioon.html#cb502-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Loeme paketi sisse</span></span>
-<span id="cb502-5"><a href="4-poissoni-regressioon.html#cb502-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AER)</span>
-<span id="cb502-6"><a href="4-poissoni-regressioon.html#cb502-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Võtame andmestiku</span></span>
-<span id="cb502-7"><a href="4-poissoni-regressioon.html#cb502-7" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(PhDPublications)</span>
-<span id="cb502-8"><a href="4-poissoni-regressioon.html#cb502-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Paneme andmestikule lihtsama nime</span></span>
-<span id="cb502-9"><a href="4-poissoni-regressioon.html#cb502-9" aria-hidden="true" tabindex="-1"></a>phd <span class="ot">&lt;-</span> PhDPublications</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="4-poissoni-regressioon.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kui pakett ei ole installitud, </span></span>
+<span id="cb531-2"><a href="4-poissoni-regressioon.html#cb531-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tuleb seda teha käsuga: install.packages(&quot;AER&quot;)</span></span>
+<span id="cb531-3"><a href="4-poissoni-regressioon.html#cb531-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb531-4"><a href="4-poissoni-regressioon.html#cb531-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Loeme paketi sisse</span></span>
+<span id="cb531-5"><a href="4-poissoni-regressioon.html#cb531-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AER)</span>
+<span id="cb531-6"><a href="4-poissoni-regressioon.html#cb531-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Võtame andmestiku</span></span>
+<span id="cb531-7"><a href="4-poissoni-regressioon.html#cb531-7" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(PhDPublications)</span>
+<span id="cb531-8"><a href="4-poissoni-regressioon.html#cb531-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Paneme andmestikule lihtsama nime</span></span>
+<span id="cb531-9"><a href="4-poissoni-regressioon.html#cb531-9" aria-hidden="true" tabindex="-1"></a>phd <span class="ot">&lt;-</span> PhDPublications</span></code></pre></div>
 <p>Vaatame artiklite tunnust lähemalt:</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="4-poissoni-regressioon.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(phd)<span class="sc">+</span></span>
-<span id="cb503-2"><a href="4-poissoni-regressioon.html#cb503-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> articles), </span>
-<span id="cb503-3"><a href="4-poissoni-regressioon.html#cb503-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">binwidth =</span> <span class="dv">1</span>, </span>
-<span id="cb503-4"><a href="4-poissoni-regressioon.html#cb503-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> <span class="st">&#39;grey&#39;</span>, </span>
-<span id="cb503-5"><a href="4-poissoni-regressioon.html#cb503-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&#39;black&#39;</span>)<span class="sc">+</span></span>
-<span id="cb503-6"><a href="4-poissoni-regressioon.html#cb503-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="4-poissoni-regressioon.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(phd)<span class="sc">+</span></span>
+<span id="cb532-2"><a href="4-poissoni-regressioon.html#cb532-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> articles), </span>
+<span id="cb532-3"><a href="4-poissoni-regressioon.html#cb532-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">binwidth =</span> <span class="dv">1</span>, </span>
+<span id="cb532-4"><a href="4-poissoni-regressioon.html#cb532-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> <span class="st">&#39;grey&#39;</span>, </span>
+<span id="cb532-5"><a href="4-poissoni-regressioon.html#cb532-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&#39;black&#39;</span>)<span class="sc">+</span></span>
+<span id="cb532-6"><a href="4-poissoni-regressioon.html#cb532-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="03-poisson_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Ilmselgelt on tegemist loendilise tunnusega. Samas päris Poissoni jaotusega tegemist vist siiski ei ole, kuna tundub, et nulle on selleks natukene liiga palju. ggploti abil saame joonisele panna ka tunnust iseloomustava teoreetilise Poissoni jaotuse (lähtuvalt tunnuse keskmisest ehk <span class="math inline">\(\lambda\)</span> parameetrist). Vaatame kuidas see võrreldes reaalse jaotusega välja näeb:</p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="4-poissoni-regressioon.html#cb504-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Poissoni jaotuse parameetrina on meil vaja keskmist</span></span>
-<span id="cb504-2"><a href="4-poissoni-regressioon.html#cb504-2" aria-hidden="true" tabindex="-1"></a>keskmine <span class="ot">&lt;-</span> <span class="fu">mean</span>(phd<span class="sc">$</span>articles)</span>
-<span id="cb504-3"><a href="4-poissoni-regressioon.html#cb504-3" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
-<span id="cb504-4"><a href="4-poissoni-regressioon.html#cb504-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># standardiseerime  artiklite arvu, </span></span>
-<span id="cb504-5"><a href="4-poissoni-regressioon.html#cb504-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># et saaksime seda jaotusega võrrelda</span></span>
-<span id="cb504-6"><a href="4-poissoni-regressioon.html#cb504-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(articles) <span class="sc">%&gt;%</span> </span>
-<span id="cb504-7"><a href="4-poissoni-regressioon.html#cb504-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb504-8"><a href="4-poissoni-regressioon.html#cb504-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_scaled =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb504-9"><a href="4-poissoni-regressioon.html#cb504-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> articles, <span class="at">y =</span> n_scaled))<span class="sc">+</span></span>
-<span id="cb504-10"><a href="4-poissoni-regressioon.html#cb504-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># kasutame stat = &#39;identity&#39;, </span></span>
-<span id="cb504-11"><a href="4-poissoni-regressioon.html#cb504-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># st kasutame joonisel olemasolevaid väärtusi</span></span>
-<span id="cb504-12"><a href="4-poissoni-regressioon.html#cb504-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (mitte ei lase ggplot&#39;il neid välja arvutada)</span></span>
-<span id="cb504-13"><a href="4-poissoni-regressioon.html#cb504-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>, </span>
-<span id="cb504-14"><a href="4-poissoni-regressioon.html#cb504-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> <span class="st">&#39;grey&#39;</span>, </span>
-<span id="cb504-15"><a href="4-poissoni-regressioon.html#cb504-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&#39;black&#39;</span>)<span class="sc">+</span></span>
-<span id="cb504-16"><a href="4-poissoni-regressioon.html#cb504-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># dpois funktsioon annab meile poissoni tihedusfunktsiooni</span></span>
-<span id="cb504-17"><a href="4-poissoni-regressioon.html#cb504-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> articles, </span>
-<span id="cb504-18"><a href="4-poissoni-regressioon.html#cb504-18" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> <span class="fu">dpois</span>(articles, <span class="at">lambda =</span> keskmine)), </span>
-<span id="cb504-19"><a href="4-poissoni-regressioon.html#cb504-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">&#39;red&#39;</span>)<span class="sc">+</span></span>
-<span id="cb504-20"><a href="4-poissoni-regressioon.html#cb504-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="4-poissoni-regressioon.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Poissoni jaotuse parameetrina on meil vaja keskmist</span></span>
+<span id="cb533-2"><a href="4-poissoni-regressioon.html#cb533-2" aria-hidden="true" tabindex="-1"></a>keskmine <span class="ot">&lt;-</span> <span class="fu">mean</span>(phd<span class="sc">$</span>articles)</span>
+<span id="cb533-3"><a href="4-poissoni-regressioon.html#cb533-3" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
+<span id="cb533-4"><a href="4-poissoni-regressioon.html#cb533-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># standardiseerime  artiklite arvu, </span></span>
+<span id="cb533-5"><a href="4-poissoni-regressioon.html#cb533-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># et saaksime seda jaotusega võrrelda</span></span>
+<span id="cb533-6"><a href="4-poissoni-regressioon.html#cb533-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(articles) <span class="sc">%&gt;%</span> </span>
+<span id="cb533-7"><a href="4-poissoni-regressioon.html#cb533-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb533-8"><a href="4-poissoni-regressioon.html#cb533-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_scaled =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb533-9"><a href="4-poissoni-regressioon.html#cb533-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> articles, <span class="at">y =</span> n_scaled))<span class="sc">+</span></span>
+<span id="cb533-10"><a href="4-poissoni-regressioon.html#cb533-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># kasutame stat = &#39;identity&#39;, </span></span>
+<span id="cb533-11"><a href="4-poissoni-regressioon.html#cb533-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># st kasutame joonisel olemasolevaid väärtusi</span></span>
+<span id="cb533-12"><a href="4-poissoni-regressioon.html#cb533-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (mitte ei lase ggplot&#39;il neid välja arvutada)</span></span>
+<span id="cb533-13"><a href="4-poissoni-regressioon.html#cb533-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>, </span>
+<span id="cb533-14"><a href="4-poissoni-regressioon.html#cb533-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> <span class="st">&#39;grey&#39;</span>, </span>
+<span id="cb533-15"><a href="4-poissoni-regressioon.html#cb533-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&#39;black&#39;</span>)<span class="sc">+</span></span>
+<span id="cb533-16"><a href="4-poissoni-regressioon.html#cb533-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># dpois funktsioon annab meile poissoni tihedusfunktsiooni</span></span>
+<span id="cb533-17"><a href="4-poissoni-regressioon.html#cb533-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> articles, </span>
+<span id="cb533-18"><a href="4-poissoni-regressioon.html#cb533-18" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> <span class="fu">dpois</span>(articles, <span class="at">lambda =</span> keskmine)), </span>
+<span id="cb533-19"><a href="4-poissoni-regressioon.html#cb533-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">&#39;red&#39;</span>)<span class="sc">+</span></span>
+<span id="cb533-20"><a href="4-poissoni-regressioon.html#cb533-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="03-poisson_files/figure-html/pois-hist-dist-1.png" width="672" /></p>
 <p>Nagu näeme, siis tõesti, nulle on natuke liiga palju ja artiklite loendi jaotus ei vasta jaotuse alguses päris täpselt Poissoni jaotuse kujule. Aga jätame selle asjaolu hetkel tähelepanuta ja kasutame ikkagi Poissoni regressiooni.</p>
 <p>Vaatame üle ka teised andmestiku tunnused:</p>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="4-poissoni-regressioon.html#cb505-1" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
-<span id="cb505-2"><a href="4-poissoni-regressioon.html#cb505-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span> </span>
-<span id="cb505-3"><a href="4-poissoni-regressioon.html#cb505-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="4-poissoni-regressioon.html#cb534-1" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
+<span id="cb534-2"><a href="4-poissoni-regressioon.html#cb534-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb534-3"><a href="4-poissoni-regressioon.html#cb534-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##   gender `n()`
 ##   &lt;fct&gt;  &lt;int&gt;
 ## 1 male     494
 ## 2 female   421</code></pre>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="4-poissoni-regressioon.html#cb507-1" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
-<span id="cb507-2"><a href="4-poissoni-regressioon.html#cb507-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(married) <span class="sc">%&gt;%</span> </span>
-<span id="cb507-3"><a href="4-poissoni-regressioon.html#cb507-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="4-poissoni-regressioon.html#cb536-1" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
+<span id="cb536-2"><a href="4-poissoni-regressioon.html#cb536-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(married) <span class="sc">%&gt;%</span> </span>
+<span id="cb536-3"><a href="4-poissoni-regressioon.html#cb536-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##   married `n()`
 ##   &lt;fct&gt;   &lt;int&gt;
 ## 1 no        309
 ## 2 yes       606</code></pre>
 <p>Soo ja abielu tunnus tunduvad korras olevat, kui välja arvata see, et kuidagi paljud doktorandid paistavad abielus olevat. Aga on nagu on.</p>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="4-poissoni-regressioon.html#cb509-1" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
-<span id="cb509-2"><a href="4-poissoni-regressioon.html#cb509-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(kids) <span class="sc">%&gt;%</span> </span>
-<span id="cb509-3"><a href="4-poissoni-regressioon.html#cb509-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="4-poissoni-regressioon.html#cb538-1" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
+<span id="cb538-2"><a href="4-poissoni-regressioon.html#cb538-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(kids) <span class="sc">%&gt;%</span> </span>
+<span id="cb538-3"><a href="4-poissoni-regressioon.html#cb538-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##    kids `n()`
 ##   &lt;int&gt; &lt;int&gt;
@@ -348,15 +348,15 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## 3     2   105
 ## 4     3    16</code></pre>
 <p>Laste tunnus on originaalis arvuline. Me kindlasti ei taha nelja väärtusega tunnust arvulisena käsitleda. Parem oleks see faktoriks teha ja seda mudelis kategoriaalsena käsitleda. Antud juhul, kuna lastetuid doktorante on niivõrd palju, oleks vast kõige mõistlik see tunnus üldse binaarseks teha, st kas on või ei ole lapsi (kuigi teoreetiliselt võiks ju eeldada, et laste arv võib mõjutada artiklite kirjutamiseks jäävat aega, siis siin, mulle tundub, on laste arvu variatiivsus selle kasutamiseks liiga väike).</p>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="4-poissoni-regressioon.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="co"># kasutame laste arvu teisendamiseks ifelse() funktsiooni</span></span>
-<span id="cb511-2"><a href="4-poissoni-regressioon.html#cb511-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vajadusel vaadake sellekohast abiinfot ?ifelse</span></span>
-<span id="cb511-3"><a href="4-poissoni-regressioon.html#cb511-3" aria-hidden="true" tabindex="-1"></a>phd <span class="ot">&lt;-</span> phd <span class="sc">%&gt;%</span> </span>
-<span id="cb511-4"><a href="4-poissoni-regressioon.html#cb511-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">kids2 =</span> <span class="fu">ifelse</span>(kids <span class="sc">==</span> <span class="dv">0</span>, <span class="st">&#39;Ei&#39;</span>, <span class="st">&#39;Jah&#39;</span>))</span>
-<span id="cb511-5"><a href="4-poissoni-regressioon.html#cb511-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb511-6"><a href="4-poissoni-regressioon.html#cb511-6" aria-hidden="true" tabindex="-1"></a><span class="co"># kontrollime uut tunnust</span></span>
-<span id="cb511-7"><a href="4-poissoni-regressioon.html#cb511-7" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
-<span id="cb511-8"><a href="4-poissoni-regressioon.html#cb511-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(kids, kids2) <span class="sc">%&gt;%</span> </span>
-<span id="cb511-9"><a href="4-poissoni-regressioon.html#cb511-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="4-poissoni-regressioon.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="co"># kasutame laste arvu teisendamiseks ifelse() funktsiooni</span></span>
+<span id="cb540-2"><a href="4-poissoni-regressioon.html#cb540-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vajadusel vaadake sellekohast abiinfot ?ifelse</span></span>
+<span id="cb540-3"><a href="4-poissoni-regressioon.html#cb540-3" aria-hidden="true" tabindex="-1"></a>phd <span class="ot">&lt;-</span> phd <span class="sc">%&gt;%</span> </span>
+<span id="cb540-4"><a href="4-poissoni-regressioon.html#cb540-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">kids2 =</span> <span class="fu">ifelse</span>(kids <span class="sc">==</span> <span class="dv">0</span>, <span class="st">&#39;Ei&#39;</span>, <span class="st">&#39;Jah&#39;</span>))</span>
+<span id="cb540-5"><a href="4-poissoni-regressioon.html#cb540-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb540-6"><a href="4-poissoni-regressioon.html#cb540-6" aria-hidden="true" tabindex="-1"></a><span class="co"># kontrollime uut tunnust</span></span>
+<span id="cb540-7"><a href="4-poissoni-regressioon.html#cb540-7" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
+<span id="cb540-8"><a href="4-poissoni-regressioon.html#cb540-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(kids, kids2) <span class="sc">%&gt;%</span> </span>
+<span id="cb540-9"><a href="4-poissoni-regressioon.html#cb540-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 3
 ## # Groups:   kids [4]
 ##    kids kids2 `n()`
@@ -366,18 +366,18 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## 3     2 Jah     105
 ## 4     3 Jah      16</code></pre>
 <p>Pidevast tunnusest ülevaate saamiseks on mugav kasutada histogrammi:</p>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="4-poissoni-regressioon.html#cb513-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(phd<span class="sc">$</span>prestige)</span></code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="4-poissoni-regressioon.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(phd<span class="sc">$</span>prestige)</span></code></pre></div>
 <p><img src="03-poisson_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>PhD programmi maine küsimus tundub suht OK.</p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="4-poissoni-regressioon.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(phd<span class="sc">$</span>mentor)</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="4-poissoni-regressioon.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(phd<span class="sc">$</span>mentor)</span></code></pre></div>
 <p><img src="03-poisson_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Juhendaja artiklit arvu tunnus on iseenesest samuti loendav tunnus (kuigi Poissoni jaotust see samuti päris täpselt ei järgi).</p>
 </div>
 <div id="poissoni-mudeli-defineerimine" class="section level3 hasAnchor" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> Poissoni mudeli defineerimine<a href="4-poissoni-regressioon.html#poissoni-mudeli-defineerimine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vaatame esmalt kuidas sugu artiklite avaldamist mõjutab. Defineerime mudeli kasutades <code>glm()</code> funktsiooni ja selles <code>family =</code> argumendina <code>poisson()</code> funktsiooni (kõlbaks ka <code>family = "poisson"</code> või <code>family = poisson</code>). <code>poisson()</code> funktsiooni puhul on vaikimisi eeldatud linkfunktsioonina <code>log</code>-linki, kuid vajadusel saaksime ka mingit muud linkfunktsiooni kasutada või selle eksplitsiitselt välja tuua: <code>poisson(link = 'log')</code>. Salvestame mudeli kõigepealt andmeobjektiks ning seejärel uurime seda <code>summary()</code> funktsiooniga.</p>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="4-poissoni-regressioon.html#cb515-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender, <span class="at">family =</span> <span class="fu">poisson</span>(), <span class="at">data =</span> phd)</span>
-<span id="cb515-2"><a href="4-poissoni-regressioon.html#cb515-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="4-poissoni-regressioon.html#cb544-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender, <span class="at">family =</span> <span class="fu">poisson</span>(), <span class="at">data =</span> phd)</span>
+<span id="cb544-2"><a href="4-poissoni-regressioon.html#cb544-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = articles ~ gender, family = poisson(), data = phd)
@@ -402,29 +402,29 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p>Nagu näeme, siis Poissoni regressiooni väljund on praktiliselt identne logistilise regressiooni väljundiga (mis on ka loogiline, kuna mõlemad on loodud sama funktsiooniga).</p>
 <p>Tõlgendame kõigepealt regressioonikoefitsiente. Nagu eelnevalt mainitud, siis tuleks neist eelnevalt eksponent võtta. Aga ka ilma selleta saame öelda, et naised on meestest vähem artikleid avaldanud. Mehed on antud juhul referentsgrupp ning <em>genderfemale</em> koefitsient kirjeldab naiste erinevust meestest. Kuna koefitsient on negatiivne, siis saame järeldada, et keskmine artiklite arv on naiste hulgas väiksem kui meeste hulgas. Aga et teada saada kui palju väiksem, peame koefitsientidest eksponendi võtma:</p>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="4-poissoni-regressioon.html#cb517-1" aria-hidden="true" tabindex="-1"></a><span class="co"># koefitsiendid saame mudeli objektist kätte coef() funktsiooniga</span></span>
-<span id="cb517-2"><a href="4-poissoni-regressioon.html#cb517-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(m1))</span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="4-poissoni-regressioon.html#cb546-1" aria-hidden="true" tabindex="-1"></a><span class="co"># koefitsiendid saame mudeli objektist kätte coef() funktsiooniga</span></span>
+<span id="cb546-2"><a href="4-poissoni-regressioon.html#cb546-2" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(m1))</span></code></pre></div>
 <pre><code>##  (Intercept) genderfemale 
 ##    1.8825911    0.7810027</code></pre>
 <p>Vabaliige on <span class="math inline">\(Y\)</span> väärtus kui <span class="math inline">\(x\)</span> on <span class="math inline">\(0\)</span>. Kuna mehed on referentsgrupp (ehk siis <span class="math inline">\(0\)</span>), siis kirjeldab vabaliige siinkohal meeste keskmist artiklite arvu. Võime tulemuse <code>dplyr</code>’iga verifitseerida:</p>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="4-poissoni-regressioon.html#cb519-1" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
-<span id="cb519-2"><a href="4-poissoni-regressioon.html#cb519-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">&#39;male&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb519-3"><a href="4-poissoni-regressioon.html#cb519-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(articles))</span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="4-poissoni-regressioon.html#cb548-1" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
+<span id="cb548-2"><a href="4-poissoni-regressioon.html#cb548-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">&#39;male&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb548-3"><a href="4-poissoni-regressioon.html#cb548-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(articles))</span></code></pre></div>
 <pre><code>##   mean(articles)
 ## 1       1.882591</code></pre>
 <p>Tundub tõesti nii olevat.</p>
 <p>Eksponenti võetud <em>genderfemale</em> koefitsient näitab naiste multiplikatiivset erinevust meestest. Ehk siis naiste keskmine artiklite arv peaks olema <span class="math inline">\(1.88 \times 0.78 = 1.47\)</span>. Teiste sõnadega naiste keskmine artiklite arv on <span class="math inline">\(1-0.78 = 22\%\)</span> väiksem kui meestel. Kontrollime üle:</p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="4-poissoni-regressioon.html#cb521-1" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
-<span id="cb521-2"><a href="4-poissoni-regressioon.html#cb521-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">&#39;female&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb521-3"><a href="4-poissoni-regressioon.html#cb521-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(articles))</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="4-poissoni-regressioon.html#cb550-1" aria-hidden="true" tabindex="-1"></a>phd <span class="sc">%&gt;%</span> </span>
+<span id="cb550-2"><a href="4-poissoni-regressioon.html#cb550-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">&#39;female&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb550-3"><a href="4-poissoni-regressioon.html#cb550-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(articles))</span></code></pre></div>
 <pre><code>##   mean(articles)
 ## 1       1.470309</code></pre>
 <p>Jälle sama tulemus.</p>
 <p>Mida me veel tulemist näeme ja näha tahame? Eelkõige huvitab meid muidugi see, kas meie tulemused on statistiliselt usaldusväärsed. Regressioonikordajate statistilise olulisuse hindamiseks on meil analoogselt logistilise regressiooni väljundiga kasutada z-test, mis testib kas regressioonikordaja on oluliselt erinev nullist. Näeme nii teststatistikut (z-väärtust), kui ka z-testi iseloomustavat <em>p</em>-väärtust. <em>p</em> väärtused (tulp <code>Pr(&gt;|z|)</code>) on nii vabaliikme kui regressioonikoefitsiendi puhul oluliselt väiksemad kui <span class="math inline">\(0.05\)</span>, misläbi saame järeldada, et usaldusnivool <span class="math inline">\(95\%\)</span> on meie mudeli koefitsiendid statistiliselt oluliselt erinevad nullist<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>, ehk siis sugu mõjutab oluliselt avaldatud artiklite arvu. Kui koefitsient ei oleks statistiliselt oluline (<span class="math inline">\(p &gt; 0.05\)</span>), siis peaksime järeldama, et meie koefitsient ei erine oluliselt nullist ning seost sõltumatu ja sõltuva tunnuse vahel ei ole.</p>
 <p>Sama järelduse saaksime tegelikult teha ka z-väärtuste ja standardvigade (tulp <code>Std. Error</code>) põhjal. Mida väiksem on z-väärtus, seda väiksem on <em>p</em>. Ja kui z-väärtus on (absoluutarvuna) suurem kui <span class="math inline">\(1.96\)</span>, siis on <em>p</em> on väiksem kui <span class="math inline">\(0.05\)</span>. Ning z-väärtus (ja z-test) omakorda tuleneb standardveast: <span class="math inline">\(\frac{-0.24718}{0.05187} = -4.765\)</span>.</p>
 <p>Aga vaatame oma mudelit edasi. Lisame ka teised sõltumatud tunnused:</p>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="4-poissoni-regressioon.html#cb523-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender<span class="sc">+</span>prestige<span class="sc">+</span>married<span class="sc">+</span>kids2<span class="sc">+</span>mentor, <span class="at">family =</span> <span class="fu">poisson</span>(), <span class="at">data =</span> phd)</span>
-<span id="cb523-2"><a href="4-poissoni-regressioon.html#cb523-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="4-poissoni-regressioon.html#cb552-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender<span class="sc">+</span>prestige<span class="sc">+</span>married<span class="sc">+</span>kids2<span class="sc">+</span>mentor, <span class="at">family =</span> <span class="fu">poisson</span>(), <span class="at">data =</span> phd)</span>
+<span id="cb552-2"><a href="4-poissoni-regressioon.html#cb552-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = articles ~ gender + prestige + married + kids2 + 
@@ -453,9 +453,9 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p>Näeme, et ülikooli maine ei mõjuta statistiliselt oluliselt artiklite arvu. Ka abielustaatus on suhteliselt piiripealse mõjuga. Jätame maine tunnuse mudelist välja (tahame alati leida võimalikult lihtsa mudeli, seega tunnused, mis mudelisse ei ei panusta, jätame välja).</p>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="4-poissoni-regressioon.html#cb525-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender<span class="sc">+</span>married<span class="sc">+</span>kids2<span class="sc">+</span>mentor, <span class="at">family =</span> <span class="fu">poisson</span>(), <span class="at">data =</span> phd)</span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="4-poissoni-regressioon.html#cb554-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender<span class="sc">+</span>married<span class="sc">+</span>kids2<span class="sc">+</span>mentor, <span class="at">family =</span> <span class="fu">poisson</span>(), <span class="at">data =</span> phd)</span></code></pre></div>
 <p>Kontrollime igaks juhuks ka <code>anova()</code>-ga, kas maine tunnuse väljajätmine ikka oli õigustatud:</p>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="4-poissoni-regressioon.html#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m3, m2, <span class="at">test =</span> <span class="st">&#39;Chisq&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="4-poissoni-regressioon.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m3, m2, <span class="at">test =</span> <span class="st">&#39;Chisq&#39;</span>)</span></code></pre></div>
 <pre><code>## Analysis of Deviance Table
 ## 
 ## Model 1: articles ~ gender + married + kids2 + mentor
@@ -465,8 +465,8 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## 2       909     1640.9  1  0.15093   0.6976</code></pre>
 <p>Hii-ruut test ütleb meile, et keerulisema ja lihtsama mudeli vahel ei ole statistiliselt olulist erinevust (<span class="math inline">\(p &gt; 0.05\)</span>), seega võime tunnuse vabalt välja jätta.</p>
 <p>Näeme, et nii sugu, abielustaatus, laste arv, kui ka juhendaja publikatsioonide arv mõjutavad artiklite arvu oluliselt. Kontrollime igaks juhuks ka soo ja laste olemasolu koosmõju:</p>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="4-poissoni-regressioon.html#cb528-1" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender<span class="sc">*</span>kids2<span class="sc">+</span>married<span class="sc">+</span>mentor, <span class="at">family =</span> <span class="fu">poisson</span>(), <span class="at">data =</span> phd)</span>
-<span id="cb528-2"><a href="4-poissoni-regressioon.html#cb528-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="4-poissoni-regressioon.html#cb557-1" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender<span class="sc">*</span>kids2<span class="sc">+</span>married<span class="sc">+</span>mentor, <span class="at">family =</span> <span class="fu">poisson</span>(), <span class="at">data =</span> phd)</span>
+<span id="cb557-2"><a href="4-poissoni-regressioon.html#cb557-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = articles ~ gender * kids2 + married + mentor, family = poisson(), 
@@ -495,7 +495,7 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p>Koosmõju koefitsient ei ole statistiliselt oluline, seega jääme mudeli m3 juurde:</p>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="4-poissoni-regressioon.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="4-poissoni-regressioon.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = articles ~ gender + married + kids2 + mentor, family = poisson(), 
@@ -523,7 +523,7 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p>Järgmiseks võtame mudeli koefitsientide eksponendid, et neid natukene inimlikumal kujul kuvada ja tõlgendada:</p>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="4-poissoni-regressioon.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(m3))</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="4-poissoni-regressioon.html#cb561-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(m3))</span></code></pre></div>
 <pre><code>##  (Intercept) genderfemale   marriedyes     kids2Jah       mentor 
 ##    1.4031677    0.8036087    1.1612850    0.7785778    1.0263406</code></pre>
 <p>Mida need koefitsiendid meile ütlevad?</p>
@@ -541,8 +541,8 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 <div id="üledispersioon" class="section level3 hasAnchor" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Üledispersioon<a href="4-poissoni-regressioon.html#üledispersioon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Mudeli üledispersioon (<em>overdispersion</em>) on olukord, kus mudeli dispersioon on suurem kui mudeli aluseks olev jaotusfunktsioon eeldaks. Kui see on nii, siis on mudeli standardvead tõenäoliselt liiga väikesed (ja seega mudeli alusel tehtavad järldused valed). Üledispersiooni olemasolu saame kontrollida võrreldes jääkhälbimust (<em>Residual deviance</em>) ja selle vabadusastemid (<em>degrees of freedom</em> ehk <em>df</em>). Kui need on enam-vähem võrdsed, ehk <span class="math inline">\(\frac{\text{Residual deviance}}{\text{df}} \approx 1\)</span>, siis üledispersiooni ei ole. Aga kui see suhe on oluliselt suurem kui <span class="math inline">\(1\)</span>, siis on tegemist probleemiga. Juhul kui taoline olukord esineb, peaksime Poissoni mudeli asemel kasutama <em>quasipoisson</em>’i mudelit, kus üledispersiooni on eraldi dispersiooni parameetrina mudelis arvesse võetud. Ka meie näite puhul on tegemist kerge üledispersiooniga (mitte küll väga suurega, aga siiski), seega võiksime kasutada quasipoissonit:</p>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="4-poissoni-regressioon.html#cb534-1" aria-hidden="true" tabindex="-1"></a>m5 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender<span class="sc">+</span>married<span class="sc">+</span>kids2<span class="sc">+</span>mentor, <span class="at">family =</span> quasipoisson, <span class="at">data =</span> phd)</span>
-<span id="cb534-2"><a href="4-poissoni-regressioon.html#cb534-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m5)</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="4-poissoni-regressioon.html#cb563-1" aria-hidden="true" tabindex="-1"></a>m5 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender<span class="sc">+</span>married<span class="sc">+</span>kids2<span class="sc">+</span>mentor, <span class="at">family =</span> quasipoisson, <span class="at">data =</span> phd)</span>
+<span id="cb563-2"><a href="4-poissoni-regressioon.html#cb563-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m5)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = articles ~ gender + married + kids2 + mentor, family = quasipoisson, 
@@ -570,8 +570,8 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <p>Näeme, et punkthinnangud ei muutunud, küll aga läksid standardvead suuremaks. See tähendab, et quaipoissoniga meie mudeli täpsusaste kahaneb (või õigemini esialgse, tavalise Poissoni mudeli puhul hindasime me mudeli täpsust üle). Samuti näeme, et tänu sellele ei ole abielustaatuse koefitsient enam <span class="math inline">\(95\%\)</span> usaldusnivoo korral statistiliselt oluline ja peaksime selle tunnuse välja jätma.</p>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="4-poissoni-regressioon.html#cb536-1" aria-hidden="true" tabindex="-1"></a>m6 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender<span class="sc">+</span>kids2<span class="sc">+</span>mentor, <span class="at">family =</span> quasipoisson, <span class="at">data =</span> phd)</span>
-<span id="cb536-2"><a href="4-poissoni-regressioon.html#cb536-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m6)</span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="4-poissoni-regressioon.html#cb565-1" aria-hidden="true" tabindex="-1"></a>m6 <span class="ot">&lt;-</span> <span class="fu">glm</span>(articles<span class="sc">~</span>gender<span class="sc">+</span>kids2<span class="sc">+</span>mentor, <span class="at">family =</span> quasipoisson, <span class="at">data =</span> phd)</span>
+<span id="cb565-2"><a href="4-poissoni-regressioon.html#cb565-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m6)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = articles ~ gender + kids2 + mentor, family = quasipoisson, 
@@ -602,17 +602,17 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 <div id="mudeli-sobivus-model-fit" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> Mudeli sobivus (<em>model fit</em>)<a href="4-poissoni-regressioon.html#mudeli-sobivus-model-fit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Mudeli sobivust andmetega (<em>goodness of fit</em>) saame analoogselt logistilise regressiooniga hinnata jääkhälbimuse (<em>Residual deviance</em>) abil:</p>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="4-poissoni-regressioon.html#cb538-1" aria-hidden="true" tabindex="-1"></a>res_dev <span class="ot">&lt;-</span> <span class="fu">deviance</span>(m6)</span>
-<span id="cb538-2"><a href="4-poissoni-regressioon.html#cb538-2" aria-hidden="true" tabindex="-1"></a>res_df <span class="ot">&lt;-</span> <span class="fu">df.residual</span>(m6)</span>
-<span id="cb538-3"><a href="4-poissoni-regressioon.html#cb538-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(res_dev, res_df, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="4-poissoni-regressioon.html#cb567-1" aria-hidden="true" tabindex="-1"></a>res_dev <span class="ot">&lt;-</span> <span class="fu">deviance</span>(m6)</span>
+<span id="cb567-2"><a href="4-poissoni-regressioon.html#cb567-2" aria-hidden="true" tabindex="-1"></a>res_df <span class="ot">&lt;-</span> <span class="fu">df.residual</span>(m6)</span>
+<span id="cb567-3"><a href="4-poissoni-regressioon.html#cb567-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(res_dev, res_df, <span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] 5.095965e-45</code></pre>
 <p>Näeme, et <em>p</em>-väärtus on väiksem kui <span class="math inline">\(0.05\)</span>, mis tähendab, et meie mudel ei sobitu andmetega väga hästi (siin tahame, et <em>p</em>-väärtus oleks võimalikult suur). Reaaleluliste andmetega ongi tegelikult väga keeruline hästi sobituvat mudelit leida. Seega üldjuhul me lihtsalt lepime, et meie mudel ei ole täiuslik ja jätame selle testi tähelepanuta.</p>
 <div id="mudeli-statistiline-olulisus-1" class="section level3 hasAnchor" number="4.5.1">
 <h3><span class="header-section-number">4.5.1</span> Mudeli statistiline olulisus<a href="4-poissoni-regressioon.html#mudeli-statistiline-olulisus-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Mudeli statistilist olulisust saame jällegi hinnata analoogselt logistilisele regressioonil hälbimuse näitajate abil. Võrdleme nullmudeli hälbimust (<em>Null deviance</em>) ja jääkhälbimust (<em>Residual deviance</em>). Nullmudeli hälbimus hinnatud <span class="math inline">\(Y\)</span> hälbimust tegelikest <span class="math inline">\(Y\)</span> väärtustest juhul kui ühtegi prediktorit mudelis ei ole. Seega kahe hälbimuse vahe näitab kui palju meie mudel tänu sõltumatutele tunnustele paremaks on läinud. See hälbumuste vahe on jälle jaotunud hii-ruut jaotsue alusel, mille vabadusastemeteks on nullmudeli ja hinnatava mudeli vabadusastmete vahe.</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="4-poissoni-regressioon.html#cb540-1" aria-hidden="true" tabindex="-1"></a>dev_vahe <span class="ot">&lt;-</span> m6<span class="sc">$</span>null.deviance <span class="sc">-</span> m6<span class="sc">$</span>deviance</span>
-<span id="cb540-2"><a href="4-poissoni-regressioon.html#cb540-2" aria-hidden="true" tabindex="-1"></a>df_vahe <span class="ot">&lt;-</span> m6<span class="sc">$</span>df.null<span class="sc">-</span>m6<span class="sc">$</span>df.residual</span>
-<span id="cb540-3"><a href="4-poissoni-regressioon.html#cb540-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(dev_vahe, df_vahe, <span class="at">lower.tail =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="4-poissoni-regressioon.html#cb569-1" aria-hidden="true" tabindex="-1"></a>dev_vahe <span class="ot">&lt;-</span> m6<span class="sc">$</span>null.deviance <span class="sc">-</span> m6<span class="sc">$</span>deviance</span>
+<span id="cb569-2"><a href="4-poissoni-regressioon.html#cb569-2" aria-hidden="true" tabindex="-1"></a>df_vahe <span class="ot">&lt;-</span> m6<span class="sc">$</span>df.null<span class="sc">-</span>m6<span class="sc">$</span>df.residual</span>
+<span id="cb569-3"><a href="4-poissoni-regressioon.html#cb569-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(dev_vahe, df_vahe, <span class="at">lower.tail =</span> F)</span></code></pre></div>
 <pre><code>## [1] 9.269198e-37</code></pre>
 <p><em>p</em>-väärtus on väiksem kui <span class="math inline">\(0.05\)</span>, seega nullmudel ja meie mudel erinevad olulisel määral ning võime järeldada, et meie mudel on statistiliselt oluline.</p>
 </div>
@@ -620,11 +620,11 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 <h3><span class="header-section-number">4.5.2</span> Jääkide jaotus<a href="4-poissoni-regressioon.html#jääkide-jaotus-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Poissoni mudeli üheks eelduseks olid üksteisest sõltumatud ja normaaljaotuse järgi jaotunud jäägid.</p>
 <p>Paneme joonisele mudeli jäägid (hälbimused) ja (log) prognoositud väärtused. Jäägid peaksid üle prognoositud väärtuste suhteliselt ühtlaselt jaotuma ning mingit selgelt eristuvat mustrit ei tohiks täheldada. Antud juhul ei ole olukord just ideaalne, aga ka mitte kõige hullem. Näeme, et prognoositud väärtuste paremas otsas koonduvad jäägid pigem allapoole, samas jääkide variatiivsus on keskjoonest kõrgemal mõnevõrra suurem. Võib eeldada, et nad ei ole päris normaaljaotuse järgi jaotunud.</p>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="4-poissoni-regressioon.html#cb542-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">residuals</span>(m6, <span class="at">type=</span><span class="st">&quot;deviance&quot;</span>)</span>
-<span id="cb542-2"><a href="4-poissoni-regressioon.html#cb542-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(<span class="fu">predict</span>(m6)), res)</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="4-poissoni-regressioon.html#cb571-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">residuals</span>(m6, <span class="at">type=</span><span class="st">&quot;deviance&quot;</span>)</span>
+<span id="cb571-2"><a href="4-poissoni-regressioon.html#cb571-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(<span class="fu">predict</span>(m6)), res)</span></code></pre></div>
 <p><img src="03-poisson_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>Kontrollime seda ka histogrammiga:</p>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="4-poissoni-regressioon.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(res)</span></code></pre></div>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="4-poissoni-regressioon.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(res)</span></code></pre></div>
 <p><img src="03-poisson_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <p>Ka siit nähtub, et jäägid ei ole tõesti päris normaalselt jaotunud.</p>
 <p>Lõppkokkuvõtteks tuleb tõdeda, et meie mudel ei ole päris ideaalne - ei sobitu kõige paremini andmetega ning ka jääkide struktuur jätab soovida. Põhjus võib olla näiteks selles, et mõni oluline sõltumatu tunnus on mudelist puudu või ka asjaolu, et sõltuva tunnuse jaotus ei vastanud väga hästi Poissoni jaotusele.</p>

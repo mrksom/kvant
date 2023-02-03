@@ -2,6 +2,7 @@ bookdown::gitbook:
   css: custom/custom_styles.css
   split_by: chapter+number
   lib_dir: assets
+  table_css: false
   toc_depth: 2
   config:
     toc:
