@@ -68,12 +68,14 @@ tunnuste-transformatsioonid
 lineaarsed-transformatsioonid
 mitte-lineaarsed-transformatsioonid
 logistiline-regressioon
+logistiline-funktsioon
 šansid
 logit
 logit-mudel
 mudeli-tõlgendus
 šansside-suhe
 logistiline-regressioon-r-is
+mitu-sõltumatut-tunnust-ja-interaktsioon
 mudeli-kvaliteet
 mudeli-sobivus
 mudeli-statistiline-olulisus

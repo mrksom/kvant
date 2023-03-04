@@ -22,20 +22,21 @@ Sarnaselt logistilise regressiooniga (ja isegi õigustatumalt) tekib küsimus, e
 
 ```{r pois-dist, fig.cap = "Poissoni jaotus erinevate keskmiste loendusväärtuste (Lambda) korral", echo=F, warning=F}
 set.seed(100)
-dat <- rbindlist(list(data.table(x = rpois(50000, 1), grp = 1),
-                      data.table(x = rpois(50000, 2), grp = 2),
-                      data.table(x = rpois(50000, 5), grp = 5),
-                      data.table(x = rpois(50000, 10), grp = 10),
-                      data.table(x = rpois(50000, 20), grp = 20))) %>% 
-  .[, .N, .(x, grp)]
+dat <- rbindlist(list(data.table(x = 1:10, y = dpois(1:10, 1), grp = 1),
+                      data.table(x = 1:10, y = dpois(1:10, 2), grp = 2),
+                      data.table(x = 1:15, y = dpois(1:15, 5), grp = 5),
+                      data.table(x = 1:25, y = dpois(1:25, 10), grp = 10),
+                      data.table(x = 1:40, y = dpois(1:40, 20), grp = 20)))
 
 ggplot(dat)+
-   aes(x = x, y = N, color = as.factor(grp))+
-   geom_line(size = 1.5)+
+   aes(x = x, y = y, color = as.factor(grp))+
+   geom_line(size = 1)+
+  geom_point(size = 2)+
   labs(x = NULL, y = NULL, color = 'Lambda')+
   scale_color_manual(values = cols)+
   theme_minimal()+
   theme(axis.text.y = element_blank())
+
 
 ```
 

@@ -50,6 +50,8 @@
 <link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="assets/tabwid-1.1.0/tabwid.css" rel="stylesheet" />
 <link href="assets/tabwid-1.1.0/scrool.css" rel="stylesheet" />
 
@@ -163,15 +165,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>II Üldistatud lineaarsed mudelid</b></span></li>
 <li class="chapter" data-level="3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html"><i class="fa fa-check"></i><b>3</b> Logistiline regressioon</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#šansid"><i class="fa fa-check"></i><b>3.1</b> Šansid</a></li>
-<li class="chapter" data-level="3.2" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit"><i class="fa fa-check"></i><b>3.2</b> Logit</a></li>
-<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.3</b> Logit mudel</a></li>
-<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-tõlgendus"><i class="fa fa-check"></i><b>3.4</b> Mudeli tõlgendus</a></li>
-<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.5</b> Logistiline regressioon R-is</a></li>
-<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.6</b> Mudeli kvaliteet</a></li>
-<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.7</b> Predict</a></li>
-<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.8</b> Marginaalsed efektid</a></li>
-<li class="chapter" data-level="3.9" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.9</b> Prognoosi täpsus</a></li>
+<li class="chapter" data-level="3.1" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-funktsioon"><i class="fa fa-check"></i><b>3.1</b> Logistiline funktsioon</a></li>
+<li class="chapter" data-level="3.2" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.2</b> Logit mudel</a></li>
+<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-tõlgendus"><i class="fa fa-check"></i><b>3.3</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.4</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.5</b> Mudeli kvaliteet</a></li>
+<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.6</b> Predict</a></li>
+<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.7</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.8</b> Prognoosi täpsus</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html"><i class="fa fa-check"></i><b>4</b> Poissoni regressioon</a>
 <ul>
@@ -396,19 +397,19 @@ kus:</p>
 <h2><span class="header-section-number">5.4</span> Mitemtasandiline analüüs Ris<a href="5-mitmetasandiline-regressioon.html#mitemtasandiline-analüüs-ris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ris on mitmetasandilise analüüsi teostamiseks mitmeid pakette. Kasutame siinkohal <code>lme4</code> paketti ja sellest <code>lmer()</code> funktsiooni. <code>lme4</code> pakett ei anna meile koefitsientide <em>p</em>-väärtusi. Et neid saada, tuleb laadida ka pakett <code>lmerTest</code><a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>.</p>
 <p>Kõigepealt laeme sessiooniks sisse vajalikud paketid (kui need ei ole installitud, siis tuleb seda teha käsuga <code>install.packages()</code>)</p>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="5-mitmetasandiline-regressioon.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme) <span class="co"># siit saame andmed</span></span>
-<span id="cb573-2"><a href="5-mitmetasandiline-regressioon.html#cb573-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># joonised</span></span>
-<span id="cb573-3"><a href="5-mitmetasandiline-regressioon.html#cb573-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># andmete töötlemine</span></span>
-<span id="cb573-4"><a href="5-mitmetasandiline-regressioon.html#cb573-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4) <span class="co"># mitmetasanilise analüüsi pakett</span></span>
-<span id="cb573-5"><a href="5-mitmetasandiline-regressioon.html#cb573-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest) <span class="co"># võimaldab mudelile ka p väärtused külge saada</span></span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="5-mitmetasandiline-regressioon.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme) <span class="co"># siit saame andmed</span></span>
+<span id="cb581-2"><a href="5-mitmetasandiline-regressioon.html#cb581-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># joonised</span></span>
+<span id="cb581-3"><a href="5-mitmetasandiline-regressioon.html#cb581-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># andmete töötlemine</span></span>
+<span id="cb581-4"><a href="5-mitmetasandiline-regressioon.html#cb581-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4) <span class="co"># mitmetasanilise analüüsi pakett</span></span>
+<span id="cb581-5"><a href="5-mitmetasandiline-regressioon.html#cb581-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest) <span class="co"># võimaldab mudelile ka p väärtused külge saada</span></span></code></pre></div>
 <p>Kasutame andmestikuna <code>MathAchieve</code> näidisandmestikku paketist <code>nlme</code>. Andmestik sisaldab USAs 1982. aastal läbi viidud küsitluse “High School and Beyond” tulemusi hõlmates 7185 keskkoliõpilast 160-st koolist. Ehk siis esimene tasand on õpilased ja teine tasand koolid. Andmestik sisaldab muu hulgas õpilasete perede sotsiaalmajanduslikku seisu indeksit ning matemaatikatesti tulemust.
 Üritame analüüsida kas pere sotsiaalmajanduslik seis mõjutab matemaatikatesti tulemust ja kas see seos varieerub koolide vahel ning kui jah, siis leida seda variatiivsust selgitavad tegurid.</p>
 <div id="andmete-ettevalmistus" class="section level3 hasAnchor" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> Andmete ettevalmistus<a href="5-mitmetasandiline-regressioon.html#andmete-ettevalmistus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Anname andmetele natukene lihtsama nime ja vaatame millega tegu:</p>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="5-mitmetasandiline-regressioon.html#cb574-1" aria-hidden="true" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> nlme<span class="sc">::</span>MathAchieve <span class="sc">%&gt;%</span> </span>
-<span id="cb574-2"><a href="5-mitmetasandiline-regressioon.html#cb574-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb574-3"><a href="5-mitmetasandiline-regressioon.html#cb574-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(andmed)</span></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="5-mitmetasandiline-regressioon.html#cb582-1" aria-hidden="true" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> nlme<span class="sc">::</span>MathAchieve <span class="sc">%&gt;%</span> </span>
+<span id="cb582-2"><a href="5-mitmetasandiline-regressioon.html#cb582-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb582-3"><a href="5-mitmetasandiline-regressioon.html#cb582-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(andmed)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    7185 obs. of  6 variables:
 ##  $ School  : Ord.factor w/ 160 levels &quot;8367&quot;&lt;&quot;8854&quot;&lt;..: 59 59 59 59 59 59 59 59 59 59 ...
 ##  $ Minority: Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
@@ -432,10 +433,10 @@ kus:</p>
 <li><em>PRACAD</em> - protsent õpilastest, kes õpivad nn “akadeemilisel suunal”</li>
 <li><em>MEANSES</em> - kooli keskmine SES skoor</li>
 </ul>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="5-mitmetasandiline-regressioon.html#cb576-1" aria-hidden="true" tabindex="-1"></a>koolid <span class="ot">&lt;-</span> nlme<span class="sc">::</span>MathAchSchool <span class="sc">%&gt;%</span> </span>
-<span id="cb576-2"><a href="5-mitmetasandiline-regressioon.html#cb576-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb576-3"><a href="5-mitmetasandiline-regressioon.html#cb576-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(School, Sector, PRACAD, MEANSES)</span>
-<span id="cb576-4"><a href="5-mitmetasandiline-regressioon.html#cb576-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(koolid)</span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="5-mitmetasandiline-regressioon.html#cb584-1" aria-hidden="true" tabindex="-1"></a>koolid <span class="ot">&lt;-</span> nlme<span class="sc">::</span>MathAchSchool <span class="sc">%&gt;%</span> </span>
+<span id="cb584-2"><a href="5-mitmetasandiline-regressioon.html#cb584-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb584-3"><a href="5-mitmetasandiline-regressioon.html#cb584-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(School, Sector, PRACAD, MEANSES)</span>
+<span id="cb584-4"><a href="5-mitmetasandiline-regressioon.html#cb584-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(koolid)</span></code></pre></div>
 <pre><code>##      School   Sector PRACAD MEANSES
 ## 1224   1224   Public   0.35  -0.428
 ## 1288   1288   Public   0.27   0.128
@@ -445,12 +446,12 @@ kus:</p>
 ## 1358   1358   Public   0.25  -0.014</code></pre>
 <p>Taoline mitmetasandiliste andmete organiseerimise viis, kus erinevate tasandite tunnused on erinevates failides, on küllaltki tavapärane. Seega esimeseks sammuks on nii siin, kui ka mitmetasanilise analüüsi puhul üldiselt need kaks andmestikku kokku liita. Kasutame selleks <em>dplyr</em>-i <code>left_join()</code> funktsiooni.</p>
 <p>Mõlemat andmestikku ühendavaks id tunnuseks on <em>School</em>. Kuid kuna need tunnused on erinevatest klassidest (üks on <em>ordered factor</em>, teine tavaline <em>factor</em>), siis teeme nad mõlemad kõigepealt <em>character</em> tunnusteks</p>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="5-mitmetasandiline-regressioon.html#cb578-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>School <span class="ot">&lt;-</span> <span class="fu">as.character</span>(andmed<span class="sc">$</span>School)</span>
-<span id="cb578-2"><a href="5-mitmetasandiline-regressioon.html#cb578-2" aria-hidden="true" tabindex="-1"></a>koolid<span class="sc">$</span>School <span class="ot">&lt;-</span> <span class="fu">as.character</span>(koolid<span class="sc">$</span>School)</span>
-<span id="cb578-3"><a href="5-mitmetasandiline-regressioon.html#cb578-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nüüd saame andmestikud kokku panna</span></span>
-<span id="cb578-4"><a href="5-mitmetasandiline-regressioon.html#cb578-4" aria-hidden="true" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">left_join</span>(andmed, koolid, <span class="at">by =</span> <span class="st">&#39;School&#39;</span>)</span>
-<span id="cb578-5"><a href="5-mitmetasandiline-regressioon.html#cb578-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Vaatame ka tulemust</span></span>
-<span id="cb578-6"><a href="5-mitmetasandiline-regressioon.html#cb578-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(andmed)</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="5-mitmetasandiline-regressioon.html#cb586-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>School <span class="ot">&lt;-</span> <span class="fu">as.character</span>(andmed<span class="sc">$</span>School)</span>
+<span id="cb586-2"><a href="5-mitmetasandiline-regressioon.html#cb586-2" aria-hidden="true" tabindex="-1"></a>koolid<span class="sc">$</span>School <span class="ot">&lt;-</span> <span class="fu">as.character</span>(koolid<span class="sc">$</span>School)</span>
+<span id="cb586-3"><a href="5-mitmetasandiline-regressioon.html#cb586-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nüüd saame andmestikud kokku panna</span></span>
+<span id="cb586-4"><a href="5-mitmetasandiline-regressioon.html#cb586-4" aria-hidden="true" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">left_join</span>(andmed, koolid, <span class="at">by =</span> <span class="st">&#39;School&#39;</span>)</span>
+<span id="cb586-5"><a href="5-mitmetasandiline-regressioon.html#cb586-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Vaatame ka tulemust</span></span>
+<span id="cb586-6"><a href="5-mitmetasandiline-regressioon.html#cb586-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(andmed)</span></code></pre></div>
 <pre><code>##   School Minority    Sex    SES MathAch MEANSES.x Sector PRACAD MEANSES.y
 ## 1   1224       No Female -1.528   5.876    -0.428 Public   0.35    -0.428
 ## 2   1224       No Female -0.588  19.708    -0.428 Public   0.35    -0.428
@@ -459,83 +460,83 @@ kus:</p>
 ## 5   1224       No   Male -0.158  17.898    -0.428 Public   0.35    -0.428
 ## 6   1224       No   Male  0.022   4.583    -0.428 Public   0.35    -0.428</code></pre>
 <p>Kuna <em>MEANSES</em> tunnus oli mõlemas andmestikus, siis on see uues andmestikus kaks korda (vastavalt suffixitega .x ja .y). Kustutame neist esimese ja muudame <em>MEANSES.y</em> nime tagasi <em>MEANSES</em>-iks.</p>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="5-mitmetasandiline-regressioon.html#cb580-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>MEANSES.x <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb580-2"><a href="5-mitmetasandiline-regressioon.html#cb580-2" aria-hidden="true" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> andmed <span class="sc">%&gt;%</span> </span>
-<span id="cb580-3"><a href="5-mitmetasandiline-regressioon.html#cb580-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">MEANSES =</span> MEANSES.y)</span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="5-mitmetasandiline-regressioon.html#cb588-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>MEANSES.x <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb588-2"><a href="5-mitmetasandiline-regressioon.html#cb588-2" aria-hidden="true" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> andmed <span class="sc">%&gt;%</span> </span>
+<span id="cb588-3"><a href="5-mitmetasandiline-regressioon.html#cb588-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">MEANSES =</span> MEANSES.y)</span></code></pre></div>
 <p>Paneme kõik tunnuste nimed väikestesse tähtedesse<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>:</p>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="5-mitmetasandiline-regressioon.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(andmed) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(andmed))</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="5-mitmetasandiline-regressioon.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(andmed) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(andmed))</span></code></pre></div>
 </div>
 <div id="ülevaade-andmetest" class="section level3 hasAnchor" number="5.4.2">
 <h3><span class="header-section-number">5.4.2</span> Ülevaade andmetest<a href="5-mitmetasandiline-regressioon.html#ülevaade-andmetest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Nagu enne igat analüüsi, uurime kõigepealt andmeid. Vaatame graafiliselt kuidas sotsiaalmajanduslik indeks matemaatika testi tulemusega seostub:</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="5-mitmetasandiline-regressioon.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="co"># punktide jaoks geom_point()</span></span>
-<span id="cb582-2"><a href="5-mitmetasandiline-regressioon.html#cb582-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mittelineaarse regressioonijoone jaoks geom_smooth()</span></span>
-<span id="cb582-3"><a href="5-mitmetasandiline-regressioon.html#cb582-3" aria-hidden="true" tabindex="-1"></a>andmed <span class="sc">%&gt;%</span> </span>
-<span id="cb582-4"><a href="5-mitmetasandiline-regressioon.html#cb582-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ses, <span class="at">y =</span> mathach))<span class="sc">+</span></span>
-<span id="cb582-5"><a href="5-mitmetasandiline-regressioon.html#cb582-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb582-6"><a href="5-mitmetasandiline-regressioon.html#cb582-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()<span class="sc">+</span></span>
-<span id="cb582-7"><a href="5-mitmetasandiline-regressioon.html#cb582-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="5-mitmetasandiline-regressioon.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="co"># punktide jaoks geom_point()</span></span>
+<span id="cb590-2"><a href="5-mitmetasandiline-regressioon.html#cb590-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mittelineaarse regressioonijoone jaoks geom_smooth()</span></span>
+<span id="cb590-3"><a href="5-mitmetasandiline-regressioon.html#cb590-3" aria-hidden="true" tabindex="-1"></a>andmed <span class="sc">%&gt;%</span> </span>
+<span id="cb590-4"><a href="5-mitmetasandiline-regressioon.html#cb590-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ses, <span class="at">y =</span> mathach))<span class="sc">+</span></span>
+<span id="cb590-5"><a href="5-mitmetasandiline-regressioon.html#cb590-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb590-6"><a href="5-mitmetasandiline-regressioon.html#cb590-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()<span class="sc">+</span></span>
+<span id="cb590-7"><a href="5-mitmetasandiline-regressioon.html#cb590-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="04-multilevel_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Tundub et üldine seos on täitsa olemas ja see on ka suhteliselt lineaarne.</p>
 <p>Järgmiseks vaatame kas koolide keskmised matemaatikasjoorid erinevad. Neid oleks hea vaadata koos usalduspiiridega, seega peame need enne välja arvutame. Andmete töötlemiseks kasutame <code>dplyr</code>-i funktsioone:</p>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="5-mitmetasandiline-regressioon.html#cb583-1" aria-hidden="true" tabindex="-1"></a>andmed <span class="sc">%&gt;%</span> </span>
-<span id="cb583-2"><a href="5-mitmetasandiline-regressioon.html#cb583-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(school) <span class="sc">%&gt;%</span></span>
-<span id="cb583-3"><a href="5-mitmetasandiline-regressioon.html#cb583-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">keskmine =</span> <span class="fu">mean</span>(mathach), </span>
-<span id="cb583-4"><a href="5-mitmetasandiline-regressioon.html#cb583-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(mathach), </span>
-<span id="cb583-5"><a href="5-mitmetasandiline-regressioon.html#cb583-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb583-6"><a href="5-mitmetasandiline-regressioon.html#cb583-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l_ci =</span> keskmine <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> sd<span class="sc">/</span><span class="fu">sqrt</span>(n),</span>
-<span id="cb583-7"><a href="5-mitmetasandiline-regressioon.html#cb583-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">u_ci =</span> keskmine <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> sd<span class="sc">/</span><span class="fu">sqrt</span>(n)) <span class="sc">%&gt;%</span></span>
-<span id="cb583-8"><a href="5-mitmetasandiline-regressioon.html#cb583-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">school =</span> <span class="fu">as.factor</span>(school),</span>
-<span id="cb583-9"><a href="5-mitmetasandiline-regressioon.html#cb583-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">school =</span> <span class="fu">reorder</span>(school, keskmine)) <span class="sc">%&gt;%</span> </span>
-<span id="cb583-10"><a href="5-mitmetasandiline-regressioon.html#cb583-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> keskmine, </span>
-<span id="cb583-11"><a href="5-mitmetasandiline-regressioon.html#cb583-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">xmin =</span> l_ci, </span>
-<span id="cb583-12"><a href="5-mitmetasandiline-regressioon.html#cb583-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">xmax =</span> u_ci, </span>
-<span id="cb583-13"><a href="5-mitmetasandiline-regressioon.html#cb583-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> school))<span class="sc">+</span></span>
-<span id="cb583-14"><a href="5-mitmetasandiline-regressioon.html#cb583-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>()<span class="sc">+</span></span>
-<span id="cb583-15"><a href="5-mitmetasandiline-regressioon.html#cb583-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb583-16"><a href="5-mitmetasandiline-regressioon.html#cb583-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb583-17"><a href="5-mitmetasandiline-regressioon.html#cb583-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb583-18"><a href="5-mitmetasandiline-regressioon.html#cb583-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="5-mitmetasandiline-regressioon.html#cb591-1" aria-hidden="true" tabindex="-1"></a>andmed <span class="sc">%&gt;%</span> </span>
+<span id="cb591-2"><a href="5-mitmetasandiline-regressioon.html#cb591-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(school) <span class="sc">%&gt;%</span></span>
+<span id="cb591-3"><a href="5-mitmetasandiline-regressioon.html#cb591-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">keskmine =</span> <span class="fu">mean</span>(mathach), </span>
+<span id="cb591-4"><a href="5-mitmetasandiline-regressioon.html#cb591-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(mathach), </span>
+<span id="cb591-5"><a href="5-mitmetasandiline-regressioon.html#cb591-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb591-6"><a href="5-mitmetasandiline-regressioon.html#cb591-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l_ci =</span> keskmine <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> sd<span class="sc">/</span><span class="fu">sqrt</span>(n),</span>
+<span id="cb591-7"><a href="5-mitmetasandiline-regressioon.html#cb591-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">u_ci =</span> keskmine <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> sd<span class="sc">/</span><span class="fu">sqrt</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb591-8"><a href="5-mitmetasandiline-regressioon.html#cb591-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">school =</span> <span class="fu">as.factor</span>(school),</span>
+<span id="cb591-9"><a href="5-mitmetasandiline-regressioon.html#cb591-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">school =</span> <span class="fu">reorder</span>(school, keskmine)) <span class="sc">%&gt;%</span> </span>
+<span id="cb591-10"><a href="5-mitmetasandiline-regressioon.html#cb591-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> keskmine, </span>
+<span id="cb591-11"><a href="5-mitmetasandiline-regressioon.html#cb591-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">xmin =</span> l_ci, </span>
+<span id="cb591-12"><a href="5-mitmetasandiline-regressioon.html#cb591-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">xmax =</span> u_ci, </span>
+<span id="cb591-13"><a href="5-mitmetasandiline-regressioon.html#cb591-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> school))<span class="sc">+</span></span>
+<span id="cb591-14"><a href="5-mitmetasandiline-regressioon.html#cb591-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>()<span class="sc">+</span></span>
+<span id="cb591-15"><a href="5-mitmetasandiline-regressioon.html#cb591-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb591-16"><a href="5-mitmetasandiline-regressioon.html#cb591-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb591-17"><a href="5-mitmetasandiline-regressioon.html#cb591-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb591-18"><a href="5-mitmetasandiline-regressioon.html#cb591-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <p><img src="04-multilevel_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>Jah, keskmised tunduvad kooliti erinevat. On palju koole mille usalduspiirid ei kattu. Järgmiseks vaatame, kas ka sotsiaalmajandusliku seisundi ja testi tulemuste seosed kooliti erinevad:</p>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="5-mitmetasandiline-regressioon.html#cb584-1" aria-hidden="true" tabindex="-1"></a>andmed <span class="sc">%&gt;%</span> </span>
-<span id="cb584-2"><a href="5-mitmetasandiline-regressioon.html#cb584-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ses, <span class="at">y =</span> mathach))<span class="sc">+</span></span>
-<span id="cb584-3"><a href="5-mitmetasandiline-regressioon.html#cb584-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb584-4"><a href="5-mitmetasandiline-regressioon.html#cb584-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">color =</span> school), <span class="at">se =</span> F, <span class="at">show.legend =</span> F, <span class="at">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="sc">+</span></span>
-<span id="cb584-5"><a href="5-mitmetasandiline-regressioon.html#cb584-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb584-6"><a href="5-mitmetasandiline-regressioon.html#cb584-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_d</span>(<span class="at">option =</span> <span class="st">&#39;A&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="5-mitmetasandiline-regressioon.html#cb592-1" aria-hidden="true" tabindex="-1"></a>andmed <span class="sc">%&gt;%</span> </span>
+<span id="cb592-2"><a href="5-mitmetasandiline-regressioon.html#cb592-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ses, <span class="at">y =</span> mathach))<span class="sc">+</span></span>
+<span id="cb592-3"><a href="5-mitmetasandiline-regressioon.html#cb592-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb592-4"><a href="5-mitmetasandiline-regressioon.html#cb592-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">color =</span> school), <span class="at">se =</span> F, <span class="at">show.legend =</span> F, <span class="at">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="sc">+</span></span>
+<span id="cb592-5"><a href="5-mitmetasandiline-regressioon.html#cb592-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb592-6"><a href="5-mitmetasandiline-regressioon.html#cb592-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_d</span>(<span class="at">option =</span> <span class="st">&#39;A&#39;</span>)</span></code></pre></div>
 <p><img src="04-multilevel_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>Tundub, et ka regressioonikoefitsiendid erinevad.</p>
 <p>Vaatame põgusalt üle ka teiste sõltumatute tunnuste jaotused. Eelkõige seetõttu, et kontrollida neid võimalike vigade suhtes.</p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="5-mitmetasandiline-regressioon.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(andmed<span class="sc">$</span>sex, <span class="at">useNA =</span> <span class="st">&#39;always&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="5-mitmetasandiline-regressioon.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(andmed<span class="sc">$</span>sex, <span class="at">useNA =</span> <span class="st">&#39;always&#39;</span>)</span></code></pre></div>
 <pre><code>## 
 ##   Male Female   &lt;NA&gt; 
 ##   3390   3795      0</code></pre>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="5-mitmetasandiline-regressioon.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(andmed<span class="sc">$</span>ses)</span></code></pre></div>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="5-mitmetasandiline-regressioon.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(andmed<span class="sc">$</span>ses)</span></code></pre></div>
 <p><img src="04-multilevel_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="5-mitmetasandiline-regressioon.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(andmed<span class="sc">$</span>sector, <span class="at">useNA =</span> <span class="st">&#39;ifany&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="5-mitmetasandiline-regressioon.html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(andmed<span class="sc">$</span>sector, <span class="at">useNA =</span> <span class="st">&#39;ifany&#39;</span>)</span></code></pre></div>
 <pre><code>## 
 ##   Public Catholic 
 ##     3642     3543</code></pre>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="5-mitmetasandiline-regressioon.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(andmed<span class="sc">$</span>pracad)</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="5-mitmetasandiline-regressioon.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(andmed<span class="sc">$</span>pracad)</span></code></pre></div>
 <p><img src="04-multilevel_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="5-mitmetasandiline-regressioon.html#cb591-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(andmed<span class="sc">$</span>meanses)</span></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="5-mitmetasandiline-regressioon.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(andmed<span class="sc">$</span>meanses)</span></code></pre></div>
 <p><img src="04-multilevel_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>Interpretatsiooni huvides oleks regressioonimudelis mõistlik kasutada sotsiaalmajanduslikku indeksi tunnust, mis on koolide keskmiste alusel tsentreeritud. Kuna vabaliige on sõltuva tunnuse (<span class="math inline">\(y\)</span>) väärtus juhul, kui sõltumatu tunnus (<span class="math inline">\(x\)</span>) on 0, siis ilma tsentreerimata on vabaliikme väärtus suhteliselt sisutühi. Kui me selle koolide keskmiste lõikes tsentreerime, näitab vabaliige kooli matemaatikatesti tulemust kooli keskmise sotsiaalmajandusliku indeksi väärtuse korral.</p>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="5-mitmetasandiline-regressioon.html#cb592-1" aria-hidden="true" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> andmed <span class="sc">%&gt;%</span> </span>
-<span id="cb592-2"><a href="5-mitmetasandiline-regressioon.html#cb592-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tses =</span> ses <span class="sc">-</span> meanses)</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="5-mitmetasandiline-regressioon.html#cb600-1" aria-hidden="true" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> andmed <span class="sc">%&gt;%</span> </span>
+<span id="cb600-2"><a href="5-mitmetasandiline-regressioon.html#cb600-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tses =</span> ses <span class="sc">-</span> meanses)</span></code></pre></div>
 </div>
 <div id="nullmudel" class="section level3 hasAnchor" number="5.4.3">
 <h3><span class="header-section-number">5.4.3</span> Nullmudel<a href="5-mitmetasandiline-regressioon.html#nullmudel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Esmalt defineerime nullmudeli:</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="5-mitmetasandiline-regressioon.html#cb593-1" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="5-mitmetasandiline-regressioon.html#cb601-1" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
 <p><code>lmer</code> mudeli defineerimine on natukene erinev tavapärasest <code>ml</code> või <code>glm</code> mudeli defineerimisest.</p>
 <ul>
 <li><code>athach ~ 1</code> - sõltuv tunnus koos tildega ja 1 tähistamas vabaliiget. See on identne <code>ml</code> mudeliga. Tavaliselt me lihtsalt <code>ml</code> mudelis vabaliiget eraldi välja ei too, kuna ainult vabaliikmega <code>ml</code> mudeli tulem oleks lihtsalt sõltuva tunnuse keskmine. Aga kuna siin mudelis meil ühtegi sõltumatut tunnust veel ei ole, siis peame vabaliikme eksplitsiitselt ära märkima.</li>
 <li><code>(1|school)</code> - sulgude sees kirjeldatud mudeli juhuslik osa, ehk siis need tunnused, mida me tahame varieeruvatena näha. 1 tähistab jällegi vabaliiget, mis tähendab, et me laseme gruppide vabaliikmetel varieeruda. | märgi järel tuleb mudeli grupeeriv tunnus. Antud juhul on selleks <em>school</em>.</li>
 </ul>
 <p>Vaatame mudeli tulemusi:</p>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="5-mitmetasandiline-regressioon.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m0)</span></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="5-mitmetasandiline-regressioon.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m0)</span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
 ## Formula: mathach ~ 1 + (1 | school)
@@ -566,15 +567,15 @@ kus:</p>
 <li>Õpilaste keskmine dispersioon koolide keskmistest testitulemustest on 39.1 (ja keskmine hälbimus 6.3).</li>
 </ul>
 <p>Nende tulemuste alusel saame arvutda intraklassi korrelatsiooni (<em>interclass correlatsion</em> ehk ICC), mis näitab mitu protsenti sõltuva tunnuse varieeruvusest on selgitatav grupitunnuse poolt</p>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="5-mitmetasandiline-regressioon.html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="fl">8.614</span><span class="sc">/</span>(<span class="fl">8.614+39.148</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="5-mitmetasandiline-regressioon.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fl">8.614</span><span class="sc">/</span>(<span class="fl">8.614+39.148</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1803526</code></pre>
 <p><em>ca</em> 18% testitulemuste variatiivusest on selgitatav koolie erinevustega.</p>
 </div>
 <div id="juhusliku-vabaliikmega-mudel" class="section level3 hasAnchor" number="5.4.4">
 <h3><span class="header-section-number">5.4.4</span> Juhusliku vabaliikmega mudel<a href="5-mitmetasandiline-regressioon.html#juhusliku-vabaliikmega-mudel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Lisame mudelile ka sotsiaalmajandusliku indeksi (tsentreeritud variandi), mis läbi saame tulemuseks mudeli kus vabaliikmed gruppide vahel varieeruvad:</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="5-mitmetasandiline-regressioon.html#cb598-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="5-mitmetasandiline-regressioon.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="5-mitmetasandiline-regressioon.html#cb606-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="5-mitmetasandiline-regressioon.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
 ## Formula: mathach ~ 1 + tses + (1 | school)
@@ -608,7 +609,7 @@ kus:</p>
 <li>Esimese tasandi vead läksid natuke väiksemaks (39,1 &gt; 37,0), mis on ka loogiline, kuna iga lisanduv sõltumatu tunnus peaks regressioonijääke vähendama.</li>
 </ul>
 <p>Saame mudeleid võrrelda <code>anova()</code> funktsiooni ja LRT-testiga:</p>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="5-mitmetasandiline-regressioon.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m0, m1)</span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="5-mitmetasandiline-regressioon.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m0, m1)</span></code></pre></div>
 <pre><code>## Data: andmed
 ## Models:
 ## m0: mathach ~ 1 + (1 | school)
@@ -623,8 +624,8 @@ kus:</p>
 <div id="juhusliku-regressioonikordajaga-mudel" class="section level3 hasAnchor" number="5.4.5">
 <h3><span class="header-section-number">5.4.5</span> Juhusliku regressioonikordajaga mudel<a href="5-mitmetasandiline-regressioon.html#juhusliku-regressioonikordajaga-mudel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Laseme sotsiaalmajandusliku indeksi regressioonikorda samuti vabalt varieeruma. Selleks lisame vastava tunnuse, mille koefitsiente tahame vabaks lasta juhuslike efektide sulgudesse:</p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="5-mitmetasandiline-regressioon.html#cb603-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>tses<span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="5-mitmetasandiline-regressioon.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="5-mitmetasandiline-regressioon.html#cb611-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>tses<span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="5-mitmetasandiline-regressioon.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
 ## Formula: mathach ~ 1 + tses + (1 + tses | school)
@@ -657,7 +658,7 @@ kus:</p>
 <li>Sotsiaalmajandusliku indeksi regresioonikordaja dispersioon on 0,69 (ja standardhälve 0,83)</li>
 </ul>
 <p>Juhuslike effektide jaoks meil väljundis mingit olulisuse testi ei ole. Aga saame kasutada <code>lmerTest</code> paketi <code>ranova()</code> funktsiooni, mis testib erinevate juhuslike efektide panust mudelisse:</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="5-mitmetasandiline-regressioon.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranova</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="5-mitmetasandiline-regressioon.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranova</span>(m2)</span></code></pre></div>
 <pre><code>## ANOVA-like table for random-effects: Single term deletions
 ## 
 ## Model:
@@ -669,7 +670,7 @@ kus:</p>
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Sotsiaalmajandusliku indeksi effekt on oluline (<em>p</em> &lt; 0,05).</p>
 <p>Saame seda testida ka LRT-testiga:</p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="5-mitmetasandiline-regressioon.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m1,m2)</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="5-mitmetasandiline-regressioon.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m1,m2)</span></code></pre></div>
 <pre><code>## Data: andmed
 ## Models:
 ## m1: mathach ~ 1 + tses + (1 | school)
@@ -683,8 +684,8 @@ kus:</p>
 <div id="teise-tasandi-sõltumatud-muutujad" class="section level3 hasAnchor" number="5.4.6">
 <h3><span class="header-section-number">5.4.6</span> Teise tasandi sõltumatud muutujad<a href="5-mitmetasandiline-regressioon.html#teise-tasandi-sõltumatud-muutujad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Lisame teise tasandi sõltumatu muutujana kooli keskmise sotsiaalmajandusliku indeksi ja kooli tüübi:</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="5-mitmetasandiline-regressioon.html#cb610-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">+</span> meanses <span class="sc">+</span> sector <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>tses<span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="5-mitmetasandiline-regressioon.html#cb611-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="5-mitmetasandiline-regressioon.html#cb618-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">+</span> meanses <span class="sc">+</span> sector <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>tses<span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="5-mitmetasandiline-regressioon.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
 ## Formula: mathach ~ 1 + tses + meanses + sector + (1 + tses | school)
@@ -722,7 +723,7 @@ kus:</p>
 </li>
 <li>Katoliiklikus koolis on keskmine matemaatika testitulemus ca 1.4 punkti parem kui tavakoolis.</li>
 </ul>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="5-mitmetasandiline-regressioon.html#cb613-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m2, m3)</span></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="5-mitmetasandiline-regressioon.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m2, m3)</span></code></pre></div>
 <pre><code>## Data: andmed
 ## Models:
 ## m2: mathach ~ 1 + tses + (1 + tses | school)
@@ -736,8 +737,8 @@ kus:</p>
 <div id="esimese-ja-teise-tasandi-sõltumatute-tunnuste-koosmõjud" class="section level3 hasAnchor" number="5.4.7">
 <h3><span class="header-section-number">5.4.7</span> Esimese ja teise tasandi sõltumatute tunnuste koosmõjud<a href="5-mitmetasandiline-regressioon.html#esimese-ja-teise-tasandi-sõltumatute-tunnuste-koosmõjud" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Lõpuks lisame mudelisse ka esimese tasandi sõltumatu tunnuse (<em>tses</em>) ja teise tasandi sõltumatute tunnuste (<em>meanses</em> ja <em>sector</em>) koosmõjud, mille abil saame hinnata kas teise tasandi tunnused mõjutavbad esimese tasandi mõjusid:</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="5-mitmetasandiline-regressioon.html#cb615-1" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">*</span> meanses <span class="sc">+</span> tses <span class="sc">*</span> sector <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>tses <span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="5-mitmetasandiline-regressioon.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code></pre></div>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="5-mitmetasandiline-regressioon.html#cb623-1" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">*</span> meanses <span class="sc">+</span> tses <span class="sc">*</span> sector <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>tses <span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="5-mitmetasandiline-regressioon.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
 ## Formula: mathach ~ 1 + tses * meanses + tses * sector + (1 + tses | school)

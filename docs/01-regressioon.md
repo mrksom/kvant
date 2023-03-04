@@ -137,7 +137,7 @@ $\hat{y}_i$ antud võrrandis tähistab hinnatud või prognoositud $y$ väärtust
   -140+3.6\times200=580
 \end{equation}
 
-Ehk siis inimesel, kelle matemaatilise kirjaoskuse skoor on 200, peaks meie mudeli järgi sissetulek olema keskmiselt *ca* 580 eurot. Inimesel, kelle matemaatilise kirjaoskuse skoor on 400, peaks sissetulek olema keskmiselt $-140+3.6\times400=1300$ eurot
+Ehk siis inimesel, kelle matemaatilise kirjaoskuse skoor on $200$, peaks meie mudeli järgi sissetulek olema keskmiselt *ca* 580 eurot. Inimesel, kelle matemaatilise kirjaoskuse skoor on $400$, peaks sissetulek olema keskmiselt $-140+3.6\times400=1300$ eurot
 
 <div class="figure">
 <p class="caption">(\#fig:reg-plot-4)Prognoosime y väärtust kui x on 200 ja kui x = 400</p><img src="01-regressioon_files/figure-html/reg-plot-4-1.png" alt="Prognoosime y väärtust kui x on 200 ja kui x = 400" width="672" /></div>
@@ -1704,7 +1704,7 @@ summary(mod)
 ## F-statistic: 332.3 on 1 and 3982 DF,  p-value: < 2.2e-16
 ```
 
-- Kui *numeracy* muutub 1% võrra, siis keskmine sissetulek muutub $(1.01)^{1.0274152} = 1.0102756\%$ korda ehk $(1.0102756 - 1) * 100 = 1.0275556\%$ võrra.
+- Kui *numeracy* muutub 1% võrra, siis keskmine sissetulek muutub $(1.01)^{1.0274152} = 1.0102756$ korda ehk $(1.0102756 - 1) * 100 = 1.0275556\%$ võrra.
 
 Kui $\beta$ ei ole väga suur ($-10 < \beta < 10$), siis jällegi küllaltki heaks lähendiks $y$ muutuse hindamisel on tegelikult lihtsalt $\beta$, seega 1% muutus $x$-is tähendab $\beta\%$ muutust $y$-is.
 
@@ -1740,9 +1740,9 @@ Tundub päris loogiline. Nooremate inimeste hulgas vanuse kasvades sissetulekud 
 
 Üks variant oleks vanus kategoriseerida ning kategoriaalse tunnusena mudelisse kaasata. Sellisel juhul kaotaksime osa infot. Et infokadu vähendada, peaksime tegema suhteliselt palju vanusegruppe. Kuid sellega läheks nende tõlgendamine keerulisemaks. 
 
-Teine variant on kasutada polünoome. Sellisel puhul peame otsustama, mitmenda astme polünoomi meil vaja on. Mida kõrgem aste, seda täpsemalt saame seost modelleerida, kuid seda keerulisemaks hilisem tõlgendus läheb. Samuti suureneb oht mudelit *overfittida*. Rusikareegel on, et mida vähem astmeid, seda parem. Üldiselt tavapärases mudelis üle kolmanda astme ei soovitaks kasutada. 
+Teine variant on kasutada polünoome. Sellisel puhul peame otsustama, mitmenda astme polünoomi meil vaja on. Mida kõrgem aste, seda täpsemalt saame seost modelleerida, kuid seda keerulisemaks hilisem tõlgendus läheb. Samuti suureneb oht mudelit *overfittida*, mis tähendab et mudel järgib liiga täpselt andmeid ja neis sisalduvat juhuslikkust ning mitte andmete aluseks olevaid üldisi trende. Rusikareegel on, et mida vähem astmeid, seda parem. Üldiselt tavapärases mudelis üle kolmanda astme ei soovitaks kasutada. 
 
-Polünoomidega regressiooni mudeliga tehtavad prognoosid kehtivad üldjuhul ainult mudeli aluseks olevate andmete skaala ulatuses. Näiteks kui kasutame vanuse polünoome ja andmestikus on 20-60 aastased, siis ei tohiks mudeli alusel 80-aastaste inimeste hinnanguid. Väljaspool piiirkonda mille alusel mudel on hinnatud võivad $y$ väärtused väga ebarealistlikuks minna (või no tegelikult lähevad peaaegu kindlasti).
+Polünoomidega regressiooni mudeliga tehtavad prognoosid kehtivad üldjuhul ainult mudeli aluseks olevate andmete skaala ulatuses. Näiteks kui kasutame vanuse polünoome ja andmestikus on 20-60 aastased, siis ei tohiks mudeli alusel 80-aastaste inimeste hinnanguid. Väljaspool piirkonda, mille alusel mudel on hinnatud, võivad $y$ väärtused väga ebarealistlikuks minna (või no tegelikult lähevad peaaegu kindlasti).
 
 Defineerime esmalt teise astme polünoomiga mudeli. Selleks peame lisaks algsele *vanus* tunnusele lisama mudelile *vanus^2* tunnuse (lisades kõrgema astme koefitsienfi, peavad kõik madalama astme koefitsiendid mudelis olema, st kui lisame *vanus^2*, siis *vanus* peab ka mudelis olema, kui lisame *vanus^3*, siis peavad *vanus* ja *vanus^2* mudelis olema). Saaksime need enne andmestikus valmis arvutada, kuid lihtsam on need `lm()` funktsiooni sees defineerida: 
 

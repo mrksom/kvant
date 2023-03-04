@@ -50,6 +50,8 @@
 <link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="assets/tabwid-1.1.0/tabwid.css" rel="stylesheet" />
 <link href="assets/tabwid-1.1.0/scrool.css" rel="stylesheet" />
 
@@ -163,15 +165,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>II Üldistatud lineaarsed mudelid</b></span></li>
 <li class="chapter" data-level="3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html"><i class="fa fa-check"></i><b>3</b> Logistiline regressioon</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#šansid"><i class="fa fa-check"></i><b>3.1</b> Šansid</a></li>
-<li class="chapter" data-level="3.2" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit"><i class="fa fa-check"></i><b>3.2</b> Logit</a></li>
-<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.3</b> Logit mudel</a></li>
-<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-tõlgendus"><i class="fa fa-check"></i><b>3.4</b> Mudeli tõlgendus</a></li>
-<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.5</b> Logistiline regressioon R-is</a></li>
-<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.6</b> Mudeli kvaliteet</a></li>
-<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.7</b> Predict</a></li>
-<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.8</b> Marginaalsed efektid</a></li>
-<li class="chapter" data-level="3.9" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.9</b> Prognoosi täpsus</a></li>
+<li class="chapter" data-level="3.1" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-funktsioon"><i class="fa fa-check"></i><b>3.1</b> Logistiline funktsioon</a></li>
+<li class="chapter" data-level="3.2" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.2</b> Logit mudel</a></li>
+<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-tõlgendus"><i class="fa fa-check"></i><b>3.3</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.4</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.5</b> Mudeli kvaliteet</a></li>
+<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.6</b> Predict</a></li>
+<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.7</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.8</b> Prognoosi täpsus</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html"><i class="fa fa-check"></i><b>4</b> Poissoni regressioon</a>
 <ul>
@@ -314,7 +315,7 @@ Y=a+bX
 <p><span class="math display">\[\begin{equation}
   -140+3.6\times200=580
 \end{equation}\]</span></p>
-<p>Ehk siis inimesel, kelle matemaatilise kirjaoskuse skoor on 200, peaks meie mudeli järgi sissetulek olema keskmiselt <em>ca</em> 580 eurot. Inimesel, kelle matemaatilise kirjaoskuse skoor on 400, peaks sissetulek olema keskmiselt <span class="math inline">\(-140+3.6\times400=1300\)</span> eurot</p>
+<p>Ehk siis inimesel, kelle matemaatilise kirjaoskuse skoor on <span class="math inline">\(200\)</span>, peaks meie mudeli järgi sissetulek olema keskmiselt <em>ca</em> 580 eurot. Inimesel, kelle matemaatilise kirjaoskuse skoor on <span class="math inline">\(400\)</span>, peaks sissetulek olema keskmiselt <span class="math inline">\(-140+3.6\times400=1300\)</span> eurot</p>
 <div class="figure"><span style="display:block;" id="fig:reg-plot-4"></span>
 <p class="caption">
 Joonis 2.1: Prognoosime y väärtust kui x on 200 ja kui x = 400
@@ -1485,7 +1486,7 @@ Nüüd on <span class="math inline">\(Y\)</span> küll originaalskaalal, kuid v�
 ## Multiple R-squared:  0.07703,    Adjusted R-squared:  0.0768 
 ## F-statistic: 332.3 on 1 and 3982 DF,  p-value: &lt; 2.2e-16</code></pre>
 <ul>
-<li>Kui <em>numeracy</em> muutub 1% võrra, siis keskmine sissetulek muutub <span class="math inline">\((1.01)^{1.0274152} = 1.0102756\%\)</span> korda ehk <span class="math inline">\((1.0102756 - 1) * 100 = 1.0275556\%\)</span> võrra.</li>
+<li>Kui <em>numeracy</em> muutub 1% võrra, siis keskmine sissetulek muutub <span class="math inline">\((1.01)^{1.0274152} = 1.0102756\)</span> korda ehk <span class="math inline">\((1.0102756 - 1) * 100 = 1.0275556\%\)</span> võrra.</li>
 </ul>
 <p>Kui <span class="math inline">\(\beta\)</span> ei ole väga suur (<span class="math inline">\(-10 &lt; \beta &lt; 10\)</span>), siis jällegi küllaltki heaks lähendiks <span class="math inline">\(y\)</span> muutuse hindamisel on tegelikult lihtsalt <span class="math inline">\(\beta\)</span>, seega 1% muutus <span class="math inline">\(x\)</span>-is tähendab <span class="math inline">\(\beta\%\)</span> muutust <span class="math inline">\(y\)</span>-is.</p>
 </div>
@@ -1508,8 +1509,8 @@ Graafiliselt näevad polünoomid välja sellised:</p>
 <p><img src="01-regressioon_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <p>Tundub päris loogiline. Nooremate inimeste hulgas vanuse kasvades sissetulekud kasvavad, saavutavad 30-35-aastaste hulgas haripunkti ning hakkavad siis langema. Kuid tegemist ei ole mingil juhul lineaarse seosega ning originaalkujul me seda lineaarsesse mudelisse panna ei tohiks.</p>
 <p>Üks variant oleks vanus kategoriseerida ning kategoriaalse tunnusena mudelisse kaasata. Sellisel juhul kaotaksime osa infot. Et infokadu vähendada, peaksime tegema suhteliselt palju vanusegruppe. Kuid sellega läheks nende tõlgendamine keerulisemaks.</p>
-<p>Teine variant on kasutada polünoome. Sellisel puhul peame otsustama, mitmenda astme polünoomi meil vaja on. Mida kõrgem aste, seda täpsemalt saame seost modelleerida, kuid seda keerulisemaks hilisem tõlgendus läheb. Samuti suureneb oht mudelit <em>overfittida</em>. Rusikareegel on, et mida vähem astmeid, seda parem. Üldiselt tavapärases mudelis üle kolmanda astme ei soovitaks kasutada.</p>
-<p>Polünoomidega regressiooni mudeliga tehtavad prognoosid kehtivad üldjuhul ainult mudeli aluseks olevate andmete skaala ulatuses. Näiteks kui kasutame vanuse polünoome ja andmestikus on 20-60 aastased, siis ei tohiks mudeli alusel 80-aastaste inimeste hinnanguid. Väljaspool piiirkonda mille alusel mudel on hinnatud võivad <span class="math inline">\(y\)</span> väärtused väga ebarealistlikuks minna (või no tegelikult lähevad peaaegu kindlasti).</p>
+<p>Teine variant on kasutada polünoome. Sellisel puhul peame otsustama, mitmenda astme polünoomi meil vaja on. Mida kõrgem aste, seda täpsemalt saame seost modelleerida, kuid seda keerulisemaks hilisem tõlgendus läheb. Samuti suureneb oht mudelit <em>overfittida</em>, mis tähendab et mudel järgib liiga täpselt andmeid ja neis sisalduvat juhuslikkust ning mitte andmete aluseks olevaid üldisi trende. Rusikareegel on, et mida vähem astmeid, seda parem. Üldiselt tavapärases mudelis üle kolmanda astme ei soovitaks kasutada.</p>
+<p>Polünoomidega regressiooni mudeliga tehtavad prognoosid kehtivad üldjuhul ainult mudeli aluseks olevate andmete skaala ulatuses. Näiteks kui kasutame vanuse polünoome ja andmestikus on 20-60 aastased, siis ei tohiks mudeli alusel 80-aastaste inimeste hinnanguid. Väljaspool piirkonda, mille alusel mudel on hinnatud, võivad <span class="math inline">\(y\)</span> väärtused väga ebarealistlikuks minna (või no tegelikult lähevad peaaegu kindlasti).</p>
 <p>Defineerime esmalt teise astme polünoomiga mudeli. Selleks peame lisaks algsele <em>vanus</em> tunnusele lisama mudelile <em>vanus^2</em> tunnuse (lisades kõrgema astme koefitsienfi, peavad kõik madalama astme koefitsiendid mudelis olema, st kui lisame <em>vanus^2</em>, siis <em>vanus</em> peab ka mudelis olema, kui lisame <em>vanus^3</em>, siis peavad <em>vanus</em> ja <em>vanus^2</em> mudelis olema). Saaksime need enne andmestikus valmis arvutada, kuid lihtsam on need <code>lm()</code> funktsiooni sees defineerida:</p>
 <div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="2-lineaarne-regressioon.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Et võrrandis tehteid teha (antud juhul astendamistehet), </span></span>
 <span id="cb483-2"><a href="2-lineaarne-regressioon.html#cb483-2" aria-hidden="true" tabindex="-1"></a><span class="co"># tuleb kasutada I() notatsiooni</span></span>
