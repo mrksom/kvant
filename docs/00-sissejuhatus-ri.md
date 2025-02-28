@@ -1461,19 +1461,18 @@ head(dat)
 ```
 
 ```
-## # A tibble: 6 x 19
-##    year month   day dep_time sched_dep~1 dep_d~2 arr_t~3 sched~4 arr_d~5 carrier
-##   <int> <int> <int>    <int>       <int>   <dbl>   <int>   <int>   <dbl> <chr>  
-## 1  2013     1     1      517         515       2     830     819      11 UA     
-## 2  2013     1     1      533         529       4     850     830      20 UA     
-## 3  2013     1     1      542         540       2     923     850      33 AA     
-## 4  2013     1     1      544         545      -1    1004    1022     -18 B6     
-## 5  2013     1     1      554         600      -6     812     837     -25 DL     
-## 6  2013     1     1      554         558      -4     740     728      12 UA     
-## # ... with 9 more variables: flight <int>, tailnum <chr>, origin <chr>,
-## #   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
-## #   time_hour <dttm>, and abbreviated variable names 1: sched_dep_time,
-## #   2: dep_delay, 3: arr_time, 4: sched_arr_time, 5: arr_delay
+## # A tibble: 6 × 19
+##    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+##   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
+## 1  2013     1     1      517            515         2      830            819
+## 2  2013     1     1      533            529         4      850            830
+## 3  2013     1     1      542            540         2      923            850
+## 4  2013     1     1      544            545        -1     1004           1022
+## 5  2013     1     1      554            600        -6      812            837
+## 6  2013     1     1      554            558        -4      740            728
+## # ℹ 11 more variables: arr_delay <dbl>, carrier <chr>, flight <int>,
+## #   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
+## #   hour <dbl>, minute <dbl>, time_hour <dttm>
 ```
 
 
@@ -1526,7 +1525,7 @@ head(dat.aa1)
 ```
 
 ```
-## # A tibble: 6 x 3
+## # A tibble: 6 × 3
 ##   month arr_delay tailnum
 ##   <int>     <dbl> <chr>  
 ## 1     1        33 N619AA 
@@ -1554,7 +1553,7 @@ head(dat.aa1)
 ```
 
 ```
-## # A tibble: 6 x 3
+## # A tibble: 6 × 3
 ##   month arr_delay tailnum
 ##   <int>     <dbl> <chr>  
 ## 1     2       -69 N3EAAA 
@@ -1581,7 +1580,7 @@ head(dat.aa1)
 ```
 
 ```
-## # A tibble: 6 x 4
+## # A tibble: 6 × 4
 ##   month arr_delay tailnum tunnid
 ##   <int>     <dbl> <chr>    <dbl>
 ## 1     2       -69 N3EAAA   -1.15
@@ -1613,7 +1612,7 @@ summarise(dat.aa1,
 ```
 
 ```
-## # A tibble: 1 x 4
+## # A tibble: 1 × 4
 ##   keskmine   sdh  maks   min
 ##      <dbl> <dbl> <dbl> <dbl>
 ## 1     1.03  34.1   368   -69
@@ -1628,7 +1627,7 @@ summarise(group_by(dat.aa1, month), keskmine=mean(tunnid, na.rm=T))
 ```
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   month keskmine
 ##   <int>    <dbl>
 ## 1     1   0.0164
@@ -1652,7 +1651,7 @@ dat %>% #algsed andmed
 ```
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   month keskmine
 ##   <int>    <dbl>
 ## 1     1   0.0164
@@ -1687,7 +1686,7 @@ flights %>%
 ```
 
 ```
-## # A tibble: 5,725 x 2
+## # A tibble: 5,725 × 2
 ##    carrier flight
 ##    <chr>    <int>
 ##  1 UA        1545
@@ -1700,7 +1699,7 @@ flights %>%
 ##  8 EV        5708
 ##  9 B6          79
 ## 10 AA         301
-## # ... with 5,715 more rows
+## # ℹ 5,715 more rows
 ```
 
 Kui on vaja vaatluste arvu:
@@ -1712,7 +1711,7 @@ flights %>%
 ```
 
 ```
-## # A tibble: 1 x 1
+## # A tibble: 1 × 1
 ##    `n()`
 ##    <int>
 ## 1 336776
@@ -1726,7 +1725,7 @@ flights %>%
 ```
 
 ```
-## # A tibble: 16 x 2
+## # A tibble: 16 × 2
 ##    carrier kokku
 ##    <chr>   <int>
 ##  1 9E      18460
@@ -1756,23 +1755,22 @@ flights %>%
 ```
 
 ```
-## # A tibble: 10 x 19
-##     year month   day dep_time sched_de~1 dep_d~2 arr_t~3 sched~4 arr_d~5 carrier
-##    <int> <int> <int>    <int>      <int>   <dbl>   <int>   <int>   <dbl> <chr>  
-##  1  2013     6     5     1242       1245      -3    1525    1543     -18 B6     
-##  2  2013     9     1     1448       1455      -7    1619    1640     -21 MQ     
-##  3  2013     3     1      725        730      -5     949    1004     -15 DL     
-##  4  2013     6    30     1327       1330      -3    1638    1625      13 B6     
-##  5  2013    10    23      740        745      -5     959    1009     -10 DL     
-##  6  2013    12    17     1107        600     307    1415     846     329 B6     
-##  7  2013     2    22     1305       1315     -10    1534    1520      14 MQ     
-##  8  2013     8     7     1614       1605       9    1741    1740       1 AA     
-##  9  2013    12    20      805        800       5    1105    1115     -10 AA     
-## 10  2013    10    28      757        800      -3    1031    1048     -17 DL     
-## # ... with 9 more variables: flight <int>, tailnum <chr>, origin <chr>,
-## #   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
-## #   time_hour <dttm>, and abbreviated variable names 1: sched_dep_time,
-## #   2: dep_delay, 3: arr_time, 4: sched_arr_time, 5: arr_delay
+## # A tibble: 10 × 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+##    <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
+##  1  2013    10     2      653            700        -7      826            838
+##  2  2013     9     9     1708           1700         8     1952           2000
+##  3  2013     8    22     1920           1830        50     2220           2140
+##  4  2013    11     5     1943           1946        -3     2055           2052
+##  5  2013    12    26     1703           1710        -7     2037           2047
+##  6  2013    10    13     2016           2022        -6     2152           2155
+##  7  2013    12    31      609            610        -1      911            915
+##  8  2013    11    18     2355           2359        -4      420            437
+##  9  2013    12    17      847            745        62     1215           1040
+## 10  2013     2    14     2240           2130        70     2356           2255
+## # ℹ 11 more variables: arr_delay <dbl>, carrier <chr>, flight <int>,
+## #   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
+## #   hour <dbl>, minute <dbl>, time_hour <dttm>
 ```
 
 Kui tahame välja võtta konkreetsed read:
@@ -1784,18 +1782,17 @@ flights %>%
 ```
 
 ```
-## # A tibble: 5 x 19
-##    year month   day dep_time sched_dep~1 dep_d~2 arr_t~3 sched~4 arr_d~5 carrier
-##   <int> <int> <int>    <int>       <int>   <dbl>   <int>   <int>   <dbl> <chr>  
-## 1  2013     1     1      517         515       2     830     819      11 UA     
-## 2  2013     1     1      533         529       4     850     830      20 UA     
-## 3  2013     1     1      542         540       2     923     850      33 AA     
-## 4  2013     1     1      544         545      -1    1004    1022     -18 B6     
-## 5  2013     1     1      554         600      -6     812     837     -25 DL     
-## # ... with 9 more variables: flight <int>, tailnum <chr>, origin <chr>,
-## #   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,
-## #   time_hour <dttm>, and abbreviated variable names 1: sched_dep_time,
-## #   2: dep_delay, 3: arr_time, 4: sched_arr_time, 5: arr_delay
+## # A tibble: 5 × 19
+##    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+##   <int> <int> <int>    <int>          <int>     <dbl>    <int>          <int>
+## 1  2013     1     1      517            515         2      830            819
+## 2  2013     1     1      533            529         4      850            830
+## 3  2013     1     1      542            540         2      923            850
+## 4  2013     1     1      544            545        -1     1004           1022
+## 5  2013     1     1      554            600        -6      812            837
+## # ℹ 11 more variables: arr_delay <dbl>, carrier <chr>, flight <int>,
+## #   tailnum <chr>, origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>,
+## #   hour <dbl>, minute <dbl>, time_hour <dttm>
 ```
 
 
@@ -1890,7 +1887,7 @@ full_join(dt1, dt2)
 ```
 
 ```
-## Joining, by = "a"
+## Joining with `by = join_by(a)`
 ```
 
 ```
@@ -1909,7 +1906,7 @@ inner_join(dt1, dt2)
 ```
 
 ```
-## Joining, by = "a"
+## Joining with `by = join_by(a)`
 ```
 
 ```
@@ -1925,7 +1922,7 @@ anti_join(dt1, dt2)
 ```
 
 ```
-## Joining, by = "a"
+## Joining with `by = join_by(a)`
 ```
 
 ```
@@ -1974,7 +1971,7 @@ pikk
 ```
 
 ```
-## # A tibble: 9 x 3
+## # A tibble: 9 × 3
 ##   nimi  test  tulemus
 ##   <chr> <chr>   <dbl>
 ## 1 Jüri  1           3
@@ -1996,7 +1993,7 @@ lai
 ```
 
 ```
-## # A tibble: 3 x 4
+## # A tibble: 3 × 4
 ##   nimi  test_1 test_2 test_3
 ##   <chr>  <dbl>  <dbl>  <dbl>
 ## 1 Jüri       3      8      2
@@ -2147,7 +2144,7 @@ today()
 ```
 
 ```
-## [1] "2023-03-04"
+## [1] "2025-02-28"
 ```
 
 ```r
@@ -2155,7 +2152,7 @@ now()
 ```
 
 ```
-## [1] "2023-03-04 09:41:01 EET"
+## [1] "2025-02-28 18:49:33 EET"
 ```
 
 Kestus:
@@ -2468,7 +2465,7 @@ d_bar
 ```
 
 ```
-## .
+## species
 ##     setosa versicolor  virginica 
 ##          3         39         49
 ```
@@ -2552,6 +2549,7 @@ title(main = "Pealkiri")
 
 
 ggplot'i lähtekohaks on Leland Wilkinsoni *graafika grammatika*, mis lähtub põhimõttest, et graafiku võib lahutada eraldiseisvateks komponentideks ja neist komponentidest saab saab uusi tervikuid ehitada.
+
 > "... the grammar tells us that a statistical graphic is a **mapping from data** to 
 > **aesthetic attributes** (colour, shape, size) of **geometric objects** (points, 
 > lines, bars). The plot may also contain **statistical transformations** of the data 
@@ -2645,7 +2643,7 @@ ggplot(data=dt)+
 ```
 
 ```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
 <img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-129-1.png" width="480" style="display: block; margin: auto;" />
@@ -2660,7 +2658,7 @@ ggplot(data=dt)+
 ```
 
 ```
-## `geom_smooth()` using formula 'y ~ x'
+## `geom_smooth()` using formula = 'y ~ x'
 ```
 
 <img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-130-1.png" width="480" style="display: block; margin: auto;" />
@@ -2675,7 +2673,7 @@ ggplot(data=dt)+
 ```
 
 ```
-## `geom_smooth()` using formula 'y ~ x'
+## `geom_smooth()` using formula = 'y ~ x'
 ```
 
 <img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-131-1.png" width="480" style="display: block; margin: auto;" />
@@ -2704,7 +2702,7 @@ ggplot(dt, aes(sepal.width, sepal.length))+
 ```
 
 ```
-## `geom_smooth()` using formula 'y ~ x'
+## `geom_smooth()` using formula = 'y ~ x'
 ```
 
 <img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-133-1.png" width="480" style="display: block; margin: auto;" />
@@ -2721,7 +2719,7 @@ ggplot(dt, aes(sepal.width, sepal.length))+
 ```
 
 ```
-## `geom_smooth()` using formula 'y ~ x'
+## `geom_smooth()` using formula = 'y ~ x'
 ```
 
 <img src="00-sissejuhatus-ri_files/figure-html/unnamed-chunk-134-1.png" width="480" style="display: block; margin: auto;" />
@@ -2735,7 +2733,7 @@ str(dt1)
 ```
 
 ```
-## tibble [53,940 x 10] (S3: tbl_df/tbl/data.frame)
+## tibble [53,940 × 10] (S3: tbl_df/tbl/data.frame)
 ##  $ carat  : num [1:53940] 0.23 0.21 0.23 0.29 0.31 0.24 0.24 0.26 0.22 0.23 ...
 ##  $ cut    : Ord.factor w/ 5 levels "Fair"<"Good"<..: 5 4 2 4 2 3 3 3 1 3 ...
 ##  $ color  : Ord.factor w/ 7 levels "D"<"E"<"F"<"G"<..: 2 2 2 6 7 7 6 5 2 5 ...
@@ -2904,7 +2902,7 @@ keskmised
 ```
 
 ```
-## # A tibble: 5 x 5
+## # A tibble: 5 × 5
 ##   cut       keskmine    se  l.ci  u.ci
 ##   <ord>        <dbl> <dbl> <dbl> <dbl>
 ## 1 Fair         4359.  88.7 4185. 4533.

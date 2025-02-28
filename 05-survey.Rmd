@@ -20,6 +20,8 @@ cols <- wes_palette(5, name="Cavalcanti1", type = "discrete")[c(5,2,3,4,1)]
 
 Järeldava statistika kontseptsioonid eeldavad üldjuhul alati nn juhuvalimit. Juhuslikkus tähedab siikohal, et kõikidel üldkogumi liikmetel on valimisse sattumiseks võrdne tõenäosus. [Suurte numbrite seadus]('https://en.wikipedia.org/wiki/Law_of_large_numbers) (*the law of large numbers*) viitab, et ükskõik millise üldkogumi kohta vjärelduste tegemiseks oleks meil sellest üldkogumist vaja umbes 1000 vaatluselist valimit. Kui me küsiksime Eestis 1000 inimese käest nende sissetuleku suurust, siis 1000 inimese keskmine sissetulek peaks olema küllaltki lähedane terve Eesti keskmise sissetulekuga. Seda aga ainult juhul, kui need 1000 inimest on valitud juhuslikult (kõikidel eestlastel peaks olema võrdne võimalus sattuda nende 1000 sekka). Mis juhtuks, kui me juhusliku valimi asemel võtaksime hoopis igast maakonnast 67 inimest (Eestis on 15 maakonda, seega $1000 \div 15 \approx 67$). Tõenäoliselt me alahindaksime keskmist sissetulekut oluliselt. Kõige suuremate sissetulekutega ja samas kõige suurema rahvaarvuga maakond on Harjumaa (598059 inimest 2019 aastal). Kõige väiksemate sissetulekutega ja ka rahvaarvult kõige väiksem maakond on Hiiu maakond (9387 inimest 2019 aastal). Kui me käsitleme mõlemat maakonda võrdselt, siis keskmise arvutamisel võtaksime Hiiu maakonna väikesed sissetulekud arvesse ebaproportsionaalselt suurel määral ja Harjumaa kõrgemad sissetulekud ebaproportsionaalselt väikesel määral (Hiiumaa on üleesindatud ja Harjumaa on alaesindatud). Meie maakondade põhine valim ei oleks enam üldkogumi suhtes __representatiivne__.
 
+Oletame, et arvutame igas maakonnas 67 inimese põhjal selle maakonna keskmise sissetuleku.
+
 ```{r, echo = F, tab.cap="Eesti maakondade keskmised brutopalgad 2019 (Statistikaamet)"}
 
 # dt <- read_xlsx('data/maakonnad.xlsx', range = 'A5:C21')
@@ -43,11 +45,11 @@ dt %>%
   
 ```
 
-Kui me arvutaksime Eesti keskmise sissetuleku lähtuvalt maakondade keskmistest sissetulekutest, siis saaksime vastuseks: 
+Kui me nüüd arvutaksime Eesti keskmise sissetuleku lähtuvalt maakondade keskmistest sissetulekutest, siis saaksime vastuseks: 
 
 $$\frac{1531 + 993 + ... + 1113}{15} = 1179$$ 
 
-Statistikaameti järgi oli Eesti keskmine sissetulek 2019 aastal 1407 eurot. Seega tõepoolest, hinnang alahindab oluliselt tegelikku keskmist sissetulekut.
+Statistikaameti järgi oli Eesti keskmine sissetulek 2019 aastal aga 1407 eurot. Seega meie hinnang alahindab oluliselt tegelikku keskmist sissetulekut.
 
 Võttes oma valimisse igast maakonnast 67 inimest, ei ole meie valim küll enam juhuvalim, kuid niikaua kuni me teame kõikide maakondade rahvaarvu, on see siiski __tõenäosuslik valim__ (antud juhul stratifitseeritud valim). Seda seetõttu, et kõikidel Eesti inimestel on ikkagi võimalus sellesse valimisse sattuda. Harjumaa inimestel küll väiksem ja Hiiumaa inimestel suurem, kuid mingi võimalus on kõigil. Kui me nüüd seda erinevat valimisse sattmise tõenäosust teame, siis on meil võimalik mitte-representatiivne valim representatiivseks muuta. Selleks tuleb meil Hiiumaa elanikud väiksemaks ja Harjumaa elanikud suuremaks kaaluda. Seejärel saame (mõningate mööndustega) jälle kasutada järeldava statistika meetodeid ning teha nende alusel korrektseid järeldusi üldkogumi kohta. 
 
@@ -55,7 +57,7 @@ Võttes oma valimisse igast maakonnast 67 inimest, ei ole meie valim küll enam 
 
 ### Valimi kaalud
 
-Kõikide Harjumaa elanike jaoks oleks tõenäosus meie valimisse sattuda $67  \div 598059 \approx 0.0001120$. Kõigi Hiiumaa elanike jaoks oleks see tõenäosus $67  \div 9387 \approx 0.0071375$. Harjumaa valimis esindaks iga valimisse sattunu $1 \div 0.00011 \approx 8926$ inimest ja Hiiumaal $1 \div 0.0071 \approx 140$ inimest. Seega kui me teame iga inimese valimisse sattumise tõenäosust $\pi$, siis saame välja arvutada ka selle inimese __valimi kaalud__ $\frac{1}{\pi}$ (nimetatakse ka disainikaaludeks ehk *design weights* või ka *base weights*). Valimikaalude suurus on pöördvõrdeline valimisse sattumise tõenäosusega: 
+Kõikide Harjumaa elanike jaoks oleks tõenäosus meie valimisse sattuda $67  \div 598059 \approx 0.0001120$. Kõigi Hiiumaa elanike jaoks oleks see tõenäosus $67  \div 9387 \approx 0.0071375$. Harjumaa valimis esindaks iga valimisse sattunu $1 \div 0.00011 \approx 8926$ inimest ja Hiiumaal $1 \div 0.0071 \approx 140$ inimest. Seega, kui teame iga inimese valimisse sattumise tõenäosust $\pi$, siis saame nende alusel välja arvutada selle, mitut üldkogumi inimest see valimisse sattunud inimene esindab, ehk iga valimi vaatluse __valimi kaalud__ $\frac{1}{\pi}$ (nimetatakse ka disainikaaludeks ehk *design weights* või ka *base weights*). Valimi kaalude suurus on pöördvõrdeline valimisse sattumise tõenäosusega: 
 
 $$w_i = \frac{1}{\pi_i}$$
 
@@ -79,8 +81,8 @@ dt %>%
   flextable() %>% 
   autofit() %>% 
   colformat_double(j =c(2,3), big.mark = ' ', decimal.mark = ',', digits = 0) %>% 
-  colformat_double(j =c(4), decimal.mark = ',', digits = 4) %>% 
-  colformat_double(j =c(5), decimal.mark = ',', digits = 1)
+  colformat_double(j =c(4), big.mark = ' ', decimal.mark = ',', digits = 4) %>% 
+  colformat_double(j =c(5), big.mark = ' ', decimal.mark = ',', digits = 1)
 
   
 ```
@@ -178,7 +180,7 @@ data(api)
 
 ### Kaaludega tavalise juhuvalimi defineerimine
 
-Valimidisain tavalise juhuvalimi puhul kui meile on ainult valimi kaalud ja/või mingid mingid kaalud. Isegi tavalise juhuvalimi puhul peaksime ikkagi kasutama vähemalt valimi kaale (need lubavad meil hinnata näiteks populatsiooni suurust). Lisaks valimi kaaludele või valimi kaalude asemel võivad andmestikus olla ka mitte-vastamise kaalud või poststratifikatsiooni kaalud (või oleme need ise välja arvutanud), mille olemasolu või vajadus ei sõltu sellest, kas tegemist on tavalise juhuvalimiga või keerulisema disainiga. Kui andmestikus on mitu kaalude tunnust, mida meil on vaja kasutada, siis peaksime need omavahel läbi korrutades üheks tunnuseks koondama. 
+Valimidisain tavalise juhuvalimi puhul kui meile on ainult valimi kaalud ja/või mingid muud kaalud. Isegi tavalise juhuvalimi puhul peaksime ikkagi kasutama vähemalt valimi kaale (need lubavad meil hinnata näiteks populatsiooni suurust). Lisaks valimi kaaludele või valimi kaalude asemel võivad andmestikus olla ka mitte-vastamise kaalud või poststratifikatsiooni kaalud (või oleme need ise välja arvutanud), mille olemasolu või vajadus ei sõltu sellest, kas tegemist on tavalise juhuvalimiga või keerulisema disainiga. Kui andmestikus on mitu kaalude tunnust, mida meil on vaja kasutada, siis peaksime need omavahel läbi korrutades üheks tunnuseks koondama. 
 
 `svydesign()` funktsiooni argumentidena peame defineerima:  
 
@@ -198,7 +200,7 @@ Väiksemate üldkogumite korral, kui me teame üldkogumi suurust, saab kasutada 
 
 *fpc* defineeritakse parameetriga:
 
-- `fpc` mille kaudu peab deineerima tunnuse, mis sisaldab iga vaatluse kohta üldkogumi suurust. Tavalise juhuvalimi puhul on see suurus kõikide vaatuste jaoks sama.
+- `fpc` mille kaudu peab defineerima tunnuse, mis sisaldab iga vaatluse kohta üldkogumi suurust. Tavalise juhuvalimi puhul on see suurus kõikide vaatuste jaoks sama.
 
 ```{r}
 des_jv = svydesign(ids = ~1, 

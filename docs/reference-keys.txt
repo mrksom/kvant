@@ -77,13 +77,16 @@ mudeli-tõlgendus
 logistiline-regressioon-r-is
 mitu-sõltumatut-tunnust-ja-interaktsioon
 mudeli-kvaliteet
-mudeli-sobivus
+mudeli-sobivus-andmetega
+hosmer-lemeshow-test
 mudeli-statistiline-olulisus
 pseudo-r2
 predict
 broom
 marginaalsed-efektid
 prognoosi-täpsus
+mudeli-eeldused
+cross-validation
 poissoni-regressioon
 mudeli-tõlgendus-1
 poissoni-regressiooni-eeldused
@@ -142,7 +145,7 @@ faktoranalüüs
 kinnitav-faktoranalüüs
 kinnitava-faktoranalüüsi-loogika
 vabadusastmed
-mudeli-sobivus-1
+mudeli-sobivus
 veel-mudeli-identifikatsioonist
 sruktuurivõrrandite-mudelid
 struktuurivõrrandite-mudelid-ris

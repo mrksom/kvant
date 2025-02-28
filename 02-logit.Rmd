@@ -54,7 +54,15 @@ Et saada lahti maksimaalsest väärtusest ($1$), on võimalik kasutada sündmuse
 $$\text{šansid}=\frac{p}{(1-p)}$$
 kus $p$ on sündmuse toimumise tõenäosus.  
 
-Näiteks kulli ja kirja viskamisel on kulli saamise šanss $\frac{0.5}{(1-0.5)}=1$. 
+Valemist võime välja lugeda järgmist:  
+
+1. Šansid on alati positiivsed  
+1. Kui šansid on $1$, siis on sündmuse toimumise ja mittetoimumise tõenäosus võrdsed ($p=0.5$).  
+1. Kui šansid on suuremad kui $1$, siis on sündmuse toimumise tõenäosus suurem kui mittetoimumise tõenäosus ($p>0.5$) ja vastupidi.  
+
+Näiteks kui sündmuse toimumise tõenäosus on $0.8$, siis on šansid $\frac{0.8}{1-0.8}=\frac{0.8}{0.2}=4$. Seega sündmuse toimumise tõenäosus on $4$ korda suurem kui selle mittetoimumise tõenäosus. Kui sündmuse toimumise tõenäosus on $0.2$, siis on šansid $\frac{0.2}{1-0.2}=\frac{0.2}{0.8}=\frac{1}{4}=0.25$. Sündmuse toimumise tõenäosus on $4$ korda väiksem kui selle mittetoimumise tõenäosus.  
+
+Kulli ja kirja viskamisel on kulli saamise šanss $\frac{0.5}{(1-0.5)}=1$. 
 
 Šanss võtta kaardipakist ruutu on $\frac{0.25}{(1-0.25)}=\frac{1}{3}=0.33$. 
 
@@ -86,29 +94,29 @@ data.frame(p <- runif(1000), odds <- p/(1-p), logit=log(odds)) %>%
   theme_minimal()+
   labs(y="Tõenäosus", x = "Logit")+
   geom_hline(yintercept = 0, linetype=2)+
-  geom_hline(yintercept = 1, linetype=2)
+  geom_hline(yintercept = 1, linetype=2)+
+  geom_segment(aes(x = -8, xend = 0, y = 0.5, yend = 0.5), linetype=2)+
+  geom_segment(aes(x = 0, xend = 0, y = 0, yend = 0.5), linetype=2)
 ```
 
 
-Taolist funktsionaalset seost $x$ ja $y$ vahel nimetatakse **logistiliseks funktsiooniks**:
+Taolist funktsionaalset seost, millega saame luua seose pidevtunnuse ($x$) ja tõenäosuse ($y$) vahel, nimetatakse **logistiliseks funktsiooniks**:
 
 $$y = f(x) = \frac{\exp(x)}{1 + \exp(x)} = \frac{1}{1 + \exp(-x)}$$
 
 ## Logit mudel 
 
-Logistilise regressiooni mudel moodustub järgmiselt:
+Logistilise funktsiooni pöördfunktsiooniks on **logit funktsioon**, millega saame tõenäosuse "mappida" pidevskaalale (logistilise funktsiooni sisendiks on pidevtunnus ja väljundiks tõenäosus, logit funktsiooni sisendiks on tõenäosus ja väljundiks pidevtunnus):
+
+$$\text{logit}(\pi_i)=\text{log} \left(\dfrac{\pi_i}{1-\pi_i}\right)$$ 
+
+Logistilise regressiooni kontekstis kasutame logit funktsiooni linkfunktsioonina, mille abil muudame hinnatava tõenäosuse pidevskaalaliseks logitiks. Logit väärtusi saame aga hinnata juba tavapärase lineraarse regressioonivõrrandi abil. Seega logistilise regressiooni mudel moodustub järgmiselt:
 
 $$\text{logit}(\pi_i)=\text{log} \left(\dfrac{\pi_i}{1-\pi_i}\right)=\beta_0+\beta_1 x_i$$  
-ehk me hindame juba tuttava lineaarse võrrandi abil nüüd logitit.
-
-
 Saame sama mudeli esitada ka otse logistilise funktsiooni kaudu:
 
-$$\pi_i=Pr(Y_i=1|X_i=x_i)=\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}}$$  
+$$\pi_i=Pr(Y_i=1|X_i=x_i) = \frac{1}{1+e^{-(\beta_0+\beta_1 x_i)}} =\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}}$$  
 
-või siis ka nii:     
-
-$$\pi_i=Pr(Y_i=1|X_i=x_i)=\frac{1}{1+e^{-(\beta_0+\beta_1 x_i)}}$$
 Logistilise regressiooni seos eelneva näite puhul näeb aga välja selline:
 
 ```{r glm-2, fig.cap = "Logistiline regressioon võrdluses lineaarse regressiooniga",  echo=F, warning=F}
@@ -125,7 +133,7 @@ df$y_l <- fitted(lm(y~x1,data=df))
 ggplot(df, aes(x1, y))+
   geom_point(shape=1)+
   geom_line(aes(y=y_f, colour = 'Logistiline regressioon'), size = 1)+
-  geom_line(aes(y=y_l, color = 'Lineaarne regressioon'), size = 1)+
+  geom_line(aes(y=y_l, color = 'Lineaarne regressioon'), size = 1, alpha = 0.2)+
   theme_minimal()+
   labs(y = "Tõenäosus", x = "X")+
   scale_y_continuous(breaks = c(0,0.5, 1), limits = c(-0.5,1.5))+
@@ -134,10 +142,10 @@ ggplot(df, aes(x1, y))+
         legend.position = 'bottom')
 ```
 
-## Mudeli tõlgendus
+### Mudeli tõlgendus
 Tavalise regresioonimudeliga saime prognoosida $y$ väärtust mingite $x$ väärtuste korral (ja $y$ muutust, kui $x$ muutub ühe ühiku võrra). Sama kehtib ka logistilise regressiooni puhul. Kuid mida me siinjuures täpsemalt prognoosime? Tahaksime kindlasti prognoosida (uuritava sündmuse toimumise) tõenäosust. Kuid kuna me teisendasime tõenäosuse logititeks, siis tegelikult saame prognoosida hoopis logitit. Ja ka ühe ühikuline muutus $x$-is ei peegelda mitte $y$ tõenäosuse muutust, vaid logit($y$)-i muutust. Logiteid ei oska me (vähemalt esialgu) kuidagi tõenäosuslikult tõlgendada. Mida siis teha? 
 
-Lahenduseks on võtta *logit*-i võrrandi mõlemast poolest eksponent 
+Lahenduseks on võtta *logit*-i võrrandi mõlemast poolest eksponent, misläbi saame *logit*-i muuta šanssideks:  
 
 $$\exp(logit) = \exp(\beta_0+\beta_1 x_i) \implies \frac{\pi_i}{1-\pi_i}=e^{({\beta_0}+\beta_1 x_i)}$$ 
 
@@ -145,16 +153,8 @@ Sellisel juhul saab $\beta_0$-i tõlgendada kui $y$-i šansse juhul kui $x$ on $
 
 Miks me nüüd räägime $\beta_1$-st kui kordajast (lineaarse regressiooni puhul oli tegemist lisanduva muutusega)? Põhjus on eksponendi võtmises, kuna $e^{({\beta_0}+\beta_1 x_i)} = e^{{\beta_0}}\times e^{\beta_1 x_i}$.   
 
+
 ### Šansside suhe
-Šansid saime leida valemiga:  
-
-$$\text{šansid}=\frac{p}{(1-p)}$$  
-Valemist võime välja lugeda järgmist:  
-
-1. Šansid on alati positiivsed  
-1. Kui šansid on $1$, siis on sündmuse toimumise ja mittetoimumise tõenäosus võrdsed ($p=0.5$).  
-1. Kui šansid on suuremad kui $1$, siis on sündmuse toimumise tõenäosus suurem kui mittetoimumise tõenäosus ($p>0.5$) ja vastupidi.  
-Näiteks kui sündmuse toimumise tõenäosus on $0.8$, siis on šansid $\frac{0.8}{1-0.8}=\frac{0.8}{0.2}=4$. Seega sündmuse toimumise tõenäosus on $4$ korda suurem kui selle mittetoimumise tõenäosus. Kui sündmuse toimumise tõenäosus on $0.2$, siis on šansid $\frac{0.2}{1-0.2}=\frac{0.2}{0.8}=\frac{1}{4}=0.25$. Sündmuse toimumise tõenäosus on $4$ korda väiksem kui selle mittetoimumise tõenäosus.  
 
 Vaatame näidet, kus hindame hääletamise tõenäosust ning abielu mõju sellele:
 
@@ -187,34 +187,34 @@ Vaatame kõigepealt soo mõju:
 
 ```{r}
 # Kasutame paket carData andmestikku TitanicSurvival
-
 titanic <- carData::TitanicSurvival
+```
 
-# vaatame andmestiku esimesi ridu
+Vaatame andmestiku esimesi ridu:
+
+```{r}
 head(titanic)
+```
 
-# Ellujäämise tunnus (survived) on tekstiline. Muudame selle numbriliseks (0/1)
-# või loogiliseks (TRUE/FALSE) tunnuseks
+Ellujäämise tunnus (survived) on tekstiline. Peame selle muutma faktortunnuseks või numbriliseks tunnuseks (0/1). Sobib ka loogiline (TRUE/FALSE) tunnuseks, kuna R käsitleb loogilist tunnust tegelikult numbrilisena (TRUE = 1 ja FALSE = 0). Ja Loogilist tunnust on üldiselt lihtsam konstrueerida. 
 
-titanic$surv <- titanic$survived == "yes"
+```{r}
+titanic <- titanic %>% 
+  mutate(surv = survived == 'yes')
 
-# Ja defineerime mudeli
+# Või nii:
+# titanic$surv <- titanic$survived == "yes"
+```
+
+Ja defineerime logistilise regressiooni mudeli. Kasutame `glm()` funktsiooni, mille kasutus on sarnane `lm()` funktsioonile, välja arvatud see, et peame `familiy` argumendiga määratlema kasutatava jaotuse ning linkfunktsiooni. Binaarset tunnust iseloomustab binoomjaotus ning linkfunktsiooniks on *logit*.
+
+```{r}
 mudel7 <- glm(surv~sex, data = titanic, family = binomial(link = 'logit'))
-
-# Saaksime ka lihtsamalt.
-# I(survived == "yes") notatsiooniga saame tekstilise tunnuse 
-# võrrandi sees loogilisek tunnuseks teisendada 
-# glm(I(survived == "yes")~sex, data = titanic, family = binomial(link = 'logit'))
-#   
-# Tulemus oleks sama
-
-# Vaatme tulemusi
 summary(mudel7)
-
 ```
 
 
-Väljund on väga sarnane `lm()` väljundile. Leiame seal regressioonikoefitsiendid, nende standardvead, z-väärtused ja z-testi *p*-väärtuse^[z-test puhul on tegemist t-testi analoogiga, mis ei lähtu mitte t-jaotusest, vaid normaaljaotusest. Tõlgendus on aga sama]. Kuid koefitsiendid on nüüd logititskaalal ja seepärast küllaltki raskesti tõlgendatavad. Saame siiski järeldada, et meeste tõenäosus ellu jääda oli väiksem kui naistel (koefitsient on negatiivne) ja naiste tõenäosus ellu jääda oli suurem kui 0.5 (vabaliige, ehk naiste ellujäämistõenäose *logit*, on positiivne). 
+Väljund on sarnane `lm()` väljundile. Leiame seal regressioonikoefitsiendid, nende standardvead, z-väärtused ja z-testi *p*-väärtuse^[z-test puhul on tegemist t-testi analoogiga, mis ei lähtu mitte t-jaotusest, vaid normaaljaotusest. Tõlgendus on aga sama]. Kuid koefitsiendid on nüüd logititskaalal ja seepärast küllaltki raskesti tõlgendatavad. Saame siiski järeldada, et meeste tõenäosus ellu jääda oli väiksem kui naistel (koefitsient on negatiivne) ja naiste tõenäosus ellu jääda oli suurem kui 0.5 (vabaliige, ehk naiste ellujäämistõenäose *logit*, on positiivne). 
 
 Mõnevõrra lihtsam on tõlgendada šansside suhet. Selleks peame koefitsientidest eksponendi võtma:
 
@@ -230,20 +230,26 @@ or_mehed <- round(exp(coef(mudel7))[2], 2)
 odds_mehed <- round(or_mehed*odds_naised, 2)
 ```
 
+Saame siin kasutada (ja oleks tegelikult igati mõistlik kasuatda) ka paketi `jtools` funktsiooni `summ()` koos argumendiga `exp = T`, mis annab meile ilusasti vormistatud šansside suhete tabeli koos usalduspiiride jms-ga:
 
-- Vabaliiget tõlgendame kui referentsgrupi (antud juhul naiste) šansse ellu jääda. Seega naise šanss Titanicul ellu jääda oli $`r odds_naised`$, ehk siis iga hukkunud mehe kohta jäi ellu $`r odds_naised`$ naist, või vastupidi $1 / `r odds_naised` = `r round(1/odds_naised, 2)`$, iga ellujäänud mehe kohta hukkus $`r 1/odds_naised`$ naist. Saame välja arvutada ka naiste ellujäämise tõenäosuse:
+```{r, render = 'normal_print'}
+library(jtools)
+summ(mudel7)
+```
+
+- *(Intercept)* - vabaliiget tõlgendame kui referentsgrupi (antud juhul naiste) šansse ellu jääda. Seega naise šanss Titanicul ellu jääda oli $`r odds_naised`$, ehk siis iga hukkunud mehe kohta jäi ellu $`r odds_naised`$ naist, või vastupidi $1 \div `r odds_naised` = `r round(1/odds_naised, 2)`$, iga ellujäänud mehe kohta hukkus $`r 1/odds_naised`$ naist. Saame välja arvutada ka naiste ellujäämise tõenäosuse:
 
 $$\pi=\frac{\text{šansid}}{1+\text{šansid}} = \frac{`r odds_naised`}{1+`r odds_naised`} = `r round(odds_naised/(1+odds_naised), 2)`$$  
 
-- Meeste puhul tõlgendame šansside suhet. Ehk kui palju muudab meheksolemine võrreldes naistega ellujäämise šansse. Tuleb välja, et ligi $`r or_mehed`$ korda. Seega meeste šansid ellu jääda olid $`r or_mehed` \times `r odds_naised` = `r odds_mehed`$. Iga hukkunud naise kohta jäi `r odds_mehed` meest ellu. Meeste ellujäämise tõenäosus oli:
+- *sexmale* - regressioonikoefitsienti puhul tõlgendame šansside suhet. Ehk mitu korda erinevad meeste ellujäämise šansid naiste ellujäämise šanssidest. Tuleb välja, et ligi $`r or_mehed`$ korda. Seega meeste šansid ellu jääda olid $`r or_mehed` \times `r odds_naised` = `r odds_mehed`$. Iga hukkunud mehe kohta jäi `r odds_mehed` meest ellu. Meeste ellujäämise tõenäosus oli:
 
 $$\pi=\frac{\text{šansid}}{1+\text{šansid}} = \frac{`r odds_mehed`}{1+`r odds_mehed`} = `r round(odds_mehed/(1+odds_mehed), 2)`$$  
 
 Saame selle tõenäosuse ka otse välja arvutada, kui paneme koefitsiendid regressioonivõrrandisse (eelnevalt toodud valemi järgi):
 
-$$\pi=\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}} = \dfrac{e^{(`r b0`+ `r b1` \times 1)}}{1+e^{(`r b0`+`r b1` \times 1)}} = `r round(odds_mehed/(1+odds_mehed), 2)`$$
+$$\pi=\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}} = \dfrac{e^{(`r b0`+ (`r b1` \times 1))}}{1+e^{(`r b0`+(`r b1` \times 1))}} = `r round(odds_mehed/(1+odds_mehed), 2)`$$
 
-Me loomulikult ei pea kogu seda asja käsitsi välja arvutama. Logititest saame tõenäosused arvutada `plogis()` funktsiooni abil:
+Me loomulikult ei pea kogu seda asja käsitsi välja arvutama. Logititest saame otse tõenäosused arvutada `plogis()` funktsiooni abil:
 
 ```{r}
 # Naiste tõenäosus ellu jääda:
@@ -282,10 +288,10 @@ eb3 <- round(exp(b3), 2)
 ```
 
 
-Täiskasvanuks olemine mõnevõrra tõstis ellujäämise tõenäosust, kuid seda ainult naiste puhul (soo ja vanuse interaktsioon on negatiivne ning meeste vanuse koefitsient on `r b2` + `r b3` = `r b2 + b3`). Tulemuste tõlgendamiseks võtame jälle koefitsientidest eksponendi:
+Täiskasvanuks olemine mõnevõrra tõstis ellujäämise tõenäosust, kuid seda ainult naiste puhul (soo ja vanuse interaktsioon on negatiivne ning meeste vanuse koefitsient on `r b2` + `r b3` = `r b2 + b3`). Tulemuste tõlgendamisel kasutame jälle `jtools::summ()` abil arvutatud koefitsientide eksponente ehk šansse ja šansside suhteid:
 
-```{r}
-exp(coef(mudel8))
+```{r, render = 'normal_print'}
+summ(mudel8, exp = T)
 ```
 
 - *(Intercept)* ehk vabaliige kirjeldab ellujäämise šansse juhul kui sõltumatud tunnused on nullid. Ehk siis antud juhul ellujäämise šansse keskmise vanusega naiste puhul. Nende ellujäämise tõenäosus oli:
@@ -319,7 +325,7 @@ Kuidas hinnata mudeli kvaliteeti? Meile ei anta ei jääkide standardviga ega de
 
 Nullmudel on ainult vabaliikmega mudel (ehk mudel kus ei ole ühtegi selgitavat tunnust peale $Y$-i keskmise). Küllastunud mudel on selline, kus on sama palju parameetreid kui andmepunkte (ehk mudel millega on kogu $Y$-i varieeruvus ära kirjeldatud).
 
-### Mudeli sobivus
+### Mudeli sobivus andmetega
 
 Mudeli sobivust andmetega (*goodness of fit*) saame hinnata jääkhälbimuse (*Residual deviance*) näitaja abil. Jääkhälbimus näitab kui palju mudeliga hinnatud $Y$ väärtused empiirilistest $Y$ väärtustest erinevad (analoogne asi lineaarse regressiooni puhul oli *residual sum of squares*). Jääkhälbimuse abil saame võrrelda kui palju meie sobitatud mudel erineb küllastunud (*saturated*) mudelist, st mudelist mis sobituks täiel määral andmetega. Jääkhälbimus näitabki sisuliselt meie mudeli ja küllastunud mudeli erinevust.  Mida väiksem on jääkhälbimus, seda paremini meie mudel andmetega "sobib". Seda, kas see on piisavalt väike (mis tähendab, et meie mudeli ja andmete vahel ei ole statistliselt olulist erinevust), saame testida hii-ruut testiga (arvestades mudeli  vabadusasteid (*degrees of freedom*).
 
@@ -332,6 +338,16 @@ pchisq(res_dev, res_df, lower.tail = F)
 `pchisq()` funktsiooniga saame testitulemusele ka *p*-väärtuse. Näeme, et see on suurem kui $0.05$, mis tähendab, et meie mudel ei erine küllastunud mudelist olulisel määra ja seega sobitub andmetega (siin tahame, et *p*-väärtus oleks võimalikult suur, st meie mudeli ja küllastunud mudeli vahel ei oleks statistilist erinevust). Reaaleluliste ja suurte andmetega on tegelikult suhteliselt keeruline hästi sobituvat mudelit leida. Seega isegi kui see test näitab, et mudel ei ole sobilik, siis üldjuhul me lihtsalt lepime asjaoluga, et meie mudel ei ole täiuslik ja jätame selle testi tähelepanuta.
 
 Üks kasulik nipp on ka võrrelda jääkhälbimuse väärtust ja tema vabadusastmeid. Kui *Residual deviance* on oluliselt suurem kui tema *degrees of freedom*, siis annab see jällegi tunnistust halvast mudelist.
+
+#### Hosmer-Lemeshow Test
+
+Võime mudeli sobivust andmetega hinnata ka Hosmer-Lemeshow testiga, mis testib kuivõrd hästi meie mudeli prognoositud väärtused vastavad tegelikele väärtustele mingite alamgruppide lõikes (test teeb ise andmetes alamgrupid). Nullhüpoteesiks on see, et mudel sobitub andmetega, seega kui näeme suurt *p*-väärtust (), siis järeldame, et mudel on sobiv ja vastupidi.
+
+```{r}
+library(ResourceSelection)
+hoslem.test(mudel8$y, fitted(mudel8))
+```
+Antud juhul näeme, et testi *p*-väärtus on suurem kui 0.05, seega mudel sobitub andmetega.
 
 ### Mudeli statistiline olulisus
 
@@ -430,7 +446,7 @@ Kui tahame prognoosi rohkematele kategooriate kombinatsioonidele, saame kasutada
 # Teeme kõigepealt uue andmestiku, kus on sees nii mehed kui naised 
 # ning vanused 10 aastaste intervallidena
 ref_data <- expand.grid(sex = c("male", "female"), 
-                     age = seq(from = 0, to = 80, by = 10))
+                        age = seq(from = 0, to = 80, by = 10))
 
 # Lisame andmestikule predictioni
 ref_data$pred <- predict(mudel8, newdata = ref_data, type = "response")
@@ -487,7 +503,7 @@ margins(mudel9, variables = 'sex') %>%
   summary()
 
 ```
-Saame järeldada, et meeste tõenäosus ellu jääda oli $`r abs(round(summary(margins(mudel9, variables = 'sex'))[, 2]*100, 0))`\%$ madalam kui naistel.
+Saame järeldada, et meeste tõenäosus ellu jääda oli $`r abs(round(summary(margins(mudel9, variables = 'sex'))[, 2]*100, 0))`$ protsendipunkti madalam kui naistel.
 
 ```{r}
 # Kuna interaktsioon oli oluline ning meeste ja naiste vanuse mõjud
@@ -522,15 +538,16 @@ prognoos <- predict(mudel8, type = "response")> 0.5
 table(vaadeldud, prognoos)
 ```
 
-Saadud maatriksist näeme, et prognoosisime oma mudeliga õigesti $523 + 292 = 815$ juhul ning valesti $96+135 = 231$ juhul, ehk siis meie mudeli **täpsus** (*accuracy*) on $\frac{523 + 292}{523 + 292 + 96 + 135} = 0.779 = 78\%$.  
+Saadud maatriksist näeme, et prognoosisime oma mudeliga õigesti $523 + 292 = 815$ juhul ning valesti $96+135 = 231$ juhul, ehk siis meie mudeli **täpsus** (*accuracy*) on 
+$$\text{accuracy} = \frac{\text{õige}}{\text{õige} + \text{vale}} = \frac{523 + 292}{523 + 292 + 96 + 135} = 0.779 = 78\%$$.  
 
 Maatriksist saame välja lugeda ka prognoosi tundlikkuse (*sensitivity*) ja spetsiifilisuse (*specificity*).
 
 **Tundlikkus** väljendab õigesti prognoositud positiivsete väärtuste osakaalu kõikidest positiivsetest väärtustest
-$$\text{tundlikkus} = \frac{\text{õige positiivne}}{\text{õige positiivne} + \text{vale negatiivne}} = \frac{292}{(292+135)} = 0.68$$
+$$\text{sensitivity} = \frac{\text{õige positiivne}}{\text{õige positiivne} + \text{vale negatiivne}} = \frac{292}{(292+135)} = 0.68$$
 **Spetsiifilisus** omakorda väljendab õigesti prognoositud negatiivsete väärtuste osakaalu kõikidest negatiivsetest väärtustest
 
-$$\text{spetsiifilisus} = \frac{\text{õige negatiivne}}{\text{õige negatiivne} + \text{vale positiivne}} = \frac{523}{(523+96)} = 0.84$$
+$$\text{specificity} = \frac{\text{õige negatiivne}}{\text{õige negatiivne} + \text{vale positiivne}} = \frac{523}{(523+96)} = 0.84$$
 
 Saame need arvutused teha ka *caret* paketi ja `confusionMatrix()` funktsiooniga.
 
@@ -555,12 +572,69 @@ plot(roc_obj)
 
 ```
 
-Mida suurem on pind graafiku kurvi all, seda parema mudeliga meil tegemist on (seda täpsemini võimaldab mudel prognoosida). Seda kurvi alust pindala suurust kasutataksegi prognoosi täpsuse hindamiseks. Vastavat statistikut kutsustaksegi kurvialuseks pindalaks (AUC ehk *area under the curve*). Mida lähemal AUC $1$-le on, seda parema prognoosivõimega mudeliga meil tegemist on.
+Mida suurem on pind graafiku kurvi all, seda parema mudeliga meil tegemist on (seda täpsemini võimaldab mudel prognoosida). Seda kurvi alust pindala suurust kasutataksegi prognoosi täpsuse hindamiseks. Vastavat statistikut kutsustaksegi kurvialuseks pindalaks (AUC ehk *area under the curve*). Mida lähemal AUC $1$-le on, seda parema prognoosivõimega mudeliga meil tegemist on. Kui AUC on 0.5, siis on tegemist puhtalt juhusliku arvamisega.
 
 ```{r}
 summary(roc_obj)
 ```
 
+## Mudeli eeldused
+
+Nagu igal mudelil on ka logistilise regressiooni mudelil rida eeldusi, mis peavad olema täidetud, et tulemused oleksid korrektselt tõlgendatavad:  
+
+- Sõltuv tunnus peab olema binaarne  
+- Vaatlused on sõltumatud
+- Sõltumatute tunnuste vahel ei tohi olla multikollineaarsust (sõltumatud tunnused ei tohi olla liialt korreleeritud)  
+- Sõltumatute tunnuse ja sõltuva tunnuse logiti vahelised suhted peavad olema lineaarsed
 
 
+## Cross-validation
 
+Ristvalideerimine on meetod mudeli hindamiseks, kus andmestik jaotatakse kordamööda treening- ja testosadeks, et saada võimalikult objektiivne hinnang mudeli võimekusele uut teavet üldistada. Treeningandmete peal õpib mudel seda, milline seos on sõltumatute tunnuste ja sõltuva tunnuse vahel. Testandmete peal kontrollime, kas mudel oskab ka uute andmete korral neid seoseid korrektselt prognoosida.
+
+Logistilise regressiooni kontekstis tähendab see, et me jagame oma andmed näiteks viide või kümnesse võrdse suurusega ossa (k-osa ehk *k-fold*), treenime igas voorus mudelit n-1 osal ja testime väljajäänud ühel osal, seejuures roteerides testosa üle kõikide osade. Selline lähenemine aitab vältida ülesobitamist (*overfitting*), sest mudel peab igal iteratsioonil „hakkama saama“ seninägemata andmetega. Igas voorus kogume kokku mingi soorituse mõõdiku, näiteks ROC kõvera aluse pindala (AUC) või klassifitseerimistäpsuse, ja lõpuks keskmistame need väärtused, et saada üldine hinnang mudeli võimekusele.
+
+- Valime k (nt 5 või 10)
+- Segame (shuffle) andmed juhuslikult, et voldid oleks võimalikult homogeensed
+- Jaotame andmed k ossa
+- Iteratsioonid üle osade (1 kuni k):
+  + Treeningandmestikuks kõik osad välja arvatud k osa ja testandmestikuks k osa
+  + Sobitame logistilise regressiooni treeningandmestikul
+  + Prognoosime mudelit testandmestiku peal
+  + Salvestame soorituse mõõdiku(d)
+- Keskmistame kõik mõõdikud lõplikuks hindeks
+
+R-ikeskkonnas on tüüpiline viis logistilise regressiooni ristvalideerimiseks kasutada "caret" paketti, kus defineeritakse treeningkontrolli seaded ja antakse ette, mitu korda ja millise meetodiga ristvalideerimine läbida.
+
+```{r}
+library(caret)
+
+# andmete jagamise raamistik
+train_ctrl <- trainControl(method = "cv", # kasutame cross-validation meetodit
+                           number = 5, # andmed jaotatakse viieks võrdseks tükiks
+                           classProbs = TRUE, # mudel tekitab ka klasside tõenäosused, mis on vajalikud ROC ja AUC arvutamiseks
+                           summaryFunction = twoClassSummary # annab meile ROC väärtuse, tundlikkuse ja spetsiifilisuse
+                           )
+
+# "train" funktsioon eeldab kahe tasemega faktorit, jätame välja ka kõik puuduolevad väärtused
+df <- titanic %>% 
+  select(survived, age, sex) %>% 
+  mutate(survived = factor(survived), age = scale(age, scale = F)) %>% 
+  na.omit()
+
+# mudeli jooksutamine
+model_cv <- train(survived~ sex * age, # regressioonivõrrand
+                  data = df, # andmestik
+                  method = "glm", # meetod on glm
+                  family = "binomial", 
+                  trControl = train_ctrl,
+                  metric = "ROC") # võrdleme mudeli tulemusi AUC alusel
+
+
+model_cv
+
+```
+
+Saadud väljundis näeme, kuidas mudel igas voorus sooritas ja milline on keskmine ROC koos hinnangulise standardveaga. Mida kõrgem on lõplik keskmine AUC, seda paremini suudab mudel õigeid klassifikatsioone teha. Lisaks AUC-le võib kasutada ka muid mõõdikuid, näiteks täpsust (accuracy), tundlikkust (sensitivity) või F-skoori, olenevalt konkreetsest rakendusjuhtumist.
+
+Ristvalideerimisest tulenev keskmine mõõdik on üldiselt parem kui tervet andmestikku korraga treenimise ja testimisega saadud hinnang, sest see paljastab, kas mudel on kindlat tüüpi vaatlustele liigselt sobitunud või suudab paremini generaliseerida. Igas voorus kasutab mudel varem treenimiseks mittevalitud volti testimiseks, mis imiteerib reaalses elus ilmuda võivaid uusi andmeid. Nii näeme, kui suured on tegelikud vead ja kui palju võib mudeli sooritus kõikuda sõltuvalt sellest, milline andmestiku alamhulk parasjagu treeninguks või testimiseks valitakse.

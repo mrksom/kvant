@@ -1318,6 +1318,7 @@ title(main = "Pealkiri")
 
 
 ggplot'i lähtekohaks on Leland Wilkinsoni *graafika grammatika*, mis lähtub põhimõttest, et graafiku võib lahutada eraldiseisvateks komponentideks ja neist komponentidest saab saab uusi tervikuid ehitada.
+
 > "... the grammar tells us that a statistical graphic is a **mapping from data** to 
 > **aesthetic attributes** (colour, shape, size) of **geometric objects** (points, 
 > lines, bars). The plot may also contain **statistical transformations** of the data 

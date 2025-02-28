@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Peatükk 3 Logistiline regressioon | Kvantitatiivne andmeanalüüs</title>
   <meta name="description" content="Peatükk 3 Logistiline regressioon | Kvantitatiivne andmeanalüüs" />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Peatükk 3 Logistiline regressioon | Kvantitatiivne andmeanalüüs" />
   <meta property="og:type" content="book" />
@@ -52,13 +52,13 @@
 <script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="assets/kePrint-0.0.1/kePrint.js"></script>
 <link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="assets/tabwid-1.1.0/tabwid.css" rel="stylesheet" />
-<link href="assets/tabwid-1.1.0/scrool.css" rel="stylesheet" />
+<link href="assets/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="assets/tabwid-1.1.3/tabwid.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -68,7 +68,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -167,12 +167,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-funktsioon"><i class="fa fa-check"></i><b>3.1</b> Logistiline funktsioon</a></li>
 <li class="chapter" data-level="3.2" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.2</b> Logit mudel</a></li>
-<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-tõlgendus"><i class="fa fa-check"></i><b>3.3</b> Mudeli tõlgendus</a></li>
-<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.4</b> Logistiline regressioon R-is</a></li>
-<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.5</b> Mudeli kvaliteet</a></li>
-<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.6</b> Predict</a></li>
-<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.7</b> Marginaalsed efektid</a></li>
-<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.8</b> Prognoosi täpsus</a></li>
+<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.3</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.4</b> Mudeli kvaliteet</a></li>
+<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.5</b> Predict</a></li>
+<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.6</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.7</b> Prognoosi täpsus</a></li>
+<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-eeldused"><i class="fa fa-check"></i><b>3.8</b> Mudeli eeldused</a></li>
+<li class="chapter" data-level="3.9" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#cross-validation"><i class="fa fa-check"></i><b>3.9</b> Cross-validation</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html"><i class="fa fa-check"></i><b>4</b> Poissoni regressioon</a>
 <ul>
@@ -256,7 +257,16 @@ Joonis 3.1: Lineaarse regressiooni kasutamine binaarse sõltuva tunnusega
 <p>Et saada lahti maksimaalsest väärtusest (<span class="math inline">\(1\)</span>), on võimalik kasutada sündmuse toimumise tõenäosuse asemel sündmuse toimumise šanssi (<em>odds</em>). Šanssideks nimetatakse sündmuse toimumise ja mittetoimumise suhet:</p>
 <p><span class="math display">\[\text{šansid}=\frac{p}{(1-p)}\]</span>
 kus <span class="math inline">\(p\)</span> on sündmuse toimumise tõenäosus.</p>
-<p>Näiteks kulli ja kirja viskamisel on kulli saamise šanss <span class="math inline">\(\frac{0.5}{(1-0.5)}=1\)</span>.</p>
+<p>Valemist võime välja lugeda järgmist:</p>
+<ol style="list-style-type: decimal">
+<li>Šansid on alati positiivsed<br />
+</li>
+<li>Kui šansid on <span class="math inline">\(1\)</span>, siis on sündmuse toimumise ja mittetoimumise tõenäosus võrdsed (<span class="math inline">\(p=0.5\)</span>).<br />
+</li>
+<li>Kui šansid on suuremad kui <span class="math inline">\(1\)</span>, siis on sündmuse toimumise tõenäosus suurem kui mittetoimumise tõenäosus (<span class="math inline">\(p&gt;0.5\)</span>) ja vastupidi.</li>
+</ol>
+<p>Näiteks kui sündmuse toimumise tõenäosus on <span class="math inline">\(0.8\)</span>, siis on šansid <span class="math inline">\(\frac{0.8}{1-0.8}=\frac{0.8}{0.2}=4\)</span>. Seega sündmuse toimumise tõenäosus on <span class="math inline">\(4\)</span> korda suurem kui selle mittetoimumise tõenäosus. Kui sündmuse toimumise tõenäosus on <span class="math inline">\(0.2\)</span>, siis on šansid <span class="math inline">\(\frac{0.2}{1-0.2}=\frac{0.2}{0.8}=\frac{1}{4}=0.25\)</span>. Sündmuse toimumise tõenäosus on <span class="math inline">\(4\)</span> korda väiksem kui selle mittetoimumise tõenäosus.</p>
+<p>Kulli ja kirja viskamisel on kulli saamise šanss <span class="math inline">\(\frac{0.5}{(1-0.5)}=1\)</span>.</p>
 <p>Šanss võtta kaardipakist ruutu on <span class="math inline">\(\frac{0.25}{(1-0.25)}=\frac{1}{3}=0.33\)</span>.</p>
 <div class="figure"><span style="display:block;" id="fig:odds"></span>
 <img src="02-logit_files/figure-html/odds-1.png" alt="Šansside ja tõenäosuse suhe" width="672" />
@@ -277,47 +287,35 @@ Joonis 3.2: Šansside ja tõenäosuse suhe
 Joonis 3.3: Logit-i ja tõenäosuse suhe
 </p>
 </div>
-<p>Taolist funktsionaalset seost <span class="math inline">\(x\)</span> ja <span class="math inline">\(y\)</span> vahel nimetatakse <strong>logistiliseks funktsiooniks</strong>:</p>
+<p>Taolist funktsionaalset seost, millega saame luua seose pidevtunnuse (<span class="math inline">\(x\)</span>) ja tõenäosuse (<span class="math inline">\(y\)</span>) vahel, nimetatakse <strong>logistiliseks funktsiooniks</strong>:</p>
 <p><span class="math display">\[y = f(x) = \frac{\exp(x)}{1 + \exp(x)} = \frac{1}{1 + \exp(-x)}\]</span></p>
 </div>
 </div>
 <div id="logit-mudel" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Logit mudel<a href="3-logistiline-regressioon.html#logit-mudel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Logistilise regressiooni mudel moodustub järgmiselt:</p>
+<p>Logistilise funktsiooni pöördfunktsiooniks on <strong>logit funktsioon</strong>, millega saame tõenäosuse “mappida” pidevskaalale (logistilise funktsiooni sisendiks on pidevtunnus ja väljundiks tõenäosus, logit funktsiooni sisendiks on tõenäosus ja väljundiks pidevtunnus):</p>
+<p><span class="math display">\[\text{logit}(\pi_i)=\text{log} \left(\dfrac{\pi_i}{1-\pi_i}\right)\]</span></p>
+<p>Logistilise regressiooni kontekstis kasutame logit funktsiooni linkfunktsioonina, mille abil muudame hinnatava tõenäosuse pidevskaalaliseks logitiks. Logit väärtusi saame aga hinnata juba tavapärase lineraarse regressioonivõrrandi abil. Seega logistilise regressiooni mudel moodustub järgmiselt:</p>
 <p><span class="math display">\[\text{logit}(\pi_i)=\text{log} \left(\dfrac{\pi_i}{1-\pi_i}\right)=\beta_0+\beta_1 x_i\]</span><br />
-ehk me hindame juba tuttava lineaarse võrrandi abil nüüd logitit.</p>
-<p>Saame sama mudeli esitada ka otse logistilise funktsiooni kaudu:</p>
-<p><span class="math display">\[\pi_i=Pr(Y_i=1|X_i=x_i)=\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}}\]</span></p>
-<p>või siis ka nii:</p>
-<p><span class="math display">\[\pi_i=Pr(Y_i=1|X_i=x_i)=\frac{1}{1+e^{-(\beta_0+\beta_1 x_i)}}\]</span>
-Logistilise regressiooni seos eelneva näite puhul näeb aga välja selline:</p>
+Saame sama mudeli esitada ka otse logistilise funktsiooni kaudu:</p>
+<p><span class="math display">\[\pi_i=Pr(Y_i=1|X_i=x_i) = \frac{1}{1+e^{-(\beta_0+\beta_1 x_i)}} =\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}}\]</span></p>
+<p>Logistilise regressiooni seos eelneva näite puhul näeb aga välja selline:</p>
 <div class="figure"><span style="display:block;" id="fig:glm-2"></span>
 <img src="02-logit_files/figure-html/glm-2-1.png" alt="Logistiline regressioon võrdluses lineaarse regressiooniga" width="672" />
 <p class="caption">
 Joonis 3.4: Logistiline regressioon võrdluses lineaarse regressiooniga
 </p>
 </div>
-</div>
-<div id="mudeli-tõlgendus" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Mudeli tõlgendus<a href="3-logistiline-regressioon.html#mudeli-tõlgendus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="mudeli-tõlgendus" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Mudeli tõlgendus<a href="3-logistiline-regressioon.html#mudeli-tõlgendus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Tavalise regresioonimudeliga saime prognoosida <span class="math inline">\(y\)</span> väärtust mingite <span class="math inline">\(x\)</span> väärtuste korral (ja <span class="math inline">\(y\)</span> muutust, kui <span class="math inline">\(x\)</span> muutub ühe ühiku võrra). Sama kehtib ka logistilise regressiooni puhul. Kuid mida me siinjuures täpsemalt prognoosime? Tahaksime kindlasti prognoosida (uuritava sündmuse toimumise) tõenäosust. Kuid kuna me teisendasime tõenäosuse logititeks, siis tegelikult saame prognoosida hoopis logitit. Ja ka ühe ühikuline muutus <span class="math inline">\(x\)</span>-is ei peegelda mitte <span class="math inline">\(y\)</span> tõenäosuse muutust, vaid logit(<span class="math inline">\(y\)</span>)-i muutust. Logiteid ei oska me (vähemalt esialgu) kuidagi tõenäosuslikult tõlgendada. Mida siis teha?</p>
-<p>Lahenduseks on võtta <em>logit</em>-i võrrandi mõlemast poolest eksponent</p>
+<p>Lahenduseks on võtta <em>logit</em>-i võrrandi mõlemast poolest eksponent, misläbi saame <em>logit</em>-i muuta šanssideks:</p>
 <p><span class="math display">\[\exp(logit) = \exp(\beta_0+\beta_1 x_i) \implies \frac{\pi_i}{1-\pi_i}=e^{({\beta_0}+\beta_1 x_i)}\]</span></p>
 <p>Sellisel juhul saab <span class="math inline">\(\beta_0\)</span>-i tõlgendada kui <span class="math inline">\(y\)</span>-i šansse juhul kui <span class="math inline">\(x\)</span> on <span class="math inline">\(0\)</span> ja <span class="math inline">\(\beta_1\)</span>-te kui šanssides kordajat (mitu korda <span class="math inline">\(x\)</span>-i ühe ühiku muutudes <span class="math inline">\(y\)</span> šansid suurenevad või vähenevad). Seda šansside muutust väljendavat kordajat nimetatakse <strong>šansside suhteks</strong>.</p>
 <p>Miks me nüüd räägime <span class="math inline">\(\beta_1\)</span>-st kui kordajast (lineaarse regressiooni puhul oli tegemist lisanduva muutusega)? Põhjus on eksponendi võtmises, kuna <span class="math inline">\(e^{({\beta_0}+\beta_1 x_i)} = e^{{\beta_0}}\times e^{\beta_1 x_i}\)</span>.</p>
-<div id="šansside-suhe" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Šansside suhe<a href="3-logistiline-regressioon.html#šansside-suhe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Šansid saime leida valemiga:</p>
-<p><span class="math display">\[\text{šansid}=\frac{p}{(1-p)}\]</span><br />
-Valemist võime välja lugeda järgmist:</p>
-<ol style="list-style-type: decimal">
-<li>Šansid on alati positiivsed<br />
-</li>
-<li>Kui šansid on <span class="math inline">\(1\)</span>, siis on sündmuse toimumise ja mittetoimumise tõenäosus võrdsed (<span class="math inline">\(p=0.5\)</span>).<br />
-</li>
-<li>Kui šansid on suuremad kui <span class="math inline">\(1\)</span>, siis on sündmuse toimumise tõenäosus suurem kui mittetoimumise tõenäosus (<span class="math inline">\(p&gt;0.5\)</span>) ja vastupidi.<br />
-Näiteks kui sündmuse toimumise tõenäosus on <span class="math inline">\(0.8\)</span>, siis on šansid <span class="math inline">\(\frac{0.8}{1-0.8}=\frac{0.8}{0.2}=4\)</span>. Seega sündmuse toimumise tõenäosus on <span class="math inline">\(4\)</span> korda suurem kui selle mittetoimumise tõenäosus. Kui sündmuse toimumise tõenäosus on <span class="math inline">\(0.2\)</span>, siis on šansid <span class="math inline">\(\frac{0.2}{1-0.2}=\frac{0.2}{0.8}=\frac{1}{4}=0.25\)</span>. Sündmuse toimumise tõenäosus on <span class="math inline">\(4\)</span> korda väiksem kui selle mittetoimumise tõenäosus.</li>
-</ol>
+</div>
+<div id="šansside-suhe" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Šansside suhe<a href="3-logistiline-regressioon.html#šansside-suhe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vaatame näidet, kus hindame hääletamise tõenäosust ning abielu mõju sellele:</p>
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -364,17 +362,15 @@ Vallaline
 <p>Abielus olijate ja vallaliste šansside suhe on <span class="math inline">\(\frac{3}{1,17}=2.56\)</span>. Ehk siis abielus olijate šanss hääletada on kaks ja pool korda suurem. Abielu tunnuse ühe ühiku muutumisega muutuvad šansid <span class="math inline">\(2.56\)</span> korda ehk suurenevad <span class="math inline">\(156\%\)</span>.</p>
 </div>
 </div>
-<div id="logistiline-regressioon-r-is" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Logistiline regressioon R-is<a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="logistiline-regressioon-r-is" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Logistiline regressioon R-is<a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Võtame R-i näidisandmestiku <code>Titanic</code>, mis kirjeldab Titanicul hukkunute ja ellujäänute sugu, vanust ja reisijaklassi. Üritame hinnata kuidas ja kas need tunnused mõjutasid ellujäämist.</p>
 <p>Logistilise regressiooni mudeleid saab Ris hinnata <code>glm()</code> funktsiooniga. Selle loogika ja argumendid on sarnased <code>lm()</code> funktsiooni omadele. Peamiseks erinevuseks on see, et nüüd peame defineerima ka sõltuva tunnuse jaotuse ja linkfunktsiooni. See käib argumendiga <code>family</code>. Logistilise regressiooni jaoks peame defineerima <code>family = binomial(link = 'logit')</code> (sõltuva tunnuse jaotus on binoomjaotus ja linkfunktsioon on logit).<br />
 Vaatame kõigepealt soo mõju:</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="3-logistiline-regressioon.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kasutame paket carData andmestikku TitanicSurvival</span></span>
-<span id="cb488-2"><a href="3-logistiline-regressioon.html#cb488-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb488-3"><a href="3-logistiline-regressioon.html#cb488-3" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> carData<span class="sc">::</span>TitanicSurvival</span>
-<span id="cb488-4"><a href="3-logistiline-regressioon.html#cb488-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb488-5"><a href="3-logistiline-regressioon.html#cb488-5" aria-hidden="true" tabindex="-1"></a><span class="co"># vaatame andmestiku esimesi ridu</span></span>
-<span id="cb488-6"><a href="3-logistiline-regressioon.html#cb488-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(titanic)</span></code></pre></div>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="3-logistiline-regressioon.html#cb488-1" tabindex="-1"></a><span class="co"># Kasutame paket carData andmestikku TitanicSurvival</span></span>
+<span id="cb488-2"><a href="3-logistiline-regressioon.html#cb488-2" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> carData<span class="sc">::</span>TitanicSurvival</span></code></pre></div>
+<p>Vaatame andmestiku esimesi ridu:</p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="3-logistiline-regressioon.html#cb489-1" tabindex="-1"></a><span class="fu">head</span>(titanic)</span></code></pre></div>
 <pre><code>##                                 survived    sex     age passengerClass
 ## Allen, Miss. Elisabeth Walton        yes female 29.0000            1st
 ## Allison, Master. Hudson Trevor       yes   male  0.9167            1st
@@ -382,23 +378,15 @@ Vaatame kõigepealt soo mõju:</p>
 ## Allison, Mr. Hudson Joshua Crei       no   male 30.0000            1st
 ## Allison, Mrs. Hudson J C (Bessi       no female 25.0000            1st
 ## Anderson, Mr. Harry                  yes   male 48.0000            1st</code></pre>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="3-logistiline-regressioon.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ellujäämise tunnus (survived) on tekstiline. Muudame selle numbriliseks (0/1)</span></span>
-<span id="cb490-2"><a href="3-logistiline-regressioon.html#cb490-2" aria-hidden="true" tabindex="-1"></a><span class="co"># või loogiliseks (TRUE/FALSE) tunnuseks</span></span>
-<span id="cb490-3"><a href="3-logistiline-regressioon.html#cb490-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb490-4"><a href="3-logistiline-regressioon.html#cb490-4" aria-hidden="true" tabindex="-1"></a>titanic<span class="sc">$</span>surv <span class="ot">&lt;-</span> titanic<span class="sc">$</span>survived <span class="sc">==</span> <span class="st">&quot;yes&quot;</span></span>
-<span id="cb490-5"><a href="3-logistiline-regressioon.html#cb490-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb490-6"><a href="3-logistiline-regressioon.html#cb490-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Ja defineerime mudeli</span></span>
-<span id="cb490-7"><a href="3-logistiline-regressioon.html#cb490-7" aria-hidden="true" tabindex="-1"></a>mudel7 <span class="ot">&lt;-</span> <span class="fu">glm</span>(surv<span class="sc">~</span>sex, <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&#39;logit&#39;</span>))</span>
-<span id="cb490-8"><a href="3-logistiline-regressioon.html#cb490-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb490-9"><a href="3-logistiline-regressioon.html#cb490-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Saaksime ka lihtsamalt.</span></span>
-<span id="cb490-10"><a href="3-logistiline-regressioon.html#cb490-10" aria-hidden="true" tabindex="-1"></a><span class="co"># I(survived == &quot;yes&quot;) notatsiooniga saame tekstilise tunnuse </span></span>
-<span id="cb490-11"><a href="3-logistiline-regressioon.html#cb490-11" aria-hidden="true" tabindex="-1"></a><span class="co"># võrrandi sees loogilisek tunnuseks teisendada </span></span>
-<span id="cb490-12"><a href="3-logistiline-regressioon.html#cb490-12" aria-hidden="true" tabindex="-1"></a><span class="co"># glm(I(survived == &quot;yes&quot;)~sex, data = titanic, family = binomial(link = &#39;logit&#39;))</span></span>
-<span id="cb490-13"><a href="3-logistiline-regressioon.html#cb490-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
-<span id="cb490-14"><a href="3-logistiline-regressioon.html#cb490-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Tulemus oleks sama</span></span>
-<span id="cb490-15"><a href="3-logistiline-regressioon.html#cb490-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb490-16"><a href="3-logistiline-regressioon.html#cb490-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Vaatme tulemusi</span></span>
-<span id="cb490-17"><a href="3-logistiline-regressioon.html#cb490-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel7)</span></code></pre></div>
+<p>Ellujäämise tunnus (survived) on tekstiline. Peame selle muutma faktortunnuseks või numbriliseks tunnuseks (0/1). Sobib ka loogiline (TRUE/FALSE) tunnuseks, kuna R käsitleb loogilist tunnust tegelikult numbrilisena (TRUE = 1 ja FALSE = 0). Ja Loogilist tunnust on üldiselt lihtsam konstrueerida.</p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="3-logistiline-regressioon.html#cb491-1" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb491-2"><a href="3-logistiline-regressioon.html#cb491-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">surv =</span> survived <span class="sc">==</span> <span class="st">&#39;yes&#39;</span>)</span>
+<span id="cb491-3"><a href="3-logistiline-regressioon.html#cb491-3" tabindex="-1"></a></span>
+<span id="cb491-4"><a href="3-logistiline-regressioon.html#cb491-4" tabindex="-1"></a><span class="co"># Või nii:</span></span>
+<span id="cb491-5"><a href="3-logistiline-regressioon.html#cb491-5" tabindex="-1"></a><span class="co"># titanic$surv &lt;- titanic$survived == &quot;yes&quot;</span></span></code></pre></div>
+<p>Ja defineerime logistilise regressiooni mudeli. Kasutame <code>glm()</code> funktsiooni, mille kasutus on sarnane <code>lm()</code> funktsioonile, välja arvatud see, et peame <code>familiy</code> argumendiga määratlema kasutatava jaotuse ning linkfunktsiooni. Binaarset tunnust iseloomustab binoomjaotus ning linkfunktsiooniks on <em>logit</em>.</p>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="3-logistiline-regressioon.html#cb492-1" tabindex="-1"></a>mudel7 <span class="ot">&lt;-</span> <span class="fu">glm</span>(surv<span class="sc">~</span>sex, <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&#39;logit&#39;</span>))</span>
+<span id="cb492-2"><a href="3-logistiline-regressioon.html#cb492-2" tabindex="-1"></a><span class="fu">summary</span>(mudel7)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = surv ~ sex, family = binomial(link = &quot;logit&quot;), 
@@ -422,39 +410,193 @@ Vaatame kõigepealt soo mõju:</p>
 ## AIC: 1372.1
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
-<p>Väljund on väga sarnane <code>lm()</code> väljundile. Leiame seal regressioonikoefitsiendid, nende standardvead, z-väärtused ja z-testi <em>p</em>-väärtuse<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. Kuid koefitsiendid on nüüd logititskaalal ja seepärast küllaltki raskesti tõlgendatavad. Saame siiski järeldada, et meeste tõenäosus ellu jääda oli väiksem kui naistel (koefitsient on negatiivne) ja naiste tõenäosus ellu jääda oli suurem kui 0.5 (vabaliige, ehk naiste ellujäämistõenäose <em>logit</em>, on positiivne).</p>
+<p>Väljund on sarnane <code>lm()</code> väljundile. Leiame seal regressioonikoefitsiendid, nende standardvead, z-väärtused ja z-testi <em>p</em>-väärtuse<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. Kuid koefitsiendid on nüüd logititskaalal ja seepärast küllaltki raskesti tõlgendatavad. Saame siiski järeldada, et meeste tõenäosus ellu jääda oli väiksem kui naistel (koefitsient on negatiivne) ja naiste tõenäosus ellu jääda oli suurem kui 0.5 (vabaliige, ehk naiste ellujäämistõenäose <em>logit</em>, on positiivne).</p>
 <p>Mõnevõrra lihtsam on tõlgendada šansside suhet. Selleks peame koefitsientidest eksponendi võtma:</p>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="3-logistiline-regressioon.html#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(mudel7))</span></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="3-logistiline-regressioon.html#cb494-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(mudel7))</span></code></pre></div>
 <pre><code>## (Intercept)     sexmale 
 ##  2.66929134  0.08843935</code></pre>
+<p>Saame siin kasutada (ja oleks tegelikult igati mõistlik kasuatda) ka paketi <code>jtools</code> funktsiooni <code>summ()</code> koos argumendiga <code>exp = T</code>, mis annab meile ilusasti vormistatud šansside suhete tabeli koos usalduspiiride jms-ga:</p>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="3-logistiline-regressioon.html#cb496-1" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb496-2"><a href="3-logistiline-regressioon.html#cb496-2" tabindex="-1"></a><span class="fu">summ</span>(mudel7)</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Observations
+</td>
+<td style="text-align:right;">
+1309
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Dependent variable
+</td>
+<td style="text-align:right;">
+surv
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Type
+</td>
+<td style="text-align:right;">
+Generalized linear model
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Family
+</td>
+<td style="text-align:right;">
+binomial
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Link
+</td>
+<td style="text-align:right;">
+logit
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+χ²(1)
+</td>
+<td style="text-align:right;">
+372.92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Pseudo-R² (Cragg-Uhler)
+</td>
+<td style="text-align:right;">
+0.34
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Pseudo-R² (McFadden)
+</td>
+<td style="text-align:right;">
+0.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+AIC
+</td>
+<td style="text-align:right;">
+1372.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+BIC
+</td>
+<td style="text-align:right;">
+1382.46
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Est.
+</th>
+<th style="text-align:right;">
+S.E.
+</th>
+<th style="text-align:right;">
+z val.
+</th>
+<th style="text-align:right;">
+p
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+0.98
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+9.44
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+sexmale
+</td>
+<td style="text-align:right;">
+-2.43
+</td>
+<td style="text-align:right;">
+0.14
+</td>
+<td style="text-align:right;">
+-17.83
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> Standard errors: MLE
+</td>
+</tr>
+</tfoot>
+</table>
 <ul>
-<li>Vabaliiget tõlgendame kui referentsgrupi (antud juhul naiste) šansse ellu jääda. Seega naise šanss Titanicul ellu jääda oli <span class="math inline">\(2.67\)</span>, ehk siis iga hukkunud mehe kohta jäi ellu <span class="math inline">\(2.67\)</span> naist, või vastupidi <span class="math inline">\(1 / 2.67 = 0.37\)</span>, iga ellujäänud mehe kohta hukkus <span class="math inline">\(0.3745318\)</span> naist. Saame välja arvutada ka naiste ellujäämise tõenäosuse:</li>
+<li><em>(Intercept)</em> - vabaliiget tõlgendame kui referentsgrupi (antud juhul naiste) šansse ellu jääda. Seega naise šanss Titanicul ellu jääda oli <span class="math inline">\(2.67\)</span>, ehk siis iga hukkunud mehe kohta jäi ellu <span class="math inline">\(2.67\)</span> naist, või vastupidi <span class="math inline">\(1 \div 2.67 = 0.37\)</span>, iga ellujäänud mehe kohta hukkus <span class="math inline">\(0.3745318\)</span> naist. Saame välja arvutada ka naiste ellujäämise tõenäosuse:</li>
 </ul>
 <p><span class="math display">\[\pi=\frac{\text{šansid}}{1+\text{šansid}} = \frac{2.67}{1+2.67} = 0.73\]</span></p>
 <ul>
-<li>Meeste puhul tõlgendame šansside suhet. Ehk kui palju muudab meheksolemine võrreldes naistega ellujäämise šansse. Tuleb välja, et ligi <span class="math inline">\(0.09\)</span> korda. Seega meeste šansid ellu jääda olid <span class="math inline">\(0.09 \times 2.67 = 0.24\)</span>. Iga hukkunud naise kohta jäi 0.24 meest ellu. Meeste ellujäämise tõenäosus oli:</li>
+<li><em>sexmale</em> - regressioonikoefitsienti puhul tõlgendame šansside suhet. Ehk mitu korda erinevad meeste ellujäämise šansid naiste ellujäämise šanssidest. Tuleb välja, et ligi <span class="math inline">\(0.09\)</span> korda. Seega meeste šansid ellu jääda olid <span class="math inline">\(0.09 \times 2.67 = 0.24\)</span>. Iga hukkunud mehe kohta jäi 0.24 meest ellu. Meeste ellujäämise tõenäosus oli:</li>
 </ul>
 <p><span class="math display">\[\pi=\frac{\text{šansid}}{1+\text{šansid}} = \frac{0.24}{1+0.24} = 0.19\]</span></p>
 <p>Saame selle tõenäosuse ka otse välja arvutada, kui paneme koefitsiendid regressioonivõrrandisse (eelnevalt toodud valemi järgi):</p>
-<p><span class="math display">\[\pi=\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}} = \dfrac{e^{(0.98+ -2.43 \times 1)}}{1+e^{(0.98+-2.43 \times 1)}} = 0.19\]</span></p>
-<p>Me loomulikult ei pea kogu seda asja käsitsi välja arvutama. Logititest saame tõenäosused arvutada <code>plogis()</code> funktsiooni abil:</p>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="3-logistiline-regressioon.html#cb494-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Naiste tõenäosus ellu jääda:</span></span>
-<span id="cb494-2"><a href="3-logistiline-regressioon.html#cb494-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(mudel7)[<span class="dv">1</span>] <span class="sc">%&gt;%</span> <span class="co"># Võtame esimese koefitsiendi</span></span>
-<span id="cb494-3"><a href="3-logistiline-regressioon.html#cb494-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb494-4"><a href="3-logistiline-regressioon.html#cb494-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plogis</span>() </span></code></pre></div>
+<p><span class="math display">\[\pi=\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}} = \dfrac{e^{(0.98+ (-2.43 \times 1))}}{1+e^{(0.98+(-2.43 \times 1))}} = 0.19\]</span></p>
+<p>Me loomulikult ei pea kogu seda asja käsitsi välja arvutama. Logititest saame otse tõenäosused arvutada <code>plogis()</code> funktsiooni abil:</p>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="3-logistiline-regressioon.html#cb497-1" tabindex="-1"></a><span class="co"># Naiste tõenäosus ellu jääda:</span></span>
+<span id="cb497-2"><a href="3-logistiline-regressioon.html#cb497-2" tabindex="-1"></a><span class="fu">coef</span>(mudel7)[<span class="dv">1</span>] <span class="sc">%&gt;%</span> <span class="co"># Võtame esimese koefitsiendi</span></span>
+<span id="cb497-3"><a href="3-logistiline-regressioon.html#cb497-3" tabindex="-1"></a>  <span class="fu">as.numeric</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb497-4"><a href="3-logistiline-regressioon.html#cb497-4" tabindex="-1"></a>  <span class="fu">plogis</span>() </span></code></pre></div>
 <pre><code>## [1] 0.7274678</code></pre>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="3-logistiline-regressioon.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Meeste tõenäosus ellu jääda:</span></span>
-<span id="cb496-2"><a href="3-logistiline-regressioon.html#cb496-2" aria-hidden="true" tabindex="-1"></a><span class="do">## nüüd tegeleme logititega, ehk lineaarse seosega. </span></span>
-<span id="cb496-3"><a href="3-logistiline-regressioon.html#cb496-3" aria-hidden="true" tabindex="-1"></a><span class="do">## seega liidame, mitte ei korruta</span></span>
-<span id="cb496-4"><a href="3-logistiline-regressioon.html#cb496-4" aria-hidden="true" tabindex="-1"></a>(<span class="fu">coef</span>(mudel7)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">coef</span>(mudel7)[<span class="dv">2</span>]) <span class="sc">%&gt;%</span> <span class="co"># esimene ja teine koefitsient</span></span>
-<span id="cb496-5"><a href="3-logistiline-regressioon.html#cb496-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb496-6"><a href="3-logistiline-regressioon.html#cb496-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plogis</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="3-logistiline-regressioon.html#cb499-1" tabindex="-1"></a><span class="co"># Meeste tõenäosus ellu jääda:</span></span>
+<span id="cb499-2"><a href="3-logistiline-regressioon.html#cb499-2" tabindex="-1"></a><span class="do">## nüüd tegeleme logititega, ehk lineaarse seosega. </span></span>
+<span id="cb499-3"><a href="3-logistiline-regressioon.html#cb499-3" tabindex="-1"></a><span class="do">## seega liidame, mitte ei korruta</span></span>
+<span id="cb499-4"><a href="3-logistiline-regressioon.html#cb499-4" tabindex="-1"></a>(<span class="fu">coef</span>(mudel7)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">coef</span>(mudel7)[<span class="dv">2</span>]) <span class="sc">%&gt;%</span> <span class="co"># esimene ja teine koefitsient</span></span>
+<span id="cb499-5"><a href="3-logistiline-regressioon.html#cb499-5" tabindex="-1"></a>  <span class="fu">as.numeric</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb499-6"><a href="3-logistiline-regressioon.html#cb499-6" tabindex="-1"></a>  <span class="fu">plogis</span>()</span></code></pre></div>
 <pre><code>## [1] 0.1909846</code></pre>
-<div id="mitu-sõltumatut-tunnust-ja-interaktsioon" class="section level3 hasAnchor" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> Mitu sõltumatut tunnust ja interaktsioon<a href="3-logistiline-regressioon.html#mitu-sõltumatut-tunnust-ja-interaktsioon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mitu-sõltumatut-tunnust-ja-interaktsioon" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Mitu sõltumatut tunnust ja interaktsioon<a href="3-logistiline-regressioon.html#mitu-sõltumatut-tunnust-ja-interaktsioon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vaatme ka, kuidas muudab ellujäämise tõenäosust lisaks soole vanus. Eeldame ka soo ja vanuse koosmõju (st kontrollime kas erinevas vanuses meeste ja naiste elujäämistõenäosused erinevad). Tsentreerime intrepretatsiooni huvides vanuse tunnuse. Seeläbi saame mõistlikul viisil vabaliiget tõlgendada ning muudame ka soo koefitsiendi sisukaks. Interaktsiooni tõttu on soo mõju eri vanuste puhul erinev ning ilma tsentreerimata näitaks koefitsient soo erinevust ainult 0 vanuse puhul. Tsentreeritud vanuse korral aga soo erinevust keskmise vanuse puhul, mis on mõnevõrra sisukam näitaja.</p>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="3-logistiline-regressioon.html#cb498-1" aria-hidden="true" tabindex="-1"></a>mudel8 <span class="ot">&lt;-</span> <span class="fu">glm</span>(surv<span class="sc">~</span>sex<span class="sc">*</span><span class="fu">scale</span>(age, <span class="at">scale =</span> F), <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="fu">binomial</span>())</span>
-<span id="cb498-2"><a href="3-logistiline-regressioon.html#cb498-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel8)</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="3-logistiline-regressioon.html#cb501-1" tabindex="-1"></a>mudel8 <span class="ot">&lt;-</span> <span class="fu">glm</span>(surv<span class="sc">~</span>sex<span class="sc">*</span><span class="fu">scale</span>(age, <span class="at">scale =</span> F), <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="fu">binomial</span>())</span>
+<span id="cb501-2"><a href="3-logistiline-regressioon.html#cb501-2" tabindex="-1"></a><span class="fu">summary</span>(mudel8)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = surv ~ sex * scale(age, scale = F), family = binomial(), 
@@ -481,12 +623,208 @@ Vaatame kõigepealt soo mõju:</p>
 ## AIC: 1091.4
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
-<p>Täiskasvanuks olemine mõnevõrra tõstis ellujäämise tõenäosust, kuid seda ainult naiste puhul (soo ja vanuse interaktsioon on negatiivne ning meeste vanuse koefitsient on 0.02 + -0.05 = -0.03). Tulemuste tõlgendamiseks võtame jälle koefitsientidest eksponendi:</p>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="3-logistiline-regressioon.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(mudel8))</span></code></pre></div>
-<pre><code>##                   (Intercept)                       sexmale 
-##                    3.20967979                    0.07911088 
-##         scale(age, scale = F) sexmale:scale(age, scale = F) 
-##                    1.02277095                    0.95477884</code></pre>
+<p>Täiskasvanuks olemine mõnevõrra tõstis ellujäämise tõenäosust, kuid seda ainult naiste puhul (soo ja vanuse interaktsioon on negatiivne ning meeste vanuse koefitsient on 0.02 + -0.05 = -0.03). Tulemuste tõlgendamisel kasutame jälle <code>jtools::summ()</code> abil arvutatud koefitsientide eksponente ehk šansse ja šansside suhteid:</p>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="3-logistiline-regressioon.html#cb503-1" tabindex="-1"></a><span class="fu">summ</span>(mudel8, <span class="at">exp =</span> T)</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Observations
+</td>
+<td style="text-align:right;">
+1046 (263 missing obs. deleted)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Dependent variable
+</td>
+<td style="text-align:right;">
+surv
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Type
+</td>
+<td style="text-align:right;">
+Generalized linear model
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Family
+</td>
+<td style="text-align:right;">
+binomial
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Link
+</td>
+<td style="text-align:right;">
+logit
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+χ²(3)
+</td>
+<td style="text-align:right;">
+331.18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Pseudo-R² (Cragg-Uhler)
+</td>
+<td style="text-align:right;">
+0.37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Pseudo-R² (McFadden)
+</td>
+<td style="text-align:right;">
+0.23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+AIC
+</td>
+<td style="text-align:right;">
+1091.44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+BIC
+</td>
+<td style="text-align:right;">
+1111.25
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+exp(Est.)
+</th>
+<th style="text-align:right;">
+2.5%
+</th>
+<th style="text-align:right;">
+97.5%
+</th>
+<th style="text-align:right;">
+z val.
+</th>
+<th style="text-align:right;">
+p
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+3.21
+</td>
+<td style="text-align:right;">
+2.52
+</td>
+<td style="text-align:right;">
+4.08
+</td>
+<td style="text-align:right;">
+9.52
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+sexmale
+</td>
+<td style="text-align:right;">
+0.08
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+<td style="text-align:right;">
+-16.14
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+scale(age, scale = F)
+</td>
+<td style="text-align:right;">
+1.02
+</td>
+<td style="text-align:right;">
+1.01
+</td>
+<td style="text-align:right;">
+1.04
+</td>
+<td style="text-align:right;">
+2.64
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+sexmale:scale(age, scale = F)
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:right;">
+0.93
+</td>
+<td style="text-align:right;">
+0.98
+</td>
+<td style="text-align:right;">
+-4.13
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> Standard errors: MLE
+</td>
+</tr>
+</tfoot>
+</table>
 <ul>
 <li><em>(Intercept)</em> ehk vabaliige kirjeldab ellujäämise šansse juhul kui sõltumatud tunnused on nullid. Ehk siis antud juhul ellujäämise šansse keskmise vanusega naiste puhul. Nende ellujäämise tõenäosus oli:</li>
 </ul>
@@ -507,8 +845,8 @@ Vaatame kõigepealt soo mõju:</p>
 </div>
 </div>
 </div>
-<div id="mudeli-kvaliteet" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Mudeli kvaliteet<a href="3-logistiline-regressioon.html#mudeli-kvaliteet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="mudeli-kvaliteet" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Mudeli kvaliteet<a href="3-logistiline-regressioon.html#mudeli-kvaliteet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Kuidas hinnata mudeli kvaliteeti? Meile ei anta ei jääkide standardviga ega determinatsioonikordajat. Küll on aga väljunis toodud <em>Null deviance</em> ja <em>Residual deviance</em>. <em>Deviance</em> kirjeldab mudeli hälvet ehk seda kui hästi (või õigem oleks öelda kui halvasti) meie mudel andmetega sobitub, ehk kui suur on erinevus meie andmete ja mudeli prognoosi vahel. Mida väiksem on <em>deviance</em>, seda väiksem on mudeli viga, ehk seda täpsemini sobitub mudel andmetega.</p>
 <ul>
 <li><strong>Null deviance</strong> kirjeldab küllastunud mudeli hälbimust nullmudelist.<br />
@@ -516,37 +854,49 @@ Vaatame kõigepealt soo mõju:</p>
 <li><strong>Residual deviance</strong> ehk jääkhälbimus kirjeldab defineeritud mudeli hälbimust küllastunud mudelist.</li>
 </ul>
 <p>Nullmudel on ainult vabaliikmega mudel (ehk mudel kus ei ole ühtegi selgitavat tunnust peale <span class="math inline">\(Y\)</span>-i keskmise). Küllastunud mudel on selline, kus on sama palju parameetreid kui andmepunkte (ehk mudel millega on kogu <span class="math inline">\(Y\)</span>-i varieeruvus ära kirjeldatud).</p>
-<div id="mudeli-sobivus" class="section level3 hasAnchor" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> Mudeli sobivus<a href="3-logistiline-regressioon.html#mudeli-sobivus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mudeli-sobivus-andmetega" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Mudeli sobivus andmetega<a href="3-logistiline-regressioon.html#mudeli-sobivus-andmetega" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Mudeli sobivust andmetega (<em>goodness of fit</em>) saame hinnata jääkhälbimuse (<em>Residual deviance</em>) näitaja abil. Jääkhälbimus näitab kui palju mudeliga hinnatud <span class="math inline">\(Y\)</span> väärtused empiirilistest <span class="math inline">\(Y\)</span> väärtustest erinevad (analoogne asi lineaarse regressiooni puhul oli <em>residual sum of squares</em>). Jääkhälbimuse abil saame võrrelda kui palju meie sobitatud mudel erineb küllastunud (<em>saturated</em>) mudelist, st mudelist mis sobituks täiel määral andmetega. Jääkhälbimus näitabki sisuliselt meie mudeli ja küllastunud mudeli erinevust. Mida väiksem on jääkhälbimus, seda paremini meie mudel andmetega “sobib”. Seda, kas see on piisavalt väike (mis tähendab, et meie mudeli ja andmete vahel ei ole statistliselt olulist erinevust), saame testida hii-ruut testiga (arvestades mudeli vabadusasteid (<em>degrees of freedom</em>).</p>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="3-logistiline-regressioon.html#cb502-1" aria-hidden="true" tabindex="-1"></a>res_dev <span class="ot">&lt;-</span> <span class="fu">deviance</span>(mudel8)</span>
-<span id="cb502-2"><a href="3-logistiline-regressioon.html#cb502-2" aria-hidden="true" tabindex="-1"></a>res_df <span class="ot">&lt;-</span> <span class="fu">df.residual</span>(mudel8)</span>
-<span id="cb502-3"><a href="3-logistiline-regressioon.html#cb502-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(res_dev, res_df, <span class="at">lower.tail =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="3-logistiline-regressioon.html#cb504-1" tabindex="-1"></a>res_dev <span class="ot">&lt;-</span> <span class="fu">deviance</span>(mudel8)</span>
+<span id="cb504-2"><a href="3-logistiline-regressioon.html#cb504-2" tabindex="-1"></a>res_df <span class="ot">&lt;-</span> <span class="fu">df.residual</span>(mudel8)</span>
+<span id="cb504-3"><a href="3-logistiline-regressioon.html#cb504-3" tabindex="-1"></a><span class="fu">pchisq</span>(res_dev, res_df, <span class="at">lower.tail =</span> F)</span></code></pre></div>
 <pre><code>## [1] 0.181289</code></pre>
 <p><code>pchisq()</code> funktsiooniga saame testitulemusele ka <em>p</em>-väärtuse. Näeme, et see on suurem kui <span class="math inline">\(0.05\)</span>, mis tähendab, et meie mudel ei erine küllastunud mudelist olulisel määra ja seega sobitub andmetega (siin tahame, et <em>p</em>-väärtus oleks võimalikult suur, st meie mudeli ja küllastunud mudeli vahel ei oleks statistilist erinevust). Reaaleluliste ja suurte andmetega on tegelikult suhteliselt keeruline hästi sobituvat mudelit leida. Seega isegi kui see test näitab, et mudel ei ole sobilik, siis üldjuhul me lihtsalt lepime asjaoluga, et meie mudel ei ole täiuslik ja jätame selle testi tähelepanuta.</p>
 <p>Üks kasulik nipp on ka võrrelda jääkhälbimuse väärtust ja tema vabadusastmeid. Kui <em>Residual deviance</em> on oluliselt suurem kui tema <em>degrees of freedom</em>, siis annab see jällegi tunnistust halvast mudelist.</p>
+<div id="hosmer-lemeshow-test" class="section level4 hasAnchor" number="3.4.1.1">
+<h4><span class="header-section-number">3.4.1.1</span> Hosmer-Lemeshow Test<a href="3-logistiline-regressioon.html#hosmer-lemeshow-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Võime mudeli sobivust andmetega hinnata ka Hosmer-Lemeshow testiga, mis testib kuivõrd hästi meie mudeli prognoositud väärtused vastavad tegelikele väärtustele mingite alamgruppide lõikes (test teeb ise andmetes alamgrupid). Nullhüpoteesiks on see, et mudel sobitub andmetega, seega kui näeme suurt <em>p</em>-väärtust (), siis järeldame, et mudel on sobiv ja vastupidi.</p>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="3-logistiline-regressioon.html#cb506-1" tabindex="-1"></a><span class="fu">library</span>(ResourceSelection)</span>
+<span id="cb506-2"><a href="3-logistiline-regressioon.html#cb506-2" tabindex="-1"></a><span class="fu">hoslem.test</span>(mudel8<span class="sc">$</span>y, <span class="fu">fitted</span>(mudel8))</span></code></pre></div>
+<pre><code>## 
+##  Hosmer and Lemeshow goodness of fit (GOF) test
+## 
+## data:  mudel8$y, fitted(mudel8)
+## X-squared = 12.692, df = 8, p-value = 0.1229</code></pre>
+<p>Antud juhul näeme, et testi <em>p</em>-väärtus on suurem kui 0.05, seega mudel sobitub andmetega.</p>
 </div>
-<div id="mudeli-statistiline-olulisus" class="section level3 hasAnchor" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Mudeli statistiline olulisus<a href="3-logistiline-regressioon.html#mudeli-statistiline-olulisus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="mudeli-statistiline-olulisus" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Mudeli statistiline olulisus<a href="3-logistiline-regressioon.html#mudeli-statistiline-olulisus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Näeme, et meie sisuka mudeli hälve küllastunud mudelist (<em>Residual deviance</em>) on võrreldes nullmudeli erinevusega küllastunud mudelist (<em>Null deviance</em>) tunduvalt väiksem<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>. See tähendab, et tänu sõltumatutele tunnustele suudame me sõltuva tunnuse variatsiooni seletada paremini kui ainult <span class="math inline">\(Y\)</span>-i keskmise abil. Aga kas mudeli hälve läks väiksemaks piisavalt paju, et me saaksime selle kohta ka statistiliselt olulisi järeldusi teha? Ehk siis kas me saame järeldada, et sõltumatud tunnused seletavad statistiliselt olulisel määral sõltuva tunnuse variatsiooni ja meie mudel on parem kui lihtsalt sõltuva tunnuse keskmine? Saame seda testida <em>likelihood ratio</em> testiga.</p>
 <p>Arvutame esmalt <em>Null deviance</em> ja <em>Residual deviance</em> erinevuse. Seeläbi saame enda defineeritud mudeli hälbe nullmudelist:</p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="3-logistiline-regressioon.html#cb504-1" aria-hidden="true" tabindex="-1"></a>dev_vahe <span class="ot">&lt;-</span> mudel8<span class="sc">$</span>null.deviance <span class="sc">-</span> mudel8<span class="sc">$</span>deviance</span>
-<span id="cb504-2"><a href="3-logistiline-regressioon.html#cb504-2" aria-hidden="true" tabindex="-1"></a>dev_vahe</span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="3-logistiline-regressioon.html#cb508-1" tabindex="-1"></a>dev_vahe <span class="ot">&lt;-</span> mudel8<span class="sc">$</span>null.deviance <span class="sc">-</span> mudel8<span class="sc">$</span>deviance</span>
+<span id="cb508-2"><a href="3-logistiline-regressioon.html#cb508-2" tabindex="-1"></a>dev_vahe</span></code></pre></div>
 <pre><code>## [1] 331.1847</code></pre>
 <p>Ja ka vabadusasteme erinevuse:</p>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="3-logistiline-regressioon.html#cb506-1" aria-hidden="true" tabindex="-1"></a>df_vahe <span class="ot">&lt;-</span> mudel8<span class="sc">$</span>df.null<span class="sc">-</span>mudel8<span class="sc">$</span>df.residual</span>
-<span id="cb506-2"><a href="3-logistiline-regressioon.html#cb506-2" aria-hidden="true" tabindex="-1"></a>df_vahe</span></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="3-logistiline-regressioon.html#cb510-1" tabindex="-1"></a>df_vahe <span class="ot">&lt;-</span> mudel8<span class="sc">$</span>df.null<span class="sc">-</span>mudel8<span class="sc">$</span>df.residual</span>
+<span id="cb510-2"><a href="3-logistiline-regressioon.html#cb510-2" tabindex="-1"></a>df_vahe</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>Hälvete vahe on jaotunud hii-ruut jaotuse alusel, seega saame hii-ruut jaotuse põhjal määrata selle olulisust. Arvutame hälvete vahe olulisustõenäosuse. Kasutame selleks jälle hii-ruut jaotuse funktsiooni <code>pchisq()</code>, mis tahab sisendina teatstatisikut (hälvete vahe) ja vabadusastemeid (vabadusastemete vahe). Samuti peame ütlema, et meid huvitab jaotuse parempoolse saba alla jääv tõenäosus.</p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="3-logistiline-regressioon.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(dev_vahe, df_vahe, <span class="at">lower.tail =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="3-logistiline-regressioon.html#cb512-1" tabindex="-1"></a><span class="fu">pchisq</span>(dev_vahe, df_vahe, <span class="at">lower.tail =</span> F)</span></code></pre></div>
 <pre><code>## [1] 1.767827e-71</code></pre>
 <p>Võime kasutada ka <code>anova()</code> funktsiooni, kus võrdleme enda mudelt ja ainult vabaliikmega mudelit:</p>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="3-logistiline-regressioon.html#cb510-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ~1 tähistab vabaliiget</span></span>
-<span id="cb510-2"><a href="3-logistiline-regressioon.html#cb510-2" aria-hidden="true" tabindex="-1"></a><span class="co"># et mudelites oleks sama palju vaatlusi, siis jätame </span></span>
-<span id="cb510-3"><a href="3-logistiline-regressioon.html#cb510-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ka vabaliikmega mudelist kõik vanuse NA-d välja</span></span>
-<span id="cb510-4"><a href="3-logistiline-regressioon.html#cb510-4" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mudel8,</span>
-<span id="cb510-5"><a href="3-logistiline-regressioon.html#cb510-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">glm</span>(surv<span class="sc">~</span><span class="dv">1</span>, <span class="at">data =</span> <span class="fu">filter</span>(titanic, <span class="sc">!</span><span class="fu">is.na</span>(age)), <span class="at">family =</span> binomial),    </span>
-<span id="cb510-6"><a href="3-logistiline-regressioon.html#cb510-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">test=</span><span class="st">&quot;Chisq&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="3-logistiline-regressioon.html#cb514-1" tabindex="-1"></a><span class="co"># ~1 tähistab vabaliiget</span></span>
+<span id="cb514-2"><a href="3-logistiline-regressioon.html#cb514-2" tabindex="-1"></a><span class="co"># et mudelites oleks sama palju vaatlusi, siis jätame </span></span>
+<span id="cb514-3"><a href="3-logistiline-regressioon.html#cb514-3" tabindex="-1"></a><span class="co"># ka vabaliikmega mudelist kõik vanuse NA-d välja</span></span>
+<span id="cb514-4"><a href="3-logistiline-regressioon.html#cb514-4" tabindex="-1"></a><span class="fu">anova</span>(mudel8,</span>
+<span id="cb514-5"><a href="3-logistiline-regressioon.html#cb514-5" tabindex="-1"></a>      <span class="fu">glm</span>(surv<span class="sc">~</span><span class="dv">1</span>, <span class="at">data =</span> <span class="fu">filter</span>(titanic, <span class="sc">!</span><span class="fu">is.na</span>(age)), <span class="at">family =</span> binomial),    </span>
+<span id="cb514-6"><a href="3-logistiline-regressioon.html#cb514-6" tabindex="-1"></a>      <span class="at">test=</span><span class="st">&quot;Chisq&quot;</span>)</span></code></pre></div>
 <pre><code>## Analysis of Deviance Table
 ## 
 ## Model 1: surv ~ sex * scale(age, scale = F)
@@ -557,8 +907,8 @@ Vaatame kõigepealt soo mõju:</p>
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Või kasutame <code>lmtest</code> paketi <code>lrtest()</code> funtsiooni:</p>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="3-logistiline-regressioon.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
-<span id="cb512-2"><a href="3-logistiline-regressioon.html#cb512-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lrtest</span>(mudel8)</span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="3-logistiline-regressioon.html#cb516-1" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb516-2"><a href="3-logistiline-regressioon.html#cb516-2" tabindex="-1"></a><span class="fu">lrtest</span>(mudel8)</span></code></pre></div>
 <pre><code>## Likelihood ratio test
 ## 
 ## Model 1: surv ~ sex * scale(age, scale = F)
@@ -571,11 +921,11 @@ Vaatame kõigepealt soo mõju:</p>
 <p>Kõik eelnevad testid näitavad sama asja ja kõikide puhul huvitab meid eelkõige <em>p</em> väärtus. Kui see on piisavalt väike (näiteks väiksem kui <span class="math inline">\(0.05\)</span>), siis saame järeldada, et meie testitavad mudelid on piisavalt erinevad ehk siis sõltumatute tunnuste lisamine vähendas <em>deviance</em>’i olulisel määral.</p>
 <p>Eelnevates näidetes on <em>p</em>-väärtus on väga väike, seega meie mudel on võrreldes nullmudeliga oluliselt parem.</p>
 <p><code>anova()</code>-ga saame ka testida kas uue sõltumatu tunnuse lisamine teeb mudeli oluliselt paremaks.</p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="3-logistiline-regressioon.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lisame mudelisse reisijateklassi</span></span>
-<span id="cb514-2"><a href="3-logistiline-regressioon.html#cb514-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Kasutame update() funktsiooni, millega saame olemasolevat mudelit muuta</span></span>
-<span id="cb514-3"><a href="3-logistiline-regressioon.html#cb514-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mudel8, </span>
-<span id="cb514-4"><a href="3-logistiline-regressioon.html#cb514-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">update</span>(mudel8, <span class="sc">~</span>.<span class="sc">+</span>passengerClass),</span>
-<span id="cb514-5"><a href="3-logistiline-regressioon.html#cb514-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">test =</span> <span class="st">&quot;Chisq&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="3-logistiline-regressioon.html#cb518-1" tabindex="-1"></a><span class="co"># Lisame mudelisse reisijateklassi</span></span>
+<span id="cb518-2"><a href="3-logistiline-regressioon.html#cb518-2" tabindex="-1"></a><span class="co"># Kasutame update() funktsiooni, millega saame olemasolevat mudelit muuta</span></span>
+<span id="cb518-3"><a href="3-logistiline-regressioon.html#cb518-3" tabindex="-1"></a><span class="fu">anova</span>(mudel8, </span>
+<span id="cb518-4"><a href="3-logistiline-regressioon.html#cb518-4" tabindex="-1"></a>      <span class="fu">update</span>(mudel8, <span class="sc">~</span>.<span class="sc">+</span>passengerClass),</span>
+<span id="cb518-5"><a href="3-logistiline-regressioon.html#cb518-5" tabindex="-1"></a>      <span class="at">test =</span> <span class="st">&quot;Chisq&quot;</span>)</span></code></pre></div>
 <pre><code>## Analysis of Deviance Table
 ## 
 ## Model 1: surv ~ sex * scale(age, scale = F)
@@ -588,45 +938,45 @@ Vaatame kõigepealt soo mõju:</p>
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Näeme, et kui lisame mudelisse ka reisijaklassi, siis muutub muutub oluliselt (<span class="math inline">\(p &lt; 0.05\)</span>) paremaks.</p>
 </div>
-<div id="pseudo-r2" class="section level3 hasAnchor" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Pseudo-<span class="math inline">\(R^2\)</span><a href="3-logistiline-regressioon.html#pseudo-r2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pseudo-r2" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Pseudo-<span class="math inline">\(R^2\)</span><a href="3-logistiline-regressioon.html#pseudo-r2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Kui lineaarse regressiooni puhul hindasime mudeli sobivust andmetega determinatsioonikordaja (<span class="math inline">\(R^2\)</span>) abil, siis GLM-ide puhul vastavat näitajat ei ole. Küll on aga nn pseudo-<span class="math inline">\(R^2\)</span> statistikud, mida võib analoogsel viisil kasutada (need ei näita küll päris sama asja, kuid tõlgendus on sama). Üheks selliseks on näiteks Mcfadden’i <span class="math inline">\(R^2\)</span>. See jääb 0 ja 1 vahele ning mida suurem selle väärtus on, seda parem on mudeli <em>fit</em>. Üldiselt ei küündi see näitaja kunagi päris 1-ni ja nii loetakse näiteks väärtust 0.2-0.4 juba päris heaks <em>fit</em>-iks.</p>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="3-logistiline-regressioon.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pscl)</span>
-<span id="cb516-2"><a href="3-logistiline-regressioon.html#cb516-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pR2</span>(mudel8)</span></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="3-logistiline-regressioon.html#cb520-1" tabindex="-1"></a><span class="fu">library</span>(pscl)</span>
+<span id="cb520-2"><a href="3-logistiline-regressioon.html#cb520-2" tabindex="-1"></a><span class="fu">pR2</span>(mudel8)</span></code></pre></div>
 <pre><code>## fitting null model for pseudo-r2</code></pre>
 <pre><code>##          llh      llhNull           G2     McFadden         r2ML         r2CU 
 ## -541.7178815 -707.3102248  331.1846867    0.2341156    0.2713925    0.3660622</code></pre>
 </div>
 </div>
-<div id="predict" class="section level2 hasAnchor" number="3.6">
-<h2><span class="header-section-number">3.6</span> Predict<a href="3-logistiline-regressioon.html#predict" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="predict" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Predict<a href="3-logistiline-regressioon.html#predict" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sageli tahame oma mudeli alusel prognoosida mingitele kindlatele sõltumatute tunnuste väärtustele sõltuva tunnuse hinnanguid. Saame loomulikult need sõltumatute tunnuste väärtused regressioonivõrrandisse sisse panna ja hinnangu käsitsi välja arvutada. Aga on ka mugavam variant. Nimelt <code>predict()</code> funktsioon<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>.</p>
 <p><code>predict()</code> vajab sisendiks mudelit ning referentsandmestikku vajalike sõltumatute tunnuste kategooriate kombinatsioonidega (vaikimisi, ilma uue andmestikuta, prognoosib ta mudelipõhised hinnangud igale mudeli andmestiku vaatlusele). Referentsandmestiku saame valmis teha käsitsi või kasutada näiteks <code>expand.grid()</code> funktsiooni.</p>
 <p>Tahame teada <code>titanic</code> andmestiku põhjal 40 aastaste meeste tõenäosust ellu jääda:</p>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="3-logistiline-regressioon.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Teeme referentsandmestiku</span></span>
-<span id="cb519-2"><a href="3-logistiline-regressioon.html#cb519-2" aria-hidden="true" tabindex="-1"></a>ref_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sex =</span> <span class="st">&quot;male&quot;</span>, <span class="at">age =</span> <span class="dv">40</span>)</span>
-<span id="cb519-3"><a href="3-logistiline-regressioon.html#cb519-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb519-4"><a href="3-logistiline-regressioon.html#cb519-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Kasutame predict() funktsiooni ja lisame referentsandmestikule</span></span>
-<span id="cb519-5"><a href="3-logistiline-regressioon.html#cb519-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pred tunnuse, millesse kirjutame prognoosi</span></span>
-<span id="cb519-6"><a href="3-logistiline-regressioon.html#cb519-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Kuna tegemist on logit mudeliga, siis defaultis</span></span>
-<span id="cb519-7"><a href="3-logistiline-regressioon.html#cb519-7" aria-hidden="true" tabindex="-1"></a><span class="co"># prognoosib predict() logiteid. Kui tahame teada</span></span>
-<span id="cb519-8"><a href="3-logistiline-regressioon.html#cb519-8" aria-hidden="true" tabindex="-1"></a><span class="co"># tõenäosusi, siis peame määrama type = &#39;response&#39;</span></span>
-<span id="cb519-9"><a href="3-logistiline-regressioon.html#cb519-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb519-10"><a href="3-logistiline-regressioon.html#cb519-10" aria-hidden="true" tabindex="-1"></a>ref_data<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(mudel8, <span class="at">newdata =</span> ref_data, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb519-11"><a href="3-logistiline-regressioon.html#cb519-11" aria-hidden="true" tabindex="-1"></a>ref_data</span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="3-logistiline-regressioon.html#cb523-1" tabindex="-1"></a><span class="co"># Teeme referentsandmestiku</span></span>
+<span id="cb523-2"><a href="3-logistiline-regressioon.html#cb523-2" tabindex="-1"></a>ref_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sex =</span> <span class="st">&quot;male&quot;</span>, <span class="at">age =</span> <span class="dv">40</span>)</span>
+<span id="cb523-3"><a href="3-logistiline-regressioon.html#cb523-3" tabindex="-1"></a></span>
+<span id="cb523-4"><a href="3-logistiline-regressioon.html#cb523-4" tabindex="-1"></a><span class="co"># Kasutame predict() funktsiooni ja lisame referentsandmestikule</span></span>
+<span id="cb523-5"><a href="3-logistiline-regressioon.html#cb523-5" tabindex="-1"></a><span class="co"># pred tunnuse, millesse kirjutame prognoosi</span></span>
+<span id="cb523-6"><a href="3-logistiline-regressioon.html#cb523-6" tabindex="-1"></a><span class="co"># Kuna tegemist on logit mudeliga, siis defaultis</span></span>
+<span id="cb523-7"><a href="3-logistiline-regressioon.html#cb523-7" tabindex="-1"></a><span class="co"># prognoosib predict() logiteid. Kui tahame teada</span></span>
+<span id="cb523-8"><a href="3-logistiline-regressioon.html#cb523-8" tabindex="-1"></a><span class="co"># tõenäosusi, siis peame määrama type = &#39;response&#39;</span></span>
+<span id="cb523-9"><a href="3-logistiline-regressioon.html#cb523-9" tabindex="-1"></a></span>
+<span id="cb523-10"><a href="3-logistiline-regressioon.html#cb523-10" tabindex="-1"></a>ref_data<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(mudel8, <span class="at">newdata =</span> ref_data, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb523-11"><a href="3-logistiline-regressioon.html#cb523-11" tabindex="-1"></a>ref_data</span></code></pre></div>
 <pre><code>##    sex age      pred
 ## 1 male  40 0.1664279</code></pre>
 <p>Kui tahame prognoosi rohkematele kategooriate kombinatsioonidele, saame kasutada <code>expand.grid()</code> funktsiooni:</p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="3-logistiline-regressioon.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Teeme kõigepealt uue andmestiku, kus on sees nii mehed kui naised </span></span>
-<span id="cb521-2"><a href="3-logistiline-regressioon.html#cb521-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ning vanused 10 aastaste intervallidena</span></span>
-<span id="cb521-3"><a href="3-logistiline-regressioon.html#cb521-3" aria-hidden="true" tabindex="-1"></a>ref_data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">sex =</span> <span class="fu">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>), </span>
-<span id="cb521-4"><a href="3-logistiline-regressioon.html#cb521-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">age =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">80</span>, <span class="at">by =</span> <span class="dv">10</span>))</span>
-<span id="cb521-5"><a href="3-logistiline-regressioon.html#cb521-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb521-6"><a href="3-logistiline-regressioon.html#cb521-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Lisame andmestikule predictioni</span></span>
-<span id="cb521-7"><a href="3-logistiline-regressioon.html#cb521-7" aria-hidden="true" tabindex="-1"></a>ref_data<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(mudel8, <span class="at">newdata =</span> ref_data, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb521-8"><a href="3-logistiline-regressioon.html#cb521-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb521-9"><a href="3-logistiline-regressioon.html#cb521-9" aria-hidden="true" tabindex="-1"></a>ref_data <span class="sc">%&gt;%</span> </span>
-<span id="cb521-10"><a href="3-logistiline-regressioon.html#cb521-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="3-logistiline-regressioon.html#cb525-1" tabindex="-1"></a><span class="co"># Teeme kõigepealt uue andmestiku, kus on sees nii mehed kui naised </span></span>
+<span id="cb525-2"><a href="3-logistiline-regressioon.html#cb525-2" tabindex="-1"></a><span class="co"># ning vanused 10 aastaste intervallidena</span></span>
+<span id="cb525-3"><a href="3-logistiline-regressioon.html#cb525-3" tabindex="-1"></a>ref_data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">sex =</span> <span class="fu">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>), </span>
+<span id="cb525-4"><a href="3-logistiline-regressioon.html#cb525-4" tabindex="-1"></a>                        <span class="at">age =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">80</span>, <span class="at">by =</span> <span class="dv">10</span>))</span>
+<span id="cb525-5"><a href="3-logistiline-regressioon.html#cb525-5" tabindex="-1"></a></span>
+<span id="cb525-6"><a href="3-logistiline-regressioon.html#cb525-6" tabindex="-1"></a><span class="co"># Lisame andmestikule predictioni</span></span>
+<span id="cb525-7"><a href="3-logistiline-regressioon.html#cb525-7" tabindex="-1"></a>ref_data<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(mudel8, <span class="at">newdata =</span> ref_data, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb525-8"><a href="3-logistiline-regressioon.html#cb525-8" tabindex="-1"></a></span>
+<span id="cb525-9"><a href="3-logistiline-regressioon.html#cb525-9" tabindex="-1"></a>ref_data <span class="sc">%&gt;%</span> </span>
+<span id="cb525-10"><a href="3-logistiline-regressioon.html#cb525-10" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##      sex age      pred
 ## 1   male   0 0.3405693
 ## 2 female   0 0.6209025
@@ -635,97 +985,98 @@ Vaatame kõigepealt soo mõju:</p>
 ## 5   male  20 0.2430633
 ## 6 female  20 0.7198448</code></pre>
 <p>Nüüd saame oma tulemused näiteks joonisele panna:</p>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="3-logistiline-regressioon.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ref_data, <span class="fu">aes</span>(<span class="at">x =</span> age, </span>
-<span id="cb523-2"><a href="3-logistiline-regressioon.html#cb523-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">y =</span> pred, </span>
-<span id="cb523-3"><a href="3-logistiline-regressioon.html#cb523-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">color =</span> sex))<span class="sc">+</span></span>
-<span id="cb523-4"><a href="3-logistiline-regressioon.html#cb523-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb523-5"><a href="3-logistiline-regressioon.html#cb523-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb523-6"><a href="3-logistiline-regressioon.html#cb523-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Ellujäämise tõenäosus&quot;</span>)<span class="sc">+</span></span>
-<span id="cb523-7"><a href="3-logistiline-regressioon.html#cb523-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent)<span class="sc">+</span></span>
-<span id="cb523-8"><a href="3-logistiline-regressioon.html#cb523-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#972D15&quot;</span>, <span class="st">&quot;#02401B&quot;</span>))<span class="sc">+</span></span>
-<span id="cb523-9"><a href="3-logistiline-regressioon.html#cb523-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="02-logit_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<div id="broom" class="section level3 hasAnchor" number="3.6.1">
-<h3><span class="header-section-number">3.6.1</span> Broom<a href="3-logistiline-regressioon.html#broom" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="3-logistiline-regressioon.html#cb527-1" tabindex="-1"></a><span class="fu">ggplot</span>(ref_data, <span class="fu">aes</span>(<span class="at">x =</span> age, </span>
+<span id="cb527-2"><a href="3-logistiline-regressioon.html#cb527-2" tabindex="-1"></a>                  <span class="at">y =</span> pred, </span>
+<span id="cb527-3"><a href="3-logistiline-regressioon.html#cb527-3" tabindex="-1"></a>                  <span class="at">color =</span> sex))<span class="sc">+</span></span>
+<span id="cb527-4"><a href="3-logistiline-regressioon.html#cb527-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb527-5"><a href="3-logistiline-regressioon.html#cb527-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb527-6"><a href="3-logistiline-regressioon.html#cb527-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Ellujäämise tõenäosus&quot;</span>)<span class="sc">+</span></span>
+<span id="cb527-7"><a href="3-logistiline-regressioon.html#cb527-7" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent)<span class="sc">+</span></span>
+<span id="cb527-8"><a href="3-logistiline-regressioon.html#cb527-8" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#972D15&quot;</span>, <span class="st">&quot;#02401B&quot;</span>))<span class="sc">+</span></span>
+<span id="cb527-9"><a href="3-logistiline-regressioon.html#cb527-9" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="02-logit_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<div id="broom" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Broom<a href="3-logistiline-regressioon.html#broom" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Prognoositud väärtused kõikidele meie andmetes olevatele vaatlustele saame mõnevõrra lihtsamalt kätte paketi <em>broom</em> abil. <em>broom</em>i funktsioon <code>augment()</code> loob mudeli objektist andmestiku, milles on lisaks algsetele tunnusetele ka kõikidele vaatlustele prognoositud väärtudsed (<em>.fitted</em>), prognoositud väärtuste standardvead (<em>.se.fit</em>), jäägid (<em>.resid</em>) jne.</p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="3-logistiline-regressioon.html#cb524-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb524-2"><a href="3-logistiline-regressioon.html#cb524-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Kasutame broomi funktsiooni augment </span></span>
-<span id="cb524-3"><a href="3-logistiline-regressioon.html#cb524-3" aria-hidden="true" tabindex="-1"></a>mudel_fit <span class="ot">&lt;-</span> <span class="fu">augment</span>(mudel8, <span class="at">type.predict =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb524-4"><a href="3-logistiline-regressioon.html#cb524-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mudel_fit)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 10
-##   .rownames    surv  sex   scale~1 .fitted .resid .std.~2    .hat .sigma .cooksd
-##   &lt;chr&gt;        &lt;lgl&gt; &lt;fct&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1 Allen, Miss~ TRUE  fema~  -0.881   0.759  0.743   0.744 0.00268   1.02 2.14e-4
-## 2 Allison, Ma~ TRUE  male  -29.0     0.336  1.48    1.49  0.0107    1.02 5.40e-3
-## 3 Allison, Mi~ FALSE fema~ -27.9     0.631 -1.41   -1.42  0.0133    1.02 5.86e-3
-## 4 Allison, Mr~ FALSE male    0.119   0.202 -0.672  -0.672 0.00157   1.02 9.95e-5
-## 5 Allison, Mr~ FALSE fema~  -4.88    0.742 -1.65   -1.65  0.00272   1.02 1.97e-3
-## 6 Anderson, M~ TRUE  male   18.1     0.142  1.98    1.98  0.00377   1.02 5.75e-3
-## # ... with abbreviated variable names 1: `scale(age, scale = F)`[,1],
-## #   2: .std.resid</code></pre>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="3-logistiline-regressioon.html#cb528-1" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb528-2"><a href="3-logistiline-regressioon.html#cb528-2" tabindex="-1"></a><span class="co"># Kasutame broomi funktsiooni augment </span></span>
+<span id="cb528-3"><a href="3-logistiline-regressioon.html#cb528-3" tabindex="-1"></a>mudel_fit <span class="ot">&lt;-</span> <span class="fu">augment</span>(mudel8, <span class="at">type.predict =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb528-4"><a href="3-logistiline-regressioon.html#cb528-4" tabindex="-1"></a><span class="fu">head</span>(mudel_fit)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 10
+##   .rownames     surv  sex   scale(age, scale = F…¹ .fitted .resid    .hat .sigma
+##   &lt;chr&gt;         &lt;lgl&gt; &lt;fct&gt;                  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Allen, Miss.… TRUE  fema…                 -0.881   0.759  0.743 0.00268   1.02
+## 2 Allison, Mas… TRUE  male                 -29.0     0.336  1.48  0.0107    1.02
+## 3 Allison, Mis… FALSE fema…                -27.9     0.631 -1.41  0.0133    1.02
+## 4 Allison, Mr.… FALSE male                   0.119   0.202 -0.672 0.00157   1.02
+## 5 Allison, Mrs… FALSE fema…                 -4.88    0.742 -1.65  0.00272   1.02
+## 6 Anderson, Mr… TRUE  male                  18.1     0.142  1.98  0.00377   1.02
+## # ℹ abbreviated name: ¹​`scale(age, scale = F)`[,1]
+## # ℹ 2 more variables: .cooksd &lt;dbl&gt;, .std.resid &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<div id="marginaalsed-efektid" class="section level2 hasAnchor" number="3.7">
-<h2><span class="header-section-number">3.7</span> Marginaalsed efektid<a href="3-logistiline-regressioon.html#marginaalsed-efektid" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="marginaalsed-efektid" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Marginaalsed efektid<a href="3-logistiline-regressioon.html#marginaalsed-efektid" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Marginaalsed efeketid (<em>marginal effects</em>) kirjeldavad sõltuva tunnuse muutust kui mingi sõltumatu tunnus muutub ühe ühiku võrra. Seega võimaldavad need logistilise regressiooni puhul kasutada lineaarse regressiooniga analoogset tõlgendamisloogikat. Marginaalsete efektide arvutamiseks on erinevaid viise. Üheks levinuimaks meetodiks on nn <em>Keskmised marginaalsed efektid</em> (<em>Average Marginal Effects</em> ehk AME).</p>
 <p>Oletame, et tahame Titanicu andmestiku alusel hinnata kui palju muutub inimese ellujäämise tõenäosus sõltuvalt tema soost. Logistilise regressioonimudeli abil saame teada vastava šansside suhte. Meid aga huvitaks tõenäosus. Me saame ka tõenäosuse välja arvutada (näiteks <code>predict()</code> funktsiooniga või ka käsitsi), kuid selleks peame määratlema mingi konkreetse grupi, kellele me regressioonivõrrandi abil tõenäosust prognoosime (näiteks saame võrrelda esimese klassi kajutis elvate täiskasvanud meeste ellujäämise tõenäosust esimese klassi kajutis elavate täsikasvanud naiste ellujäämise tõenäosusega). Meid aga huvitaks lihtsalt keskmine tõenäosuse erinevus meeste ja naiste vahel. Kuidas seda saavutada?</p>
 <p>Marginaalsete efektide (täpsemalt selle AME variandi) leidmiseks prognoositakse kõikidele andmestiku vaatlustele mudelipõhine hinnang kahel juhul - esimesel juhul nii, et kõikide vaatluste puhul määratakse nende sooks mees ja teisel juhul nii, et kõikide vaatluste puhul määratakse nende sooks naine. Kõik muud tunnused on mõlemal puhul nii nagu nad algselt olid. Keskmine marginaalne efekt ongi keskmine kahe prognoositud hinnangu vahe.</p>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="3-logistiline-regressioon.html#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(margins)</span>
-<span id="cb526-2"><a href="3-logistiline-regressioon.html#cb526-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb526-3"><a href="3-logistiline-regressioon.html#cb526-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Defineerime uuesti mudeli, kuna margins() funktsioonile ei meeldi scale()</span></span>
-<span id="cb526-4"><a href="3-logistiline-regressioon.html#cb526-4" aria-hidden="true" tabindex="-1"></a><span class="co"># võrrandi sees. Marginaalsete efektide puhul ei ole meil nii ehk naa vaja </span></span>
-<span id="cb526-5"><a href="3-logistiline-regressioon.html#cb526-5" aria-hidden="true" tabindex="-1"></a><span class="co"># vanust tsentreerida, kuna meid ei huvita algsed koefitsiendid</span></span>
-<span id="cb526-6"><a href="3-logistiline-regressioon.html#cb526-6" aria-hidden="true" tabindex="-1"></a>mudel9 <span class="ot">&lt;-</span> <span class="fu">glm</span>(surv<span class="sc">~</span>sex<span class="sc">*</span>age, <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="fu">binomial</span>())</span>
-<span id="cb526-7"><a href="3-logistiline-regressioon.html#cb526-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb526-8"><a href="3-logistiline-regressioon.html#cb526-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Soo mõju</span></span>
-<span id="cb526-9"><a href="3-logistiline-regressioon.html#cb526-9" aria-hidden="true" tabindex="-1"></a><span class="fu">margins</span>(mudel9, <span class="at">variables =</span> <span class="st">&#39;sex&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb526-10"><a href="3-logistiline-regressioon.html#cb526-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="3-logistiline-regressioon.html#cb530-1" tabindex="-1"></a><span class="fu">library</span>(margins)</span>
+<span id="cb530-2"><a href="3-logistiline-regressioon.html#cb530-2" tabindex="-1"></a></span>
+<span id="cb530-3"><a href="3-logistiline-regressioon.html#cb530-3" tabindex="-1"></a><span class="co"># Defineerime uuesti mudeli, kuna margins() funktsioonile ei meeldi scale()</span></span>
+<span id="cb530-4"><a href="3-logistiline-regressioon.html#cb530-4" tabindex="-1"></a><span class="co"># võrrandi sees. Marginaalsete efektide puhul ei ole meil nii ehk naa vaja </span></span>
+<span id="cb530-5"><a href="3-logistiline-regressioon.html#cb530-5" tabindex="-1"></a><span class="co"># vanust tsentreerida, kuna meid ei huvita algsed koefitsiendid</span></span>
+<span id="cb530-6"><a href="3-logistiline-regressioon.html#cb530-6" tabindex="-1"></a>mudel9 <span class="ot">&lt;-</span> <span class="fu">glm</span>(surv<span class="sc">~</span>sex<span class="sc">*</span>age, <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="fu">binomial</span>())</span>
+<span id="cb530-7"><a href="3-logistiline-regressioon.html#cb530-7" tabindex="-1"></a></span>
+<span id="cb530-8"><a href="3-logistiline-regressioon.html#cb530-8" tabindex="-1"></a><span class="co"># Soo mõju</span></span>
+<span id="cb530-9"><a href="3-logistiline-regressioon.html#cb530-9" tabindex="-1"></a><span class="fu">margins</span>(mudel9, <span class="at">variables =</span> <span class="st">&#39;sex&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb530-10"><a href="3-logistiline-regressioon.html#cb530-10" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>##   factor     AME     SE        z      p   lower   upper
 ##  sexmale -0.5496 0.0267 -20.6043 0.0000 -0.6019 -0.4973</code></pre>
-<p>Saame järeldada, et meeste tõenäosus ellu jääda oli <span class="math inline">\(55\%\)</span> madalam kui naistel.</p>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="3-logistiline-regressioon.html#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kuna interaktsioon oli oluline ning meeste ja naiste vanuse mõjud</span></span>
-<span id="cb528-2"><a href="3-logistiline-regressioon.html#cb528-2" aria-hidden="true" tabindex="-1"></a><span class="co"># olid erisuunalised, siis arvutame vanuse marginaalsed efektid </span></span>
-<span id="cb528-3"><a href="3-logistiline-regressioon.html#cb528-3" aria-hidden="true" tabindex="-1"></a><span class="co"># eraldi meeste ja naiste subsettidele </span></span>
-<span id="cb528-4"><a href="3-logistiline-regressioon.html#cb528-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb528-5"><a href="3-logistiline-regressioon.html#cb528-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Meeste vanuse marginaalne efekt</span></span>
-<span id="cb528-6"><a href="3-logistiline-regressioon.html#cb528-6" aria-hidden="true" tabindex="-1"></a><span class="fu">margins</span>(mudel9, <span class="at">variables =</span> <span class="st">&#39;age&#39;</span>, <span class="at">data =</span> <span class="fu">filter</span>(titanic, sex <span class="sc">==</span> <span class="st">&#39;male&#39;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb528-7"><a href="3-logistiline-regressioon.html#cb528-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<p>Saame järeldada, et meeste tõenäosus ellu jääda oli <span class="math inline">\(55\)</span> protsendipunkti madalam kui naistel.</p>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="3-logistiline-regressioon.html#cb532-1" tabindex="-1"></a><span class="co"># Kuna interaktsioon oli oluline ning meeste ja naiste vanuse mõjud</span></span>
+<span id="cb532-2"><a href="3-logistiline-regressioon.html#cb532-2" tabindex="-1"></a><span class="co"># olid erisuunalised, siis arvutame vanuse marginaalsed efektid </span></span>
+<span id="cb532-3"><a href="3-logistiline-regressioon.html#cb532-3" tabindex="-1"></a><span class="co"># eraldi meeste ja naiste subsettidele </span></span>
+<span id="cb532-4"><a href="3-logistiline-regressioon.html#cb532-4" tabindex="-1"></a></span>
+<span id="cb532-5"><a href="3-logistiline-regressioon.html#cb532-5" tabindex="-1"></a><span class="co"># Meeste vanuse marginaalne efekt</span></span>
+<span id="cb532-6"><a href="3-logistiline-regressioon.html#cb532-6" tabindex="-1"></a><span class="fu">margins</span>(mudel9, <span class="at">variables =</span> <span class="st">&#39;age&#39;</span>, <span class="at">data =</span> <span class="fu">filter</span>(titanic, sex <span class="sc">==</span> <span class="st">&#39;male&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb532-7"><a href="3-logistiline-regressioon.html#cb532-7" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>##  factor     AME     SE       z      p   lower   upper
 ##     age -0.0038 0.0011 -3.3170 0.0009 -0.0061 -0.0016</code></pre>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="3-logistiline-regressioon.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Naiste vanuse marginaalne efekt</span></span>
-<span id="cb530-2"><a href="3-logistiline-regressioon.html#cb530-2" aria-hidden="true" tabindex="-1"></a><span class="fu">margins</span>(mudel9, <span class="at">variables =</span> <span class="st">&#39;age&#39;</span>, <span class="at">data =</span> <span class="fu">filter</span>(titanic, sex <span class="sc">==</span> <span class="st">&#39;female&#39;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb530-3"><a href="3-logistiline-regressioon.html#cb530-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="3-logistiline-regressioon.html#cb534-1" tabindex="-1"></a><span class="co"># Naiste vanuse marginaalne efekt</span></span>
+<span id="cb534-2"><a href="3-logistiline-regressioon.html#cb534-2" tabindex="-1"></a><span class="fu">margins</span>(mudel9, <span class="at">variables =</span> <span class="st">&#39;age&#39;</span>, <span class="at">data =</span> <span class="fu">filter</span>(titanic, sex <span class="sc">==</span> <span class="st">&#39;female&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb534-3"><a href="3-logistiline-regressioon.html#cb534-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>##  factor    AME     SE      z      p  lower  upper
 ##     age 0.0041 0.0015 2.7024 0.0069 0.0011 0.0071</code></pre>
 </div>
-<div id="prognoosi-täpsus" class="section level2 hasAnchor" number="3.8">
-<h2><span class="header-section-number">3.8</span> Prognoosi täpsus<a href="3-logistiline-regressioon.html#prognoosi-täpsus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="prognoosi-täpsus" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Prognoosi täpsus<a href="3-logistiline-regressioon.html#prognoosi-täpsus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>Confusion matrix</em>’i (segaduse maatriks?) abiga saame hinnata oma prognoosi täpsust. Võrdleme tegelikke ja hinnatuid väärtusi. Kasutame jälle <code>predict()</code> funktsiooni ning prognoosime seekord kõikidele titanic andmestiku vaatlustele mudelipõhised hinnangud. Seejärel võrdleme neid hinnanguid vaatluste tegelike väärtustega:</p>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="3-logistiline-regressioon.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Anname table() funktsioonile ette kaks loogilist vektorit.</span></span>
-<span id="cb532-2"><a href="3-logistiline-regressioon.html#cb532-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Kui me predict funktsioonile newdata argumeti ei anna,</span></span>
-<span id="cb532-3"><a href="3-logistiline-regressioon.html#cb532-3" aria-hidden="true" tabindex="-1"></a><span class="co"># siis võtab ta automaatselt mudeli objektist kogu andmestiku</span></span>
-<span id="cb532-4"><a href="3-logistiline-regressioon.html#cb532-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ja prognoosib hinnangu igale vaatlusele. Kuna prognoos on </span></span>
-<span id="cb532-5"><a href="3-logistiline-regressioon.html#cb532-5" aria-hidden="true" tabindex="-1"></a><span class="co"># tõenäosusskaalal, siis teeme selle loogiliseks vektoriks nii,</span></span>
-<span id="cb532-6"><a href="3-logistiline-regressioon.html#cb532-6" aria-hidden="true" tabindex="-1"></a><span class="co"># et kõik üle 0.5 tõenäosused oleksd T ja väiksemad F</span></span>
-<span id="cb532-7"><a href="3-logistiline-regressioon.html#cb532-7" aria-hidden="true" tabindex="-1"></a>vaadeldud <span class="ot">&lt;-</span> titanic[<span class="sc">!</span><span class="fu">is.na</span>(titanic<span class="sc">$</span>sex) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(titanic<span class="sc">$</span>age), ]<span class="sc">$</span>survived <span class="sc">==</span> <span class="st">&quot;yes&quot;</span></span>
-<span id="cb532-8"><a href="3-logistiline-regressioon.html#cb532-8" aria-hidden="true" tabindex="-1"></a>prognoos <span class="ot">&lt;-</span> <span class="fu">predict</span>(mudel8, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)<span class="sc">&gt;</span> <span class="fl">0.5</span></span>
-<span id="cb532-9"><a href="3-logistiline-regressioon.html#cb532-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(vaadeldud, prognoos)</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="3-logistiline-regressioon.html#cb536-1" tabindex="-1"></a><span class="co"># Anname table() funktsioonile ette kaks loogilist vektorit.</span></span>
+<span id="cb536-2"><a href="3-logistiline-regressioon.html#cb536-2" tabindex="-1"></a><span class="co"># Kui me predict funktsioonile newdata argumeti ei anna,</span></span>
+<span id="cb536-3"><a href="3-logistiline-regressioon.html#cb536-3" tabindex="-1"></a><span class="co"># siis võtab ta automaatselt mudeli objektist kogu andmestiku</span></span>
+<span id="cb536-4"><a href="3-logistiline-regressioon.html#cb536-4" tabindex="-1"></a><span class="co"># ja prognoosib hinnangu igale vaatlusele. Kuna prognoos on </span></span>
+<span id="cb536-5"><a href="3-logistiline-regressioon.html#cb536-5" tabindex="-1"></a><span class="co"># tõenäosusskaalal, siis teeme selle loogiliseks vektoriks nii,</span></span>
+<span id="cb536-6"><a href="3-logistiline-regressioon.html#cb536-6" tabindex="-1"></a><span class="co"># et kõik üle 0.5 tõenäosused oleksd T ja väiksemad F</span></span>
+<span id="cb536-7"><a href="3-logistiline-regressioon.html#cb536-7" tabindex="-1"></a>vaadeldud <span class="ot">&lt;-</span> titanic[<span class="sc">!</span><span class="fu">is.na</span>(titanic<span class="sc">$</span>sex) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(titanic<span class="sc">$</span>age), ]<span class="sc">$</span>survived <span class="sc">==</span> <span class="st">&quot;yes&quot;</span></span>
+<span id="cb536-8"><a href="3-logistiline-regressioon.html#cb536-8" tabindex="-1"></a>prognoos <span class="ot">&lt;-</span> <span class="fu">predict</span>(mudel8, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)<span class="sc">&gt;</span> <span class="fl">0.5</span></span>
+<span id="cb536-9"><a href="3-logistiline-regressioon.html#cb536-9" tabindex="-1"></a><span class="fu">table</span>(vaadeldud, prognoos)</span></code></pre></div>
 <pre><code>##          prognoos
 ## vaadeldud FALSE TRUE
 ##     FALSE   523   96
 ##     TRUE    135  292</code></pre>
-<p>Saadud maatriksist näeme, et prognoosisime oma mudeliga õigesti <span class="math inline">\(523 + 292 = 815\)</span> juhul ning valesti <span class="math inline">\(96+135 = 231\)</span> juhul, ehk siis meie mudeli <strong>täpsus</strong> (<em>accuracy</em>) on <span class="math inline">\(\frac{523 + 292}{523 + 292 + 96 + 135} = 0.779 = 78\%\)</span>.</p>
+<p>Saadud maatriksist näeme, et prognoosisime oma mudeliga õigesti <span class="math inline">\(523 + 292 = 815\)</span> juhul ning valesti <span class="math inline">\(96+135 = 231\)</span> juhul, ehk siis meie mudeli <strong>täpsus</strong> (<em>accuracy</em>) on
+<span class="math display">\[\text{accuracy} = \frac{\text{õige}}{\text{õige} + \text{vale}} = \frac{523 + 292}{523 + 292 + 96 + 135} = 0.779 = 78\%\]</span>.</p>
 <p>Maatriksist saame välja lugeda ka prognoosi tundlikkuse (<em>sensitivity</em>) ja spetsiifilisuse (<em>specificity</em>).</p>
 <p><strong>Tundlikkus</strong> väljendab õigesti prognoositud positiivsete väärtuste osakaalu kõikidest positiivsetest väärtustest
-<span class="math display">\[\text{tundlikkus} = \frac{\text{õige positiivne}}{\text{õige positiivne} + \text{vale negatiivne}} = \frac{292}{(292+135)} = 0.68\]</span>
+<span class="math display">\[\text{sensitivity} = \frac{\text{õige positiivne}}{\text{õige positiivne} + \text{vale negatiivne}} = \frac{292}{(292+135)} = 0.68\]</span>
 <strong>Spetsiifilisus</strong> omakorda väljendab õigesti prognoositud negatiivsete väärtuste osakaalu kõikidest negatiivsetest väärtustest</p>
-<p><span class="math display">\[\text{spetsiifilisus} = \frac{\text{õige negatiivne}}{\text{õige negatiivne} + \text{vale positiivne}} = \frac{523}{(523+96)} = 0.84\]</span></p>
+<p><span class="math display">\[\text{specificity} = \frac{\text{õige negatiivne}}{\text{õige negatiivne} + \text{vale positiivne}} = \frac{523}{(523+96)} = 0.84\]</span></p>
 <p>Saame need arvutused teha ka <em>caret</em> paketi ja <code>confusionMatrix()</code> funktsiooniga.</p>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="3-logistiline-regressioon.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb534-2"><a href="3-logistiline-regressioon.html#cb534-2" aria-hidden="true" tabindex="-1"></a><span class="co"># confusionMatrix vajab sisendiuna faktoreid, </span></span>
-<span id="cb534-3"><a href="3-logistiline-regressioon.html#cb534-3" aria-hidden="true" tabindex="-1"></a><span class="co"># positive = TRUE arguimendiga ütleme, et ellujäämine oli positiivne sündmus</span></span>
-<span id="cb534-4"><a href="3-logistiline-regressioon.html#cb534-4" aria-hidden="true" tabindex="-1"></a><span class="fu">confusionMatrix</span>(<span class="at">data =</span> <span class="fu">as.factor</span>(prognoos), </span>
-<span id="cb534-5"><a href="3-logistiline-regressioon.html#cb534-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">reference =</span> <span class="fu">as.factor</span>(vaadeldud), <span class="at">positive =</span> <span class="st">&#39;TRUE&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="3-logistiline-regressioon.html#cb538-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb538-2"><a href="3-logistiline-regressioon.html#cb538-2" tabindex="-1"></a><span class="co"># confusionMatrix vajab sisendiuna faktoreid, </span></span>
+<span id="cb538-3"><a href="3-logistiline-regressioon.html#cb538-3" tabindex="-1"></a><span class="co"># positive = TRUE arguimendiga ütleme, et ellujäämine oli positiivne sündmus</span></span>
+<span id="cb538-4"><a href="3-logistiline-regressioon.html#cb538-4" tabindex="-1"></a><span class="fu">confusionMatrix</span>(<span class="at">data =</span> <span class="fu">as.factor</span>(prognoos), </span>
+<span id="cb538-5"><a href="3-logistiline-regressioon.html#cb538-5" tabindex="-1"></a>                <span class="at">reference =</span> <span class="fu">as.factor</span>(vaadeldud), <span class="at">positive =</span> <span class="st">&#39;TRUE&#39;</span>)</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##           Reference
@@ -754,20 +1105,91 @@ Vaatame kõigepealt soo mõju:</p>
 ##        &#39;Positive&#39; Class : TRUE           
 ## </code></pre>
 <p>Nii mudeli täpsus, tundlikkus, kui ka spetsiifilisus lähtusid eeldusest, et me klassifitseerisime vaatlused positiivseteks või negatiivseteks lähtuvalt sellest kas nende prognoositud tõenäosus oli suurem või väiksem kui <span class="math inline">\(0.5\)</span> (nn <em>treshold</em> või <em>cutoff value</em>). Mida suurem on see <em>cutoff</em>, seda rohkem õigeid positiivseid väärtusi saame prognoosida. Kuid samas, seda vähem saame prognoosida õigeid negatiivseid väärtusi. Ehk siis tundlikkuse ja spetsiifilisuse vahel on pöördvõrdeline seos. Mida suurem on üks, seda väiksem peab teine olema ja vastupidi. Seda seost saame vaadelda ROCi (<em>receiver operating characteristics</em>) graafiku abil.</p>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="3-logistiline-regressioon.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ROCit)</span>
-<span id="cb536-2"><a href="3-logistiline-regressioon.html#cb536-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb536-3"><a href="3-logistiline-regressioon.html#cb536-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Kasutame broomi funktsiooni augment </span></span>
-<span id="cb536-4"><a href="3-logistiline-regressioon.html#cb536-4" aria-hidden="true" tabindex="-1"></a>mudel_fit <span class="ot">&lt;-</span> <span class="fu">augment</span>(mudel8, <span class="at">type.predict =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb536-5"><a href="3-logistiline-regressioon.html#cb536-5" aria-hidden="true" tabindex="-1"></a>roc_obj <span class="ot">&lt;-</span> <span class="fu">rocit</span>(<span class="at">score =</span> mudel_fit<span class="sc">$</span>.fitted, <span class="at">class=</span>mudel_fit<span class="sc">$</span>surv)</span>
-<span id="cb536-6"><a href="3-logistiline-regressioon.html#cb536-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(roc_obj)</span></code></pre></div>
-<p><img src="02-logit_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
-<p>Mida suurem on pind graafiku kurvi all, seda parema mudeliga meil tegemist on (seda täpsemini võimaldab mudel prognoosida). Seda kurvi alust pindala suurust kasutataksegi prognoosi täpsuse hindamiseks. Vastavat statistikut kutsustaksegi kurvialuseks pindalaks (AUC ehk <em>area under the curve</em>). Mida lähemal AUC <span class="math inline">\(1\)</span>-le on, seda parema prognoosivõimega mudeliga meil tegemist on.</p>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="3-logistiline-regressioon.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(roc_obj)</span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="3-logistiline-regressioon.html#cb540-1" tabindex="-1"></a><span class="fu">library</span>(ROCit)</span>
+<span id="cb540-2"><a href="3-logistiline-regressioon.html#cb540-2" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb540-3"><a href="3-logistiline-regressioon.html#cb540-3" tabindex="-1"></a><span class="co"># Kasutame broomi funktsiooni augment </span></span>
+<span id="cb540-4"><a href="3-logistiline-regressioon.html#cb540-4" tabindex="-1"></a>mudel_fit <span class="ot">&lt;-</span> <span class="fu">augment</span>(mudel8, <span class="at">type.predict =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb540-5"><a href="3-logistiline-regressioon.html#cb540-5" tabindex="-1"></a>roc_obj <span class="ot">&lt;-</span> <span class="fu">rocit</span>(<span class="at">score =</span> mudel_fit<span class="sc">$</span>.fitted, <span class="at">class=</span>mudel_fit<span class="sc">$</span>surv)</span>
+<span id="cb540-6"><a href="3-logistiline-regressioon.html#cb540-6" tabindex="-1"></a><span class="fu">plot</span>(roc_obj)</span></code></pre></div>
+<p><img src="02-logit_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p>Mida suurem on pind graafiku kurvi all, seda parema mudeliga meil tegemist on (seda täpsemini võimaldab mudel prognoosida). Seda kurvi alust pindala suurust kasutataksegi prognoosi täpsuse hindamiseks. Vastavat statistikut kutsustaksegi kurvialuseks pindalaks (AUC ehk <em>area under the curve</em>). Mida lähemal AUC <span class="math inline">\(1\)</span>-le on, seda parema prognoosivõimega mudeliga meil tegemist on. Kui AUC on 0.5, siis on tegemist puhtalt juhusliku arvamisega.</p>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="3-logistiline-regressioon.html#cb541-1" tabindex="-1"></a><span class="fu">summary</span>(roc_obj)</span></code></pre></div>
 <pre><code>##                            
 ##  Method used: empirical    
 ##  Number of positive(s): 427
 ##  Number of negative(s): 619
 ##  Area under curve: 0.7918</code></pre>
+</div>
+<div id="mudeli-eeldused" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Mudeli eeldused<a href="3-logistiline-regressioon.html#mudeli-eeldused" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Nagu igal mudelil on ka logistilise regressiooni mudelil rida eeldusi, mis peavad olema täidetud, et tulemused oleksid korrektselt tõlgendatavad:</p>
+<ul>
+<li>Sõltuv tunnus peab olema binaarne<br />
+</li>
+<li>Vaatlused on sõltumatud</li>
+<li>Sõltumatute tunnuste vahel ei tohi olla multikollineaarsust (sõltumatud tunnused ei tohi olla liialt korreleeritud)<br />
+</li>
+<li>Sõltumatute tunnuse ja sõltuva tunnuse logiti vahelised suhted peavad olema lineaarsed</li>
+</ul>
+</div>
+<div id="cross-validation" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> Cross-validation<a href="3-logistiline-regressioon.html#cross-validation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ristvalideerimine on meetod mudeli hindamiseks, kus andmestik jaotatakse kordamööda treening- ja testosadeks, et saada võimalikult objektiivne hinnang mudeli võimekusele uut teavet üldistada. Treeningandmete peal õpib mudel seda, milline seos on sõltumatute tunnuste ja sõltuva tunnuse vahel. Testandmete peal kontrollime, kas mudel oskab ka uute andmete korral neid seoseid korrektselt prognoosida.</p>
+<p>Logistilise regressiooni kontekstis tähendab see, et me jagame oma andmed näiteks viide või kümnesse võrdse suurusega ossa (k-osa ehk <em>k-fold</em>), treenime igas voorus mudelit n-1 osal ja testime väljajäänud ühel osal, seejuures roteerides testosa üle kõikide osade. Selline lähenemine aitab vältida ülesobitamist (<em>overfitting</em>), sest mudel peab igal iteratsioonil „hakkama saama“ seninägemata andmetega. Igas voorus kogume kokku mingi soorituse mõõdiku, näiteks ROC kõvera aluse pindala (AUC) või klassifitseerimistäpsuse, ja lõpuks keskmistame need väärtused, et saada üldine hinnang mudeli võimekusele.</p>
+<ul>
+<li>Valime k (nt 5 või 10)</li>
+<li>Segame (shuffle) andmed juhuslikult, et voldid oleks võimalikult homogeensed</li>
+<li>Jaotame andmed k ossa</li>
+<li>Iteratsioonid üle osade (1 kuni k):
+<ul>
+<li>Treeningandmestikuks kõik osad välja arvatud k osa ja testandmestikuks k osa</li>
+<li>Sobitame logistilise regressiooni treeningandmestikul</li>
+<li>Prognoosime mudelit testandmestiku peal</li>
+<li>Salvestame soorituse mõõdiku(d)</li>
+</ul></li>
+<li>Keskmistame kõik mõõdikud lõplikuks hindeks</li>
+</ul>
+<p>R-ikeskkonnas on tüüpiline viis logistilise regressiooni ristvalideerimiseks kasutada “caret” paketti, kus defineeritakse treeningkontrolli seaded ja antakse ette, mitu korda ja millise meetodiga ristvalideerimine läbida.</p>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="3-logistiline-regressioon.html#cb543-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb543-2"><a href="3-logistiline-regressioon.html#cb543-2" tabindex="-1"></a></span>
+<span id="cb543-3"><a href="3-logistiline-regressioon.html#cb543-3" tabindex="-1"></a><span class="co"># andmete jagamise raamistik</span></span>
+<span id="cb543-4"><a href="3-logistiline-regressioon.html#cb543-4" tabindex="-1"></a>train_ctrl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="co"># kasutame cross-validation meetodit</span></span>
+<span id="cb543-5"><a href="3-logistiline-regressioon.html#cb543-5" tabindex="-1"></a>                           <span class="at">number =</span> <span class="dv">5</span>, <span class="co"># andmed jaotatakse viieks võrdseks tükiks</span></span>
+<span id="cb543-6"><a href="3-logistiline-regressioon.html#cb543-6" tabindex="-1"></a>                           <span class="at">classProbs =</span> <span class="cn">TRUE</span>, <span class="co"># mudel tekitab ka klasside tõenäosused, mis on vajalikud ROC ja AUC arvutamiseks</span></span>
+<span id="cb543-7"><a href="3-logistiline-regressioon.html#cb543-7" tabindex="-1"></a>                           <span class="at">summaryFunction =</span> twoClassSummary <span class="co"># annab meile ROC väärtuse, tundlikkuse ja spetsiifilisuse</span></span>
+<span id="cb543-8"><a href="3-logistiline-regressioon.html#cb543-8" tabindex="-1"></a>                           )</span>
+<span id="cb543-9"><a href="3-logistiline-regressioon.html#cb543-9" tabindex="-1"></a></span>
+<span id="cb543-10"><a href="3-logistiline-regressioon.html#cb543-10" tabindex="-1"></a><span class="co"># &quot;train&quot; funktsioon eeldab kahe tasemega faktorit, jätame välja ka kõik puuduolevad väärtused</span></span>
+<span id="cb543-11"><a href="3-logistiline-regressioon.html#cb543-11" tabindex="-1"></a>df <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
+<span id="cb543-12"><a href="3-logistiline-regressioon.html#cb543-12" tabindex="-1"></a>  <span class="fu">select</span>(survived, age, sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb543-13"><a href="3-logistiline-regressioon.html#cb543-13" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">survived =</span> <span class="fu">factor</span>(survived), <span class="at">age =</span> <span class="fu">scale</span>(age, <span class="at">scale =</span> F)) <span class="sc">%&gt;%</span> </span>
+<span id="cb543-14"><a href="3-logistiline-regressioon.html#cb543-14" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb543-15"><a href="3-logistiline-regressioon.html#cb543-15" tabindex="-1"></a></span>
+<span id="cb543-16"><a href="3-logistiline-regressioon.html#cb543-16" tabindex="-1"></a><span class="co"># mudeli jooksutamine</span></span>
+<span id="cb543-17"><a href="3-logistiline-regressioon.html#cb543-17" tabindex="-1"></a>model_cv <span class="ot">&lt;-</span> <span class="fu">train</span>(survived<span class="sc">~</span> sex <span class="sc">*</span> age, <span class="co"># regressioonivõrrand</span></span>
+<span id="cb543-18"><a href="3-logistiline-regressioon.html#cb543-18" tabindex="-1"></a>                  <span class="at">data =</span> df, <span class="co"># andmestik</span></span>
+<span id="cb543-19"><a href="3-logistiline-regressioon.html#cb543-19" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, <span class="co"># meetod on glm</span></span>
+<span id="cb543-20"><a href="3-logistiline-regressioon.html#cb543-20" tabindex="-1"></a>                  <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>, </span>
+<span id="cb543-21"><a href="3-logistiline-regressioon.html#cb543-21" tabindex="-1"></a>                  <span class="at">trControl =</span> train_ctrl,</span>
+<span id="cb543-22"><a href="3-logistiline-regressioon.html#cb543-22" tabindex="-1"></a>                  <span class="at">metric =</span> <span class="st">&quot;ROC&quot;</span>) <span class="co"># võrdleme mudeli tulemusi AUC alusel</span></span>
+<span id="cb543-23"><a href="3-logistiline-regressioon.html#cb543-23" tabindex="-1"></a></span>
+<span id="cb543-24"><a href="3-logistiline-regressioon.html#cb543-24" tabindex="-1"></a></span>
+<span id="cb543-25"><a href="3-logistiline-regressioon.html#cb543-25" tabindex="-1"></a>model_cv</span></code></pre></div>
+<pre><code>## Generalized Linear Model 
+## 
+## 1046 samples
+##    2 predictor
+##    2 classes: &#39;no&#39;, &#39;yes&#39; 
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold) 
+## Summary of sample sizes: 836, 838, 836, 837, 837 
+## Resampling results:
+## 
+##   ROC        Sens       Spec     
+##   0.7917969  0.8448204  0.6839672</code></pre>
+<p>Saadud väljundis näeme, kuidas mudel igas voorus sooritas ja milline on keskmine ROC koos hinnangulise standardveaga. Mida kõrgem on lõplik keskmine AUC, seda paremini suudab mudel õigeid klassifikatsioone teha. Lisaks AUC-le võib kasutada ka muid mõõdikuid, näiteks täpsust (accuracy), tundlikkust (sensitivity) või F-skoori, olenevalt konkreetsest rakendusjuhtumist.</p>
+<p>Ristvalideerimisest tulenev keskmine mõõdik on üldiselt parem kui tervet andmestikku korraga treenimise ja testimisega saadud hinnang, sest see paljastab, kas mudel on kindlat tüüpi vaatlustele liigselt sobitunud või suudab paremini generaliseerida. Igas voorus kasutab mudel varem treenimiseks mittevalitud volti testimiseks, mis imiteerib reaalses elus ilmuda võivaid uusi andmeid. Nii näeme, kui suured on tegelikud vead ja kui palju võib mudeli sooritus kõikuda sõltuvalt sellest, milline andmestiku alamhulk parasjagu treeninguks või testimiseks valitakse.</p>
 
 </div>
 </div>

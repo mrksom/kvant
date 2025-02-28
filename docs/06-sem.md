@@ -193,65 +193,17 @@ Vaatame ühefaktorilist mudelit, mis on moodustatud kolme indikaatori põhjal (j
 
 Kolm indikaatorit annavad meile kolm korrelatsioonikoefitsienti (tabel \@ref(tab:k1)).
 
+
 ```{=html}
-<template id="a97f6fa2-0be6-4d6f-880d-55ea0c966079"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  display: table;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style><div class="tabwid"><style>.cl-8f5262ac{}.cl-8f441a12{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8f441a13{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8f441a14{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-8f49212e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8f498358{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f498359{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835a{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835b{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835c{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835d{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835e{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835f{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f498360{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f498361{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f498362{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49bad0{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f386f96{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}</style><table class='cl-8f5262ac'>
+<div class="tabwid"><style>.cl-e9cf32ec{}.cl-e9b9e0cc{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-e9b9e0e0{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-e9b9e0ea{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-e9c0860c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-e9c0baaa{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bab4{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0babe{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0babf{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bac8{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bac9{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0baca{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bad2{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bad3{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0badc{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0badd{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bade{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-e9cf32ec'>
 
 ```
 
-<caption>(\#tab:k1)<span class="cl-8f386f96">Korrelatsioonimaatriks</span></caption>
+<caption style="display:table-caption;">(\#tab:k1)<span>Korrelatsioonimaatriks</span></caption>
 
 ```{=html}
 
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-8f498358"><p class="cl-8f49212e"><span class="cl-8f441a12"></span></p></td><td class="cl-8f498359"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">1</span></p></td><td class="cl-8f49835a"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">2</span></p></td><td class="cl-8f498358"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">3</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8f49835b"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">1</span></p></td><td class="cl-8f49835c"><p class="cl-8f49212e"><span class="cl-8f441a12">1</span></p></td><td class="cl-8f49835d"><p class="cl-8f49212e"><span class="cl-8f441a12"></span></p></td><td class="cl-8f49835b"><p class="cl-8f49212e"><span class="cl-8f441a12"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f49835e"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">2</span></p></td><td class="cl-8f49835f"><p class="cl-8f49212e"><span class="cl-8f441a12">0.2</span></p></td><td class="cl-8f498360"><p class="cl-8f49212e"><span class="cl-8f441a12">1</span></p></td><td class="cl-8f49835e"><p class="cl-8f49212e"><span class="cl-8f441a12"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f498361"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">3</span></p></td><td class="cl-8f498362"><p class="cl-8f49212e"><span class="cl-8f441a12">0.3</span></p></td><td class="cl-8f49bad0"><p class="cl-8f49212e"><span class="cl-8f441a12">0.24</span></p></td><td class="cl-8f498361"><p class="cl-8f49212e"><span class="cl-8f441a12">1</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="1b43a01c-63b5-4df7-8c44-c05ddc730811"></div>
-<script>
-var dest = document.getElementById("1b43a01c-63b5-4df7-8c44-c05ddc730811");
-var template = document.getElementById("a97f6fa2-0be6-4d6f-880d-55ea0c966079");
-var caption = template.content.querySelector("caption");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
-
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-e9c0baaa"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></th><th class="cl-e9c0bab4"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">1</span></p></th><th class="cl-e9c0babe"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">2</span></p></th><th class="cl-e9c0baaa"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">3</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-e9c0babf"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">1</span></p></td><td class="cl-e9c0bac8"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">1</span></p></td><td class="cl-e9c0bac9"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></td><td class="cl-e9c0babf"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9c0baca"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">2</span></p></td><td class="cl-e9c0bad2"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">0.2</span></p></td><td class="cl-e9c0bad3"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">1</span></p></td><td class="cl-e9c0baca"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9c0badc"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">3</span></p></td><td class="cl-e9c0badd"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">0.3</span></p></td><td class="cl-e9c0bade"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">0.24</span></p></td><td class="cl-e9c0badc"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">1</span></p></td></tr></tbody></table></div>
 ```
     
 
@@ -310,65 +262,17 @@ Ja lõplik, meie päris enda välja arvutatud faktormudeli diagramm^[Üks asi on
 Faktorlaadungite leidmiseks pidime kasutama kõiki kolme korrelatsioonikoefitsienti. Oleks korrelatsioone olnud üks vähem, siis me ei oleks saanud võrrandeid lahendada. Mis aga juhtuks kui mudelis oleks veel üks indikaator? Sellisel juhul oleks korrelatsioonimaatriksis 6 koefitsienti ($4 \times 4 \div2 - 4$) ning peaksime hindama 4 faktorlaadungit.  Seega saaksime juurde 3 korrelatsiooni, kuid peaksime hindama vaid ühe lisaparameetri (tabel \@ref(tab:k3)).
 
 
+
 ```{=html}
-<template id="528e090e-d9b1-4ee1-a993-3242f397ab66"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  display: table;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style><div class="tabwid"><style>.cl-90c79170{}.cl-90b97dc4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-90b97dc5{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-90b97dc6{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-90be84b8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-90be84b9{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84ba{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84bb{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84bc{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84bd{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84be{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84bf{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84c0{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84c1{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84c2{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e2e{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e2f{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e30{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e31{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e32{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e33{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90b2eedc{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}</style><table class='cl-90c79170'>
+<div class="tabwid"><style>.cl-eb5e81b2{}.cl-eb4d2da4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eb4d2dae{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eb4d2db8{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-eb5595de{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-eb55bc62{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc6c{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc6d{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc76{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc77{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc80{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc81{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc8a{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc8b{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc94{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc95{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc9e{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc9f{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bca0{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bca8{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bca9{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-eb5e81b2'>
 
 ```
 
-<caption>(\#tab:k3)<span class="cl-90b2eedc">Korrelatsioonimaatriks</span></caption>
+<caption style="display:table-caption;">(\#tab:k3)<span>Korrelatsioonimaatriks</span></caption>
 
 ```{=html}
 
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-90be84b9"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90be84ba"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">1</span></p></td><td class="cl-90be84bb"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">2</span></p></td><td class="cl-90be84ba"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">3</span></p></td><td class="cl-90be84b9"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">4</span></p></td><td class="cl-90be84bc"><p class="cl-90be84b8"><span class="cl-90b97dc5">X</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-90be84bd"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">1</span></p></td><td class="cl-90be84be"><p class="cl-90be84b8"><span class="cl-90b97dc4">1</span></p></td><td class="cl-90be84bf"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90be84be"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90be84bd"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90be84c0"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-90be84c1"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">2</span></p></td><td class="cl-90be84c2"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.2</span></p></td><td class="cl-90bf0e2e"><p class="cl-90be84b8"><span class="cl-90b97dc4">1</span></p></td><td class="cl-90be84c2"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90be84c1"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90bf0e2f"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-90bf0e30"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">3</span></p></td><td class="cl-90bf0e31"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.3</span></p></td><td class="cl-90bf0e32"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.24</span></p></td><td class="cl-90bf0e31"><p class="cl-90be84b8"><span class="cl-90b97dc4">1</span></p></td><td class="cl-90bf0e30"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90bf0e33"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-90bf0e30"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">4</span></p></td><td class="cl-90bf0e31"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.3</span></p></td><td class="cl-90bf0e32"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.2</span></p></td><td class="cl-90bf0e31"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.4</span></p></td><td class="cl-90bf0e30"><p class="cl-90be84b8"><span class="cl-90b97dc4">1</span></p></td><td class="cl-90bf0e33"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-90be84c1"><p class="cl-90be84b8"><span class="cl-90b97dc5">X</span></p></td><td class="cl-90be84c2"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.5</span></p></td><td class="cl-90bf0e2e"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.4</span></p></td><td class="cl-90be84c2"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.6</span></p></td><td class="cl-90be84c1"><p class="cl-90be84b8"><span class="cl-90b97dc4">?</span></p></td><td class="cl-90bf0e2f"><p class="cl-90be84b8"><span class="cl-90b97dc4">1</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="3dfdecf9-559b-4792-9e57-ef5492cef84d"></div>
-<script>
-var dest = document.getElementById("3dfdecf9-559b-4792-9e57-ef5492cef84d");
-var template = document.getElementById("528e090e-d9b1-4ee1-a993-3242f397ab66");
-var caption = template.content.querySelector("caption");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
-
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-eb55bc62"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></th><th class="cl-eb55bc6c"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">1</span></p></th><th class="cl-eb55bc6d"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">2</span></p></th><th class="cl-eb55bc6c"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">3</span></p></th><th class="cl-eb55bc62"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">4</span></p></th><th class="cl-eb55bc76"><p class="cl-eb5595de"><span class="cl-eb4d2dae">X</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc77"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">1</span></p></td><td class="cl-eb55bc80"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bc81"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc80"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc77"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc8a"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">2</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.2</span></p></td><td class="cl-eb55bc95"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc9e"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">3</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.3</span></p></td><td class="cl-eb55bca8"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.24</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bca9"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">4</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.3</span></p></td><td class="cl-eb55bca8"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.2</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.4</span></p></td><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bca9"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2dae">X</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.5</span></p></td><td class="cl-eb55bc95"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.4</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.6</span></p></td><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2da4">?</span></p></td><td class="cl-eb55bc9e"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td></tr></tbody></table></div>
 ```
 
 
@@ -532,7 +436,7 @@ summary(fit)
 ```
 
 ```
-## lavaan 0.6-12 ended normally after 1 iterations
+## lavaan 0.6.15 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -577,7 +481,7 @@ summary(fit, rsquare=T)
 ```
 
 ```
-## lavaan 0.6-12 ended normally after 15 iterations
+## lavaan 0.6.15 ended normally after 15 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -671,7 +575,7 @@ summary(fit, standardized=T)
 ```
 
 ```
-## lavaan 0.6-12 ended normally after 1 iterations
+## lavaan 0.6.15 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -735,7 +639,7 @@ summary(fit1, standardized=T)
 ```
 
 ```
-## lavaan 0.6-12 ended normally after 1 iterations
+## lavaan 0.6.15 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -780,11 +684,12 @@ anova(fit, fit1)
 ```
 
 ```
+## 
 ## Chi-Squared Difference Test
 ## 
-##      Df    AIC    BIC  Chisq Chisq diff Df diff Pr(>Chisq)
-## fit   1 1037.0 1055.5 0.7562                              
-## fit1  2 1037.2 1053.4 2.9217     2.1655       1     0.1411
+##      Df    AIC    BIC  Chisq Chisq diff   RMSEA Df diff Pr(>Chisq)
+## fit   1 1037.0 1055.5 0.7562                                      
+## fit1  2 1037.2 1053.4 2.9217     2.1655 0.12466       1     0.1411
 ```
 
 p väärtus on > 0.05, mis tähendab, et keerulisem mudel (fit) ei erine oluliselt lihtsamast mudelist (fit1). Seega jääme lihtsama mudeli juurde (kui keeruline ja lihtne mudel seletavad ühepalju variatiivsust, siis eelistame alati lihtsamat).  
@@ -799,7 +704,7 @@ summary(fit1, fit.measures=T)
 ```
 
 ```
-## lavaan 0.6-12 ended normally after 1 iterations
+## lavaan 0.6.15 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -831,14 +736,15 @@ summary(fit1, fit.measures=T)
 ##                                                       
 ##   Akaike (AIC)                                1037.148
 ##   Bayesian (BIC)                              1053.370
-##   Sample-size adjusted Bayesian (BIC)         1031.308
+##   Sample-size adjusted Bayesian (SABIC)       1031.308
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.078
 ##   90 Percent confidence interval - lower         0.000
 ##   90 Percent confidence interval - upper         0.256
-##   P-value RMSEA <= 0.05                          0.294
+##   P-value H_0: RMSEA <= 0.050                    0.294
+##   P-value H_0: RMSEA >= 0.080                    0.616
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
@@ -871,7 +777,7 @@ Nüüd tundub, et seda infot on jälle liiga palju. Kuid käime väljundi lõik 
 
 
 ```
-## lavaan 0.6-12 ended normally after 1 iterations
+## lavaan 0.6.15 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -924,7 +830,7 @@ CFI ja TLI on sobivusindeksid. Nad võiksid olla suuremad kui 0.95 (mõne allika
 ##                                                       
 ##   Akaike (AIC)                                1037.148
 ##   Bayesian (BIC)                              1053.370
-##   Sample-size adjusted Bayesian (BIC)         1031.308
+##   Sample-size adjusted Bayesian (SABIC)       1031.308
 ```
 
 AIC ja BIC on informatsioonikriteeriumid. Need ei ole iseseisvalt eriti informatiivsed (vaatamata nimele), kuid on kasulikud erinevate mudelite võrdlemisel. Väiksem väärtus on parem.
@@ -936,17 +842,16 @@ AIC ja BIC on informatsioonikriteeriumid. Need ei ole iseseisvalt eriti informat
 ##   RMSEA                                          0.078
 ##   90 Percent confidence interval - lower         0.000
 ##   90 Percent confidence interval - upper         0.256
-##   P-value RMSEA <= 0.05                          0.294
+##   P-value H_0: RMSEA <= 0.050                    0.294
 ```
 
 RMSEA võrdleb defineeritud mudelit ja küllastunud mudelit. See võiks olla väiksem kui 0.05. Mõnede allikate järgi on ka kuni 0.08 veel enamvähem.
 
 
 ```
+##   P-value H_0: RMSEA >= 0.080                    0.616
 ## 
 ## Standardized Root Mean Square Residual:
-## 
-##   SRMR                                           0.047
 ```
 
 SRMR on tuletatud erinevusest defineeritud mudeli ja küllastunud mudeli (*saturated model*) kovariatsioonimaatriksite vahel. Väiksem kui 0.08 on hea.
@@ -965,10 +870,10 @@ lavCor(fit1)
 
 ```
 ##               fr__65 fr_l_60 fr_p_60 gnp_60
-## fair_elect_65 1.000                        
-## fair_elect_60 0.650  1.000                 
-## free_press_60 0.674  0.679   1.000         
-## gnp_60        0.389  0.327   0.382   1.000
+## fair_elect_65  1.000                       
+## fair_elect_60  0.650   1.000               
+## free_press_60  0.674   0.679   1.000       
+## gnp_60         0.389   0.327   0.382  1.000
 ```
 
 Sobitatud korrelatsioonimaatriksi funktsiooniga `inspect()`:
@@ -980,10 +885,10 @@ inspect(fit1, what="cor.all")
 
 ```
 ##               fr__65 fr_l_60 fr_p_60 gnp_60
-## fair_elect_65 1.000                        
-## fair_elect_60 0.650  1.000                 
-## free_press_60 0.674  0.679   1.000         
-## gnp_60        0.258  0.259   0.382   1.000
+## fair_elect_65  1.000                       
+## fair_elect_60  0.650   1.000               
+## free_press_60  0.674   0.679   1.000       
+## gnp_60         0.258   0.259   0.382  1.000
 ```
 
 Saame võõrelda nende erinevusi, lahutame ühest teise (kuna tegemist on maatriksitega, siis saame seda lihtsalt teha):
@@ -995,10 +900,10 @@ lavCor(fit1) - inspect(fit1, what="cor.all")
 
 ```
 ##               fr__65 fr_l_60 fr_p_60 gnp_60
-## fair_elect_65 0.000                        
-## fair_elect_60 0.000  0.000                 
-## free_press_60 0.000  0.000   0.000         
-## gnp_60        0.131  0.068   0.000   0.000
+## fair_elect_65  0.000                       
+## fair_elect_60  0.000   0.000               
+## free_press_60  0.000   0.000   0.000       
+## gnp_60         0.131   0.068   0.000  0.000
 ```
 
 Veelgi lihtsam moodus oleks kasutada `residuals()`funktsiooni (kui tahame korrelatsioonide erinevust, siis argumen `type = 'cor'`)
@@ -1014,10 +919,10 @@ residuals(fit1, type = 'cor')
 ## 
 ## $cov
 ##               fr__65 fr_l_60 fr_p_60 gnp_60
-## fair_elect_65 0.000                        
-## fair_elect_60 0.000  0.000                 
-## free_press_60 0.000  0.000   0.000         
-## gnp_60        0.131  0.068   0.000   0.000
+## fair_elect_65  0.000                       
+## fair_elect_60  0.000   0.000               
+## free_press_60  0.000   0.000   0.000       
+## gnp_60         0.131   0.068   0.000  0.000
 ```
 
 Jääkide maatriksist peaks otsima suuremaid väärtusi, mis annavad tunnistust, et mingi tunnuste vahelised seosed ei ole meie defineeritud mudelis vajalikul määral esindatud. Lähtuvalt sellest saame me oma mudelisse seoseid lisada. Peame muidugi arvestama nende teoreetilise adekvaatsusega ning ka statistilise olulisusega. Jätsime enne GNP ja valimisvabaduse seose mudelist välja kuna see ei olnud statistiliselt oluline. Jääkide maatriks näitab, et mingi seos nende vahel siiski on. Antud juhul mitte piisav, et see otsese mõjuna mudelisse kaasata. Kuid võime näiteks kaaluda mõnda kaudset mõju.
@@ -1031,14 +936,12 @@ modindices(fit1)
 
 ```
 ##              lhs op           rhs    mi    epc sepc.lv sepc.all sepc.nox
-## 10 fair_elect_65 ~~ free_press_60 2.113 -2.384  -2.384   -0.439   -0.439
-## 11 fair_elect_60 ~~ free_press_60 0.752 -1.511  -1.511   -0.262   -0.262
-## 12 fair_elect_65  ~        gnp_60 2.113  0.562   0.562    0.125    0.172
-## 14 fair_elect_60  ~        gnp_60 0.752  0.356   0.356    0.080    0.109
-## 15 free_press_60  ~ fair_elect_65 2.778 -0.503  -0.503   -0.630   -0.630
-## 16 free_press_60  ~ fair_elect_60 0.752 -0.264  -0.264   -0.330   -0.330
-## 17        gnp_60  ~ fair_elect_65 2.778  0.063   0.063    0.282    0.282
-## 18        gnp_60  ~ fair_elect_60 0.752  0.033   0.033    0.148    0.148
+## 9  fair_elect_65  ~        gnp_60 2.113  0.562   0.562    0.125    0.172
+## 11 fair_elect_60  ~        gnp_60 0.752  0.356   0.356    0.080    0.109
+## 12 free_press_60  ~ fair_elect_65 2.778 -0.503  -0.503   -0.630   -0.630
+## 13 free_press_60  ~ fair_elect_60 0.752 -0.264  -0.264   -0.330   -0.330
+## 14        gnp_60  ~ fair_elect_65 2.778  0.063   0.063    0.282    0.282
+## 15        gnp_60  ~ fair_elect_60 0.752  0.033   0.033    0.148    0.148
 ```
 
 Siin tasun vaadata veergu *mi*, mis näitab kui palju meie mudel läheks paremaks kui mõne seose mudelisse lisaks või ära jätaks (`~` näitab regressioonseost, `~~` näitab kovariatsiooni).
@@ -1066,7 +969,7 @@ summary(fit, fit.measures = TRUE, standardized = T)
 ```
 
 ```
-## lavaan 0.6-12 ended normally after 47 iterations
+## lavaan 0.6.15 ended normally after 47 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1098,14 +1001,15 @@ summary(fit, fit.measures = TRUE, standardized = T)
 ##                                                       
 ##   Akaike (AIC)                                3179.918
 ##   Bayesian (BIC)                              3237.855
-##   Sample-size adjusted Bayesian (BIC)         3159.062
+##   Sample-size adjusted Bayesian (SABIC)       3159.062
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.101
 ##   90 Percent confidence interval - lower         0.061
 ##   90 Percent confidence interval - upper         0.139
-##   P-value RMSEA <= 0.05                          0.021
+##   P-value H_0: RMSEA <= 0.050                    0.021
+##   P-value H_0: RMSEA >= 0.080                    0.827
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
@@ -1165,6 +1069,7 @@ Mida me väljundist näeme? Vaatame kõigepealt parameetreid
 
 
 ```
+## 
 ## Parameter Estimates:
 ## 
 ##   Standard errors                             Standard
@@ -1186,13 +1091,13 @@ Mida me väljundist näeme? Vaatame kõigepealt parameetreid
 ##     y5                1.000                           
 ##     y6                1.258    0.164    7.651    0.000
 ##     y7                1.282    0.158    8.137    0.000
-##     y8                1.310    0.154    8.529    0.000
 ```
 
 *Estimate* veerg annab meile faktorlaadungid (standardiseerimata). Kõikide faktorite esimene laadung on fikseeritud $1$-ks (mudeli identifikatsiooni pärast). Kõik laadungid on positiivsed ja statistiliselt olulised (p < 0.05). Problemaatiline võib olla $x2$ laadung, mis oluliselt suurem kui $x1$ laadung. Me üldiselt tahaksime, et kõik laadungid oleksid enamvähem ühesuurused, st kõik indikaatorid panustaksid faktorisse ühepalju.
 
 
 ```
+## 
 ## Covariances:
 ##                    Estimate  Std.Err  z-value  P(>|z|)
 ##   maj60 ~~                                            
@@ -1206,6 +1111,7 @@ Latentsete tunnuste vahelised covariatsioonid on kõik positiivsed ja olulised. 
 
 
 ```
+## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(>|z|)
 ##    .x1                0.082    0.020    4.180    0.000
@@ -1247,7 +1153,7 @@ residuals(fit, type = 'cor')
 ## [1] "cor.bollen"
 ## 
 ## $cov
-##    x1     x2     x3     y1     y2     y3     y4     y5     y6     y7     y8    
+##        x1     x2     x3     y1     y2     y3     y4     y5     y6     y7     y8
 ## x1  0.000                                                                      
 ## x2 -0.001  0.000                                                               
 ## x3 -0.003  0.002  0.000                                                        
@@ -1300,7 +1206,7 @@ summary(fit1, fit.measures = TRUE, standardized = T)
 ```
 
 ```
-## lavaan 0.6-12 ended normally after 53 iterations
+## lavaan 0.6.15 ended normally after 53 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1332,14 +1238,15 @@ summary(fit1, fit.measures = TRUE, standardized = T)
 ##                                                       
 ##   Akaike (AIC)                                3172.415
 ##   Bayesian (BIC)                              3232.670
-##   Sample-size adjusted Bayesian (BIC)         3150.725
+##   Sample-size adjusted Bayesian (SABIC)       3150.725
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.087
 ##   90 Percent confidence interval - lower         0.042
 ##   90 Percent confidence interval - upper         0.127
-##   P-value RMSEA <= 0.05                          0.079
+##   P-value H_0: RMSEA <= 0.050                    0.079
+##   P-value H_0: RMSEA >= 0.080                    0.641
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
@@ -1404,11 +1311,12 @@ anova(fit, fit1)
 ```
 
 ```
+## 
 ## Chi-Squared Difference Test
 ## 
-##      Df    AIC    BIC  Chisq Chisq diff Df diff Pr(>Chisq)   
-## fit1 40 3172.4 3232.7 62.958                                 
-## fit  41 3179.9 3237.9 72.462     9.5033       1   0.002051 **
+##      Df    AIC    BIC  Chisq Chisq diff   RMSEA Df diff Pr(>Chisq)   
+## fit1 40 3172.4 3232.7 62.958                                         
+## fit  41 3179.9 3237.9 72.462     9.5033 0.33672       1   0.002051 **
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -1434,7 +1342,7 @@ summary(fit1, fit.measures = TRUE, standardized = T)
 ```
 
 ```
-## lavaan 0.6-12 ended normally after 62 iterations
+## lavaan 0.6.15 ended normally after 62 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1466,14 +1374,15 @@ summary(fit1, fit.measures = TRUE, standardized = T)
 ##                                                       
 ##   Akaike (AIC)                                3159.715
 ##   Bayesian (BIC)                              3224.605
-##   Sample-size adjusted Bayesian (BIC)         3136.356
+##   Sample-size adjusted Bayesian (SABIC)       3136.356
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.054
 ##   90 Percent confidence interval - lower         0.000
 ##   90 Percent confidence interval - upper         0.102
-##   P-value RMSEA <= 0.05                          0.427
+##   P-value H_0: RMSEA <= 0.050                    0.427
+##   P-value H_0: RMSEA >= 0.080                    0.212
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
@@ -1562,7 +1471,7 @@ summary(fit, fit.measures = TRUE)
 ```
 
 ```
-## lavaan 0.6-12 ended normally after 53 iterations
+## lavaan 0.6.15 ended normally after 53 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1594,14 +1503,15 @@ summary(fit, fit.measures = TRUE)
 ##                                                       
 ##   Akaike (AIC)                                3159.715
 ##   Bayesian (BIC)                              3224.605
-##   Sample-size adjusted Bayesian (BIC)         3136.356
+##   Sample-size adjusted Bayesian (SABIC)       3136.356
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.054
 ##   90 Percent confidence interval - lower         0.000
 ##   90 Percent confidence interval - upper         0.102
-##   P-value RMSEA <= 0.05                          0.427
+##   P-value H_0: RMSEA <= 0.050                    0.427
+##   P-value H_0: RMSEA >= 0.080                    0.212
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
@@ -1669,13 +1579,13 @@ Sobivusindeksid võrreldes eelmise mudeliga ei muutu. See on sellepärast, et k�
 
 
 ```
+## 
 ## Regressions:
 ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
 ##   dem60 ~                                                               
 ##     maj60             1.441    0.388    3.714    0.000    0.445    0.445
 ##   dem65 ~                                                               
 ##     maj60             0.579    0.213    2.713    0.007    0.187    0.187
-##     dem60             0.847    0.098    8.675    0.000    0.886    0.886
 ```
 
 Näeme, et kõik regressioonid on statistiliselt olulised. Mida kõrgem on *maj60* seda kõrgem on ka *dem60* ning mida kõrgemad on *maj60* ja *dem60*, seda kõrgem on *dem65*. Koefitsientide suurused ei ole reeglina väga hästi tõlgendatavad. Meid pigem huvitab nende suund ja statistiline olulisus.
@@ -1730,9 +1640,9 @@ inspect(fit)
 ## 
 ## $psi
 ##       maj60 dem60 dem65
-## maj60 26               
-## dem60  0    27         
-## dem65  0     0    28   
+## maj60    26            
+## dem60     0    27      
+## dem65     0     0    28
 ## 
 ## $beta
 ##       maj60 dem60 dem65
@@ -1771,7 +1681,7 @@ inspect(fit, "est")
 ## y8 0.000 0.000 1.296
 ## 
 ## $theta
-##    x1    x2    x3    y1    y2    y3    y4    y5    y6    y7    y8   
+##       x1    x2    x3    y1    y2    y3    y4    y5    y6    y7    y8
 ## x1 0.082                                                            
 ## x2 0.000 0.120                                                      
 ## x3 0.000 0.000 0.467                                                

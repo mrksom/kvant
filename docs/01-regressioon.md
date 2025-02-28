@@ -58,7 +58,7 @@ R-is käib lihtsa regressioonimudeli tegemine `lm()` (*linear model*) funktsioon
 
 `lm()` funktsioonis tuleb defineerida regressioonivõrrand. Selleks  peame määratlema sõltuva tunnuse, seejärel kasutama tildet (`~`) ning seejärel määratlema sõltumatu(d) tunnuse(d): `sõltuv_tunnus ~ sõltumatu_tunnus`^[Hiljem, kui meil on mitu sõltumatut tunnust, eristame tunnused plussiga: `sõltuv_tunnus ~ sõltumatu_tunnus_1 + sõltumatu_tunnus_2 + ...`]. 
 
-Saaksime ka vabaliikme võrrandisse sisse kirjutada: `sõltuv_tunnus ~ 1 + sõltumatu_tunnus`. Vabaliige on alati tähistatud `1`-ga ja kuna ta on alati mudelis olemas, siis R lisab selle ise vaikimisi võrrandisse ning seega me tegelikult ei pea seda eksplitsiitselt välja kirjutama. Küll aga saame selle abil moodustada ainult vabaliikmega mudeli. See oleks nn nullmudel ehk tegelikult lihtsalt sõltuva tunnuse keskmise mudel. Defineerime sellise mudeli:
+Saaksime ka vabaliikme võrrandisse sisse kirjutada: `sõltuv_tunnus ~ 1 + sõltumatu_tunnus`. Vabaliige on alati tähistatud `1`-ga, aga kuna see on alati mudelis olemas, siis R lisab selle automaatselt võrrandisse ja me tegelikult ei pea seda eksplitsiitselt välja kirjutama. Küll aga saame selle abil moodustada ainult vabaliikmega mudeli. See oleks nn nullmudel ehk tegelikult lihtsalt sõltuva tunnuse keskmise mudel. Defineerime sellise mudeli:
 
 
 ```r

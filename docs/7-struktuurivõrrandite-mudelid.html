@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Peatükk 7 Struktuurivõrrandite mudelid | Kvantitatiivne andmeanalüüs</title>
   <meta name="description" content="Peatükk 7 Struktuurivõrrandite mudelid | Kvantitatiivne andmeanalüüs" />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Peatükk 7 Struktuurivõrrandite mudelid | Kvantitatiivne andmeanalüüs" />
   <meta property="og:type" content="book" />
@@ -52,13 +52,13 @@
 <script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="assets/kePrint-0.0.1/kePrint.js"></script>
 <link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="assets/tabwid-1.1.0/tabwid.css" rel="stylesheet" />
-<link href="assets/tabwid-1.1.0/scrool.css" rel="stylesheet" />
+<link href="assets/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="assets/tabwid-1.1.3/tabwid.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -68,7 +68,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -167,12 +167,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-funktsioon"><i class="fa fa-check"></i><b>3.1</b> Logistiline funktsioon</a></li>
 <li class="chapter" data-level="3.2" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.2</b> Logit mudel</a></li>
-<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-tõlgendus"><i class="fa fa-check"></i><b>3.3</b> Mudeli tõlgendus</a></li>
-<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.4</b> Logistiline regressioon R-is</a></li>
-<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.5</b> Mudeli kvaliteet</a></li>
-<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.6</b> Predict</a></li>
-<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.7</b> Marginaalsed efektid</a></li>
-<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.8</b> Prognoosi täpsus</a></li>
+<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.3</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.4</b> Mudeli kvaliteet</a></li>
+<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.5</b> Predict</a></li>
+<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.6</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.7</b> Prognoosi täpsus</a></li>
+<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-eeldused"><i class="fa fa-check"></i><b>3.8</b> Mudeli eeldused</a></li>
+<li class="chapter" data-level="3.9" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#cross-validation"><i class="fa fa-check"></i><b>3.9</b> Cross-validation</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html"><i class="fa fa-check"></i><b>4</b> Poissoni regressioon</a>
 <ul>
@@ -388,62 +389,13 @@ Joonis 7.9: Faktormudeli moodustamine
 </p>
 </div>
 <p>Kolm indikaatorit annavad meile kolm korrelatsioonikoefitsienti (tabel <a href="7-struktuurivõrrandite-mudelid.html#tab:k1">7.1</a>).</p>
-<template id="a97f6fa2-0be6-4d6f-880d-55ea0c966079"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  display: table;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style><div class="tabwid"><style>.cl-8f5262ac{}.cl-8f441a12{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8f441a13{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8f441a14{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-8f49212e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8f498358{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f498359{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835a{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835b{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835c{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835d{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835e{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49835f{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f498360{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f498361{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f498362{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f49bad0{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8f386f96{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}</style><table class='cl-8f5262ac'>
+<div class="tabwid"><style>.cl-e9cf32ec{}.cl-e9b9e0cc{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-e9b9e0e0{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-e9b9e0ea{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-e9c0860c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-e9c0baaa{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bab4{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0babe{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0babf{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bac8{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bac9{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0baca{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bad2{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bad3{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0badc{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0badd{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bade{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-e9cf32ec'>
 
-<caption>
-<span id="tab:k1">Tabel 7.1: </span><span class="cl-8f386f96">Korrelatsioonimaatriks</span>
+<caption style="display:table-caption;">
+<span id="tab:k1">Tabel 7.1: </span><span>Korrelatsioonimaatriks</span>
 </caption>
 
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-8f498358"><p class="cl-8f49212e"><span class="cl-8f441a12"></span></p></td><td class="cl-8f498359"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">1</span></p></td><td class="cl-8f49835a"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">2</span></p></td><td class="cl-8f498358"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">3</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-8f49835b"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">1</span></p></td><td class="cl-8f49835c"><p class="cl-8f49212e"><span class="cl-8f441a12">1</span></p></td><td class="cl-8f49835d"><p class="cl-8f49212e"><span class="cl-8f441a12"></span></p></td><td class="cl-8f49835b"><p class="cl-8f49212e"><span class="cl-8f441a12"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f49835e"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">2</span></p></td><td class="cl-8f49835f"><p class="cl-8f49212e"><span class="cl-8f441a12">0.2</span></p></td><td class="cl-8f498360"><p class="cl-8f49212e"><span class="cl-8f441a12">1</span></p></td><td class="cl-8f49835e"><p class="cl-8f49212e"><span class="cl-8f441a12"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-8f498361"><p class="cl-8f49212e"><span class="cl-8f441a13">y</span><span class="cl-8f441a14">3</span></p></td><td class="cl-8f498362"><p class="cl-8f49212e"><span class="cl-8f441a12">0.3</span></p></td><td class="cl-8f49bad0"><p class="cl-8f49212e"><span class="cl-8f441a12">0.24</span></p></td><td class="cl-8f498361"><p class="cl-8f49212e"><span class="cl-8f441a12">1</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="1b43a01c-63b5-4df7-8c44-c05ddc730811"></div>
-<script>
-var dest = document.getElementById("1b43a01c-63b5-4df7-8c44-c05ddc730811");
-var template = document.getElementById("a97f6fa2-0be6-4d6f-880d-55ea0c966079");
-var caption = template.content.querySelector("caption");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
-
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-e9c0baaa"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></th><th class="cl-e9c0bab4"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">1</span></p></th><th class="cl-e9c0babe"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">2</span></p></th><th class="cl-e9c0baaa"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">3</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-e9c0babf"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">1</span></p></td><td class="cl-e9c0bac8"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">1</span></p></td><td class="cl-e9c0bac9"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></td><td class="cl-e9c0babf"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9c0baca"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">2</span></p></td><td class="cl-e9c0bad2"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">0.2</span></p></td><td class="cl-e9c0bad3"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">1</span></p></td><td class="cl-e9c0baca"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9c0badc"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">3</span></p></td><td class="cl-e9c0badd"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">0.3</span></p></td><td class="cl-e9c0bade"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">0.24</span></p></td><td class="cl-e9c0badc"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">1</span></p></td></tr></tbody></table></div>
 <p>Millised mõjud meil mudelis on? Lisaks kolmele otsele mõjule (faktori ja indikaatorite vahel) on meil kolm kaudset mõju. Kuna mudelis indikaatorite vahel korrelatsioone defineeritud ei ole, siis peavad kõik indikaatorite vahelised korrelatsioonid olema vahendatud faktori poolt:</p>
 <p><span class="math display">\[r(y_1, y_2) = \text{kaudne mõju} = \lambda_1 \lambda_2\]</span><br />
 <span class="math display">\[r(y_2, y_3) = \text{kaudne mõju} = \lambda_2 \lambda_3\]</span><br />
@@ -479,68 +431,19 @@ Joonis 7.10: Faktormudeli moodustamine
 <div id="vabadusastmed" class="section level3 hasAnchor" number="7.2.3">
 <h3><span class="header-section-number">7.2.3</span> Vabadusastmed<a href="7-struktuurivõrrandite-mudelid.html#vabadusastmed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Faktorlaadungite leidmiseks pidime kasutama kõiki kolme korrelatsioonikoefitsienti. Oleks korrelatsioone olnud üks vähem, siis me ei oleks saanud võrrandeid lahendada. Mis aga juhtuks kui mudelis oleks veel üks indikaator? Sellisel juhul oleks korrelatsioonimaatriksis 6 koefitsienti (<span class="math inline">\(4 \times 4 \div2 - 4\)</span>) ning peaksime hindama 4 faktorlaadungit. Seega saaksime juurde 3 korrelatsiooni, kuid peaksime hindama vaid ühe lisaparameetri (tabel <a href="7-struktuurivõrrandite-mudelid.html#tab:k3">7.2</a>).</p>
-<template id="528e090e-d9b1-4ee1-a993-3242f397ab66"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  display: table;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style><div class="tabwid"><style>.cl-90c79170{}.cl-90b97dc4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-90b97dc5{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-90b97dc6{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-90be84b8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-90be84b9{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84ba{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84bb{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84bc{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84bd{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84be{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84bf{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84c0{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84c1{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90be84c2{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e2e{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e2f{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e30{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e31{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e32{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90bf0e33{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-90b2eedc{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}</style><table class='cl-90c79170'>
+<div class="tabwid"><style>.cl-eb5e81b2{}.cl-eb4d2da4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eb4d2dae{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eb4d2db8{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-eb5595de{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-eb55bc62{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc6c{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc6d{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc76{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc77{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc80{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc81{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc8a{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc8b{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc94{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc95{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc9e{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc9f{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bca0{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bca8{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bca9{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-eb5e81b2'>
 
-<caption>
-<span id="tab:k3">Tabel 7.2: </span><span class="cl-90b2eedc">Korrelatsioonimaatriks</span>
+<caption style="display:table-caption;">
+<span id="tab:k3">Tabel 7.2: </span><span>Korrelatsioonimaatriks</span>
 </caption>
 
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-90be84b9"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90be84ba"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">1</span></p></td><td class="cl-90be84bb"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">2</span></p></td><td class="cl-90be84ba"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">3</span></p></td><td class="cl-90be84b9"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">4</span></p></td><td class="cl-90be84bc"><p class="cl-90be84b8"><span class="cl-90b97dc5">X</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-90be84bd"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">1</span></p></td><td class="cl-90be84be"><p class="cl-90be84b8"><span class="cl-90b97dc4">1</span></p></td><td class="cl-90be84bf"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90be84be"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90be84bd"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90be84c0"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-90be84c1"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">2</span></p></td><td class="cl-90be84c2"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.2</span></p></td><td class="cl-90bf0e2e"><p class="cl-90be84b8"><span class="cl-90b97dc4">1</span></p></td><td class="cl-90be84c2"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90be84c1"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90bf0e2f"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-90bf0e30"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">3</span></p></td><td class="cl-90bf0e31"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.3</span></p></td><td class="cl-90bf0e32"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.24</span></p></td><td class="cl-90bf0e31"><p class="cl-90be84b8"><span class="cl-90b97dc4">1</span></p></td><td class="cl-90bf0e30"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td><td class="cl-90bf0e33"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-90bf0e30"><p class="cl-90be84b8"><span class="cl-90b97dc5">y</span><span class="cl-90b97dc6">4</span></p></td><td class="cl-90bf0e31"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.3</span></p></td><td class="cl-90bf0e32"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.2</span></p></td><td class="cl-90bf0e31"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.4</span></p></td><td class="cl-90bf0e30"><p class="cl-90be84b8"><span class="cl-90b97dc4">1</span></p></td><td class="cl-90bf0e33"><p class="cl-90be84b8"><span class="cl-90b97dc4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-90be84c1"><p class="cl-90be84b8"><span class="cl-90b97dc5">X</span></p></td><td class="cl-90be84c2"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.5</span></p></td><td class="cl-90bf0e2e"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.4</span></p></td><td class="cl-90be84c2"><p class="cl-90be84b8"><span class="cl-90b97dc4">0.6</span></p></td><td class="cl-90be84c1"><p class="cl-90be84b8"><span class="cl-90b97dc4">?</span></p></td><td class="cl-90bf0e2f"><p class="cl-90be84b8"><span class="cl-90b97dc4">1</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="3dfdecf9-559b-4792-9e57-ef5492cef84d"></div>
-<script>
-var dest = document.getElementById("3dfdecf9-559b-4792-9e57-ef5492cef84d");
-var template = document.getElementById("528e090e-d9b1-4ee1-a993-3242f397ab66");
-var caption = template.content.querySelector("caption");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
-
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-eb55bc62"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></th><th class="cl-eb55bc6c"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">1</span></p></th><th class="cl-eb55bc6d"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">2</span></p></th><th class="cl-eb55bc6c"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">3</span></p></th><th class="cl-eb55bc62"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">4</span></p></th><th class="cl-eb55bc76"><p class="cl-eb5595de"><span class="cl-eb4d2dae">X</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc77"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">1</span></p></td><td class="cl-eb55bc80"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bc81"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc80"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc77"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc8a"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">2</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.2</span></p></td><td class="cl-eb55bc95"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc9e"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">3</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.3</span></p></td><td class="cl-eb55bca8"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.24</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bca9"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">4</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.3</span></p></td><td class="cl-eb55bca8"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.2</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.4</span></p></td><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bca9"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2dae">X</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.5</span></p></td><td class="cl-eb55bc95"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.4</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.6</span></p></td><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2da4">?</span></p></td><td class="cl-eb55bc9e"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td></tr></tbody></table></div>
 <p>Neljanda faktorlaadungi saame välja arvutada ühe lisandunud korrelatsiooni abil:</p>
 <p><span class="math display">\[\lambda_4 = \frac{r(y_1, y_4)}{\lambda_1} = \frac{0.3}{0.5}\]</span></p>
 <p>Ehk siis mudelis on nüüd kuus ühikut infot, millest kõigi parameetrite hindamiseks on vaja vaid nelja ühikut. Neid üle jäänud infoühikuid nimetatakse <strong>vabadusastemeteks</strong> (<em>degrees of freedom</em> või <em>df</em>). Kui vabadusastemid on rohkem kui 0, siis ütleme, et meie mudel on <strong>üleidentifitseeritud</strong>. Kui vabadusastmeid on täpselt 0, siis on mudel <strong>identifitseeritud</strong>. Ja kui vabadusastemid on vähem kui 0, ehk siis meil on vähem infoühikuid kui parameetreid, siis mudel ei ole identifitseeritud. Sellisel juhul me ei saa tuletada andmetest unikaalseid parameetreid ja ei saa mudelit hinnata. Näiteks ei ole võimalik hinnata kahe indikaatoriga mudelit. Sellisel juhul oleks korrelatsioone üks, kuid parameetreid kaks.</p>
 </div>
-<div id="mudeli-sobivus-1" class="section level3 hasAnchor" number="7.2.4">
-<h3><span class="header-section-number">7.2.4</span> Mudeli sobivus<a href="7-struktuurivõrrandite-mudelid.html#mudeli-sobivus-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mudeli-sobivus" class="section level3 hasAnchor" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> Mudeli sobivus<a href="7-struktuurivõrrandite-mudelid.html#mudeli-sobivus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Tahame üldjuhul alati, et mudel oleks üleidentifitseeritud. Kui meil on infoühikuid üle, siis saame neid kasutada mudeli kvaliteedi hindamiseks. Täpsemalt saame hinnata, kuivõrd hästi mudel sobitub meie andmetega.
 Antud juhul jäi meil üle kaks korrelatsiooni. Lisaks selle, et meil on need algsed korrelatsioonid teada, saame need tuletada ka juba välja arvutatud faktorlaadungitest:</p>
 <p><span class="math display">\[r(y_2, y_4) = 0.2 \text{  ja  } r(y_2, y_4) = \lambda_2 \lambda_4\]</span>
@@ -601,44 +504,44 @@ Joonis 7.11: Struktuurivõrrandite mudeli diagramm
 <p>R-is on SEM-i jaoks mitmeid pakette. Neist peamised on <em>lavaan</em>, <em>sem</em> ja <em>openMX</em>. Neist kõige võimekam (minu subjektiivse arvamuse järgi) ja tõenäoliselt ka populaarseim on <em>lavaan</em>. Tegemist on väga intensiivselt arendatava paketiga, mida näitab ka asjaolu, et kuigi pakett on ligi 10 aastat vana, siis on see ikka veel beeta-versioon staatuses. Ehk siis uusi võimalusi tuleb pidevalt peale ning pakett ei ole siiani “valmis” saanud. <a href="http://lavaan.ugent.be/"><em>lavaan</em>-i kodulehelt</a> on võimalik paketi kohta täpsemalt lugeda. Seal on ka hulgaliselt <em>tutoriale</em> ja muid materjale.</p>
 <p><em>lavaan</em> on oma süntaksilt, väljundilt ja ka tehniliselt küllaltki sarnande MPlus-i programmile. Mplus on päris kindlasti kõige parem, arenenum ja suurimate võimalustega SEM-i tarkvara, kuid paraku mitte vabavara, nagu R ja <em>lavaan</em>. Kuid kui on vaja mingeid keerulisemaid või spetsiifilisemaid mudeleid teha, siis tasub sinnapoole vaadata. Jällegi, <a href="https://www.statmodel.com/">MPlus-i kodulehelt</a> saab lisaks programmile seonduvale lugeda ka palju muud põnevat SEM-i kohta.</p>
 <p>Kõigepealt loeme sisse vajalikud paketid. Ja nagu alati, kui mõnda paketti ei ole eelnevalt installitud, siis tuleb seda teha (<code>install.packages()</code> funktsiooniga, kus paketi nimi peab olema jutumärkides).</p>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="7-struktuurivõrrandite-mudelid.html#cb666-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
-<span id="cb666-2"><a href="7-struktuurivõrrandite-mudelid.html#cb666-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(semPlot)</span>
-<span id="cb666-3"><a href="7-struktuurivõrrandite-mudelid.html#cb666-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="7-struktuurivõrrandite-mudelid.html#cb672-1" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb672-2"><a href="7-struktuurivõrrandite-mudelid.html#cb672-2" tabindex="-1"></a><span class="fu">library</span>(semPlot)</span>
+<span id="cb672-3"><a href="7-struktuurivõrrandite-mudelid.html#cb672-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
 <div id="lavaani-süntaks" class="section level3 hasAnchor" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> lavaani süntaks<a href="7-struktuurivõrrandite-mudelid.html#lavaani-süntaks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>lavaan</em>-is tuleb mudeli võrrand defineerida <em>formula</em> formaadis tekstilise objektina. See tähendab, et kogu mudeli definitsioon peaks olema jutumärkide sees (ja Rstudio peaks selle roheliseks värvima).</p>
 <p>Tavaline regressioon on defineeritav identselt tavalisele regressioonile <code>lm</code> funktsioonis, kus sõltuv tunnus on eraldatud sõltumatutsest tildega ja sõltumatud tunnused üksteisest plussmärgiga (koosmõjude puhul * või : märgiga):</p>
-<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="7-struktuurivõrrandite-mudelid.html#cb667-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;y ~ x1 + x2&#39;</span></span>
-<span id="cb667-2"><a href="7-struktuurivõrrandite-mudelid.html#cb667-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;y ~ x1 * x2&#39;</span> <span class="co"># koosmõjudega mudel </span></span></code></pre></div>
+<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="7-struktuurivõrrandite-mudelid.html#cb673-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;y ~ x1 + x2&#39;</span></span>
+<span id="cb673-2"><a href="7-struktuurivõrrandite-mudelid.html#cb673-2" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;y ~ x1 * x2&#39;</span> <span class="co"># koosmõjudega mudel </span></span></code></pre></div>
 <p>SEM’is tuleb meil pea alati defineerida mitu võrrandit. Sellisel juhul peavad nad kõik olema ühe tekstilise objekti sees ning erinevatel ridadel:</p>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="7-struktuurivõrrandite-mudelid.html#cb668-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;y1 ~ x1 + x2</span></span>
-<span id="cb668-2"><a href="7-struktuurivõrrandite-mudelid.html#cb668-2" aria-hidden="true" tabindex="-1"></a><span class="st">        y2 ~ x2 + x3 + x4</span></span>
-<span id="cb668-3"><a href="7-struktuurivõrrandite-mudelid.html#cb668-3" aria-hidden="true" tabindex="-1"></a><span class="st">        y1 ~ y2&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="7-struktuurivõrrandite-mudelid.html#cb674-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;y1 ~ x1 + x2</span></span>
+<span id="cb674-2"><a href="7-struktuurivõrrandite-mudelid.html#cb674-2" tabindex="-1"></a><span class="st">        y2 ~ x2 + x3 + x4</span></span>
+<span id="cb674-3"><a href="7-struktuurivõrrandite-mudelid.html#cb674-3" tabindex="-1"></a><span class="st">        y1 ~ y2&#39;</span></span></code></pre></div>
 <p>Faktorid tuleb defineerida <code>=~</code> märgiga:</p>
-<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="7-struktuurivõrrandite-mudelid.html#cb669-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;f1 =~ y1 + y2 + y3</span></span>
-<span id="cb669-2"><a href="7-struktuurivõrrandite-mudelid.html#cb669-2" aria-hidden="true" tabindex="-1"></a><span class="st">        f2 =~ y4 + y5 + y6&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb675-1"><a href="7-struktuurivõrrandite-mudelid.html#cb675-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;f1 =~ y1 + y2 + y3</span></span>
+<span id="cb675-2"><a href="7-struktuurivõrrandite-mudelid.html#cb675-2" tabindex="-1"></a><span class="st">        f2 =~ y4 + y5 + y6&#39;</span></span></code></pre></div>
 <p>Variatsioonid ja kovariatsioonid saab vajadusel defineerida kahe tildega:</p>
-<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="7-struktuurivõrrandite-mudelid.html#cb670-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
-<span id="cb670-2"><a href="7-struktuurivõrrandite-mudelid.html#cb670-2" aria-hidden="true" tabindex="-1"></a><span class="st">y1 ~~ y2</span></span>
-<span id="cb670-3"><a href="7-struktuurivõrrandite-mudelid.html#cb670-3" aria-hidden="true" tabindex="-1"></a><span class="st">f1 ~~ f2</span></span>
-<span id="cb670-4"><a href="7-struktuurivõrrandite-mudelid.html#cb670-4" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="7-struktuurivõrrandite-mudelid.html#cb676-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb676-2"><a href="7-struktuurivõrrandite-mudelid.html#cb676-2" tabindex="-1"></a><span class="st">y1 ~~ y2</span></span>
+<span id="cb676-3"><a href="7-struktuurivõrrandite-mudelid.html#cb676-3" tabindex="-1"></a><span class="st">f1 ~~ f2</span></span>
+<span id="cb676-4"><a href="7-struktuurivõrrandite-mudelid.html#cb676-4" tabindex="-1"></a><span class="st">&#39;</span></span></code></pre></div>
 <p>Andmestikuna kasutame <em>lavaan</em>-iga kaasa olevat näidisandmestikkus <em>PoliticalDemocracy</em>. Andmestik sisaldab demokraatia ja majanduse mõõdikuid erinevate riikide kohta. Täpsemalt saab andmestiku kohta lugeda selle abifailist <code>help(PoliticalDemocracy)</code></p>
-<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="7-struktuurivõrrandite-mudelid.html#cb671-1" aria-hidden="true" tabindex="-1"></a><span class="co"># paneme andmed mugavama nime alla</span></span>
-<span id="cb671-2"><a href="7-struktuurivõrrandite-mudelid.html#cb671-2" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> PoliticalDemocracy</span>
-<span id="cb671-3"><a href="7-struktuurivõrrandite-mudelid.html#cb671-3" aria-hidden="true" tabindex="-1"></a><span class="co"># muudame ka mõned tunnuste nimed arusaadavamaks</span></span>
-<span id="cb671-4"><a href="7-struktuurivõrrandite-mudelid.html#cb671-4" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> dt <span class="sc">%&gt;%</span> </span>
-<span id="cb671-5"><a href="7-struktuurivõrrandite-mudelid.html#cb671-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">free_press_60 =</span> y1, <span class="at">fair_elect_60 =</span> y3, <span class="at">fair_elect_65 =</span> y7, <span class="at">gnp_60 =</span> x1)</span></code></pre></div>
+<div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb677-1"><a href="7-struktuurivõrrandite-mudelid.html#cb677-1" tabindex="-1"></a><span class="co"># paneme andmed mugavama nime alla</span></span>
+<span id="cb677-2"><a href="7-struktuurivõrrandite-mudelid.html#cb677-2" tabindex="-1"></a>dt <span class="ot">&lt;-</span> PoliticalDemocracy</span>
+<span id="cb677-3"><a href="7-struktuurivõrrandite-mudelid.html#cb677-3" tabindex="-1"></a><span class="co"># muudame ka mõned tunnuste nimed arusaadavamaks</span></span>
+<span id="cb677-4"><a href="7-struktuurivõrrandite-mudelid.html#cb677-4" tabindex="-1"></a>dt <span class="ot">&lt;-</span> dt <span class="sc">%&gt;%</span> </span>
+<span id="cb677-5"><a href="7-struktuurivõrrandite-mudelid.html#cb677-5" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">free_press_60 =</span> y1, <span class="at">fair_elect_60 =</span> y3, <span class="at">fair_elect_65 =</span> y7, <span class="at">gnp_60 =</span> x1)</span></code></pre></div>
 </div>
 <div id="regressioon" class="section level3 hasAnchor" number="7.4.2">
 <h3><span class="header-section-number">7.4.2</span> Regressioon<a href="7-struktuurivõrrandite-mudelid.html#regressioon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Kuigi <em>lavaan</em> on mõeldud eelkõige SEM-i jaoks, siis saab sellega väga edukalt ka tavalist regressiooni jooksutada. Mis on ka iseenesest mõistetav, arvestades asjaolu, et SEM ju suures osas ongi laiendatud regressioonanalüüs. Vaatame kuidas on valimisvabadus seotud pressivabadusega. Selleks peame kõigepealt defineerima mudeli ning seejärel seda jooksutama funktsiooniga <code>sem()</code>. Tulemusi näeme ‘summary()’ funktsiooniga nagu tavalise regressiooni puhulgi.</p>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="7-struktuurivõrrandite-mudelid.html#cb672-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Defineeerime mudeli</span></span>
-<span id="cb672-2"><a href="7-struktuurivõrrandite-mudelid.html#cb672-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;fair_elect_60 ~ free_press_60&#39;</span></span>
-<span id="cb672-3"><a href="7-struktuurivõrrandite-mudelid.html#cb672-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb672-4"><a href="7-struktuurivõrrandite-mudelid.html#cb672-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Jooksutame mudelit</span></span>
-<span id="cb672-5"><a href="7-struktuurivõrrandite-mudelid.html#cb672-5" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(mod, <span class="at">data =</span> dt)</span>
-<span id="cb672-6"><a href="7-struktuurivõrrandite-mudelid.html#cb672-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
-<pre><code>## lavaan 0.6-12 ended normally after 1 iterations
+<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="7-struktuurivõrrandite-mudelid.html#cb678-1" tabindex="-1"></a><span class="co"># Defineeerime mudeli</span></span>
+<span id="cb678-2"><a href="7-struktuurivõrrandite-mudelid.html#cb678-2" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;fair_elect_60 ~ free_press_60&#39;</span></span>
+<span id="cb678-3"><a href="7-struktuurivõrrandite-mudelid.html#cb678-3" tabindex="-1"></a></span>
+<span id="cb678-4"><a href="7-struktuurivõrrandite-mudelid.html#cb678-4" tabindex="-1"></a><span class="co"># Jooksutame mudelit</span></span>
+<span id="cb678-5"><a href="7-struktuurivõrrandite-mudelid.html#cb678-5" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(mod, <span class="at">data =</span> dt)</span>
+<span id="cb678-6"><a href="7-struktuurivõrrandite-mudelid.html#cb678-6" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
+<pre><code>## lavaan 0.6.15 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -669,13 +572,13 @@ Joonis 7.11: Struktuurivõrrandite mudeli diagramm
 Veel on puudu <span class="math inline">\(R^2\)</span>. Selle saame samuti juurde panna <code>rsquare=T</code> argumendiga.
 Ka F-testi meile ei näidata. Ja seda ka ei saa, kuna hindamine toimub <em>maximum likelihood</em> meetodiga. Samamoodi ei saa me F-testi <code>glm()</code> funktsiooniga.<br />
 Paneme mainitud argumendid juurde ja jooksutame koodi uuesti:</p>
-<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="7-struktuurivõrrandite-mudelid.html#cb674-1" aria-hidden="true" tabindex="-1"></a><span class="co"># defineeerime mudeli</span></span>
-<span id="cb674-2"><a href="7-struktuurivõrrandite-mudelid.html#cb674-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;fair_elect_60 ~ free_press_60&#39;</span></span>
-<span id="cb674-3"><a href="7-struktuurivõrrandite-mudelid.html#cb674-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb674-4"><a href="7-struktuurivõrrandite-mudelid.html#cb674-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Jooksutame mudelit</span></span>
-<span id="cb674-5"><a href="7-struktuurivõrrandite-mudelid.html#cb674-5" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(mod, <span class="at">data =</span> dt, <span class="at">meanstructure =</span> T)</span>
-<span id="cb674-6"><a href="7-struktuurivõrrandite-mudelid.html#cb674-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">rsquare=</span>T)</span></code></pre></div>
-<pre><code>## lavaan 0.6-12 ended normally after 15 iterations
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="7-struktuurivõrrandite-mudelid.html#cb680-1" tabindex="-1"></a><span class="co"># defineeerime mudeli</span></span>
+<span id="cb680-2"><a href="7-struktuurivõrrandite-mudelid.html#cb680-2" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;fair_elect_60 ~ free_press_60&#39;</span></span>
+<span id="cb680-3"><a href="7-struktuurivõrrandite-mudelid.html#cb680-3" tabindex="-1"></a></span>
+<span id="cb680-4"><a href="7-struktuurivõrrandite-mudelid.html#cb680-4" tabindex="-1"></a><span class="co"># Jooksutame mudelit</span></span>
+<span id="cb680-5"><a href="7-struktuurivõrrandite-mudelid.html#cb680-5" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(mod, <span class="at">data =</span> dt, <span class="at">meanstructure =</span> T)</span>
+<span id="cb680-6"><a href="7-struktuurivõrrandite-mudelid.html#cb680-6" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">rsquare=</span>T)</span></code></pre></div>
+<pre><code>## lavaan 0.6.15 ended normally after 15 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -711,7 +614,7 @@ Paneme mainitud argumendid juurde ja jooksutame koodi uuesti:</p>
 ##                    Estimate
 ##     fair_elect_60     0.460</code></pre>
 <p>Nüüd on olemas nii <span class="math inline">\(R^2\)</span> kui vabaliige. Vaatame, kas tulemused on sarnased <code>lm()</code> funktsioonile.</p>
-<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="7-struktuurivõrrandite-mudelid.html#cb676-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(fair_elect_60 <span class="sc">~</span> free_press_60, <span class="at">data =</span> dt))</span></code></pre></div>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="7-struktuurivõrrandite-mudelid.html#cb682-1" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(fair_elect_60 <span class="sc">~</span> free_press_60, <span class="at">data =</span> dt))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = fair_elect_60 ~ free_press_60, data = dt)
@@ -731,22 +634,22 @@ Paneme mainitud argumendid juurde ja jooksutame koodi uuesti:</p>
 ## Multiple R-squared:  0.4604, Adjusted R-squared:  0.453 
 ## F-statistic: 62.29 on 1 and 73 DF,  p-value: 2.24e-11</code></pre>
 <p>Suhteliselt sarnased. Mõningane erinevus tulenebki erinevatest hindamismeetoditest ja võimalik et mingitest ümardamistest vms. Tavalise regresiooniga saame ka RSE (<em>Residual standard error</em>) ehk jääkide standardvea. See näitab regressiooni jääkide, mudeli (ehk sõltuva tunnuse) seletamata jäänud variatsiooni keskmist suurust. Kuigi <em>lavaan</em>-i väljundis seda numbrit ei ole, siis see väärtus on seal ikkagi olemas. Nimelt sõltuva tunnuse dispersiooni näol. Disepersioon on standardhälve ruudus, seega:</p>
-<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="7-struktuurivõrrandite-mudelid.html#cb678-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fl">5.731</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="7-struktuurivõrrandite-mudelid.html#cb684-1" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fl">5.731</span>)</span></code></pre></div>
 <pre><code>## [1] 2.393951</code></pre>
 </div>
 <div id="rajaanalüüs-1" class="section level3 hasAnchor" number="7.4.3">
 <h3><span class="header-section-number">7.4.3</span> Rajaanalüüs<a href="7-struktuurivõrrandite-mudelid.html#rajaanalüüs-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Defineerime rajaanalüüsi mudeli, milles vaatame kuidas valimisvabadus 1965 aastal on mõjutatud valimisvabadusest 1960 aastal, pressivabadusest 1960 aastal ja rahvamajanduse kogutoodangust (GNP) 1960 aastal. Eeldame et valimisvabadus 1960 aastal on omakorda mõjutatud ajakirjandusvabadusest 1960 aastal pressivabadus 1960 aastal on mõjutatud rahvamajanduse kogutoodangust (GNP). See ei ole nüüd mingi väga sisuline hüpotees. Kuid võiks ju eeldada, et vabad valimised on eelduseks järgmistele vabadele valimistele, pressivabadus on eelduseks nii praegustele kui järgmistele valimistele ning rikkamad rikkamates (arenenumates) riikides on nii valimiste kui ajakirjandusega paremad lood.<br />
 Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin aitab see, kui need eelnevalt näiteks üles joonistada. Nii on kõik silme ees ning lihtsam neid ka kirja panna.</p>
-<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="7-struktuurivõrrandite-mudelid.html#cb680-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;fair_elect_65 ~ fair_elect_60 + free_press_60 + gnp_60</span></span>
-<span id="cb680-2"><a href="7-struktuurivõrrandite-mudelid.html#cb680-2" aria-hidden="true" tabindex="-1"></a><span class="st">        fair_elect_60 ~ free_press_60 </span></span>
-<span id="cb680-3"><a href="7-struktuurivõrrandite-mudelid.html#cb680-3" aria-hidden="true" tabindex="-1"></a><span class="st">        free_press_60 ~ gnp_60&#39;</span></span>
-<span id="cb680-4"><a href="7-struktuurivõrrandite-mudelid.html#cb680-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb680-5"><a href="7-struktuurivõrrandite-mudelid.html#cb680-5" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(mod, <span class="at">data =</span> dt)</span>
-<span id="cb680-6"><a href="7-struktuurivõrrandite-mudelid.html#cb680-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb680-7"><a href="7-struktuurivõrrandite-mudelid.html#cb680-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Kasutame standardiseeritud lahendit</span></span>
-<span id="cb680-8"><a href="7-struktuurivõrrandite-mudelid.html#cb680-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">standardized=</span>T)</span></code></pre></div>
-<pre><code>## lavaan 0.6-12 ended normally after 1 iterations
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="7-struktuurivõrrandite-mudelid.html#cb686-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;fair_elect_65 ~ fair_elect_60 + free_press_60 + gnp_60</span></span>
+<span id="cb686-2"><a href="7-struktuurivõrrandite-mudelid.html#cb686-2" tabindex="-1"></a><span class="st">        fair_elect_60 ~ free_press_60 </span></span>
+<span id="cb686-3"><a href="7-struktuurivõrrandite-mudelid.html#cb686-3" tabindex="-1"></a><span class="st">        free_press_60 ~ gnp_60&#39;</span></span>
+<span id="cb686-4"><a href="7-struktuurivõrrandite-mudelid.html#cb686-4" tabindex="-1"></a></span>
+<span id="cb686-5"><a href="7-struktuurivõrrandite-mudelid.html#cb686-5" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(mod, <span class="at">data =</span> dt)</span>
+<span id="cb686-6"><a href="7-struktuurivõrrandite-mudelid.html#cb686-6" tabindex="-1"></a></span>
+<span id="cb686-7"><a href="7-struktuurivõrrandite-mudelid.html#cb686-7" tabindex="-1"></a><span class="co"># Kasutame standardiseeritud lahendit</span></span>
+<span id="cb686-8"><a href="7-struktuurivõrrandite-mudelid.html#cb686-8" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">standardized=</span>T)</span></code></pre></div>
+<pre><code>## lavaan 0.6.15 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -784,18 +687,18 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##    .free_press_60     5.796    0.947    6.124    0.000    5.796    0.854</code></pre>
 <p>Standardiseeritud lahend on tulbas <em>Std.all</em>. Näeme, et meie hüpoteesid pidasid suures osas paika. Kõik mõjud on positiivsed ja olulised (p &gt; 0.5). Erandiks on rahvamajanduse kogutoodangu mõju valimisvabadusele 65 aastal. Seega oleks otstarbekas see mõju mudelist välja jätta.</p>
 <p>Lihtsam on rajaanalüüsist aru saada rajadiagrammi põhjal. Funktsioon <code>semPath()</code> võimaldam mudeli alusel selle diagrammi mugavlt välja joonistada- See ei tee just kõige ilusamaid jooniseid, avaldamiseks päris ei sobi, kuid ülevaate saab selle kaudu kätte.</p>
-<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="7-struktuurivõrrandite-mudelid.html#cb682-1" aria-hidden="true" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">node.width =</span> <span class="dv">2</span>, <span class="at">edge.label.cex =</span> <span class="dv">1</span>, <span class="at">what =</span> <span class="st">&quot;paths&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&#39;stand&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="7-struktuurivõrrandite-mudelid.html#cb688-1" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">node.width =</span> <span class="dv">2</span>, <span class="at">edge.label.cex =</span> <span class="dv">1</span>, <span class="at">what =</span> <span class="st">&quot;paths&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&#39;stand&#39;</span>)</span></code></pre></div>
 <p><img src="06-sem_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Jätame GNP mõju valimisvabadusele 65 aastal välja ja jooksutame mudeli uuesti (salvestame selle ka teise mudeliobjekti):</p>
-<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="7-struktuurivõrrandite-mudelid.html#cb683-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;fair_elect_65 ~ fair_elect_60 + free_press_60</span></span>
-<span id="cb683-2"><a href="7-struktuurivõrrandite-mudelid.html#cb683-2" aria-hidden="true" tabindex="-1"></a><span class="st">        fair_elect_60 ~ free_press_60 </span></span>
-<span id="cb683-3"><a href="7-struktuurivõrrandite-mudelid.html#cb683-3" aria-hidden="true" tabindex="-1"></a><span class="st">        free_press_60 ~ gnp_60&#39;</span></span>
-<span id="cb683-4"><a href="7-struktuurivõrrandite-mudelid.html#cb683-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb683-5"><a href="7-struktuurivõrrandite-mudelid.html#cb683-5" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">sem</span>(mod, <span class="at">data =</span> dt)</span>
-<span id="cb683-6"><a href="7-struktuurivõrrandite-mudelid.html#cb683-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb683-7"><a href="7-struktuurivõrrandite-mudelid.html#cb683-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Kasutame standardiseeritud lahendit</span></span>
-<span id="cb683-8"><a href="7-struktuurivõrrandite-mudelid.html#cb683-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1, <span class="at">standardized=</span>T)</span></code></pre></div>
-<pre><code>## lavaan 0.6-12 ended normally after 1 iterations
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="7-struktuurivõrrandite-mudelid.html#cb689-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39;fair_elect_65 ~ fair_elect_60 + free_press_60</span></span>
+<span id="cb689-2"><a href="7-struktuurivõrrandite-mudelid.html#cb689-2" tabindex="-1"></a><span class="st">        fair_elect_60 ~ free_press_60 </span></span>
+<span id="cb689-3"><a href="7-struktuurivõrrandite-mudelid.html#cb689-3" tabindex="-1"></a><span class="st">        free_press_60 ~ gnp_60&#39;</span></span>
+<span id="cb689-4"><a href="7-struktuurivõrrandite-mudelid.html#cb689-4" tabindex="-1"></a></span>
+<span id="cb689-5"><a href="7-struktuurivõrrandite-mudelid.html#cb689-5" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">sem</span>(mod, <span class="at">data =</span> dt)</span>
+<span id="cb689-6"><a href="7-struktuurivõrrandite-mudelid.html#cb689-6" tabindex="-1"></a></span>
+<span id="cb689-7"><a href="7-struktuurivõrrandite-mudelid.html#cb689-7" tabindex="-1"></a><span class="co"># Kasutame standardiseeritud lahendit</span></span>
+<span id="cb689-8"><a href="7-struktuurivõrrandite-mudelid.html#cb689-8" tabindex="-1"></a><span class="fu">summary</span>(fit1, <span class="at">standardized=</span>T)</span></code></pre></div>
+<pre><code>## lavaan 0.6.15 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -831,19 +734,20 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##    .fair_elect_60     5.731    0.936    6.124    0.000    5.731    0.540
 ##    .free_press_60     5.796    0.947    6.124    0.000    5.796    0.854</code></pre>
 <p>Kasutame <code>anova()</code> funktsiooni, et hinnata, kas saime parema mudeli:</p>
-<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="7-struktuurivõrrandite-mudelid.html#cb685-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit, fit1)</span></code></pre></div>
-<pre><code>## Chi-Squared Difference Test
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="7-struktuurivõrrandite-mudelid.html#cb691-1" tabindex="-1"></a><span class="fu">anova</span>(fit, fit1)</span></code></pre></div>
+<pre><code>## 
+## Chi-Squared Difference Test
 ## 
-##      Df    AIC    BIC  Chisq Chisq diff Df diff Pr(&gt;Chisq)
-## fit   1 1037.0 1055.5 0.7562                              
-## fit1  2 1037.2 1053.4 2.9217     2.1655       1     0.1411</code></pre>
+##      Df    AIC    BIC  Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)
+## fit   1 1037.0 1055.5 0.7562                                      
+## fit1  2 1037.2 1053.4 2.9217     2.1655 0.12466       1     0.1411</code></pre>
 <p>p väärtus on &gt; 0.05, mis tähendab, et keerulisem mudel (fit) ei erine oluliselt lihtsamast mudelist (fit1). Seega jääme lihtsama mudeli juurde (kui keeruline ja lihtne mudel seletavad ühepalju variatiivsust, siis eelistame alati lihtsamat).</p>
 </div>
 <div id="mudeli-väljund" class="section level3 hasAnchor" number="7.4.4">
 <h3><span class="header-section-number">7.4.4</span> Mudeli väljund<a href="7-struktuurivõrrandite-mudelid.html#mudeli-väljund" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>lavaan</em>-i mudeli objektis on teglikult peidus märksa enam infot kui <code>summary()</code> funktsioon vakimisi välja annab. Erinevatele testidele ja sobivusindeksitele saab ligi kui <code>summary()</code> funktsioonis kasutada argumenti <code>fit.measures=T</code></p>
-<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="7-struktuurivõrrandite-mudelid.html#cb687-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1, <span class="at">fit.measures=</span>T)</span></code></pre></div>
-<pre><code>## lavaan 0.6-12 ended normally after 1 iterations
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="7-struktuurivõrrandite-mudelid.html#cb693-1" tabindex="-1"></a><span class="fu">summary</span>(fit1, <span class="at">fit.measures=</span>T)</span></code></pre></div>
+<pre><code>## lavaan 0.6.15 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -875,14 +779,15 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##                                                       
 ##   Akaike (AIC)                                1037.148
 ##   Bayesian (BIC)                              1053.370
-##   Sample-size adjusted Bayesian (BIC)         1031.308
+##   Sample-size adjusted Bayesian (SABIC)       1031.308
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.078
 ##   90 Percent confidence interval - lower         0.000
 ##   90 Percent confidence interval - upper         0.256
-##   P-value RMSEA &lt;= 0.05                          0.294
+##   P-value H_0: RMSEA &lt;= 0.050                    0.294
+##   P-value H_0: RMSEA &gt;= 0.080                    0.616
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
@@ -910,7 +815,7 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##    .fair_elect_60     5.731    0.936    6.124    0.000
 ##    .free_press_60     5.796    0.947    6.124    0.000</code></pre>
 <p>Nüüd tundub, et seda infot on jälle liiga palju. Kuid käime väljundi lõik lõigu haaval läbi ja vaatame, mis selles kasulikku on.</p>
-<pre><code>## lavaan 0.6-12 ended normally after 1 iterations
+<pre><code>## lavaan 0.6.15 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -940,87 +845,84 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##                                                       
 ##   Akaike (AIC)                                1037.148
 ##   Bayesian (BIC)                              1053.370
-##   Sample-size adjusted Bayesian (BIC)         1031.308</code></pre>
+##   Sample-size adjusted Bayesian (SABIC)       1031.308</code></pre>
 <p>AIC ja BIC on informatsioonikriteeriumid. Need ei ole iseseisvalt eriti informatiivsed (vaatamata nimele), kuid on kasulikud erinevate mudelite võrdlemisel. Väiksem väärtus on parem.</p>
 <pre><code>## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.078
 ##   90 Percent confidence interval - lower         0.000
 ##   90 Percent confidence interval - upper         0.256
-##   P-value RMSEA &lt;= 0.05                          0.294</code></pre>
+##   P-value H_0: RMSEA &lt;= 0.050                    0.294</code></pre>
 <p>RMSEA võrdleb defineeritud mudelit ja küllastunud mudelit. See võiks olla väiksem kui 0.05. Mõnede allikate järgi on ka kuni 0.08 veel enamvähem.</p>
-<pre><code>## 
-## Standardized Root Mean Square Residual:
+<pre><code>##   P-value H_0: RMSEA &gt;= 0.080                    0.616
 ## 
-##   SRMR                                           0.047</code></pre>
+## Standardized Root Mean Square Residual:</code></pre>
 <p>SRMR on tuletatud erinevusest defineeritud mudeli ja küllastunud mudeli (<em>saturated model</em>) kovariatsioonimaatriksite vahel. Väiksem kui 0.08 on hea.</p>
 <p>Kõige tavapärasemad raporteeritavad sobivusnäitajad on CFI, TLI, RMSEA ja SRMR. Loomulikult me tahaksime, et kõik sobivuskriteeriumid oleksid täidetud, kuid tihti leoitakse ka mudeliga, mille mõni kriteerium on natuke üle või alla piirmäära. Seda seetõttu, et ükski neist piirmääradest ei ole absoluutne. Erinevad allikad viitavad erinevatele määradele ning seega on need kriteeriumid küllaltki ebamäärased. Kui aga kõik või enamik neist siitavad ebasobivale mudelile, siis tasub muidugi olla oma mudeli suhtes kriitiline.</p>
 </div>
 <div id="mudeli-intspekteerimine" class="section level3 hasAnchor" number="7.4.5">
 <h3><span class="header-section-number">7.4.5</span> Mudeli intspekteerimine<a href="7-struktuurivõrrandite-mudelid.html#mudeli-intspekteerimine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Isegi siis, kuisobivusindeksid mahtusid meie piirmäärade sisse, peab alati mudelit lähemalt intspekteerima. Sobivusnäitajad annavad märku mudeli üldisest sobivusest (<em>global fit</em>). Lisaks sellele on nn kohalik sobivus (<em>local fit</em>), mis käsitleb erinevate konkreetsete parameetrite andmetega sobivust. Selleks saame esmalt vaadata ja võrrelda mudeli sobitatud kovariatsioonimaatriksit (<em>implised covariance matrix</em>) algse andmetel põhineva kovariatsioonimaatriksiga. Mõistlik oleks vaadata nende standardiseeritud variante ehk korrelatsioonimaatrikseid. Algse korrelatsioonimaatriksi saame funktsiooniga <code>lavCor()</code>:</p>
-<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="7-struktuurivõrrandite-mudelid.html#cb696-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lavCor</span>(fit1)</span></code></pre></div>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="7-struktuurivõrrandite-mudelid.html#cb702-1" tabindex="-1"></a><span class="fu">lavCor</span>(fit1)</span></code></pre></div>
 <pre><code>##               fr__65 fr_l_60 fr_p_60 gnp_60
-## fair_elect_65 1.000                        
-## fair_elect_60 0.650  1.000                 
-## free_press_60 0.674  0.679   1.000         
-## gnp_60        0.389  0.327   0.382   1.000</code></pre>
+## fair_elect_65  1.000                       
+## fair_elect_60  0.650   1.000               
+## free_press_60  0.674   0.679   1.000       
+## gnp_60         0.389   0.327   0.382  1.000</code></pre>
 <p>Sobitatud korrelatsioonimaatriksi funktsiooniga <code>inspect()</code>:</p>
-<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="7-struktuurivõrrandite-mudelid.html#cb698-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(fit1, <span class="at">what=</span><span class="st">&quot;cor.all&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="7-struktuurivõrrandite-mudelid.html#cb704-1" tabindex="-1"></a><span class="fu">inspect</span>(fit1, <span class="at">what=</span><span class="st">&quot;cor.all&quot;</span>)</span></code></pre></div>
 <pre><code>##               fr__65 fr_l_60 fr_p_60 gnp_60
-## fair_elect_65 1.000                        
-## fair_elect_60 0.650  1.000                 
-## free_press_60 0.674  0.679   1.000         
-## gnp_60        0.258  0.259   0.382   1.000</code></pre>
+## fair_elect_65  1.000                       
+## fair_elect_60  0.650   1.000               
+## free_press_60  0.674   0.679   1.000       
+## gnp_60         0.258   0.259   0.382  1.000</code></pre>
 <p>Saame võõrelda nende erinevusi, lahutame ühest teise (kuna tegemist on maatriksitega, siis saame seda lihtsalt teha):</p>
-<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="7-struktuurivõrrandite-mudelid.html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lavCor</span>(fit1) <span class="sc">-</span> <span class="fu">inspect</span>(fit1, <span class="at">what=</span><span class="st">&quot;cor.all&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="7-struktuurivõrrandite-mudelid.html#cb706-1" tabindex="-1"></a><span class="fu">lavCor</span>(fit1) <span class="sc">-</span> <span class="fu">inspect</span>(fit1, <span class="at">what=</span><span class="st">&quot;cor.all&quot;</span>)</span></code></pre></div>
 <pre><code>##               fr__65 fr_l_60 fr_p_60 gnp_60
-## fair_elect_65 0.000                        
-## fair_elect_60 0.000  0.000                 
-## free_press_60 0.000  0.000   0.000         
-## gnp_60        0.131  0.068   0.000   0.000</code></pre>
+## fair_elect_65  0.000                       
+## fair_elect_60  0.000   0.000               
+## free_press_60  0.000   0.000   0.000       
+## gnp_60         0.131   0.068   0.000  0.000</code></pre>
 <p>Veelgi lihtsam moodus oleks kasutada <code>residuals()</code>funktsiooni (kui tahame korrelatsioonide erinevust, siis argumen <code>type = 'cor'</code>)</p>
-<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="7-struktuurivõrrandite-mudelid.html#cb702-1" aria-hidden="true" tabindex="-1"></a><span class="fu">residuals</span>(fit1, <span class="at">type =</span> <span class="st">&#39;cor&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="7-struktuurivõrrandite-mudelid.html#cb708-1" tabindex="-1"></a><span class="fu">residuals</span>(fit1, <span class="at">type =</span> <span class="st">&#39;cor&#39;</span>)</span></code></pre></div>
 <pre><code>## $type
 ## [1] &quot;cor.bollen&quot;
 ## 
 ## $cov
 ##               fr__65 fr_l_60 fr_p_60 gnp_60
-## fair_elect_65 0.000                        
-## fair_elect_60 0.000  0.000                 
-## free_press_60 0.000  0.000   0.000         
-## gnp_60        0.131  0.068   0.000   0.000</code></pre>
+## fair_elect_65  0.000                       
+## fair_elect_60  0.000   0.000               
+## free_press_60  0.000   0.000   0.000       
+## gnp_60         0.131   0.068   0.000  0.000</code></pre>
 <p>Jääkide maatriksist peaks otsima suuremaid väärtusi, mis annavad tunnistust, et mingi tunnuste vahelised seosed ei ole meie defineeritud mudelis vajalikul määral esindatud. Lähtuvalt sellest saame me oma mudelisse seoseid lisada. Peame muidugi arvestama nende teoreetilise adekvaatsusega ning ka statistilise olulisusega. Jätsime enne GNP ja valimisvabaduse seose mudelist välja kuna see ei olnud statistiliselt oluline. Jääkide maatriks näitab, et mingi seos nende vahel siiski on. Antud juhul mitte piisav, et see otsese mõjuna mudelisse kaasata. Kuid võime näiteks kaaluda mõnda kaudset mõju.</p>
 <p>Lisaks jääkide maatriksile saame kohalikku sobivust analüüsida modifikatsiooniindeksite põhjal:</p>
-<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="7-struktuurivõrrandite-mudelid.html#cb704-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modindices</span>(fit1)</span></code></pre></div>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="7-struktuurivõrrandite-mudelid.html#cb710-1" tabindex="-1"></a><span class="fu">modindices</span>(fit1)</span></code></pre></div>
 <pre><code>##              lhs op           rhs    mi    epc sepc.lv sepc.all sepc.nox
-## 10 fair_elect_65 ~~ free_press_60 2.113 -2.384  -2.384   -0.439   -0.439
-## 11 fair_elect_60 ~~ free_press_60 0.752 -1.511  -1.511   -0.262   -0.262
-## 12 fair_elect_65  ~        gnp_60 2.113  0.562   0.562    0.125    0.172
-## 14 fair_elect_60  ~        gnp_60 0.752  0.356   0.356    0.080    0.109
-## 15 free_press_60  ~ fair_elect_65 2.778 -0.503  -0.503   -0.630   -0.630
-## 16 free_press_60  ~ fair_elect_60 0.752 -0.264  -0.264   -0.330   -0.330
-## 17        gnp_60  ~ fair_elect_65 2.778  0.063   0.063    0.282    0.282
-## 18        gnp_60  ~ fair_elect_60 0.752  0.033   0.033    0.148    0.148</code></pre>
+## 9  fair_elect_65  ~        gnp_60 2.113  0.562   0.562    0.125    0.172
+## 11 fair_elect_60  ~        gnp_60 0.752  0.356   0.356    0.080    0.109
+## 12 free_press_60  ~ fair_elect_65 2.778 -0.503  -0.503   -0.630   -0.630
+## 13 free_press_60  ~ fair_elect_60 0.752 -0.264  -0.264   -0.330   -0.330
+## 14        gnp_60  ~ fair_elect_65 2.778  0.063   0.063    0.282    0.282
+## 15        gnp_60  ~ fair_elect_60 0.752  0.033   0.033    0.148    0.148</code></pre>
 <p>Siin tasun vaadata veergu <em>mi</em>, mis näitab kui palju meie mudel läheks paremaks kui mõne seose mudelisse lisaks või ära jätaks (<code>~</code> näitab regressioonseost, <code>~~</code> näitab kovariatsiooni).</p>
 </div>
 <div id="kinnitav-faktoranalüüs-1" class="section level3 hasAnchor" number="7.4.6">
 <h3><span class="header-section-number">7.4.6</span> Kinnitav faktoranalüüs<a href="7-struktuurivõrrandite-mudelid.html#kinnitav-faktoranalüüs-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Kinnitava faktoranalüüsi jaoks on <em>lavaan</em>-is funktsioon <code>cfa()</code> (see on tegelikult suures osas identne <code>sem()</code> funktsiooniga, mõned vaikeväärtused on lihtsalt muudetud). Mudeli loomine ja jooksutamine on analoogne rajaanalüüsiga. Ka sobivusindeksid, testid ja hilisema mudeli intspekteerimise funktsioonid on samad.</p>
 <p>Kasutame näidisena samat demoktia indikaatorite andmestikku ja moodustame kolm faktorit (majandusnäitajate faktor, demokraatia 1960 faktor ja demokraatia 1965 faktor)</p>
-<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="7-struktuurivõrrandite-mudelid.html#cb706-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tõmbame andmestiku uuesti sisse, kuid seekord ei muuda nimesid (hoiame ruumi kokku)</span></span>
-<span id="cb706-2"><a href="7-struktuurivõrrandite-mudelid.html#cb706-2" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> PoliticalDemocracy</span>
-<span id="cb706-3"><a href="7-struktuurivõrrandite-mudelid.html#cb706-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb706-4"><a href="7-struktuurivõrrandite-mudelid.html#cb706-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Defineerime mudeli</span></span>
-<span id="cb706-5"><a href="7-struktuurivõrrandite-mudelid.html#cb706-5" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39; </span></span>
-<span id="cb706-6"><a href="7-struktuurivõrrandite-mudelid.html#cb706-6" aria-hidden="true" tabindex="-1"></a><span class="st">     maj60 =~ x1 + x2 + x3</span></span>
-<span id="cb706-7"><a href="7-struktuurivõrrandite-mudelid.html#cb706-7" aria-hidden="true" tabindex="-1"></a><span class="st">     dem60 =~ y1 + y2 + y3 + y4</span></span>
-<span id="cb706-8"><a href="7-struktuurivõrrandite-mudelid.html#cb706-8" aria-hidden="true" tabindex="-1"></a><span class="st">     dem65 =~ y5 + y6 + y7 + y8</span></span>
-<span id="cb706-9"><a href="7-struktuurivõrrandite-mudelid.html#cb706-9" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span>
-<span id="cb706-10"><a href="7-struktuurivõrrandite-mudelid.html#cb706-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb706-11"><a href="7-struktuurivõrrandite-mudelid.html#cb706-11" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cfa</span>(mod, <span class="at">data =</span> dt)</span>
-<span id="cb706-12"><a href="7-struktuurivõrrandite-mudelid.html#cb706-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> T)</span></code></pre></div>
-<pre><code>## lavaan 0.6-12 ended normally after 47 iterations
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="7-struktuurivõrrandite-mudelid.html#cb712-1" tabindex="-1"></a><span class="co"># Tõmbame andmestiku uuesti sisse, kuid seekord ei muuda nimesid (hoiame ruumi kokku)</span></span>
+<span id="cb712-2"><a href="7-struktuurivõrrandite-mudelid.html#cb712-2" tabindex="-1"></a>dt <span class="ot">&lt;-</span> PoliticalDemocracy</span>
+<span id="cb712-3"><a href="7-struktuurivõrrandite-mudelid.html#cb712-3" tabindex="-1"></a></span>
+<span id="cb712-4"><a href="7-struktuurivõrrandite-mudelid.html#cb712-4" tabindex="-1"></a><span class="co"># Defineerime mudeli</span></span>
+<span id="cb712-5"><a href="7-struktuurivõrrandite-mudelid.html#cb712-5" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39; </span></span>
+<span id="cb712-6"><a href="7-struktuurivõrrandite-mudelid.html#cb712-6" tabindex="-1"></a><span class="st">     maj60 =~ x1 + x2 + x3</span></span>
+<span id="cb712-7"><a href="7-struktuurivõrrandite-mudelid.html#cb712-7" tabindex="-1"></a><span class="st">     dem60 =~ y1 + y2 + y3 + y4</span></span>
+<span id="cb712-8"><a href="7-struktuurivõrrandite-mudelid.html#cb712-8" tabindex="-1"></a><span class="st">     dem65 =~ y5 + y6 + y7 + y8</span></span>
+<span id="cb712-9"><a href="7-struktuurivõrrandite-mudelid.html#cb712-9" tabindex="-1"></a><span class="st">&#39;</span></span>
+<span id="cb712-10"><a href="7-struktuurivõrrandite-mudelid.html#cb712-10" tabindex="-1"></a></span>
+<span id="cb712-11"><a href="7-struktuurivõrrandite-mudelid.html#cb712-11" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cfa</span>(mod, <span class="at">data =</span> dt)</span>
+<span id="cb712-12"><a href="7-struktuurivõrrandite-mudelid.html#cb712-12" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> T)</span></code></pre></div>
+<pre><code>## lavaan 0.6.15 ended normally after 47 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1052,14 +954,15 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##                                                       
 ##   Akaike (AIC)                                3179.918
 ##   Bayesian (BIC)                              3237.855
-##   Sample-size adjusted Bayesian (BIC)         3159.062
+##   Sample-size adjusted Bayesian (SABIC)       3159.062
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.101
 ##   90 Percent confidence interval - lower         0.061
 ##   90 Percent confidence interval - upper         0.139
-##   P-value RMSEA &lt;= 0.05                          0.021
+##   P-value H_0: RMSEA &lt;= 0.050                    0.021
+##   P-value H_0: RMSEA &gt;= 0.080                    0.827
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
@@ -1113,7 +1016,8 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##     dem60             4.845    1.088    4.453    0.000    1.000    1.000
 ##     dem65             4.345    1.051    4.134    0.000    1.000    1.000</code></pre>
 <p>Mida me väljundist näeme? Vaatame kõigepealt parameetreid</p>
-<pre><code>## Parameter Estimates:
+<pre><code>## 
+## Parameter Estimates:
 ## 
 ##   Standard errors                             Standard
 ##   Information                                 Expected
@@ -1133,10 +1037,10 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##   dem65 =~                                            
 ##     y5                1.000                           
 ##     y6                1.258    0.164    7.651    0.000
-##     y7                1.282    0.158    8.137    0.000
-##     y8                1.310    0.154    8.529    0.000</code></pre>
+##     y7                1.282    0.158    8.137    0.000</code></pre>
 <p><em>Estimate</em> veerg annab meile faktorlaadungid (standardiseerimata). Kõikide faktorite esimene laadung on fikseeritud <span class="math inline">\(1\)</span>-ks (mudeli identifikatsiooni pärast). Kõik laadungid on positiivsed ja statistiliselt olulised (p &lt; 0.05). Problemaatiline võib olla <span class="math inline">\(x2\)</span> laadung, mis oluliselt suurem kui <span class="math inline">\(x1\)</span> laadung. Me üldiselt tahaksime, et kõik laadungid oleksid enamvähem ühesuurused, st kõik indikaatorid panustaksid faktorisse ühepalju.</p>
-<pre><code>## Covariances:
+<pre><code>## 
+## Covariances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##   maj60 ~~                                            
 ##     dem60             0.660    0.206    3.202    0.001
@@ -1144,7 +1048,8 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##   dem60 ~~                                            
 ##     dem65             4.487    0.911    4.924    0.000</code></pre>
 <p>Latentsete tunnuste vahelised covariatsioonid on kõik positiivsed ja olulised. dem60 ja dem65 on tugevalt seotud, mis on muidugi loogiline aga samas võib mudeli sobivuse seisukohast olla problemaatiline.</p>
-<pre><code>## Variances:
+<pre><code>## 
+## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)
 ##    .x1                0.082    0.020    4.180    0.000
 ##    .x2                0.118    0.070    1.689    0.091
@@ -1162,15 +1067,15 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##     dem65             4.345    1.051    4.134    0.000</code></pre>
 <p>Ja lõpuks dispersioonid, mis indikaatorite puhul näitavad iga indikaatori nn unikaalset varieeruvust (mudeli seisukohast viga). Ehk seda varieeruvust, mida me faktoritega selgitada ei suuda. Me tahame, et need oleksid võimalikult väikesed (<span class="math inline">\(y2\)</span> ja <span class="math inline">\(y3\)</span> jäägid tunduvad suhteliselt suuremad). Faktorite dispersioonid näitavad faktorite varieeruvust.</p>
 <p>Saame kõike seda infot vaadata ka diagrammi kujul:</p>
-<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="7-struktuurivõrrandite-mudelid.html#cb711-1" aria-hidden="true" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">node.width =</span> <span class="dv">1</span>, <span class="at">edge.label.cex =</span> <span class="dv">1</span>, <span class="at">what =</span> <span class="st">&quot;paths&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&#39;est&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="7-struktuurivõrrandite-mudelid.html#cb717-1" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">node.width =</span> <span class="dv">1</span>, <span class="at">edge.label.cex =</span> <span class="dv">1</span>, <span class="at">what =</span> <span class="st">&quot;paths&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&#39;est&#39;</span>)</span></code></pre></div>
 <p><img src="06-sem_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <p>Kui vaatame sobivusindekseid, siis hii-ruut test &lt; 0.05 (halb), CFI &gt; 0.95 (hea), TLI &lt; 0.95 (halb), RMSEA &gt; 0.05 (halb) ja SRMR &lt; 0.08 (hea). Ehk siis suhteliselt ebamäärased tulemused (nagu nad tavaliselt ka on). Kuid tundub, et peame üritama oma mudelit natukene paremaks teha. Vaatame mudeli jääke.</p>
-<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="7-struktuurivõrrandite-mudelid.html#cb712-1" aria-hidden="true" tabindex="-1"></a><span class="fu">residuals</span>(fit, <span class="at">type =</span> <span class="st">&#39;cor&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="7-struktuurivõrrandite-mudelid.html#cb718-1" tabindex="-1"></a><span class="fu">residuals</span>(fit, <span class="at">type =</span> <span class="st">&#39;cor&#39;</span>)</span></code></pre></div>
 <pre><code>## $type
 ## [1] &quot;cor.bollen&quot;
 ## 
 ## $cov
-##    x1     x2     x3     y1     y2     y3     y4     y5     y6     y7     y8    
+##        x1     x2     x3     y1     y2     y3     y4     y5     y6     y7     y8
 ## x1  0.000                                                                      
 ## x2 -0.001  0.000                                                               
 ## x3 -0.003  0.002  0.000                                                        
@@ -1184,8 +1089,8 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ## y8  0.032 -0.002 -0.039 -0.034 -0.024 -0.054  0.025 -0.050  0.090  0.018  0.000</code></pre>
 <p>Silma torkavad jäägid, mis tulenevad <span class="math inline">\(x1\)</span> ja <span class="math inline">\(y5\)</span>, <span class="math inline">\(x1\)</span> ja <span class="math inline">\(y4\)</span>, <span class="math inline">\(y2\)</span> ja <span class="math inline">\(y6\)</span> ning <span class="math inline">\(y3\)</span> ja <span class="math inline">\(y6\)</span> korrelatsioonidest.</p>
 <p>Vaatame ka modifikatsiooniindekseid:</p>
-<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="7-struktuurivõrrandite-mudelid.html#cb714-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kasutame minimum.value = 5 parameetrit, et filtreerida välja kõige olulisemad modifikatsiooniindeksid</span></span>
-<span id="cb714-2"><a href="7-struktuurivõrrandite-mudelid.html#cb714-2" aria-hidden="true" tabindex="-1"></a><span class="fu">modindices</span>(fit, <span class="at">minimum.value =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="7-struktuurivõrrandite-mudelid.html#cb720-1" tabindex="-1"></a><span class="co"># Kasutame minimum.value = 5 parameetrit, et filtreerida välja kõige olulisemad modifikatsiooniindeksid</span></span>
+<span id="cb720-2"><a href="7-struktuurivõrrandite-mudelid.html#cb720-2" tabindex="-1"></a><span class="fu">modindices</span>(fit, <span class="at">minimum.value =</span> <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##     lhs op rhs    mi    epc sepc.lv sepc.all sepc.nox
 ## 79   y1 ~~  y3 5.204  1.024   1.024    0.318    0.318
 ## 81   y1 ~~  y5 8.183  0.884   0.884    0.410    0.410
@@ -1194,18 +1099,18 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ## 104  y6 ~~  y8 8.668  1.513   1.513    0.423    0.423</code></pre>
 <p>Saame siit sisuliselt sama sisendi, mida ka jääkide maatriksi abil täheldasime (<code>~~</code> märk annab märku, et mudel läheks paremaks kui antud tunnuste vahel oleks defineeritud kovariatsioon). Mida siis teha, kui me näeme, et mudel läheks oluliselt paremaks kui me kaasaks mudelise mõned indikaatorite vahelised korrelatsioonid (teooria osast peaks meeles olema, et korrektsete faktorlaadungite saamiseks ei tohiks indikaatorid korreleeritud olla)? Üldiselt peab ütlema, et mudeli sobivuse nimel seda tihti ka tehakse (isegi väga tihti). Aga igal juhul, kui seda teha, siis peaks olema ka mingi teoreetiline põhjus, mis mõne tunnuse vaheline seos ei ole määratletud ainult faktoriga. On muidugi ka võimalus mõni problemaatiline tunnus mudelist välja visata, aga ka see peaks olema teoreetiliselt põhjendatud.</p>
 <p>Muudame oma mudelit nii, et defineerime <span class="math inline">\(y2\)</span> ja <span class="math inline">\(y6\)</span> vahelise kovariatsiooni:</p>
-<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="7-struktuurivõrrandite-mudelid.html#cb716-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Defineerime mudeli</span></span>
-<span id="cb716-2"><a href="7-struktuurivõrrandite-mudelid.html#cb716-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39; </span></span>
-<span id="cb716-3"><a href="7-struktuurivõrrandite-mudelid.html#cb716-3" aria-hidden="true" tabindex="-1"></a><span class="st">     maj60 =~ x1 + x2 + x3</span></span>
-<span id="cb716-4"><a href="7-struktuurivõrrandite-mudelid.html#cb716-4" aria-hidden="true" tabindex="-1"></a><span class="st">     dem60 =~ y1 + y2 + y3 + y4</span></span>
-<span id="cb716-5"><a href="7-struktuurivõrrandite-mudelid.html#cb716-5" aria-hidden="true" tabindex="-1"></a><span class="st">     dem65 =~ y5 + y6 + y7 + y8</span></span>
-<span id="cb716-6"><a href="7-struktuurivõrrandite-mudelid.html#cb716-6" aria-hidden="true" tabindex="-1"></a><span class="st">     </span></span>
-<span id="cb716-7"><a href="7-struktuurivõrrandite-mudelid.html#cb716-7" aria-hidden="true" tabindex="-1"></a><span class="st">     y2 ~~ y6</span></span>
-<span id="cb716-8"><a href="7-struktuurivõrrandite-mudelid.html#cb716-8" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span>
-<span id="cb716-9"><a href="7-struktuurivõrrandite-mudelid.html#cb716-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb716-10"><a href="7-struktuurivõrrandite-mudelid.html#cb716-10" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(mod, <span class="at">data =</span> dt)</span>
-<span id="cb716-11"><a href="7-struktuurivõrrandite-mudelid.html#cb716-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> T)</span></code></pre></div>
-<pre><code>## lavaan 0.6-12 ended normally after 53 iterations
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="7-struktuurivõrrandite-mudelid.html#cb722-1" tabindex="-1"></a><span class="co"># Defineerime mudeli</span></span>
+<span id="cb722-2"><a href="7-struktuurivõrrandite-mudelid.html#cb722-2" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39; </span></span>
+<span id="cb722-3"><a href="7-struktuurivõrrandite-mudelid.html#cb722-3" tabindex="-1"></a><span class="st">     maj60 =~ x1 + x2 + x3</span></span>
+<span id="cb722-4"><a href="7-struktuurivõrrandite-mudelid.html#cb722-4" tabindex="-1"></a><span class="st">     dem60 =~ y1 + y2 + y3 + y4</span></span>
+<span id="cb722-5"><a href="7-struktuurivõrrandite-mudelid.html#cb722-5" tabindex="-1"></a><span class="st">     dem65 =~ y5 + y6 + y7 + y8</span></span>
+<span id="cb722-6"><a href="7-struktuurivõrrandite-mudelid.html#cb722-6" tabindex="-1"></a><span class="st">     </span></span>
+<span id="cb722-7"><a href="7-struktuurivõrrandite-mudelid.html#cb722-7" tabindex="-1"></a><span class="st">     y2 ~~ y6</span></span>
+<span id="cb722-8"><a href="7-struktuurivõrrandite-mudelid.html#cb722-8" tabindex="-1"></a><span class="st">&#39;</span></span>
+<span id="cb722-9"><a href="7-struktuurivõrrandite-mudelid.html#cb722-9" tabindex="-1"></a></span>
+<span id="cb722-10"><a href="7-struktuurivõrrandite-mudelid.html#cb722-10" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(mod, <span class="at">data =</span> dt)</span>
+<span id="cb722-11"><a href="7-struktuurivõrrandite-mudelid.html#cb722-11" tabindex="-1"></a><span class="fu">summary</span>(fit1, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> T)</span></code></pre></div>
+<pre><code>## lavaan 0.6.15 ended normally after 53 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1237,14 +1142,15 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##                                                       
 ##   Akaike (AIC)                                3172.415
 ##   Bayesian (BIC)                              3232.670
-##   Sample-size adjusted Bayesian (BIC)         3150.725
+##   Sample-size adjusted Bayesian (SABIC)       3150.725
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.087
 ##   90 Percent confidence interval - lower         0.042
 ##   90 Percent confidence interval - upper         0.127
-##   P-value RMSEA &lt;= 0.05                          0.079
+##   P-value H_0: RMSEA &lt;= 0.050                    0.079
+##   P-value H_0: RMSEA &gt;= 0.080                    0.641
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
@@ -1300,29 +1206,30 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##     dem60             4.911    1.094    4.488    0.000    1.000    1.000
 ##     dem65             4.411    1.058    4.171    0.000    1.000    1.000</code></pre>
 <p>Tundub, et saime mõnevõrra paremate indeksitega mudeli. Kontrollime seda ka <code>anova()</code> funktsiooniga.</p>
-<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="7-struktuurivõrrandite-mudelid.html#cb718-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit, fit1)</span></code></pre></div>
-<pre><code>## Chi-Squared Difference Test
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="7-struktuurivõrrandite-mudelid.html#cb724-1" tabindex="-1"></a><span class="fu">anova</span>(fit, fit1)</span></code></pre></div>
+<pre><code>## 
+## Chi-Squared Difference Test
 ## 
-##      Df    AIC    BIC  Chisq Chisq diff Df diff Pr(&gt;Chisq)   
-## fit1 40 3172.4 3232.7 62.958                                 
-## fit  41 3179.9 3237.9 72.462     9.5033       1   0.002051 **
+##      Df    AIC    BIC  Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)   
+## fit1 40 3172.4 3232.7 62.958                                         
+## fit  41 3179.9 3237.9 72.462     9.5033 0.33672       1   0.002051 **
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Mudelite võrdluse hii-ruut test ütleb, et peaksime siiski eelistama teist mudelit. Mudelid on oluliselt erinevad, kusjuures teine (vähemate parameetritega) mudel on on oluliselt parem (hii-ruut väärtus on madalam). Ka AIC ja BIC väärtused annavad meile sarnase indikatsiooni (väiksem väärtus on parem). Kuna aga kõik sobivusindeksid ei vastanud meie setud piirmääradele, siis peaksime veel mõned kovariatsioonid mudelisse lisama.</p>
-<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="7-struktuurivõrrandite-mudelid.html#cb720-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Defineerime mudeli</span></span>
-<span id="cb720-2"><a href="7-struktuurivõrrandite-mudelid.html#cb720-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39; </span></span>
-<span id="cb720-3"><a href="7-struktuurivõrrandite-mudelid.html#cb720-3" aria-hidden="true" tabindex="-1"></a><span class="st">     maj60 =~ x1 + x2 + x3</span></span>
-<span id="cb720-4"><a href="7-struktuurivõrrandite-mudelid.html#cb720-4" aria-hidden="true" tabindex="-1"></a><span class="st">     dem60 =~ y1 + y2 + y3 + y4</span></span>
-<span id="cb720-5"><a href="7-struktuurivõrrandite-mudelid.html#cb720-5" aria-hidden="true" tabindex="-1"></a><span class="st">     dem65 =~ y5 + y6 + y7 + y8</span></span>
-<span id="cb720-6"><a href="7-struktuurivõrrandite-mudelid.html#cb720-6" aria-hidden="true" tabindex="-1"></a><span class="st">     </span></span>
-<span id="cb720-7"><a href="7-struktuurivõrrandite-mudelid.html#cb720-7" aria-hidden="true" tabindex="-1"></a><span class="st">     y2 ~~ y6</span></span>
-<span id="cb720-8"><a href="7-struktuurivõrrandite-mudelid.html#cb720-8" aria-hidden="true" tabindex="-1"></a><span class="st">     y1 ~~ y5</span></span>
-<span id="cb720-9"><a href="7-struktuurivõrrandite-mudelid.html#cb720-9" aria-hidden="true" tabindex="-1"></a><span class="st">     y6 ~~ y8</span></span>
-<span id="cb720-10"><a href="7-struktuurivõrrandite-mudelid.html#cb720-10" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span>
-<span id="cb720-11"><a href="7-struktuurivõrrandite-mudelid.html#cb720-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb720-12"><a href="7-struktuurivõrrandite-mudelid.html#cb720-12" aria-hidden="true" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(mod, <span class="at">data =</span> dt)</span>
-<span id="cb720-13"><a href="7-struktuurivõrrandite-mudelid.html#cb720-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> T)</span></code></pre></div>
-<pre><code>## lavaan 0.6-12 ended normally after 62 iterations
+<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="7-struktuurivõrrandite-mudelid.html#cb726-1" tabindex="-1"></a><span class="co"># Defineerime mudeli</span></span>
+<span id="cb726-2"><a href="7-struktuurivõrrandite-mudelid.html#cb726-2" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39; </span></span>
+<span id="cb726-3"><a href="7-struktuurivõrrandite-mudelid.html#cb726-3" tabindex="-1"></a><span class="st">     maj60 =~ x1 + x2 + x3</span></span>
+<span id="cb726-4"><a href="7-struktuurivõrrandite-mudelid.html#cb726-4" tabindex="-1"></a><span class="st">     dem60 =~ y1 + y2 + y3 + y4</span></span>
+<span id="cb726-5"><a href="7-struktuurivõrrandite-mudelid.html#cb726-5" tabindex="-1"></a><span class="st">     dem65 =~ y5 + y6 + y7 + y8</span></span>
+<span id="cb726-6"><a href="7-struktuurivõrrandite-mudelid.html#cb726-6" tabindex="-1"></a><span class="st">     </span></span>
+<span id="cb726-7"><a href="7-struktuurivõrrandite-mudelid.html#cb726-7" tabindex="-1"></a><span class="st">     y2 ~~ y6</span></span>
+<span id="cb726-8"><a href="7-struktuurivõrrandite-mudelid.html#cb726-8" tabindex="-1"></a><span class="st">     y1 ~~ y5</span></span>
+<span id="cb726-9"><a href="7-struktuurivõrrandite-mudelid.html#cb726-9" tabindex="-1"></a><span class="st">     y6 ~~ y8</span></span>
+<span id="cb726-10"><a href="7-struktuurivõrrandite-mudelid.html#cb726-10" tabindex="-1"></a><span class="st">&#39;</span></span>
+<span id="cb726-11"><a href="7-struktuurivõrrandite-mudelid.html#cb726-11" tabindex="-1"></a></span>
+<span id="cb726-12"><a href="7-struktuurivõrrandite-mudelid.html#cb726-12" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(mod, <span class="at">data =</span> dt)</span>
+<span id="cb726-13"><a href="7-struktuurivõrrandite-mudelid.html#cb726-13" tabindex="-1"></a><span class="fu">summary</span>(fit1, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> T)</span></code></pre></div>
+<pre><code>## lavaan 0.6.15 ended normally after 62 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1354,14 +1261,15 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##                                                       
 ##   Akaike (AIC)                                3159.715
 ##   Bayesian (BIC)                              3224.605
-##   Sample-size adjusted Bayesian (BIC)         3136.356
+##   Sample-size adjusted Bayesian (SABIC)       3136.356
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.054
 ##   90 Percent confidence interval - lower         0.000
 ##   90 Percent confidence interval - upper         0.102
-##   P-value RMSEA &lt;= 0.05                          0.427
+##   P-value H_0: RMSEA &lt;= 0.050                    0.427
+##   P-value H_0: RMSEA &gt;= 0.080                    0.212
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
@@ -1425,23 +1333,23 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 <div id="sem" class="section level3 hasAnchor" number="7.4.7">
 <h3><span class="header-section-number">7.4.7</span> SEM<a href="7-struktuurivõrrandite-mudelid.html#sem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Meil on nüüdseks olemas sobilik faktormudel (ehk mõõtmismudel). Järgmisena vaatame, kuidas faktorite vahelisi seoseid defineerida (tegelikult on ka faktormudelis faktorid omavahel korreleeritud, kuid meid huvitab kausaalsete mõjude testimine). Põhimõtteliselt kasutame faktortunnuseid sõltumatute ja sõltuvate tunnustena regressioonanalüüsis. Vaatame kuidas <em>dem65</em> on mõjutatud <em>dem60</em> ja <em>maj60</em> faktoritest. Lisaks eeldame, et <em>dem60</em> on samuti mõjutatud <em>maj60</em>-st. Selleks tuleb meil lisaks eelnevale faktormudelile defineerida nende vahelised regressioonid. Ja kasutame nüüd <code>sem()</code> funktsiooni.</p>
-<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="7-struktuurivõrrandite-mudelid.html#cb722-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39; </span></span>
-<span id="cb722-2"><a href="7-struktuurivõrrandite-mudelid.html#cb722-2" aria-hidden="true" tabindex="-1"></a><span class="st">     maj60 =~ x1 + x2 + x3</span></span>
-<span id="cb722-3"><a href="7-struktuurivõrrandite-mudelid.html#cb722-3" aria-hidden="true" tabindex="-1"></a><span class="st">     dem60 =~ y1 + y2 + y3 + y4</span></span>
-<span id="cb722-4"><a href="7-struktuurivõrrandite-mudelid.html#cb722-4" aria-hidden="true" tabindex="-1"></a><span class="st">     dem65 =~ y5 + y6 + y7 + y8</span></span>
-<span id="cb722-5"><a href="7-struktuurivõrrandite-mudelid.html#cb722-5" aria-hidden="true" tabindex="-1"></a><span class="st">     </span></span>
-<span id="cb722-6"><a href="7-struktuurivõrrandite-mudelid.html#cb722-6" aria-hidden="true" tabindex="-1"></a><span class="st">     y2 ~~ y6</span></span>
-<span id="cb722-7"><a href="7-struktuurivõrrandite-mudelid.html#cb722-7" aria-hidden="true" tabindex="-1"></a><span class="st">     y1 ~~ y5</span></span>
-<span id="cb722-8"><a href="7-struktuurivõrrandite-mudelid.html#cb722-8" aria-hidden="true" tabindex="-1"></a><span class="st">     y6 ~~ y8</span></span>
-<span id="cb722-9"><a href="7-struktuurivõrrandite-mudelid.html#cb722-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb722-10"><a href="7-struktuurivõrrandite-mudelid.html#cb722-10" aria-hidden="true" tabindex="-1"></a><span class="st">     dem60 ~ maj60</span></span>
-<span id="cb722-11"><a href="7-struktuurivõrrandite-mudelid.html#cb722-11" aria-hidden="true" tabindex="-1"></a><span class="st">     dem65 ~ maj60 + dem60</span></span>
-<span id="cb722-12"><a href="7-struktuurivõrrandite-mudelid.html#cb722-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb722-13"><a href="7-struktuurivõrrandite-mudelid.html#cb722-13" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span>
-<span id="cb722-14"><a href="7-struktuurivõrrandite-mudelid.html#cb722-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb722-15"><a href="7-struktuurivõrrandite-mudelid.html#cb722-15" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(mod, <span class="at">data =</span> dt)</span>
-<span id="cb722-16"><a href="7-struktuurivõrrandite-mudelid.html#cb722-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## lavaan 0.6-12 ended normally after 53 iterations
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="7-struktuurivõrrandite-mudelid.html#cb728-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="st">&#39; </span></span>
+<span id="cb728-2"><a href="7-struktuurivõrrandite-mudelid.html#cb728-2" tabindex="-1"></a><span class="st">     maj60 =~ x1 + x2 + x3</span></span>
+<span id="cb728-3"><a href="7-struktuurivõrrandite-mudelid.html#cb728-3" tabindex="-1"></a><span class="st">     dem60 =~ y1 + y2 + y3 + y4</span></span>
+<span id="cb728-4"><a href="7-struktuurivõrrandite-mudelid.html#cb728-4" tabindex="-1"></a><span class="st">     dem65 =~ y5 + y6 + y7 + y8</span></span>
+<span id="cb728-5"><a href="7-struktuurivõrrandite-mudelid.html#cb728-5" tabindex="-1"></a><span class="st">     </span></span>
+<span id="cb728-6"><a href="7-struktuurivõrrandite-mudelid.html#cb728-6" tabindex="-1"></a><span class="st">     y2 ~~ y6</span></span>
+<span id="cb728-7"><a href="7-struktuurivõrrandite-mudelid.html#cb728-7" tabindex="-1"></a><span class="st">     y1 ~~ y5</span></span>
+<span id="cb728-8"><a href="7-struktuurivõrrandite-mudelid.html#cb728-8" tabindex="-1"></a><span class="st">     y6 ~~ y8</span></span>
+<span id="cb728-9"><a href="7-struktuurivõrrandite-mudelid.html#cb728-9" tabindex="-1"></a></span>
+<span id="cb728-10"><a href="7-struktuurivõrrandite-mudelid.html#cb728-10" tabindex="-1"></a><span class="st">     dem60 ~ maj60</span></span>
+<span id="cb728-11"><a href="7-struktuurivõrrandite-mudelid.html#cb728-11" tabindex="-1"></a><span class="st">     dem65 ~ maj60 + dem60</span></span>
+<span id="cb728-12"><a href="7-struktuurivõrrandite-mudelid.html#cb728-12" tabindex="-1"></a></span>
+<span id="cb728-13"><a href="7-struktuurivõrrandite-mudelid.html#cb728-13" tabindex="-1"></a><span class="st">&#39;</span></span>
+<span id="cb728-14"><a href="7-struktuurivõrrandite-mudelid.html#cb728-14" tabindex="-1"></a></span>
+<span id="cb728-15"><a href="7-struktuurivõrrandite-mudelid.html#cb728-15" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(mod, <span class="at">data =</span> dt)</span>
+<span id="cb728-16"><a href="7-struktuurivõrrandite-mudelid.html#cb728-16" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## lavaan 0.6.15 ended normally after 53 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1473,14 +1381,15 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##                                                       
 ##   Akaike (AIC)                                3159.715
 ##   Bayesian (BIC)                              3224.605
-##   Sample-size adjusted Bayesian (BIC)         3136.356
+##   Sample-size adjusted Bayesian (SABIC)       3136.356
 ## 
 ## Root Mean Square Error of Approximation:
 ## 
 ##   RMSEA                                          0.054
 ##   90 Percent confidence interval - lower         0.000
 ##   90 Percent confidence interval - upper         0.102
-##   P-value RMSEA &lt;= 0.05                          0.427
+##   P-value H_0: RMSEA &lt;= 0.050                    0.427
+##   P-value H_0: RMSEA &gt;= 0.080                    0.212
 ## 
 ## Standardized Root Mean Square Residual:
 ## 
@@ -1543,22 +1452,22 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ##    .dem60             3.771    0.897    4.204    0.000
 ##    .dem65             0.144    0.197    0.727    0.467</code></pre>
 <p>Sobivusindeksid võrreldes eelmise mudeliga ei muutu. See on sellepärast, et kõik seosed, mis me defineerisime regressioonseostena, olid faktormudelis hinnatud korrelatsioonidena. Suures osas on väljund sama, mis faktoranalüüsi puhul. Juurde tuli vaid regressiooniosa.</p>
-<pre><code>## Regressions:
+<pre><code>## 
+## Regressions:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
 ##   dem60 ~                                                               
 ##     maj60             1.441    0.388    3.714    0.000    0.445    0.445
 ##   dem65 ~                                                               
-##     maj60             0.579    0.213    2.713    0.007    0.187    0.187
-##     dem60             0.847    0.098    8.675    0.000    0.886    0.886</code></pre>
+##     maj60             0.579    0.213    2.713    0.007    0.187    0.187</code></pre>
 <p>Näeme, et kõik regressioonid on statistiliselt olulised. Mida kõrgem on <em>maj60</em> seda kõrgem on ka <em>dem60</em> ning mida kõrgemad on <em>maj60</em> ja <em>dem60</em>, seda kõrgem on <em>dem65</em>. Koefitsientide suurused ei ole reeglina väga hästi tõlgendatavad. Meid pigem huvitab nende suund ja statistiline olulisus.</p>
 <p>Saame oma mudelit jällegi ka graafiliselt vaadata.</p>
-<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="7-struktuurivõrrandite-mudelid.html#cb725-1" aria-hidden="true" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">node.width =</span> <span class="dv">1</span>, <span class="at">edge.label.cex =</span> <span class="dv">1</span>, <span class="at">what =</span> <span class="st">&quot;paths&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&#39;est&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="7-struktuurivõrrandite-mudelid.html#cb731-1" tabindex="-1"></a><span class="fu">semPaths</span>(fit, <span class="at">node.width =</span> <span class="dv">1</span>, <span class="at">edge.label.cex =</span> <span class="dv">1</span>, <span class="at">what =</span> <span class="st">&quot;paths&quot;</span>, <span class="at">whatLabels =</span> <span class="st">&#39;est&#39;</span>)</span></code></pre></div>
 <p><img src="06-sem_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 </div>
 <div id="mudeli-spetsifikatsioonid" class="section level3 hasAnchor" number="7.4.8">
 <h3><span class="header-section-number">7.4.8</span> Mudeli spetsifikatsioonid<a href="7-struktuurivõrrandite-mudelid.html#mudeli-spetsifikatsioonid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Päris palju asju toimub <em>lavaan</em>-is nn “kapoti all”. Mingid argumendid on vaikeväärtustena, mingid parameetrid on fikseeritud jne. Et kõigest sellest natuke aimu saada, on võimalik vaadata kuidas <em>lavaan</em> meie defineeritud mudeli täpselt spetsifitseeris. <code>inspect()</code> funktsiooniga saab kätte kõik mudeli poolt hinnatud parameetrid.</p>
-<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="7-struktuurivõrrandite-mudelid.html#cb726-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="7-struktuurivõrrandite-mudelid.html#cb732-1" tabindex="-1"></a><span class="fu">inspect</span>(fit)</span></code></pre></div>
 <pre><code>## $lambda
 ##    maj60 dem60 dem65
 ## x1     0     0     0
@@ -1589,9 +1498,9 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ## 
 ## $psi
 ##       maj60 dem60 dem65
-## maj60 26               
-## dem60  0    27         
-## dem65  0     0    28   
+## maj60    26            
+## dem60     0    27      
+## dem65     0     0    28
 ## 
 ## $beta
 ##       maj60 dem60 dem65
@@ -1606,7 +1515,7 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 <li><em>$beta</em> on regressioonikoefitsientide maatriks</li>
 </ul>
 <p>Saame näha ka hinnatud parameetreid</p>
-<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="7-struktuurivõrrandite-mudelid.html#cb728-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inspect</span>(fit, <span class="st">&quot;est&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="7-struktuurivõrrandite-mudelid.html#cb734-1" tabindex="-1"></a><span class="fu">inspect</span>(fit, <span class="st">&quot;est&quot;</span>)</span></code></pre></div>
 <pre><code>## $lambda
 ##    maj60 dem60 dem65
 ## x1 1.000 0.000 0.000
@@ -1622,7 +1531,7 @@ Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin ai
 ## y8 0.000 0.000 1.296
 ## 
 ## $theta
-##    x1    x2    x3    y1    y2    y3    y4    y5    y6    y7    y8   
+##       x1    x2    x3    y1    y2    y3    y4    y5    y6    y7    y8
 ## x1 0.082                                                            
 ## x2 0.000 0.120                                                      
 ## x3 0.000 0.000 0.467                                                

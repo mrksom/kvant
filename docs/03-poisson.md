@@ -119,7 +119,7 @@ phd %>%
 ```
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   gender `n()`
 ##   <fct>  <int>
 ## 1 male     494
@@ -134,7 +134,7 @@ phd %>%
 ```
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   married `n()`
 ##   <fct>   <int>
 ## 1 no        309
@@ -151,7 +151,7 @@ phd %>%
 ```
 
 ```
-## # A tibble: 4 x 2
+## # A tibble: 4 × 2
 ##    kids `n()`
 ##   <int> <int>
 ## 1     0   599
@@ -176,7 +176,7 @@ phd %>%
 ```
 
 ```
-## # A tibble: 4 x 3
+## # A tibble: 4 × 3
 ## # Groups:   kids [4]
 ##    kids kids2 `n()`
 ##   <int> <chr> <int>
@@ -455,7 +455,7 @@ Mida need koefitsiendid meile ütlevad?
 
 ### Üledispersioon
 
-Mudeli üledispersioon (*overdispersion*) on olukord, kus mudeli dispersioon on suurem kui mudeli aluseks olev jaotusfunktsioon eeldaks. Kui see on nii, siis on mudeli standardvead tõenäoliselt liiga väikesed (ja seega mudeli alusel tehtavad järldused valed). Üledispersiooni olemasolu saame kontrollida võrreldes jääkhälbimust (*Residual deviance*) ja selle vabadusastemid (*degrees of freedom* ehk *df*). Kui need on enam-vähem võrdsed, ehk $\frac{\text{Residual deviance}}{\text{df}} \approx 1$, siis üledispersiooni ei ole. Aga kui see suhe on oluliselt suurem kui $1$, siis on tegemist probleemiga. Juhul kui taoline olukord esineb, peaksime Poissoni mudeli asemel kasutama *quasipoisson*'i mudelit, kus üledispersiooni on eraldi dispersiooni parameetrina mudelis arvesse võetud. Ka meie näite puhul on tegemist kerge üledispersiooniga (mitte küll väga suurega, aga siiski), seega võiksime kasutada quasipoissonit:
+Mudeli üledispersioon (*overdispersion*) on olukord, kus mudeli dispersioon on suurem kui mudeli aluseks olev jaotusfunktsioon eeldaks. Kui see on nii, siis on mudeli standardvead tõenäoliselt liiga väikesed (ja seega mudeli alusel tehtavad järldused valed). Üledispersiooni olemasolu saame kontrollida võrreldes jääkhälbimust (*Residual deviance*) ja selle vabadusastemid (*degrees of freedom* ehk *df*). Kui need on enam-vähem võrdsed, ehk $\frac{\text{Residual deviance}}{\text{df}} \approx 1$, siis üledispersiooni ei ole. Aga kui see suhe on oluliselt suurem kui $1$, siis on tegemist probleemiga. Juhul kui taoline olukord esineb, peaksime Poissoni mudeli asemel kasutama *quasipoisson*'i mudelit (või tegelikult veel parem oleks kasutada *negative binomial* mudelit, näiteks `MASS::glm.nb()` funktsiooni abil), kus üledispersiooni on eraldi dispersiooni parameetrina mudelis arvesse võetud. Ka meie näite puhul on tegemist üledispersiooniga (mitte küll väga suurega, aga siiski), seega võiksime kasutada quasipoissonit:
 
 
 ```r
@@ -528,6 +528,7 @@ summary(m6)
 ## Number of Fisher Scoring iterations: 5
 ```
 
+Lisaks üledispersioonile võib probleemiks olla ka **aladispersioon**, st olukord kui jääkälbimus on oluliselt suurem kui vabadusastmed ehk siis $\frac{\text{Residual deviance}}{\text{df}} <1$. Kui üledispersiooniga on mudeli standardvead liiga väikesed ja me näeme olulisust seal kus seda tegelikult ei ole (*Type I error*), siis aladispersiooniga on standardvead liiga suured, ehk siis võime mõne tegelikult olulise seose tähelepanuta jätta (*Type II error*). See ei ole niivõrd ohtlik, kuid annab meile siiski seostest vale pildi.
 
 ## Mudeli sobivus (*model fit*)
 
