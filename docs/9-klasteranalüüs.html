@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Peatükk 9 Klasteranalüüs | Kvantitatiivne andmeanalüüs</title>
+  <meta name="description" content="Peatükk 9 Klasteranalüüs | Kvantitatiivne andmeanalüüs" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Peatükk 9 Klasteranalüüs | Kvantitatiivne andmeanalüüs" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Peatükk 9 Klasteranalüüs | Kvantitatiivne andmeanalüüs" />
+  
+  
+  
+
+<meta name="author" content="Marko Sõmer" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="8-struktuurivõrrandite-mudelid.html"/>
+<link rel="next" href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="assets/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="assets/tabwid-1.1.3/tabwid.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="custom/custom_styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class='before'><a href="./">Kvant</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Alustuseks</a></li>
+<li class="part"><span><b>I Meeldetuletus</b></span></li>
+<li class="chapter" data-level="1" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus R-i</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#päris-algus"><i class="fa fa-check"></i><b>1.1</b> Päris algus</a></li>
+<li class="chapter" data-level="1.2" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#andmetega-töötamine"><i class="fa fa-check"></i><b>1.2</b> Andmetega töötamine</a></li>
+<li class="chapter" data-level="1.3" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#r-markdown"><i class="fa fa-check"></i><b>1.3</b> R markdown</a></li>
+<li class="chapter" data-level="1.4" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#andmegraafika"><i class="fa fa-check"></i><b>1.4</b> Andmegraafika</a></li>
+<li class="chapter" data-level="1.5" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#edasiseks-lugemiseks"><i class="fa fa-check"></i><b>1.5</b> Edasiseks lugemiseks</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html"><i class="fa fa-check"></i><b>2</b> Lineaarne regressioon</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#lihtne-lineaarne-regressioon"><i class="fa fa-check"></i><b>2.1</b> Lihtne lineaarne regressioon</a></li>
+<li class="chapter" data-level="2.2" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioon-r-is"><i class="fa fa-check"></i><b>2.2</b> Regressioon R-is</a></li>
+<li class="chapter" data-level="2.3" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressiooni-jäägid"><i class="fa fa-check"></i><b>2.3</b> Regressiooni jäägid</a></li>
+<li class="chapter" data-level="2.4" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-sobitumine"><i class="fa fa-check"></i><b>2.4</b> Regressioonimudeli sobitumine</a></li>
+<li class="chapter" data-level="2.5" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kategoriaalsed-tunnused-regressioonis"><i class="fa fa-check"></i><b>2.5</b> Kategoriaalsed tunnused regressioonis</a></li>
+<li class="chapter" data-level="2.6" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mitmene-regressioon"><i class="fa fa-check"></i><b>2.6</b> Mitmene regressioon</a></li>
+<li class="chapter" data-level="2.7" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#koosmõjud"><i class="fa fa-check"></i><b>2.7</b> Koosmõjud</a></li>
+<li class="chapter" data-level="2.8" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mudelite-võrdlemine"><i class="fa fa-check"></i><b>2.8</b> Mudelite võrdlemine</a></li>
+<li class="chapter" data-level="2.9" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-eeldused"><i class="fa fa-check"></i><b>2.9</b> Regressioonimudeli eeldused</a></li>
+<li class="chapter" data-level="2.10" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kuidas-eelduste-täidetust-hinnata"><i class="fa fa-check"></i><b>2.10</b> Kuidas eelduste täidetust hinnata?</a></li>
+<li class="chapter" data-level="2.11" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#tunnuste-transformatsioonid"><i class="fa fa-check"></i><b>2.11</b> Tunnuste transformatsioonid</a></li>
+</ul></li>
+<li class="part"><span><b>II Üldistatud lineaarsed mudelid</b></span></li>
+<li class="chapter" data-level="3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html"><i class="fa fa-check"></i><b>3</b> Logistiline regressioon</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-funktsioon"><i class="fa fa-check"></i><b>3.1</b> Logistiline funktsioon</a></li>
+<li class="chapter" data-level="3.2" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.2</b> Logit mudel</a></li>
+<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.3</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.4</b> Mudeli kvaliteet</a></li>
+<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.5</b> Predict</a></li>
+<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.6</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.7</b> Prognoosi täpsus</a></li>
+<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-eeldused"><i class="fa fa-check"></i><b>3.8</b> Mudeli eeldused</a></li>
+<li class="chapter" data-level="3.9" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#cross-validation"><i class="fa fa-check"></i><b>3.9</b> Cross-validation</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html"><i class="fa fa-check"></i><b>4</b> Poissoni regressioon</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-tõlgendus-1"><i class="fa fa-check"></i><b>4.1</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="4.2" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#poissoni-regressiooni-eeldused"><i class="fa fa-check"></i><b>4.2</b> Poissoni regressiooni eeldused</a></li>
+<li class="chapter" data-level="4.3" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-hindamine-r-is"><i class="fa fa-check"></i><b>4.3</b> Mudeli hindamine R-is</a></li>
+<li class="chapter" data-level="4.4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-eelduste-kontroll"><i class="fa fa-check"></i><b>4.4</b> Mudeli eelduste kontroll</a></li>
+<li class="chapter" data-level="4.5" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-sobivus-model-fit"><i class="fa fa-check"></i><b>4.5</b> Mudeli sobivus (<em>model fit</em>)</a></li>
+</ul></li>
+<li class="part"><span><b>III Mõjude hindamine</b></span></li>
+<li class="chapter" data-level="5" data-path="5-kausaalsete-mõjude-hindamine.html"><a href="5-kausaalsete-mõjude-hindamine.html"><i class="fa fa-check"></i><b>5</b> Kausaalsete mõjude hindamine</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5-kausaalsete-mõjude-hindamine.html"><a href="5-kausaalsete-mõjude-hindamine.html#potentsiaalsed-tulemused"><i class="fa fa-check"></i><b>5.1</b> Potentsiaalsed tulemused</a></li>
+<li class="chapter" data-level="5.2" data-path="5-kausaalsete-mõjude-hindamine.html"><a href="5-kausaalsete-mõjude-hindamine.html#mõju-hindamise-meetodid"><i class="fa fa-check"></i><b>5.2</b> Mõju hindamise meetodid</a></li>
+<li class="chapter" data-level="5.3" data-path="5-kausaalsete-mõjude-hindamine.html"><a href="5-kausaalsete-mõjude-hindamine.html#sobitamine-ris"><i class="fa fa-check"></i><b>5.3</b> Sobitamine R’is</a></li>
+</ul></li>
+<li class="part"><span><b>IV Mitmetasandiline regressioon</b></span></li>
+<li class="chapter" data-level="6" data-path="6-mitmetasandiline-regressioon.html"><a href="6-mitmetasandiline-regressioon.html"><i class="fa fa-check"></i><b>6</b> Mitmetasandiline regressioon</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6-mitmetasandiline-regressioon.html"><a href="6-mitmetasandiline-regressioon.html#andmete-hierarhiline-struktuur"><i class="fa fa-check"></i><b>6.1</b> Andmete hierarhiline struktuur</a></li>
+<li class="chapter" data-level="6.2" data-path="6-mitmetasandiline-regressioon.html"><a href="6-mitmetasandiline-regressioon.html#mitmetasandiline-analüüs"><i class="fa fa-check"></i><b>6.2</b> Mitmetasandiline analüüs</a></li>
+<li class="chapter" data-level="6.3" data-path="6-mitmetasandiline-regressioon.html"><a href="6-mitmetasandiline-regressioon.html#mitmetasandilise-analüüsi-eeldused"><i class="fa fa-check"></i><b>6.3</b> Mitmetasandilise analüüsi eeldused</a></li>
+<li class="chapter" data-level="6.4" data-path="6-mitmetasandiline-regressioon.html"><a href="6-mitmetasandiline-regressioon.html#mitemtasandiline-analüüs-ris"><i class="fa fa-check"></i><b>6.4</b> Mitemtasandiline analüüs Ris</a></li>
+</ul></li>
+<li class="part"><span><b>V Valimiuuringud</b></span></li>
+<li class="chapter" data-level="7" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html"><i class="fa fa-check"></i><b>7</b> Valimiuuringud</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#tõenäosuslik-valim-probability-sample"><i class="fa fa-check"></i><b>7.1</b> Tõenäosuslik valim (probability sample)</a></li>
+<li class="chapter" data-level="7.2" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#kaalud"><i class="fa fa-check"></i><b>7.2</b> Kaalud</a></li>
+<li class="chapter" data-level="7.3" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#valimidisain"><i class="fa fa-check"></i><b>7.3</b> Valimidisain</a></li>
+<li class="chapter" data-level="7.4" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#tulemuste-valimidisaini-suhtes-korrigeerimine"><i class="fa fa-check"></i><b>7.4</b> Tulemuste valimidisaini suhtes korrigeerimine</a></li>
+<li class="chapter" data-level="7.5" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#küsitlusandmed-ris"><i class="fa fa-check"></i><b>7.5</b> Küsitlusandmed Ris</a></li>
+<li class="chapter" data-level="7.6" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#valimiandmete-analüüs"><i class="fa fa-check"></i><b>7.6</b> Valimiandmete analüüs</a></li>
+<li class="chapter" data-level="7.7" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#plausible-values"><i class="fa fa-check"></i><b>7.7</b> Plausible values</a></li>
+</ul></li>
+<li class="part"><span><b>VI SEM</b></span></li>
+<li class="chapter" data-level="8" data-path="8-struktuurivõrrandite-mudelid.html"><a href="8-struktuurivõrrandite-mudelid.html"><i class="fa fa-check"></i><b>8</b> Struktuurivõrrandite mudelid</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8-struktuurivõrrandite-mudelid.html"><a href="8-struktuurivõrrandite-mudelid.html#rajaanalüüs"><i class="fa fa-check"></i><b>8.1</b> Rajaanalüüs</a></li>
+<li class="chapter" data-level="8.2" data-path="8-struktuurivõrrandite-mudelid.html"><a href="8-struktuurivõrrandite-mudelid.html#faktoranalüüs"><i class="fa fa-check"></i><b>8.2</b> Faktoranalüüs</a></li>
+<li class="chapter" data-level="8.3" data-path="8-struktuurivõrrandite-mudelid.html"><a href="8-struktuurivõrrandite-mudelid.html#sruktuurivõrrandite-mudelid"><i class="fa fa-check"></i><b>8.3</b> Sruktuurivõrrandite mudelid</a></li>
+<li class="chapter" data-level="8.4" data-path="8-struktuurivõrrandite-mudelid.html"><a href="8-struktuurivõrrandite-mudelid.html#struktuurivõrrandite-mudelid-ris"><i class="fa fa-check"></i><b>8.4</b> Struktuurivõrrandite mudelid Ris</a></li>
+</ul></li>
+<li class="part"><span><b>VII Klasteranalüüs</b></span></li>
+<li class="chapter" data-level="9" data-path="9-klasteranalüüs.html"><a href="9-klasteranalüüs.html"><i class="fa fa-check"></i><b>9</b> Klasteranalüüs</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9-klasteranalüüs.html"><a href="9-klasteranalüüs.html#mis-see-klasteranalüüs-on"><i class="fa fa-check"></i><b>9.1</b> Mis see klasteranalüüs on?</a></li>
+<li class="chapter" data-level="9.2" data-path="9-klasteranalüüs.html"><a href="9-klasteranalüüs.html#hierarhiline-klasteranalüüs"><i class="fa fa-check"></i><b>9.2</b> Hierarhiline klasteranalüüs</a></li>
+<li class="chapter" data-level="9.3" data-path="9-klasteranalüüs.html"><a href="9-klasteranalüüs.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>9.3</b> K-keskmiste (k-means) klasterdamine</a></li>
+<li class="chapter" data-level="9.4" data-path="9-klasteranalüüs.html"><a href="9-klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>9.4</b> Klasteranalüüsi tulemi valiidsus</a></li>
+</ul></li>
+<li class="appendix"><span><b>LISA</b></span></li>
+<li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
+<li class="chapter" data-level="B" data-path="B-delta-meetod.html"><a href="B-delta-meetod.html"><i class="fa fa-check"></i><b>B</b> Delta meetod</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Kvantitatiivne andmeanalüüs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="klasteranalüüs" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Peatükk 9</span> Klasteranalüüs<a href="9-klasteranalüüs.html#klasteranalüüs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="mis-see-klasteranalüüs-on" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Mis see klasteranalüüs on?<a href="9-klasteranalüüs.html#mis-see-klasteranalüüs-on" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Klasteranalüüs võimaldab objekte mingite neid kirjeldavate tunnuste alusel grupeerida ehk moodustada neist klastreid. Eesmärgiks on grupeerida grupid nii, et objektid oleksid gruppide siseselt võimalikult sarnased ning gruppide vahel võimalikult erinevad.</p>
+<p>Kui me tahaksime 52 kaardilist kaardipakki jagada nelja gruppi, siis palju potentsiaalseid võimalusi meil seda teha oleks? Tuleb välja, et umbes <span class="math inline">\(8.450993 \times 10^{28}\)</span> võimalust. Aga mitu neist võimalustest oleksid tähenduslikud?</p>
+<p>Klasteranalüüsi eesmärgiks ongi leida nende potentsiaalselt lõputute grupeerimisvõimaluste seast sobivaim. Teoreetiliselt oleks võimalus leida parimad klastrid, kui proovida läbi kõik võimalikud kombinatsioonid ja mingite kriteeriumite alusel hinnata nende kombinatsioonide kvaliteeti ning seeläbi leida sobivaim (andmetega kõige enam sobituv) lahend. See oleks aga väga ressursimahukas. Seetõttu on klasterdamiseks arendatud teatavad heuristilised võtted, mis küll ei garanteeri kõige optimaalsemat lahendit, kuid siiski lahendi, mis on parem kui enamik.</p>
+<p>Klasteranalüüsi eesmärgid jagunevad laias laastus kaheks:</p>
+<ul>
+<li>Uuritava fenomeni mõistmine<br />
+</li>
+<li>Andmete komplekssuse vähendamine nende edasise analüüsi sisendiks</li>
+</ul>
+<p>Seega on klasteranalüüs eelkõige kirjeldav või abistav meetod. See ei ole otseselt mõeldud mõjude hindamiseks või hüpoteeside testimiseks (küll võib see olla sisendiks analüüsidele, mis seda teha võimaldavad, nagu näiteks regressioonanalüüsile). Seega on klasteranalüüs suhteliselt sarnane eksploratiivse faktoanalüüsiga (aga mitte kinnitava faktoranalüüsiga) ja peakomponentide meetodiga, mille eesmärkideks on samuti andmetes sisalduva kompleksuse vähendamine ja nn latentsete tunnuste otsimine. Aga kui faktoranalüüsi puhul on latentseteks tunnusteks pidevtunnuselised faktorid, siis klasteranalüüsi kontekstis otsitakse kategoriaalset latentset tunnust ehk mingit grupitunnust. Ja veel, kui faktoranalüüsiga üritame leida tunnuste vahelist ühisosa, siis klasteranalüüsiga üritame üldjuhul koodada sarnaseid vaatlusi (kuigi tegelikult saab klasterdada ka tunnuseid).</p>
+<p>Klasteranalüüsi kasutusvaldkond on väga lai. Näiteks:</p>
+<ul>
+<li>Bioinformaatika ja geenitehnoloogia - grueeritakse näiteks erinevaid geenikombinatsioone<br />
+</li>
+<li>Turundus - otsitrakse erinevaid tarbimismustrid (näiteks Netflix profileerib kasutajaid lähtuvalt vaatamisharjumustest)<br />
+</li>
+<li>Võrgustiku-uuringud - otsitakse näiteks sarnaseid kontaktide võrgustikke<br />
+</li>
+<li>Kriminoloogia - konstrueeritakse hälbivuse tüpoloogiaid, eristatakse kuritegelikke piirkondi sõltuvalt seal toime pandud kuritegude iseloomust<br />
+</li>
+<li>Kultuuriuuringud - tüpologiseeritakse inimesi sarnaste hoiakute või uskusmustega põhjal<br />
+</li>
+<li>Jne</li>
+</ul>
+<p>Nagu eelnevatest näidetest näha, siis leiab klasteranalüüs kasutust eelkõige olukordades, kus on tegemist suurte ja müraste andmemassiividega. Ehk siis tänapäeval, kus on järjest rohkem andmeid, mis tihti on suured ja mürased, on ka klasteranalüüs järjest aktuaalsem. Klasteranalüüs moodustabki oma olemuselt olulise osa masinõppest ja selle raames on on arendatud ja arendatakse pidevalt edasi mitmesuguseid keerukaid klasterdamisalgorütme. Meie aga vaatame järgnevalt paari lihtsamat ja nn “traditsioonilisemat” meetodit, mille rakendusvaldkonnaks võib vabalt olla ka tavalise küsitlusuuringu analüüs.</p>
+<div id="klasterdamismeetodid" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Klasterdamismeetodid<a href="9-klasteranalüüs.html#klasterdamismeetodid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Klasterdamismeetodid jagunevad üldjuhul kolme suuremasse kategooriasse:</p>
+<ul>
+<li><strong>Hierarhilised meetodid</strong>, kus me võtame algselt üksikud vaatlused ja hakkame neid lähtuvalt nende sarnasusest kokku panema</li>
+<li><strong>Mitte-hierarhilised ehk jaotavad (<em>partitioning</em>) meetodid</strong>, kus jaotame objektid erinevatesse klastritesse ja hindame mingi kriteeriumi alusel moodustunud klastrite sobivust andmetega</li>
+<li><strong>Mudelipõhised meetodid</strong>, kus käsitleme analüüsitavate tunnuste jaotusi alampopulatsioonide (klastrite) jaotuste summadena.</li>
+</ul>
+</div>
+<div id="kuidas-mõõta-objektide-erinevustsarnasust" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Kuidas mõõta objektide erinevust/sarnasust?<a href="9-klasteranalüüs.html#kuidas-mõõta-objektide-erinevustsarnasust" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Klasterdades grupeeritakse objekte lähtuvalt nendevaheliste erinevuste (<em>dissimilarity</em>) suurustest. Erinevuste kvantifitseerimiseks on mitmeid meetodeid, mille valik sõltub:</p>
+<ul>
+<li>tunnuste iseloomust (arvtunnus, kategoriaalne tunnus, binaarne tunnus);</li>
+<li>tunnuse skaalast (järjestus, intervall, nominaalne);</li>
+<li>uuritava nähtuse olemusest.</li>
+</ul>
+<p>Enim kasutatavad erinevuse mõõdikud on:</p>
+<ul>
+<li>ruumiline kaugus (näiteks eukleidiline kaugus või manhattan’i kaugus);</li>
+<li>korrelatsioon (näiteks Pearsoni, Spearmani või Kendalli korrealtsioon).</li>
+</ul>
+<p>Neist omakorda kõige levinum on <strong>eukleidiline kaugus</strong>:</p>
+<p><span class="math display">\[d(p,q) = \sqrt{(q_1-p_1)^2 + (q_2-p_2)^2 + \cdots + (q_n-p_n)^2}  = \sqrt{\sum_{i=1}^n (q_i-p_i)^2}\]</span></p>
+<p>Eukleidilise kauguse puhul on tgelikult tegemist kõige tavalisema, põhikoolist tuttava, Phytagorose teoreemiga, kus hüpotenuusi ruut võrdub kaatetide ruutude summaga. Eukleidiline kaugus kahe punkti vahel ongi see hüpotenuus ning kaatetideks on punktide kaugused erinevatel telgedel:</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Vaatame näitena andmestikku, kus vaatlusteks on Euroopa riigid, mis on eristatud kahe tunnuse - inglise keele ja saksa keele oskus alusel.</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-2-1.png" width="576" /></p>
+<p>Lähtuvalt neist kahest tunnusest saame arvutada kõikide riikide omavahelised kaugused. Näiteks Rootsi ja norra vaheline kaugus moodustub nii:</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>ehk siis:</p>
+<p><span class="math display">\[d(Norra, Rootsi) = \sqrt{(43-34)^2 + (25-19)^2} = \sqrt{81 + 36}  = 10.8\]</span></p>
+<p>Kahe riigi kaugus niisama ei ütle meile eriti midagi. Küll aga muutub see sisukaks siis, kui võrdleme seda teiste riikide vaheliste kaugustega. Seega tuleb meil välja arvutada kõikide riikide omavahelised kaugused ja moodutada neist nn <strong>kauguste maatriks</strong>.</p>
+<div class="tabwid"><style>.cl-26d617f0{}.cl-26c81c54{font-family:'Arial';font-size:8pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-26cd190c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-26cd1920{margin:0;text-align:left;margin-right:auto;writing-mode: vertical-rl;-ms-writing-mode:tb-rl;-webkit-writing-mode:vertical-rl;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-26cd4eea{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-26cd4ef4{width:0.15in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-26cd4efe{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-26cd4eff{width:0.15in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-26cd4f08{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-26cd4f09{width:0.15in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-26d617f0'><thead><tr style="overflow-wrap:break-word;"><th class="cl-26cd4eea"><p class="cl-26cd190c"><span class="cl-26c81c54">Riik</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Saksamaa</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Itaalia</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Prantusmaa</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Holland</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Belgia</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Luksemburg</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Suurbritannia</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Portugal</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Austria</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Šveits</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Rootsi</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Taani</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Norra</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Soome</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Hispaania</span></p></th><th class="cl-26cd4ef4"><p class="cl-26cd1920"><span class="cl-26c81c54">Iirimaa</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Saksamaa</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Itaalia</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">98.3</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Prantusmaa</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">93.6</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">6.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Holland</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">56.6</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">56.9</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">50.6</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Belgia</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">85.3</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">15</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">8.9</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">41.9</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Luksemburg</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">10</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">100.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">95.3</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">53.9</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">86.7</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Suurbritannia</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">122</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">95.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">90</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">71.3</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">86.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">115.8</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Portugal</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">100.7</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">5</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">7.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">56.9</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">15.8</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">102.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">91.3</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Austria</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">3</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">97.9</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">93.3</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">57.8</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">85.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">13</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">124</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">100.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Šveits</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">17</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">81.6</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">76.8</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">41.2</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">68.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">19.7</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">109.6</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">83.9</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">17.3</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Rootsi</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">78.2</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">43.9</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">37.6</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">22.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">30.7</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">76</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">59.8</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">42.2</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">79.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">62</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Taani</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">66.2</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">46.7</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">40.3</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">11.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">31.9</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">64.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">68.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">46.2</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">67.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">50</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">12.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Norra</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">82</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">33.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">26.8</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">28.9</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">20.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">81.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">67.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">31.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">82.6</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">65.3</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">10.8</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">17.5</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Soome</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">89.5</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">10.6</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">4.5</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">46.2</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">4.5</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">91</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">88.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">11.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">89.2</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">72.6</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">34</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">36.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">23.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4efe"><p class="cl-26cd190c"><span class="cl-26c81c54">Hispaania</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">100.3</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">2</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">7.8</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">58.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">16.6</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">102.4</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">95.2</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">4.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">99.8</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">83.5</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">44.9</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">48.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">34.1</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">12.2</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td><td class="cl-26cd4eff"><p class="cl-26cd190c"><span class="cl-26c81c54"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-26cd4f08"><p class="cl-26cd190c"><span class="cl-26c81c54">Iirimaa</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">126.7</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">95</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">90.2</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">74.8</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">87.1</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">120.7</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">6</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">91</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">128.5</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">113.9</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">61.8</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">71.2</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">68.4</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">88.6</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">95</span></p></td><td class="cl-26cd4f09"><p class="cl-26cd190c"><span class="cl-26c81c54">0</span></p></td></tr></tbody></table></div>
+<p>Miks meil seda üldse vaja on? Saame ju punktdiagrammilt silmagagi näha millised riigid on üksteisest kaugemal ja millised lähemal. Kahe tunnuse ehk dimensiooni puhul on see tõesti nii. Ka kolme tunnuse/dimensiooni puhul saame hakkama. Aga kui meil oleks neli tunnust? Või 100 tunnust? Kauguste maatriksi saame aga arvutada ka 100 tunnuse puhul, kirjeldes sellega 100-dimensionaalset ruumi.</p>
+</div>
+</div>
+<div id="hierarhiline-klasteranalüüs" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Hierarhiline klasteranalüüs<a href="9-klasteranalüüs.html#hierarhiline-klasteranalüüs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hierarhilised klasteranalüüsi loogika on järgmine:</p>
+<ol style="list-style-type: decimal">
+<li>Alustatakse individuaalsetest objektidest, kus iga objekt on algselt üks klaster</li>
+<li>Kaks kõige sarnasemat klastrit (lähtuvalt nendevahelisest kaugusest) grupeeritakse kokku</li>
+<li>Klastrite grupeerimist jätkatakse kuni on alles vaid üks klaster</li>
+</ol>
+<p>Graafiliselt näeb see välja nii:</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-5-1.png" width="576" /></p>
+<p>Taolist klastrite moodustamise joonist nimetatakse <strong>dendogrammiks</strong>.</p>
+<div id="klastrite-ühendamise-meetodid-linkage" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Klastrite ühendamise meetodid (<em>linkage</em>)<a href="9-klasteranalüüs.html#klastrite-ühendamise-meetodid-linkage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kuid nüüd tekib üks probleem. Esimese tasandi puhul, kus iga objekt on omaette klastris, on asjad lihtsad - paneme kokku need klastrid, milledes olevate objektide omavaheline kaugus on väikseim. Kuid kuidas me hindame klastrite vahelist kaugust, kui klastrites on rohkem kui üks objekt? Näiteks mis on Rootsi ja Norra klastri ning Hollandi ja Taani klastri omavaheline kaugus?</p>
+<p>Selleks puhuks on välja mõeldud vastavad erinevad klastrite ühendamise meetodid. Neid on suhteliselt palju kuid toome mõned näitena ära:</p>
+<p><strong>Single linkage</strong>, kus klastrite vaheline kaugus tuletatakse klastrite kõige lähemate objektide omavahelisest kaugusest:</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-6-1.png" width="1500" /></p>
+<p><strong>Complete linkage</strong>, kus klastrite vaheline kaugus tuletatakse klastrite kõige kaugemate objektide omavahelisest kaugusest:</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-7-1.png" width="3000" /></p>
+<p><strong>Centroid linkage</strong>, kus klastrite vaheline kaugus tuletatakse klastrite objektide keskpunktide omavahelisest kaugusest:</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-8-1.png" width="3000" /></p>
+<p>Kõige populaarsem ja parimaid tulemusi andma kippuv meetod on aga vist Wardi meetod, kus pannakse kokku need klastrid, mille puhul klastrite sisese variatiivsuse kasv on minimaalne.</p>
+</div>
+<div id="klastrite-arvu-valik" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Klastrite arvu valik<a href="9-klasteranalüüs.html#klastrite-arvu-valik" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kui oleme klasteranalüüsi läbi viinud, ehk siis arvutanud kauguste maatriksi ja selle põhjal mingi klastrite ühendamise meetodiga tuletanud klasterlahendi (ehk siis tegelikult selle eelnevalt toodud dendogrammi), siis mis edasi? Hierahilise klasteranalüüsi puhul on meil alati kõige kõrgemal tasandil lõpuks üks klaster. Sellega ei ole aga midagi tarka peale hakata.</p>
+<p>Järgmiseks etapiks olekski klastrite arvu määramine. See on aga puhtalt subjektiivne tegevust. On küll olemas mõned meetodid ja testid, millega optimaalset klastrite arvu määrata, kuid need kipuvad tihti vastakaid tulemusi andma. Ehk siis lõppkokkuvõttes tuleb klastrite arvu valik meil ikkagi ise teha ja selle eest ka vastutada. Klastrite defineerimiseks tuleb meil lihtsalt dendogrammist joon läbi tõmmata, misläbi määrame ära, et objektid, mis on joonest allpool ühendatud, kuuluvad samasse klastrisse. Ja objektid, mille ühenduskoht jääb joonest kõrgemale, kuuluvad erinevatesse klastritesse.</p>
+<p>Eelneva näite puhul tundub kõige mõistlikum see joon tõmmata nelja klastrilise lahendi kõrguselt.</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-9-1.png" width="576" /></p>
+</div>
+<div id="hierarhilise-klasteranalüüsi-puudused" class="section level3 hasAnchor" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> Hierarhilise klasteranalüüsi puudused<a href="9-klasteranalüüs.html#hierarhilise-klasteranalüüsi-puudused" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Lahendi leidmine on arvutuslikult väga ressursimahukas</li>
+<li>Klastrite arvu määramine on väga subjektiivne</li>
+<li>Tulemus sõltub väga palju erinevuse mõõtmise meetodist ning klastrite ühendamise meetodist</li>
+</ul>
+</div>
+</div>
+<div id="k-keskmiste-k-means-klasterdamine" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> K-keskmiste (k-means) klasterdamine<a href="9-klasteranalüüs.html#k-keskmiste-k-means-klasterdamine" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>K-kesmiste klasterdamise puhul tuleb enne meetodi rakendamist teada mitut klastrit tahetakse. Seejärel jaotab klasterdamisalgoritm kõik klasterdatavad objektid vastavalt määratud klastrite arvule klastritesse. Ja teeb seda nii, et objektid klastrite sees oleksid võimalikult sarnased ning klastrite vahel võimalikult erinevad. Tegemist on hästi lihtsa algoritmiga, mis tähendab et see ei nõua eriti palju uarvutuslikku ressurssi ja sobib seetõttu ka suurte andmestike puhul</p>
+<p>K-keskmiste algoritm lähtub järgmistest sammudest:</p>
+<ol style="list-style-type: decimal">
+<li>Määratakse klastrite arv</li>
+<li>Valitakse juhuslikud klastrite keskpunktid (tsentroidid)</li>
+<li>Igale objektile arvutatakse kaugus kõikidest klastrist ja objekt määratakse lähimasse klastrisse</li>
+<li>Igale klastrile arvutatakse uus tsentroid (seega juhuslikud keskpunktid asendatakse objektidest lähtuvate keskpunktidega)</li>
+<li>Iga objekti kaugus kõigi klastrite keskpunktidest arvutatakse uuesti ja objektid määratakse jälle lähimasse klastrisse</li>
+<li>Arvutatakse jälle uued klastrite keskpunktid</li>
+<li>Punkte 5 ja 6 korratakse nii kaua, kuni objektid enam klastrite vahel ei liigu</li>
+</ol>
+<p>Käime need sammud juba eelnevalt vaadatud riikide keelteoskuse näidet aluseks võttes läbi:</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Eeldame, et riigid jaotuvad nelja klastrisse (selle eelduse tegemisel võib aluseks olla meie eelnev valdkonnateadmine, hierarhilise klasteranalüüsi tulem vms). Jaotame esmalt kõik riigi suvaliselt nende nelja klastri vahel.</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Seejärel arvutame igale (suvalisele) klastrile keskpunkti. Klastri keskpunktiks on lihtsalt klastrisse kuuluvate objektide keskmised koordinaadid. Kahe tunnuse korral on keskpunkt määratletud kahe dismensiooni koordinaatidega. Meil on iga klastri jaoks vaja leida selle objektide keskmine x-väärtus ja keskmine y-väärtus.</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Järgmisena grupeerime kõik objektid ümber lähtuvalt sellest, millise klastri keskpunkt neile kõige lähemal on.</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Ja arvutame uuesti klastrite keskpunktid.</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Ning grupeerime jälle objektid ümber lähtuvalt neile kõige lähemast klastri keskpunktist.</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>Arvutame uuesti klastrite keskpunktid.</p>
+<p><img src="07-klaster_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Teeme seda seni kuni objektid enam klastrite vahel ei liigu. Antud näite puhul kuluks selleks kaks ümbergrupeerimist ehk kaks iteratsiooni. Rohkemate objektide ja rohkemate dimensioonide korral tuleb neid iteratsioone muidugi rohkem, kuid loogika jääb alati samaks.</p>
+<div id="k-keskmiste-klasteranalüüsi-puudused" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> K-keskmiste klasteranalüüsi puudused<a href="9-klasteranalüüs.html#k-keskmiste-klasteranalüüsi-puudused" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>K-keskmiste algoritm üritab minimeerida ruuthälvete summat, st objektide hälbeid klastrite keskpunktidest. Eesmärgiks on leida lahend, millest vähema ruuthälvete summadega lahendit ei ole. Seda eesmärki on reaalsuses aga küllaltki raske tagada. Tihti on lahendiks nn lokaalne optimum, samas kui meie otsime nn globaalset optiumi. See tuleneb sellest, et algne klastritesse määramine on juhuslik ning puhtalt juhuslikult võime me objektid esialgsetesse klastritesse jagada nii, et globaalselt optimaalse, ehk parima võimaliku tulemi saavutamine ei ole võimalik. Seetõttu peaks iga mudelit erinevate juhuslike algväärtustega mitmeid kordi jooksutama ning kui tulemid erinevad, siis valima lahendi, mida esineb kõige rohkem.</p>
+<p>Kuna klastrite arv peab olema teada enne klasterdamist, siis ei saa me olla kindlad, et meie määratud klastrite arv on optimaalne. Siin on lahenduseks jälegi mitmete erinevate klastrite arvudega mudelite jooksutamine. Siin on abiks jällegi erinevad testid ja diagnostikad, millega erinevatest mudelitest parim välja valida.</p>
+<p>K-keskmiste klasterdamine ei toimi hästi mürase andestike ja erindite korral ning ei sobi ebakonventsionaalsete kujudega klastrite leidmiseks. Kuna meetod lähtub klastrite keskpunktidest, siis eeldab see et kõik konkreetse klastri objektid on suhteliselt ühtlaselt selle keskpunkti ümber kogunenud.</p>
+</div>
+</div>
+<div id="klasteranalüüsi-tulemi-valiidsus" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Klasteranalüüsi tulemi valiidsus<a href="9-klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Klasterdamine on eelkõige eksploratiivne analüüs. Kuid tulemused, et neist saaks sisukaid järeldusi teha, peavad siiski olema mingil viisil valideeritud. Eelkõige peavad tulemused olema stabiilsed. Selle tagamiseks võib:
+- Jagades andmed kaheks ja proovida meetodit mõlema osa peal
+- Kasutades mitut erinevat meetodit</p>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="8-struktuurivõrrandite-mudelid.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

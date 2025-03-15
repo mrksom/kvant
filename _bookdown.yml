@@ -13,9 +13,9 @@ rmd_files:
 - 01-regressioon.Rmd
 - 02-logit.Rmd
 - 03-poisson.Rmd
+- 08-mojude_hindamine.Rmd
 - 04-multilevel.Rmd
 - 05-survey.Rmd
 - 06-sem.Rmd
 - 07-klaster.Rmd
-- 08-mojude_hindamine.Rmd
 - 66-lisad.Rmd

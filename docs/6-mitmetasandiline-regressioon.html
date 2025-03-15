@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Peatükk 6 Mitmetasandiline regressioon | Kvantitatiivne andmeanalüüs</title>
+  <meta name="description" content="Peatükk 6 Mitmetasandiline regressioon | Kvantitatiivne andmeanalüüs" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Peatükk 6 Mitmetasandiline regressioon | Kvantitatiivne andmeanalüüs" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Peatükk 6 Mitmetasandiline regressioon | Kvantitatiivne andmeanalüüs" />
+  
+  
+  
+
+<meta name="author" content="Marko Sõmer" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="5-kausaalsete-mõjude-hindamine.html"/>
+<link rel="next" href="7-valimiuuringud.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="assets/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="assets/tabwid-1.1.3/tabwid.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="custom/custom_styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class='before'><a href="./">Kvant</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Alustuseks</a></li>
+<li class="part"><span><b>I Meeldetuletus</b></span></li>
+<li class="chapter" data-level="1" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus R-i</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#päris-algus"><i class="fa fa-check"></i><b>1.1</b> Päris algus</a></li>
+<li class="chapter" data-level="1.2" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#andmetega-töötamine"><i class="fa fa-check"></i><b>1.2</b> Andmetega töötamine</a></li>
+<li class="chapter" data-level="1.3" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#r-markdown"><i class="fa fa-check"></i><b>1.3</b> R markdown</a></li>
+<li class="chapter" data-level="1.4" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#andmegraafika"><i class="fa fa-check"></i><b>1.4</b> Andmegraafika</a></li>
+<li class="chapter" data-level="1.5" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#edasiseks-lugemiseks"><i class="fa fa-check"></i><b>1.5</b> Edasiseks lugemiseks</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html"><i class="fa fa-check"></i><b>2</b> Lineaarne regressioon</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#lihtne-lineaarne-regressioon"><i class="fa fa-check"></i><b>2.1</b> Lihtne lineaarne regressioon</a></li>
+<li class="chapter" data-level="2.2" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioon-r-is"><i class="fa fa-check"></i><b>2.2</b> Regressioon R-is</a></li>
+<li class="chapter" data-level="2.3" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressiooni-jäägid"><i class="fa fa-check"></i><b>2.3</b> Regressiooni jäägid</a></li>
+<li class="chapter" data-level="2.4" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-sobitumine"><i class="fa fa-check"></i><b>2.4</b> Regressioonimudeli sobitumine</a></li>
+<li class="chapter" data-level="2.5" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kategoriaalsed-tunnused-regressioonis"><i class="fa fa-check"></i><b>2.5</b> Kategoriaalsed tunnused regressioonis</a></li>
+<li class="chapter" data-level="2.6" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mitmene-regressioon"><i class="fa fa-check"></i><b>2.6</b> Mitmene regressioon</a></li>
+<li class="chapter" data-level="2.7" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#koosmõjud"><i class="fa fa-check"></i><b>2.7</b> Koosmõjud</a></li>
+<li class="chapter" data-level="2.8" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mudelite-võrdlemine"><i class="fa fa-check"></i><b>2.8</b> Mudelite võrdlemine</a></li>
+<li class="chapter" data-level="2.9" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-eeldused"><i class="fa fa-check"></i><b>2.9</b> Regressioonimudeli eeldused</a></li>
+<li class="chapter" data-level="2.10" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kuidas-eelduste-täidetust-hinnata"><i class="fa fa-check"></i><b>2.10</b> Kuidas eelduste täidetust hinnata?</a></li>
+<li class="chapter" data-level="2.11" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#tunnuste-transformatsioonid"><i class="fa fa-check"></i><b>2.11</b> Tunnuste transformatsioonid</a></li>
+</ul></li>
+<li class="part"><span><b>II Üldistatud lineaarsed mudelid</b></span></li>
+<li class="chapter" data-level="3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html"><i class="fa fa-check"></i><b>3</b> Logistiline regressioon</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-funktsioon"><i class="fa fa-check"></i><b>3.1</b> Logistiline funktsioon</a></li>
+<li class="chapter" data-level="3.2" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.2</b> Logit mudel</a></li>
+<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.3</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.4</b> Mudeli kvaliteet</a></li>
+<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.5</b> Predict</a></li>
+<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.6</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.7</b> Prognoosi täpsus</a></li>
+<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-eeldused"><i class="fa fa-check"></i><b>3.8</b> Mudeli eeldused</a></li>
+<li class="chapter" data-level="3.9" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#cross-validation"><i class="fa fa-check"></i><b>3.9</b> Cross-validation</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html"><i class="fa fa-check"></i><b>4</b> Poissoni regressioon</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-tõlgendus-1"><i class="fa fa-check"></i><b>4.1</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="4.2" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#poissoni-regressiooni-eeldused"><i class="fa fa-check"></i><b>4.2</b> Poissoni regressiooni eeldused</a></li>
+<li class="chapter" data-level="4.3" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-hindamine-r-is"><i class="fa fa-check"></i><b>4.3</b> Mudeli hindamine R-is</a></li>
+<li class="chapter" data-level="4.4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-eelduste-kontroll"><i class="fa fa-check"></i><b>4.4</b> Mudeli eelduste kontroll</a></li>
+<li class="chapter" data-level="4.5" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-sobivus-model-fit"><i class="fa fa-check"></i><b>4.5</b> Mudeli sobivus (<em>model fit</em>)</a></li>
+</ul></li>
+<li class="part"><span><b>III Mõjude hindamine</b></span></li>
+<li class="chapter" data-level="5" data-path="5-kausaalsete-mõjude-hindamine.html"><a href="5-kausaalsete-mõjude-hindamine.html"><i class="fa fa-check"></i><b>5</b> Kausaalsete mõjude hindamine</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5-kausaalsete-mõjude-hindamine.html"><a href="5-kausaalsete-mõjude-hindamine.html#potentsiaalsed-tulemused"><i class="fa fa-check"></i><b>5.1</b> Potentsiaalsed tulemused</a></li>
+<li class="chapter" data-level="5.2" data-path="5-kausaalsete-mõjude-hindamine.html"><a href="5-kausaalsete-mõjude-hindamine.html#mõju-hindamise-meetodid"><i class="fa fa-check"></i><b>5.2</b> Mõju hindamise meetodid</a></li>
+<li class="chapter" data-level="5.3" data-path="5-kausaalsete-mõjude-hindamine.html"><a href="5-kausaalsete-mõjude-hindamine.html#sobitamine-ris"><i class="fa fa-check"></i><b>5.3</b> Sobitamine R’is</a></li>
+</ul></li>
+<li class="part"><span><b>IV Mitmetasandiline regressioon</b></span></li>
+<li class="chapter" data-level="6" data-path="6-mitmetasandiline-regressioon.html"><a href="6-mitmetasandiline-regressioon.html"><i class="fa fa-check"></i><b>6</b> Mitmetasandiline regressioon</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6-mitmetasandiline-regressioon.html"><a href="6-mitmetasandiline-regressioon.html#andmete-hierarhiline-struktuur"><i class="fa fa-check"></i><b>6.1</b> Andmete hierarhiline struktuur</a></li>
+<li class="chapter" data-level="6.2" data-path="6-mitmetasandiline-regressioon.html"><a href="6-mitmetasandiline-regressioon.html#mitmetasandiline-analüüs"><i class="fa fa-check"></i><b>6.2</b> Mitmetasandiline analüüs</a></li>
+<li class="chapter" data-level="6.3" data-path="6-mitmetasandiline-regressioon.html"><a href="6-mitmetasandiline-regressioon.html#mitmetasandilise-analüüsi-eeldused"><i class="fa fa-check"></i><b>6.3</b> Mitmetasandilise analüüsi eeldused</a></li>
+<li class="chapter" data-level="6.4" data-path="6-mitmetasandiline-regressioon.html"><a href="6-mitmetasandiline-regressioon.html#mitemtasandiline-analüüs-ris"><i class="fa fa-check"></i><b>6.4</b> Mitemtasandiline analüüs Ris</a></li>
+</ul></li>
+<li class="part"><span><b>V Valimiuuringud</b></span></li>
+<li class="chapter" data-level="7" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html"><i class="fa fa-check"></i><b>7</b> Valimiuuringud</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#tõenäosuslik-valim-probability-sample"><i class="fa fa-check"></i><b>7.1</b> Tõenäosuslik valim (probability sample)</a></li>
+<li class="chapter" data-level="7.2" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#kaalud"><i class="fa fa-check"></i><b>7.2</b> Kaalud</a></li>
+<li class="chapter" data-level="7.3" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#valimidisain"><i class="fa fa-check"></i><b>7.3</b> Valimidisain</a></li>
+<li class="chapter" data-level="7.4" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#tulemuste-valimidisaini-suhtes-korrigeerimine"><i class="fa fa-check"></i><b>7.4</b> Tulemuste valimidisaini suhtes korrigeerimine</a></li>
+<li class="chapter" data-level="7.5" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#küsitlusandmed-ris"><i class="fa fa-check"></i><b>7.5</b> Küsitlusandmed Ris</a></li>
+<li class="chapter" data-level="7.6" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#valimiandmete-analüüs"><i class="fa fa-check"></i><b>7.6</b> Valimiandmete analüüs</a></li>
+<li class="chapter" data-level="7.7" data-path="7-valimiuuringud.html"><a href="7-valimiuuringud.html#plausible-values"><i class="fa fa-check"></i><b>7.7</b> Plausible values</a></li>
+</ul></li>
+<li class="part"><span><b>VI SEM</b></span></li>
+<li class="chapter" data-level="8" data-path="8-struktuurivõrrandite-mudelid.html"><a href="8-struktuurivõrrandite-mudelid.html"><i class="fa fa-check"></i><b>8</b> Struktuurivõrrandite mudelid</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8-struktuurivõrrandite-mudelid.html"><a href="8-struktuurivõrrandite-mudelid.html#rajaanalüüs"><i class="fa fa-check"></i><b>8.1</b> Rajaanalüüs</a></li>
+<li class="chapter" data-level="8.2" data-path="8-struktuurivõrrandite-mudelid.html"><a href="8-struktuurivõrrandite-mudelid.html#faktoranalüüs"><i class="fa fa-check"></i><b>8.2</b> Faktoranalüüs</a></li>
+<li class="chapter" data-level="8.3" data-path="8-struktuurivõrrandite-mudelid.html"><a href="8-struktuurivõrrandite-mudelid.html#sruktuurivõrrandite-mudelid"><i class="fa fa-check"></i><b>8.3</b> Sruktuurivõrrandite mudelid</a></li>
+<li class="chapter" data-level="8.4" data-path="8-struktuurivõrrandite-mudelid.html"><a href="8-struktuurivõrrandite-mudelid.html#struktuurivõrrandite-mudelid-ris"><i class="fa fa-check"></i><b>8.4</b> Struktuurivõrrandite mudelid Ris</a></li>
+</ul></li>
+<li class="part"><span><b>VII Klasteranalüüs</b></span></li>
+<li class="chapter" data-level="9" data-path="9-klasteranalüüs.html"><a href="9-klasteranalüüs.html"><i class="fa fa-check"></i><b>9</b> Klasteranalüüs</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9-klasteranalüüs.html"><a href="9-klasteranalüüs.html#mis-see-klasteranalüüs-on"><i class="fa fa-check"></i><b>9.1</b> Mis see klasteranalüüs on?</a></li>
+<li class="chapter" data-level="9.2" data-path="9-klasteranalüüs.html"><a href="9-klasteranalüüs.html#hierarhiline-klasteranalüüs"><i class="fa fa-check"></i><b>9.2</b> Hierarhiline klasteranalüüs</a></li>
+<li class="chapter" data-level="9.3" data-path="9-klasteranalüüs.html"><a href="9-klasteranalüüs.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>9.3</b> K-keskmiste (k-means) klasterdamine</a></li>
+<li class="chapter" data-level="9.4" data-path="9-klasteranalüüs.html"><a href="9-klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>9.4</b> Klasteranalüüsi tulemi valiidsus</a></li>
+</ul></li>
+<li class="appendix"><span><b>LISA</b></span></li>
+<li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
+<li class="chapter" data-level="B" data-path="B-delta-meetod.html"><a href="B-delta-meetod.html"><i class="fa fa-check"></i><b>B</b> Delta meetod</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Kvantitatiivne andmeanalüüs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mitmetasandiline-regressioon" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Peatükk 6</span> Mitmetasandiline regressioon<a href="6-mitmetasandiline-regressioon.html#mitmetasandiline-regressioon" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="andmete-hierarhiline-struktuur" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Andmete hierarhiline struktuur<a href="6-mitmetasandiline-regressioon.html#andmete-hierarhiline-struktuur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Valdav osa meie uuritavatest nähtustest ning uurimisobjektidest on mingil määral hierarhiliselt struktureeritud või klasterdunud:</p>
+<ul>
+<li>õpilased klasside kaupa</li>
+<li>patsiendid eri arstide juures</li>
+<li>elanikud linnaosades, linnades, regioonides jne</li>
+<li>töötajad ettevõetetes</li>
+<li>paneeluuringutes (longituuduuringutes) vaatluskorrad inimeste kaupa</li>
+<li>jne</li>
+</ul>
+<p>Vaatlused klastrite sees kipuvad olema sarnasemad kui klastrite vahel. Samas klassis õppivaid õpilasi ühendavad samad õpetajad ja nende kasutatavad õppemeetodid ning õppematerjalid, üldine klassi mentaliteet jms. Taolised ühised kogemused ühendavad sama klassi õpilasi ja samas eristavad neid teiste klasside õpilastest. Kui näiteks tahame mõõta õpilaste lugemust, ning hinnata, kuivõrd seda mõjutab lapse vanemate kultuuriline kapital, siis peame korrektsete järelduste tegemiseks seda klassidesisest sarnasust ja klassidevahelist erinevust arvesse võtma. Klassis, kus on hea kirjanduse õpetaja või lugemist väärtustav keskkond, võivad ka madala kultuurilise kapitaliga vanemate lapsed lugeda märksa rohkem kui mõnes teises klassis vähem lugemist soodustavas keskkonnas õppivad kõrge kultuurilise kapitaliga vanemate lapsed.</p>
+<p>Võib-olla kõige selgemini on vaatluste hierarhiline struktuur tajutav longituudandmete puhul, kus me mõõdame või vaatleme mingeid omadusi või nähtusi samade respondentide puhul mitmeid kordi mingi aja jooksul. Ehk siis kui tahame näiteks teada kuidas lugemisharjumused muutuvad üle aja, siis võime võime võtta juhuvalimina 100 inimest ning küsida kümne aasta jooksul igal aastal nende selle aasta lugemuse kohta. Nii toimides oleks meil lõpuks koos 1000 erinevat vaatlust või vastust. Kuid on ju ilmne, et me ei saa kõiki neid tuhandet vaatlust sõltumatutena käsitleda. Inimesed, kellele meeldib lugeda, teevad seda tõenäoliselt igal aastal ning inimesed, kes eelistavad muul viisil aega veeta, loevad igal aastal vähem.</p>
+<p>Seega andmete hierarhilist struktuuri ja loomulikku klasterdumist arvesse võtmata ei ole meil võimalik korrektselt mingeid mõjusid või tendentse hinnata, sest need mõjud <strong>sõltuvad</strong> klastreid ühendavatest karakteristikutest. See aga tähendab, et tavaline lineaarne regressioon taoliste mõju hindamiseks ei sobi. Nimelt oli lineaarse regressiooni üheks eelduseks vaatluste (ja jääkide) sõltumatus. Kui me selle eeldustega ei arvesta, siis võivad efektide standardvead olla liiga väikesed, mistõttu võime näha statistiliselt olulisi seoseid seal kus neid tegelikult ei ole.</p>
+<p>Mõningatel eriti hulludel juhtudel võivad lisaks standardvigadele olla valed ka regressiooniseosed ise. Sellisel puhul oleksid meie järelduse mitte ainult ebatäpsed vaid totaalselt valed. Vaatame järgmist näidet, kus on matemaatikatestiks õppimisele kulunud aja kaudu üritatakse seletada testi tulemust<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>. Kasutame hinnanguks kõigepealt tavalist lineaarset regressiooni:</p>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Tulemused tundub kuidagi väga imelikud. Mida kauem õpitakse, seda halvem on testi skoor. Kuida seda seletada? Asi on selles, et tegemist on kolme erineva klassi õpilastega, kelle matemaatilised oskused on suhteliselt erinevad:</p>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Kui me seda klasside erinevust arvesse võtame ja igas klassis eraldi regressioonivõrrandi hindame, on tulemused juba märgatavalt loogilisemad:</p>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Kõikides klassides eraldivõetuna on seos õppimisele kulunud aja ja testitulemuse vahel ikkagi positiivne. Lihtsalt korrelatsioonikoefitsiendi suurus (sirge tõus) ja vabaliige (sirge lõikumine <span class="math inline">\(y\)</span>-teljega kui <span class="math inline">\(x\)</span> on 0) on kõikides klassides erinev. Seega antud näite puhul oleks meie järeldused, kui me andmete hierarhilist struktuuri arvesse ei võtaks, vastupidised tegelikule olukorrale. Taolist olukorda nimetatakse Simpsoni paradoksiks. Näide on loomulikult mõnevõrra utreeritud, kuid illustreerib hästi andmestiku hierarhilise struktuuriga arvestamise vajalikkust.</p>
+<div id="mida-me-uurida-tahame" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Mida me uurida tahame?<a href="6-mitmetasandiline-regressioon.html#mida-me-uurida-tahame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mida siis teha, kui me teame või eeldame, et meie uurimisobjektid on hierarhiliselt struktureeritud või moodustavad mingite karakteristikute alustel gruppe? Võimalusi on tegelikult mitmeid ning valik nende võimaluste seast sõltub eelkõige nenede hierarhiate või gruppide iseloomust, aga ka sellest, mis meid konkreetselt huvitab.</p>
+<p>Klasterdavatest tunnustest lähtuvalt saame analüüsiühikud jagada tasanditeks. <strong>Esimese tasandi analüüsiühikud</strong> on need mida või keda me otseselt vaatleme või küsitleme. <strong>Teise tasandi analüüsiühikud</strong> grupid, millesse esimese tasandi ühikud kuuluvad. Näiteks kui õpilased on esimese tasandi analüüsiühikud, siis klassid on teise tasandi analüüsiühikud. Või kui patsiendid on esimene tasand, siis neid ühendavad arstid on teine tasand. Tasandeid võib loomulikult olla ka rohkem. Õpilaste puhul saavad kolmandaks tasandiks olla näiteks koolid, neljandaks tasandiks riigid jne.</p>
+<ol style="list-style-type: decimal">
+<li><p>Meie uurimishuvi võib seisneda ainult esimese tasandi mõjude hindamises. Sellisel juhul käitleme teisi tasandeid lihtsalt takistustena, mida peame oma esimese tasandi analüüsis arvesse võtma, kuid mis meid eraldiseisvalt ei huvita (kas õppimisele kulunud aeg üldiselt mõjutab testitulemust). Võime lihtsalt olla huvitatud ka sellest, kas esimese tasandi mõju on võimalik eristada struktuursetest teguritest (teise tasandi mõjust).</p></li>
+<li><p>Meie uurimishuvi võib seisneda ka teise tasandi mõjude hindamisel esimese tasandi väljunditele. Ehk siis kas makrotasandi tegurid mõjutavad indiviiditasandi väljundeid (arvestades sealjuures ka indiviidide erinevusi). Näiteks kas klassi tüüp mõjutab testitulemusi.</p></li>
+<li><p>Lõuks võib meie uurimishuvi seisneda ka teise tasandi tegurite mõjus esimese tasandi mõjudele. Kas klassi tüüp mõjutab seost õppimisele kulunud aja ja testitulemuse vahel? Või kas klassis kasutusel olev õppekava maht mõjutab õppimisele kulunud aja ja testitulemuste vahelist seost? Ehk siis kas mingid struktuursed tegurid mõjutavad indiviiditasandi mõjusid.</p></li>
+</ol>
+</div>
+<div id="kuidas-vaatluste-hierahilisust-analüüsis-arvesse-võtta" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Kuidas vaatluste hierahilisust analüüsis arvesse võtta?<a href="6-mitmetasandiline-regressioon.html#kuidas-vaatluste-hierahilisust-analüüsis-arvesse-võtta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Õppimisele kulunud aja ja testitulemuste seoste näite puhul, ehk siis olukorras, kus grupitunnuse kategooriaid on suhteliselt vähe (näites oli neid ainult kolm), oleks kõige mõistlikum kasutada tavalist lineaarset regressiooni, kuid kaasta grupeeriv tunnus sõltumatu tunnusena mudelisse. Sellisel juhul on meil tegemist tavalise mitmese regressiooniga (taolist mudelit, kus meil on nii pidev kui kategoriaalne sõltumatu tunnus, nimetatakse ka ANCOVA (<em>Analysis of Covariane</em>) mudeliks). Kui me kaasame mudelisse ka sõltumatute tunnuste vahelised interaktsioonid, saame hinnata ka seda, kas erinevate gruppide regressioonikoefitsiendid erinevad (ehk siis kas gruppide regressioonisirgete tõusud erinevad). Kõnealuses näites see nii ka oli.</p></li>
+<li><p>Kui gruppe on natukene rohkem (näiteks 15 gruppi) ja meid huvitvad eelkõige vaid esimese tasandi mõjud (ehk siis meid ei huvita kuidas grupeeriv tunnus meie uuritavat mõju mõjutab või me eeldame, et ta seda ei mõjuta), siis saame kasutada <strong>fikseeritud mõjudega mudelit</strong> (<em>fixed effects model</em>). Näiteks tahame küsitlusandmetega uurida kuidas sissetulekute suurused mõjutavad eluga rahulolu, kuid kuna meie valim on riigiülene, siis peaksime arvestama piirkondlike (näiteks maakondlike) erinevustega sissetulekute suurustes. Meid ei huvita niiväga see sissetulekute erinevus, kuivõrd üldine sissetulekute mõju rahulolule. Seega tahame lihtsalt oma tulemust piirkondlike erinevuste suhtes kontrollida. Fikseeritud mõjudega mudel on tegelikult jällegi tavaline regressioonimudel, millesse on kaasatud grupeeriv kategoriaalne tunnus. Kategoriaalne sõltumatu tunnus on regressioonimudelis alati <em>dummy</em>-tunnusena, (see tähendab et kui meil on näiteks 15 kategooriat, siis peame sellest tegema (või no R teeb) 14 binaarset tunnust, mille kaudu meil on kõik 15 kategooriat defineeritud). Seega, kui tahame hinnata mingi sõltumatu pidevtunnuse mõju sõltuvale tunnusele ning andmestiku hierarhilise struktuuri tõttu lisame sinna ka 15 kategooriaga kategoriaalse tunnuse, siis saame mudeli tulemina 15 regressioonikoefitsienti (1 pidevtunnuse koefitsient ja 14 grupeeriva tunnuse koefitsienti). Muidugi võime ka neid neid kategoriaalsete tunnuste koefitsiente tõlgendada (need näitavad kuidas gruppide keskmised referentsgategooriast erinevad), kuid üldjuhul tahame sellise mudeliga lihtsalt oma uuritavat mõju grupeeriva tunnuse suhtes kontrollida (leida grupeerivast tunnusest sõltumatut mõju). Taolise mudeli puhul eeldame vaikimisi, et meie uuritav mõju on kõikide grupeerivate tunnuste lõikes sama (regressioonisirge tõus on kõikides gruppides sama) ja erinevad vaid gruppide keskmised (mudeli kontekstis vabaliikmed). Kui see nii ei ole, siis peaksime mudelisse kaasma ka koosmõjud. Kuid sellisel juhul palju õnne meile nende interaktsioonide tõlgendamiel. Kui lisaks grupeerivale tunnusele on mudelis vaid üks sõltumatu tunnus, siis oleks see tegelikult tehtav (eriti kui referentskategooria on hästi valitud), kuid üldiselt on meil ju mudelis rohkem kui üks sõltumatu tunnus.</p></li>
+<li><p>Kui meid huvitavad eelkõige teise tasandi mõjud, siis saame kasutada nn <strong>kaheastmeliste mudelit</strong> (<em>two-stage model</em>). Näiteks kui tahame teada kuidas omavalitsuste investeeringud infrastruktuuri mõjutavad nende elanike eluga rahulolu ja nende elanike sissetulekute mõju eluga rahulolule. Kaheastmeliste mudelite puhul moodustatakse igas klastris või grupis omaette regresioonimudel, seejärel võetakse nende mudelite koefitsiendid ning kasutatake neid omakorda sisenitena teise astme regressioonimudelis. Meie näite puhul peaksime igas KOVis moodustama mudeli, millega hindame sissetulekute mõju eluga rahulolule. Eesti puhul oleks siis vaja moodustada 79 mudelit. Seejärel võtame kõikide mudelite koefitsiendid ning kasutame neid teise tasandi mudelis sõltuva tunnusena. Teise tasandi sõltumatuks tunnuseks oleks KOVide investeeringute suurused. Taolise lähenemisega saame juhul, kui esimeses tasandis on piisavalt vaatlusi, küllaltki adekvaatse ning keerulisemate mudelitega võrreldava tulemuse. Mudeli kasuks räägib eelkõige see, et tegemist on väga lihtsa ja arusaadava moodusega teise tasandi effektide tuletamiseks. Kuid vägagi ilmsed on ka taolise lähenemise kitsaskohad. Gruppe kokku agregeerides kaotame väga palju informatsiooni. Ja mida vähem on meil informatsiooni, seda vähem kindlad me oma järeldustes olla saame. See reegel kehtib ka laiemalt - mida rohkem me oma algseid andmeid agregeerime, seda ebatäpsemad meie järeldused saavad olema.</p></li>
+<li><p>Kui meid huvitavad jällegi ainult esimese tasandi mõjud, kuid samas me teame, et meie andmestik on hierahiliselt struktureeritud (ja võib-olla meil ei ole selle hierarhilise struktuuri kohta väga palju infot), siis saame regressioonimudeli hindamisel kasutada nn robustseid standardvigu (<em>robust standard errors</em>, <em>clustered standard errors</em>). See on puhtalt analüütiline lahendus, mille kaudu me saame oma mudeli tulemuse võimaliku klasterdumise eest kindlustada.</p></li>
+<li><p>Viimaks on meil võimalik kasutada ka <strong>mitmetasandilist analüüsi/mudelit</strong> (<em>multilevel analysis/models</em>, nimetatakse ka <em>hierarchical linear models</em>, <em>linear mixed-effect models</em>, <em>mixed models</em>, <em>nested data models</em>, <em>random coefficient models</em> või <em>random-effects models</em>). Järgenvalt vaatamegi seda meetodit lähemalt.</p></li>
+</ol>
+</div>
+</div>
+<div id="mitmetasandiline-analüüs" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Mitmetasandiline analüüs<a href="6-mitmetasandiline-regressioon.html#mitmetasandiline-analüüs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Mitmetasandiline analüüs võimaldab:</p>
+<ol style="list-style-type: decimal">
+<li>ühiskonna või muu uurimisobjekti struktureeritust, heterogeensust ja kontekstuaalsust mõjude hindamisel arvesse võtta<br />
+</li>
+<li>ja hinnata sotsiaalse, kultuurilise, institutsionaalse või muu konteksti mõju uuritavatele nähtustele ja uurimisobjektidele</li>
+</ol>
+<p>Eelkõige huvitab meid mitmetasandilise analüüsi juures just see teine punkt - gruppide erinevuste (nii grupisiseste mõjude kui gruppide keskmiste erinevuste) selgitamine kõrgema tasandi sõltumatute tunnuste abil. Mitmetasandiline analüüs on oma olemuselt sarnande eelnevalt kirjeldatud kaheastmelisele mudelile, kus saime teise tasandi tunnuste abil (näiteks KOVide investeeringute suurused) seletada gruppidevahelist regressioonikoefitsientide varieeruvust. Kuid erinevalt kaheastmelisest mudelist ei agregeerita siin gruppide koefitsiente enne teise tasandi juurde asumist, vaid käsitletakse esimese ja teise (või ka kolmana või neljana vne) tasandite variatiivsust samas mudelis. Seega ei kaota me mudeli hindamisel meile vajalikku informatsiooni ning järeldused saavad olla täpsemad.</p>
+<div id="fikseeritud-ja-juhuslikud-efektid" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Fikseeritud ja juhuslikud efektid<a href="6-mitmetasandiline-regressioon.html#fikseeritud-ja-juhuslikud-efektid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mitmetasandilises analüüsis käsitleme regressioonikoefitsiente ja vabaliiget mitte konkreetsete ja fikseeritutena, vaid vaid mingi <strong>teise tasandi grupeeriva tunnuse lõikes varieeruvatena</strong>. Regressiooni koefitsientides (vabaliige ja regressioonikordajad) eristatakse fikseeritud (<em>fixed</em>) ja juhuslikku (<em>random</em>) osa:</p>
+<ul>
+<li><strong>fikseeritud osa</strong> on koefitsientide gruppideülesed üldkeskmised;</li>
+<li><strong>juhuslik osa</strong> näitab gruppide koefitsientide varieeruvust ümber üldkeskmiste.</li>
+</ul>
+<p>Mida see sisuliselt tähendab? Oletame, et meil on regressioonivõrrand iga grupi kohta:</p>
+<p><span class="math display">\[Y_{ij} = \beta_{0j} + \beta_{1j}X_{ij}+\epsilon_{ij}\]</span>
+kus:</p>
+<p><span class="math inline">\(Y_{ij}\)</span> on esimese tasandi sõltuva tunnuse väärtus indiviidi <span class="math inline">\(i\)</span> ja grupi <span class="math inline">\(j\)</span> jaoks;<br />
+<span class="math inline">\(\beta_{0j}\)</span> on grupi <span class="math inline">\(j\)</span> vabaliige;<br />
+<span class="math inline">\(\beta_{1j}\)</span> on regressioonikordaja grupis <span class="math inline">\(j\)</span>;<br />
+<span class="math inline">\(X_{ij}\)</span> on esimese tasandi sõltumatu tunnuse väärtus grupi <span class="math inline">\(j\)</span> kuuluva indiviidi <span class="math inline">\(i\)</span> jaoks;<br />
+<span class="math inline">\(\epsilon_{ij}\)</span> on regressiooni jääk (viga) indiviidi <span class="math inline">\(i\)</span> jaoks, kes kuulub gruppi <span class="math inline">\(j\)</span>.</p>
+<p><br></p>
+<p>Me saame gruppide vabvaliikmetes eristada gruppideülest keskmist vabaliiget <span class="math inline">\(\gamma_{00}\)</span> ja iga grupi hälbimust sellest keskmisest <span class="math inline">\(u_{0j}\)</span> (ehk siis iga grupi erinevust üldkeskmisest vabaliikmest):</p>
+<p><span class="math display">\[Y_{ij} = \underbrace{\beta_{0j}}_{\beta_{0j}= \gamma_{00}+ u_{0j}} + \beta_{1j}X_{ij}+\epsilon_{ij}\]</span>
+kus:</p>
+<p><span class="math inline">\(\gamma_{00}\)</span> on esimese tasandi vabaliikmete keskmine ehk vabaliikme fikseeritud osa;<br />
+<span class="math inline">\(u_{0j}\)</span> on gruppide erinevus keskmisest vabaliikmest ehk vabaliikme juhuslik osa.</p>
+<p><br></p>
+<p>Samamoodi saame gruppide regressioonikoefitsientide puhul eristada gruppideülest keskmist koefitsienti <span class="math inline">\(\gamma_{10}\)</span> ja iga grupi hälbimust sellest keskmisest <span class="math inline">\(u_{1j}\)</span>:</p>
+<p><span class="math display">\[Y_{ij} = \beta_{0j} + \underbrace{\beta_{1j}}_{\beta_{1j}= \gamma_{10}+ u_{1j}}X_{ij}+\epsilon_{ij}\]</span>
+kus:</p>
+<p><span class="math inline">\(\gamma_{10}\)</span> on esimese tasandi regressioonikoefitsientide gruppideülene keskmine ehk regressioonikordaja fikseeritud osa;<br />
+<span class="math inline">\(u_{1j}\)</span> on gruppide erinevus keskmisest regressioonikordajast ehk regrssioonikordaja juhuslik osa.</p>
+<p><br></p>
+<p>Kuna nii vabaliikme kui regressionikoefitseindi puhul on meil nüüd varieeruvad juhuslikud osad (võime neist mõelda kui tavalise regressiooni sõltvatest tunnustest), siis saame nende variatiivsust teise tasandi sõltumatute tunnuste abil regressioonga selgitada. Lisame teise tasandi sõltumatu tunnuse <span class="math inline">\(W_j\)</span>, millega üritame seletada esimese tasandi vabaliikme varieeruvust:</p>
+<p><span class="math display">\[Y_{ij} = \underbrace{\beta_{0j}}_{\beta_{0j}= \gamma_{00}+ \gamma_{01}W_j + u_{0j}} + \beta_{1j}X_{ij}+\epsilon_{ij}\]</span>
+kus:</p>
+<p><span class="math inline">\(\gamma_{01}\)</span> on regressioonikordaja, mille läbi teise tasandi sõltumatu tunnus <span class="math inline">\(W_j\)</span> selgitab esimese tasandi vabaliikmete varieeruvust;<br />
+<span class="math inline">\(u_{0j}\)</span> on teise tasandi regressioonivõrrandi viga ehk siis see osa vabaliikmete varieeruvusest, mida me teise tasandi sõltumatu tunnusega selgitada ei suuda.</p>
+<p>Täpselt samamoodi saame toimida ka regressioonikoefitseindi juhusliku osaga, mille varieeruvust on jällegi võimalik teise tasandi sõltumatu tunnuse <span class="math inline">\(W_j\)</span> abil selgitada:</p>
+<p><span class="math display">\[Y_{ij} = \beta_{0j} + \underbrace{\beta_{1j}}_{\beta_{1j}= \gamma_{10}+ \gamma_{11}W_j + u_{1j}}X_{ij}+\epsilon_{ij}\]</span>
+kus:</p>
+<p><span class="math inline">\(\gamma_{11}\)</span> on regressioonikordaja, mille läbi teise tasandi sõltumatu tunnus <span class="math inline">\(W_j\)</span> selgitab esimese tasandi regressioonikoefitseintide varieeruvust;<br />
+<span class="math inline">\(u_{1j}\)</span> on teise tasandi regressioonivõrrandi viga ehk siis see osa regressioonikoefitseintide varieeruvusest, mida me teise tasandi sõltumatu tunnusega selgitada ei suuda.</p>
+<p><br></p>
+<p>Kui me nüüd nii vabaliikmete kui ka regressioonikoefitsientide fikseeritud ja juhuslikud osad kokku paneme:</p>
+<p><span class="math display">\[Y_{ij} = \underbrace{\beta_{0j}}_{\gamma_{00}+ \gamma_{01}W_j + u_{0j}} + \underbrace{\beta_{1j}}_{\gamma_{10}+ \gamma_{11}W_j + u_{1j}}X_{ij}+\epsilon_{ij}\]</span></p>
+<p>siis saamegi mitmetasandilise regressiooni võrrandi:</p>
+<p><span class="math display">\[Y_{ij} = \gamma_{00}+ \gamma_{01}W_j  + \gamma_{10}X_{ij}+ \gamma_{11}W_jX_{ij} + u_{0j} + u_{1j}X_{ij} + \epsilon_{ij}\]</span></p>
+<p>kus võime eristada fikseeritud osa ja juhuslikku osa:</p>
+<p><span class="math display">\[Y_{ij} = \underbrace{\gamma_{00}+ \gamma_{01}W_j  + \gamma_{10}X_{ij}+ \gamma_{11}W_jX_{ij}}_{\text{fikseeritud osa}} +  \underbrace{u_{0j} + u_{1j}X_{ij} + \epsilon_{ij}}_{\text{juhuslik osa}}\]</span></p>
+<p>Võrrand võib esmapilgul väga kirju ja segane tunduda, kuid kui eelnev tuletuskäik rahulikult läbi mõelda ning kreeka tähtedest end mitte häirida lasta, siis on kõik tegelikult väga loogiline ning võiks neile, kes tavalise lineaarse regressiooniga tuttavad on, mõistetav olla.</p>
+</div>
+<div id="mitmetasandilise-analüüsi-etapid" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Mitmetasandilise analüüsi etapid<a href="6-mitmetasandiline-regressioon.html#mitmetasandilise-analüüsi-etapid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mitmetasandilisi mudeleid koostatakse üldjuhul etapiviisiliselt, alustades lihtsamast mudelist ning liikudes edasi keerulisemate mudelite poole:</p>
+<ol style="list-style-type: decimal">
+<li>Esmalt hinnatakse <strong>nullmudel</strong> (<em>null model</em> või <em>empty model</em>), millega hinnatakse vaid gruppidest tulenevat esimese tasandi sõltuva tunnuse varieeruvust. Kui esimese tasandi sõltuv tunnus gruppide vahel statistiliselt oluliselt ei varieeru, siis ei ole mõtet mitmetasandilise analüüsiga edasi minna (kuna siis me ju ei saa tasandeid eristada).</li>
+</ol>
+<p><span class="math display">\[Y_{i,j} = \gamma_{00} + u_{0j} + \epsilon_{ij}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Kui nullmudel indikeerib gruppidevahelist erinevust, siis hinnatakse <strong>juhusliku vabaliikmega mudel</strong> (<em>random intercept model</em>), kus lisatakse esimese tasandi sõltumatu tunnus ning hinntakse vabaliikme varieeruvust gruppide vahel.</li>
+</ol>
+<p><span class="math display">\[Y_{i,j} = \gamma_{00}+ \gamma_{11}X_{ij} + u_{0j} + \epsilon_{ij}\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Kui ka juhusliku vabaliikmega mudel näitab, et vabaliikmed varieeruvad gruppide vahel, siis saab moodustada <strong>juhusliku regressioonikordajaga mudeli</strong> (<em>random slope model</em>), kus lastakse ka esimese tasandi regressioonikordajad gruppide vahel varieeruma.</li>
+</ol>
+<p><span class="math display">\[Y_{i,j} = \gamma_{00}+ \gamma_{11}X_{ij} + u_{0j} + u_{1j}X_{ij} + \epsilon_{ij}\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Kui vabaliikmed või regressioonikordajad varieeruvad olulisel määral, siis saame vajadusel ja võimalusel nende variatsiooni mingite teise tasandi sõltumatute tunnustega selgitada, ehk siis lülitada mudelisse ka teise tsandi prediktorid (kui näeme variatiivsust vabaliikmete hulgas, kuid mitte regressioonikordajate hulgas, siis saame teise tasandi prediktoreid kasutada loomulikult vaid vabaliikmete selgitamiseks).</li>
+</ol>
+<p>Teise tasandi prediktor selgitamas vabaliikme varieeruvust:</p>
+<p><span class="math display">\[Y_{i,j} = \gamma_{00}+ \gamma_{01}W_j + \gamma_{10}X_{ij} + u_{0j} + u_{1j}X_{ij} + \epsilon_{ij}\]</span></p>
+<p>Teise tasandi prediktor selgitamas nii vabaliikme kui regressioonikordaja varieeruvust (esimese ja teise tsandi prediktorite koosmõju):</p>
+<p><span class="math display">\[Y_{i,j} = \gamma_{00}+ \gamma_{01}W_j  + \gamma_{10}X_{ij}+ \gamma_{11}W_jX_{ij}+  u_{0j} + u_{1j}X_{ij} + \epsilon_{ij}\]</span></p>
+<p>Vaatame selgitava näitena ühe uneuuringu raames tehtud eksperimendi andmestikku<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>. Eksperimendiga uuriti kuidas unepuudus reaktsioonikiirust mõjutab. Respondentide reaktsioonikiirust mõõdeti kümnel järjestikusel päeval. Enne esimest mõõtmist (0 päev) lasti respondetidel magada nii kaua nagu nad tavaliselt magavad. Kõikidel järgevatel öödel lasti neil magada kolm tundi. Tulemustena esitatav reaktsioonikiirus on keskmine reaktsiooniaeg erinevate testide alusel, mis päeva jooksul sooritati.</p>
+<p>Andtud juhul on siis tegemist longituudandmetikuga (kutsutakse ka paneelandmestikuks), kus teise tasandi ühikuks on respondent ning esimese tasandi vaatlused on grupeeritud indiviidide kaupa.</p>
+<p>Vaatame kõigepealt kuidas näeks välja tavaline lineaarne regressioon:</p>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Pilt näeb välja küllaltki ettearvatav - mida pikemalt und piiratakse, seda suuremaks läheb reaktsiooniaeg. Kuid kuna me teame, et tegemist on paneelandmetega, siis tagamaks oma järelduste korrektsust, peame vähemalt kontrollima teise tasandi efektide olemasolu ja potentsiaalset mõju. Defineerime <strong>nullmudeli</strong>:</p>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Näeme, et inimeste keskmised reaktsiooniajad (võtmata arvesse undefitsiidi pikkust) erinevad päris olulisel määral (reaalses analüüsis peame muidugi sellele järeldusele jõudma teststatistiku abil). Seega on õigustatud <strong>juhusliku vabaliikmega mudeli</strong> defineerimine, kus me jätame regressioonikordajad kõikidel respondentidel samaks, kuid laseme vabaliikmed varieeruma:</p>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Näeme, et ka vabaliikmed varieeruvad indiviidide vahel päris suurel määral ning liigume edasi <strong>juhuliku regressioonikordajaga mudeli</strong> juurde:</p>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Ka regressioonikordajad varieeruvad indiviidide vahel päris olulisel määral. Ühe inimese puhul unedefitsiit isegi vähendab reaktsiooniaega ja päris mitme puhul on muutused üle aja marginaalsed, eristudes seeläbi keskmisest reaktsioonikiirusest.</p>
+<p>Edasi saaksime vaadata millised individuaalsed karakteristikud seda mõju erinevust mõjutavad. Kuna tegemist on paneeluuringuga, kus teise tasandi ühikuks on indiviid, siis on ka võimalikud teise tasandi sõltumatud tunnused indiviiditunnused. Näiteks sugu, vanus vms.</p>
+</div>
+</div>
+<div id="mitmetasandilise-analüüsi-eeldused" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Mitmetasandilise analüüsi eeldused<a href="6-mitmetasandiline-regressioon.html#mitmetasandilise-analüüsi-eeldused" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Esimese tasandi ühikud peavad moodustama teise tasandi ühikute suhtes (pseudo)populatsiooni<br />
+</li>
+<li>Teise tasandi ühikud on valim teise tasandi ühikute populatsioonist
+<ul>
+<li>Kas teise tasandi ühikuid saab mõista juhuvalimina?</li>
+<li>Kas teise tasandi ühikuid on piisavalt palju (vähemalt 20, parem kui vähemalt 50), et nende põhjal järeldusi teha?</li>
+</ul></li>
+<li>Esimese tasandi jäägid peaksid olema jaotunud normaaljaotuse alusel (keskmisega 0)</li>
+<li>Jääkide dispersioon peaks gruppide lõikes võrdne olema</li>
+<li>Teise tasandi jäägid peaksid esimese tasandi jääkidest sõltumatud olema</li>
+<li>Tavalised lineaarse regressiooni eeldused
+<ul>
+<li>Sõltuva ja sõltumatute tunnuste seosed peaksid olema lineaarsed</li>
+<li>Sõltumatud tunnused peaksid olema mõõdetud ilma mõõtmisveata</li>
+</ul></li>
+</ul>
+</div>
+<div id="mitemtasandiline-analüüs-ris" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Mitemtasandiline analüüs Ris<a href="6-mitmetasandiline-regressioon.html#mitemtasandiline-analüüs-ris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ris on mitmetasandilise analüüsi teostamiseks mitmeid pakette. Kasutame siinkohal <code>lme4</code> paketti ja sellest <code>lmer()</code> funktsiooni. <code>lme4</code> pakett ei anna meile koefitsientide <em>p</em>-väärtusi. Et neid saada, tuleb laadida ka pakett <code>lmerTest</code><a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>.</p>
+<p>Kõigepealt laeme sessiooniks sisse vajalikud paketid (kui need ei ole installitud, siis tuleb seda teha käsuga <code>install.packages()</code>)</p>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="6-mitmetasandiline-regressioon.html#cb608-1" tabindex="-1"></a><span class="fu">library</span>(nlme) <span class="co"># siit saame andmed</span></span>
+<span id="cb608-2"><a href="6-mitmetasandiline-regressioon.html#cb608-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># joonised</span></span>
+<span id="cb608-3"><a href="6-mitmetasandiline-regressioon.html#cb608-3" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># andmete töötlemine</span></span>
+<span id="cb608-4"><a href="6-mitmetasandiline-regressioon.html#cb608-4" tabindex="-1"></a><span class="fu">library</span>(lme4) <span class="co"># mitmetasanilise analüüsi pakett</span></span>
+<span id="cb608-5"><a href="6-mitmetasandiline-regressioon.html#cb608-5" tabindex="-1"></a><span class="fu">library</span>(lmerTest) <span class="co"># võimaldab mudelile ka p väärtused külge saada</span></span></code></pre></div>
+<p>Kasutame andmestikuna <code>MathAchieve</code> näidisandmestikku paketist <code>nlme</code>. Andmestik sisaldab USAs 1982. aastal läbi viidud küsitluse “High School and Beyond” tulemusi hõlmates 7185 keskkoliõpilast 160-st koolist. Ehk siis esimene tasand on õpilased ja teine tasand koolid. Andmestik sisaldab muu hulgas õpilasete perede sotsiaalmajanduslikku seisu indeksit ning matemaatikatesti tulemust.
+Üritame analüüsida kas pere sotsiaalmajanduslik seis mõjutab matemaatikatesti tulemust ja kas see seos varieerub koolide vahel ning kui jah, siis leida seda variatiivsust selgitavad tegurid.</p>
+<div id="andmete-ettevalmistus" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Andmete ettevalmistus<a href="6-mitmetasandiline-regressioon.html#andmete-ettevalmistus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Anname andmetele natukene lihtsama nime ja vaatame millega tegu:</p>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="6-mitmetasandiline-regressioon.html#cb609-1" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> nlme<span class="sc">::</span>MathAchieve <span class="sc">%&gt;%</span> </span>
+<span id="cb609-2"><a href="6-mitmetasandiline-regressioon.html#cb609-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb609-3"><a href="6-mitmetasandiline-regressioon.html#cb609-3" tabindex="-1"></a><span class="fu">str</span>(andmed)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    7185 obs. of  6 variables:
+##  $ School  : Ord.factor w/ 160 levels &quot;8367&quot;&lt;&quot;8854&quot;&lt;..: 59 59 59 59 59 59 59 59 59 59 ...
+##  $ Minority: Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Sex     : Factor w/ 2 levels &quot;Male&quot;,&quot;Female&quot;: 2 2 1 1 1 1 2 1 2 1 ...
+##  $ SES     : num  -1.528 -0.588 -0.528 -0.668 -0.158 ...
+##  $ MathAch : num  5.88 19.71 20.35 8.78 17.9 ...
+##  $ MEANSES : num  -0.428 -0.428 -0.428 -0.428 -0.428 -0.428 -0.428 -0.428 -0.428 -0.428 ...</code></pre>
+<p>Tunnused on järgmised:</p>
+<ul>
+<li><em>School</em> - kooli id</li>
+<li><em>Minority</em> - kas õpilane kuulub vähemuse hulka</li>
+<li><em>Sex</em> - sugu</li>
+<li><em>SES</em> - õpilase pere sotsialmajanduslik staatus (standardiseeritud)</li>
+<li><em>MathAch</em> - matemaatikatesti tulemus</li>
+<li><em>MEANSES</em> - kooli keskmine SES skoor (teise ehk kooli tasandi tunnus)</li>
+</ul>
+<p>Lisaks on <code>nlme</code> paketis ka andmestik <code>MathAchSchool</code>, mis sisaldab veel erinevaid kooli tasandi tunnuseid. Võtame sellest andmestikus tunnused:</p>
+<ul>
+<li><em>School</em> - koolid id</li>
+<li><em>Sector</em> - kas <em>Public</em> või <em>Chatholic</em> kool</li>
+<li><em>PRACAD</em> - protsent õpilastest, kes õpivad nn “akadeemilisel suunal”</li>
+<li><em>MEANSES</em> - kooli keskmine SES skoor</li>
+</ul>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="6-mitmetasandiline-regressioon.html#cb611-1" tabindex="-1"></a>koolid <span class="ot">&lt;-</span> nlme<span class="sc">::</span>MathAchSchool <span class="sc">%&gt;%</span> </span>
+<span id="cb611-2"><a href="6-mitmetasandiline-regressioon.html#cb611-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb611-3"><a href="6-mitmetasandiline-regressioon.html#cb611-3" tabindex="-1"></a>  <span class="fu">select</span>(School, Sector, PRACAD, MEANSES)</span>
+<span id="cb611-4"><a href="6-mitmetasandiline-regressioon.html#cb611-4" tabindex="-1"></a><span class="fu">head</span>(koolid)</span></code></pre></div>
+<pre><code>##      School   Sector PRACAD MEANSES
+## 1224   1224   Public   0.35  -0.428
+## 1288   1288   Public   0.27   0.128
+## 1296   1296   Public   0.32  -0.420
+## 1308   1308 Catholic   0.96   0.534
+## 1317   1317 Catholic   0.95   0.351
+## 1358   1358   Public   0.25  -0.014</code></pre>
+<p>Taoline mitmetasandiliste andmete organiseerimise viis, kus erinevate tasandite tunnused on erinevates failides, on küllaltki tavapärane. Seega esimeseks sammuks on nii siin, kui ka mitmetasanilise analüüsi puhul üldiselt need kaks andmestikku kokku liita. Kasutame selleks <em>dplyr</em>-i <code>left_join()</code> funktsiooni.</p>
+<p>Mõlemat andmestikku ühendavaks id tunnuseks on <em>School</em>. Kuid kuna need tunnused on erinevatest klassidest (üks on <em>ordered factor</em>, teine tavaline <em>factor</em>), siis teeme nad mõlemad kõigepealt <em>character</em> tunnusteks</p>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="6-mitmetasandiline-regressioon.html#cb613-1" tabindex="-1"></a>andmed<span class="sc">$</span>School <span class="ot">&lt;-</span> <span class="fu">as.character</span>(andmed<span class="sc">$</span>School)</span>
+<span id="cb613-2"><a href="6-mitmetasandiline-regressioon.html#cb613-2" tabindex="-1"></a>koolid<span class="sc">$</span>School <span class="ot">&lt;-</span> <span class="fu">as.character</span>(koolid<span class="sc">$</span>School)</span>
+<span id="cb613-3"><a href="6-mitmetasandiline-regressioon.html#cb613-3" tabindex="-1"></a><span class="co"># Nüüd saame andmestikud kokku panna</span></span>
+<span id="cb613-4"><a href="6-mitmetasandiline-regressioon.html#cb613-4" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">left_join</span>(andmed, koolid, <span class="at">by =</span> <span class="st">&#39;School&#39;</span>)</span>
+<span id="cb613-5"><a href="6-mitmetasandiline-regressioon.html#cb613-5" tabindex="-1"></a><span class="co"># Vaatame ka tulemust</span></span>
+<span id="cb613-6"><a href="6-mitmetasandiline-regressioon.html#cb613-6" tabindex="-1"></a><span class="fu">head</span>(andmed)</span></code></pre></div>
+<pre><code>##   School Minority    Sex    SES MathAch MEANSES.x Sector PRACAD MEANSES.y
+## 1   1224       No Female -1.528   5.876    -0.428 Public   0.35    -0.428
+## 2   1224       No Female -0.588  19.708    -0.428 Public   0.35    -0.428
+## 3   1224       No   Male -0.528  20.349    -0.428 Public   0.35    -0.428
+## 4   1224       No   Male -0.668   8.781    -0.428 Public   0.35    -0.428
+## 5   1224       No   Male -0.158  17.898    -0.428 Public   0.35    -0.428
+## 6   1224       No   Male  0.022   4.583    -0.428 Public   0.35    -0.428</code></pre>
+<p>Kuna <em>MEANSES</em> tunnus oli mõlemas andmestikus, siis on see uues andmestikus kaks korda (vastavalt suffixitega .x ja .y). Kustutame neist esimese ja muudame <em>MEANSES.y</em> nime tagasi <em>MEANSES</em>-iks.</p>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="6-mitmetasandiline-regressioon.html#cb615-1" tabindex="-1"></a>andmed<span class="sc">$</span>MEANSES.x <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb615-2"><a href="6-mitmetasandiline-regressioon.html#cb615-2" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> andmed <span class="sc">%&gt;%</span> </span>
+<span id="cb615-3"><a href="6-mitmetasandiline-regressioon.html#cb615-3" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">MEANSES =</span> MEANSES.y)</span></code></pre></div>
+<p>Paneme kõik tunnuste nimed väikestesse tähtedesse<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>:</p>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="6-mitmetasandiline-regressioon.html#cb616-1" tabindex="-1"></a><span class="fu">names</span>(andmed) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(andmed))</span></code></pre></div>
+</div>
+<div id="ülevaade-andmetest" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Ülevaade andmetest<a href="6-mitmetasandiline-regressioon.html#ülevaade-andmetest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Nagu enne igat analüüsi, uurime kõigepealt andmeid. Vaatame graafiliselt kuidas sotsiaalmajanduslik indeks matemaatika testi tulemusega seostub:</p>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="6-mitmetasandiline-regressioon.html#cb617-1" tabindex="-1"></a><span class="co"># punktide jaoks geom_point()</span></span>
+<span id="cb617-2"><a href="6-mitmetasandiline-regressioon.html#cb617-2" tabindex="-1"></a><span class="co"># mittelineaarse regressioonijoone jaoks geom_smooth()</span></span>
+<span id="cb617-3"><a href="6-mitmetasandiline-regressioon.html#cb617-3" tabindex="-1"></a>andmed <span class="sc">%&gt;%</span> </span>
+<span id="cb617-4"><a href="6-mitmetasandiline-regressioon.html#cb617-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ses, <span class="at">y =</span> mathach))<span class="sc">+</span></span>
+<span id="cb617-5"><a href="6-mitmetasandiline-regressioon.html#cb617-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb617-6"><a href="6-mitmetasandiline-regressioon.html#cb617-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()<span class="sc">+</span></span>
+<span id="cb617-7"><a href="6-mitmetasandiline-regressioon.html#cb617-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Tundub et üldine seos on täitsa olemas ja see on ka suhteliselt lineaarne.</p>
+<p>Järgmiseks vaatame kas koolide keskmised matemaatikasjoorid erinevad. Neid oleks hea vaadata koos usalduspiiridega, seega peame need enne välja arvutame. Andmete töötlemiseks kasutame <code>dplyr</code>-i funktsioone:</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="6-mitmetasandiline-regressioon.html#cb618-1" tabindex="-1"></a>andmed <span class="sc">%&gt;%</span> </span>
+<span id="cb618-2"><a href="6-mitmetasandiline-regressioon.html#cb618-2" tabindex="-1"></a>  <span class="fu">group_by</span>(school) <span class="sc">%&gt;%</span></span>
+<span id="cb618-3"><a href="6-mitmetasandiline-regressioon.html#cb618-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">keskmine =</span> <span class="fu">mean</span>(mathach), </span>
+<span id="cb618-4"><a href="6-mitmetasandiline-regressioon.html#cb618-4" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(mathach), </span>
+<span id="cb618-5"><a href="6-mitmetasandiline-regressioon.html#cb618-5" tabindex="-1"></a>            <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb618-6"><a href="6-mitmetasandiline-regressioon.html#cb618-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l_ci =</span> keskmine <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> sd<span class="sc">/</span><span class="fu">sqrt</span>(n),</span>
+<span id="cb618-7"><a href="6-mitmetasandiline-regressioon.html#cb618-7" tabindex="-1"></a>         <span class="at">u_ci =</span> keskmine <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> sd<span class="sc">/</span><span class="fu">sqrt</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb618-8"><a href="6-mitmetasandiline-regressioon.html#cb618-8" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">school =</span> <span class="fu">as.factor</span>(school),</span>
+<span id="cb618-9"><a href="6-mitmetasandiline-regressioon.html#cb618-9" tabindex="-1"></a>         <span class="at">school =</span> <span class="fu">reorder</span>(school, keskmine)) <span class="sc">%&gt;%</span> </span>
+<span id="cb618-10"><a href="6-mitmetasandiline-regressioon.html#cb618-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> keskmine, </span>
+<span id="cb618-11"><a href="6-mitmetasandiline-regressioon.html#cb618-11" tabindex="-1"></a>             <span class="at">xmin =</span> l_ci, </span>
+<span id="cb618-12"><a href="6-mitmetasandiline-regressioon.html#cb618-12" tabindex="-1"></a>             <span class="at">xmax =</span> u_ci, </span>
+<span id="cb618-13"><a href="6-mitmetasandiline-regressioon.html#cb618-13" tabindex="-1"></a>             <span class="at">y =</span> school))<span class="sc">+</span></span>
+<span id="cb618-14"><a href="6-mitmetasandiline-regressioon.html#cb618-14" tabindex="-1"></a>  <span class="fu">geom_pointrange</span>()<span class="sc">+</span></span>
+<span id="cb618-15"><a href="6-mitmetasandiline-regressioon.html#cb618-15" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb618-16"><a href="6-mitmetasandiline-regressioon.html#cb618-16" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb618-17"><a href="6-mitmetasandiline-regressioon.html#cb618-17" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb618-18"><a href="6-mitmetasandiline-regressioon.html#cb618-18" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Jah, keskmised tunduvad kooliti erinevat. On palju koole mille usalduspiirid ei kattu. Järgmiseks vaatame, kas ka sotsiaalmajandusliku seisundi ja testi tulemuste seosed kooliti erinevad:</p>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="6-mitmetasandiline-regressioon.html#cb619-1" tabindex="-1"></a>andmed <span class="sc">%&gt;%</span> </span>
+<span id="cb619-2"><a href="6-mitmetasandiline-regressioon.html#cb619-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ses, <span class="at">y =</span> mathach))<span class="sc">+</span></span>
+<span id="cb619-3"><a href="6-mitmetasandiline-regressioon.html#cb619-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb619-4"><a href="6-mitmetasandiline-regressioon.html#cb619-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">color =</span> school), <span class="at">se =</span> F, <span class="at">show.legend =</span> F, <span class="at">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="sc">+</span></span>
+<span id="cb619-5"><a href="6-mitmetasandiline-regressioon.html#cb619-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb619-6"><a href="6-mitmetasandiline-regressioon.html#cb619-6" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_d</span>(<span class="at">option =</span> <span class="st">&#39;A&#39;</span>)</span></code></pre></div>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>Tundub, et ka regressioonikoefitsiendid erinevad.</p>
+<p>Vaatame põgusalt üle ka teiste sõltumatute tunnuste jaotused. Eelkõige seetõttu, et kontrollida neid võimalike vigade suhtes.</p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="6-mitmetasandiline-regressioon.html#cb620-1" tabindex="-1"></a><span class="fu">table</span>(andmed<span class="sc">$</span>sex, <span class="at">useNA =</span> <span class="st">&#39;always&#39;</span>)</span></code></pre></div>
+<pre><code>## 
+##   Male Female   &lt;NA&gt; 
+##   3390   3795      0</code></pre>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="6-mitmetasandiline-regressioon.html#cb622-1" tabindex="-1"></a><span class="fu">hist</span>(andmed<span class="sc">$</span>ses)</span></code></pre></div>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="6-mitmetasandiline-regressioon.html#cb623-1" tabindex="-1"></a><span class="fu">table</span>(andmed<span class="sc">$</span>sector, <span class="at">useNA =</span> <span class="st">&#39;ifany&#39;</span>)</span></code></pre></div>
+<pre><code>## 
+##   Public Catholic 
+##     3642     3543</code></pre>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="6-mitmetasandiline-regressioon.html#cb625-1" tabindex="-1"></a><span class="fu">hist</span>(andmed<span class="sc">$</span>pracad)</span></code></pre></div>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="6-mitmetasandiline-regressioon.html#cb626-1" tabindex="-1"></a><span class="fu">hist</span>(andmed<span class="sc">$</span>meanses)</span></code></pre></div>
+<p><img src="04-multilevel_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>Interpretatsiooni huvides oleks regressioonimudelis mõistlik kasutada sotsiaalmajanduslikku indeksi tunnust, mis on koolide keskmiste alusel tsentreeritud. Kuna vabaliige on sõltuva tunnuse (<span class="math inline">\(y\)</span>) väärtus juhul, kui sõltumatu tunnus (<span class="math inline">\(x\)</span>) on 0, siis ilma tsentreerimata on vabaliikme väärtus suhteliselt sisutühi. Kui me selle koolide keskmiste lõikes tsentreerime, näitab vabaliige kooli matemaatikatesti tulemust kooli keskmise sotsiaalmajandusliku indeksi väärtuse korral.</p>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="6-mitmetasandiline-regressioon.html#cb627-1" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> andmed <span class="sc">%&gt;%</span> </span>
+<span id="cb627-2"><a href="6-mitmetasandiline-regressioon.html#cb627-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tses =</span> ses <span class="sc">-</span> meanses)</span></code></pre></div>
+</div>
+<div id="nullmudel" class="section level3 hasAnchor" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> Nullmudel<a href="6-mitmetasandiline-regressioon.html#nullmudel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Esmalt defineerime nullmudeli:</p>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="6-mitmetasandiline-regressioon.html#cb628-1" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
+<p><code>lmer</code> mudeli defineerimine on natukene erinev tavapärasest <code>ml</code> või <code>glm</code> mudeli defineerimisest.</p>
+<ul>
+<li><code>athach ~ 1</code> - sõltuv tunnus koos tildega ja 1 tähistamas vabaliiget. See on identne <code>ml</code> mudeliga. Tavaliselt me lihtsalt <code>ml</code> mudelis vabaliiget eraldi välja ei too, kuna ainult vabaliikmega <code>ml</code> mudeli tulem oleks lihtsalt sõltuva tunnuse keskmine. Aga kuna siin mudelis meil ühtegi sõltumatut tunnust veel ei ole, siis peame vabaliikme eksplitsiitselt ära märkima.</li>
+<li><code>(1|school)</code> - sulgude sees kirjeldatud mudeli juhuslik osa, ehk siis need tunnused, mida me tahame varieeruvatena näha. 1 tähistab jällegi vabaliiget, mis tähendab, et me laseme gruppide vabaliikmetel varieeruda. | märgi järel tuleb mudeli grupeeriv tunnus. Antud juhul on selleks <em>school</em>.</li>
+</ul>
+<p>Vaatame mudeli tulemusi:</p>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="6-mitmetasandiline-regressioon.html#cb629-1" tabindex="-1"></a><span class="fu">summary</span>(m0)</span></code></pre></div>
+<pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
+## lmerModLmerTest]
+## Formula: mathach ~ 1 + (1 | school)
+##    Data: andmed
+## 
+## REML criterion at convergence: 47116.8
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -3.0631 -0.7539  0.0267  0.7606  2.7426 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev.
+##  school   (Intercept)  8.614   2.935   
+##  Residual             39.148   6.257   
+## Number of obs: 7185, groups:  school, 160
+## 
+## Fixed effects:
+##             Estimate Std. Error       df t value Pr(&gt;|t|)    
+## (Intercept)  12.6370     0.2444 156.6473   51.71   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Peamised tulemused on toodud <em>Random effects:</em> ja <em>Fixed effects:</em> kirjete all.</p>
+<ul>
+<li>Koolide keskmine matemaatikatesti tulemus on 12.6</li>
+<li>Koolide keskmiste dispersioon üldkeskmisest testitulemusest on 8.6 (ja keskmine hälbimus 2.9).<br />
+</li>
+<li>Õpilaste keskmine dispersioon koolide keskmistest testitulemustest on 39.1 (ja keskmine hälbimus 6.3).</li>
+</ul>
+<p>Nende tulemuste alusel saame arvutda intraklassi korrelatsiooni (<em>interclass correlatsion</em> ehk ICC), mis näitab mitu protsenti sõltuva tunnuse varieeruvusest on selgitatav grupitunnuse poolt</p>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="6-mitmetasandiline-regressioon.html#cb631-1" tabindex="-1"></a><span class="fl">8.614</span><span class="sc">/</span>(<span class="fl">8.614+39.148</span>)</span></code></pre></div>
+<pre><code>## [1] 0.1803526</code></pre>
+<p><em>ca</em> 18% testitulemuste variatiivusest on selgitatav koolie erinevustega.</p>
+</div>
+<div id="juhusliku-vabaliikmega-mudel" class="section level3 hasAnchor" number="6.4.4">
+<h3><span class="header-section-number">6.4.4</span> Juhusliku vabaliikmega mudel<a href="6-mitmetasandiline-regressioon.html#juhusliku-vabaliikmega-mudel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lisame mudelile ka sotsiaalmajandusliku indeksi (tsentreeritud variandi), mis läbi saame tulemuseks mudeli kus vabaliikmed gruppide vahel varieeruvad:</p>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="6-mitmetasandiline-regressioon.html#cb633-1" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="6-mitmetasandiline-regressioon.html#cb634-1" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
+<pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
+## lmerModLmerTest]
+## Formula: mathach ~ 1 + tses + (1 | school)
+##    Data: andmed
+## 
+## REML criterion at convergence: 46724
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -3.09686 -0.73224  0.01941  0.75720  2.91473 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev.
+##  school   (Intercept)  8.672   2.945   
+##  Residual             37.010   6.084   
+## Number of obs: 7185, groups:  school, 160
+## 
+## Fixed effects:
+##              Estimate Std. Error        df t value Pr(&gt;|t|)    
+## (Intercept)   12.6493     0.2445  156.7433   51.74   &lt;2e-16 ***
+## tses           2.1912     0.1087 7022.0245   20.17   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Correlation of Fixed Effects:
+##      (Intr)
+## tses 0.003</code></pre>
+<ul>
+<li>Sotsiaalmajandusliku indeksi efekti suurus on 2,2 ja mõju on statistiliselt oluline (<em>p</em> &lt; 0,05). Ehk siis kui sotsiaalmajanduslik indeks kasvab ühe punkti võrra, kasvab matemaatikatesti tulemus 2,2 punkti võrra (võttes arvesse ka koolide erinevust).</li>
+<li>Vabaliikmete dispersioon on 8,672 (ja standardhälve 2,9).</li>
+<li>Esimese tasandi vead läksid natuke väiksemaks (39,1 &gt; 37,0), mis on ka loogiline, kuna iga lisanduv sõltumatu tunnus peaks regressioonijääke vähendama.</li>
+</ul>
+<p>Saame mudeleid võrrelda <code>anova()</code> funktsiooni ja LRT-testiga:</p>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="6-mitmetasandiline-regressioon.html#cb636-1" tabindex="-1"></a><span class="fu">anova</span>(m0, m1)</span></code></pre></div>
+<pre><code>## Data: andmed
+## Models:
+## m0: mathach ~ 1 + (1 | school)
+## m1: mathach ~ 1 + tses + (1 | school)
+##    npar   AIC   BIC logLik deviance Chisq Df Pr(&gt;Chisq)    
+## m0    3 47122 47142 -23558    47116                        
+## m1    4 46728 46756 -23360    46720 395.4  1  &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>m1 mudel on statistiliselt oluliselt parem kui m0 mudel.</p>
+</div>
+<div id="juhusliku-regressioonikordajaga-mudel" class="section level3 hasAnchor" number="6.4.5">
+<h3><span class="header-section-number">6.4.5</span> Juhusliku regressioonikordajaga mudel<a href="6-mitmetasandiline-regressioon.html#juhusliku-regressioonikordajaga-mudel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Laseme sotsiaalmajandusliku indeksi regressioonikorda samuti vabalt varieeruma. Selleks lisame vastava tunnuse, mille koefitsiente tahame vabaks lasta juhuslike efektide sulgudesse:</p>
+<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="6-mitmetasandiline-regressioon.html#cb638-1" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>tses<span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="6-mitmetasandiline-regressioon.html#cb639-1" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
+<pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
+## lmerModLmerTest]
+## Formula: mathach ~ 1 + tses + (1 + tses | school)
+##    Data: andmed
+## 
+## REML criterion at convergence: 46714.2
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -3.09680 -0.73194  0.01858  0.75388  2.89928 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev. Corr
+##  school   (Intercept)  8.682   2.9465       
+##           tses         0.694   0.8331   0.02
+##  Residual             36.700   6.0581       
+## Number of obs: 7185, groups:  school, 160
+## 
+## Fixed effects:
+##             Estimate Std. Error       df t value Pr(&gt;|t|)    
+## (Intercept)  12.6493     0.2445 156.7391   51.73   &lt;2e-16 ***
+## tses          2.1932     0.1283 155.2180   17.10   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Correlation of Fixed Effects:
+##      (Intr)
+## tses 0.012</code></pre>
+<ul>
+<li>Sotsiaalmajandusliku indeksi regresioonikordaja dispersioon on 0,69 (ja standardhälve 0,83)</li>
+</ul>
+<p>Juhuslike effektide jaoks meil väljundis mingit olulisuse testi ei ole. Aga saame kasutada <code>lmerTest</code> paketi <code>ranova()</code> funktsiooni, mis testib erinevate juhuslike efektide panust mudelisse:</p>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="6-mitmetasandiline-regressioon.html#cb641-1" tabindex="-1"></a><span class="fu">ranova</span>(m2)</span></code></pre></div>
+<pre><code>## ANOVA-like table for random-effects: Single term deletions
+## 
+## Model:
+## mathach ~ tses + (1 + tses | school)
+##                             npar logLik   AIC    LRT Df Pr(&gt;Chisq)   
+## &lt;none&gt;                         6 -23357 46726                        
+## tses in (1 + tses | school)    4 -23362 46732 9.7617  2    0.00759 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Sotsiaalmajandusliku indeksi effekt on oluline (<em>p</em> &lt; 0,05).</p>
+<p>Saame seda testida ka LRT-testiga:</p>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="6-mitmetasandiline-regressioon.html#cb643-1" tabindex="-1"></a><span class="fu">anova</span>(m1,m2)</span></code></pre></div>
+<pre><code>## Data: andmed
+## Models:
+## m1: mathach ~ 1 + tses + (1 | school)
+## m2: mathach ~ 1 + tses + (1 + tses | school)
+##    npar   AIC   BIC logLik deviance  Chisq Df Pr(&gt;Chisq)   
+## m1    4 46728 46756 -23360    46720                        
+## m2    6 46723 46764 -23356    46711 9.4331  2   0.008946 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="teise-tasandi-sõltumatud-muutujad" class="section level3 hasAnchor" number="6.4.6">
+<h3><span class="header-section-number">6.4.6</span> Teise tasandi sõltumatud muutujad<a href="6-mitmetasandiline-regressioon.html#teise-tasandi-sõltumatud-muutujad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lisame teise tasandi sõltumatu muutujana kooli keskmise sotsiaalmajandusliku indeksi ja kooli tüübi:</p>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="6-mitmetasandiline-regressioon.html#cb645-1" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">+</span> meanses <span class="sc">+</span> sector <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>tses<span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
+<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="6-mitmetasandiline-regressioon.html#cb646-1" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
+<pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
+## lmerModLmerTest]
+## Formula: mathach ~ 1 + tses + meanses + sector + (1 + tses | school)
+##    Data: andmed
+## 
+## REML criterion at convergence: 46543.3
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -3.1719 -0.7279  0.0123  0.7562  2.9307 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev. Corr
+##  school   (Intercept)  2.3878  1.5453       
+##           tses         0.7007  0.8371   0.18
+##  Residual             36.7097  6.0589       
+## Number of obs: 7185, groups:  school, 160
+## 
+## Fixed effects:
+##                Estimate Std. Error       df t value Pr(&gt;|t|)    
+## (Intercept)     12.0451     0.1986 160.3808  60.639  &lt; 2e-16 ***
+## tses             2.1950     0.1284 154.8896  17.092  &lt; 2e-16 ***
+## meanses          5.2463     0.3683 151.3246  14.244  &lt; 2e-16 ***
+## sectorCatholic   1.3722     0.3055 149.8780   4.491  1.4e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Correlation of Fixed Effects:
+##             (Intr) tses   meanss
+## tses         0.060              
+## meanses      0.245 -0.004       
+## sectorCthlc -0.696  0.002 -0.356</code></pre>
+<ul>
+<li>Kui kooli keskmine sotsiaalmajanduslik indeks tõuseb 1 punkti võrra, siis tõuseb kooli keskmine matemaatikatesti tulemus 5.9 punkti võrra.<br />
+</li>
+<li>Katoliiklikus koolis on keskmine matemaatika testitulemus ca 1.4 punkti parem kui tavakoolis.</li>
+</ul>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="6-mitmetasandiline-regressioon.html#cb648-1" tabindex="-1"></a><span class="fu">anova</span>(m2, m3)</span></code></pre></div>
+<pre><code>## Data: andmed
+## Models:
+## m2: mathach ~ 1 + tses + (1 + tses | school)
+## m3: mathach ~ 1 + tses + meanses + sector + (1 + tses | school)
+##    npar   AIC   BIC logLik deviance  Chisq Df Pr(&gt;Chisq)    
+## m2    6 46723 46764 -23356    46711                         
+## m3    8 46554 46609 -23269    46538 172.84  2  &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="esimese-ja-teise-tasandi-sõltumatute-tunnuste-koosmõjud" class="section level3 hasAnchor" number="6.4.7">
+<h3><span class="header-section-number">6.4.7</span> Esimese ja teise tasandi sõltumatute tunnuste koosmõjud<a href="6-mitmetasandiline-regressioon.html#esimese-ja-teise-tasandi-sõltumatute-tunnuste-koosmõjud" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lõpuks lisame mudelisse ka esimese tasandi sõltumatu tunnuse (<em>tses</em>) ja teise tasandi sõltumatute tunnuste (<em>meanses</em> ja <em>sector</em>) koosmõjud, mille abil saame hinnata kas teise tasandi tunnused mõjutavbad esimese tasandi mõjusid:</p>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="6-mitmetasandiline-regressioon.html#cb650-1" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(mathach <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> tses <span class="sc">*</span> meanses <span class="sc">+</span> tses <span class="sc">*</span> sector <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>tses <span class="sc">|</span>school), <span class="at">data =</span> andmed)</span></code></pre></div>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="6-mitmetasandiline-regressioon.html#cb651-1" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code></pre></div>
+<pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
+## lmerModLmerTest]
+## Formula: mathach ~ 1 + tses * meanses + tses * sector + (1 + tses | school)
+##    Data: andmed
+## 
+## REML criterion at convergence: 46503.7
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -3.15921 -0.72319  0.01706  0.75439  2.95822 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev. Corr
+##  school   (Intercept)  2.3819  1.5433       
+##           tses         0.1014  0.3184   0.39
+##  Residual             36.7211  6.0598       
+## Number of obs: 7185, groups:  school, 160
+## 
+## Fixed effects:
+##                     Estimate Std. Error       df t value Pr(&gt;|t|)    
+## (Intercept)          12.1136     0.1988 159.8921  60.931  &lt; 2e-16 ***
+## tses                  2.9388     0.1551 139.3042  18.948  &lt; 2e-16 ***
+## meanses               5.3391     0.3693 150.9689  14.457  &lt; 2e-16 ***
+## sectorCatholic        1.2167     0.3064 149.5994   3.971 0.000111 ***
+## tses:meanses          1.0389     0.2989 160.5528   3.476 0.000656 ***
+## tses:sectorCatholic  -1.6426     0.2398 143.3449  -6.850 2.01e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Correlation of Fixed Effects:
+##             (Intr) tses   meanss sctrCt tss:mn
+## tses         0.080                            
+## meanses      0.245  0.020                     
+## sectorCthlc -0.697 -0.056 -0.356              
+## tses:meanss  0.019  0.282  0.079 -0.028       
+## tss:sctrCth -0.056 -0.694 -0.029  0.082 -0.351</code></pre>
+<ul>
+<li><em>tses</em> koefitsient 2,94 on nüüd sotsiaalmajandusliku indeksi keskmine effekt testitulemusele tavakoolis. Katoliiklikus koolis on see efekt 1,64 võrra väiksem. Ehk siis katoliiklikus koolis ei mõjuta pere sotsiaalmajanduslik taust õpitulemusi nii palju kui tavakoolis.<br />
+</li>
+<li>Mida kõrgem on kooli keskmine sotsiaalmajanduslik indeks, seda suurem mõju on pere majanduslikul taustal õpitulemustele. Ühe punktine kasv kooli keskmises tähendab 1,049 punktist mõju kasvu.</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="20">
+<li id="fn20"><p>Tegemist on reaalsete andmetega, kuid olen nende tähendust diaktilistel kaalutlustel muutnud. Reaalselt on need <em>Iris</em> andmestiku andmed, <span class="math inline">\(x\)</span>-teljel on iiriste kroonlehtede pikkus ja <span class="math inline">\(y\)</span>-teljel kroonlehtede laius (vt <code>help(iris)</code>)<a href="6-mitmetasandiline-regressioon.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>Gregory Belenky, Nancy J. Wesensten, David R. Thorne, Maria L. Thomas, Helen C. Sing, Daniel P. Redmond, Michael B. Russo and Thomas J. Balkin (2003) Patterns of performance degradation and restoration during sleep restriction and subsequent recovery: a sleep dose-response study. <em>Journal of Sleep Research</em> <strong>12</strong>, 1–12. Andmestik on kättesaadav paketis <em>lme4</em> nimega <code>sleepstudy</code><a href="6-mitmetasandiline-regressioon.html#fnref21" class="footnote-back">↩︎</a></p></li>
+<li id="fn22"><p>Tegelikult piisab ka lihtsalt <code>lmerTest</code> paketi laadimisest, kuna see laeb automaatselt ka <code>lme4</code> paketi.<a href="6-mitmetasandiline-regressioon.html#fnref22" class="footnote-back">↩︎</a></p></li>
+<li id="fn23"><p>Lihtsalt, et oleks kergem neid trükkida<a href="6-mitmetasandiline-regressioon.html#fnref23" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="5-kausaalsete-mõjude-hindamine.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="7-valimiuuringud.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

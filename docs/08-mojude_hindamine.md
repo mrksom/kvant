@@ -1,5 +1,9 @@
 
 
+# (PART) Mõjude hindamine {-} 
+
+
+
 
 # Kausaalsete mõjude hindamine
 
