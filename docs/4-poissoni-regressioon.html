@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Peatükk 4 Poissoni regressioon | Kvantitatiivne andmeanalüüs</title>
   <meta name="description" content="Peatükk 4 Poissoni regressioon | Kvantitatiivne andmeanalüüs" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Peatükk 4 Poissoni regressioon | Kvantitatiivne andmeanalüüs" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="custom/custom_styles.css" type="text/css" />
 </head>
@@ -217,6 +221,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#hierarhiline-klasteranalüüs"><i class="fa fa-check"></i><b>8.2</b> Hierarhiline klasteranalüüs</a></li>
 <li class="chapter" data-level="8.3" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>8.3</b> K-keskmiste (k-means) klasterdamine</a></li>
 <li class="chapter" data-level="8.4" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>8.4</b> Klasteranalüüsi tulemi valiidsus</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html"><i class="fa fa-check"></i><b>9</b> Kausaalsete mõjude hindamine</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#potentsiaalsed-tulemused"><i class="fa fa-check"></i><b>9.1</b> Potentsiaalsed tulemused</a></li>
+<li class="chapter" data-level="9.2" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#mõju-hindamise-meetodid"><i class="fa fa-check"></i><b>9.2</b> Mõju hindamise meetodid</a></li>
+<li class="chapter" data-level="9.3" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#sobitamine-ris"><i class="fa fa-check"></i><b>9.3</b> Sobitamine R’is</a></li>
 </ul></li>
 <li class="appendix"><span><b>LISA</b></span></li>
 <li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
@@ -384,10 +394,6 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## Call:
 ## glm(formula = articles ~ gender, family = poisson(), data = phd)
 ## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -1.9404  -1.7148  -0.4119   0.4139   7.3221  
-## 
 ## Coefficients:
 ##              Estimate Std. Error z value Pr(&gt;|z|)    
 ## (Intercept)   0.63265    0.03279  19.293  &lt; 2e-16 ***
@@ -432,10 +438,6 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## glm(formula = articles ~ gender + prestige + married + kids2 + 
 ##     mentor, family = poisson(), data = phd)
 ## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -3.4477  -1.5669  -0.3587   0.5705   5.4715  
-## 
 ## Coefficients:
 ##               Estimate Std. Error z value Pr(&gt;|z|)    
 ## (Intercept)   0.306243   0.103093   2.971  0.00297 ** 
@@ -474,10 +476,6 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## glm(formula = articles ~ gender * kids2 + married + mentor, family = poisson(), 
 ##     data = phd)
 ## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -3.4995  -1.5593  -0.3582   0.5639   5.4570  
-## 
 ## Coefficients:
 ##                       Estimate Std. Error z value Pr(&gt;|z|)    
 ## (Intercept)            0.34220    0.06249   5.476 4.35e-08 ***
@@ -502,10 +500,6 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## Call:
 ## glm(formula = articles ~ gender + married + kids2 + mentor, family = poisson(), 
 ##     data = phd)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -3.5080  -1.5615  -0.3626   0.5614   5.4494  
 ## 
 ## Coefficients:
 ##              Estimate Std. Error z value Pr(&gt;|z|)    
@@ -550,10 +544,6 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## glm(formula = articles ~ gender + married + kids2 + mentor, family = quasipoisson, 
 ##     data = phd)
 ## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -3.5080  -1.5615  -0.3626   0.5614   5.4494  
-## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
 ## (Intercept)   0.338732   0.081482   4.157 3.53e-05 ***
@@ -578,10 +568,6 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 ## Call:
 ## glm(formula = articles ~ gender + kids2 + mentor, family = quasipoisson, 
 ##     data = phd)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -3.4818  -1.5758  -0.3663   0.5443   5.5757  
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
@@ -669,42 +655,42 @@ kui me võtame mõlemast võrrandi pooles eksponendi, saame sama asja väljendad
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": false,
-"twitter": false,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": false
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

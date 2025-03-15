@@ -195,15 +195,9 @@ Kolm indikaatorit annavad meile kolm korrelatsioonikoefitsienti (tabel \@ref(tab
 
 
 ```{=html}
-<div class="tabwid"><style>.cl-e9cf32ec{}.cl-e9b9e0cc{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-e9b9e0e0{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-e9b9e0ea{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-e9c0860c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-e9c0baaa{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bab4{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0babe{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0babf{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bac8{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bac9{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0baca{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bad2{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bad3{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0badc{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0badd{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9c0bade{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-e9cf32ec'>
-
-```
-
-<caption style="display:table-caption;">(\#tab:k1)<span>Korrelatsioonimaatriks</span></caption>
-
-```{=html}
-
-<thead><tr style="overflow-wrap:break-word;"><th class="cl-e9c0baaa"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></th><th class="cl-e9c0bab4"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">1</span></p></th><th class="cl-e9c0babe"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">2</span></p></th><th class="cl-e9c0baaa"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">3</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-e9c0babf"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">1</span></p></td><td class="cl-e9c0bac8"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">1</span></p></td><td class="cl-e9c0bac9"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></td><td class="cl-e9c0babf"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9c0baca"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">2</span></p></td><td class="cl-e9c0bad2"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">0.2</span></p></td><td class="cl-e9c0bad3"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">1</span></p></td><td class="cl-e9c0baca"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9c0badc"><p class="cl-e9c0860c"><span class="cl-e9b9e0e0">y</span><span class="cl-e9b9e0ea">3</span></p></td><td class="cl-e9c0badd"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">0.3</span></p></td><td class="cl-e9c0bade"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">0.24</span></p></td><td class="cl-e9c0badc"><p class="cl-e9c0860c"><span class="cl-e9b9e0cc">1</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-463faf36{}.cl-46343b38{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-46343b4c{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-46343b4d{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-463894a8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-4638c7b6{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4638c7c0{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4638c7ca{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4638c7cb{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4638c7d4{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4638c7d5{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4638c7d6{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4638c7de{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4638c7df{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4638c7e8{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4638c7e9{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4638c7ea{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-463faf36'>
+<caption style="display:table-caption;">(#tab:k1)<span>Korrelatsioonimaatriks</span></caption>
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-4638c7b6"><p class="cl-463894a8"><span class="cl-46343b38"></span></p></th><th class="cl-4638c7c0"><p class="cl-463894a8"><span class="cl-46343b4c">y</span><span class="cl-46343b4d">1</span></p></th><th class="cl-4638c7ca"><p class="cl-463894a8"><span class="cl-46343b4c">y</span><span class="cl-46343b4d">2</span></p></th><th class="cl-4638c7b6"><p class="cl-463894a8"><span class="cl-46343b4c">y</span><span class="cl-46343b4d">3</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-4638c7cb"><p class="cl-463894a8"><span class="cl-46343b4c">y</span><span class="cl-46343b4d">1</span></p></td><td class="cl-4638c7d4"><p class="cl-463894a8"><span class="cl-46343b38">1</span></p></td><td class="cl-4638c7d5"><p class="cl-463894a8"><span class="cl-46343b38"></span></p></td><td class="cl-4638c7cb"><p class="cl-463894a8"><span class="cl-46343b38"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4638c7d6"><p class="cl-463894a8"><span class="cl-46343b4c">y</span><span class="cl-46343b4d">2</span></p></td><td class="cl-4638c7de"><p class="cl-463894a8"><span class="cl-46343b38">0.2</span></p></td><td class="cl-4638c7df"><p class="cl-463894a8"><span class="cl-46343b38">1</span></p></td><td class="cl-4638c7d6"><p class="cl-463894a8"><span class="cl-46343b38"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-4638c7e8"><p class="cl-463894a8"><span class="cl-46343b4c">y</span><span class="cl-46343b4d">3</span></p></td><td class="cl-4638c7e9"><p class="cl-463894a8"><span class="cl-46343b38">0.3</span></p></td><td class="cl-4638c7ea"><p class="cl-463894a8"><span class="cl-46343b38">0.24</span></p></td><td class="cl-4638c7e8"><p class="cl-463894a8"><span class="cl-46343b38">1</span></p></td></tr></tbody></table></div>
 ```
     
 
@@ -264,15 +258,9 @@ Faktorlaadungite leidmiseks pidime kasutama kõiki kolme korrelatsioonikoefitsie
 
 
 ```{=html}
-<div class="tabwid"><style>.cl-eb5e81b2{}.cl-eb4d2da4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eb4d2dae{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-eb4d2db8{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-eb5595de{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-eb55bc62{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc6c{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc6d{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc76{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc77{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc80{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc81{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc8a{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc8b{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc94{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc95{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc9e{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bc9f{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bca0{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bca8{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-eb55bca9{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-eb5e81b2'>
-
-```
-
-<caption style="display:table-caption;">(\#tab:k3)<span>Korrelatsioonimaatriks</span></caption>
-
-```{=html}
-
-<thead><tr style="overflow-wrap:break-word;"><th class="cl-eb55bc62"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></th><th class="cl-eb55bc6c"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">1</span></p></th><th class="cl-eb55bc6d"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">2</span></p></th><th class="cl-eb55bc6c"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">3</span></p></th><th class="cl-eb55bc62"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">4</span></p></th><th class="cl-eb55bc76"><p class="cl-eb5595de"><span class="cl-eb4d2dae">X</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc77"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">1</span></p></td><td class="cl-eb55bc80"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bc81"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc80"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc77"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc8a"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">2</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.2</span></p></td><td class="cl-eb55bc95"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bc9e"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">3</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.3</span></p></td><td class="cl-eb55bca8"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.24</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td><td class="cl-eb55bca9"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2dae">y</span><span class="cl-eb4d2db8">4</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.3</span></p></td><td class="cl-eb55bca8"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.2</span></p></td><td class="cl-eb55bca0"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.4</span></p></td><td class="cl-eb55bc9f"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td><td class="cl-eb55bca9"><p class="cl-eb5595de"><span class="cl-eb4d2da4"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2dae">X</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.5</span></p></td><td class="cl-eb55bc95"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.4</span></p></td><td class="cl-eb55bc94"><p class="cl-eb5595de"><span class="cl-eb4d2da4">0.6</span></p></td><td class="cl-eb55bc8b"><p class="cl-eb5595de"><span class="cl-eb4d2da4">?</span></p></td><td class="cl-eb55bc9e"><p class="cl-eb5595de"><span class="cl-eb4d2da4">1</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-474e5c92{}.cl-473fedb0{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-473fedba{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-473fedc4{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-474865b2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-4748937a{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-47489384{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-47489385{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-47489386{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4748938e{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-4748938f{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-47489398{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-47489399{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-474893a2{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-474893a3{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-474893ac{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-474893ad{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-474893ae{width:0.404in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-474893b6{width:0.498in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-474893b7{width:0.583in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-474893c0{width:0.387in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-474e5c92'>
+<caption style="display:table-caption;">(#tab:k3)<span>Korrelatsioonimaatriks</span></caption>
+<thead><tr style="overflow-wrap:break-word;"><th class="cl-4748937a"><p class="cl-474865b2"><span class="cl-473fedb0"></span></p></th><th class="cl-47489384"><p class="cl-474865b2"><span class="cl-473fedba">y</span><span class="cl-473fedc4">1</span></p></th><th class="cl-47489385"><p class="cl-474865b2"><span class="cl-473fedba">y</span><span class="cl-473fedc4">2</span></p></th><th class="cl-47489384"><p class="cl-474865b2"><span class="cl-473fedba">y</span><span class="cl-473fedc4">3</span></p></th><th class="cl-4748937a"><p class="cl-474865b2"><span class="cl-473fedba">y</span><span class="cl-473fedc4">4</span></p></th><th class="cl-47489386"><p class="cl-474865b2"><span class="cl-473fedba">X</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-4748938e"><p class="cl-474865b2"><span class="cl-473fedba">y</span><span class="cl-473fedc4">1</span></p></td><td class="cl-4748938f"><p class="cl-474865b2"><span class="cl-473fedb0">1</span></p></td><td class="cl-47489398"><p class="cl-474865b2"><span class="cl-473fedb0"></span></p></td><td class="cl-4748938f"><p class="cl-474865b2"><span class="cl-473fedb0"></span></p></td><td class="cl-4748938e"><p class="cl-474865b2"><span class="cl-473fedb0"></span></p></td><td class="cl-47489399"><p class="cl-474865b2"><span class="cl-473fedb0"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-474893a2"><p class="cl-474865b2"><span class="cl-473fedba">y</span><span class="cl-473fedc4">2</span></p></td><td class="cl-474893a3"><p class="cl-474865b2"><span class="cl-473fedb0">0.2</span></p></td><td class="cl-474893ac"><p class="cl-474865b2"><span class="cl-473fedb0">1</span></p></td><td class="cl-474893a3"><p class="cl-474865b2"><span class="cl-473fedb0"></span></p></td><td class="cl-474893a2"><p class="cl-474865b2"><span class="cl-473fedb0"></span></p></td><td class="cl-474893ad"><p class="cl-474865b2"><span class="cl-473fedb0"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-474893ae"><p class="cl-474865b2"><span class="cl-473fedba">y</span><span class="cl-473fedc4">3</span></p></td><td class="cl-474893b6"><p class="cl-474865b2"><span class="cl-473fedb0">0.3</span></p></td><td class="cl-474893b7"><p class="cl-474865b2"><span class="cl-473fedb0">0.24</span></p></td><td class="cl-474893b6"><p class="cl-474865b2"><span class="cl-473fedb0">1</span></p></td><td class="cl-474893ae"><p class="cl-474865b2"><span class="cl-473fedb0"></span></p></td><td class="cl-474893c0"><p class="cl-474865b2"><span class="cl-473fedb0"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-474893ae"><p class="cl-474865b2"><span class="cl-473fedba">y</span><span class="cl-473fedc4">4</span></p></td><td class="cl-474893b6"><p class="cl-474865b2"><span class="cl-473fedb0">0.3</span></p></td><td class="cl-474893b7"><p class="cl-474865b2"><span class="cl-473fedb0">0.2</span></p></td><td class="cl-474893b6"><p class="cl-474865b2"><span class="cl-473fedb0">0.4</span></p></td><td class="cl-474893ae"><p class="cl-474865b2"><span class="cl-473fedb0">1</span></p></td><td class="cl-474893c0"><p class="cl-474865b2"><span class="cl-473fedb0"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-474893a2"><p class="cl-474865b2"><span class="cl-473fedba">X</span></p></td><td class="cl-474893a3"><p class="cl-474865b2"><span class="cl-473fedb0">0.5</span></p></td><td class="cl-474893ac"><p class="cl-474865b2"><span class="cl-473fedb0">0.4</span></p></td><td class="cl-474893a3"><p class="cl-474865b2"><span class="cl-473fedb0">0.6</span></p></td><td class="cl-474893a2"><p class="cl-474865b2"><span class="cl-473fedb0">?</span></p></td><td class="cl-474893ad"><p class="cl-474865b2"><span class="cl-473fedb0">1</span></p></td></tr></tbody></table></div>
 ```
 
 
@@ -362,7 +350,7 @@ R-is on SEM-i jaoks mitmeid pakette. Neist peamised on *lavaan*, *sem* ja *openM
 Kõigepealt loeme sisse vajalikud paketid. Ja nagu alati, kui mõnda paketti ei ole eelnevalt installitud, siis tuleb seda teha (`install.packages()` funktsiooniga, kus paketi nimi peab olema jutumärkides).
 
 
-```r
+``` r
 library(lavaan)
 library(semPlot)
 library(dplyr)
@@ -376,7 +364,7 @@ library(dplyr)
 Tavaline regressioon on defineeritav identselt tavalisele regressioonile `lm` funktsioonis, kus sõltuv tunnus on eraldatud sõltumatutsest tildega ja sõltumatud tunnused üksteisest plussmärgiga (koosmõjude puhul * või : märgiga):
 
 
-```r
+``` r
 mod <- 'y ~ x1 + x2'
 mod <- 'y ~ x1 * x2' # koosmõjudega mudel 
 ```
@@ -384,7 +372,7 @@ mod <- 'y ~ x1 * x2' # koosmõjudega mudel
 SEM'is tuleb meil pea alati defineerida mitu võrrandit. Sellisel juhul peavad nad kõik olema ühe tekstilise objekti sees ning erinevatel ridadel:
 
 
-```r
+``` r
 mod <- 'y1 ~ x1 + x2
         y2 ~ x2 + x3 + x4
         y1 ~ y2'
@@ -393,7 +381,7 @@ mod <- 'y1 ~ x1 + x2
 Faktorid tuleb defineerida `=~` märgiga:
 
 
-```r
+``` r
 mod <- 'f1 =~ y1 + y2 + y3
         f2 =~ y4 + y5 + y6'
 ```
@@ -401,7 +389,7 @@ mod <- 'f1 =~ y1 + y2 + y3
 Variatsioonid ja kovariatsioonid saab vajadusel defineerida kahe tildega:
 
 
-```r
+``` r
 mod <- '
 y1 ~~ y2
 f1 ~~ f2
@@ -412,7 +400,7 @@ f1 ~~ f2
 Andmestikuna kasutame *lavaan*-iga kaasa olevat näidisandmestikkus *PoliticalDemocracy*. Andmestik sisaldab demokraatia ja majanduse mõõdikuid erinevate riikide kohta. Täpsemalt saab andmestiku kohta lugeda selle abifailist `help(PoliticalDemocracy)`
 
 
-```r
+``` r
 # paneme andmed mugavama nime alla
 dt <- PoliticalDemocracy
 # muudame ka mõned tunnuste nimed arusaadavamaks
@@ -426,7 +414,7 @@ dt <- dt %>%
 Kuigi *lavaan* on mõeldud eelkõige SEM-i jaoks, siis saab sellega väga edukalt ka tavalist regressiooni jooksutada. Mis on ka iseenesest mõistetav, arvestades asjaolu, et SEM ju suures osas ongi laiendatud regressioonanalüüs. Vaatame kuidas on valimisvabadus seotud pressivabadusega. Selleks peame kõigepealt defineerima mudeli ning seejärel seda jooksutama funktsiooniga `sem()`. Tulemusi näeme 'summary()' funktsiooniga nagu tavalise regressiooni puhulgi. 
 
 
-```r
+``` r
 # Defineeerime mudeli
 mod <- 'fair_elect_60 ~ free_press_60'
 
@@ -436,7 +424,7 @@ summary(fit)
 ```
 
 ```
-## lavaan 0.6.15 ended normally after 1 iteration
+## lavaan 0.6-19 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -471,7 +459,7 @@ Ka F-testi meile ei näidata. Ja seda ka ei saa, kuna hindamine toimub *maximum 
 Paneme mainitud argumendid juurde ja jooksutame koodi uuesti:
 
 
-```r
+``` r
 # defineeerime mudeli
 mod <- 'fair_elect_60 ~ free_press_60'
 
@@ -481,7 +469,7 @@ summary(fit, rsquare=T)
 ```
 
 ```
-## lavaan 0.6.15 ended normally after 15 iterations
+## lavaan 0.6-19 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -521,7 +509,7 @@ summary(fit, rsquare=T)
 Nüüd on olemas nii $R^2$ kui vabaliige. Vaatame, kas tulemused on sarnased `lm()` funktsioonile.
 
 
-```r
+``` r
 summary(lm(fair_elect_60 ~ free_press_60, data = dt))
 ```
 
@@ -548,7 +536,7 @@ summary(lm(fair_elect_60 ~ free_press_60, data = dt))
 
 Suhteliselt sarnased. Mõningane erinevus tulenebki erinevatest hindamismeetoditest ja võimalik et mingitest ümardamistest vms. Tavalise regresiooniga saame ka RSE (*Residual standard error*) ehk jääkide standardvea. See näitab regressiooni jääkide, mudeli (ehk sõltuva tunnuse) seletamata jäänud variatsiooni keskmist suurust. Kuigi *lavaan*-i väljundis seda numbrit ei ole, siis see väärtus on seal ikkagi olemas. Nimelt sõltuva tunnuse dispersiooni näol. Disepersioon on standardhälve ruudus, seega:
 
-```r
+``` r
 sqrt(5.731)
 ```
 
@@ -563,7 +551,7 @@ Defineerime rajaanalüüsi mudeli, milles vaatame kuidas valimisvabadus 1965 aas
 Keerulisemaid mudeleid on kirjalikult suhteliselt keeruline defineerida. Siin aitab see, kui need eelnevalt näiteks üles joonistada. Nii on kõik silme ees ning lihtsam neid ka kirja panna.  
 
 
-```r
+``` r
 mod <- 'fair_elect_65 ~ fair_elect_60 + free_press_60 + gnp_60
         fair_elect_60 ~ free_press_60 
         free_press_60 ~ gnp_60'
@@ -575,7 +563,7 @@ summary(fit, standardized=T)
 ```
 
 ```
-## lavaan 0.6.15 ended normally after 1 iteration
+## lavaan 0.6-19 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -618,7 +606,7 @@ Standardiseeritud lahend on tulbas *Std.all*. Näeme, et meie hüpoteesid pidasi
 Lihtsam on rajaanalüüsist aru saada rajadiagrammi põhjal. Funktsioon `semPath()` võimaldam mudeli alusel selle diagrammi mugavlt välja joonistada- See ei tee just kõige ilusamaid jooniseid, avaldamiseks päris ei sobi, kuid ülevaate saab selle kaudu kätte.  
 
 
-```r
+``` r
 semPaths(fit, node.width = 2, edge.label.cex = 1, what = "paths", whatLabels = 'stand')
 ```
 
@@ -627,7 +615,7 @@ semPaths(fit, node.width = 2, edge.label.cex = 1, what = "paths", whatLabels = '
 Jätame GNP mõju valimisvabadusele 65 aastal välja ja jooksutame mudeli uuesti (salvestame selle ka teise mudeliobjekti):
 
 
-```r
+``` r
 mod <- 'fair_elect_65 ~ fair_elect_60 + free_press_60
         fair_elect_60 ~ free_press_60 
         free_press_60 ~ gnp_60'
@@ -639,7 +627,7 @@ summary(fit1, standardized=T)
 ```
 
 ```
-## lavaan 0.6.15 ended normally after 1 iteration
+## lavaan 0.6-19 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -679,7 +667,7 @@ summary(fit1, standardized=T)
 Kasutame `anova()` funktsiooni, et hinnata, kas saime parema mudeli:
 
 
-```r
+``` r
 anova(fit, fit1)
 ```
 
@@ -699,12 +687,12 @@ p väärtus on > 0.05, mis tähendab, et keerulisem mudel (fit) ei erine olulise
 *lavaan*-i mudeli objektis on teglikult peidus märksa enam infot kui `summary()` funktsioon vakimisi välja annab. Erinevatele testidele ja sobivusindeksitele saab ligi kui `summary()` funktsioonis kasutada argumenti `fit.measures=T`
 
 
-```r
+``` r
 summary(fit1, fit.measures=T)
 ```
 
 ```
-## lavaan 0.6.15 ended normally after 1 iteration
+## lavaan 0.6-19 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -777,7 +765,7 @@ Nüüd tundub, et seda infot on jälle liiga palju. Kuid käime väljundi lõik 
 
 
 ```
-## lavaan 0.6.15 ended normally after 1 iteration
+## lavaan 0.6-19 ended normally after 1 iteration
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -864,7 +852,7 @@ Isegi siis, kuisobivusindeksid mahtusid meie piirmäärade sisse, peab alati mud
 
 
 
-```r
+``` r
 lavCor(fit1)
 ```
 
@@ -879,7 +867,7 @@ lavCor(fit1)
 Sobitatud korrelatsioonimaatriksi funktsiooniga `inspect()`:
 
 
-```r
+``` r
 inspect(fit1, what="cor.all")
 ```
 
@@ -894,7 +882,7 @@ inspect(fit1, what="cor.all")
 Saame võõrelda nende erinevusi, lahutame ühest teise (kuna tegemist on maatriksitega, siis saame seda lihtsalt teha):
 
 
-```r
+``` r
 lavCor(fit1) - inspect(fit1, what="cor.all")
 ```
 
@@ -909,7 +897,7 @@ lavCor(fit1) - inspect(fit1, what="cor.all")
 Veelgi lihtsam moodus oleks kasutada `residuals()`funktsiooni (kui tahame korrelatsioonide erinevust, siis argumen `type = 'cor'`)
 
 
-```r
+``` r
 residuals(fit1, type = 'cor')
 ```
 
@@ -930,18 +918,20 @@ Jääkide maatriksist peaks otsima suuremaid väärtusi, mis annavad tunnistust,
 Lisaks jääkide maatriksile saame kohalikku sobivust analüüsida modifikatsiooniindeksite põhjal:
 
 
-```r
+``` r
 modindices(fit1)
 ```
 
 ```
 ##              lhs op           rhs    mi    epc sepc.lv sepc.all sepc.nox
-## 9  fair_elect_65  ~        gnp_60 2.113  0.562   0.562    0.125    0.172
-## 11 fair_elect_60  ~        gnp_60 0.752  0.356   0.356    0.080    0.109
-## 12 free_press_60  ~ fair_elect_65 2.778 -0.503  -0.503   -0.630   -0.630
-## 13 free_press_60  ~ fair_elect_60 0.752 -0.264  -0.264   -0.330   -0.330
-## 14        gnp_60  ~ fair_elect_65 2.778  0.063   0.063    0.282    0.282
-## 15        gnp_60  ~ fair_elect_60 0.752  0.033   0.033    0.148    0.148
+## 10 fair_elect_65 ~~ free_press_60 2.113 -2.384  -2.384   -0.439   -0.439
+## 11 fair_elect_60 ~~ free_press_60 0.752 -1.511  -1.511   -0.262   -0.262
+## 12 fair_elect_65  ~        gnp_60 2.113  0.562   0.562    0.125    0.172
+## 14 fair_elect_60  ~        gnp_60 0.752  0.356   0.356    0.080    0.109
+## 15 free_press_60  ~ fair_elect_65 2.778 -0.503  -0.503   -0.630   -0.630
+## 16 free_press_60  ~ fair_elect_60 0.752 -0.264  -0.264   -0.330   -0.330
+## 17        gnp_60  ~ fair_elect_65 2.778  0.063   0.063    0.282    0.282
+## 18        gnp_60  ~ fair_elect_60 0.752  0.033   0.033    0.148    0.148
 ```
 
 Siin tasun vaadata veergu *mi*, mis näitab kui palju meie mudel läheks paremaks kui mõne seose mudelisse lisaks või ära jätaks (`~` näitab regressioonseost, `~~` näitab kovariatsiooni).
@@ -953,7 +943,7 @@ Kinnitava faktoranalüüsi jaoks on *lavaan*-is funktsioon `cfa()` (see on tegel
 Kasutame näidisena samat demoktia indikaatorite andmestikku ja moodustame kolm faktorit (majandusnäitajate faktor, demokraatia 1960 faktor ja demokraatia 1965 faktor) 
 
 
-```r
+``` r
 # Tõmbame andmestiku uuesti sisse, kuid seekord ei muuda nimesid (hoiame ruumi kokku)
 dt <- PoliticalDemocracy
 
@@ -969,7 +959,7 @@ summary(fit, fit.measures = TRUE, standardized = T)
 ```
 
 ```
-## lavaan 0.6.15 ended normally after 47 iterations
+## lavaan 0.6-19 ended normally after 47 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1135,7 +1125,7 @@ Ja lõpuks dispersioonid, mis indikaatorite puhul näitavad iga indikaatori nn u
 Saame kõike seda infot vaadata ka diagrammi kujul:
 
 
-```r
+``` r
 semPaths(fit, node.width = 1, edge.label.cex = 1, what = "paths", whatLabels = 'est')
 ```
 
@@ -1144,7 +1134,7 @@ semPaths(fit, node.width = 1, edge.label.cex = 1, what = "paths", whatLabels = '
 Kui vaatame sobivusindekseid, siis hii-ruut test < 0.05 (halb), CFI > 0.95 (hea), TLI < 0.95 (halb), RMSEA > 0.05 (halb) ja SRMR < 0.08 (hea). Ehk siis suhteliselt ebamäärased tulemused (nagu nad tavaliselt ka on). Kuid tundub, et peame üritama oma mudelit natukene paremaks teha. Vaatame mudeli jääke.
 
 
-```r
+``` r
 residuals(fit, type = 'cor')
 ```
 
@@ -1172,7 +1162,7 @@ Silma torkavad jäägid, mis tulenevad $x1$ ja $y5$, $x1$ ja $y4$, $y2$ ja $y6$ 
 Vaatame ka modifikatsiooniindekseid:
 
 
-```r
+``` r
 # Kasutame minimum.value = 5 parameetrit, et filtreerida välja kõige olulisemad modifikatsiooniindeksid
 modindices(fit, minimum.value = 5)
 ```
@@ -1191,7 +1181,7 @@ Saame siit sisuliselt sama sisendi, mida ka jääkide maatriksi abil täheldasim
 Muudame oma mudelit nii, et defineerime $y2$ ja $y6$ vahelise kovariatsiooni:
 
 
-```r
+``` r
 # Defineerime mudeli
 mod <- ' 
      maj60 =~ x1 + x2 + x3
@@ -1206,7 +1196,7 @@ summary(fit1, fit.measures = TRUE, standardized = T)
 ```
 
 ```
-## lavaan 0.6.15 ended normally after 53 iterations
+## lavaan 0.6-19 ended normally after 53 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1306,7 +1296,7 @@ summary(fit1, fit.measures = TRUE, standardized = T)
 Tundub, et saime mõnevõrra paremate indeksitega mudeli. Kontrollime seda ka `anova()` funktsiooniga.
 
 
-```r
+``` r
 anova(fit, fit1)
 ```
 
@@ -1325,7 +1315,7 @@ Mudelite võrdluse hii-ruut test ütleb, et peaksime siiski eelistama teist mude
 
 
 
-```r
+``` r
 # Defineerime mudeli
 mod <- ' 
      maj60 =~ x1 + x2 + x3
@@ -1342,7 +1332,7 @@ summary(fit1, fit.measures = TRUE, standardized = T)
 ```
 
 ```
-## lavaan 0.6.15 ended normally after 62 iterations
+## lavaan 0.6-19 ended normally after 62 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1451,7 +1441,7 @@ Meil on nüüdseks olemas sobilik faktormudel (ehk mõõtmismudel). Järgmisena 
 
 
 
-```r
+``` r
 mod <- ' 
      maj60 =~ x1 + x2 + x3
      dem60 =~ y1 + y2 + y3 + y4
@@ -1471,7 +1461,7 @@ summary(fit, fit.measures = TRUE)
 ```
 
 ```
-## lavaan 0.6.15 ended normally after 53 iterations
+## lavaan 0.6-19 ended normally after 53 iterations
 ## 
 ##   Estimator                                         ML
 ##   Optimization method                           NLMINB
@@ -1593,7 +1583,7 @@ Näeme, et kõik regressioonid on statistiliselt olulised. Mida kõrgem on *maj6
 Saame oma mudelit jällegi ka graafiliselt vaadata.
 
 
-```r
+``` r
 semPaths(fit, node.width = 1, edge.label.cex = 1, what = "paths", whatLabels = 'est')
 ```
 
@@ -1605,7 +1595,7 @@ semPaths(fit, node.width = 1, edge.label.cex = 1, what = "paths", whatLabels = '
 Päris palju asju toimub *lavaan*-is nn "kapoti all". Mingid argumendid on vaikeväärtustena, mingid parameetrid on fikseeritud jne. Et kõigest sellest natuke aimu saada, on võimalik vaadata kuidas *lavaan* meie defineeritud mudeli täpselt spetsifitseeris. `inspect()` funktsiooniga saab kätte kõik mudeli poolt hinnatud parameetrid. 
 
 
-```r
+``` r
 inspect(fit)
 ```
 
@@ -1661,7 +1651,7 @@ Numbritena on üles loetletud kõik hinnatud parameetrid.
 Saame näha ka hinnatud parameetreid
 
 
-```r
+``` r
 inspect(fit, "est")
 ```
 

@@ -229,7 +229,7 @@ Ris on mitmetasandilise analüüsi teostamiseks mitmeid pakette. Kasutame siinko
 Kõigepealt laeme sessiooniks sisse vajalikud paketid (kui need ei ole installitud, siis tuleb seda teha käsuga `install.packages()`)
 
 
-```r
+``` r
 library(nlme) # siit saame andmed
 library(ggplot2) # joonised
 library(dplyr) # andmete töötlemine
@@ -244,7 +244,7 @@ Kasutame andmestikuna `MathAchieve` näidisandmestikku paketist `nlme`. Andmesti
 Anname andmetele natukene lihtsama nime ja vaatame millega tegu:
 
 
-```r
+``` r
 andmed <- nlme::MathAchieve %>% 
   as.data.frame()
 str(andmed)
@@ -276,7 +276,7 @@ Lisaks on `nlme` paketis ka andmestik `MathAchSchool`, mis sisaldab veel erineva
 - *MEANSES* - kooli keskmine SES skoor
 
 
-```r
+``` r
 koolid <- nlme::MathAchSchool %>% 
   as.data.frame() %>% 
   select(School, Sector, PRACAD, MEANSES)
@@ -300,7 +300,7 @@ Taoline mitmetasandiliste andmete organiseerimise viis, kus erinevate tasandite 
 Mõlemat andmestikku ühendavaks id tunnuseks on *School*. Kuid kuna need tunnused on erinevatest klassidest (üks on *ordered factor*, teine tavaline *factor*), siis teeme nad mõlemad kõigepealt *character* tunnusteks
 
 
-```r
+``` r
 andmed$School <- as.character(andmed$School)
 koolid$School <- as.character(koolid$School)
 # Nüüd saame andmestikud kokku panna
@@ -322,7 +322,7 @@ head(andmed)
 Kuna *MEANSES* tunnus oli mõlemas andmestikus, siis on see uues andmestikus kaks korda (vastavalt suffixitega .x ja .y). Kustutame neist esimese ja muudame *MEANSES.y* nime tagasi *MEANSES*-iks.
 
 
-```r
+``` r
 andmed$MEANSES.x <- NULL
 andmed <- andmed %>% 
   rename(MEANSES = MEANSES.y)
@@ -331,7 +331,7 @@ andmed <- andmed %>%
 Paneme kõik tunnuste nimed väikestesse tähtedesse^[Lihtsalt, et oleks kergem neid trükkida]:
 
 
-```r
+``` r
 names(andmed) <- tolower(names(andmed))
 ```
 
@@ -341,7 +341,7 @@ names(andmed) <- tolower(names(andmed))
 Nagu enne igat analüüsi, uurime kõigepealt andmeid. Vaatame graafiliselt kuidas sotsiaalmajanduslik indeks matemaatika testi tulemusega seostub:
 
 
-```r
+``` r
 # punktide jaoks geom_point()
 # mittelineaarse regressioonijoone jaoks geom_smooth()
 andmed %>% 
@@ -359,7 +359,7 @@ Tundub et üldine seos on täitsa olemas ja see on ka suhteliselt lineaarne.
 Järgmiseks vaatame kas koolide keskmised matemaatikasjoorid erinevad. Neid oleks hea vaadata koos usalduspiiridega, seega peame need enne välja arvutame. Andmete töötlemiseks kasutame `dplyr`-i funktsioone:
 
 
-```r
+``` r
 andmed %>% 
   group_by(school) %>%
   summarise(keskmine = mean(mathach), 
@@ -385,7 +385,7 @@ andmed %>%
 Jah, keskmised tunduvad kooliti erinevat. On palju koole mille usalduspiirid ei kattu. Järgmiseks vaatame, kas ka sotsiaalmajandusliku seisundi ja testi tulemuste seosed kooliti erinevad:
 
 
-```r
+``` r
 andmed %>% 
   ggplot(aes(x = ses, y = mathach))+
   geom_point(alpha = 0.2)+
@@ -401,7 +401,7 @@ Tundub, et ka regressioonikoefitsiendid erinevad.
 Vaatame põgusalt üle ka teiste sõltumatute tunnuste jaotused. Eelkõige seetõttu, et kontrollida neid võimalike vigade suhtes.
 
 
-```r
+``` r
 table(andmed$sex, useNA = 'always')
 ```
 
@@ -412,14 +412,14 @@ table(andmed$sex, useNA = 'always')
 ```
 
 
-```r
+``` r
 hist(andmed$ses)
 ```
 
 <img src="04-multilevel_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 
-```r
+``` r
 table(andmed$sector, useNA = 'ifany')
 ```
 
@@ -431,14 +431,14 @@ table(andmed$sector, useNA = 'ifany')
 
 
 
-```r
+``` r
 hist(andmed$pracad)
 ```
 
 <img src="04-multilevel_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 
-```r
+``` r
 hist(andmed$meanses)
 ```
 
@@ -449,7 +449,7 @@ hist(andmed$meanses)
 Interpretatsiooni huvides oleks regressioonimudelis mõistlik kasutada sotsiaalmajanduslikku indeksi tunnust, mis on koolide keskmiste alusel tsentreeritud. Kuna vabaliige on sõltuva tunnuse ($y$) väärtus juhul, kui sõltumatu tunnus ($x$) on 0, siis ilma tsentreerimata on vabaliikme väärtus suhteliselt sisutühi. Kui me selle koolide keskmiste lõikes tsentreerime, näitab vabaliige kooli matemaatikatesti tulemust kooli keskmise sotsiaalmajandusliku indeksi väärtuse korral. 
 
 
-```r
+``` r
 andmed <- andmed %>% 
   mutate(tses = ses - meanses)
 ```
@@ -460,7 +460,7 @@ andmed <- andmed %>%
 Esmalt defineerime nullmudeli:
 
 
-```r
+``` r
 m0 <- lmer(mathach ~ 1 + (1|school), data = andmed)
 ```
 
@@ -472,7 +472,7 @@ m0 <- lmer(mathach ~ 1 + (1|school), data = andmed)
 Vaatame mudeli tulemusi:
 
 
-```r
+``` r
 summary(m0)
 ```
 
@@ -510,7 +510,7 @@ Peamised tulemused on toodud *Random effects:* ja *Fixed effects:* kirjete all.
 Nende tulemuste alusel saame arvutda intraklassi korrelatsiooni (*interclass correlatsion* ehk ICC), mis näitab mitu protsenti sõltuva tunnuse varieeruvusest on selgitatav grupitunnuse poolt
 
 
-```r
+``` r
 8.614/(8.614+39.148)
 ```
 
@@ -524,13 +524,13 @@ Nende tulemuste alusel saame arvutda intraklassi korrelatsiooni (*interclass cor
 Lisame mudelile ka sotsiaalmajandusliku indeksi (tsentreeritud variandi), mis läbi saame tulemuseks mudeli kus vabaliikmed gruppide vahel varieeruvad:
 
 
-```r
+``` r
 m1 <- lmer(mathach ~ 1 + tses + (1|school), data = andmed)
 ```
 
 
 
-```r
+``` r
 summary(m1)
 ```
 
@@ -573,7 +573,7 @@ summary(m1)
 Saame mudeleid võrrelda `anova()` funktsiooni ja LRT-testiga:
 
 
-```r
+``` r
 anova(m0, m1)
 ```
 
@@ -596,13 +596,13 @@ m1 mudel on statistiliselt oluliselt parem kui m0 mudel.
 Laseme sotsiaalmajandusliku indeksi regressioonikorda samuti vabalt varieeruma. Selleks lisame vastava tunnuse, mille koefitsiente tahame vabaks lasta juhuslike efektide sulgudesse:
 
 
-```r
+``` r
 m2 <- lmer(mathach ~ 1 + tses + (1+tses|school), data = andmed)
 ```
 
 
 
-```r
+``` r
 summary(m2)
 ```
 
@@ -642,7 +642,7 @@ summary(m2)
 Juhuslike effektide jaoks meil väljundis mingit olulisuse testi ei ole. Aga saame kasutada `lmerTest` paketi `ranova()` funktsiooni, mis testib erinevate juhuslike efektide panust mudelisse:
 
 
-```r
+``` r
 ranova(m2)
 ```
 
@@ -663,7 +663,7 @@ Sotsiaalmajandusliku indeksi effekt on oluline (*p* < 0,05).
 Saame seda testida ka LRT-testiga:
 
 
-```r
+``` r
 anova(m1,m2)
 ```
 
@@ -685,12 +685,12 @@ anova(m1,m2)
 Lisame teise tasandi sõltumatu muutujana kooli keskmise sotsiaalmajandusliku indeksi ja kooli tüübi:
 
 
-```r
+``` r
 m3 <- lmer(mathach ~ 1 + tses + meanses + sector + (1+tses|school), data = andmed)
 ```
 
 
-```r
+``` r
 summary(m3)
 ```
 
@@ -733,7 +733,7 @@ summary(m3)
 - Katoliiklikus koolis on keskmine matemaatika testitulemus ca 1.4 punkti parem kui tavakoolis.
 
 
-```r
+``` r
 anova(m2, m3)
 ```
 
@@ -754,13 +754,13 @@ anova(m2, m3)
 Lõpuks lisame mudelisse ka esimese tasandi sõltumatu tunnuse (*tses*) ja teise tasandi sõltumatute tunnuste (*meanses* ja *sector*) koosmõjud, mille abil saame hinnata kas teise tasandi tunnused mõjutavbad esimese tasandi mõjusid:
 
 
-```r
+``` r
 m4 <- lmer(mathach ~ 1 + tses * meanses + tses * sector + (1+tses |school), data = andmed)
 ```
 
 
 
-```r
+``` r
 summary(m4)
 ```
 
@@ -786,11 +786,11 @@ summary(m4)
 ## Fixed effects:
 ##                     Estimate Std. Error       df t value Pr(>|t|)    
 ## (Intercept)          12.1136     0.1988 159.8921  60.931  < 2e-16 ***
-## tses                  2.9388     0.1551 139.3043  18.948  < 2e-16 ***
+## tses                  2.9388     0.1551 139.3042  18.948  < 2e-16 ***
 ## meanses               5.3391     0.3693 150.9689  14.457  < 2e-16 ***
 ## sectorCatholic        1.2167     0.3064 149.5994   3.971 0.000111 ***
 ## tses:meanses          1.0389     0.2989 160.5528   3.476 0.000656 ***
-## tses:sectorCatholic  -1.6426     0.2398 143.3450  -6.850 2.01e-10 ***
+## tses:sectorCatholic  -1.6426     0.2398 143.3449  -6.850 2.01e-10 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 

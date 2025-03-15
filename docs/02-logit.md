@@ -141,7 +141,7 @@ Logistilise regressiooni mudeleid saab Ris hinnata `glm()` funktsiooniga. Selle 
 Vaatame kõigepealt soo mõju:
 
 
-```r
+``` r
 # Kasutame paket carData andmestikku TitanicSurvival
 titanic <- carData::TitanicSurvival
 ```
@@ -149,7 +149,7 @@ titanic <- carData::TitanicSurvival
 Vaatame andmestiku esimesi ridu:
 
 
-```r
+``` r
 head(titanic)
 ```
 
@@ -166,7 +166,7 @@ head(titanic)
 Ellujäämise tunnus (survived) on tekstiline. Peame selle muutma faktortunnuseks või numbriliseks tunnuseks (0/1). Sobib ka loogiline (TRUE/FALSE) tunnuseks, kuna R käsitleb loogilist tunnust tegelikult numbrilisena (TRUE = 1 ja FALSE = 0). Ja Loogilist tunnust on üldiselt lihtsam konstrueerida. 
 
 
-```r
+``` r
 titanic <- titanic %>% 
   mutate(surv = survived == 'yes')
 
@@ -177,7 +177,7 @@ titanic <- titanic %>%
 Ja defineerime logistilise regressiooni mudeli. Kasutame `glm()` funktsiooni, mille kasutus on sarnane `lm()` funktsioonile, välja arvatud see, et peame `familiy` argumendiga määratlema kasutatava jaotuse ning linkfunktsiooni. Binaarset tunnust iseloomustab binoomjaotus ning linkfunktsiooniks on *logit*.
 
 
-```r
+``` r
 mudel7 <- glm(surv~sex, data = titanic, family = binomial(link = 'logit'))
 summary(mudel7)
 ```
@@ -187,10 +187,6 @@ summary(mudel7)
 ## Call:
 ## glm(formula = surv ~ sex, family = binomial(link = "logit"), 
 ##     data = titanic)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -1.6124  -0.6511  -0.6511   0.7977   1.8196  
 ## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(>|z|)    
@@ -214,7 +210,7 @@ Väljund on sarnane `lm()` väljundile. Leiame seal regressioonikoefitsiendid, n
 Mõnevõrra lihtsam on tõlgendada šansside suhet. Selleks peame koefitsientidest eksponendi võtma:
 
 
-```r
+``` r
 exp(coef(mudel7))
 ```
 
@@ -228,9 +224,9 @@ exp(coef(mudel7))
 Saame siin kasutada (ja oleks tegelikult igati mõistlik kasuatda) ka paketi `jtools` funktsiooni `summ()` koos argumendiga `exp = T`, mis annab meile ilusasti vormistatud šansside suhete tabeli koos usalduspiiride jms-ga:
 
 
-```r
+``` r
 library(jtools)
-summ(mudel7)
+summ(mudel7, exp = T)
 ```
 
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -263,6 +259,10 @@ summ(mudel7)
    <td style="text-align:right;"> 372.92 </td>
   </tr>
   <tr>
+   <td style="text-align:left;font-weight: bold;"> p </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
    <td style="text-align:left;font-weight: bold;"> Pseudo-R² (Cragg-Uhler) </td>
    <td style="text-align:right;"> 0.34 </td>
   </tr>
@@ -283,8 +283,9 @@ summ(mudel7)
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Est. </th>
-   <th style="text-align:right;"> S.E. </th>
+   <th style="text-align:right;"> exp(Est.) </th>
+   <th style="text-align:right;"> 2.5% </th>
+   <th style="text-align:right;"> 97.5% </th>
    <th style="text-align:right;"> z val. </th>
    <th style="text-align:right;"> p </th>
   </tr>
@@ -292,15 +293,17 @@ summ(mudel7)
 <tbody>
   <tr>
    <td style="text-align:left;font-weight: bold;"> (Intercept) </td>
-   <td style="text-align:right;"> 0.98 </td>
-   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 2.67 </td>
+   <td style="text-align:right;"> 2.18 </td>
+   <td style="text-align:right;"> 3.27 </td>
    <td style="text-align:right;"> 9.44 </td>
    <td style="text-align:right;"> 0.00 </td>
   </tr>
   <tr>
    <td style="text-align:left;font-weight: bold;"> sexmale </td>
-   <td style="text-align:right;"> -2.43 </td>
-   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.12 </td>
    <td style="text-align:right;"> -17.83 </td>
    <td style="text-align:right;"> 0.00 </td>
   </tr>
@@ -309,7 +312,7 @@ summ(mudel7)
 <sup></sup> Standard errors: MLE</td></tr></tfoot>
 </table>
 
-- *(Intercept)* - vabaliiget tõlgendame kui referentsgrupi (antud juhul naiste) šansse ellu jääda. Seega naise šanss Titanicul ellu jääda oli $2.67$, ehk siis iga hukkunud mehe kohta jäi ellu $2.67$ naist, või vastupidi $1 \div 2.67 = 0.37$, iga ellujäänud mehe kohta hukkus $0.3745318$ naist. Saame välja arvutada ka naiste ellujäämise tõenäosuse:
+- *(Intercept)* - vabaliiget tõlgendame kui referentsgrupi (antud juhul naiste) šansse ellu jääda. Seega naise šanss Titanicul ellu jääda oli $2.67$, ehk siis iga hukkunud naise kohta jäi ellu $2.67$ naist, või vastupidi $1 \div 2.67 = 0.37$, iga ellujäänud naise kohta hukkus $0.3745318$ naist. Saame välja arvutada ka naiste ellujäämise tõenäosuse:
 
 $$\pi=\frac{\text{šansid}}{1+\text{šansid}} = \frac{2.67}{1+2.67} = 0.73$$  
 
@@ -324,7 +327,7 @@ $$\pi=\dfrac{e^{(\beta_0+\beta_1 x_i)}}{1+e^{(\beta_0+\beta_1 x_i)}} = \dfrac{e^
 Me loomulikult ei pea kogu seda asja käsitsi välja arvutama. Logititest saame otse tõenäosused arvutada `plogis()` funktsiooni abil:
 
 
-```r
+``` r
 # Naiste tõenäosus ellu jääda:
 coef(mudel7)[1] %>% # Võtame esimese koefitsiendi
   as.numeric() %>% 
@@ -335,7 +338,7 @@ coef(mudel7)[1] %>% # Võtame esimese koefitsiendi
 ## [1] 0.7274678
 ```
 
-```r
+``` r
 # Meeste tõenäosus ellu jääda:
 ## nüüd tegeleme logititega, ehk lineaarse seosega. 
 ## seega liidame, mitte ei korruta
@@ -354,7 +357,7 @@ coef(mudel7)[1] %>% # Võtame esimese koefitsiendi
 Vaatme ka, kuidas muudab ellujäämise tõenäosust lisaks soole vanus. Eeldame ka soo ja vanuse koosmõju (st kontrollime kas erinevas vanuses meeste ja naiste elujäämistõenäosused erinevad). Tsentreerime intrepretatsiooni huvides vanuse tunnuse. Seeläbi saame mõistlikul viisil vabaliiget tõlgendada ning muudame ka soo koefitsiendi sisukaks. Interaktsiooni tõttu on soo mõju eri vanuste puhul erinev ning ilma tsentreerimata näitaks koefitsient soo erinevust ainult 0 vanuse puhul. Tsentreeritud vanuse korral aga soo erinevust keskmise vanuse puhul, mis on mõnevõrra sisukam näitaja.
 
 
-```r
+``` r
 mudel8 <- glm(surv~sex*scale(age, scale = F), data = titanic, family = binomial())
 summary(mudel8)
 ```
@@ -364,10 +367,6 @@ summary(mudel8)
 ## Call:
 ## glm(formula = surv ~ sex * scale(age, scale = F), family = binomial(), 
 ##     data = titanic)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -2.0247  -0.7158  -0.5776   0.7707   2.2960  
 ## 
 ## Coefficients:
 ##                                Estimate Std. Error z value Pr(>|z|)    
@@ -394,7 +393,7 @@ summary(mudel8)
 Täiskasvanuks olemine mõnevõrra tõstis ellujäämise tõenäosust, kuid seda ainult naiste puhul (soo ja vanuse interaktsioon on negatiivne ning meeste vanuse koefitsient on 0.02 + -0.05 = -0.03). Tulemuste tõlgendamisel kasutame jälle `jtools::summ()` abil arvutatud koefitsientide eksponente ehk šansse ja šansside suhteid:
 
 
-```r
+``` r
 summ(mudel8, exp = T)
 ```
 
@@ -426,6 +425,10 @@ summ(mudel8, exp = T)
   <tr>
    <td style="text-align:left;font-weight: bold;"> χ²(3) </td>
    <td style="text-align:right;"> 331.18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;font-weight: bold;"> p </td>
+   <td style="text-align:right;"> 0.00 </td>
   </tr>
   <tr>
    <td style="text-align:left;font-weight: bold;"> Pseudo-R² (Cragg-Uhler) </td>
@@ -529,7 +532,7 @@ Nullmudel on ainult vabaliikmega mudel (ehk mudel kus ei ole ühtegi selgitavat 
 Mudeli sobivust andmetega (*goodness of fit*) saame hinnata jääkhälbimuse (*Residual deviance*) näitaja abil. Jääkhälbimus näitab kui palju mudeliga hinnatud $Y$ väärtused empiirilistest $Y$ väärtustest erinevad (analoogne asi lineaarse regressiooni puhul oli *residual sum of squares*). Jääkhälbimuse abil saame võrrelda kui palju meie sobitatud mudel erineb küllastunud (*saturated*) mudelist, st mudelist mis sobituks täiel määral andmetega. Jääkhälbimus näitabki sisuliselt meie mudeli ja küllastunud mudeli erinevust.  Mida väiksem on jääkhälbimus, seda paremini meie mudel andmetega "sobib". Seda, kas see on piisavalt väike (mis tähendab, et meie mudeli ja andmete vahel ei ole statistliselt olulist erinevust), saame testida hii-ruut testiga (arvestades mudeli  vabadusasteid (*degrees of freedom*).
 
 
-```r
+``` r
 res_dev <- deviance(mudel8)
 res_df <- df.residual(mudel8)
 pchisq(res_dev, res_df, lower.tail = F)
@@ -545,10 +548,10 @@ pchisq(res_dev, res_df, lower.tail = F)
 
 #### Hosmer-Lemeshow Test
 
-Võime mudeli sobivust andmetega hinnata ka Hosmer-Lemeshow testiga, mis testib kuivõrd hästi meie mudeli prognoositud väärtused vastavad tegelikele väärtustele mingite alamgruppide lõikes (test teeb ise andmetes alamgrupid). Nullhüpoteesiks on see, et mudel sobitub andmetega, seega kui näeme suurt *p*-väärtust (), siis järeldame, et mudel on sobiv ja vastupidi.
+Võime mudeli sobivust andmetega hinnata ka Hosmer-Lemeshow testiga, mis testib kuivõrd hästi meie mudeli prognoositud väärtused vastavad tegelikele väärtustele mingite alamgruppide lõikes (test teeb ise andmetes alamgrupid). Nullhüpoteesiks on see, et mudel sobitub andmetega, seega kui näeme suurt *p*-väärtust (*p* > 0.05), siis järeldame, et mudel on sobiv ja vastupidi.
 
 
-```r
+``` r
 library(ResourceSelection)
 hoslem.test(mudel8$y, fitted(mudel8))
 ```
@@ -569,7 +572,7 @@ Näeme, et meie sisuka mudeli hälve küllastunud mudelist (*Residual deviance*)
 Arvutame esmalt *Null deviance* ja *Residual deviance* erinevuse. Seeläbi saame enda defineeritud mudeli hälbe nullmudelist:
 
 
-```r
+``` r
 dev_vahe <- mudel8$null.deviance - mudel8$deviance
 dev_vahe
 ```
@@ -580,7 +583,7 @@ dev_vahe
 
 Ja ka vabadusasteme erinevuse:
 
-```r
+``` r
 df_vahe <- mudel8$df.null-mudel8$df.residual
 df_vahe
 ```
@@ -592,7 +595,7 @@ df_vahe
 Hälvete vahe on jaotunud hii-ruut jaotuse alusel, seega saame hii-ruut jaotuse põhjal määrata selle olulisust. Arvutame hälvete vahe olulisustõenäosuse. Kasutame selleks jälle hii-ruut jaotuse funktsiooni `pchisq()`, mis tahab sisendina teatstatisikut (hälvete vahe) ja vabadusastemeid (vabadusastemete vahe). Samuti peame ütlema, et meid huvitab jaotuse parempoolse saba alla jääv tõenäosus.
 
 
-```r
+``` r
 pchisq(dev_vahe, df_vahe, lower.tail = F)
 ```
 
@@ -603,7 +606,7 @@ pchisq(dev_vahe, df_vahe, lower.tail = F)
 Võime kasutada ka `anova()` funktsiooni, kus võrdleme enda mudelt ja ainult vabaliikmega mudelit:
 
 
-```r
+``` r
 # ~1 tähistab vabaliiget
 # et mudelites oleks sama palju vaatlusi, siis jätame 
 # ka vabaliikmega mudelist kõik vanuse NA-d välja
@@ -627,7 +630,7 @@ anova(mudel8,
 Või kasutame `lmtest` paketi `lrtest()` funtsiooni:
 
 
-```r
+``` r
 library(lmtest)
 lrtest(mudel8)
 ```
@@ -651,7 +654,7 @@ Eelnevates näidetes on *p*-väärtus on väga väike, seega meie mudel on võrr
 `anova()`-ga saame ka testida kas uue sõltumatu tunnuse lisamine teeb mudeli oluliselt paremaks.
 
 
-```r
+``` r
 # Lisame mudelisse reisijateklassi
 # Kasutame update() funktsiooni, millega saame olemasolevat mudelit muuta
 anova(mudel8, 
@@ -678,7 +681,7 @@ Näeme, et kui lisame mudelisse ka reisijaklassi, siis muutub muutub oluliselt (
 Kui lineaarse regressiooni puhul hindasime mudeli sobivust andmetega determinatsioonikordaja ($R^2$) abil, siis GLM-ide puhul vastavat näitajat ei ole. Küll on aga nn pseudo-$R^2$ statistikud, mida võib analoogsel viisil kasutada (need ei näita küll päris sama asja, kuid tõlgendus on sama). Üheks selliseks on näiteks Mcfadden'i $R^2$. See jääb 0 ja 1 vahele ning mida suurem selle väärtus on, seda parem on mudeli *fit*. Üldiselt ei küündi see näitaja kunagi päris 1-ni ja nii loetakse näiteks väärtust 0.2-0.4 juba päris heaks *fit*-iks.
 
 
-```r
+``` r
 library(pscl)
 pR2(mudel8)
 ```
@@ -703,7 +706,7 @@ Sageli tahame oma mudeli alusel prognoosida mingitele kindlatele sõltumatute tu
 Tahame teada `titanic` andmestiku põhjal 40 aastaste meeste tõenäosust ellu jääda:
 
 
-```r
+``` r
 # Teeme referentsandmestiku
 ref_data <- data.frame(sex = "male", age = 40)
 
@@ -725,7 +728,7 @@ ref_data
 Kui tahame prognoosi rohkematele kategooriate kombinatsioonidele, saame kasutada `expand.grid()` funktsiooni:
 
 
-```r
+``` r
 # Teeme kõigepealt uue andmestiku, kus on sees nii mehed kui naised 
 # ning vanused 10 aastaste intervallidena
 ref_data <- expand.grid(sex = c("male", "female"), 
@@ -751,7 +754,7 @@ ref_data %>%
 Nüüd saame oma tulemused näiteks joonisele panna:
 
 
-```r
+``` r
 ggplot(ref_data, aes(x = age, 
                   y = pred, 
                   color = sex))+
@@ -771,7 +774,7 @@ ggplot(ref_data, aes(x = age,
 Prognoositud väärtused kõikidele meie andmetes olevatele vaatlustele saame mõnevõrra lihtsamalt kätte paketi *broom* abil. *broom*i funktsioon `augment()` loob mudeli objektist andmestiku, milles on lisaks algsetele tunnusetele ka kõikidele vaatlustele prognoositud väärtudsed (*.fitted*), prognoositud väärtuste standardvead (*.se.fit*), jäägid (*.resid*) jne. 
 
 
-```r
+``` r
 library(broom)
 # Kasutame broomi funktsiooni augment 
 mudel_fit <- augment(mudel8, type.predict = "response")
@@ -802,7 +805,7 @@ Oletame, et tahame Titanicu andmestiku alusel hinnata kui palju muutub inimese e
 Marginaalsete efektide (täpsemalt selle AME variandi) leidmiseks prognoositakse kõikidele andmestiku vaatlustele mudelipõhine hinnang kahel juhul - esimesel juhul nii, et kõikide vaatluste puhul määratakse nende sooks mees ja teisel juhul nii, et kõikide vaatluste puhul määratakse nende sooks naine. Kõik muud tunnused on mõlemal puhul nii nagu nad algselt olid. Keskmine marginaalne efekt ongi keskmine kahe prognoositud hinnangu vahe.
 
 
-```r
+``` r
 library(margins)
 
 # Defineerime uuesti mudeli, kuna margins() funktsioonile ei meeldi scale()
@@ -822,7 +825,7 @@ margins(mudel9, variables = 'sex') %>%
 Saame järeldada, et meeste tõenäosus ellu jääda oli $55$ protsendipunkti madalam kui naistel.
 
 
-```r
+``` r
 # Kuna interaktsioon oli oluline ning meeste ja naiste vanuse mõjud
 # olid erisuunalised, siis arvutame vanuse marginaalsed efektid 
 # eraldi meeste ja naiste subsettidele 
@@ -837,7 +840,7 @@ margins(mudel9, variables = 'age', data = filter(titanic, sex == 'male')) %>%
 ##     age -0.0038 0.0011 -3.3170 0.0009 -0.0061 -0.0016
 ```
 
-```r
+``` r
 # Naiste vanuse marginaalne efekt
 margins(mudel9, variables = 'age', data = filter(titanic, sex == 'female')) %>% 
   summary()
@@ -856,7 +859,7 @@ margins(mudel9, variables = 'age', data = filter(titanic, sex == 'female')) %>%
 *Confusion matrix*'i (segaduse maatriks?) abiga saame hinnata oma prognoosi täpsust. Võrdleme tegelikke ja hinnatuid väärtusi. Kasutame jälle `predict()` funktsiooni ning prognoosime seekord kõikidele titanic andmestiku vaatlustele mudelipõhised hinnangud. Seejärel võrdleme neid hinnanguid vaatluste tegelike väärtustega:
 
 
-```r
+``` r
 # Anname table() funktsioonile ette kaks loogilist vektorit.
 # Kui me predict funktsioonile newdata argumeti ei anna,
 # siis võtab ta automaatselt mudeli objektist kogu andmestiku
@@ -889,7 +892,7 @@ $$\text{specificity} = \frac{\text{õige negatiivne}}{\text{õige negatiivne} + 
 Saame need arvutused teha ka *caret* paketi ja `confusionMatrix()` funktsiooniga.
 
 
-```r
+``` r
 library(caret)
 # confusionMatrix vajab sisendiuna faktoreid, 
 # positive = TRUE arguimendiga ütleme, et ellujäämine oli positiivne sündmus
@@ -931,7 +934,7 @@ confusionMatrix(data = as.factor(prognoos),
 Nii mudeli täpsus, tundlikkus, kui ka spetsiifilisus lähtusid eeldusest, et me klassifitseerisime vaatlused positiivseteks või negatiivseteks lähtuvalt sellest kas nende prognoositud tõenäosus oli suurem või väiksem kui $0.5$ (nn *treshold* või *cutoff value*). Mida suurem on see *cutoff*, seda rohkem õigeid positiivseid väärtusi saame prognoosida. Kuid samas, seda vähem saame prognoosida õigeid negatiivseid väärtusi. Ehk siis tundlikkuse ja spetsiifilisuse vahel on pöördvõrdeline seos. Mida suurem on üks, seda väiksem peab teine olema ja vastupidi. Seda seost saame vaadelda ROCi (*receiver operating characteristics*) graafiku abil.
 
 
-```r
+``` r
 library(ROCit)
 library(broom)
 # Kasutame broomi funktsiooni augment 
@@ -945,7 +948,7 @@ plot(roc_obj)
 Mida suurem on pind graafiku kurvi all, seda parema mudeliga meil tegemist on (seda täpsemini võimaldab mudel prognoosida). Seda kurvi alust pindala suurust kasutataksegi prognoosi täpsuse hindamiseks. Vastavat statistikut kutsustaksegi kurvialuseks pindalaks (AUC ehk *area under the curve*). Mida lähemal AUC $1$-le on, seda parema prognoosivõimega mudeliga meil tegemist on. Kui AUC on 0.5, siis on tegemist puhtalt juhusliku arvamisega.
 
 
-```r
+``` r
 summary(roc_obj)
 ```
 
@@ -986,7 +989,7 @@ Logistilise regressiooni kontekstis tähendab see, et me jagame oma andmed näit
 R-ikeskkonnas on tüüpiline viis logistilise regressiooni ristvalideerimiseks kasutada "caret" paketti, kus defineeritakse treeningkontrolli seaded ja antakse ette, mitu korda ja millise meetodiga ristvalideerimine läbida.
 
 
-```r
+``` r
 library(caret)
 
 # andmete jagamise raamistik
@@ -1032,4 +1035,4 @@ model_cv
 
 Saadud väljundis näeme, kuidas mudel igas voorus sooritas ja milline on keskmine ROC koos hinnangulise standardveaga. Mida kõrgem on lõplik keskmine AUC, seda paremini suudab mudel õigeid klassifikatsioone teha. Lisaks AUC-le võib kasutada ka muid mõõdikuid, näiteks täpsust (accuracy), tundlikkust (sensitivity) või F-skoori, olenevalt konkreetsest rakendusjuhtumist.
 
-Ristvalideerimisest tulenev keskmine mõõdik on üldiselt parem kui tervet andmestikku korraga treenimise ja testimisega saadud hinnang, sest see paljastab, kas mudel on kindlat tüüpi vaatlustele liigselt sobitunud või suudab paremini generaliseerida. Igas voorus kasutab mudel varem treenimiseks mittevalitud volti testimiseks, mis imiteerib reaalses elus ilmuda võivaid uusi andmeid. Nii näeme, kui suured on tegelikud vead ja kui palju võib mudeli sooritus kõikuda sõltuvalt sellest, milline andmestiku alamhulk parasjagu treeninguks või testimiseks valitakse.
+Ristvalideerimisest tulenev keskmine mõõdik on üldiselt parem kui terve andmestiku korraga saadud hinnang, sest võimaldab tagada, et mudel ei oleks kindlat tüüpi vaatlustele liigselt sobitunud ning suudab seetõttu paremini üldistada. Igas voorus kasutab mudel varem treenimiseks mittevalitud osa testimiseks, mis imiteerib reaalse elu  pidevalt uuenevaid andmeid. Nii näeme, kui suured on tegelikud vead ja kui palju võib mudeli sooritus kõikuda sõltuvalt sellest, milline andmestiku alamhulk parasjagu treeninguks või testimiseks valitakse.

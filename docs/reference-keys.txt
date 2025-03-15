@@ -27,6 +27,7 @@ tab:k1
 fig:fm2
 tab:k3
 fig:sem1
+fig:did
 sissejuhatus-r-i
 päris-algus
 andmetega-töötamine
@@ -168,5 +169,15 @@ hierarhilise-klasteranalüüsi-puudused
 k-keskmiste-k-means-klasterdamine
 k-keskmiste-klasteranalüüsi-puudused
 klasteranalüüsi-tulemi-valiidsus
+kausaalsete-mõjude-hindamine
+potentsiaalsed-tulemused
+mida-kausaalse-mõju-hindamisel-tähele-panna
+mõju-hindamise-meetodid
+kontrollitud-eksperimendid
+regressioonimudelid
+instrumentaalmuutujad
+erinevuste-erinevused
+sobitamine
+sobitamine-ris
 tavaline-lineaarne-regressioon-maatriksarvutusena
 delta-meetod

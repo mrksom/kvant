@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A Tavaline lineaarne regressioon maatriksarvutusena | Kvantitatiivne andmeanalüüs</title>
   <meta name="description" content="A Tavaline lineaarne regressioon maatriksarvutusena | Kvantitatiivne andmeanalüüs" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A Tavaline lineaarne regressioon maatriksarvutusena | Kvantitatiivne andmeanalüüs" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="8-klasteranalüüs.html"/>
+<link rel="prev" href="9-kausaalsete-mõjude-hindamine.html"/>
 <link rel="next" href="B-delta-meetod.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -121,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="custom/custom_styles.css" type="text/css" />
 </head>
@@ -218,6 +222,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>8.3</b> K-keskmiste (k-means) klasterdamine</a></li>
 <li class="chapter" data-level="8.4" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>8.4</b> Klasteranalüüsi tulemi valiidsus</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html"><i class="fa fa-check"></i><b>9</b> Kausaalsete mõjude hindamine</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#potentsiaalsed-tulemused"><i class="fa fa-check"></i><b>9.1</b> Potentsiaalsed tulemused</a></li>
+<li class="chapter" data-level="9.2" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#mõju-hindamise-meetodid"><i class="fa fa-check"></i><b>9.2</b> Mõju hindamise meetodid</a></li>
+<li class="chapter" data-level="9.3" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#sobitamine-ris"><i class="fa fa-check"></i><b>9.3</b> Sobitamine R’is</a></li>
+</ul></li>
 <li class="appendix"><span><b>LISA</b></span></li>
 <li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
 <li class="chapter" data-level="B" data-path="B-delta-meetod.html"><a href="B-delta-meetod.html"><i class="fa fa-check"></i><b>B</b> Delta meetod</a></li>
@@ -238,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tavaline-lineaarne-regressioon-maatriksarvutusena" class="section level1 hasAnchor" number="9">
+<div id="tavaline-lineaarne-regressioon-maatriksarvutusena" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">A</span> Tavaline lineaarne regressioon maatriksarvutusena<a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#tavaline-lineaarne-regressioon-maatriksarvutusena" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Lahendame Piaaci andmestiku põhjal regressioonivõrrandi:</p>
 <p><span class="math display">\[\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times naine\]</span></p>
@@ -254,36 +264,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}\]</span></p>
 <p>siis tavalise lineaarse regressiooni hinnangu (<em>OLS estimator</em>) <strong>regressioonikoefitsientide</strong> (<span class="math inline">\(\mathbf{\beta}\)</span>-de) vektor on leitav järgmiselt:</p>
 <p><span class="math display">\[\widehat{\boldsymbol{\beta}} = (\mathbf{X}^\intercal\mathbf{X})^{-1}\mathbf{X}^\intercal\mathbf{y}\]</span></p>
-<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-1" tabindex="-1"></a><span class="do">## Andmestiku</span></span>
-<span id="cb736-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-2" tabindex="-1"></a></span>
-<span id="cb736-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-3" tabindex="-1"></a>piaac <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://github.com/mrksom/kvant/raw/master/data/piaac.csv&quot;</span>)</span>
-<span id="cb736-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-4" tabindex="-1"></a></span>
-<span id="cb736-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-5" tabindex="-1"></a><span class="do">## Andmete ettevalmistus</span></span>
-<span id="cb736-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-6" tabindex="-1"></a></span>
-<span id="cb736-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-7" tabindex="-1"></a>dat <span class="ot">&lt;-</span> piaac <span class="sc">%&gt;%</span> </span>
-<span id="cb736-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-8" tabindex="-1"></a>  <span class="co"># Valime välja tunnused</span></span>
-<span id="cb736-9"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-9" tabindex="-1"></a>  <span class="fu">select</span>(sissetulek, numeracy, sugu) <span class="sc">%&gt;%</span></span>
-<span id="cb736-10"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-10" tabindex="-1"></a>  <span class="co"># Jätame välja vaatlused kus on mõni NA</span></span>
-<span id="cb736-11"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-11" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb736-12"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-12" tabindex="-1"></a>  <span class="co"># Teeme soo dummy-tunnuseks, kus mees on referentsgrupp</span></span>
-<span id="cb736-13"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-13" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">naine =</span> <span class="fu">recode</span>(sugu, <span class="at">Mees =</span> <span class="dv">0</span>, <span class="at">Naine =</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb736-14"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-14" tabindex="-1"></a>  <span class="co"># Lisame vabaliikme tunnuse</span></span>
-<span id="cb736-15"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-15" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vabaliige =</span> <span class="dv">1</span>)</span>
-<span id="cb736-16"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-16" tabindex="-1"></a></span>
-<span id="cb736-17"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-17" tabindex="-1"></a><span class="co"># Sõltuva tunnuse maatriks</span></span>
-<span id="cb736-18"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-18" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dat[<span class="st">&#39;sissetulek&#39;</span>])</span>
-<span id="cb736-19"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-19" tabindex="-1"></a></span>
-<span id="cb736-20"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-20" tabindex="-1"></a><span class="co"># Sõltumatute tunnuste maatriks (disainimaatriks või ka mudelimaatriks)</span></span>
-<span id="cb736-21"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-21" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dat[<span class="fu">c</span>(<span class="st">&#39;vabaliige&#39;</span>, <span class="st">&#39;numeracy&#39;</span>, <span class="st">&#39;naine&#39;</span>)])</span>
-<span id="cb736-22"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-22" tabindex="-1"></a></span>
-<span id="cb736-23"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-23" tabindex="-1"></a><span class="co"># Vaatluste arv ja koefitsientide arv</span></span>
-<span id="cb736-24"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-24" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(X)</span>
-<span id="cb736-25"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-25" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">ncol</span>(X)</span>
-<span id="cb736-26"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-26" tabindex="-1"></a></span>
-<span id="cb736-27"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-27" tabindex="-1"></a><span class="do">## Regressioonikoefitsiendid</span></span>
-<span id="cb736-28"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-28" tabindex="-1"></a></span>
-<span id="cb736-29"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-29" tabindex="-1"></a><span class="co"># Arvutame beta&#39;d</span></span>
-<span id="cb736-30"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb736-30" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X) <span class="sc">%*%</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> y</span></code></pre></div>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-1" tabindex="-1"></a><span class="do">## Andmestiku</span></span>
+<span id="cb757-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-2" tabindex="-1"></a></span>
+<span id="cb757-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-3" tabindex="-1"></a>piaac <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://github.com/mrksom/kvant/raw/master/data/piaac.csv&quot;</span>)</span>
+<span id="cb757-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-4" tabindex="-1"></a></span>
+<span id="cb757-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-5" tabindex="-1"></a><span class="do">## Andmete ettevalmistus</span></span>
+<span id="cb757-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-6" tabindex="-1"></a></span>
+<span id="cb757-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-7" tabindex="-1"></a>dat <span class="ot">&lt;-</span> piaac <span class="sc">%&gt;%</span> </span>
+<span id="cb757-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-8" tabindex="-1"></a>  <span class="co"># Valime välja tunnused</span></span>
+<span id="cb757-9"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-9" tabindex="-1"></a>  <span class="fu">select</span>(sissetulek, numeracy, sugu) <span class="sc">%&gt;%</span></span>
+<span id="cb757-10"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-10" tabindex="-1"></a>  <span class="co"># Jätame välja vaatlused kus on mõni NA</span></span>
+<span id="cb757-11"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-11" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb757-12"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-12" tabindex="-1"></a>  <span class="co"># Teeme soo dummy-tunnuseks, kus mees on referentsgrupp</span></span>
+<span id="cb757-13"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-13" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">naine =</span> <span class="fu">recode</span>(sugu, <span class="at">Mees =</span> <span class="dv">0</span>, <span class="at">Naine =</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb757-14"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-14" tabindex="-1"></a>  <span class="co"># Lisame vabaliikme tunnuse</span></span>
+<span id="cb757-15"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-15" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vabaliige =</span> <span class="dv">1</span>)</span>
+<span id="cb757-16"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-16" tabindex="-1"></a></span>
+<span id="cb757-17"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-17" tabindex="-1"></a><span class="co"># Sõltuva tunnuse maatriks</span></span>
+<span id="cb757-18"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-18" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dat[<span class="st">&#39;sissetulek&#39;</span>])</span>
+<span id="cb757-19"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-19" tabindex="-1"></a></span>
+<span id="cb757-20"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-20" tabindex="-1"></a><span class="co"># Sõltumatute tunnuste maatriks (disainimaatriks või ka mudelimaatriks)</span></span>
+<span id="cb757-21"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-21" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dat[<span class="fu">c</span>(<span class="st">&#39;vabaliige&#39;</span>, <span class="st">&#39;numeracy&#39;</span>, <span class="st">&#39;naine&#39;</span>)])</span>
+<span id="cb757-22"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-22" tabindex="-1"></a></span>
+<span id="cb757-23"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-23" tabindex="-1"></a><span class="co"># Vaatluste arv ja koefitsientide arv</span></span>
+<span id="cb757-24"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-24" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(X)</span>
+<span id="cb757-25"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-25" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">ncol</span>(X)</span>
+<span id="cb757-26"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-26" tabindex="-1"></a></span>
+<span id="cb757-27"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-27" tabindex="-1"></a><span class="do">## Regressioonikoefitsiendid</span></span>
+<span id="cb757-28"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-28" tabindex="-1"></a></span>
+<span id="cb757-29"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-29" tabindex="-1"></a><span class="co"># Arvutame beta&#39;d</span></span>
+<span id="cb757-30"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb757-30" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X) <span class="sc">%*%</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> y</span></code></pre></div>
 <p><strong>Jääkide dispersioon</strong> (<em>mean squared error</em> ehk MSE) on</p>
 <p><span class="math display">\[\begin{equation}
   MSE = \sigma^2_\epsilon=\frac{\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}{n-k}
@@ -292,39 +302,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[MSE = \frac{\mathbf{e}^\intercal\mathbf{e}}{n-k}\]</span></p>
 <p>Ja jääkide standardviga (<em>residual standard error</em> või RSE) on</p>
 <p><span class="math display">\[RSE = \sqrt{MSE}\]</span></p>
-<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-1" tabindex="-1"></a><span class="do">## Jääkide standardviga (RSE)</span></span>
-<span id="cb737-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-2" tabindex="-1"></a></span>
-<span id="cb737-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-3" tabindex="-1"></a><span class="co"># Jäägid</span></span>
-<span id="cb737-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-4" tabindex="-1"></a>e <span class="ot">=</span> y <span class="sc">-</span> X <span class="sc">%*%</span> beta</span>
-<span id="cb737-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-5" tabindex="-1"></a></span>
-<span id="cb737-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-6" tabindex="-1"></a><span class="co"># Jääkide ruutude summa (residual sum of squares)</span></span>
-<span id="cb737-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-7" tabindex="-1"></a>rss <span class="ot">=</span> <span class="fu">t</span>(e) <span class="sc">%*%</span> e</span>
-<span id="cb737-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-8" tabindex="-1"></a></span>
-<span id="cb737-9"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-9" tabindex="-1"></a><span class="co"># vabadusastmed on n - k (vaatluste arv - koefitsientide arv)</span></span>
-<span id="cb737-10"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-10" tabindex="-1"></a>df_resid <span class="ot">=</span> n <span class="sc">-</span> k</span>
-<span id="cb737-11"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-11" tabindex="-1"></a></span>
-<span id="cb737-12"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-12" tabindex="-1"></a><span class="co"># MSE</span></span>
-<span id="cb737-13"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-13" tabindex="-1"></a>mse <span class="ot">=</span> rss <span class="sc">/</span> df_resid</span>
-<span id="cb737-14"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-14" tabindex="-1"></a></span>
-<span id="cb737-15"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-15" tabindex="-1"></a><span class="co"># Residual standard error</span></span>
-<span id="cb737-16"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb737-16" tabindex="-1"></a>rse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(mse)</span></code></pre></div>
+<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-1" tabindex="-1"></a><span class="do">## Jääkide standardviga (RSE)</span></span>
+<span id="cb758-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-2" tabindex="-1"></a></span>
+<span id="cb758-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-3" tabindex="-1"></a><span class="co"># Jäägid</span></span>
+<span id="cb758-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-4" tabindex="-1"></a>e <span class="ot">=</span> y <span class="sc">-</span> X <span class="sc">%*%</span> beta</span>
+<span id="cb758-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-5" tabindex="-1"></a></span>
+<span id="cb758-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-6" tabindex="-1"></a><span class="co"># Jääkide ruutude summa (residual sum of squares)</span></span>
+<span id="cb758-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-7" tabindex="-1"></a>rss <span class="ot">=</span> <span class="fu">t</span>(e) <span class="sc">%*%</span> e</span>
+<span id="cb758-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-8" tabindex="-1"></a></span>
+<span id="cb758-9"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-9" tabindex="-1"></a><span class="co"># vabadusastmed on n - k (vaatluste arv - koefitsientide arv)</span></span>
+<span id="cb758-10"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-10" tabindex="-1"></a>df_resid <span class="ot">=</span> n <span class="sc">-</span> k</span>
+<span id="cb758-11"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-11" tabindex="-1"></a></span>
+<span id="cb758-12"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-12" tabindex="-1"></a><span class="co"># MSE</span></span>
+<span id="cb758-13"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-13" tabindex="-1"></a>mse <span class="ot">=</span> rss <span class="sc">/</span> df_resid</span>
+<span id="cb758-14"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-14" tabindex="-1"></a></span>
+<span id="cb758-15"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-15" tabindex="-1"></a><span class="co"># Residual standard error</span></span>
+<span id="cb758-16"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb758-16" tabindex="-1"></a>rse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(mse)</span></code></pre></div>
 <p><strong>Koefitsientide variatsiooni-kovariatsioonimaatriks</strong>, millest saame kätte koefitsientide standardvead, on defineeritud kui:</p>
 <p><span class="math display">\[\sigma^2_\beta = \sigma^2_\epsilon(\mathbf{X}^\intercal\mathbf{X})^{-1}\]</span>
 Koefitsientide standardvead on ruutjuur variatsiooni-kovariatsioonimaatriksi diagonaali elementidest;</p>
 <p><span class="math display">\[\sqrt{diag(\sigma^2_\beta)}\]</span></p>
-<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-1" tabindex="-1"></a><span class="do">## Koefitsientide standardvead</span></span>
-<span id="cb738-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-2" tabindex="-1"></a></span>
-<span id="cb738-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-3" tabindex="-1"></a><span class="co"># Koefitsientide variatsiooni-kovariatsioonimaatriks</span></span>
-<span id="cb738-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-4" tabindex="-1"></a>beta_vcov <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(mse) <span class="sc">*</span> <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X)</span>
-<span id="cb738-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-5" tabindex="-1"></a></span>
-<span id="cb738-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-6" tabindex="-1"></a><span class="co"># Koefitsientide standardvead</span></span>
-<span id="cb738-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-7" tabindex="-1"></a>beta_se <span class="ot">&lt;-</span> <span class="fu">diag</span>(beta_vcov) <span class="sc">%&gt;%</span> <span class="fu">sqrt</span>()</span>
-<span id="cb738-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-8" tabindex="-1"></a></span>
-<span id="cb738-9"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-9" tabindex="-1"></a><span class="co"># t-statistikud</span></span>
-<span id="cb738-10"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-10" tabindex="-1"></a>beta_t <span class="ot">&lt;-</span> (beta <span class="sc">-</span> <span class="dv">0</span>) <span class="sc">/</span> beta_se</span>
-<span id="cb738-11"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-11" tabindex="-1"></a></span>
-<span id="cb738-12"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-12" tabindex="-1"></a><span class="co"># p-väärtused</span></span>
-<span id="cb738-13"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb738-13" tabindex="-1"></a>beta_p <span class="ot">&lt;-</span> <span class="fu">pt</span>(<span class="fu">abs</span>(beta_t), <span class="at">df =</span> df_resid, <span class="at">lower.tail =</span> F) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-1" tabindex="-1"></a><span class="do">## Koefitsientide standardvead</span></span>
+<span id="cb759-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-2" tabindex="-1"></a></span>
+<span id="cb759-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-3" tabindex="-1"></a><span class="co"># Koefitsientide variatsiooni-kovariatsioonimaatriks</span></span>
+<span id="cb759-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-4" tabindex="-1"></a>beta_vcov <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(mse) <span class="sc">*</span> <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X)</span>
+<span id="cb759-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-5" tabindex="-1"></a></span>
+<span id="cb759-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-6" tabindex="-1"></a><span class="co"># Koefitsientide standardvead</span></span>
+<span id="cb759-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-7" tabindex="-1"></a>beta_se <span class="ot">&lt;-</span> <span class="fu">diag</span>(beta_vcov) <span class="sc">%&gt;%</span> <span class="fu">sqrt</span>()</span>
+<span id="cb759-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-8" tabindex="-1"></a></span>
+<span id="cb759-9"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-9" tabindex="-1"></a><span class="co"># t-statistikud</span></span>
+<span id="cb759-10"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-10" tabindex="-1"></a>beta_t <span class="ot">&lt;-</span> (beta <span class="sc">-</span> <span class="dv">0</span>) <span class="sc">/</span> beta_se</span>
+<span id="cb759-11"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-11" tabindex="-1"></a></span>
+<span id="cb759-12"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-12" tabindex="-1"></a><span class="co"># p-väärtused</span></span>
+<span id="cb759-13"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb759-13" tabindex="-1"></a>beta_p <span class="ot">&lt;-</span> <span class="fu">pt</span>(<span class="fu">abs</span>(beta_t), <span class="at">df =</span> df_resid, <span class="at">lower.tail =</span> F) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <p><strong>Determinatsioonikordaja</strong> ehk <span class="math inline">\(R^2\)</span> on:</p>
 <p><span class="math display">\[\begin{equation}
   R^2=\frac{TSS-RSS}{TSS}=1-\frac{RSS}{TSS}
@@ -359,52 +369,52 @@ Koefitsientide standardvead on ruutjuur variatsiooni-kovariatsioonimaatriksi dia
 <p><span class="math display">\[\begin{equation}
   RSS=\mathbf{e}^\intercal\mathbf{e}
 \end{equation}\]</span></p>
-<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-1" tabindex="-1"></a><span class="do">## R2</span></span>
-<span id="cb739-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-2" tabindex="-1"></a></span>
-<span id="cb739-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-3" tabindex="-1"></a><span class="co"># keskmistatud y</span></span>
-<span id="cb739-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-4" tabindex="-1"></a>my <span class="ot">&lt;-</span> y <span class="sc">-</span> <span class="fu">mean</span>(y)</span>
-<span id="cb739-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-5" tabindex="-1"></a> </span>
-<span id="cb739-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-6" tabindex="-1"></a><span class="co"># Total sums of squares</span></span>
-<span id="cb739-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-7" tabindex="-1"></a>tss <span class="ot">&lt;-</span> <span class="fu">t</span>(my) <span class="sc">%*%</span> my</span>
-<span id="cb739-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-8" tabindex="-1"></a></span>
-<span id="cb739-9"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-9" tabindex="-1"></a><span class="co"># Expected sums of squares</span></span>
-<span id="cb739-10"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-10" tabindex="-1"></a>ess <span class="ot">&lt;-</span> <span class="fu">t</span>(my) <span class="sc">%*%</span> X <span class="sc">%*%</span> beta</span>
-<span id="cb739-11"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-11" tabindex="-1"></a></span>
-<span id="cb739-12"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-12" tabindex="-1"></a><span class="co"># Residual sums of squares</span></span>
-<span id="cb739-13"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-13" tabindex="-1"></a>rss <span class="ot">&lt;-</span> <span class="fu">t</span>(e) <span class="sc">%*%</span> e</span>
-<span id="cb739-14"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-14" tabindex="-1"></a><span class="co"># või</span></span>
-<span id="cb739-15"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-15" tabindex="-1"></a>rss <span class="ot">&lt;-</span> tss <span class="sc">-</span> ess</span>
-<span id="cb739-16"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-16" tabindex="-1"></a></span>
-<span id="cb739-17"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-17" tabindex="-1"></a><span class="co"># R2</span></span>
-<span id="cb739-18"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-18" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> rss<span class="sc">/</span>tss</span>
-<span id="cb739-19"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-19" tabindex="-1"></a></span>
-<span id="cb739-20"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-20" tabindex="-1"></a><span class="co"># Adjusted R2</span></span>
-<span id="cb739-21"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb739-21" tabindex="-1"></a>r2_adjusted <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> ((n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> (n<span class="sc">-</span>k)) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> r2)</span></code></pre></div>
-<div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb740-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb740-1" tabindex="-1"></a><span class="do">## F-test</span></span>
-<span id="cb740-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb740-2" tabindex="-1"></a></span>
-<span id="cb740-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb740-3" tabindex="-1"></a>msr <span class="ot">&lt;-</span> rss<span class="sc">/</span>(n <span class="sc">-</span> k)</span>
-<span id="cb740-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb740-4" tabindex="-1"></a>mse <span class="ot">&lt;-</span> ess<span class="sc">/</span>(k <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb740-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb740-5" tabindex="-1"></a></span>
-<span id="cb740-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb740-6" tabindex="-1"></a>f_stat <span class="ot">&lt;-</span> mse<span class="sc">/</span>msr</span>
-<span id="cb740-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb740-7" tabindex="-1"></a></span>
-<span id="cb740-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb740-8" tabindex="-1"></a>f_p <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pf</span>(f_stat, <span class="at">df1 =</span> (k<span class="dv">-1</span>), <span class="at">df2 =</span> (n<span class="sc">-</span>k))</span></code></pre></div>
-<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-1" tabindex="-1"></a><span class="do">## Tulemused</span></span>
-<span id="cb741-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-2" tabindex="-1"></a></span>
-<span id="cb741-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-3" tabindex="-1"></a><span class="co"># Paneme tulemid printimiseks kokku</span></span>
-<span id="cb741-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-4" tabindex="-1"></a></span>
-<span id="cb741-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-5" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">cbind</span>(beta, beta_se, beta_t, beta_p)</span>
-<span id="cb741-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-6" tabindex="-1"></a><span class="fu">colnames</span>(res) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;beta&#39;</span>, <span class="st">&#39;se&#39;</span>, <span class="st">&#39;t&#39;</span>, <span class="st">&#39;p&#39;</span>)</span>
-<span id="cb741-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-7" tabindex="-1"></a></span>
-<span id="cb741-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-8" tabindex="-1"></a>print_out <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
-<span id="cb741-9"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-9" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">round</span>(res, <span class="dv">4</span>))</span>
-<span id="cb741-10"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-10" tabindex="-1"></a>  <span class="fu">cat</span>(</span>
-<span id="cb741-11"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-11" tabindex="-1"></a>    <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb741-12"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-12" tabindex="-1"></a>    <span class="st">&#39;RSE:&#39;</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(rse), <span class="dv">0</span>), <span class="st">&#39; kus df on &#39;</span>, df_resid, <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb741-13"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-13" tabindex="-1"></a>    <span class="st">&#39;R2:&#39;</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(r2), <span class="dv">4</span>),<span class="st">&#39;; R2 (adjusted):&#39;</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(r2_adjusted), <span class="dv">4</span>), <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb741-14"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-14" tabindex="-1"></a>    <span class="st">&#39;F-value: &#39;</span>, f_stat, <span class="st">&#39;; df: &#39;</span>, k<span class="dv">-1</span>, <span class="st">&#39; ja &#39;</span>, n<span class="sc">-</span>k, <span class="st">&#39;; p-value: &#39;</span>, f_p, <span class="at">sep =</span> <span class="st">&#39;&#39;</span>)</span>
-<span id="cb741-15"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-15" tabindex="-1"></a>}</span>
-<span id="cb741-16"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-16" tabindex="-1"></a></span>
-<span id="cb741-17"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb741-17" tabindex="-1"></a><span class="fu">print_out</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-1" tabindex="-1"></a><span class="do">## R2</span></span>
+<span id="cb760-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-2" tabindex="-1"></a></span>
+<span id="cb760-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-3" tabindex="-1"></a><span class="co"># keskmistatud y</span></span>
+<span id="cb760-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-4" tabindex="-1"></a>my <span class="ot">&lt;-</span> y <span class="sc">-</span> <span class="fu">mean</span>(y)</span>
+<span id="cb760-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-5" tabindex="-1"></a> </span>
+<span id="cb760-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-6" tabindex="-1"></a><span class="co"># Total sums of squares</span></span>
+<span id="cb760-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-7" tabindex="-1"></a>tss <span class="ot">&lt;-</span> <span class="fu">t</span>(my) <span class="sc">%*%</span> my</span>
+<span id="cb760-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-8" tabindex="-1"></a></span>
+<span id="cb760-9"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-9" tabindex="-1"></a><span class="co"># Expected sums of squares</span></span>
+<span id="cb760-10"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-10" tabindex="-1"></a>ess <span class="ot">&lt;-</span> <span class="fu">t</span>(my) <span class="sc">%*%</span> X <span class="sc">%*%</span> beta</span>
+<span id="cb760-11"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-11" tabindex="-1"></a></span>
+<span id="cb760-12"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-12" tabindex="-1"></a><span class="co"># Residual sums of squares</span></span>
+<span id="cb760-13"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-13" tabindex="-1"></a>rss <span class="ot">&lt;-</span> <span class="fu">t</span>(e) <span class="sc">%*%</span> e</span>
+<span id="cb760-14"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-14" tabindex="-1"></a><span class="co"># või</span></span>
+<span id="cb760-15"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-15" tabindex="-1"></a>rss <span class="ot">&lt;-</span> tss <span class="sc">-</span> ess</span>
+<span id="cb760-16"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-16" tabindex="-1"></a></span>
+<span id="cb760-17"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-17" tabindex="-1"></a><span class="co"># R2</span></span>
+<span id="cb760-18"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-18" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> rss<span class="sc">/</span>tss</span>
+<span id="cb760-19"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-19" tabindex="-1"></a></span>
+<span id="cb760-20"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-20" tabindex="-1"></a><span class="co"># Adjusted R2</span></span>
+<span id="cb760-21"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb760-21" tabindex="-1"></a>r2_adjusted <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> ((n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> (n<span class="sc">-</span>k)) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> r2)</span></code></pre></div>
+<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb761-1" tabindex="-1"></a><span class="do">## F-test</span></span>
+<span id="cb761-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb761-2" tabindex="-1"></a></span>
+<span id="cb761-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb761-3" tabindex="-1"></a>msr <span class="ot">&lt;-</span> rss<span class="sc">/</span>(n <span class="sc">-</span> k)</span>
+<span id="cb761-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb761-4" tabindex="-1"></a>mse <span class="ot">&lt;-</span> ess<span class="sc">/</span>(k <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb761-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb761-5" tabindex="-1"></a></span>
+<span id="cb761-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb761-6" tabindex="-1"></a>f_stat <span class="ot">&lt;-</span> mse<span class="sc">/</span>msr</span>
+<span id="cb761-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb761-7" tabindex="-1"></a></span>
+<span id="cb761-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb761-8" tabindex="-1"></a>f_p <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">pf</span>(f_stat, <span class="at">df1 =</span> (k<span class="dv">-1</span>), <span class="at">df2 =</span> (n<span class="sc">-</span>k))</span></code></pre></div>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-1" tabindex="-1"></a><span class="do">## Tulemused</span></span>
+<span id="cb762-2"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-2" tabindex="-1"></a></span>
+<span id="cb762-3"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-3" tabindex="-1"></a><span class="co"># Paneme tulemid printimiseks kokku</span></span>
+<span id="cb762-4"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-4" tabindex="-1"></a></span>
+<span id="cb762-5"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-5" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">cbind</span>(beta, beta_se, beta_t, beta_p)</span>
+<span id="cb762-6"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-6" tabindex="-1"></a><span class="fu">colnames</span>(res) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;beta&#39;</span>, <span class="st">&#39;se&#39;</span>, <span class="st">&#39;t&#39;</span>, <span class="st">&#39;p&#39;</span>)</span>
+<span id="cb762-7"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-7" tabindex="-1"></a></span>
+<span id="cb762-8"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-8" tabindex="-1"></a>print_out <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb762-9"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-9" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">round</span>(res, <span class="dv">4</span>))</span>
+<span id="cb762-10"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-10" tabindex="-1"></a>  <span class="fu">cat</span>(</span>
+<span id="cb762-11"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-11" tabindex="-1"></a>    <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb762-12"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-12" tabindex="-1"></a>    <span class="st">&#39;RSE:&#39;</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(rse), <span class="dv">0</span>), <span class="st">&#39; kus df on &#39;</span>, df_resid, <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb762-13"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-13" tabindex="-1"></a>    <span class="st">&#39;R2:&#39;</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(r2), <span class="dv">4</span>),<span class="st">&#39;; R2 (adjusted):&#39;</span>, <span class="fu">round</span>(<span class="fu">as.numeric</span>(r2_adjusted), <span class="dv">4</span>), <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb762-14"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-14" tabindex="-1"></a>    <span class="st">&#39;F-value: &#39;</span>, f_stat, <span class="st">&#39;; df: &#39;</span>, k<span class="dv">-1</span>, <span class="st">&#39; ja &#39;</span>, n<span class="sc">-</span>k, <span class="st">&#39;; p-value: &#39;</span>, f_p, <span class="at">sep =</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb762-15"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-15" tabindex="-1"></a>}</span>
+<span id="cb762-16"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-16" tabindex="-1"></a></span>
+<span id="cb762-17"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb762-17" tabindex="-1"></a><span class="fu">print_out</span>()</span></code></pre></div>
 <pre><code>##                beta      se        t      p
 ## vabaliige  140.7631 55.0470   2.5571 0.0106
 ## numeracy     3.3533  0.1915  17.5094 0.0000
@@ -414,7 +424,7 @@ Koefitsientide standardvead on ruutjuur variatsiooni-kovariatsioonimaatriksi dia
 ## R2:0.171; R2 (adjusted):0.1706
 ## F-value: 410.6503; df: 2 ja 3981; p-value: 0</code></pre>
 <p>Kontrollime lm() funktsiooniga kas saame samad tulemused:</p>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb743-1" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(sissetulek <span class="sc">~</span> numeracy <span class="sc">+</span> sugu, <span class="at">data =</span> piaac))</span></code></pre></div>
+<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html#cb764-1" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(sissetulek <span class="sc">~</span> numeracy <span class="sc">+</span> sugu, <span class="at">data =</span> piaac))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = sissetulek ~ numeracy + sugu, data = piaac)
@@ -441,7 +451,7 @@ Koefitsientide standardvead on ruutjuur variatsiooni-kovariatsioonimaatriksi dia
           </div>
         </div>
       </div>
-<a href="8-klasteranalüüs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="9-kausaalsete-mõjude-hindamine.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="B-delta-meetod.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -456,42 +466,42 @@ Koefitsientide standardvead on ruutjuur variatsiooni-kovariatsioonimaatriksi dia
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": false,
-"twitter": false,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": false
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

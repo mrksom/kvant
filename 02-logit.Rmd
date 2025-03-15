@@ -234,10 +234,10 @@ Saame siin kasutada (ja oleks tegelikult igati mõistlik kasuatda) ka paketi `jt
 
 ```{r, render = 'normal_print'}
 library(jtools)
-summ(mudel7)
+summ(mudel7, exp = T)
 ```
 
-- *(Intercept)* - vabaliiget tõlgendame kui referentsgrupi (antud juhul naiste) šansse ellu jääda. Seega naise šanss Titanicul ellu jääda oli $`r odds_naised`$, ehk siis iga hukkunud mehe kohta jäi ellu $`r odds_naised`$ naist, või vastupidi $1 \div `r odds_naised` = `r round(1/odds_naised, 2)`$, iga ellujäänud mehe kohta hukkus $`r 1/odds_naised`$ naist. Saame välja arvutada ka naiste ellujäämise tõenäosuse:
+- *(Intercept)* - vabaliiget tõlgendame kui referentsgrupi (antud juhul naiste) šansse ellu jääda. Seega naise šanss Titanicul ellu jääda oli $`r odds_naised`$, ehk siis iga hukkunud naise kohta jäi ellu $`r odds_naised`$ naist, või vastupidi $1 \div `r odds_naised` = `r round(1/odds_naised, 2)`$, iga ellujäänud naise kohta hukkus $`r 1/odds_naised`$ naist. Saame välja arvutada ka naiste ellujäämise tõenäosuse:
 
 $$\pi=\frac{\text{šansid}}{1+\text{šansid}} = \frac{`r odds_naised`}{1+`r odds_naised`} = `r round(odds_naised/(1+odds_naised), 2)`$$  
 
@@ -341,7 +341,7 @@ pchisq(res_dev, res_df, lower.tail = F)
 
 #### Hosmer-Lemeshow Test
 
-Võime mudeli sobivust andmetega hinnata ka Hosmer-Lemeshow testiga, mis testib kuivõrd hästi meie mudeli prognoositud väärtused vastavad tegelikele väärtustele mingite alamgruppide lõikes (test teeb ise andmetes alamgrupid). Nullhüpoteesiks on see, et mudel sobitub andmetega, seega kui näeme suurt *p*-väärtust (), siis järeldame, et mudel on sobiv ja vastupidi.
+Võime mudeli sobivust andmetega hinnata ka Hosmer-Lemeshow testiga, mis testib kuivõrd hästi meie mudeli prognoositud väärtused vastavad tegelikele väärtustele mingite alamgruppide lõikes (test teeb ise andmetes alamgrupid). Nullhüpoteesiks on see, et mudel sobitub andmetega, seega kui näeme suurt *p*-väärtust (*p* > 0.05), siis järeldame, et mudel on sobiv ja vastupidi.
 
 ```{r}
 library(ResourceSelection)
@@ -637,4 +637,4 @@ model_cv
 
 Saadud väljundis näeme, kuidas mudel igas voorus sooritas ja milline on keskmine ROC koos hinnangulise standardveaga. Mida kõrgem on lõplik keskmine AUC, seda paremini suudab mudel õigeid klassifikatsioone teha. Lisaks AUC-le võib kasutada ka muid mõõdikuid, näiteks täpsust (accuracy), tundlikkust (sensitivity) või F-skoori, olenevalt konkreetsest rakendusjuhtumist.
 
-Ristvalideerimisest tulenev keskmine mõõdik on üldiselt parem kui tervet andmestikku korraga treenimise ja testimisega saadud hinnang, sest see paljastab, kas mudel on kindlat tüüpi vaatlustele liigselt sobitunud või suudab paremini generaliseerida. Igas voorus kasutab mudel varem treenimiseks mittevalitud volti testimiseks, mis imiteerib reaalses elus ilmuda võivaid uusi andmeid. Nii näeme, kui suured on tegelikud vead ja kui palju võib mudeli sooritus kõikuda sõltuvalt sellest, milline andmestiku alamhulk parasjagu treeninguks või testimiseks valitakse.
+Ristvalideerimisest tulenev keskmine mõõdik on üldiselt parem kui terve andmestiku korraga saadud hinnang, sest võimaldab tagada, et mudel ei oleks kindlat tüüpi vaatlustele liigselt sobitunud ning suudab seetõttu paremini üldistada. Igas voorus kasutab mudel varem treenimiseks mittevalitud osa testimiseks, mis imiteerib reaalse elu  pidevalt uuenevaid andmeid. Nii näeme, kui suured on tegelikud vead ja kui palju võib mudeli sooritus kõikuda sõltuvalt sellest, milline andmestiku alamhulk parasjagu treeninguks või testimiseks valitakse.

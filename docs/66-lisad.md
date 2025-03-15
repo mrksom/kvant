@@ -30,7 +30,7 @@ siis tavalise lineaarse regressiooni hinnangu (*OLS estimator*) **regressiooniko
 $$\widehat{\boldsymbol{\beta}} = (\mathbf{X}^\intercal\mathbf{X})^{-1}\mathbf{X}^\intercal\mathbf{y}$$
 
 
-```r
+``` r
 ## Andmestiku
 
 piaac <- read_csv("https://github.com/mrksom/kvant/raw/master/data/piaac.csv")
@@ -82,7 +82,7 @@ $$RSE = \sqrt{MSE}$$
 
 
 
-```r
+``` r
 ## Jääkide standardviga (RSE)
 
 # Jäägid
@@ -112,7 +112,7 @@ Koefitsientide standardvead on ruutjuur variatsiooni-kovariatsioonimaatriksi dia
 $$\sqrt{diag(\sigma^2_\beta)}$$
 
 
-```r
+``` r
 ## Koefitsientide standardvead
 
 # Koefitsientide variatsiooni-kovariatsioonimaatriks
@@ -182,7 +182,7 @@ Kui $\mathbf{y}$ on keskmistatud, st see on vektor $y$ erinevustega keskmisest $
 
 
 
-```r
+``` r
 ## R2
 
 # keskmistatud y
@@ -209,7 +209,7 @@ r2_adjusted <- 1 - ((n - 1) / (n-k)) * (1 - r2)
 
 
 
-```r
+``` r
 ## F-test
 
 msr <- rss/(n - k)
@@ -222,7 +222,7 @@ f_p <- 1-pf(f_stat, df1 = (k-1), df2 = (n-k))
 
 
 
-```r
+``` r
 ## Tulemused
 
 # Paneme tulemid printimiseks kokku
@@ -258,7 +258,7 @@ print_out()
 Kontrollime lm() funktsiooniga kas saame samad tulemused:
 
 
-```r
+``` r
 summary(lm(sissetulek ~ numeracy + sugu, data = piaac))
 ```
 

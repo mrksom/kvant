@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Peatükk 3 Logistiline regressioon | Kvantitatiivne andmeanalüüs</title>
   <meta name="description" content="Peatükk 3 Logistiline regressioon | Kvantitatiivne andmeanalüüs" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Peatükk 3 Logistiline regressioon | Kvantitatiivne andmeanalüüs" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="custom/custom_styles.css" type="text/css" />
 </head>
@@ -217,6 +221,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#hierarhiline-klasteranalüüs"><i class="fa fa-check"></i><b>8.2</b> Hierarhiline klasteranalüüs</a></li>
 <li class="chapter" data-level="8.3" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>8.3</b> K-keskmiste (k-means) klasterdamine</a></li>
 <li class="chapter" data-level="8.4" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>8.4</b> Klasteranalüüsi tulemi valiidsus</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html"><i class="fa fa-check"></i><b>9</b> Kausaalsete mõjude hindamine</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#potentsiaalsed-tulemused"><i class="fa fa-check"></i><b>9.1</b> Potentsiaalsed tulemused</a></li>
+<li class="chapter" data-level="9.2" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#mõju-hindamise-meetodid"><i class="fa fa-check"></i><b>9.2</b> Mõju hindamise meetodid</a></li>
+<li class="chapter" data-level="9.3" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#sobitamine-ris"><i class="fa fa-check"></i><b>9.3</b> Sobitamine R’is</a></li>
 </ul></li>
 <li class="appendix"><span><b>LISA</b></span></li>
 <li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
@@ -392,10 +402,6 @@ Vaatame kõigepealt soo mõju:</p>
 ## glm(formula = surv ~ sex, family = binomial(link = &quot;logit&quot;), 
 ##     data = titanic)
 ## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -1.6124  -0.6511  -0.6511   0.7977   1.8196  
-## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(&gt;|z|)    
 ## (Intercept)   0.9818     0.1040   9.437   &lt;2e-16 ***
@@ -417,7 +423,7 @@ Vaatame kõigepealt soo mõju:</p>
 ##  2.66929134  0.08843935</code></pre>
 <p>Saame siin kasutada (ja oleks tegelikult igati mõistlik kasuatda) ka paketi <code>jtools</code> funktsiooni <code>summ()</code> koos argumendiga <code>exp = T</code>, mis annab meile ilusasti vormistatud šansside suhete tabeli koos usalduspiiride jms-ga:</p>
 <div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="3-logistiline-regressioon.html#cb496-1" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
-<span id="cb496-2"><a href="3-logistiline-regressioon.html#cb496-2" tabindex="-1"></a><span class="fu">summ</span>(mudel7)</span></code></pre></div>
+<span id="cb496-2"><a href="3-logistiline-regressioon.html#cb496-2" tabindex="-1"></a><span class="fu">summ</span>(mudel7, <span class="at">exp =</span> T)</span></code></pre></div>
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <tbody>
 <tr>
@@ -474,6 +480,14 @@ logit
 </tr>
 <tr>
 <td style="text-align:left;font-weight: bold;">
+p
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
 Pseudo-R² (Cragg-Uhler)
 </td>
 <td style="text-align:right;">
@@ -512,10 +526,13 @@ BIC
 <th style="text-align:left;">
 </th>
 <th style="text-align:right;">
-Est.
+exp(Est.)
 </th>
 <th style="text-align:right;">
-S.E.
+2.5%
+</th>
+<th style="text-align:right;">
+97.5%
 </th>
 <th style="text-align:right;">
 z val.
@@ -531,10 +548,13 @@ p
 (Intercept)
 </td>
 <td style="text-align:right;">
-0.98
+2.67
 </td>
 <td style="text-align:right;">
-0.10
+2.18
+</td>
+<td style="text-align:right;">
+3.27
 </td>
 <td style="text-align:right;">
 9.44
@@ -548,10 +568,13 @@ p
 sexmale
 </td>
 <td style="text-align:right;">
--2.43
+0.09
 </td>
 <td style="text-align:right;">
-0.14
+0.07
+</td>
+<td style="text-align:right;">
+0.12
 </td>
 <td style="text-align:right;">
 -17.83
@@ -570,7 +593,7 @@ sexmale
 </tfoot>
 </table>
 <ul>
-<li><em>(Intercept)</em> - vabaliiget tõlgendame kui referentsgrupi (antud juhul naiste) šansse ellu jääda. Seega naise šanss Titanicul ellu jääda oli <span class="math inline">\(2.67\)</span>, ehk siis iga hukkunud mehe kohta jäi ellu <span class="math inline">\(2.67\)</span> naist, või vastupidi <span class="math inline">\(1 \div 2.67 = 0.37\)</span>, iga ellujäänud mehe kohta hukkus <span class="math inline">\(0.3745318\)</span> naist. Saame välja arvutada ka naiste ellujäämise tõenäosuse:</li>
+<li><em>(Intercept)</em> - vabaliiget tõlgendame kui referentsgrupi (antud juhul naiste) šansse ellu jääda. Seega naise šanss Titanicul ellu jääda oli <span class="math inline">\(2.67\)</span>, ehk siis iga hukkunud naise kohta jäi ellu <span class="math inline">\(2.67\)</span> naist, või vastupidi <span class="math inline">\(1 \div 2.67 = 0.37\)</span>, iga ellujäänud naise kohta hukkus <span class="math inline">\(0.3745318\)</span> naist. Saame välja arvutada ka naiste ellujäämise tõenäosuse:</li>
 </ul>
 <p><span class="math display">\[\pi=\frac{\text{šansid}}{1+\text{šansid}} = \frac{2.67}{1+2.67} = 0.73\]</span></p>
 <ul>
@@ -601,10 +624,6 @@ sexmale
 ## Call:
 ## glm(formula = surv ~ sex * scale(age, scale = F), family = binomial(), 
 ##     data = titanic)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -2.0247  -0.7158  -0.5776   0.7707   2.2960  
 ## 
 ## Coefficients:
 ##                                Estimate Std. Error z value Pr(&gt;|z|)    
@@ -677,6 +696,14 @@ logit
 </td>
 <td style="text-align:right;">
 331.18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+p
+</td>
+<td style="text-align:right;">
+0.00
 </td>
 </tr>
 <tr>
@@ -865,7 +892,7 @@ sexmale:scale(age, scale = F)
 <p>Üks kasulik nipp on ka võrrelda jääkhälbimuse väärtust ja tema vabadusastmeid. Kui <em>Residual deviance</em> on oluliselt suurem kui tema <em>degrees of freedom</em>, siis annab see jällegi tunnistust halvast mudelist.</p>
 <div id="hosmer-lemeshow-test" class="section level4 hasAnchor" number="3.4.1.1">
 <h4><span class="header-section-number">3.4.1.1</span> Hosmer-Lemeshow Test<a href="3-logistiline-regressioon.html#hosmer-lemeshow-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Võime mudeli sobivust andmetega hinnata ka Hosmer-Lemeshow testiga, mis testib kuivõrd hästi meie mudeli prognoositud väärtused vastavad tegelikele väärtustele mingite alamgruppide lõikes (test teeb ise andmetes alamgrupid). Nullhüpoteesiks on see, et mudel sobitub andmetega, seega kui näeme suurt <em>p</em>-väärtust (), siis järeldame, et mudel on sobiv ja vastupidi.</p>
+<p>Võime mudeli sobivust andmetega hinnata ka Hosmer-Lemeshow testiga, mis testib kuivõrd hästi meie mudeli prognoositud väärtused vastavad tegelikele väärtustele mingite alamgruppide lõikes (test teeb ise andmetes alamgrupid). Nullhüpoteesiks on see, et mudel sobitub andmetega, seega kui näeme suurt <em>p</em>-väärtust (<em>p</em> &gt; 0.05), siis järeldame, et mudel on sobiv ja vastupidi.</p>
 <div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="3-logistiline-regressioon.html#cb506-1" tabindex="-1"></a><span class="fu">library</span>(ResourceSelection)</span>
 <span id="cb506-2"><a href="3-logistiline-regressioon.html#cb506-2" tabindex="-1"></a><span class="fu">hoslem.test</span>(mudel8<span class="sc">$</span>y, <span class="fu">fitted</span>(mudel8))</span></code></pre></div>
 <pre><code>## 
@@ -1189,7 +1216,7 @@ sexmale:scale(age, scale = F)
 ##   ROC        Sens       Spec     
 ##   0.7917969  0.8448204  0.6839672</code></pre>
 <p>Saadud väljundis näeme, kuidas mudel igas voorus sooritas ja milline on keskmine ROC koos hinnangulise standardveaga. Mida kõrgem on lõplik keskmine AUC, seda paremini suudab mudel õigeid klassifikatsioone teha. Lisaks AUC-le võib kasutada ka muid mõõdikuid, näiteks täpsust (accuracy), tundlikkust (sensitivity) või F-skoori, olenevalt konkreetsest rakendusjuhtumist.</p>
-<p>Ristvalideerimisest tulenev keskmine mõõdik on üldiselt parem kui tervet andmestikku korraga treenimise ja testimisega saadud hinnang, sest see paljastab, kas mudel on kindlat tüüpi vaatlustele liigselt sobitunud või suudab paremini generaliseerida. Igas voorus kasutab mudel varem treenimiseks mittevalitud volti testimiseks, mis imiteerib reaalses elus ilmuda võivaid uusi andmeid. Nii näeme, kui suured on tegelikud vead ja kui palju võib mudeli sooritus kõikuda sõltuvalt sellest, milline andmestiku alamhulk parasjagu treeninguks või testimiseks valitakse.</p>
+<p>Ristvalideerimisest tulenev keskmine mõõdik on üldiselt parem kui terve andmestiku korraga saadud hinnang, sest võimaldab tagada, et mudel ei oleks kindlat tüüpi vaatlustele liigselt sobitunud ning suudab seetõttu paremini üldistada. Igas voorus kasutab mudel varem treenimiseks mittevalitud osa testimiseks, mis imiteerib reaalse elu pidevalt uuenevaid andmeid. Nii näeme, kui suured on tegelikud vead ja kui palju võib mudeli sooritus kõikuda sõltuvalt sellest, milline andmestiku alamhulk parasjagu treeninguks või testimiseks valitakse.</p>
 
 </div>
 </div>
@@ -1221,42 +1248,42 @@ sexmale:scale(age, scale = F)
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": false,
-"twitter": false,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": false
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

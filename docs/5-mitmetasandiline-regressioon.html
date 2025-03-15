@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Peatükk 5 Mitmetasandiline regressioon | Kvantitatiivne andmeanalüüs</title>
   <meta name="description" content="Peatükk 5 Mitmetasandiline regressioon | Kvantitatiivne andmeanalüüs" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Peatükk 5 Mitmetasandiline regressioon | Kvantitatiivne andmeanalüüs" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="custom/custom_styles.css" type="text/css" />
 </head>
@@ -217,6 +221,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#hierarhiline-klasteranalüüs"><i class="fa fa-check"></i><b>8.2</b> Hierarhiline klasteranalüüs</a></li>
 <li class="chapter" data-level="8.3" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>8.3</b> K-keskmiste (k-means) klasterdamine</a></li>
 <li class="chapter" data-level="8.4" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>8.4</b> Klasteranalüüsi tulemi valiidsus</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html"><i class="fa fa-check"></i><b>9</b> Kausaalsete mõjude hindamine</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#potentsiaalsed-tulemused"><i class="fa fa-check"></i><b>9.1</b> Potentsiaalsed tulemused</a></li>
+<li class="chapter" data-level="9.2" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#mõju-hindamise-meetodid"><i class="fa fa-check"></i><b>9.2</b> Mõju hindamise meetodid</a></li>
+<li class="chapter" data-level="9.3" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#sobitamine-ris"><i class="fa fa-check"></i><b>9.3</b> Sobitamine R’is</a></li>
 </ul></li>
 <li class="appendix"><span><b>LISA</b></span></li>
 <li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
@@ -761,11 +771,11 @@ kus:</p>
 ## Fixed effects:
 ##                     Estimate Std. Error       df t value Pr(&gt;|t|)    
 ## (Intercept)          12.1136     0.1988 159.8921  60.931  &lt; 2e-16 ***
-## tses                  2.9388     0.1551 139.3043  18.948  &lt; 2e-16 ***
+## tses                  2.9388     0.1551 139.3042  18.948  &lt; 2e-16 ***
 ## meanses               5.3391     0.3693 150.9689  14.457  &lt; 2e-16 ***
 ## sectorCatholic        1.2167     0.3064 149.5994   3.971 0.000111 ***
 ## tses:meanses          1.0389     0.2989 160.5528   3.476 0.000656 ***
-## tses:sectorCatholic  -1.6426     0.2398 143.3450  -6.850 2.01e-10 ***
+## tses:sectorCatholic  -1.6426     0.2398 143.3449  -6.850 2.01e-10 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
@@ -817,42 +827,42 @@ kus:</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": false,
-"twitter": false,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": false
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

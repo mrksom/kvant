@@ -52,7 +52,7 @@ Kasutame näitena _PhDPublications_ andmestikku^[Long, J.S. (1997). The Origin o
 - _mentor_  - juhendaja publikatsioonide arv.
 
 
-```r
+``` r
 # Kui pakett ei ole installitud, 
 # tuleb seda teha käsuga: install.packages("AER")
 
@@ -68,7 +68,7 @@ phd <- PhDPublications
 Vaatame artiklite tunnust lähemalt:
 
 
-```r
+``` r
 ggplot(phd)+
   geom_histogram(aes(x = articles), 
                  binwidth = 1, 
@@ -82,7 +82,7 @@ ggplot(phd)+
 Ilmselgelt on tegemist loendilise tunnusega. Samas päris Poissoni jaotusega tegemist vist siiski ei ole, kuna tundub, et nulle on selleks natukene liiga palju. ggploti abil saame joonisele panna ka tunnust iseloomustava teoreetilise Poissoni jaotuse (lähtuvalt tunnuse keskmisest ehk $\lambda$ parameetrist). Vaatame kuidas see võrreldes reaalse jaotusega välja näeb:
 
 
-```r
+``` r
 # Poissoni jaotuse parameetrina on meil vaja keskmist
 keskmine <- mean(phd$articles)
 phd %>% 
@@ -112,7 +112,7 @@ Nagu näeme, siis tõesti, nulle on natuke liiga palju ja artiklite loendi jaotu
 Vaatame üle ka teised andmestiku tunnused:
 
 
-```r
+``` r
 phd %>% 
   group_by(gender) %>% 
   summarize(n())
@@ -127,7 +127,7 @@ phd %>%
 ```
 
 
-```r
+``` r
 phd %>% 
   group_by(married) %>% 
   summarize(n())
@@ -144,7 +144,7 @@ phd %>%
 Soo ja abielu tunnus tunduvad korras olevat, kui välja arvata see, et kuidagi paljud doktorandid paistavad abielus olevat. Aga on nagu on.
 
 
-```r
+``` r
 phd %>% 
   group_by(kids) %>% 
   summarize(n())
@@ -163,7 +163,7 @@ phd %>%
 Laste tunnus on originaalis arvuline. Me kindlasti ei taha nelja väärtusega tunnust arvulisena käsitleda. Parem oleks see faktoriks teha ja seda mudelis kategoriaalsena käsitleda. Antud juhul, kuna lastetuid doktorante on niivõrd palju, oleks vast kõige mõistlik see tunnus üldse binaarseks teha, st kas on või ei ole lapsi (kuigi teoreetiliselt võiks ju eeldada, et laste arv võib mõjutada artiklite kirjutamiseks jäävat aega, siis siin, mulle tundub, on laste arvu variatiivsus selle kasutamiseks liiga väike).
 
 
-```r
+``` r
 # kasutame laste arvu teisendamiseks ifelse() funktsiooni
 # vajadusel vaadake sellekohast abiinfot ?ifelse
 phd <- phd %>% 
@@ -189,7 +189,7 @@ phd %>%
 Pidevast tunnusest ülevaate saamiseks on mugav kasutada histogrammi: 
 
 
-```r
+``` r
 hist(phd$prestige)
 ```
 
@@ -198,7 +198,7 @@ hist(phd$prestige)
 PhD programmi maine küsimus tundub suht OK.
 
 
-```r
+``` r
 hist(phd$mentor)
 ```
 
@@ -212,7 +212,7 @@ Juhendaja artiklit arvu tunnus on iseenesest samuti loendav tunnus (kuigi Poisso
 Vaatame esmalt kuidas sugu artiklite avaldamist mõjutab. Defineerime mudeli kasutades `glm()` funktsiooni ja selles `family = ` argumendina `poisson()` funktsiooni (kõlbaks ka `family = "poisson"` või `family = poisson`). `poisson()` funktsiooni puhul on vaikimisi eeldatud linkfunktsioonina `log`-linki, kuid vajadusel saaksime ka mingit muud linkfunktsiooni kasutada või selle eksplitsiitselt välja tuua: `poisson(link = 'log')`. Salvestame mudeli kõigepealt andmeobjektiks ning seejärel uurime seda `summary()` funktsiooniga.
 
 
-```r
+``` r
 m1 <- glm(articles~gender, family = poisson(), data = phd)
 summary(m1)
 ```
@@ -221,10 +221,6 @@ summary(m1)
 ## 
 ## Call:
 ## glm(formula = articles ~ gender, family = poisson(), data = phd)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -1.9404  -1.7148  -0.4119   0.4139   7.3221  
 ## 
 ## Coefficients:
 ##              Estimate Std. Error z value Pr(>|z|)    
@@ -247,7 +243,7 @@ Nagu näeme, siis Poissoni regressiooni väljund on praktiliselt identne logisti
 Tõlgendame kõigepealt regressioonikoefitsiente. Nagu eelnevalt mainitud, siis tuleks neist eelnevalt eksponent võtta. Aga ka ilma selleta saame öelda, et naised on meestest vähem artikleid avaldanud. Mehed on antud juhul referentsgrupp ning *genderfemale* koefitsient kirjeldab naiste erinevust meestest. Kuna koefitsient on negatiivne, siis saame järeldada, et keskmine artiklite arv on naiste hulgas väiksem kui meeste hulgas. Aga et teada saada kui palju väiksem, peame koefitsientidest eksponendi võtma:
 
 
-```r
+``` r
 # koefitsiendid saame mudeli objektist kätte coef() funktsiooniga
 exp(coef(m1))
 ```
@@ -260,7 +256,7 @@ exp(coef(m1))
 Vabaliige on $Y$ väärtus kui $x$ on $0$. Kuna mehed on referentsgrupp (ehk siis $0$), siis kirjeldab vabaliige siinkohal meeste keskmist artiklite arvu. Võime tulemuse `dplyr`'iga verifitseerida:
 
 
-```r
+``` r
 phd %>% 
   filter(gender == 'male') %>% 
   summarize(mean(articles))
@@ -276,7 +272,7 @@ Tundub tõesti nii olevat.
 Eksponenti võetud *genderfemale* koefitsient näitab naiste multiplikatiivset erinevust meestest. Ehk siis naiste keskmine artiklite arv peaks olema $1.88 \times 0.78 = 1.47$. Teiste sõnadega naiste keskmine artiklite arv on $1-0.78 = 22\%$ väiksem kui meestel. Kontrollime üle:
 
 
-```r
+``` r
 phd %>% 
   filter(gender == 'female') %>% 
   summarize(mean(articles))
@@ -296,7 +292,7 @@ Sama järelduse saaksime tegelikult teha ka z-väärtuste ja standardvigade (tul
 Aga vaatame oma mudelit edasi. Lisame ka teised sõltumatud tunnused:
 
 
-```r
+``` r
 m2 <- glm(articles~gender+prestige+married+kids2+mentor, family = poisson(), data = phd)
 summary(m2)
 ```
@@ -306,10 +302,6 @@ summary(m2)
 ## Call:
 ## glm(formula = articles ~ gender + prestige + married + kids2 + 
 ##     mentor, family = poisson(), data = phd)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -3.4477  -1.5669  -0.3587   0.5705   5.4715  
 ## 
 ## Coefficients:
 ##               Estimate Std. Error z value Pr(>|z|)    
@@ -334,14 +326,14 @@ summary(m2)
 Näeme, et ülikooli maine ei mõjuta statistiliselt oluliselt artiklite arvu. Ka abielustaatus on suhteliselt piiripealse mõjuga. Jätame maine tunnuse mudelist välja (tahame alati leida võimalikult lihtsa mudeli, seega tunnused, mis mudelisse ei ei panusta, jätame välja).
 
 
-```r
+``` r
 m3 <- glm(articles~gender+married+kids2+mentor, family = poisson(), data = phd)
 ```
 
 Kontrollime igaks juhuks ka `anova()`-ga, kas maine tunnuse väljajätmine ikka oli õigustatud: 
 
 
-```r
+``` r
 anova(m3, m2, test = 'Chisq')
 ```
 
@@ -360,7 +352,7 @@ Hii-ruut test ütleb meile, et keerulisema ja lihtsama mudeli vahel ei ole stati
 Näeme, et nii sugu, abielustaatus, laste arv, kui ka juhendaja publikatsioonide arv mõjutavad artiklite arvu oluliselt. Kontrollime igaks juhuks ka soo ja laste olemasolu koosmõju:
 
 
-```r
+``` r
 m4 <- glm(articles~gender*kids2+married+mentor, family = poisson(), data = phd)
 summary(m4)
 ```
@@ -370,10 +362,6 @@ summary(m4)
 ## Call:
 ## glm(formula = articles ~ gender * kids2 + married + mentor, family = poisson(), 
 ##     data = phd)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -3.4995  -1.5593  -0.3582   0.5639   5.4570  
 ## 
 ## Coefficients:
 ##                       Estimate Std. Error z value Pr(>|z|)    
@@ -398,7 +386,7 @@ summary(m4)
 Koosmõju koefitsient ei ole statistiliselt oluline, seega jääme mudeli m3 juurde: 
 
 
-```r
+``` r
 summary(m3)
 ```
 
@@ -407,10 +395,6 @@ summary(m3)
 ## Call:
 ## glm(formula = articles ~ gender + married + kids2 + mentor, family = poisson(), 
 ##     data = phd)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -3.5080  -1.5615  -0.3626   0.5614   5.4494  
 ## 
 ## Coefficients:
 ##              Estimate Std. Error z value Pr(>|z|)    
@@ -434,7 +418,7 @@ summary(m3)
 Järgmiseks võtame mudeli koefitsientide eksponendid, et neid natukene inimlikumal kujul kuvada ja tõlgendada:
 
 
-```r
+``` r
 exp(coef(m3))
 ```
 
@@ -458,7 +442,7 @@ Mida need koefitsiendid meile ütlevad?
 Mudeli üledispersioon (*overdispersion*) on olukord, kus mudeli dispersioon on suurem kui mudeli aluseks olev jaotusfunktsioon eeldaks. Kui see on nii, siis on mudeli standardvead tõenäoliselt liiga väikesed (ja seega mudeli alusel tehtavad järldused valed). Üledispersiooni olemasolu saame kontrollida võrreldes jääkhälbimust (*Residual deviance*) ja selle vabadusastemid (*degrees of freedom* ehk *df*). Kui need on enam-vähem võrdsed, ehk $\frac{\text{Residual deviance}}{\text{df}} \approx 1$, siis üledispersiooni ei ole. Aga kui see suhe on oluliselt suurem kui $1$, siis on tegemist probleemiga. Juhul kui taoline olukord esineb, peaksime Poissoni mudeli asemel kasutama *quasipoisson*'i mudelit (või tegelikult veel parem oleks kasutada *negative binomial* mudelit, näiteks `MASS::glm.nb()` funktsiooni abil), kus üledispersiooni on eraldi dispersiooni parameetrina mudelis arvesse võetud. Ka meie näite puhul on tegemist üledispersiooniga (mitte küll väga suurega, aga siiski), seega võiksime kasutada quasipoissonit:
 
 
-```r
+``` r
 m5 <- glm(articles~gender+married+kids2+mentor, family = quasipoisson, data = phd)
 summary(m5)
 ```
@@ -468,10 +452,6 @@ summary(m5)
 ## Call:
 ## glm(formula = articles ~ gender + married + kids2 + mentor, family = quasipoisson, 
 ##     data = phd)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -3.5080  -1.5615  -0.3626   0.5614   5.4494  
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
@@ -495,7 +475,7 @@ summary(m5)
 Näeme, et punkthinnangud ei muutunud, küll aga läksid standardvead suuremaks. See tähendab, et quaipoissoniga meie mudeli täpsusaste kahaneb (või õigemini esialgse, tavalise Poissoni mudeli puhul hindasime me mudeli täpsust üle). Samuti näeme, et tänu sellele ei ole abielustaatuse koefitsient enam $95\%$ usaldusnivoo korral statistiliselt oluline ja peaksime selle tunnuse välja jätma.
 
 
-```r
+``` r
 m6 <- glm(articles~gender+kids2+mentor, family = quasipoisson, data = phd)
 summary(m6)
 ```
@@ -505,10 +485,6 @@ summary(m6)
 ## Call:
 ## glm(formula = articles ~ gender + kids2 + mentor, family = quasipoisson, 
 ##     data = phd)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -3.4818  -1.5758  -0.3663   0.5443   5.5757  
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
@@ -535,7 +511,7 @@ Lisaks üledispersioonile võib probleemiks olla ka **aladispersioon**, st oluko
 Mudeli sobivust andmetega (*goodness of fit*) saame analoogselt logistilise regressiooniga hinnata jääkhälbimuse (*Residual deviance*) abil:
 
 
-```r
+``` r
 res_dev <- deviance(m6)
 res_df <- df.residual(m6)
 pchisq(res_dev, res_df, lower.tail=FALSE)
@@ -552,7 +528,7 @@ Näeme, et *p*-väärtus on väiksem kui $0.05$, mis tähendab, et meie mudel ei
 Mudeli statistilist olulisust saame jällegi hinnata analoogselt logistilisele regressioonil hälbimuse näitajate abil. Võrdleme nullmudeli hälbimust (*Null deviance*) ja jääkhälbimust (*Residual deviance*). Nullmudeli hälbimus hinnatud $Y$ hälbimust tegelikest $Y$ väärtustest juhul kui ühtegi prediktorit mudelis ei ole. Seega kahe hälbimuse vahe näitab kui palju meie mudel tänu sõltumatutele tunnustele paremaks on läinud. See hälbumuste vahe on jälle jaotunud hii-ruut jaotsue alusel, mille vabadusastemeteks on nullmudeli ja hinnatava mudeli vabadusastmete vahe. 
 
 
-```r
+``` r
 dev_vahe <- m6$null.deviance - m6$deviance
 df_vahe <- m6$df.null-m6$df.residual
 pchisq(dev_vahe, df_vahe, lower.tail = F)
@@ -571,7 +547,7 @@ Poissoni mudeli üheks eelduseks olid üksteisest sõltumatud ja normaaljaotuse 
 Paneme joonisele mudeli jäägid (hälbimused) ja (log) prognoositud väärtused. Jäägid peaksid üle prognoositud väärtuste suhteliselt ühtlaselt jaotuma ning mingit selgelt eristuvat mustrit ei tohiks täheldada. Antud juhul ei ole olukord just ideaalne, aga ka mitte kõige hullem. Näeme, et prognoositud väärtuste paremas otsas koonduvad jäägid pigem allapoole, samas jääkide variatiivsus on keskjoonest kõrgemal mõnevõrra suurem. Võib eeldada, et nad ei ole päris normaaljaotuse järgi jaotunud.
 
 
-```r
+``` r
 res <- residuals(m6, type="deviance")
 plot(log(predict(m6)), res)
 ```
@@ -581,7 +557,7 @@ plot(log(predict(m6)), res)
 Kontrollime seda ka histogrammiga:
 
 
-```r
+``` r
 hist(res)
 ```
 

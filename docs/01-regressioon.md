@@ -11,7 +11,7 @@ Lihtne lineaarne regressioon (*simple linear regression*) on statistiline meetod
 Kasutame näitena Piaaci andmestikku. Tõmbame andmestiku sisse ja uurime graafiliselt sissetuleku (*sissetulek*) ning matemaatilise kirjaokuse (*numeracy*) vahelist seost.
 
 
-```r
+``` r
 # Loeme kõigepealt sisse vajalikud paketid
 library(dplyr)
 library(ggplot2)
@@ -32,7 +32,7 @@ piaac %>%
 Tundub, et nende kahe tunnuse vahel on seos olemas. Mida kõrgem on matemaatilise kirjaoskuse skoor, seda kõrgem on sissetulek. Me saame selle suhte kokku võtta regressioonisirge abil. ggplotis on olemas vastav funktsioon `geom_smooth()`, mis selle joone meile graafikule paneb. Kuna me tahame saada lineaarse regressiooni sirget, siis peame `geom_smooth`'is kasutama argumenti `method = "lm"`^[*Defaultis* annab `geom_smooth` meile mittelineaarse regressioonijoone (vastavalt sellele palju vaatlusi on, kas *gam* või *loess*), mis üritab tunnustevahelist suhet andmete kõikides punktides võimalikult täpselt kirjeldada.]
 
 
-```r
+``` r
 piaac %>% 
   ggplot(aes(x = numeracy, y = sissetulek))+
   geom_point(size = 0.5, alpha = 0.2)+
@@ -61,7 +61,7 @@ R-is käib lihtsa regressioonimudeli tegemine `lm()` (*linear model*) funktsioon
 Saaksime ka vabaliikme võrrandisse sisse kirjutada: `sõltuv_tunnus ~ 1 + sõltumatu_tunnus`. Vabaliige on alati tähistatud `1`-ga, aga kuna see on alati mudelis olemas, siis R lisab selle automaatselt võrrandisse ja me tegelikult ei pea seda eksplitsiitselt välja kirjutama. Küll aga saame selle abil moodustada ainult vabaliikmega mudeli. See oleks nn nullmudel ehk tegelikult lihtsalt sõltuva tunnuse keskmise mudel. Defineerime sellise mudeli:
 
 
-```r
+``` r
 lm(sissetulek ~ 1, data = piaac)
 ```
 
@@ -77,7 +77,7 @@ lm(sissetulek ~ 1, data = piaac)
 Tulemiks on mudeli vabaliikme *(Intercept)* väärtus, mis juhul kui ühtegi sõltumatut tunnust mudelis ei ole, on lihtsalt keskmine sissetulek. Täpselt sama tulemuse saame `mean()` funktsiooniga:
 
 
-```r
+``` r
 mean(piaac$sissetulek, na.rm = T)
 ```
 
@@ -92,7 +92,7 @@ Siin tulebki mängu regressioonanalüüs, mis võimaldab uurida kuidas eri tunnu
 Defineerimegi järgmisena regressioonimudeli, kuhu lisame sõltumatu tunnusena matemaatilise kirjaoskuse ja millega hindame matemaatilise kirjaoskuse mõju sissetulekule^[Tegelikult ei ole selline mudel korrektne. Sissetuleku jaotus ei vasta hästi regressiooni nõuetele. Miks ei vasta ja kuidas see vastama panna, sellest natuke hiljem. Kuid hetkel kasutame seda puhtalt didaktilistest kaalutustest lähtuvalt.]:
 
 
-```r
+``` r
 lm(sissetulek ~ numeracy, data = piaac)
 ```
 
@@ -113,7 +113,7 @@ Näeme, et vabaliikme väärtus on negatiivne, mis ei ole ju tegelikult reaalsel
 Nüüd, kui teame mudeli parameetreid, saame nende abil regressioonijoone graafikule kanda ka ilma `geom_smooth`'ita:
 
 
-```r
+``` r
 piaac %>% 
   ggplot(aes(x = numeracy, y = sissetulek))+
   geom_point(size = 0.3, alpha = 0.2)+
@@ -181,7 +181,7 @@ Olles leidnud joone, mis kirjeldab kahe tunnuse vahelist seost kõige paremini, 
 Et hinnata mudeli sobivust andmetega ja sellega leitud hinnagute täpsust, vajame mudeli kohta täiendavat infot. Eelnevalt regressioonimudelit `lm()` funktsiooniga jooksutades oli väljund väga lakooniline. Saime teada ainult vabaliikme ja regressioonikoefitsinedi väärtused. Tegelikult on `lm()` tulem muidugi märksa põhjalikum. Muule mudeliga kaasnevale infole saame ligi kui salvestame mudeli esmalt mingisse andmeobjekti ja kasutame selle andmeobjekti peal `summary()` käsku^[Ka `summary()` ei anna välja kogu mudeliobjektis sisalduvat infot. Et näha mida mudeliobjekt veel sisaldab, võib kasutada `str(mudeliobjekt)` käsku.]. 
 
 
-```r
+``` r
 mudel1 <- lm(sissetulek ~ numeracy, data = piaac)
 summary(mudel1)
 ```
@@ -209,7 +209,7 @@ summary(mudel1)
 ```
 
 
-```r
+``` r
 # Kui me ei taha mudelit salvestada, siis saab ka nii:
 summary(lm(numeracy ~ literacy, data = piaac))
 ```
@@ -380,7 +380,7 @@ Seega saame regressioonivõrrandiga väljenda binaarse tunnuse mõju sõltuva tu
 Defineerime mudeli:
 
 
-```r
+``` r
 mudel2 <- lm(sissetulek ~ sugu, data = piaac)
 summary(mudel2)
 ```
@@ -498,7 +498,7 @@ $$y_i=\beta_0+\beta_1 \times kesk_i+\beta_2 \times korg_i$$
 Vaatame kuidas see kõik R-is välja näeb. Hindame hariduse (tunnus *haridustase*) mõju sissetulekule:
 
 
-```r
+``` r
 mudel3 <- lm(sissetulek ~ haridustase, data = piaac)
 summary(mudel3)
 ```
@@ -558,7 +558,7 @@ $$y_i=\beta_0+\beta_1 \times korge_i+\beta_2 \times madal_i$$
 Kui kategoriaalne sõltumatu tunnus on tekstiline (*character*), siis valib R referentskategooriaks tähestikuliselt esimese kategooria. Kui tunnus on faktortunnus (*factor*), siis valib R esimese faktortaseme. Faktortasemeid saame me aga muuta. Tihti tahame referentskategooria ise valida (näiteks kõige suurema grupi või grupi, mida on loogiline teistega võrrelda). Näiteks tahame haridustasemete puhul määrata referentskategooriaks põhihariduse. Selleks teeme tunnuse faktoriks ja määrame tasemete järjestuse nii, et madal haridustase oleks esimene:
 
 
-```r
+``` r
 # vaatame kõigepealt mis kategooriad tunnuses on
 unique(piaac$haridustase)
 ```
@@ -567,7 +567,7 @@ unique(piaac$haridustase)
 ## [1] "Keskmine" "Madal"    "Kõrge"    NA
 ```
 
-```r
+``` r
 # Laeme forcats paketti, millega on mugav faktoritega toimetada
 library(forcats)
 # Kasutame funktsiooni fct_relevel()
@@ -610,7 +610,7 @@ summary(lm(sissetulek ~ haridustase_f, data = piaac))
 Kui meil juba on faktortunnus, aga tahame selle tasemete järjekorda muuta, saame jälle kasutada käsku `fct_relevel()`. Muudame haridustaseme faktortunnuses kõrgema hariduse esimeseks tasemeks:
 
 
-```r
+``` r
 piaac$haridustase_f <- fct_relevel(piaac$haridustase_f, "Kõrge")
 
 # Baas-R-is käiks see nii:
@@ -684,7 +684,7 @@ $\beta$ coefitsinedid on leitud nii, et nendega kaalutud tunnuste väärtused mi
 Mudeli defineerimisel R-is saame sõltumatuid tunnuseid lisada `+` märgi abil:
 
 
-```r
+``` r
 mudel4 <- lm(sissetulek ~ numeracy + sugu, data = piaac)
 summary(mudel4)
 ```
@@ -764,7 +764,7 @@ $$\hat{y}_{sissetulek}=140.8+3.35 \times numeracy + (-365) \times naine$$
 Mõnevõrra lihtsam on seda tulemust interpreteerida graafiliselt: 
 
 
-```r
+``` r
 piaac %>% 
   ggplot(aes(x = numeracy, y = sissetulek, color = sugu))+
   geom_point(alpha = 0.1, size = 0.6)+
@@ -780,7 +780,7 @@ piaac %>%
 Lihtsam võimalus seoseid graafiliselt esitada on kasutada paketist `interactions` funktsiooni `interaction_plot()`. See on küll mõeldud eelkõige koosmõjude plottimiseks, kuid toimib ka tavalisete seoste kujutamisel.
 
 
-```r
+``` r
 library(interactions)
 interact_plot(mudel4, pred = numeracy, modx = sugu, colors = c("#972D15", "#02401B"))
 ```
@@ -792,7 +792,7 @@ interact_plot(mudel4, pred = numeracy, modx = sugu, colors = c("#972D15", "#0240
 Vaatame ka olukorda, kus meil on kaks pidevat sõltumatut tunnust - matemaatiline kirjaoskus ja vanus:
 
 
-```r
+``` r
 mudel5 <- lm(sissetulek~numeracy+vanus, data = piaac)
 summary(mudel5)
 ```
@@ -829,7 +829,7 @@ Tõlgendame seda järmiselt:
 Et taolisest mudelist paremini aru saada võime kasutada 3D punktdiagrammi
 
 
-```r
+``` r
 #library(car)
 #scatter3d(piaac$numeracy,piaac$sissetulek, piaac$vanus)
 ```
@@ -872,7 +872,7 @@ Mis siin nüüd siis toimub? Meeste keskmine sissetulek on, nagu varasemaltki, d
 R-is saame koosmõjudega mudeli defineerida kui kasutame tunnuste vahel, mille koosmõjusid tahame kodelleerida, $*$ märki. Ehk kui tahame matemaatilise kirjaoskuse ja soo koosmõju, siis peame defineerima mudeli nii:
 
 
-```r
+``` r
 mudel8 <- lm(sissetulek ~ numeracy * sugu, data = piaac)
 summary(mudel8)
 ```
@@ -901,7 +901,7 @@ summary(mudel8)
 ## F-statistic: 275.2 on 3 and 3980 DF,  p-value: < 2.2e-16
 ```
 
-```r
+``` r
 # Sama tulemuse saaksime, kui kirjutaksime:
 #lm(numeracy ~ literacy + sugu + literacy:sugu, data = piaac)
 ```
@@ -940,7 +940,7 @@ $$\hat{y}_{sissetulek}=\beta_0+\beta_1 \times numeracy + \beta_2 \times naine + 
 Seega selles mudelis erinevad kategoriaalse tunnuse lõikes nii vabaliikme väärtused kui ka regressioonisirge tõusud. Kui me nüüd selle mudeli tulemused graafikule paneme, siis näeme, et regressioonisirged ei ole enam paralleelsed. Mida suurem on matemaatilise kirjaoskuse tase, seda suurem on erinevus meeste ja naiste sissetulekutes.
 
 
-```r
+``` r
 interact_plot(mudel8, pred = numeracy, modx = sugu,  colors =  c("#972D15", "#02401B"))
 ```
 
@@ -953,7 +953,7 @@ Kõige parem ongi interaktsioonidega mudeleid graafiliselt vaadata.
 Enne oli juttu, et kahe kategoriaalse sõltumatu tunnusega mudel ilma koosmõjudeta pole väga mõistlik. Vaatame nüüd kuidas see koosmõjudega välja näeks:
 
 
-```r
+``` r
 mudel9 <- lm(sissetulek ~ sugu * haridustase, data = piaac)
 summary(mudel9)
 ```
@@ -1019,7 +1019,7 @@ $$\hat{y}_{sissetulek}=\beta_0+\beta_1 \times naine + \beta_2 \times koh + \beta
 Kõige mugavam on taolist mudelit interpreteerida aga jällegi graafiliselt (kasutame paketi `interactions` funktsiooni `cat_plot()`):
 
 
-```r
+``` r
 cat_plot(mudel9, pred = haridustase, modx = sugu, colors =  c("#972D15", "#02401B"))
 ```
 
@@ -1043,7 +1043,7 @@ Me saame vaadata lisanduva tunnuse standardviga, *t*-väärtust ja sellega seond
 Erinevate mudelite statistiliselt olulist erinevust saame testida hii-ruut testiga kasutades `anova()` funktsiooni. Seda saab teha ainult siis kui mudelid on omavehl seotud (*nested*), st keerukam (rohkemate tunnustega) mudel peab sisdaldama kõiki lihtsama mudeli tunnuseid.
 
 
-```r
+``` r
 mudel_test1 <- lm(numeracy ~ literacy, data = piaac)
 mudel_test2 <- lm(numeracy ~ literacy + sugu, data = piaac)
 anova(mudel_test1, mudel_test2, test = "Chisq")
@@ -1079,7 +1079,7 @@ Nagu iga meetodi puhul, on ka lineaarsel regressioonanalüüsil rida eeldusi, mi
 3. **Jääkide sõltumatus**. Ühe vaatluse jäägid ei tohiks olla korreleeritud teise vaatluse jääkidega. Selline olukord võib tekkida näiteks siis kui mudelist on välja jäänud mingi oluline tunnus (ühe tunnuse regressiooni puhul on see muidugi vaid hüpoteetiline olukord), näiteks hindame õpilaste testiskoore lähtuvalt nende õppimisele kulunud ajast, kuid ei arvesta, et õpilased tulevad erinevatest koolidest, kus võib olla erinev õppetase. Seega õpilaste tulemused ei ole enam sõltumatud, vaid sõltuvad koolist. Regressioonikoefitsientide standardvigade arvutamisel lähtutakse eeldusest, et jäägid on sõltumatud. Kui jäägid on korreleeritud, siis võib juhtuda, et me alahindame standardvigade suurust ehk siis oleme oma tulemustes ülemäära kindlad (usaldusintervallid ning *p*-väärtused tulevad liialt väikesed) ning võime näha seoseid seal kus neid tegelikult ei ole. Lahenduseks võiks olla puuduolevate tunnuste lisamine mudelisse (konkrteetse näite puhul kooli tunnus), mitmetasandiline mudel (seda vaatame hiljem) või klasterdatud standardvead (*clustered standard errors* või ka *cluster-robust standard errors*).
 
 
-```r
+``` r
 ## Clustered standard errors
 
 # Eeldame, et valim on klasterdatud haridusvaldkonna alusel
@@ -1110,7 +1110,7 @@ vcovCL(mudel6, cluster = ~hvaldkond) %>%
 ##         7.69411746         0.02019249         5.63277113         0.01773446
 ```
 
-```r
+``` r
 # Et neid koos koefitsientide ja vastavate testidega kuvada, võime kasutada
 #  jällegi lmtest paketi funktsiooni coeftest()
 coeftest(mudel6, vcov. = vcovCL(mudel6, cluster = ~hvaldkond))
@@ -1133,7 +1133,7 @@ coeftest(mudel6, vcov. = vcovCL(mudel6, cluster = ~hvaldkond))
 4. **Jääkide dispersiooni homogeensus** (*homoscedasticity*). Jäägid peaksid hinnatud väärtuste lõikes olema homogeense ja konstantse variatiivsusega, st ühtlaselt jaotunud kõikide $\hat{y}$ väärtuste ümber. Selle eelduse rikkumine mõjutab eelkõige standardvigu (need ei kehti enam kõikidele $\hat{y}$ väärtustele ühtlaselt) ja seeläbi loomulikult ka usaldusintervalle ning *p*-väärtusi. Lahenduseks võivad olla nn robustsed standardvead (*robust standard errors*), mis võtavad varieeruvuse erinevust arvesse, või siis jällegi tunnuste transformeerimine.
 
 
-```r
+``` r
 ## Robust standard errors
 
 # Defineerime regressioonimudeli 
@@ -1168,7 +1168,7 @@ summary(mudel6)
 ## F-statistic:  5753 on 3 and 7582 DF,  p-value: < 2.2e-16
 ```
 
-```r
+``` r
 # Robustsete standardvigade arvutamiseks kasutame sandwitch paketti
 #  ja nende kuvamiseks lmtest paketti
 library(sandwich)
@@ -1193,7 +1193,7 @@ vcovHC(mudel6) %>%
 ##        2.788735004        0.009897618        3.831308067        0.013555193
 ```
 
-```r
+``` r
 # Et neid koos koefitsientide ja vastavate testidega kuvada, võime kasutada
 #  lmtest paketi funktsiooni coeftest()
 coeftest(mudel6, vcov. = vcovHC(mudel6))
@@ -1212,7 +1212,7 @@ coeftest(mudel6, vcov. = vcovHC(mudel6))
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
-```r
+``` r
 # Usalduspiirid robustsete standardvigade alusel saame kätte coefci() 
 #  funktsiooniga
 coefci(mudel6, vcov. = vcovHC(mudel6))
@@ -1243,7 +1243,7 @@ Eelduste hindamiseks on loomulikult mitmeid teste, kuid kõige lihtsam on seda m
 Defineerime kõigepealt mudeli:
 
 
-```r
+``` r
 mod <- lm(formula = sissetulek ~ numeracy + vanus + sugu + haridustase, 
     data = piaac)
 ```
@@ -1254,7 +1254,7 @@ mod <- lm(formula = sissetulek ~ numeracy + vanus + sugu + haridustase,
 Vaatame kõigepealt jäägid vs hinnatud väärtused joonist. Kontrollime sellega mittelineaarse seose olemasolu ja jääkide dispersiooni homogeensust. Punktid peaksid olema kogu x-telje ulatuses ühtlaselt ümber keskmise 0-joone jaotunud nii, et igas x-telje punktis oleks jääkide keskmine 0 (punane joon ehk jääkide keskminepeaks langema kokku 0-joonega). Ei tohiks näha olla mingit ilmset mustrit. Kui jäägid ei ole ühtlaselt ümber kesjoone, siis on probleemiks lineaarsuse eeldus. Kui jäägid ei ole kogu skaala ulatuses ühtlaselt jaotunud, siis on probleem jääkide dispersiooniga.
 
 
-```r
+``` r
 plot(mod, 1)
 ```
 
@@ -1265,7 +1265,7 @@ Siin ilmselgelt on muster olemas. Mida suurem on hinnatud väärtus, seda suurem
 Jääkide dispersiooni homogeensust saame ka fomraalsemalt kontrollida Breusch-Pagan testiga. Selle puhul on nullhüpoteesik konstantne varieeruvus (*homoscedasticity*) ja alternativvseks hüpoteesiks mittekonstantne varieeruvus (*heteroscedasticity*). Ehk siis me tahaksime näha võimalikult suurt *p* väärtust, mis tähendaks, et nullhüpoteesi kehtimise tõenäosus on suur (meil ei ole piisavalt tõendeid, et seda ümber lükata)
 
 
-```r
+``` r
 # Breusch-Pagan test on olemas lmtest paketis.
 lmtest::bptest(mod)
 ```
@@ -1284,7 +1284,7 @@ lmtest::bptest(mod)
 Jääkide normaaljaotuse eeldust saame kontrollida Q-Q plot'iga. Kui jäägid on normaalselt jaotunud, siis peaksid punktid enamvähem ühtima diagonaalse joonega. Jällegi tundub, et see eeldus on kaugel täidetust.
 
 
-```r
+``` r
 plot(mod, 2)
 ```
 
@@ -1292,7 +1292,7 @@ plot(mod, 2)
 Normaajaotuse kehtivust saame formaalselt kontrollida Shapiro-Wilk testiga, kus nullhüpoteesiks on normaaljaotus. Seega ootame jällegi võimalikult suurt *p* väärtust, mis kinnitaks meile, et meil ei ole põhjust nullhüpoteesi kummutada.
 
 
-```r
+``` r
 # resid() funktsiooniga saame mudeliobjektist jäägid välja võtta
 jaagid <- resid(mod)
 shapiro.test(jaagid)
@@ -1313,7 +1313,7 @@ shapiro.test(jaagid)
 Jääkide dispersiooni homogeensust saame kontrollida ka *scale-location* joonisega, kus on jällegi kuvatud jäägid vs hinnatud väärtused, kuid jäägid on siin standardiseeritud ja neist on ruutjuur võetud. Tahaksime näha, et punane joon (standardiseeritud jääkide keskmine) oleks paralleelne x-teljega. Jällegi, siinsel pildil see nii ei ole.
 
 
-```r
+``` r
 plot(mod, 3)
 ```
 
@@ -1326,7 +1326,7 @@ plot(mod, 3)
 Märkimisväärseks *Cook*-i kauguse väärtuseks loetakse tegelikult 0.5 või isegi 1. Meie joonisel on nende numbritega võrreldes vaga tagasihoidlikud kaugused. Ehk siis võime järeldada, et mõjukaid vaatlusi meie mudelis ei ole.
 
 
-```r
+``` r
 plot(mod, 4)
 ```
 
@@ -1335,7 +1335,7 @@ plot(mod, 4)
 Ka *residuals vs leverage* joonis aitab esile tuua mõjukaid vaatlusi. Taolised vaatlused olema paremal all või paremal üleval nurgas ning kaugemal kui punktiirjoon (antud juhul neid ei ole ja seega ei ole ka punktiirjoont näha).
 
 
-```r
+``` r
 plot(mod, 5)
 ```
 
@@ -1351,7 +1351,7 @@ Oleme eelnevalt mitmel puhul maininud, et nii andmete tõlgendamisel kui regress
 Nagu mainitud, siis lineaarsed transformatsioonid aitavad eelkõige mudeleid lihtsamini tõlgendada. Koosmõjude peatükis oli meil mudel, mille otsene interpretatsioon oli suhteliselt keerukas:
 
 
-```r
+``` r
 mudel8 <- lm(sissetulek ~ numeracy * sugu, data = piaac)
 summary(mudel8)
 ```
@@ -1386,7 +1386,7 @@ Asi oli selles, et *numeracy* skoori 0-väärtus ei ole realistlik. Kuid meeste 
 Kuid me saame *numeracy* skaalat, ja seega ka referentspunkti, muuta. Selleks on mitmeid võimalusi, kuid üheks tavapärasemaks on tunnuste **standardiseerimine**. Standardiseeritud tunnuse väärtusi nimetatakse ka z-skoorideks. Standardiseeritud tunnuse keskmine on 0 ja ühikuks on tunnuse standardhälve. Standardiseerime *numeracy* tunnuse:
 
 
-```r
+``` r
 # Lahutame tunnusest tunnuse keskmise ja jagame läbi tunnuse standardhälbega
 piaac <- piaac %>% 
   mutate(z_num = (numeracy - mean(numeracy, na.rm = T))/sd(numeracy, na.rm = T))
@@ -1400,7 +1400,7 @@ piaac <- piaac %>%
 Jooksutame nüüd standardiseeritud tunnusega uuesti mudelit:
 
 
-```r
+``` r
 mudel_stnd <- lm(sissetulek ~ z_num * sugu, data = piaac)
 summary(mudel_stnd)
 ```
@@ -1446,7 +1446,7 @@ Standardiseerimise puhul on positiivne, et saame võimalike erinevate skaaladega
 Kui tahame skaalat säilitada, kui ikkagi mudeli interpreteeritavust parandada, siis on abiks tunnuste **tsentreerimine**, mis tähendab, et liigutame tunnuse keskpunkti nulli, kuid jätame skaala samaks:
 
 
-```r
+``` r
 # Lahutame tunnusest tunnuse keskmise 
 piaac <- piaac %>% 
   mutate(t_num = (numeracy - mean(numeracy, na.rm = T)))
@@ -1459,7 +1459,7 @@ piaac <- piaac %>%
 
 
 
-```r
+``` r
 mudel_stnd <- lm(sissetulek ~ t_num * sugu, data = piaac)
 summary(mudel_stnd)
 ```
@@ -1498,7 +1498,7 @@ Tõlgendus on täpselt sama mis standardiseeritud tunnuse puhul, välja arvatud 
 Ja me ei pea tunnuseid tsentreerima nende keskväärtustest lähtuvalt. Kui meil on mõne tunnuse kohta mingi konkreetne sisuline väärtus, mida tahame referentsina kasutada, siis saame seda kasutada. Näiteks meil on mudelis vanuse tunnus ja valimis ainult täisealised - seega vanus 0 on jällegi täiesti sisutu. Kui nüüd tahame referentsina kasutada näiteks 30-aastaseid, siis saame vanuse tsentreerida lähtuvalt sellest punktist:
 
 
-```r
+``` r
 piaac <- piaac %>% 
   mutate(vanus_30 = vanus - 30)
 mudel_stnd <- lm(sissetulek ~ vanus_30, data = piaac)
@@ -1530,7 +1530,7 @@ Tabelis \@ref(tab:tab-log) on näha erinevate väärtuste logaritmid. 0-i logari
 
 
 ```{=html}
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: 0%; margin-right: auto;  " id="tab:tab-log">
+<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: 0%; margin-right: auto;  " id="tab:tab-log">
 <caption style="caption-side: top; text-align: left;">(#tab:tab-log) Logaritmid</caption><col style="width: 60%"><col style="width: 60%"><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 1pt 1pt 1pt 0pt; font-weight: bold;">b</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 1pt 0pt 1pt 1pt; font-weight: bold;">log(b)</th></tr>
 <tr>
@@ -1567,7 +1567,7 @@ Regressioonimudeli kontekstis tahame sõltuvat tunnust näha normaaljaotusena ee
 Kui vaadata sissetuleku regressioonseost *numeracy*-ga (joonis \@ref(fig:log-reg)), siis on näha, et originaalskaala puhul on positiivsed (regressioonijoonest kõrgemale jäävaid) jäägid oluliselt suuremad kui negatiivsed, log-tranformeeritud skaala puhul on jäägid aga ühtlaselt ümber regressioonijoone jaotunud.
 
 
-```r
+``` r
 p1 <- piaac %>% 
   ggplot()+
   aes(x = numeracy, y = sissetulek)+
@@ -1600,7 +1600,7 @@ Nüüd on $Y$ küll originaalskaalal, kuid võrrand ise on muutunud multiplikati
 Defineerime log-transformeeritud sissetulekuga mudeli ja interpreteerime seda:
 
 
-```r
+``` r
 # Me ei ilmtingimata andmestikku uut log-tunnust tegema. Saame ka lm()
 # funktsiooni sees log() funktsiooni  kasutada.
 mod <- lm(log(sissetulek) ~ numeracy, data = piaac)
@@ -1639,7 +1639,7 @@ Kui $-0.1 < \beta < 0.1$, siis on päris täpne lähend $y$ protsentuaalsele muu
 Kui me logaritmime sõltumatut muutuja $x$-i, siis **1% muutus $x$-is tähendab $\beta_1 \times \log(1.01)$ muutust $y$-is**.
 
 
-```r
+``` r
 mod <- lm(sissetulek ~ log(numeracy), data = piaac)
 summary(mod)
 ```
@@ -1677,7 +1677,7 @@ Küllaltki täpse lähendi $y$ kasvule saame kui jagame koefitsiendi lihtsalt 10
 Kui me logaritmime nii sõltuva kui sõltumatu muutuja, siis **1% $x$ muutus  tähendab t $(1 + 0.01)^\beta$ kordset muutust $Y$-s** (või siis $\exp(\log(1 + 0.01) \times\beta)$). Kui $x$ muutub näiteks 10% võrra, siis on $y$ muutub $(1+0.1)^\beta$ korda jne. Saame seda näitajat käsitleda protsentuaalse muutusena $((1+0.1)^\beta-1)\times100$. Taolist näitajat nimetatakse majandusteadustes ka elastsuseks, mis näitab kui tundlik mingi näitaja on teise näitaja muutmise suhtes. 
 
 
-```r
+``` r
 mod <- lm(log(sissetulek) ~ log(numeracy), data = piaac)
 summary(mod)
 ```
@@ -1726,7 +1726,7 @@ $$Y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \cdots + \beta_{p-1}x_i^{p-1} + 
 Piaaci andmestikus on vanuse tunnus. Vaatame kuidas vanuse ja sissetuleku seos välja näeb:
 
 
-```r
+``` r
 piaac %>% 
   ggplot(aes(x = vanus, y = sissetulek))+
   geom_point(alpha = 0.1)+
@@ -1747,7 +1747,7 @@ Polünoomidega regressiooni mudeliga tehtavad prognoosid kehtivad üldjuhul ainu
 Defineerime esmalt teise astme polünoomiga mudeli. Selleks peame lisaks algsele *vanus* tunnusele lisama mudelile *vanus^2* tunnuse (lisades kõrgema astme koefitsienfi, peavad kõik madalama astme koefitsiendid mudelis olema, st kui lisame *vanus^2*, siis *vanus* peab ka mudelis olema, kui lisame *vanus^3*, siis peavad *vanus* ja *vanus^2* mudelis olema). Saaksime need enne andmestikus valmis arvutada, kuid lihtsam on need `lm()` funktsiooni sees defineerida: 
 
 
-```r
+``` r
 # Et võrrandis tehteid teha (antud juhul astendamistehet), 
 # tuleb kasutada I() notatsiooni
 mod <- lm(sissetulek ~ vanus + I(vanus^2), data = piaac)
@@ -1760,7 +1760,7 @@ Kui tahame hiljem koefitsiente tõlgendada, siis peaksime kasutama tavalisi (`ra
 Defineerime teise astme polünoomiga mudeli:
 
 
-```r
+``` r
 mod <- lm(sissetulek ~  poly(vanus, degree = 2), data = piaac)
 summary(mod)
 ```
@@ -1791,7 +1791,7 @@ summary(mod)
 Teise tasandi polünoom on kurvi kujuga, seega seda on hea tahtmise korral võimalik ka koefitsientide abil kirjeldada. Näiteks kui $x^2$ on negatiivne, siis on kurv ülespoole kumer, kui positiivne, siis allapoole kumer. Kuid üldjuhul ei ole mõtet nii koefitsiente tõlgendama hakata. Kuna seos on mittelineaarne, st eri $x$-i väärtuste korral on see erinev, siis mingit ühest kirjeldust sellele nii ehk naa anda ei saa. Lihtsam on seost graafiliselt vaadata:
 
 
-```r
+``` r
 piaac %>% 
   filter(!is.na(sissetulek), !is.na(vanus)) %>% 
   mutate(hinnang = fitted(mod)) %>% 
@@ -1806,7 +1806,7 @@ piaac %>%
 Teeme ka kolmanda astme polünoomidega mudeli:
 
 
-```r
+``` r
 mod2 <- lm(sissetulek ~  poly(vanus, degree = 3), data = piaac)
 ```
 

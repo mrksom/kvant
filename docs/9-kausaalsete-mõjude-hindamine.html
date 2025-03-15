@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Peatükk 9 Kausaalsete mõjude hindamine | Kvantitatiivne andmeanalüüs</title>
+  <meta name="description" content="Peatükk 9 Kausaalsete mõjude hindamine | Kvantitatiivne andmeanalüüs" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Peatükk 9 Kausaalsete mõjude hindamine | Kvantitatiivne andmeanalüüs" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Peatükk 9 Kausaalsete mõjude hindamine | Kvantitatiivne andmeanalüüs" />
+  
+  
+  
+
+<meta name="author" content="Marko Sõmer" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="8-klasteranalüüs.html"/>
+<link rel="next" href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="assets/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="assets/tabwid-1.1.3/tabwid.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="custom/custom_styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class='before'><a href="./">Kvant</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Alustuseks</a></li>
+<li class="part"><span><b>I Meeldetuletus</b></span></li>
+<li class="chapter" data-level="1" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus R-i</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#päris-algus"><i class="fa fa-check"></i><b>1.1</b> Päris algus</a></li>
+<li class="chapter" data-level="1.2" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#andmetega-töötamine"><i class="fa fa-check"></i><b>1.2</b> Andmetega töötamine</a></li>
+<li class="chapter" data-level="1.3" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#r-markdown"><i class="fa fa-check"></i><b>1.3</b> R markdown</a></li>
+<li class="chapter" data-level="1.4" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#andmegraafika"><i class="fa fa-check"></i><b>1.4</b> Andmegraafika</a></li>
+<li class="chapter" data-level="1.5" data-path="1-sissejuhatus-r-i.html"><a href="1-sissejuhatus-r-i.html#edasiseks-lugemiseks"><i class="fa fa-check"></i><b>1.5</b> Edasiseks lugemiseks</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html"><i class="fa fa-check"></i><b>2</b> Lineaarne regressioon</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#lihtne-lineaarne-regressioon"><i class="fa fa-check"></i><b>2.1</b> Lihtne lineaarne regressioon</a></li>
+<li class="chapter" data-level="2.2" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioon-r-is"><i class="fa fa-check"></i><b>2.2</b> Regressioon R-is</a></li>
+<li class="chapter" data-level="2.3" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressiooni-jäägid"><i class="fa fa-check"></i><b>2.3</b> Regressiooni jäägid</a></li>
+<li class="chapter" data-level="2.4" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-sobitumine"><i class="fa fa-check"></i><b>2.4</b> Regressioonimudeli sobitumine</a></li>
+<li class="chapter" data-level="2.5" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kategoriaalsed-tunnused-regressioonis"><i class="fa fa-check"></i><b>2.5</b> Kategoriaalsed tunnused regressioonis</a></li>
+<li class="chapter" data-level="2.6" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mitmene-regressioon"><i class="fa fa-check"></i><b>2.6</b> Mitmene regressioon</a></li>
+<li class="chapter" data-level="2.7" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#koosmõjud"><i class="fa fa-check"></i><b>2.7</b> Koosmõjud</a></li>
+<li class="chapter" data-level="2.8" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#mudelite-võrdlemine"><i class="fa fa-check"></i><b>2.8</b> Mudelite võrdlemine</a></li>
+<li class="chapter" data-level="2.9" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#regressioonimudeli-eeldused"><i class="fa fa-check"></i><b>2.9</b> Regressioonimudeli eeldused</a></li>
+<li class="chapter" data-level="2.10" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#kuidas-eelduste-täidetust-hinnata"><i class="fa fa-check"></i><b>2.10</b> Kuidas eelduste täidetust hinnata?</a></li>
+<li class="chapter" data-level="2.11" data-path="2-lineaarne-regressioon.html"><a href="2-lineaarne-regressioon.html#tunnuste-transformatsioonid"><i class="fa fa-check"></i><b>2.11</b> Tunnuste transformatsioonid</a></li>
+</ul></li>
+<li class="part"><span><b>II Üldistatud lineaarsed mudelid</b></span></li>
+<li class="chapter" data-level="3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html"><i class="fa fa-check"></i><b>3</b> Logistiline regressioon</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-funktsioon"><i class="fa fa-check"></i><b>3.1</b> Logistiline funktsioon</a></li>
+<li class="chapter" data-level="3.2" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>3.2</b> Logit mudel</a></li>
+<li class="chapter" data-level="3.3" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>3.3</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="3.4" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>3.4</b> Mudeli kvaliteet</a></li>
+<li class="chapter" data-level="3.5" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#predict"><i class="fa fa-check"></i><b>3.5</b> Predict</a></li>
+<li class="chapter" data-level="3.6" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>3.6</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="3.7" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>3.7</b> Prognoosi täpsus</a></li>
+<li class="chapter" data-level="3.8" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#mudeli-eeldused"><i class="fa fa-check"></i><b>3.8</b> Mudeli eeldused</a></li>
+<li class="chapter" data-level="3.9" data-path="3-logistiline-regressioon.html"><a href="3-logistiline-regressioon.html#cross-validation"><i class="fa fa-check"></i><b>3.9</b> Cross-validation</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html"><i class="fa fa-check"></i><b>4</b> Poissoni regressioon</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-tõlgendus-1"><i class="fa fa-check"></i><b>4.1</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="4.2" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#poissoni-regressiooni-eeldused"><i class="fa fa-check"></i><b>4.2</b> Poissoni regressiooni eeldused</a></li>
+<li class="chapter" data-level="4.3" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-hindamine-r-is"><i class="fa fa-check"></i><b>4.3</b> Mudeli hindamine R-is</a></li>
+<li class="chapter" data-level="4.4" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-eelduste-kontroll"><i class="fa fa-check"></i><b>4.4</b> Mudeli eelduste kontroll</a></li>
+<li class="chapter" data-level="4.5" data-path="4-poissoni-regressioon.html"><a href="4-poissoni-regressioon.html#mudeli-sobivus-model-fit"><i class="fa fa-check"></i><b>4.5</b> Mudeli sobivus (<em>model fit</em>)</a></li>
+</ul></li>
+<li class="part"><span><b>III Mitmetasandiline regressioon</b></span></li>
+<li class="chapter" data-level="5" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html"><i class="fa fa-check"></i><b>5</b> Mitmetasandiline regressioon</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#andmete-hierarhiline-struktuur"><i class="fa fa-check"></i><b>5.1</b> Andmete hierarhiline struktuur</a></li>
+<li class="chapter" data-level="5.2" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#mitmetasandiline-analüüs"><i class="fa fa-check"></i><b>5.2</b> Mitmetasandiline analüüs</a></li>
+<li class="chapter" data-level="5.3" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#mitmetasandilise-analüüsi-eeldused"><i class="fa fa-check"></i><b>5.3</b> Mitmetasandilise analüüsi eeldused</a></li>
+<li class="chapter" data-level="5.4" data-path="5-mitmetasandiline-regressioon.html"><a href="5-mitmetasandiline-regressioon.html#mitemtasandiline-analüüs-ris"><i class="fa fa-check"></i><b>5.4</b> Mitemtasandiline analüüs Ris</a></li>
+</ul></li>
+<li class="part"><span><b>IV Valimiuuringud</b></span></li>
+<li class="chapter" data-level="6" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html"><i class="fa fa-check"></i><b>6</b> Valimiuuringud</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#tõenäosuslik-valim-probability-sample"><i class="fa fa-check"></i><b>6.1</b> Tõenäosuslik valim (probability sample)</a></li>
+<li class="chapter" data-level="6.2" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#kaalud"><i class="fa fa-check"></i><b>6.2</b> Kaalud</a></li>
+<li class="chapter" data-level="6.3" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#valimidisain"><i class="fa fa-check"></i><b>6.3</b> Valimidisain</a></li>
+<li class="chapter" data-level="6.4" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#tulemuste-valimidisaini-suhtes-korrigeerimine"><i class="fa fa-check"></i><b>6.4</b> Tulemuste valimidisaini suhtes korrigeerimine</a></li>
+<li class="chapter" data-level="6.5" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#küsitlusandmed-ris"><i class="fa fa-check"></i><b>6.5</b> Küsitlusandmed Ris</a></li>
+<li class="chapter" data-level="6.6" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#valimiandmete-analüüs"><i class="fa fa-check"></i><b>6.6</b> Valimiandmete analüüs</a></li>
+<li class="chapter" data-level="6.7" data-path="6-valimiuuringud.html"><a href="6-valimiuuringud.html#plausible-values"><i class="fa fa-check"></i><b>6.7</b> Plausible values</a></li>
+</ul></li>
+<li class="part"><span><b>V SEM</b></span></li>
+<li class="chapter" data-level="7" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html"><i class="fa fa-check"></i><b>7</b> Struktuurivõrrandite mudelid</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#rajaanalüüs"><i class="fa fa-check"></i><b>7.1</b> Rajaanalüüs</a></li>
+<li class="chapter" data-level="7.2" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#faktoranalüüs"><i class="fa fa-check"></i><b>7.2</b> Faktoranalüüs</a></li>
+<li class="chapter" data-level="7.3" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#sruktuurivõrrandite-mudelid"><i class="fa fa-check"></i><b>7.3</b> Sruktuurivõrrandite mudelid</a></li>
+<li class="chapter" data-level="7.4" data-path="7-struktuurivõrrandite-mudelid.html"><a href="7-struktuurivõrrandite-mudelid.html#struktuurivõrrandite-mudelid-ris"><i class="fa fa-check"></i><b>7.4</b> Struktuurivõrrandite mudelid Ris</a></li>
+</ul></li>
+<li class="part"><span><b>VI Klasteranalüüs</b></span></li>
+<li class="chapter" data-level="8" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html"><i class="fa fa-check"></i><b>8</b> Klasteranalüüs</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#mis-see-klasteranalüüs-on"><i class="fa fa-check"></i><b>8.1</b> Mis see klasteranalüüs on?</a></li>
+<li class="chapter" data-level="8.2" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#hierarhiline-klasteranalüüs"><i class="fa fa-check"></i><b>8.2</b> Hierarhiline klasteranalüüs</a></li>
+<li class="chapter" data-level="8.3" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>8.3</b> K-keskmiste (k-means) klasterdamine</a></li>
+<li class="chapter" data-level="8.4" data-path="8-klasteranalüüs.html"><a href="8-klasteranalüüs.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>8.4</b> Klasteranalüüsi tulemi valiidsus</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html"><i class="fa fa-check"></i><b>9</b> Kausaalsete mõjude hindamine</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#potentsiaalsed-tulemused"><i class="fa fa-check"></i><b>9.1</b> Potentsiaalsed tulemused</a></li>
+<li class="chapter" data-level="9.2" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#mõju-hindamise-meetodid"><i class="fa fa-check"></i><b>9.2</b> Mõju hindamise meetodid</a></li>
+<li class="chapter" data-level="9.3" data-path="9-kausaalsete-mõjude-hindamine.html"><a href="9-kausaalsete-mõjude-hindamine.html#sobitamine-ris"><i class="fa fa-check"></i><b>9.3</b> Sobitamine R’is</a></li>
+</ul></li>
+<li class="appendix"><span><b>LISA</b></span></li>
+<li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
+<li class="chapter" data-level="B" data-path="B-delta-meetod.html"><a href="B-delta-meetod.html"><i class="fa fa-check"></i><b>B</b> Delta meetod</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Kvantitatiivne andmeanalüüs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="kausaalsete-mõjude-hindamine" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Peatükk 9</span> Kausaalsete mõjude hindamine<a href="9-kausaalsete-mõjude-hindamine.html#kausaalsete-mõjude-hindamine" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Oletame, et analüüsi eesmärgiks on hinnata tõõturukoolituste kausaalset mõju hõivesse sisenemise tõenäosusele, hõive jätkusuutlikkusele või hõivega seonduva sissetuleku suurusele. Seega üritame hinnata kuivõrd palju parandab koolitusel osalemine tööturu konkurentsivõimet võrreldes sellega kui koolitusel ei osaletaks. Taolise eesmärgi täitmiseks ei saa lihtsalt võrrelda väljundnäitajaid meetmes osalejate ja mitteosalejate vahel. Meetmes osalemist võivad mõjutada erinevad taustakarakteristikud (näiteks kõrgem haridus võib suurendada tõenäosust meetmes osaleda ja samas suurenda tõenäosust kõrgema sissetuleku teenimiseks, seega omistades antud juhul sissetulekute erinevuse põhjuse vaid meetmes osalemisele, ei võetaks arvesse seda, et osa sissetuleku erinevusest, ja seega ka mõjust, tuleneb kõrgemast haridustasemest).</p>
+<p>Et täielikult elimineerida tasutatunnuste kompositsioonist tulenev mõju hinnatava meetme puhasmõjust, tuleks mõõta väljundnäitajaid olukorras, kus valimisse kuuluvad isikud osalesid meetmes ja samal ajal ka olukorras, kus nad ei osalenud meetmes (nn vastandeseisunditest lähtuv hinnang ehk <em>counterfactual approach</em>). Hinnates sel juhul muutust väljundnäitajates on võimalik hinnata meetme puhasmõju neile näitajatele.</p>
+<p>Taoline mõõtmine ei ole aga reaalsuses loomulikult võimalik (isik kas osaleb meetmes või ei osale, mõlemad olukorrad ei ole üheaegselt võimalikud), tingides nn. <strong>fundamentaalse hindamisprobleemi</strong>. Probleemi on võimalik lahendada meetoditega, mille raames imiteeritakse vastandseisundeid empiiriliselt jälgitava võrdlusgrupi abil, mis sisuliselt tähendab, et igale meetmes osalejale leitakse täpselt samade karakteristikutega meetmes mitteosaleja.</p>
+<p>Ideaalis peaks taoliste vastandseisundite loomine toimuma eksperimendi raames, kus meetmes osalemine määratakse ühele valimi osale (osalusgrupile) juhuslikult. Seejärel oleks võimalik osalusgruppi võrrelda selle valimi osaga, kellele meedet ei määratud (kontrollgrupp) ning kahe grupi erinevused väljundnäitajates peegeldaksidki meetme puhasmõju. Samas võib ka eksperimentidega kaasneda mitmeid võimalikke probleeme, milledest suuremastaabiliste meetmete hindamise puhul on vahest aktuaalseim ja oluliseim eksperimendi läbiviimisega kaasnev eetiline aspekt. Oleks ebaeetiline lubada meetmes (mis tõenäoliselt võib reaalselt parandada inimese elujärge) osalemist vaid osale (juhuslikult valitud) sihtrühmast. Samuti on eksperimendi teostamine ajamahukas ja kulukas. Praktikas kasutatakse seetõttu meetmete mõjude hindamisel pigem meetodeid, mille kaudu on võimalik simuleerida eksperimendi läbiviimist ehk teostada nn kvaasieksperiment.</p>
+<p>Kuna eksperimentaalne disain ei ole alati teostatav, tuleb kasutada vaatlusandmeid (observational data), kus sekkumisse kaasamine ei ole juhuslik. Vaatlusandmetes on kausaalne mõju tihti segunenud kõrvalmõjude ja kaudsete mõjudega: täheldatav seos võib tekkida erinevate tegurite ja nende koosmõjude tõttu. Näiteks kui ravimit saanud patsientidel on parem tervis, võib see olla tingitud sellest, et nad olid algselt tervemad või motiveeritumad (mitte ainult ravimi toimest tingitult). Selliseid tegureid nimetatakse segavateks tunnusteks (<em>confounding variables</em>).</p>
+<p>Seetõttu on välja töötatud meetodid, mis simuleerivad potentsiaalseid tulemusi mitteosalemise (või osalemise) korral. Niinimetatud <strong>kvaasieksperimentaalsed meetodid</strong> (<em>quasi-experimental designs</em>) püüavad leida indiviididele, kelle seas viidi mõjutamine/sekkumine läbi, nendega võimalikult sarnaseid indiviide, kelle puhul sekkumist/mõjutamist ei toimunud. Seeläbi saame võrrelda võrreldavaid ning tuletada korrektse mõjuhinnangu. Kvaasieksperimentaalsete disainide tuumaks on asjakohase identifitseerimisstrateegia leidmine, mis võimaldab tasakaalustada osalusgruppi ja kontrollgruppi kõigi vaadeldavate või vaatlematute tunnuste lõikes. Eesmärk on läheneda juhuslikult läbiviidud katsele ning sellega kõrvaldada valikukalle.</p>
+<div id="potentsiaalsed-tulemused" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Potentsiaalsed tulemused<a href="9-kausaalsete-mõjude-hindamine.html#potentsiaalsed-tulemused" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Potentsiaalsete tulemuste lähenemine</strong> (<em>potential outcome approach</em>), mida nimetatakse ka <strong>kontrafaktuaalseks raamistikuks</strong> (<em>counterfactual framework</em>), põhineb eelusel, et põhjusliku mõju hindamine on olemuslikult potentsiaalsete tulemuste võrdlus. See tähendab, et hinnatakse erinevust tulemuste vahet juhul, kui indiviidi mõjutatakse sekkumisega, võrreldes olukorraga kui teda ei mõjutata.</p>
+<p>Kui meil on indiviid <span class="math inline">\(i\)</span>, ja <span class="math inline">\(y^1_i\)</span> tähistab selle indiviidi tulemust mingi mõjutamise/sekkumise korral ja <span class="math inline">\(y^0_i\)</span> tulemust mittemõjutamise (või mittesekkumise) korral, siis põhjuslikku mõju võib määratleda kui</p>
+<p><span class="math display">\[
+\Delta_i = y^1_i - y^0_i.
+\]</span></p>
+<p>Populatsiooni sekkumisefekti leidmiseks peame võrdlema populatsiooni keskmist tulemust juhul kui kogu populatsioon on mõjutatud populatsiooni keskmise tulemusega juhul kui kedagi populatsioonist ei ole mõjutatud. Taolist populatsioonide keskmist vahe hinnangut nimetatakse <strong>keskmiseks sekkumisefektiks</strong> (<strong>ATE</strong> ehk <em>average treatment effect</em>):</p>
+<p><span class="math display">\[
+ATE = E(Y^1_i - Y^0_i),
+\]</span></p>
+<p>ja see näitab mõju suurust juhul, kui kogu populatsioon osaleks programmis. Naiivse hinnangu jaoks oleks võimalik võrrelda populatsiooni sees mõjutatud grupi (osalusgrupp ehk <em>treatment group</em>) ning mittemõjutatud grupi (kontrollgrupi ehk <em>control group</em>) keskmisi tulemusi, kuid nagu õeldud, tegemist oleks naiivse hinnanguga (miks nii, sellest kohe varsti).</p>
+<p>Saaksime arvutada ka <strong>keskmise sekkumisefekti sekkumisega mõjutatutele</strong> (<strong>ATT</strong> ehk <em>average treatment effect of the treated</em>):</p>
+<p><span class="math display">\[
+ATT = E(Y^1_i - Y^0_i \mid D_i = 1),
+\]</span></p>
+<p>mis näitab mõju suurust neile, keda tegelikult mõjutatakse. Poliitikameetmete hindamisel huvitab meid tavaliselt just ATT-e suurus.</p>
+<p>Kuna aga indiviid ei saa üheaegselt olla nii mõjutatud kui mittemõjutatud, siis tekib nn <strong>põhjusliku järelduse fundamentaalne probleem</strong> (<em>fundamental problem of causal inference</em>). Nii ATE kui ka ATT võrdlevad tegelikku vaatlustulemust <span class="math inline">\(Y^1_i\)</span> potentsiaalse tulemusega <span class="math inline">\(Y^0_i\)</span>. Need hinnangud põrkuvad identifitseerimisprobleemiga, kuna potentsiaalsed tulemused on vaatlematud. Kui kasutaksime mittemõjutatud gruppi kui potentsiaalse tulemuse asendajat (naiivne hinnag, kus võrdleme mõjutatuid ja mittemõjutatuid), satuks hinnangusse valikukaldest (<em>selection bias</em>) tulenev viga.</p>
+<p>Ei saa võrrelda pelgalt nende tulemusi, kes osalesid, nendega, kes ei osalenud, sest tulemusi võivad mõjutada mitmed muud tegurid lisaks sekkumise efektile või võivad needsamad või muud tegurid mõjutada sekkumisse kaasamise tõenäosust. Näiteks võib kõrgem haridustase suurendada tõenäosust, et inimene osaleb tööturumeetmes, ning ühtlasi suurendada kõrgema palga saamise tõenäosust olenemata sekkumisest. Tööturumeetme mõju sissetulekule võib seega olla näiline ehk vähemalt osaliselt tuleneda haridustaseme segavast mõjust (<em>confounding effect</em>). Taolist segavate regurite mõju nimetataksegi valikukaldeks (grupp on valiku põhjal kallutatud).</p>
+<p>Keskmise põhjusliku mõju (nii sekkumisel kui ka sekkumiseta) seos osalusgrupi ja mitte-osalenute grupi keskmiste tulemuste erinevusega on järgmine:
+<span class="math display">\[
+E(Y_i \mid D_i=1) - E(Y_i \mid D_i=0) =
+\]</span>
+<span class="math display">\[
+= \underbrace{ \bigl(E(Y_{1i}\mid D_i=1) - E(Y_{0i}\mid D_i=1)\bigr)}_{\text{osalusgrupi keskmine põhjuslik efekt}}
+\,+\,
+\underbrace{ \bigl(E(Y_{0i}\mid D_i=1) - E(Y_{0i}\mid D_i=0)\bigr)}_{\text{valikukalde (selection bias) komponent}}.
+\]</span></p>
+<p>Esimene osa <span class="math inline">\(\bigl(E(Y_{1i}\mid D_i=1) - E(Y_{0i}\mid D_i=1)\bigr)\)</span> on osalusgrupis (treatment group) sekkumise tegelik keskmine mõju, teine osa <span class="math inline">\(\bigl(E(Y_{0i}\mid D_i=1) - E(Y_{0i}\mid D_i=0)\bigr)\)</span> näitab valikukallet.</p>
+<p>Et kõrvaldada taustategurite segavad mõjud, tuleb kasutada meetodit, mis kontrollib nende tegurite mõju. Põhjusliku mõju hindamise „kullastandardiks“ on <strong>juhusliku valikuga eksperiment</strong> (<em>randomized experiment</em>), kus valitakse juhuslikult osalusgrupp (<em>treatment group</em>) milles viiakse läbi sekkumine ja kontrollgrupp (<em>control group</em>) kus sekkumist läbi ei viida. Kui sekkumisse määramine on tõepoolest juhuslik, kehtib järgmine tingimus: <span class="math inline">\(\{Y_1, Y_0\} \perp D\)</span>, mis tähendab, et nii potentsiaalsed tulemused <span class="math inline">\(\{Y_1, Y_0\}\)</span> kui ka taustategurid on sõltumatud (<span class="math inline">\(\perp\)</span>) sekkumise määramisest <span class="math inline">\(D\)</span>. Sellisel juhul kehtib ka <span class="math inline">\(E(Y_{0i} \mid D_i=1) = E(Y_{0i} \mid D_i=0)\)</span>, ehk potentsiaalsed tulemused ilma sekkumata on võrdsed sõltumata sellest, kas indiviid lõpuks puutub kokku sekkumisega või mitte. Teisisõnu, juhusliku valikuga katse puhul on osalusgrupp ja kontrollgrupp kõikide oluliste tunnuste lõikes enne sekkumist tasakaalus. Valikukalle on elimineeritud ja kahe grupi tulemuste erinevuse võib täielikult omistada sekkumise mõjule.</p>
+<p>Lisaks sekkumisse määramise ja tulemuste vahelise sõltumatuse eeldusele, mis on põhjusliku mõju järeldamise seisukohalt hädavajalik, on kontrafaktuaalse mudeli identifitseerimiseks vajalik veel üks täiendav eeldus. <strong>Stabiilse üksuse sekkumise väärtuse eeldus</strong> (<strong>SUTVA</strong> ehk <em>stable unit treatment value assumption</em>) ütleb, et indiviidi <span class="math inline">\(i\)</span> puhul kehtib <span class="math inline">\(Y_{id} = Y_i\)</span> (s.t iga indiviidi jaoks on sekkumine sama) ning ühe indiviidi tulemust ei mõjuta teiste sekkumises osalemine (indiviidid on üksteisest sõltumatud).</p>
+<p>Kuna eksperimentaalne disain ei ole alati teostatav, tuleb kasutada vaatlusandmeid (observational data), kus sekkumisse kaasamine ei ole juhuslik. Sellistel juhtudel on välja töötatud meetodid, mis simuleerivad potentsiaalseid tulemusi mitteosalemise (või osalemise) korral. <strong>Niinimetatud kvaasieksperimentaalsed meetodid</strong> (<em>quasi-experimental designs</em>) püüavad leida indiviididele, kelle puhul viidi mõjutamine/sekkumine läbi, nendega võimalikult sarnaseid indiviide, kelle puhul sekkumist/mõjutamist ei toimunud (või vastupidi). Seeläbi saame võrrelda võrreldavaid ning tuletada korrektse mõjuhinnangu. Kvaasieksperimentaalsete disainide tuumaks on asjakohase identifitseerimisstrateegia leidmine, mis võimaldab tasakaalustada osalusgruppi ja kontrollgruppi kõigi vaadeldavate või vaatlematute tunnuste lõikes. Eesmärk on läheneda juhuslikult läbiviidud katsele ning sellega kõrvaldada valikukalle.</p>
+<p>Olemas on mitu identifitseerimisstrateegiat ja arvukalt meetodeid, mis aitavad osalus- ja kontrollgruppi tasakaalustada (terviklikke ülevaateid pakuvad Angrist &amp; Pischke (2009), Morgan &amp; Winship (2014) ning Rosenbaum (2010)).</p>
+<div id="mida-kausaalse-mõju-hindamisel-tähele-panna" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Mida kausaalse mõju hindamisel tähele panna<a href="9-kausaalsete-mõjude-hindamine.html#mida-kausaalse-mõju-hindamisel-tähele-panna" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p><em>Tugev eelduste vajadus</em> - vaatlusandmete põhjal põhjuslike seoste leidmine eeldab, et oleme arvesse võtnud kõik olulised segajad.</p></li>
+<li><p><em>Põhjusliku järelduse fundamentaalne probleem</em> - me ei näe kunagi, mis oleks juhtunud samale isikule teistsuguse käsitluse korral</p></li>
+<li><p><em>Valikukalle (selection bias)</em>: kui inimesed ise valivad ravi või meedet, võivad mõjutatud iniemsed erineda mittemõjutatud inimestest süstemaatiliselt (nt motiveeritus, sissetulek, tervis), mistõttu lihtne gruppide võrdlus on eksitav.</p></li>
+<li><p><em>Mõõtmisvead ja koosmõjud</em>: vahel võib põhjus ja tagajärg mõjutada teineteist vastastikku (nt tervis ja sissetulek) või andmetes on vigu ja määramatust (näiteks subjektiivne tervise hinnang), mis segavad põhjusliku efekti hindamist.</p></li>
+</ol>
+</div>
+</div>
+<div id="mõju-hindamise-meetodid" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Mõju hindamise meetodid<a href="9-kausaalsete-mõjude-hindamine.html#mõju-hindamise-meetodid" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Kausaalse mõju hindamiseks on välja töötatud mitmeid meetodeid, alates ideaalsest randomiseeritud eksperimendist kuni keerukamate vaatlusandmete analüüsimeetoditeni. Iga meetod püüab lahendada fundamentaalset probleemi erineval moel ja eelduste abil.</p>
+<div id="kontrollitud-eksperimendid" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Kontrollitud eksperimendid<a href="9-kausaalsete-mõjude-hindamine.html#kontrollitud-eksperimendid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Kontrollitud eksperiment</strong> (eeskätt <em>randomiseeritud kontrollitud katse</em>, RCT) on kausaalse mõju hindamise kullatandard. Selle meetodi idee on lihtne: uuritavad jaotatakse juhuslikult (randomiseeritult) vähemalt kahte gruppi – <em>osalusgrupp</em> (saab sekkumise) ja <em>kontrollgrupp</em> (ei saa sekkumist või saab platseebot). Juhuslik jaotus tagab, et eelduslikult ei erine need grupid süstemaatiliselt ühegi olulise taustateguri poolest. Seega kui pärast sekkumist täheldatakse osalusgrupis erinevat tulemust kui kontrollgrupis, võib seda vahet tõlgendada põhjusliku mõjuna (sest muud seletused on randomiseerimise teel elimineeritud). Teisisõnu, randomiseerimine muudab sekkumise staatuse statistiliselt sõltumatuks potentsiaalsetest tulemustest, lahendades seeläbi segajate probleemi.</p>
+<p>Kontrollitud eksperimentide tugevus seisneb <strong>sisemises valiidsuses</strong> – tulemuste usaldusväärsuses põhjusliku järelduse mõttes. Näiteks topeltpimedas meditsiinilises katses ei tea ei patsiendid ega arstid, kes saab pärisravimit ja kes platseebot; nii välditakse platseeboefekti ja vaatleja kallutatust. RCT tulemuste analüüs on sageli lihtne: põhjuslik mõju hinnatakse osalusgrupi ja kontrollgrupi keskmiste vahe kaudu. Formaalne statistiline test on tihti kahe sõltumatu valimi t-test või ANOVA. Kui tähistada <span class="math inline">\(\bar{Y}_1\)</span> osalusgrupi keskmist tulemust ja <span class="math inline">\(\bar{Y}_0\)</span> kontrollgrupi keskmist, siis mõjuhinnang <span class="math inline">\(\hat{\tau}\)</span> on lihtsalt <span class="math inline">\(\bar{Y}_1 - \bar{Y}_0\)</span>. Juhuslikkuse tõttu saab sellele hinnangule leida ka usaldusintervalli ja p-väärtuse, mis näitab, kas efekt on statistiliselt oluline.</p>
+<p><strong>Näide:</strong> Oletame, et uurime uue haridusprogrammi mõju eksamitulemustele. Randomiseeritud katses valime koolidest juhuvalimi: pooltes koolides rakendame uut programmi (osalusgrupp) ja pooltes jätkatakse vanaviisi (kontrollgrupp). Aasta hiljem võrdleme testitulemuste keskmisi. Kui osalusgrupi õpilaste tulemused on oluliselt kõrgemad, saame üsna kindlalt öelda, et põhjuseks on programm – randomiseerimine peaks välistama muud süstemaatilised tegurid. Randomiseeritud katse <strong>eemaldab segajate mõju</strong>: näiteks kui programmiga koolides ongi veidi erinev õpilaste taust, on see erinevus juhuslik, mitte süsteemne. RCT-de tugevust illustreerib fakt, et see lahendab ka <em>puuduvate potentsiaalsete tulemuste probleemi</em> – kuna keskmiselt on mõlemal grupil samasugune taust, on iga “puuduv” kontrafaktiline tulemus asendatud teise grupi tegeliku tulemusega <strong>keskmiselt erapooletult</strong>.</p>
+<p>RCT-de probleemid on aga praktilised: need võivad olla kallid, aeganõudvad või eetiliselt raskesti põhjendatavad. Mõnikord on ka randomiseerimine vigane (nt üht gruppi koheldakse teisiti) või tekib <em>väljalangevus</em> (drop-out), mis võib tulemusi kallutada. Sellegipoolest, kui eksperiment on hästi disainitud, peetakse selle tulemusi kausaalse järelduse osas kõige veenvamaks. Kõik järgnevad vaatlusandmete meetodid püüavad mingil moel imiteerida seda ideaalset kontrollitud olukorda.</p>
+</div>
+<div id="regressioonimudelid" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Regressioonimudelid<a href="9-kausaalsete-mõjude-hindamine.html#regressioonimudelid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Regressioonimudelid</strong> on kõige lihtsam ja tavalisem statistiline vahend valikukalde arvesse võtmiseks ja potentsiaalse põhjusliku mõju hindamiseks. Lihtsaim juhtum on <strong>lineaarne regressioon</strong>, kus tulemus <span class="math inline">\(Y\)</span> modelleeritakse sekkumise <span class="math inline">\(T\)</span> ja segajate <span class="math inline">\(X\)</span>-ide lineaarse funktsioonina. Näiteks:</p>
+<p><span class="math display">\[ Y_i = \alpha + \tau T_i + \mathbf{\beta}^\top X_i + \varepsilon_i\,. \]</span></p>
+<p>Siin on <span class="math inline">\(\tau\)</span> meie huvitatud koefitsient – selle eesmärk on tabada <span class="math inline">\(T\)</span>-i (sekkumise) mõju <span class="math inline">\(Y\)</span>-le, hoides samal ajal <span class="math inline">\(X\)</span>-ide (segajate) mõju konstantsetena. Kui mudeli eeldused kehtivad, siis <span class="math inline">\(\tau\)</span> hinnang <span class="math inline">\(\hat{\tau}\)</span> peegeldab kausaalset efekti. Regressioon on <em>parametriline</em> meetod: eeldame konkreetset funktsionaalsuhet (lineaarsust) ning lisame kõik teadaolevad segajad kovariatiivseteks muutujateks, et “kontrollida” nende mõju eest.</p>
+<p>Kui <em>puudub oluline mudelist väljajäänud segaja</em> ja mudel on korrektselt spetsifitseeritud, siis <span class="math inline">\(\varepsilon_i\)</span> (vealiige) ei tohiks olla korrelatsioonis <span class="math inline">\(T_i\)</span>-ga. Sellisel juhul võib öelda, et tingimuslik <span class="math inline">\(Y\)</span> ja <span class="math inline">\(T\)</span> seos peegeldab põhjuslikku mõju. Kõik, mis teeb osalus- ja kontrollgrupi erinevaks, on lisatud <span class="math inline">\(X\)</span>-ide hulka. Regressioon korrigeerib lineaarse “kohandamise” teel gruppe nii, nagu nad oleksid võrreldavad. Näiteks kui osalusgrupis on keskmiselt nooremad inimesed, siis vanusemuutuja lisamine regressioonivõrrandisse kohandab tulemusi vanuse erinevuse suhtes.</p>
+<p>Regressioonimudel eeldab üldiselt <em>lineaarsust</em> (võib lisada ruutliikmeid, interaktsioone, jne, aga mudeli spetsifikatsioon peab õige olema). Vale spetsifikatsioon (nt tegelikult on seos mittelineaarne) võib põhjustada valesid järeldusi (<em>model misspecification bias</em>) – kausaalne hinnang võib moonduda. Samuti, kui mõni segaja on puudu (vaadeldamatu või mudelist välja jäänud), siis regressiooni <span class="math inline">\(\hat{\tau}\)</span> võib olla <strong>nihkega</strong> (<em>bias</em>’ega) – seda tuntakse kui <strong>väljajäetud muutuja kallak</strong> (<em>omitted variable bias</em>). Klassikaliselt: kui <span class="math inline">\(T\)</span> korreleerub puuduva teguriga <span class="math inline">\(U\)</span> (mis mõjutab <span class="math inline">\(Y\)</span>-d), siis OLS regressioon annab <span class="math inline">\(\tau\)</span> nihkega, mis sisaldab <span class="math inline">\(\text{Cov}(T,U)\)</span> mõju. Regressioon ei eemalda maagiliselt segajat, mida mudelisse ei pandud. Seega eeldab regressioon kindlat teadmist, et kõik olulised mõjurid on arvesse võetud.</p>
+<p>Probleemiks võib osutuda ka nn <strong>vastastikune põhjuslikkus</strong> kui <span class="math inline">\(Y\)</span> ja <span class="math inline">\(T\)</span> mõjutavad teineteist (nt sissetulek ja sotsiaalne staatus võivad vastastikku mõju avaldada). Samuti võivad <strong>mõõtmisvead</strong> <span class="math inline">\(X\)</span>-ides või <span class="math inline">\(T\)</span>-s vale <span class="math inline">\(\hat{\tau}\)</span> anda.</p>
+<p>Hoolimata neist piirangutest on regressioonimudelid väga võimsad ja paindlikud: neid saab üldistada mitmetele olukordadele (logistiline regressioon dihhotoomse tulemiga, paneelandmete puhul fikseeritud mõjudd jne). Sageli kombineeritakse regressioone teiste meetoditega – näiteks <em>sobitamise järel regressiooniga korrigeerimine</em> annab topelt-robustse hinnangu, mis on korrektne isegi siis kui üks mudel on veidi vale. Regressioon võimaldab ka väga lihtsalt lisada täiendavaid kovariaate, et suurendada mudeli efektiivsust.</p>
+<p>Regressioon on <em>kõige lihtsam</em> mõju hindamise vahend: pane andmed mudelisse ja vaata, kas sekkumismuutuja koefitsient on oluline. Kuid ainult <strong>statistilise seose olemasolu regressioonis ei tõesta põhjuslikkust</strong>. Analüütiku ülesanne on põhjendada, miks just see mudel ja muutujate valik annab põhjusliku tõlgenduse – tihti toetutakse teooriale, varasematele uuringutele, testi tulemuste robustusele jne.</p>
+</div>
+<div id="instrumentaalmuutujad" class="section level3 hasAnchor" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> Instrumentaalmuutujad<a href="9-kausaalsete-mõjude-hindamine.html#instrumentaalmuutujad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kui olulisi segajaid ei ole võimalik mõõta või kontrollida, saab kasutada instrumentaalmuutujate meetodit. <strong>Instrumentaalmuutuja</strong> (<strong>IV</strong> ehk <em>instrumental variable</em>) on mingi kolmas muutuja, mis mõjutab <em>ainult</em> sekkumismuutujat (<span class="math inline">\(T\)</span>) ja ei mõjuta otseselt tulemust (<span class="math inline">\(Y\)</span>) (ainult läbi <span class="math inline">\(T\)</span>-i). Instrumentaalmuutuja toimib nagu looduslik eksperiment: see tekitab <em>juhuslikku</em> variatsiooni sekkumises, mida saab kasutada põhjusliku mõju eraldamiseks.</p>
+<p>Klassikaline näide on sõjaväeteenistuse mõju sissetulekule. Kui inimesed ise valivad teenistusse mineku, siis tulevad mängu segajad nagu patriotism, tervis jne, mis mõjutavad nii teenistusse minekut kui hilisemat sissetulekut, aga kui värbamisel kasutatakse näiteks sünniaastate põhist loteriid (nagu USA-s Vietnami sõja draft-loterii puhul), mis juhuslikult mõjutas teenistusse kutsumist, siis saab seda kasutada instrumentaalmuutujana ning selle juhusliku variatsiooni abil hinnata teenistuse mõju sissetulekule (Angrist, 1990 kuulsa näitena).</p>
+<p>Peab kehtima kolm peamist instrumentaalmuutuja <span class="math inline">\(Z\)</span> eeldust:</p>
+<p><strong>1. Relevantsus:</strong> <span class="math inline">\(Z\)</span> on korrelatsioonis sekkumise/selgitava muutujaga <span class="math inline">\(T\)</span> (instrument mõjutab sekkumist);<br />
+<strong>2. Eksklusiivsuse piirang:</strong> <span class="math inline">\(Z\)</span> ei mõjuta tulemit <span class="math inline">\(Y\)</span> muul teel kui ainult läbi <span class="math inline">\(T\)</span> (st puudub otsene mõju või alternatiivsed kaudsed mõjud);<br />
+<strong>3. Tinglik sõltumatus:</strong> <span class="math inline">\(Z\)</span> on “as if random”, s.t. pole seotud ühegi vaadeldamatu segajaga, mis mõjutaks <span class="math inline">\(Y\)</span>-d. </p>
+<p>Kui need tingimused on täidetud, saab <span class="math inline">\(Z\)</span> variatsiooni kasutada <span class="math inline">\(T\)</span> mõju <span class="math inline">\(Y\)</span>-le leidmiseks. Intuitsioon on, et kuna <span class="math inline">\(Z\)</span> on juhuslik ja mõjutab <span class="math inline">\(T\)</span>-i, siis <span class="math inline">\(Z\)</span>-i mõju <span class="math inline">\(Y\)</span>-le “läbib” <span class="math inline">\(T\)</span>-i. Seega mõõtes, kui palju <span class="math inline">\(Y\)</span> muutub koos <span class="math inline">\(Z\)</span>-iga, ja jagades selle sellega, kui palju <span class="math inline">\(T\)</span> muutub koos <span class="math inline">\(Z\)</span>-iga, saame <span class="math inline">\(T\)</span> mõju hinnangu.</p>
+<p>Seda kirjeldab <strong>Waldi hinnangu</strong> valem lihtsal juhul (kui <span class="math inline">\(T\)</span> ja <span class="math inline">\(Z\)</span> mõlemad on binaarsed muutujad, nt ravi vs mitteravi, instrumentaalne loteriivõit vs mitte):</p>
+<p><span class="math display">\[\hat{\tau}_{IV} = \frac{E[Y|Z=1] - E[Y|Z=0]}{E[T|Z=1] - E[T|Z=0]}\]</span></p>
+<p>See on sisuliselt <span class="math inline">\(\frac{\text{Instrumendi mõju tulemile}}{\text{Instrumendi mõju ravile}}\)</span>. Näiteks kui loteriivõidu saanud teenisid keskmiselt 500€ vähem kui mittevõitjad, aga loteriivõit suurendas teenistusse mineku määra 50% võrra, siis teenistuse mõju hinnang oleks <span class="math inline">\(\frac{-500}{0.5}=-1000\)</span> eurot (negatiivne mõju sissetulekule antud näites). Üldjuhul arvutatakse see kovariatsioonide kaudu: <span class="math inline">\(\tau_{IV} = \frac{\mathrm{Cov}(Z,Y)}{\mathrm{Cov}(Z,X)}\)</span>, eeldusel et instrument täidab eksklusiivsuse tingimust (kovariatsioon <span class="math inline">\(Z\)</span> ja teiste <span class="math inline">\(Y\)</span>-d mõjutavate tegurite vahel on 0.</p>
+<p>Instrumentaalmuutuja meetodi tulemuseks on kausaalse mõju hinnang spetsiifilisele populatsioonile – nn <strong>LATE</strong> (Local Average Treatment Effect), see kehtib nende isikute kohta, kelle sekkumisstaatust instrument “mõjutas” (nt need, kes läksid teenistusse vaid siis, kui loterii neid kutsus). See on oluline piirang: IV meetod ei pruugi anda keskmist mõju kogu populatsioonile.</p>
+<p><strong>Näide:</strong> Kujutame ette, et soovime hinnata hariduse mõju sissetulekule, kuid inimestel on erinev anne ja taust (segajad). Instrumentaalmuutujana võiks kasutada näiteks ülikooli kaugust elukohast (sisseastumise loomulik eksperiment – lähemal elavatel on suurem tõenäosus minna ülikooli, kuid kaugus ise ei mõjuta otseselt hilisemat palka eeldusel, et muud tegurid on võrdsed). Kauguse (Z) mõju palgale (Y) läbib peamiselt haridustaseme (X). Arvutades keskmised palgad lähedal vs kaugel elavatel ja jaotades selle erinevusega ülikooli mineku määrades, saaksime hariduse mõju hinnangu. Loomulikult peab eeldama, et elukoha kaugus ülikoolist ei ole seotud võimekuse või pere taustaga – see on tugev eeldus, mida tuleb põhjalikult põhjendada ja testida (nt kontrollida taustamuutujate võrreldavust).</p>
+<p><strong>Piirangud:</strong> Instrumentaalmuutujate leidmine on tihti keeruline – vaja on leida midagi, mis mõjutab tugevasti sekkumist, kuid millel endal pole iseseisvat mõju tulemile. Sageli kritiseeritakse, et paljud instrumendid ei pruugi tegelikult eksklusiivsuse nõuet täita. Lisaks, nõrgad instrumendid (mis korreleeruvad <span class="math inline">\(X\)</span>-iga väga nõrgalt) võivad anda ebatäpseid hinnanguid ja suuri vigu. Hoolimata sellest on IV meetod kasulik vahend olukordades, kus näiteks tavaline regressioonanalüüs ei ole võimalik, kuna erinevad segavad muutujad ei ole vaadeldavad - see pakub <strong>loodusliku eksperimendi</strong> sarnast lahendust.</p>
+</div>
+<div id="erinevuste-erinevused" class="section level3 hasAnchor" number="9.2.4">
+<h3><span class="header-section-number">9.2.4</span> Erinevuste erinevused<a href="9-kausaalsete-mõjude-hindamine.html#erinevuste-erinevused" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Erinevuste erinevuste meetod</strong> (<em>Difference-in-Differences</em>, lühidalt DiD) on kvaasieksperimentaalne meetod, et hinnata poliitika või sündmuse mõju olukorras, kus on andmed mitmes ajapunktis kahe grupi kohta. Meetodi eesmärk on võrrelda <em>muutusi</em> ajas osalusgrupis ja kontrollgrupis ning hinnata nende muutuste vahe. Mõõtes osalusgrupi ja kontrollgrupi erinevust enne sekkumist ning pärast sekkumist ning seejärel hinnates nende erinevuste vahet võib tuletada sekkumisest tingitud mõju võttes samal ajal arvesse püsivad erinevusi gruppide vahel ning ühised ajalised trende.</p>
+<p><strong>Idee selgitus:</strong> Oletame, et meil on kaks gruppi – <em>osalusgrupp</em> (nt piirkond, kus kehtestati uus poliitika) ja <em>võrdlusgrupp</em> (piirkond, kus poliitikat ei kehtestatud). Mõõdame mõlemas grupis tulemunäitajat (nt töötuse määr, keskmine palk vms) <em>enne</em> poliitika algust (aeg <span class="math inline">\(t_0\)</span>) ja <em>pärast</em> poliitika rakendamist (aeg <span class="math inline">\(t_1\)</span>). Kui me lihtsalt võrdleme osalus- ja kontrollpiirkonda pärast poliitika elluviimikst, võiksime ekslikult omistada piirkondade võimaliku erinevuse poliitikale, kui tegelikult võisid need piirkonnad juba varem erineda. Samuti võis vahepeal juhtuda midagi üldist (majandustõus/langus), mis mõjutas mõlemat piirkonda. Erinevuste-erinevuste meetod arvestab sellega, arvutades esmalt <strong>ajaerinevuse</strong> kummaski grupis (mis toimub eri ajapunktide vahel grupis endas), ja seejärel <strong>gruppidevahelise erinevuse</strong> nende ajamuutuste vahel.</p>
+<p>Formaalselt on DiD mõjuhinnang:</p>
+<p><span class="math display">\[ \hat{\delta}_{DID} = (\bar{Y}_{\text{osalus}, t_1} - \bar{Y}_{\text{osalus}, t_0}) - (\bar{Y}_{\text{kontroll}, t_1} - \bar{Y}_{\text{kontroll}, t_0})\,. \]</span></p>
+<p><span class="math inline">\(\bar{Y}\)</span> tähistab keskmist tulemust vastavas grupis ja ajal. Esimeses sulus on osalusgrupi muutus ajas, teises kontrollgrupi muutus samal ajaperioodil; nende vahe ongi hinnang sekkumise mõjule, eeldusel et ilma sekkumiseta oleks osalusgrupi muutus olnud sama mis kontrollgrupil. Seda kriitilist eeldust nimetatakse <strong>paralleelsete trendide eelduseks</strong> – <strong>ilma sekkumiseta muutuksid mõlema grupi näitajad ajas ühtemoodi</strong>. Seda eeldust ei saa otseselt testida (sest osalusgruppi mõjutati), kuid seda saab kaudselt hinnata varasemate trendide võrdlemisega või teiste andmetega. Kui paralleeltrendid kehtivad, <em>jätab DiD arvesse võtmata kõik püsivad erinevused gruppide vahel ning ühised ajatrendid</em>, isoleerides seeläbi sekkumise efekti.</p>
+<p>Allolev joonis illustreerib erinevuste erinevuste ideed. Punaste joontega on tähistatud osalusgrupi keskmine tulemus ajas (enne ja pärast sekkumist, punktid <span class="math inline">\(P_1\)</span> ja <span class="math inline">\(P_2\)</span>) ning kontrollgrupil vastavalt <span class="math inline">\(S_1\)</span> ja <span class="math inline">\(S_2\)</span>. Katkendjoon <span class="math inline">\(P_1\)</span>–<span class="math inline">\(Q\)</span> näitab, milline oleks olnud osalusgrupi tulemus pärast sekkumist hüpoteetiliselt juhul, kui poliitikat poleks rakendatud (ehk <strong>kontrafaktuaalne</strong> tulemus, extrapoleeritud paralleelselt kontrollgrupi trendiga). DiD meetod eeldab, et <span class="math inline">\(P_1\)</span>–<span class="math inline">\(Q\)</span> on kontrollgrupi trendi (<span class="math inline">\(S_1\)</span>–<span class="math inline">\(S_2\)</span>) paralleelne teisend. <strong>Kausaalse mõju hinnang</strong> on siis vahe tegeliku osalusgrupi <span class="math inline">\(P_2\)</span> ja kontrafaktilise <span class="math inline">\(Q\)</span> vahel, mis on sama mis eeltoodud valemis: <span class="math inline">\((P_2 - P_1) - (S_2 - S_1)\)</span>.</p>
+<div class="figure"><span style="display:block;" id="fig:did"></span>
+<p class="caption">
+Joonis 9.1: Erinevuste erinevuste meetodi illustratsioon: <span class="math inline">\(P_1\)</span> ja <span class="math inline">\(P_2\)</span> on osalusgrupi keskmised enne ja pärast sekkumist; <span class="math inline">\(S_1\)</span> ja <span class="math inline">\(S_2\)</span> on kontrollgrupi omad. Katkendjoon <span class="math inline">\(Q\)</span> näitab osalusgrupi oletatavat tulemust ilma sekkumiseta (paralleelne kontrollgrupi trendiga). Kausaalse mõju hinnang DiD on <span class="math inline">\(P_2 - Q\)</span>, mis võrdub <span class="math inline">\((P_2-P_1) - (S_2-S_1)\)</span>.
+</p>
+<img src="08-mojude_hindamine_files/figure-html/did-1.png" alt="Erinevuste erinevuste meetodi illustratsioon: $P_1$ ja $P_2$ on osalusgrupi keskmised enne ja pärast sekkumist; $S_1$ ja $S_2$ on kontrollgrupi omad. Katkendjoon $Q$ näitab osalusgrupi oletatavat tulemust ilma sekkumiseta (paralleelne kontrollgrupi trendiga). Kausaalse mõju hinnang DiD on $P_2 - Q$, mis võrdub $(P_2-P_1) - (S_2-S_1)$." width="672" />
+</div>
+<p>Formaalne teostus toimub tihti <strong>regressioonimudeli</strong> abil, kus andmepunktideks on vaatlusüksused eri aegadel. Tavaliselt kaasatakse mudelisse indikaatormuutujad grupi (osalus vs kontroll) ja aja (enne vs pärast) jaoks ning nende koostoime. Näiteks regressioon:</p>
+<p><span class="math display">\[Y_{it} = \beta_0 + \beta_1 \text{osalus}_i + \beta_2 \text{päras}_t + \beta_3 (\text{osalus}_i \times \text{pärast}_t) + \epsilon_{it}\,. \]</span></p>
+<p>Siin <span class="math inline">\(\beta_3\)</span> ongi <strong>DiD efekti hinnang</strong>, mis mõõdab, kui palju suurem (või väiksem) on osalusgrupi muutus võrreldes kontrollgrupiga. Regressioon teeb sisuliselt sama, mis käsitsi arvutatud erinevuste-erinevuste valem.</p>
+<p>Peamine eeldus – paralleelsed trendid – on DiD usaldusväärsuse alus. Kui osalusgrupp juba enne sekkumist kaldus teisiti muutuma kui kontrollgrupp (näiteks osalusgrupi ja kontrollgrupi erinevus hakkas juba varem kasvama), siis annab DiD vale mõjuhinnangu. Samuti eeldab klassikaline DiD, et grupi koosseis ei muutu ajas drastiliselt (nt ei teki mõõtmiste vahel täiesti uusi inimesi, või kui tekib, siis proportsionaalselt mõlemas grupis). On ka vastastikmõju probleeme: näiteks kui poliitika rakendamine ühes piirkonnas mõjutab kaudselt ka teist piirkonda, ehk kui sekkumine mõjutab ka kontrollgruppi, siis ei saa me enam mõju hinnata. Lisaks statistilised kaalutlused: DiD andmed on tihti <em>paanelandmed</em>, mistõttu tuleb arvestada korduvmõõtmiste korrelatsiooni (tavaliselt kasutatakse robustseid standardvigu grupi tasemel).</p>
+</div>
+<div id="sobitamine" class="section level3 hasAnchor" number="9.2.5">
+<h3><span class="header-section-number">9.2.5</span> Sobitamine<a href="9-kausaalsete-mõjude-hindamine.html#sobitamine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sobitamisel (<em>matching</em>) võetakse aluseks osalusgrupp (valim meetmes osalenud isikutest) ja puhasmõju hindamiseks vajalike vastandseisundite loomiseks moodustatakse kontrollgrupp, kuhu valitakse osalusgrupiga teatud tunnuste alusel (nt sugu, vanus, haridus, leibkonna karakteristikud, eelnev tööturukäitumine) võimalikult sarnased inimesed, kes meetmes ei osalenud. Nende gruppide väljundnäitajate omavaheline võrdlemine võimaldab anda kõige lähedasema hinnangu meetme puhasmõjule ning seeläbi luua aluse andmaks hinnanguid ka meetme tulemuslikkuse kohta.</p>
+<p>Sobitamise puhul võib probleemiks osutuda osalusgrupi liikmetele kontrollgrupist sobivate vastete leidmine. Kui piisavalt sarnast vastet ei ole võimalik leida, tuleb sarnasuskriteeriume lõdvendada (lugeda suhteliselt erinevad isikud piisavalt sarnaseks) või osalusgrupi liige, kellele vastet ei leitud, analüüsist kõrvale jätta. Seega tuleb leida rahuldav kompromiss hinnangu valiidsuse (kui loeme küllaltki erinevaid isikuid sarnaseks, siis võib mõju hinnang sisaldada lisaks meetme puhasmõjule ka taustatunnuste kompositsioonist tulenevat mõju) ja hinnangu reliaabluse osas (kui kaasame analüüsi ainult väga sarnased isikud, on tõenäosus leida sobivaid vasteid väiksem ja võib tekkida oht, et peame suure osa valimist analüüsist kõrvale jätma, mistõttu suureneb hinnangu standardviga ehk hinnangus sisalduv ebamäärasus).</p>
+<p>Sobitamise läbiviimiseks on samuti mitmeid võimalusi. <strong>Täppissobitamise</strong> (<em>exact matching</em>) puhul seotakse osalus- ja kontrollgrupp sobitamise aluseks olevate tunnuste lõikes üks ühele. See meetod tagab küll väga täpse sobivuse osalusgrupi ja kontrollgrupi vahel, kuid kui sobitamise aluseks olevaid tunnuseid on palju, muutub osalusgrupile sobivate vastate leidmine küllaltki keerukaks (nn <em>curse of dimensionality</em> tingib olukorra, kus sobitamise aluseks olevate tunnuste arvu kasvades kasvab võimalike erinevate tunnusemustrite arv eksponentaalselt) ning nõuab väga suurt kontrollgrupi valimit. Täppissobitamisega analoogne, kuid valimimahule mõnevõrra leebemaid nõudeid esitav sobitamismeetod on <strong>rediskretiseeritud täppissobitamine</strong> (<em>coarsened exact matching</em>), mille puhul sobitamise aluseks olevad tunnused diskretiseeritakse <em>ex ante</em> uurija poolt lähtuvalt eelnevast teadmisest või teoreetilistest alustest (näiteks pidevtunnuseline vanus diskretiseeritakse vanusegruppideks lähtuvalt mingi meetmes osalemise loogika põhjal või haridustasemete puhul ühendatakse bakalauresuse-, magistri- ja doktoritase kõrghariduseks).</p>
+<p>Kõige enamkasutatavaks meetodiks on <strong>tõenäosusepõhine sobitamine</strong> (<em>propensity score matching</em>), kus sotsiaal-demograafiliste tunnuste või näiteks varasema tööturukogemuse baasil leitakse nii osalusgrupile kui kontrollgrupile tõenäosus osaleda meetmes ning omavahel võrreldaks vaid neid inimesi, kellel on meetmes osalemiseks sarnane tõenäosus.</p>
+<p><em>Propensity score</em> on tõenäosus sekkumise toimumiseks antud kontrolltunnuste põhjal. Selle formaalne definitsioon on <span class="math inline">\(e(X_i) = P(T_i=1 \mid X_i)\)</span>, kus <span class="math inline">\(T\)</span> on sekkumismuutuja (1=sekkumine, 0=mittesekkumine) ja <span class="math inline">\(X_i\)</span> on kontrolltunnuste vektor. Rosenbaum ja Rubin (1983) näitasid, et kui osalusgrupp ja kontrollgrupp on <em>sarnaste tõenäosusskooridega</em>, siis on nad tasakaalustatud nende kontrolltunnuste jaotuste osas. Seega saab mitmemõõtmelise sobitamisprobleemi taandada ühemõõtmeliseks: igale osalusgrupi isikule leitakse kontrollgrupi isik, kelle <span class="math inline">\(e(X)\)</span> on lähedane. Kui kontrolltunnuseid võib olla palju, aga tõenäosusskoor on üks number, mis summeerib sekkumise valiku tõenäosuse.</p>
+<p>Sobitamise <strong>eesmärk</strong> on imiteerida randomiseeritud katset: teha nii, et osalusgrupil ja kontrollgrupil oleksid sarnased jaotusid kõigi oluliste vaadeldud tegurite suhtes. Kui see õnnestub, siis võib sekkumise mõju hinnata lihtsalt kahe rühma vahega (nagu eksperimendis). Erinevalt regressioonist ei eelda sobitamine lineaarset seost – see on <strong>mitteparameetriline meetod</strong>, mis valmistab andmed ette tasakaalustatud võrdluseks. Pärast sobitamist võib tulemi erinevust hinnata lihtsa keskmiste vahena või jooksutada sobitatud andmetel regressiooni (vajadusel koos sobituskaaludega).</p>
+<p>Sobitamise alus on <strong>tasakaalustatus</strong>: ideaalis saavutatakse <span class="math inline">\((Y(0), Y(1)) \perp\! T \mid X\)</span> ehk sekkumine on sõltumatu tulemustest tingimusel <span class="math inline">\(X\)</span>. Kui see kehtib ja kõik vajalikud muutujad on <span class="math inline">\(X\)</span>-s, siis <span class="math inline">\(\mathbb{E}[Y(0)\mid T=1] = \mathbb{E}[Y(0)\mid T=0]\)</span>, mis tähendab, et kontrollgrupi keskmine on osalusgrupi kontrafaktuaal. Kausaalne efekt osalusgrupi jaoks (ATT) on siis <span class="math inline">\(\mathbb{E}[Y\mid T=1] - \mathbb{E}[Y(0)\mid T=1]\)</span>, kus teine osa asendatakse sobitatud kontrollgrupi keskmisega. Praktikas ei pruugi perfektset tasakaalu saavutada, seega hinnatakse <em>üle jäänud tasakaalustamatust</em> (nt standardiseeritud erinevused kovariaatides enne ja pärast sobitamist) ning vajadusel kohendatakse mudelit.</p>
+<p>Vaatlusandmetes ei ole tõenäosusskoor teada ja see tuleb hinnata. Kõige sagedamini kasutatakse selleks mõnd parametreetilist mudelit, näiteks Logit- või Probit-mudelit, hinnates sekkumise tõenäosust vaadeldavate kovariaatide suhtes. Kui tõenäosusskoor on leitud, peab seejärel sobitama sekkumise saanud ja mittesaanud indiviidid, kelle skoorid on võimalikult sarnased. Levinuim praktika on üks-ühele sobitamine, mille korral iga osalusgrupi liige seotakse ühe sobivaima isikuga kontrollgrupist. Mõnikord kritiseeritakse seda, et selline lähenemine võib paljud kontrollgrupi vaatlused kõrvale jätta, vähendades seega valimi mahtu. Samas, kuna keskmiste võrdluse määrab peamiselt väiksema grupi suurus (mis jääb samaks), ei pruugi üldine hinangu jõudlus eriti langeda. Sobivuse määra hindamiseks kasutatakse enamasti <strong>lähima naabri meetodit (<em>nearest neighbor</em>)</strong>, mis valib iga osalusgrupi liikme jaoks kontrollgrupist kõige sarnasema tõenäosusskooriga isiku. Kui mõnele osalusgrupi liikmele ei leidu piisavalt sarnast kontrollgrupi isikut, võib see viia „halbade sobitamisteni“. Selle vältimiseks saab kasutada <strong>lähima naabri meetodit määratud kalipri vahemikus (<em>caliper distance</em>)</strong>, kus propensity skooride erinevus ei või ületada etteantud piirmäära. Kui mitu kandidaati jääb kalipri vahemikku, valitakse lähim, kui mitte ühtki, jäetakse see osalusgrupi liige võrdlusest välja.</p>
+<p>Pärast sobitamisprotseduuri tuleb kontrollida, kas osalus- ja kontrollgrupp on kovariaatide lõikes tasakaalus. See tähendab, et tuleb hinnata, kas kovariaatide jaotus sarnaste tõenäosusskooridega sekkumise saanute ja mittesaanute hulgas on sarnane. Kui see nii ei ole, võib see viidata ebaõigesti määratletud tõenäosusskoori mudelile või sellele, et tingliku sõltumatuse eeldus ei kehti. Kovariaatide tasakaalu tagamiseks saab kontrollida <strong>standarditud keskmiste erinevust (standardized difference in means)</strong>, mis võrdleb gruppide keskmisi standardhälvete ühikutes. Lisaks saab võrrelda ka kovariaatide kõrgema järgu momente ning kovariaatidevahelisi interaktsioone, et veenduda, et kovariaatide jaotus on sekkumise määramisest sõltumatu.</p>
+<p><strong>Näide:</strong> Meil on meede, mis pakub täiendkoolitust töötutele ja tahame hinnata selle mõju sissetulekule. Meil on vaatlusandmed osalejatest ja mitteosalejatest. Otsene võrdlus võib olla eksitav, sest meetmes osalejad võivad olla näiteks nooremad ja kõrgema haridusega (ja seetõttu võib-olla paremate väljavaadetega ka ilma meetmeta). Sobitame iga meetmes osaleja mõne mitteosalejaga, kellel on sarnane vanus, haridus, varasem töökogemus jne. Pärast sobitamist kontrollime, et keskmine vanus, haridusaastad jms on kahes grupis ligikaudu võrdsed – kui jah, siis võrdleme nende gruppide hilisemaid keskmisi sissetulekuid. Erinevus oleks hinnang meetme mõjule. Kui enne sobitamist oli näiteks programmis osalejate keskmine sissetulek 6500 ja mitterosalejatel 7000 (osalejatel isegi madalam, mis viitab tugevale valikukaldele), siis pärast sobitamist võivad grupid teineteisele läheneda. Oletame, et sobitamise järel on valimis osalejate keskmine jäänud 6500 ning sobitatud kontrollgrupil 6000. Nüüd on osalejatel kõrgem sissetulek, mis viitab meetme positiivsele mõjule (~500). Just sellise tulemuse andis ka kuulus Lalonde (1986) andmestiku analüüs: alguses näis, et tööpraktika programmist osavõtjate teenistus polnud parem kui mittesaanutel, kuid pärast sobitamist selgus positiivne efekt.</p>
+<p>Sobitamise tulemuse usaldusväärsus sõltub sellest, kas <strong>kõik olulised segajad on mõõdetud ja sobitamismudelisse kaasatud</strong>. Kui mõni oluline tegur jääb arvesse võtmata (näiteks motivatsioon, mida on keeruline mõõta ja mida tihti pole andmetes), siis sobitamine ei pruugi valikukallet kõrvaldada – sel juhul on endiselt <span class="math inline">\(\mathbb{E}[Y(0)\mid T=1] \neq \mathbb{E}[Y(0)\mid T=0]\)</span>.</p>
+</div>
+</div>
+<div id="sobitamine-ris" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Sobitamine R’is<a href="9-kausaalsete-mõjude-hindamine.html#sobitamine-ris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Kasutame klassikalist andmestikku – Lalonde’i (1986) andmeid töötukoolitusprogrammi kohta. Andmestik on pakketis <strong>MatchIt</strong> nimega <code>lalonde</code> ja sisaldab 614 vaatlust: 185 osalesid 1970ndate <strong>NSW</strong> (National Supported Work) tööharjutusprogrammis (<em>treat</em> = 1) ja 429 olid kontrollgrupis (<em>treat</em> = 0). Hindame kas töötukoolitusprogrammil oli mõju programmis osalenute sissetulekutele (1978. a tulu, <em>re78</em>).</p>
+<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="9-kausaalsete-mõjude-hindamine.html#cb736-1" tabindex="-1"></a><span class="co"># Laeme vajalikud paketid ja andmed</span></span>
+<span id="cb736-2"><a href="9-kausaalsete-mõjude-hindamine.html#cb736-2" tabindex="-1"></a><span class="fu">library</span>(MatchIt) <span class="co"># sobitamiseks</span></span>
+<span id="cb736-3"><a href="9-kausaalsete-mõjude-hindamine.html#cb736-3" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;lalonde&quot;</span>) <span class="co"># laeb &#39;lalonde&#39; andmestiku MatchIt paketist</span></span>
+<span id="cb736-4"><a href="9-kausaalsete-mõjude-hindamine.html#cb736-4" tabindex="-1"></a></span>
+<span id="cb736-5"><a href="9-kausaalsete-mõjude-hindamine.html#cb736-5" tabindex="-1"></a><span class="co"># Uurime andmestiku struktuuri</span></span>
+<span id="cb736-6"><a href="9-kausaalsete-mõjude-hindamine.html#cb736-6" tabindex="-1"></a><span class="fu">dim</span>(lalonde)  </span></code></pre></div>
+<pre><code>## [1] 614   9</code></pre>
+<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="9-kausaalsete-mõjude-hindamine.html#cb738-1" tabindex="-1"></a><span class="fu">head</span>(lalonde, <span class="dv">3</span>)   </span></code></pre></div>
+<pre><code>##      treat age educ   race married nodegree re74 re75      re78
+## NSW1     1  37   11  black       1        1    0    0  9930.046
+## NSW2     1  22    9 hispan       0        1    0    0  3595.894
+## NSW3     1  30   12  black       0        0    0    0 24909.450</code></pre>
+<p>Laeme MatchIt paketi ning Lalonde’i andmestiku. Kiire kontroll <code>dim</code> abil näitab, et andmestikus on 614 vaatlusrida ja 10 veergu (muutujaid). Funktsioon <code>head</code> kuvab esimesed read, veendumaks et andmed on laetud õigesti. Andmestiku veerud peaksid olema: <strong>treat</strong> (1=ravi, 0=kontroll), <strong>age</strong> (vanus), <strong>educ</strong> (haridusaastad), <strong>race</strong> (rass/etnilisus), <strong>married</strong> (1=abielus, 0=vallaline), <strong>nodegree</strong> (1=ilma keskkoolidiplomita), <strong>re74</strong>, <strong>re75</strong> (tulud aastatel 1974 ja 1975), <strong>re78</strong> (tulu 1978). Osalusgrupis (NSW) on paljudel re74 ja re75 väärtuseks 0, kuna nad olid enne programmi töötud (see ongi programmi sihtrühm).</p>
+<p>Enne sobitamist vaatame <strong>osalusgrupi ja kontrollgrupi 1978. a keskmisi sissetulekuid</strong> ning nende erinevust:</p>
+<div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb740-1"><a href="9-kausaalsete-mõjude-hindamine.html#cb740-1" tabindex="-1"></a><span class="co"># Keskmine 1978 sissetulek osalusgrupis vs kontrollgrupis enne sobitamist</span></span>
+<span id="cb740-2"><a href="9-kausaalsete-mõjude-hindamine.html#cb740-2" tabindex="-1"></a><span class="fu">mean</span>(lalonde<span class="sc">$</span>re78[lalonde<span class="sc">$</span>treat <span class="sc">==</span> <span class="dv">1</span>]) <span class="co"># programmis osalenute keskmine re78</span></span></code></pre></div>
+<pre><code>## [1] 6349.144</code></pre>
+<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="9-kausaalsete-mõjude-hindamine.html#cb742-1" tabindex="-1"></a><span class="fu">mean</span>(lalonde<span class="sc">$</span>re78[lalonde<span class="sc">$</span>treat <span class="sc">==</span> <span class="dv">0</span>]) <span class="co"># programmis mitteosalenute keskmine re78</span></span></code></pre></div>
+<pre><code>## [1] 6984.17</code></pre>
+<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="9-kausaalsete-mõjude-hindamine.html#cb744-1" tabindex="-1"></a><span class="co"># Sama info t-testi kaudu koos p-väärtusega</span></span>
+<span id="cb744-2"><a href="9-kausaalsete-mõjude-hindamine.html#cb744-2" tabindex="-1"></a><span class="fu">t.test</span>(re78 <span class="sc">~</span> treat, <span class="at">data =</span> lalonde)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  re78 by treat
+## t = 0.93773, df = 326.41, p-value = 0.3491
+## alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+## 95 percent confidence interval:
+##  -697.192 1967.244
+## sample estimates:
+## mean in group 0 mean in group 1 
+##        6984.170        6349.144</code></pre>
+<p>Tulemus viitab, et programmis osalenute 1978. a keskmine teenistus (~$6349) oli isegi <em>madalam</em> kui mittesaanutel (~$6984), kuigi vahe pole statistiliselt oluline (p~0.35). See on üllatav ja ei lähe kokku meie hüpoteesiga, et programmis osalemine parandab sissetulekut.</p>
+<p>Miks nii võib olla? Programmis osalejad erinesid kontrollgrupist, paljud olid pikaajaliselt töötud, madalama haridusega jne. Seega tuleb eeldada tugevat <strong>valikukallet</strong> - osalusgrupi isikud olid ebasoodsamas seisus juba enne programmi ja nende madalam tulemus ei pruugi tingimata tähenda programmi ebaõnnestumist, vaid lähtetingimuste erinevust. Sobitamise abil püüame nüüd leida kontrollgrupist isikud, kes <em>oleksid olnud programmi osalejatega võrreldavad</em>, et teha tasakaalukam võrdlus.</p>
+<p>Sobitamiseks saame kasutada paketi MatchIt funktsiooni <code>matchit()</code>. Kasutame <strong>propensity score sobitamist</strong> (valides <code>distance = 'glm'</code>) <strong>lähima naabri meetodil</strong> (valides <code>method = "nearest"</code>). Valime kovariaatideks vanuse, hariduse, rassi, abieluseisu, haridustaseme (kas diplom on puudub). Lisame ka eelmiste aastate tulud (re74, re75), mis võiksid olla olulised tulutaseme ennustajad.</p>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="9-kausaalsete-mõjude-hindamine.html#cb746-1" tabindex="-1"></a><span class="co"># Propensity score mudel: logistiline regressioon ravistatuse ennustamiseks</span></span>
+<span id="cb746-2"><a href="9-kausaalsete-mõjude-hindamine.html#cb746-2" tabindex="-1"></a>ps_match <span class="ot">&lt;-</span> <span class="fu">matchit</span>(treat <span class="sc">~</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75,</span>
+<span id="cb746-3"><a href="9-kausaalsete-mõjude-hindamine.html#cb746-3" tabindex="-1"></a>                   <span class="at">data =</span> lalonde, </span>
+<span id="cb746-4"><a href="9-kausaalsete-mõjude-hindamine.html#cb746-4" tabindex="-1"></a>                   <span class="at">method =</span> <span class="st">&quot;nearest&quot;</span>, </span>
+<span id="cb746-5"><a href="9-kausaalsete-mõjude-hindamine.html#cb746-5" tabindex="-1"></a>                   <span class="at">distance =</span> <span class="st">&#39;glm&#39;</span>,</span>
+<span id="cb746-6"><a href="9-kausaalsete-mõjude-hindamine.html#cb746-6" tabindex="-1"></a>                   <span class="at">ratio =</span> <span class="dv">1</span>)</span>
+<span id="cb746-7"><a href="9-kausaalsete-mõjude-hindamine.html#cb746-7" tabindex="-1"></a><span class="fu">summary</span>(ps_match)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## matchit(formula = treat ~ age + educ + race + married + nodegree + 
+##     re74 + re75, data = lalonde, method = &quot;nearest&quot;, distance = &quot;glm&quot;, 
+##     ratio = 1)
+## 
+## Summary of Balance for All Data:
+##            Means Treated Means Control Std. Mean Diff. Var. Ratio eCDF Mean
+## distance          0.5774        0.1822          1.7941     0.9211    0.3774
+## age              25.8162       28.0303         -0.3094     0.4400    0.0813
+## educ             10.3459       10.2354          0.0550     0.4959    0.0347
+## raceblack         0.8432        0.2028          1.7615          .    0.6404
+## racehispan        0.0595        0.1422         -0.3498          .    0.0827
+## racewhite         0.0973        0.6550         -1.8819          .    0.5577
+## married           0.1892        0.5128         -0.8263          .    0.3236
+## nodegree          0.7081        0.5967          0.2450          .    0.1114
+## re74           2095.5737     5619.2365         -0.7211     0.5181    0.2248
+## re75           1532.0553     2466.4844         -0.2903     0.9563    0.1342
+##            eCDF Max
+## distance     0.6444
+## age          0.1577
+## educ         0.1114
+## raceblack    0.6404
+## racehispan   0.0827
+## racewhite    0.5577
+## married      0.3236
+## nodegree     0.1114
+## re74         0.4470
+## re75         0.2876
+## 
+## Summary of Balance for Matched Data:
+##            Means Treated Means Control Std. Mean Diff. Var. Ratio eCDF Mean
+## distance          0.5774        0.3629          0.9739     0.7566    0.1321
+## age              25.8162       25.3027          0.0718     0.4568    0.0847
+## educ             10.3459       10.6054         -0.1290     0.5721    0.0239
+## raceblack         0.8432        0.4703          1.0259          .    0.3730
+## racehispan        0.0595        0.2162         -0.6629          .    0.1568
+## racewhite         0.0973        0.3135         -0.7296          .    0.2162
+## married           0.1892        0.2108         -0.0552          .    0.0216
+## nodegree          0.7081        0.6378          0.1546          .    0.0703
+## re74           2095.5737     2342.1076         -0.0505     1.3289    0.0469
+## re75           1532.0553     1614.7451         -0.0257     1.4956    0.0452
+##            eCDF Max Std. Pair Dist.
+## distance     0.4216          0.9740
+## age          0.2541          1.3938
+## educ         0.0757          1.2474
+## raceblack    0.3730          1.0259
+## racehispan   0.1568          1.0743
+## racewhite    0.2162          0.8390
+## married      0.0216          0.8281
+## nodegree     0.0703          1.0106
+## re74         0.2757          0.7965
+## re75         0.2054          0.7381
+## 
+## Sample Sizes:
+##           Control Treated
+## All           429     185
+## Matched       185     185
+## Unmatched     244       0
+## Discarded       0       0</code></pre>
+<p><code>matchit()</code> funktsiooni argumentidena saame (muu hulgas) defineerida:<br />
+- <code>method =</code> mis meetodit kasutame, näiteks “nearest” (vaikimisi), “optimal”, “genetic”, “exact” jne;
+- <code>distance =</code> mis kaugusemõõdikut kasutame, näiteks “glm” ehk propensity score (vaikimisi), “mahalanobis”, “euclidean” jne;
+- <code>caliper =</code> maksimaalne distants, mille raames vasteid otsitakse;
+- <code>exact =</code> tunnused, mille lõikes leitakse täpsed vasted (samal ajal saab teisi tunnuseid kasutada näitkes propensity score matchingus);
+- <code>ratio =</code> mitu kontrollgrupi vastet igale osalusgrupi vaatlusele otsitakse (vaikimisi 1);
+- <code>replace =</code> kui TRUE, siis ühte kontrollgrupi vaatlust saab kasutada mitme osalusgrupi liikme vastena.</p>
+<p>Täpsemalt vaata <code>matchit()</code> abifailist.</p>
+<p><code>summary(ps_match)</code> kuvab sobitamise tulemuste kokkuvõtte, sh kui hästi tasakaalustus saavutati. Oletame, et kokkuvõte näitab näiteks:</p>
+<ul>
+<li><strong>Sample Sizes:</strong>: algselt 185 osalusgrupi vaatlust, 429 kontrollgrupi vaatlust; pärast sobitamist 185 osalusgrupi vaatlust ja 185 kontrollgrupi vaatlust (244 kontrollgrupi vaatlust jäi kasutamata).</li>
+<li><strong>Summary of Balance for All Data</strong>: Enne sobitamist olid mitmed kovariaadid osalusgrupis ja kontrollgrupis väga erinevad (nt vanus: osalus 25.8 vs kontroll 28, standardiseeritud erinevus -0.3; varasem tulu re75: osalus $1.53k vs kontroll $2.5k, jne).</li>
+<li><strong>Summary of Balance for Matched Data</strong>: Pärast sobitamist on need erinevused oluliselt väiksemad (nt vanus 25.8 vs 25.3, std erinevus 0.07; re75: $1.53k vs $1.6k, std erinevus ~0).</li>
+</ul>
+<p>Kovariaatide standardiseeritud erinevused (<em>Std. Mean Diff</em>) peaksid peale sobitamist olema võimalikult väikesed, oluliste tunnuste puhul olla kuni <em>ca</em> 0.05-0.1.</p>
+<p>Dispersioonide suhted (<em>Var. Ratio</em>) peaksid võiksid <em>ca</em> 1.</p>
+<p>Empiiriliste kumulatiivsete jaotusfunktsioonide (<em>empirical cumulative distribution functions (eCDFs)</em>) keskmised ja maksimumid peaksid olema võimalikult väikesed (lähenema 0-ile).</p>
+<p>Kui tasakaal on saavutatud, saame edasi minna mõju hindamisega.</p>
+<p>Võtame välja sobitatud andmed. MatchIt objektist saab funktsiooniga <code>match.data()</code> kätte sobitatud valimi, kus <code>subclass</code> on id-tunnus, millega on lingitud iga osalusgrupi liikmele temaga sarnane kontrollgrupi liige.</p>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="9-kausaalsete-mõjude-hindamine.html#cb748-1" tabindex="-1"></a>matched_data <span class="ot">&lt;-</span> <span class="fu">match.data</span>(ps_match)</span>
+<span id="cb748-2"><a href="9-kausaalsete-mõjude-hindamine.html#cb748-2" tabindex="-1"></a><span class="fu">dim</span>(matched_data) <span class="co"># peaks olema ~370 rida (185 osalus + 185 kontroll)</span></span></code></pre></div>
+<pre><code>## [1] 370  12</code></pre>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="9-kausaalsete-mõjude-hindamine.html#cb750-1" tabindex="-1"></a><span class="co"># Saame tasakaalu kontrollida ka käsitsi:</span></span>
+<span id="cb750-2"><a href="9-kausaalsete-mõjude-hindamine.html#cb750-2" tabindex="-1"></a><span class="fu">t.test</span>(age<span class="sc">~</span>treat, matched_data)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  age by treat
+## t = -0.54663, df = 323.08, p-value = 0.585
+## alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+## 95 percent confidence interval:
+##  -2.361671  1.334644
+## sample estimates:
+## mean in group 0 mean in group 1 
+##        25.30270        25.81622</code></pre>
+<p>Seejärel saame hinnata sekkumise (programmi) mõju sissetulekule. Saame selleks kasutada tavalist <em>t-testi</em>, kuid parem ja korrektsem viis oleks kasutada regressioonimudelit, kus sõltumatute tunnustena on lisatud ka kõik sobitamisel kasutatud tunnused. Seeläbi saame nn “topeltkorrigeeritud” hinnangu. Võiksime alati kasutada ka <code>match.data()</code> tulmis toodud kaale. Tavalise 1:1 ilma asendamiseta sobitamise puhul ei ole kaalud tegelikult vajalikud (kõik kaalud on 1), kuid osade spetsifikatsioonide puhul on. Ja kuna võrdsed kaalud (kõigil 1) tulemust ei muuda, siis võime neid ju samahästi ka kasutada.</p>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="9-kausaalsete-mõjude-hindamine.html#cb752-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(re78 <span class="sc">~</span> treat <span class="sc">+</span> age <span class="sc">+</span> educ <span class="sc">+</span> race <span class="sc">+</span> married <span class="sc">+</span> nodegree <span class="sc">+</span> re74 <span class="sc">+</span> re75, </span>
+<span id="cb752-2"><a href="9-kausaalsete-mõjude-hindamine.html#cb752-2" tabindex="-1"></a>          <span class="at">data =</span> matched_data,</span>
+<span id="cb752-3"><a href="9-kausaalsete-mõjude-hindamine.html#cb752-3" tabindex="-1"></a>          <span class="at">weights =</span> weights)</span></code></pre></div>
+<p>Et saada keskmine mõju hinnang (antud näites gruppide sissetulekute vahe), mis kehtib võrdselt kogu valimi kohta, ning sellele korrektsed standardvead ning usalduspiirid, saame kasutada marginaalseid effekte.</p>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="9-kausaalsete-mõjude-hindamine.html#cb753-1" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
+<span id="cb753-2"><a href="9-kausaalsete-mõjude-hindamine.html#cb753-2" tabindex="-1"></a><span class="fu">avg_comparisons</span>(mod,</span>
+<span id="cb753-3"><a href="9-kausaalsete-mõjude-hindamine.html#cb753-3" tabindex="-1"></a>                <span class="at">variables =</span> <span class="st">&quot;treat&quot;</span>, <span class="co"># sekkumistunnus, mille lõikes mõju tahame</span></span>
+<span id="cb753-4"><a href="9-kausaalsete-mõjude-hindamine.html#cb753-4" tabindex="-1"></a>                <span class="at">vcov =</span> <span class="sc">~</span>subclass, <span class="co"># ET saada cluster-robust SE-d (sobitatud vaatlused on klasterdunud)</span></span>
+<span id="cb753-5"><a href="9-kausaalsete-mõjude-hindamine.html#cb753-5" tabindex="-1"></a>                <span class="at">newdata =</span> <span class="fu">subset</span>(treat <span class="sc">==</span> <span class="dv">1</span>) <span class="co"># hinnangut tahame ainult osalusgrupile (ATT), kui see ära jätta, siis saaksime ATE</span></span>
+<span id="cb753-6"><a href="9-kausaalsete-mõjude-hindamine.html#cb753-6" tabindex="-1"></a>                )</span></code></pre></div>
+<pre><code>## 
+##  Estimate Std. Error    z Pr(&gt;|z|)   S 2.5 % 97.5 %
+##      1345        719 1.87   0.0614 4.0 -64.2   2754
+## 
+## Term: treat
+## Type:  response 
+## Comparison: 1 - 0</code></pre>
+<p>Saame arvutada ka gruppide keskmised gruppide kaupa (mõju hinnang on nende keskmiste vahe).</p>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="9-kausaalsete-mõjude-hindamine.html#cb755-1" tabindex="-1"></a><span class="fu">avg_predictions</span>(mod,</span>
+<span id="cb755-2"><a href="9-kausaalsete-mõjude-hindamine.html#cb755-2" tabindex="-1"></a>                <span class="at">variables =</span> <span class="st">&quot;treat&quot;</span>, <span class="co"># sekkumistunnus, mille lõikes mõju tahame</span></span>
+<span id="cb755-3"><a href="9-kausaalsete-mõjude-hindamine.html#cb755-3" tabindex="-1"></a>                <span class="at">vcov =</span> <span class="sc">~</span>subclass, <span class="co"># ET saada cluster-robust SE-d (sobitatud vaatlused on klasterdunud)</span></span>
+<span id="cb755-4"><a href="9-kausaalsete-mõjude-hindamine.html#cb755-4" tabindex="-1"></a>                <span class="at">newdata =</span> <span class="fu">subset</span>(treat <span class="sc">==</span> <span class="dv">1</span>) <span class="co"># hinnangut tahame ainult osalusgrupile (ATT), kui see ära jätta, siis saaksime ATE</span></span>
+<span id="cb755-5"><a href="9-kausaalsete-mõjude-hindamine.html#cb755-5" tabindex="-1"></a>                )</span></code></pre></div>
+<pre><code>## 
+##  treat Estimate Std. Error     z Pr(&gt;|z|)    S 2.5 % 97.5 %
+##      0     5004        544  9.19   &lt;0.001 64.5  3937   6071
+##      1     6349        576 11.02   &lt;0.001 91.3  5219   7479
+## 
+## Type:  response</code></pre>
+<p>Nägime, et pärast sobitamist on osalusgrupi keskmine sissetulek umbes $6349, kontrollgrupil $5004. Nüüd on osalusgrupil vastupidiselt varasemale kõrgem sissetulek (kuigi antud valimi suuruse juures pole see vahe statistiliselt kindel (p≈0.06)). Kuid suundumus pöördus, viidates, et programm võis siiski positiivselt mõjuda, lihtsalt algandmetes oli mõju peidetud osalejate kallutatuse tõttu. Meie lihtsustatud näites on ka pärast sobitamist p-väärtus üsna suur, mis tähendab, et efekti hinnang on ebakindel – suurema valimi või täiendavate kontrollidega võiks mõju ilmsem olla (NSW programmi eksperimentaalne kontrollgrupp näitas tegelikult positiivset efekti).</p>
+<p>Sobitamise abil võrdlesime <strong>võrdseid võrdsusega</strong> – leidsime kontrollgrupist isikud, kelle algnäitajad (vanus, haridus, varasem tulu jmt) sarnanesid programmis osalejatele. See eemaldas suure osa algsest erinevusest osalusgrupi ja kontrollgrupi vahel. Seeläbi on nende rühmade võrdlus palju õiglasem indikatsioon programmi mõjust. Me nägime, et varem negatiivne vahe muutus positiivseks.</p>
+<p>Sobitamise kvaliteet sõltub palju tõenäosusskoori mudelist ja sellest, kas kõik olulised kovariaadid on kaasatud. Näites kasutasime üsna kerukat mudelit, mis andis suhteliselt hea tasakaalu. Alati tuleks vaadata <code>summary(ps_match)</code> väljundit või spetsiaalseid graafikuid – kui mõni tunnus pole tasakaalus, võib proovida teistsugust sobitusmeetodit (näiteks <em>optimal matching</em> või <em>caliper</em> piirangutega) või lisada interaktsioone/mittelineaarseid tranformatsioone mudelisse.</p>
+<p>Sobitamine on intuitiivne ja tulemusi on tihti lihtne kommunikeerida (“võrdlesime iga programmis osalejat sarnase mitteosalejaga”). Oluline on meeles pidada, et see <strong>ei loo andmeid juurde</strong> – ta lihtsalt filtreerib/kombineerib olemasolevaid nii, et võrdlus muutub realistlikumaks. Me ei saa sobitamisega parandada seda, kui mõni oluline tunnus üldse puudub – sellisel juhul peaksime kaaluma muid strateegiaid (nt <strong>instrumentaalmuutujat</strong> nagu eelpool kirjeldatud vms).</p>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="8-klasteranalüüs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
