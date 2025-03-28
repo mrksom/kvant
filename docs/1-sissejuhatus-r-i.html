@@ -231,7 +231,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="appendix"><span><b>LISA</b></span></li>
 <li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
-<li class="chapter" data-level="B" data-path="B-delta-meetod.html"><a href="B-delta-meetod.html"><i class="fa fa-check"></i><b>B</b> Delta meetod</a></li>
+<li class="chapter" data-level="B" data-path="B-robust-and-clustered-standard-errors.html"><a href="B-robust-and-clustered-standard-errors.html"><i class="fa fa-check"></i><b>B</b> Robust and clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="B-robust-and-clustered-standard-errors.html"><a href="B-robust-and-clustered-standard-errors.html#robust-standard-errors"><i class="fa fa-check"></i><b>B.1</b> Robust standard errors</a></li>
+<li class="chapter" data-level="B.2" data-path="B-robust-and-clustered-standard-errors.html"><a href="B-robust-and-clustered-standard-errors.html#clustered-standard-errors"><i class="fa fa-check"></i><b>B.2</b> Clustered standard errors</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="C-delta-meetod.html"><a href="C-delta-meetod.html"><i class="fa fa-check"></i><b>C</b> Delta meetod</a></li>
 </ul>
 
       </nav>
@@ -1015,16 +1020,16 @@ Nii saame kõik eelnevad käsud panna ühte jadasse:</p>
 <pre><code>## # A tibble: 10 × 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013     9     3      752            755        -3      928            910
-##  2  2013     7     5     1410           1415        -5     1621           1629
-##  3  2013     6     5     2055           2059        -4     2230           2256
-##  4  2013     5     6     1553           1600        -7     1905           1924
-##  5  2013     6    17      600            602        -2      710            710
-##  6  2013     3    28      833            838        -5      948            957
-##  7  2013     7    28     1837           1800        37     2052           2012
-##  8  2013     8    28      709            710        -1      921            957
-##  9  2013     2    14       NA           1100        NA       NA           1209
-## 10  2013     8    27      718            725        -7      910            945
+##  1  2013     6    18     1146           1145         1     1330           1320
+##  2  2013     6     7     1721           1700        21     1829           1843
+##  3  2013     5     3     1458           1455         3     1755           1805
+##  4  2013     2    14     1132            929       123     1617           1426
+##  5  2013    10    25      656            700        -4     1012           1001
+##  6  2013    12    29      733            740        -7      904            932
+##  7  2013     6    28      608            610        -2      751            805
+##  8  2013     4     9     1337           1345        -8     1510           1530
+##  9  2013     8    26      539            545        -6      910            921
+## 10  2013     8    15     1906           1905         1     2106           2108
 ## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
 ## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
 ## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
@@ -1214,9 +1219,9 @@ Nii saame kõik eelnevad käsud panna ühte jadasse:</p>
 ## Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <p>Praegune aeg:</p>
 <div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="1-sissejuhatus-r-i.html#cb303-1" tabindex="-1"></a><span class="fu">today</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2025-03-15&quot;</code></pre>
+<pre><code>## [1] &quot;2025-03-29&quot;</code></pre>
 <div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="1-sissejuhatus-r-i.html#cb305-1" tabindex="-1"></a><span class="fu">now</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2025-03-15 14:58:24 EET&quot;</code></pre>
+<pre><code>## [1] &quot;2025-03-29 00:45:35 EET&quot;</code></pre>
 <p>Kestus:</p>
 <div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="1-sissejuhatus-r-i.html#cb307-1" tabindex="-1"></a><span class="co"># Mitu sekundit kestab päev</span></span>
 <span id="cb307-2"><a href="1-sissejuhatus-r-i.html#cb307-2" tabindex="-1"></a><span class="fu">duration</span>(<span class="at">day =</span> <span class="dv">1</span>)</span></code></pre></div>

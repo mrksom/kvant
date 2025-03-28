@@ -180,7 +180,7 @@ k-keskmiste-k-means-klasterdamine
 k-keskmiste-klasteranalüüsi-puudused
 klasteranalüüsi-tulemi-valiidsus
 tavaline-lineaarne-regressioon-maatriksarvutusena
-delta-meetod
 robust-and-clustered-standard-errors
 robust-standard-errors
 clustered-standard-errors
+delta-meetod

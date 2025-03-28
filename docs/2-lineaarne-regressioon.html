@@ -231,7 +231,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="appendix"><span><b>LISA</b></span></li>
 <li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
-<li class="chapter" data-level="B" data-path="B-delta-meetod.html"><a href="B-delta-meetod.html"><i class="fa fa-check"></i><b>B</b> Delta meetod</a></li>
+<li class="chapter" data-level="B" data-path="B-robust-and-clustered-standard-errors.html"><a href="B-robust-and-clustered-standard-errors.html"><i class="fa fa-check"></i><b>B</b> Robust and clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="B-robust-and-clustered-standard-errors.html"><a href="B-robust-and-clustered-standard-errors.html#robust-standard-errors"><i class="fa fa-check"></i><b>B.1</b> Robust standard errors</a></li>
+<li class="chapter" data-level="B.2" data-path="B-robust-and-clustered-standard-errors.html"><a href="B-robust-and-clustered-standard-errors.html#clustered-standard-errors"><i class="fa fa-check"></i><b>B.2</b> Clustered standard errors</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="C-delta-meetod.html"><a href="C-delta-meetod.html"><i class="fa fa-check"></i><b>C</b> Delta meetod</a></li>
 </ul>
 
       </nav>
@@ -1030,7 +1035,7 @@ Joonis 2.4: Anscombe kvartett
 <img src="01-regressioon_files/figure-html/anscombe-1.png" alt="Anscombe kvartett" width="672" />
 </div>
 <ol start="3" style="list-style-type: decimal">
-<li><strong>Jääkide sõltumatus</strong>. Ühe vaatluse jäägid ei tohiks olla korreleeritud teise vaatluse jääkidega. Selline olukord võib tekkida näiteks siis kui mudelist on välja jäänud mingi oluline tunnus (ühe tunnuse regressiooni puhul on see muidugi vaid hüpoteetiline olukord), näiteks hindame õpilaste testiskoore lähtuvalt nende õppimisele kulunud ajast, kuid ei arvesta, et õpilased tulevad erinevatest koolidest, kus võib olla erinev õppetase. Seega õpilaste tulemused ei ole enam sõltumatud, vaid sõltuvad koolist. Regressioonikoefitsientide standardvigade arvutamisel lähtutakse eeldusest, et jäägid on sõltumatud. Kui jäägid on korreleeritud, siis võib juhtuda, et me alahindame standardvigade suurust ehk siis oleme oma tulemustes ülemäära kindlad (usaldusintervallid ning <em>p</em>-väärtused tulevad liialt väikesed) ning võime näha seoseid seal kus neid tegelikult ei ole. Lahenduseks võiks olla puuduolevate tunnuste lisamine mudelisse (konkrteetse näite puhul kooli tunnus), mitmetasandiline mudel (seda vaatame hiljem) või klasterdatud standardvead (<em>clustered standard errors</em> või ka <em>cluster-robust standard errors</em>).</li>
+<li><strong>Jääkide sõltumatus</strong>. Ühe vaatluse jäägid ei tohiks olla korreleeritud teise vaatluse jääkidega. Selline olukord võib tekkida näiteks siis, kui mudelist on välja jäänud mingi oluline tunnus (ühe tunnuse regressiooni puhul on see muidugi vaid hüpoteetiline olukord), näiteks hindame õpilaste testiskoore lähtuvalt nende õppimisele kulunud ajast, kuid ei arvesta, et õpilased tulevad erinevatest koolidest, kus võib olla erinev õppetase. Seega õpilaste tulemused ei ole enam sõltumatud, vaid sõltuvad koolist. Regressioonikoefitsientide standardvigade arvutamisel lähtutakse eeldusest, et jäägid on sõltumatud. Kui jäägid on korreleeritud, siis võib juhtuda, et me alahindame standardvigade suurust ehk siis oleme oma tulemustes ülemäära kindlad (usaldusintervallid ning <em>p</em>-väärtused tulevad liialt väikesed) ning võime näha seoseid seal kus neid tegelikult ei ole. Lahenduseks võiks olla puuduolevate tunnuste lisamine mudelisse (konkrteetse näite puhul kooli tunnus), mitmetasandiline mudel (seda vaatame hiljem) või klasterdatud standardvead (<em>clustered standard errors</em> või ka <em>cluster-robust standard errors</em>).</li>
 </ol>
 <div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="2-lineaarne-regressioon.html#cb444-1" tabindex="-1"></a><span class="do">## Clustered standard errors</span></span>
 <span id="cb444-2"><a href="2-lineaarne-regressioon.html#cb444-2" tabindex="-1"></a></span>
