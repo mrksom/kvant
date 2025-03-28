@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>B Robust and clustered standard errors | Kvantitatiivne andmeanalüüs</title>
+  <meta name="description" content="B Robust and clustered standard errors | Kvantitatiivne andmeanalüüs" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="B Robust and clustered standard errors | Kvantitatiivne andmeanalüüs" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="B Robust and clustered standard errors | Kvantitatiivne andmeanalüüs" />
+  
+  
+  
+
+<meta name="author" content="Marko Sõmer" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"/>
+<link rel="next" href="C-delta-meetod.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="assets/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="assets/tabwid-1.1.3/tabwid.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="custom/custom_styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class='before'><a href="./">Kvant</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Alustuseks</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#part-meeldetuletus"><i class="fa fa-check"></i>(PART) Meeldetuletus</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#päris-algus"><i class="fa fa-check"></i><b>0.1</b> Päris algus</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#andmetega-töötamine"><i class="fa fa-check"></i><b>0.2</b> Andmetega töötamine</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#r-markdown"><i class="fa fa-check"></i><b>0.3</b> R markdown</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#andmegraafika"><i class="fa fa-check"></i><b>0.4</b> Andmegraafika</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#edasiseks-lugemiseks"><i class="fa fa-check"></i><b>0.5</b> Edasiseks lugemiseks</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html"><i class="fa fa-check"></i><b>1</b> Lineaarne regressioon</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#lihtne-lineaarne-regressioon"><i class="fa fa-check"></i><b>1.1</b> Lihtne lineaarne regressioon</a></li>
+<li class="chapter" data-level="1.2" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#regressioon-r-is"><i class="fa fa-check"></i><b>1.2</b> Regressioon R-is</a></li>
+<li class="chapter" data-level="1.3" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#regressiooni-jäägid"><i class="fa fa-check"></i><b>1.3</b> Regressiooni jäägid</a></li>
+<li class="chapter" data-level="1.4" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#regressioonimudeli-sobitumine"><i class="fa fa-check"></i><b>1.4</b> Regressioonimudeli sobitumine</a></li>
+<li class="chapter" data-level="1.5" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#kategoriaalsed-tunnused-regressioonis"><i class="fa fa-check"></i><b>1.5</b> Kategoriaalsed tunnused regressioonis</a></li>
+<li class="chapter" data-level="1.6" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#mitmene-regressioon"><i class="fa fa-check"></i><b>1.6</b> Mitmene regressioon</a></li>
+<li class="chapter" data-level="1.7" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#koosmõjud"><i class="fa fa-check"></i><b>1.7</b> Koosmõjud</a></li>
+<li class="chapter" data-level="1.8" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#mudelite-võrdlemine"><i class="fa fa-check"></i><b>1.8</b> Mudelite võrdlemine</a></li>
+<li class="chapter" data-level="1.9" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#regressioonimudeli-eeldused"><i class="fa fa-check"></i><b>1.9</b> Regressioonimudeli eeldused</a></li>
+<li class="chapter" data-level="1.10" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#kuidas-eelduste-täidetust-hinnata"><i class="fa fa-check"></i><b>1.10</b> Kuidas eelduste täidetust hinnata?</a></li>
+<li class="chapter" data-level="1.11" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#tunnuste-transformatsioonid"><i class="fa fa-check"></i><b>1.11</b> Tunnuste transformatsioonid</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#part-üldistatud-lineaarsed-mudelid"><i class="fa fa-check"></i>(PART) Üldistatud lineaarsed mudelid</a>
+<ul>
+<li class="chapter" data-level="1.12" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#logistiline-funktsioon"><i class="fa fa-check"></i><b>1.12</b> Logistiline funktsioon</a></li>
+<li class="chapter" data-level="1.13" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#logit-mudel"><i class="fa fa-check"></i><b>1.13</b> Logit mudel</a></li>
+<li class="chapter" data-level="1.14" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#logistiline-regressioon-r-is"><i class="fa fa-check"></i><b>1.14</b> Logistiline regressioon R-is</a></li>
+<li class="chapter" data-level="1.15" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#mudeli-kvaliteet"><i class="fa fa-check"></i><b>1.15</b> Mudeli kvaliteet</a></li>
+<li class="chapter" data-level="1.16" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#predict"><i class="fa fa-check"></i><b>1.16</b> Predict</a></li>
+<li class="chapter" data-level="1.17" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#marginaalsed-efektid"><i class="fa fa-check"></i><b>1.17</b> Marginaalsed efektid</a></li>
+<li class="chapter" data-level="1.18" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#prognoosi-täpsus"><i class="fa fa-check"></i><b>1.18</b> Prognoosi täpsus</a></li>
+<li class="chapter" data-level="1.19" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#mudeli-eeldused"><i class="fa fa-check"></i><b>1.19</b> Mudeli eeldused</a></li>
+<li class="chapter" data-level="1.20" data-path="1-lineaarne-regressioon.html"><a href="1-lineaarne-regressioon.html#cross-validation"><i class="fa fa-check"></i><b>1.20</b> Cross-validation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html"><i class="fa fa-check"></i><b>2</b> Poissoni regressioon</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#mudeli-tõlgendus-1"><i class="fa fa-check"></i><b>2.1</b> Mudeli tõlgendus</a></li>
+<li class="chapter" data-level="2.2" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#poissoni-regressiooni-eeldused"><i class="fa fa-check"></i><b>2.2</b> Poissoni regressiooni eeldused</a></li>
+<li class="chapter" data-level="2.3" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#mudeli-hindamine-r-is"><i class="fa fa-check"></i><b>2.3</b> Mudeli hindamine R-is</a></li>
+<li class="chapter" data-level="2.4" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#mudeli-eelduste-kontroll"><i class="fa fa-check"></i><b>2.4</b> Mudeli eelduste kontroll</a></li>
+<li class="chapter" data-level="2.5" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#mudeli-sobivus-model-fit"><i class="fa fa-check"></i><b>2.5</b> Mudeli sobivus (<em>model fit</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#part-mõjude-hindamine"><i class="fa fa-check"></i>(PART) Mõjude hindamine</a>
+<ul>
+<li class="chapter" data-level="2.6" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#potentsiaalsed-tulemused"><i class="fa fa-check"></i><b>2.6</b> Potentsiaalsed tulemused</a></li>
+<li class="chapter" data-level="2.7" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#mõju-hindamise-meetodid"><i class="fa fa-check"></i><b>2.7</b> Mõju hindamise meetodid</a></li>
+<li class="chapter" data-level="2.8" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#sobitamine-ris"><i class="fa fa-check"></i><b>2.8</b> Sobitamine R’is</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#part-mitmetasandiline-regressioon"><i class="fa fa-check"></i>(PART) Mitmetasandiline regressioon</a>
+<ul>
+<li class="chapter" data-level="2.9" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#andmete-hierarhiline-struktuur"><i class="fa fa-check"></i><b>2.9</b> Andmete hierarhiline struktuur</a></li>
+<li class="chapter" data-level="2.10" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#mitmetasandiline-analüüs"><i class="fa fa-check"></i><b>2.10</b> Mitmetasandiline analüüs</a></li>
+<li class="chapter" data-level="2.11" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#mitmetasandilise-analüüsi-eeldused"><i class="fa fa-check"></i><b>2.11</b> Mitmetasandilise analüüsi eeldused</a></li>
+<li class="chapter" data-level="2.12" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#mitemtasandiline-analüüs-ris"><i class="fa fa-check"></i><b>2.12</b> Mitemtasandiline analüüs Ris</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#part-valimiuuringud"><i class="fa fa-check"></i>(PART) Valimiuuringud</a>
+<ul>
+<li class="chapter" data-level="2.13" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#tõenäosuslik-valim-probability-sample"><i class="fa fa-check"></i><b>2.13</b> Tõenäosuslik valim (probability sample)</a></li>
+<li class="chapter" data-level="2.14" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#kaalud"><i class="fa fa-check"></i><b>2.14</b> Kaalud</a></li>
+<li class="chapter" data-level="2.15" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#valimidisain"><i class="fa fa-check"></i><b>2.15</b> Valimidisain</a></li>
+<li class="chapter" data-level="2.16" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#tulemuste-valimidisaini-suhtes-korrigeerimine"><i class="fa fa-check"></i><b>2.16</b> Tulemuste valimidisaini suhtes korrigeerimine</a></li>
+<li class="chapter" data-level="2.17" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#küsitlusandmed-ris"><i class="fa fa-check"></i><b>2.17</b> Küsitlusandmed Ris</a></li>
+<li class="chapter" data-level="2.18" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#valimiandmete-analüüs"><i class="fa fa-check"></i><b>2.18</b> Valimiandmete analüüs</a></li>
+<li class="chapter" data-level="2.19" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#plausible-values"><i class="fa fa-check"></i><b>2.19</b> Plausible values</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#part-sem"><i class="fa fa-check"></i>(PART) SEM</a>
+<ul>
+<li class="chapter" data-level="2.20" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#rajaanalüüs"><i class="fa fa-check"></i><b>2.20</b> Rajaanalüüs</a></li>
+<li class="chapter" data-level="2.21" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#faktoranalüüs"><i class="fa fa-check"></i><b>2.21</b> Faktoranalüüs</a></li>
+<li class="chapter" data-level="2.22" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#sruktuurivõrrandite-mudelid"><i class="fa fa-check"></i><b>2.22</b> Sruktuurivõrrandite mudelid</a></li>
+<li class="chapter" data-level="2.23" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#struktuurivõrrandite-mudelid-ris"><i class="fa fa-check"></i><b>2.23</b> Struktuurivõrrandite mudelid Ris</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path=""><a href="#part-klasteranalüüs"><i class="fa fa-check"></i>(PART) Klasteranalüüs</a>
+<ul>
+<li class="chapter" data-level="2.24" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#mis-see-klasteranalüüs-on"><i class="fa fa-check"></i><b>2.24</b> Mis see klasteranalüüs on?</a></li>
+<li class="chapter" data-level="2.25" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#hierarhiline-klasteranalüüs"><i class="fa fa-check"></i><b>2.25</b> Hierarhiline klasteranalüüs</a></li>
+<li class="chapter" data-level="2.26" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#k-keskmiste-k-means-klasterdamine"><i class="fa fa-check"></i><b>2.26</b> K-keskmiste (k-means) klasterdamine</a></li>
+<li class="chapter" data-level="2.27" data-path="2-poissoni-regressioon.html"><a href="2-poissoni-regressioon.html#klasteranalüüsi-tulemi-valiidsus"><i class="fa fa-check"></i><b>2.27</b> Klasteranalüüsi tulemi valiidsus</a></li>
+</ul></li>
+<li class="appendix"><span><b>LISA</b></span></li>
+<li class="chapter" data-level="A" data-path="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html"><i class="fa fa-check"></i><b>A</b> Tavaline lineaarne regressioon maatriksarvutusena</a></li>
+<li class="chapter" data-level="B" data-path="B-robust-and-clustered-standard-errors.html"><a href="B-robust-and-clustered-standard-errors.html"><i class="fa fa-check"></i><b>B</b> Robust and clustered standard errors</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="B-robust-and-clustered-standard-errors.html"><a href="B-robust-and-clustered-standard-errors.html#robust-standard-errors"><i class="fa fa-check"></i><b>B.1</b> Robust standard errors</a></li>
+<li class="chapter" data-level="B.2" data-path="B-robust-and-clustered-standard-errors.html"><a href="B-robust-and-clustered-standard-errors.html#clustered-standard-errors"><i class="fa fa-check"></i><b>B.2</b> Clustered standard errors</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="C-delta-meetod.html"><a href="C-delta-meetod.html"><i class="fa fa-check"></i><b>C</b> Delta meetod</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Kvantitatiivne andmeanalüüs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="robust-and-clustered-standard-errors" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">B</span> Robust and clustered standard errors<a href="B-robust-and-clustered-standard-errors.html#robust-and-clustered-standard-errors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Regressioonimudeli jäägid peaksid hinnatud väärtuste lõikes olema homogeense ja konstantse variatiivsusega, st ühtlaselt jaotunud kõikide <span class="math inline">\(\hat{y}\)</span> väärtuste ümber (jääkide dispersiooni homogeensuse eeldus ehk <em>homoscedasticity</em>). Selle eelduse rikkumine mõjutab eelkõige standardvigu (need ei kehti enam kõikidele <span class="math inline">\(\hat{y}\)</span> väärtustele ühtlaselt) ja seeläbi loomulikult ka usaldusintervalle ning <em>p</em>-väärtusi. Lahenduseks võivad olla nn <strong>robustsed standardvead</strong> (<em>robust standard errors</em>), mis võtavad varieeruvuse erinevust arvesse.</p>
+<p>Vaatluse jäägid ei tohiks olla ka korreleeritud. Selline olukord võib tekkida näiteks siis, kui hindame näiteks õpilaste testiskoore lähtuvalt nende õppimisele kulunud ajast, kuid ei arvesta, et õpilased tulevad erinevatest koolidest, kus võib olla erinev õppetase jne. Seega õpilaste tulemused ei ole enam sõltumatud, vaid sõltuvad koolist. Regressioonikoefitsientide standardvigade arvutamisel lähtutakse aga eeldusest, et jäägid on sõltumatud. Kui jäägid on korreleeritud, siis võib juhtuda, et me alahindame standardvigade suurust ehk siis oleme oma tulemustes ülemäära kindlad (usaldusintervallid ning <em>p</em>-väärtused tulevad liialt väikesed) ning võime näha seoseid seal kus neid tegelikult ei ole. Lahenduseks saab olla mitmetasandiline mudel või <strong>klasterdatud standardvead</strong> (<em>clustered standard errors</em> või ka <em>cluster-robust standard errors</em>).</p>
+<p>Üheks võimaluseks standardvigu korrigeerida on kasutada paketti <code>sandwitch</code>, mis võimaldab olemasoleva mudeli variatsiooni-kovariatsiooni maatriksi põhjal arvutada nn robustne variatsiooni-kovariatsiooni maatriks. Sellest saame omakorda tuletada koefitsientide robustsed dispersioonid ning neist omakorda robustsed standardvead. <code>sandwich</code> paketis on erinevaid standardvigade korrigeerimise funktsioone: <code>vcovHC()</code> (<em>heteroskedasticity-consistent (HC) errors</em>), <code>vcovHAC()</code> (<em>heteroskedastiticy- and autocorrelation-consistent (HAC) errors</em>), <code>vcovCL()</code> (<em>clustered errors</em>) jne, mida saab vastavalt vajadusele (millist korrektsiooni tahame) kasutada.</p>
+<p>Defineerime kõigepealt tavalise regressioonimudeli:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="B-robust-and-clustered-standard-errors.html#cb10-1" tabindex="-1"></a>piaac <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://github.com/mrksom/kvant/raw/master/data/piaac.csv&quot;</span>)</span>
+<span id="cb10-2"><a href="B-robust-and-clustered-standard-errors.html#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="B-robust-and-clustered-standard-errors.html#cb10-3" tabindex="-1"></a><span class="co"># Defineerime regressioonimudeli </span></span>
+<span id="cb10-4"><a href="B-robust-and-clustered-standard-errors.html#cb10-4" tabindex="-1"></a>mudel <span class="ot">&lt;-</span> <span class="fu">lm</span>(numeracy <span class="sc">~</span> literacy <span class="sc">*</span> sugu, </span>
+<span id="cb10-5"><a href="B-robust-and-clustered-standard-errors.html#cb10-5" tabindex="-1"></a>             <span class="at">data =</span> piaac)</span>
+<span id="cb10-6"><a href="B-robust-and-clustered-standard-errors.html#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="B-robust-and-clustered-standard-errors.html#cb10-7" tabindex="-1"></a><span class="co"># tidy() funktsiooniga saame kätte tavalised standardvead ja usalduspiirid</span></span>
+<span id="cb10-8"><a href="B-robust-and-clustered-standard-errors.html#cb10-8" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(mudel, <span class="at">conf.int =</span> T)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 7
+##   term               estimate std.error statistic  p.value conf.low conf.high
+##   &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)         36.1      2.62        13.8  9.65e-43  31.0      41.3   
+## 2 literacy             0.872    0.00942     92.5  0          0.853     0.890 
+## 3 suguNaine            4.60     3.62         1.27 2.04e- 1  -2.50     11.7   
+## 4 literacy:suguNaine  -0.0449   0.0130      -3.46 5.35e- 4  -0.0704   -0.0195</code></pre>
+<div id="robust-standard-errors" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">B.1</span> Robust standard errors<a href="B-robust-and-clustered-standard-errors.html#robust-standard-errors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Robustsete standardvigade jaoks tuleb meil arvutada uus ‘robustne’ koefitsientide variatsiooni-kovariatsiooni maatriks ehk nn <em>Heteroscedasticity-Consistent Covariance Matrix</em>. Saame kasutada <code>sandwitch</code> paketti ja selle funktsiooni <code>vcovHC()</code>.</p>
+<p>Variatsiooni-kovariatsiooni maatriksi diagonaalis on koefitsientide dispersioonid (variance). Ruutjuur dispersioonist annab koefitsiendi standardhälbe, mis on ongi parameetri standardviga. Seega saame robustsed standardvead kätte nii:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="B-robust-and-clustered-standard-errors.html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb12-2"><a href="B-robust-and-clustered-standard-errors.html#cb12-2" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb12-3"><a href="B-robust-and-clustered-standard-errors.html#cb12-3" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="B-robust-and-clustered-standard-errors.html#cb12-4" tabindex="-1"></a><span class="co"># Robustsete standardvigade jaoks tuleb meil arvutada uus </span></span>
+<span id="cb12-5"><a href="B-robust-and-clustered-standard-errors.html#cb12-5" tabindex="-1"></a><span class="co">#  &#39;robustne&#39; koefitsientide variatsiooni-kovariatsiooni maatriks ehk nn </span></span>
+<span id="cb12-6"><a href="B-robust-and-clustered-standard-errors.html#cb12-6" tabindex="-1"></a><span class="co">#  Heteroscedasticity-Consistent Covariance Matrix. sandwitch paketis</span></span>
+<span id="cb12-7"><a href="B-robust-and-clustered-standard-errors.html#cb12-7" tabindex="-1"></a><span class="co">#  on selleks funktsioon vcovHC().</span></span>
+<span id="cb12-8"><a href="B-robust-and-clustered-standard-errors.html#cb12-8" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="B-robust-and-clustered-standard-errors.html#cb12-9" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="B-robust-and-clustered-standard-errors.html#cb12-10" tabindex="-1"></a><span class="fu">vcovHC</span>(mudel) <span class="sc">%&gt;%</span> <span class="co"># arvutame &#39;robustse&#39; variatsiooni-kovariatsiooni maatriks</span></span>
+<span id="cb12-11"><a href="B-robust-and-clustered-standard-errors.html#cb12-11" tabindex="-1"></a>  <span class="fu">diag</span>() <span class="sc">%&gt;%</span> <span class="co"># võtame selle diagonaali (ehk pasrameetrite dispersioonid)</span></span>
+<span id="cb12-12"><a href="B-robust-and-clustered-standard-errors.html#cb12-12" tabindex="-1"></a>  <span class="fu">sqrt</span>() <span class="co"># ruutjuur dispersioonist annab standardhälbe, mis on ongi standardviga</span></span></code></pre></div>
+<pre><code>##        (Intercept)           literacy          suguNaine literacy:suguNaine 
+##        2.788735004        0.009897618        3.831308067        0.013555193</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="B-robust-and-clustered-standard-errors.html#cb14-1" tabindex="-1"></a><span class="co"># Et neid koos koefitsientide ja vastavate testidega kuvada, võime kasutada</span></span>
+<span id="cb14-2"><a href="B-robust-and-clustered-standard-errors.html#cb14-2" tabindex="-1"></a><span class="co">#  lmtest paketi funktsiooni coeftest()</span></span>
+<span id="cb14-3"><a href="B-robust-and-clustered-standard-errors.html#cb14-3" tabindex="-1"></a><span class="fu">coeftest</span>(mudel, <span class="at">vcov. =</span> <span class="fu">vcovHC</span>(mudel))</span></code></pre></div>
+<pre><code>## 
+## t test of coefficients:
+## 
+##                      Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept)        36.1290294  2.7887350 12.9553 &lt; 2.2e-16 ***
+## literacy            0.8715229  0.0098976 88.0538 &lt; 2.2e-16 ***
+## suguNaine           4.5967288  3.8313081  1.1998 0.2302621    
+## literacy:suguNaine -0.0449372  0.0135552 -3.3151 0.0009203 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="B-robust-and-clustered-standard-errors.html#cb16-1" tabindex="-1"></a><span class="co"># Usalduspiirid robustsete standardvigade alusel saame kätte lmtest paketi </span></span>
+<span id="cb16-2"><a href="B-robust-and-clustered-standard-errors.html#cb16-2" tabindex="-1"></a><span class="co"># coefci() funktsiooniga</span></span>
+<span id="cb16-3"><a href="B-robust-and-clustered-standard-errors.html#cb16-3" tabindex="-1"></a>lmtest<span class="sc">::</span><span class="fu">coefci</span>(mudel, <span class="at">vcov. =</span> <span class="fu">vcovHC</span>(mudel))</span></code></pre></div>
+<pre><code>##                          2.5 %     97.5 %
+## (Intercept)        30.66233656 41.5957223
+## literacy            0.85212087  0.8909250
+## suguNaine          -2.91369599 12.1071535
+## literacy:suguNaine -0.07150916 -0.0183653</code></pre>
+</div>
+<div id="clustered-standard-errors" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">B.2</span> Clustered standard errors<a href="B-robust-and-clustered-standard-errors.html#clustered-standard-errors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Klasterdatud standardvigade jaoks tuleb meil arvutada uus ‘klasterdatud’ koefitsientide variatsiooni-kovariatsiooni maatriks ehk nn <em>Clustered Covariance Matrix</em>. Saame kasutada <code>sandwitch</code> paketti ja selle funktsiooni <code>vcovCL()</code>.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="B-robust-and-clustered-standard-errors.html#cb18-1" tabindex="-1"></a><span class="co"># Klasterdatud standardvigade arvutamiseks kasutame jälle sandwitch paketti ja</span></span>
+<span id="cb18-2"><a href="B-robust-and-clustered-standard-errors.html#cb18-2" tabindex="-1"></a><span class="co"># selle funktsiooni vcovCL()</span></span>
+<span id="cb18-3"><a href="B-robust-and-clustered-standard-errors.html#cb18-3" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb18-4"><a href="B-robust-and-clustered-standard-errors.html#cb18-4" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb18-5"><a href="B-robust-and-clustered-standard-errors.html#cb18-5" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="B-robust-and-clustered-standard-errors.html#cb18-6" tabindex="-1"></a><span class="co"># Eeldame, et valim on klasterdatud haridusvaldkonna alusel</span></span>
+<span id="cb18-7"><a href="B-robust-and-clustered-standard-errors.html#cb18-7" tabindex="-1"></a><span class="co"># Defineerime regressioonimudeli </span></span>
+<span id="cb18-8"><a href="B-robust-and-clustered-standard-errors.html#cb18-8" tabindex="-1"></a><span class="co">#  (jätame välja kõik vaatlused, kus haridusvaldkond on NA)</span></span>
+<span id="cb18-9"><a href="B-robust-and-clustered-standard-errors.html#cb18-9" tabindex="-1"></a>mudel <span class="ot">&lt;-</span> <span class="fu">lm</span>(numeracy <span class="sc">~</span> literacy <span class="sc">*</span> sugu, </span>
+<span id="cb18-10"><a href="B-robust-and-clustered-standard-errors.html#cb18-10" tabindex="-1"></a>             <span class="at">data =</span> piaac[<span class="sc">!</span><span class="fu">is.na</span>(piaac<span class="sc">$</span>hvaldkond),])</span>
+<span id="cb18-11"><a href="B-robust-and-clustered-standard-errors.html#cb18-11" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="B-robust-and-clustered-standard-errors.html#cb18-12" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="B-robust-and-clustered-standard-errors.html#cb18-13" tabindex="-1"></a><span class="co"># Robustsete standardvigade jaoks tuleb meil arvutada uus </span></span>
+<span id="cb18-14"><a href="B-robust-and-clustered-standard-errors.html#cb18-14" tabindex="-1"></a><span class="co">#  &#39;klasterdatud&#39; koefitsientide variatsiooni-kovariatsiooni maatriks ehk nn </span></span>
+<span id="cb18-15"><a href="B-robust-and-clustered-standard-errors.html#cb18-15" tabindex="-1"></a><span class="co">#  Clustered Covariance Matrix. sandwitch paketis</span></span>
+<span id="cb18-16"><a href="B-robust-and-clustered-standard-errors.html#cb18-16" tabindex="-1"></a><span class="co">#  on selleks funktsioon vcovCL(). Peame selles lisaks mudeliobjektile</span></span>
+<span id="cb18-17"><a href="B-robust-and-clustered-standard-errors.html#cb18-17" tabindex="-1"></a><span class="co">#  määrama ka klastritunnuse</span></span>
+<span id="cb18-18"><a href="B-robust-and-clustered-standard-errors.html#cb18-18" tabindex="-1"></a><span class="fu">vcovCL</span>(mudel, <span class="at">cluster =</span> <span class="sc">~</span>hvaldkond) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-19"><a href="B-robust-and-clustered-standard-errors.html#cb18-19" tabindex="-1"></a>  <span class="fu">diag</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb18-20"><a href="B-robust-and-clustered-standard-errors.html#cb18-20" tabindex="-1"></a>  <span class="fu">sqrt</span>()</span></code></pre></div>
+<pre><code>##        (Intercept)           literacy          suguNaine literacy:suguNaine 
+##         7.69411746         0.02019249         5.63277113         0.01773446</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="B-robust-and-clustered-standard-errors.html#cb20-1" tabindex="-1"></a><span class="co"># Et neid koos koefitsientide ja vastavate testidega kuvada, võime kasutada</span></span>
+<span id="cb20-2"><a href="B-robust-and-clustered-standard-errors.html#cb20-2" tabindex="-1"></a><span class="co">#  jällegi lmtest paketi funktsiooni coeftest()</span></span>
+<span id="cb20-3"><a href="B-robust-and-clustered-standard-errors.html#cb20-3" tabindex="-1"></a><span class="fu">coeftest</span>(mudel, <span class="at">vcov. =</span> <span class="fu">vcovCL</span>(mudel, <span class="at">cluster =</span> <span class="sc">~</span>hvaldkond))</span></code></pre></div>
+<pre><code>## 
+## t test of coefficients:
+## 
+##                     Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept)        35.718804   7.694117  4.6424 3.503e-06 ***
+## literacy            0.872964   0.020192 43.2321 &lt; 2.2e-16 ***
+## suguNaine           5.006361   5.632771  0.8888  0.374143    
+## literacy:suguNaine -0.046464   0.017734 -2.6200  0.008812 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="B-robust-and-clustered-standard-errors.html#cb22-1" tabindex="-1"></a><span class="co"># Usalduspiirid robustsete standardvigade alusel saame kätte lmtest paketi </span></span>
+<span id="cb22-2"><a href="B-robust-and-clustered-standard-errors.html#cb22-2" tabindex="-1"></a><span class="co"># coefci() funktsiooniga</span></span>
+<span id="cb22-3"><a href="B-robust-and-clustered-standard-errors.html#cb22-3" tabindex="-1"></a><span class="fu">coefci</span>(mudel, <span class="at">vcov. =</span> <span class="fu">vcovCL</span>(mudel, <span class="at">cluster =</span> <span class="sc">~</span>hvaldkond))</span></code></pre></div>
+<pre><code>##                          2.5 %      97.5 %
+## (Intercept)        20.63618128 50.80142590
+## literacy            0.83338131  0.91254716
+## suguNaine          -6.03544613 16.04816773
+## literacy:suguNaine -0.08122814 -0.01169913</code></pre>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="A-tavaline-lineaarne-regressioon-maatriksarvutusena.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="C-delta-meetod.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": false
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

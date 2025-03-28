@@ -562,7 +562,7 @@ andmed <- andmed %>%
 
 ### Nullmudel
 
-Esmalt defineerime nullmudeli:
+Esmalt defineerime nullmudeli, ehk mudeli, millega hindame vaid keskmist matemaatikatesti tulemust (ja kuna tegemist on ML mudeliga, siis võtame sealjuures arvesse ka koolide erinevust):
 
 ```{r, echo = T}
 m0 <- lmer(mathach ~ 1 + (1|school), data = andmed)
@@ -590,11 +590,42 @@ Nende tulemuste alusel saame arvutda intraklassi korrelatsiooni (*interclass cor
 ```{r, echo = T}
 8.614/(8.614+39.148)
 ```
+
 *ca* 18% testitulemuste variatiivusest on selgitatav koolie erinevustega.
+
+Saame juhuslikud efektid (ehk antud juhul koolide keskmiste erinevused üldisest keskmisest) ka välja võtta ning näiteks joonisele panna.
+
+```{r, echo = T}
+ranef(m0)$school |> 
+  head(5)
+
+ranef(m0)$school$`(Intercept)` |> 
+  hist()
+
+```
+
+
+Saame välja võtta ka kõikide koolid koefitsiendid (antud juhul eri koolide keskmised, ehk koolideülene üldkeskmnine + iga kooli juhuslik efekt).
+
+```{r, echo = T}
+coef(m0)$school |> 
+  head(5)
+
+coef(m0)$school$`(Intercept)` |> 
+  hist()
+
+```
+
+Kui vaatame,  mis on eri koolide koefitsientide üldkeskmine, siis näeme, et see ongi seesama mudeli väljundis *Fixed effects* all olev vabaliikme väärtus.
+
+```{r, echo = T}
+coef(m0)$school$`(Intercept)` |> 
+  mean()
+```
 
 ### Juhusliku vabaliikmega mudel
 
-Lisame mudelile ka sotsiaalmajandusliku indeksi (tsentreeritud variandi), mis läbi saame tulemuseks mudeli kus vabaliikmed gruppide vahel varieeruvad:
+Lisame mudelile ka sotsiaalmajandusliku indeksi (tsentreeritud variandi), misläbi saame mudeli, kus vabaliikmed gruppide vahel varieeruvad (nagu eelmises mudelis), kuid regressioonikoefitsent on kõigil sama:
 
 ```{r, echo = T}
 m1 <- lmer(mathach ~ 1 + tses + (1|school), data = andmed)
@@ -621,7 +652,7 @@ m1 mudel on statistiliselt oluliselt parem kui m0 mudel.
 
 ### Juhusliku regressioonikordajaga mudel
 
-Laseme sotsiaalmajandusliku indeksi regressioonikorda samuti vabalt varieeruma. Selleks lisame vastava tunnuse, mille koefitsiente tahame vabaks lasta juhuslike efektide sulgudesse:
+Laseme sotsiaalmajandusliku indeksi regressioonikorda samuti vabalt varieeruma. Selleks lisame vastava tunnuse, mille koefitsiente tahame vabaks lasta, juhuslike efektide sulgudesse:
 
 ```{r, echo = T}
 m2 <- lmer(mathach ~ 1 + tses + (1+tses|school), data = andmed)
@@ -633,6 +664,23 @@ summary(m2)
 ```
 
 - Sotsiaalmajandusliku indeksi regresioonikordaja dispersioon on 0,69 (ja standardhälve 0,83)
+
+Saame jällegi koolide *tses* koefitsiendid eraldi välja võtta ja joonisele panna. Lisame joonisele ka keskmise *tses* koefitsiendi
+
+```{r, echo = T}
+
+coef(m2)$school |> 
+  ggplot()+
+  aes(x = tses)+
+  geom_histogram(fill = "#39505C", color = 'white')+
+  stat_summary(aes(xintercept = after_stat(x), y = 0), 
+               fun = mean, geom = "vline", 
+               orientation = "y", 
+               color = "#bd4446", linewidth = 2)+
+  theme_bw()
+
+```
+
 
 Juhuslike effektide jaoks meil väljundis mingit olulisuse testi ei ole. Aga saame kasutada `lmerTest` paketi `ranova()` funktsiooni, mis testib erinevate juhuslike efektide panust mudelisse:
 

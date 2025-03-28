@@ -286,4 +286,168 @@ summary(lm(sissetulek ~ numeracy + sugu, data = piaac))
 ```
 
 
+# Robust and clustered standard errors
+
+Regressioonimudeli jäägid peaksid hinnatud väärtuste lõikes olema homogeense ja konstantse variatiivsusega, st ühtlaselt jaotunud kõikide $\hat{y}$ väärtuste ümber (jääkide dispersiooni homogeensuse eeldus ehk *homoscedasticity*). Selle eelduse rikkumine mõjutab eelkõige standardvigu (need ei kehti enam kõikidele $\hat{y}$ väärtustele ühtlaselt) ja seeläbi loomulikult ka usaldusintervalle ning *p*-väärtusi. Lahenduseks võivad olla nn **robustsed standardvead** (*robust standard errors*), mis võtavad varieeruvuse erinevust arvesse.
+
+Vaatluse jäägid ei tohiks olla ka korreleeritud. Selline olukord võib tekkida näiteks siis, kui hindame näiteks õpilaste testiskoore lähtuvalt nende õppimisele kulunud ajast, kuid ei arvesta, et õpilased tulevad erinevatest koolidest, kus võib olla erinev õppetase jne. Seega õpilaste tulemused ei ole enam sõltumatud, vaid sõltuvad koolist. Regressioonikoefitsientide standardvigade arvutamisel lähtutakse aga eeldusest, et jäägid on sõltumatud. Kui jäägid on korreleeritud, siis võib juhtuda, et me alahindame standardvigade suurust ehk siis oleme oma tulemustes ülemäära kindlad (usaldusintervallid ning *p*-väärtused tulevad liialt väikesed) ning võime näha seoseid seal kus neid tegelikult ei ole. Lahenduseks saab olla mitmetasandiline mudel või **klasterdatud standardvead** (*clustered standard errors* või ka *cluster-robust standard errors*).
+
+Üheks võimaluseks standardvigu korrigeerida on kasutada paketti `sandwitch`, mis võimaldab olemasoleva mudeli variatsiooni-kovariatsiooni maatriksi põhjal arvutada nn robustne variatsiooni-kovariatsiooni maatriks. Sellest saame omakorda tuletada koefitsientide robustsed dispersioonid ning neist omakorda robustsed standardvead. `sandwich` paketis on erinevaid standardvigade korrigeerimise funktsioone: `vcovHC()` (*heteroskedasticity-consistent (HC) errors*), `vcovHAC()` (*heteroskedastiticy- and autocorrelation-consistent (HAC) errors*),  `vcovCL()` (*clustered errors*) jne, mida saab vastavalt vajadusele (millist korrektsiooni tahame) kasutada.
+
+Defineerime kõigepealt tavalise regressioonimudeli:
+
+
+``` r
+piaac <- read_csv("https://github.com/mrksom/kvant/raw/master/data/piaac.csv")
+
+# Defineerime regressioonimudeli 
+mudel <- lm(numeracy ~ literacy * sugu, 
+             data = piaac)
+
+# tidy() funktsiooniga saame kätte tavalised standardvead ja usalduspiirid
+broom::tidy(mudel, conf.int = T)
+```
+
+```
+## # A tibble: 4 × 7
+##   term               estimate std.error statistic  p.value conf.low conf.high
+##   <chr>                 <dbl>     <dbl>     <dbl>    <dbl>    <dbl>     <dbl>
+## 1 (Intercept)         36.1      2.62        13.8  9.65e-43  31.0      41.3   
+## 2 literacy             0.872    0.00942     92.5  0          0.853     0.890 
+## 3 suguNaine            4.60     3.62         1.27 2.04e- 1  -2.50     11.7   
+## 4 literacy:suguNaine  -0.0449   0.0130      -3.46 5.35e- 4  -0.0704   -0.0195
+```
+
+## Robust standard errors
+
+Robustsete standardvigade jaoks tuleb meil arvutada uus 'robustne' koefitsientide variatsiooni-kovariatsiooni maatriks ehk nn *Heteroscedasticity-Consistent Covariance Matrix*. Saame kasutada `sandwitch` paketti ja selle funktsiooni `vcovHC()`.
+
+Variatsiooni-kovariatsiooni maatriksi diagonaalis on koefitsientide dispersioonid (variance). Ruutjuur dispersioonist annab koefitsiendi standardhälbe, mis on ongi parameetri standardviga. Seega saame robustsed standardvead kätte nii:
+
+
+``` r
+library(sandwich)
+library(lmtest)
+
+# Robustsete standardvigade jaoks tuleb meil arvutada uus 
+#  'robustne' koefitsientide variatsiooni-kovariatsiooni maatriks ehk nn 
+#  Heteroscedasticity-Consistent Covariance Matrix. sandwitch paketis
+#  on selleks funktsioon vcovHC().
+
+
+vcovHC(mudel) %>% # arvutame 'robustse' variatsiooni-kovariatsiooni maatriks
+  diag() %>% # võtame selle diagonaali (ehk pasrameetrite dispersioonid)
+  sqrt() # ruutjuur dispersioonist annab standardhälbe, mis on ongi standardviga
+```
+
+```
+##        (Intercept)           literacy          suguNaine literacy:suguNaine 
+##        2.788735004        0.009897618        3.831308067        0.013555193
+```
+
+
+
+``` r
+# Et neid koos koefitsientide ja vastavate testidega kuvada, võime kasutada
+#  lmtest paketi funktsiooni coeftest()
+coeftest(mudel, vcov. = vcovHC(mudel))
+```
+
+```
+## 
+## t test of coefficients:
+## 
+##                      Estimate Std. Error t value  Pr(>|t|)    
+## (Intercept)        36.1290294  2.7887350 12.9553 < 2.2e-16 ***
+## literacy            0.8715229  0.0098976 88.0538 < 2.2e-16 ***
+## suguNaine           4.5967288  3.8313081  1.1998 0.2302621    
+## literacy:suguNaine -0.0449372  0.0135552 -3.3151 0.0009203 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+``` r
+# Usalduspiirid robustsete standardvigade alusel saame kätte lmtest paketi 
+# coefci() funktsiooniga
+lmtest::coefci(mudel, vcov. = vcovHC(mudel))
+```
+
+```
+##                          2.5 %     97.5 %
+## (Intercept)        30.66233656 41.5957223
+## literacy            0.85212087  0.8909250
+## suguNaine          -2.91369599 12.1071535
+## literacy:suguNaine -0.07150916 -0.0183653
+```
+
+## Clustered standard errors
+
+Klasterdatud standardvigade jaoks tuleb meil arvutada uus 'klasterdatud' koefitsientide variatsiooni-kovariatsiooni maatriks ehk nn *Clustered Covariance Matrix*. Saame kasutada `sandwitch` paketti ja selle funktsiooni `vcovCL()`.
+
+
+
+``` r
+# Klasterdatud standardvigade arvutamiseks kasutame jälle sandwitch paketti ja
+# selle funktsiooni vcovCL()
+library(sandwich)
+library(lmtest)
+
+# Eeldame, et valim on klasterdatud haridusvaldkonna alusel
+# Defineerime regressioonimudeli 
+#  (jätame välja kõik vaatlused, kus haridusvaldkond on NA)
+mudel <- lm(numeracy ~ literacy * sugu, 
+             data = piaac[!is.na(piaac$hvaldkond),])
+
+
+# Robustsete standardvigade jaoks tuleb meil arvutada uus 
+#  'klasterdatud' koefitsientide variatsiooni-kovariatsiooni maatriks ehk nn 
+#  Clustered Covariance Matrix. sandwitch paketis
+#  on selleks funktsioon vcovCL(). Peame selles lisaks mudeliobjektile
+#  määrama ka klastritunnuse
+vcovCL(mudel, cluster = ~hvaldkond) %>% 
+  diag() %>% 
+  sqrt()
+```
+
+```
+##        (Intercept)           literacy          suguNaine literacy:suguNaine 
+##         7.69411746         0.02019249         5.63277113         0.01773446
+```
+
+
+
+``` r
+# Et neid koos koefitsientide ja vastavate testidega kuvada, võime kasutada
+#  jällegi lmtest paketi funktsiooni coeftest()
+coeftest(mudel, vcov. = vcovCL(mudel, cluster = ~hvaldkond))
+```
+
+```
+## 
+## t test of coefficients:
+## 
+##                     Estimate Std. Error t value  Pr(>|t|)    
+## (Intercept)        35.718804   7.694117  4.6424 3.503e-06 ***
+## literacy            0.872964   0.020192 43.2321 < 2.2e-16 ***
+## suguNaine           5.006361   5.632771  0.8888  0.374143    
+## literacy:suguNaine -0.046464   0.017734 -2.6200  0.008812 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+``` r
+# Usalduspiirid robustsete standardvigade alusel saame kätte lmtest paketi 
+# coefci() funktsiooniga
+coefci(mudel, vcov. = vcovCL(mudel, cluster = ~hvaldkond))
+```
+
+```
+##                          2.5 %      97.5 %
+## (Intercept)        20.63618128 50.80142590
+## literacy            0.83338131  0.91254716
+## suguNaine          -6.03544613 16.04816773
+## literacy:suguNaine -0.08122814 -0.01169913
+```
+
+
 # Delta meetod

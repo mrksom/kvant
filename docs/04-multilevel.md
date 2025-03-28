@@ -457,7 +457,7 @@ andmed <- andmed %>%
 
 ### Nullmudel
 
-Esmalt defineerime nullmudeli:
+Esmalt defineerime nullmudeli, ehk mudeli, millega hindame vaid keskmist matemaatikatesti tulemust (ja kuna tegemist on ML mudeliga, siis võtame sealjuures arvesse ka koolide erinevust):
 
 
 ``` r
@@ -517,11 +517,73 @@ Nende tulemuste alusel saame arvutda intraklassi korrelatsiooni (*interclass cor
 ```
 ## [1] 0.1803526
 ```
+
 *ca* 18% testitulemuste variatiivusest on selgitatav koolie erinevustega.
+
+Saame juhuslikud efektid (ehk antud juhul koolide keskmiste erinevused üldisest keskmisest) ka välja võtta ning näiteks joonisele panna.
+
+
+``` r
+ranef(m0)$school |> 
+  head(5)
+```
+
+```
+##      (Intercept)
+## 1224  -2.6639348
+## 1288   0.7394098
+## 1296  -4.5684656
+## 1308   2.9485171
+## 1317   0.4939461
+```
+
+``` r
+ranef(m0)$school$`(Intercept)` |> 
+  hist()
+```
+
+<img src="04-multilevel_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+
+
+Saame välja võtta ka kõikide koolid koefitsiendid (antud juhul eri koolide keskmised, ehk koolideülene üldkeskmnine + iga kooli juhuslik efekt).
+
+
+``` r
+coef(m0)$school |> 
+  head(5)
+```
+
+```
+##      (Intercept)
+## 1224    9.973039
+## 1288   13.376384
+## 1296    8.068508
+## 1308   15.585491
+## 1317   13.130920
+```
+
+``` r
+coef(m0)$school$`(Intercept)` |> 
+  hist()
+```
+
+<img src="04-multilevel_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+
+Kui vaatame,  mis on eri koolide koefitsientide üldkeskmine, siis näeme, et see ongi seesama mudeli väljundis *Fixed effects* all olev vabaliikme väärtus.
+
+
+``` r
+coef(m0)$school$`(Intercept)` |> 
+  mean()
+```
+
+```
+## [1] 12.63697
+```
 
 ### Juhusliku vabaliikmega mudel
 
-Lisame mudelile ka sotsiaalmajandusliku indeksi (tsentreeritud variandi), mis läbi saame tulemuseks mudeli kus vabaliikmed gruppide vahel varieeruvad:
+Lisame mudelile ka sotsiaalmajandusliku indeksi (tsentreeritud variandi), misläbi saame mudeli, kus vabaliikmed gruppide vahel varieeruvad (nagu eelmises mudelis), kuid regressioonikoefitsent on kõigil sama:
 
 
 ``` r
@@ -593,7 +655,7 @@ m1 mudel on statistiliselt oluliselt parem kui m0 mudel.
 
 ### Juhusliku regressioonikordajaga mudel
 
-Laseme sotsiaalmajandusliku indeksi regressioonikorda samuti vabalt varieeruma. Selleks lisame vastava tunnuse, mille koefitsiente tahame vabaks lasta juhuslike efektide sulgudesse:
+Laseme sotsiaalmajandusliku indeksi regressioonikorda samuti vabalt varieeruma. Selleks lisame vastava tunnuse, mille koefitsiente tahame vabaks lasta, juhuslike efektide sulgudesse:
 
 
 ``` r
@@ -638,6 +700,24 @@ summary(m2)
 ```
 
 - Sotsiaalmajandusliku indeksi regresioonikordaja dispersioon on 0,69 (ja standardhälve 0,83)
+
+Saame jällegi koolide *tses* koefitsiendid eraldi välja võtta ja joonisele panna. Lisame joonisele ka keskmise *tses* koefitsiendi
+
+
+``` r
+coef(m2)$school |> 
+  ggplot()+
+  aes(x = tses)+
+  geom_histogram(fill = "#39505C", color = 'white')+
+  stat_summary(aes(xintercept = after_stat(x), y = 0), 
+               fun = mean, geom = "vline", 
+               orientation = "y", 
+               color = "#bd4446", linewidth = 2)+
+  theme_bw()
+```
+
+<img src="04-multilevel_files/figure-html/unnamed-chunk-36-1.png" width="672" />
+
 
 Juhuslike effektide jaoks meil väljundis mingit olulisuse testi ei ole. Aga saame kasutada `lmerTest` paketi `ranova()` funktsiooni, mis testib erinevate juhuslike efektide panust mudelisse:
 
